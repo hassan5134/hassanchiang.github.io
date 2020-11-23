@@ -1,0 +1,1528 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<!-- Head tag -->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  <meta name="baidu-site-verification" content="" />
+  <meta name="google-site-verification" content="" />
+  <meta name="msvalidate.01" content="" />
+  <meta name="360-site-verification" content="" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- if page has tags, then add tags to keyword -->
+  
+  
+  <meta name="keywords" content=",Java,Java线程,源码,">
+  <!-- page.description has higher priority -->
+  <meta name="description" content="Share everything">
+  <link rel="shortcut icon" href="/favico.png">
+  <title>
+    
+    从源码的角度再学「Thread」 | 分享之
+    
+  </title>
+
+  <link rel="canonical" href="/post/java/basic/2019-01-21_java_thread_source.html">
+  
+<link rel="stylesheet" href="/css/reset.css">
+
+  
+<link rel="stylesheet" href="/css/layout.css">
+
+  
+<link rel="stylesheet" href="/css/markdown.css">
+
+  <!-- Pygments Highlight CSS -->
+  
+<link rel="stylesheet" href="/css/highlight.css">
+
+  
+<link rel="stylesheet" href="/css/geektutu.css">
+
+  <!-- global function -->
+  <script>
+    window.globalAddScript = function (url, onload, onerror) {
+      var s = document.createElement('script');
+      s.src = url;
+      onload && (s.onload = onload);
+      onerror && (s.onerror = onerror);
+      document.body.appendChild(s);
+    }
+    window.globalAddCss = function (url) {
+      var s = document.createElement('link');
+      s.rel = 'stylesheet';
+      s.href = url;
+      document.body.appendChild(s);
+    }
+    window.getPosition = function (ele) {
+      var x = 0, y = 0;
+      while (ele) {
+        x += (ele.offsetLeft - ele.scrollLeft + ele.clientLeft);
+        y += (ele.offsetTop - ele.scrollTop + ele.clientTop);
+        ele = ele.offsetParent;
+      }
+      return { x: x, y: y };
+    }
+    window.getDom = function (str) { return document.querySelector(str) }
+  </script>
+  <!-- google ad -->
+  
+<meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/feed.xml" title="分享之" type="application/rss+xml">
+</head>
+
+<body>
+    <header class="gkt-header col-xs-12 padding-0">
+    <div id="gkt-nav" class="gkt-header-container">
+        <a href="/" class="gkt-header-title float-left">
+            <img class="float-left" src="/favico.png" alt="">
+            <span>分享之</span>
+        </a>
+        <nav class="gkt-header-nav text-right">
+            <ul>
+                <li><a class="hidden-xs" href="/feed.xml">订阅</a></li>
+                <li><a href="/series/">专题</a></li>
+                <li><a href="/archives/">归档</a></li>
+                <li><a href="/post/link.html">友链</a></li>
+                <li><a href="/post/about.html">关于</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div id="gkt-cate-nav" class="gkt-header-container hidden-xs">
+        
+        <nav class="gkt-header-nav float-left">
+            <ul>
+                
+                
+                <li class="gkt-cate-name float-left active">
+                    <a class="float-left" href="/post/java/basic/2016-10-25_hashmap_jdk7.html">Java ▾</a>
+                    
+                    <ul class="gkt-sub-cate">
+                        
+                        <li class="gkt-sub-cate-name active"><a class="float-left"
+                                href="/post/java/basic/2016-10-25_hashmap_jdk7.html">Java Basic</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/java/advance/2016-10-25_number.html">Java</a></li>
+                        
+                    </ul>
+                    
+                </li>
+                
+                <li class="gkt-cate-name float-left ">
+                    <a class="float-left" href="/post/util/2016-10-25_idea_shotcut.html">开发工具</a>
+                    
+                </li>
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+<div class="gkt-header-placeholder" style="height: 44px"></div>
+<div class="gkt-header-placeholder hidden-xs" style="height: 44px"></div>
+<script>
+    (function () {
+        window.addEventListener('scroll', function () {
+            if (window.innerWidth < 768) {
+                return;
+            }
+            var nav = document.querySelector('#gkt-nav');
+            var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            scrollTop > 50 && (nav.classList.add('hide'));
+            scrollTop <= 50 && (nav.classList.remove('hide'));
+        });
+        var cateNavs = document.querySelectorAll('#gkt-cate-nav>nav>ul>li');
+        [].slice.call(cateNavs).forEach(function (item) {
+            var sub = item.querySelector('.gkt-sub-cate');
+            if (!sub) return;
+            item.addEventListener('mouseenter', function (e) { sub.style.display = 'block'; }, false);
+            item.addEventListener('mouseleave', function (e) { sub.style.display = 'none'; }, false);
+        })
+    })();
+</script>
+    <!-- Main Content -->
+    <div class="main-container">
+        <!-- Main Content -->
+<main class="col-xs-12 padding-0 markdown-it">
+    <!-- Post Container -->
+    
+    
+    <!-- Post Content -->
+<div class="float-left post-container box-shadow">
+    <div class="u-arrow-wrapper hidden-xs">
+        
+        <a class="float-left" href="/post/java/basic/2017-11-10_java-lambda.html"><i class="u-arrow-left"></i></a>
+        
+        
+    </div>
+    <article class="col-xs-12">
+        <h1> 从源码的角度再学「Thread」 </h1>
+        
+        
+        <div class="hidden-lg hidden-md series_links">
+            <p> <strong> Java Basic系列文章链接：</strong></p>
+            <ul>
+                
+                <li>
+                    <a href="/post/java/basic/2016-10-25_hashmap_jdk7.html">关于 HashMap （JDK 1.7）</a>
+                    <span class="post-item-date">(Oct 25, 2016)</span>
+                </li>
+                
+                <li>
+                    <a href="/post/java/basic/2016-10-25_threadlocal.html">ThreadLocal 笔记</a>
+                    <span class="post-item-date">(Oct 25, 2016)</span>
+                </li>
+                
+                <li>
+                    <a href="/post/java/basic/2016-11-18_try_with_resources.html">Java7 里 try-with-resources 分析</a>
+                    <span class="post-item-date">(Nov 28, 2016)</span>
+                </li>
+                
+                <li>
+                    <a href="/post/java/basic/2017-04-18_java_thread_mind.html">Java Thread 线程知识整理（思维导图）</a>
+                    <span class="post-item-date">(Apr 18, 2017)</span>
+                </li>
+                
+                <li>
+                    <a href="/post/java/basic/2017-07-14_java_reference.html">Java 引用</a>
+                    <span class="post-item-date">(Jul 14, 2017)</span>
+                </li>
+                
+                <li>
+                    <a href="/post/java/basic/2017-11-10_java-lambda.html">Java8 lambda表达式10个示例</a>
+                    <span class="post-item-date">(Nov 10, 2017)</span>
+                </li>
+                
+                <li>
+                    <a href="/post/java/basic/2019-01-21_java_thread_source.html">从源码的角度再学「Thread」</a>
+                    <span class="post-item-date">(Jan 21, 2019)</span>
+                </li>
+                
+            </ul>
+        </div>
+        
+        
+        <p>原创： zhangshaolin <strong>张少林同学</strong><br>微信号: zhangshaolin_tonxue</p>
+<p>功能介绍 分享</p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><code>Java</code>中的线程是使用<code>Thread</code>类实现的，<code>Thread</code>在初学<code>Java</code>的时候就学过了，也在实践中用过，不过一直没从源码的角度去看过它的实现，今天从源码的角度出发，再次学习<code>Java Thread</code>，愿此后对<code>Thread</code>的实践更加得心应手。</p>
+<h2 id="从注释开始"><a href="#从注释开始" class="headerlink" title="从注释开始"></a>从注释开始</h2><p>相信阅读过<code>JDK</code>源码的同学都能感受到<code>JDK</code>源码中有非常详尽的注释，阅读某个类的源码应当先看看注释对它的介绍，注释原文就不贴了，以下是我对它的总结：</p>
+<ul>
+<li><p>  <code>Thread</code>是程序中执行的线程，<code>Java</code>虚拟机允许应用程序同时允许多个执行线程</p>
+</li>
+<li><p>  每个线程都有优先级的概念，具有较高优先级的线程优先于优先级较低的线程执行</p>
+</li>
+<li><p>  每个线程都可以被设置为守护线程</p>
+</li>
+<li><p>  当在某个线程中运行的代码创建一个新的<code>Thread</code>对象时，新的线程优先级跟创建线程一致</p>
+</li>
+<li><p>  当<code>Java</code>虚拟机启动的时候都会启动一个叫做<code>main</code>的线程，它没有守护线程，<code>main</code>线程会继续执行，直到以下情况发送</p>
+</li>
+</ul>
+<ul>
+<li><p>  <code>Runtime</code> 类的退出方法<code>exit</code>被调用并且安全管理器允许进行退出操作</p>
+</li>
+<li><p>  所有非守护线程均已死亡，或者<code>run</code>方法执行结束正常返回结果，或者<code>run</code>方法抛出异常</p>
+</li>
+</ul>
+<ul>
+<li><p>创建线程第一种方式：继承<code>Thread</code>类，重写<code>run</code>方法</p>
+<pre><code>   1  //定义线程类
+   2  class PrimeThread extends Thread &#123;
+   3        long minPrime;
+   4        PrimeThread(long minPrime) &#123;
+   5            this.minPrime = minPrime;
+   6        &#125;
+   7        public void run() &#123;
+   8            // compute primes larger than minPrime
+   9            &amp;nbsp;.&amp;nbsp;.&amp;nbsp;.
+  10        &#125;
+  11    &#125;
+  12  //启动线程
+  13  PrimeThread p = new PrimeThread(143);
+  14  p.start();</code></pre>
+</li>
+<li><p>创建线程第二种方式：实现<code>Runnable</code>接口，重写<code>run</code>方法，因为<code>Java</code>的单继承限制，通常使用这种方式创建线程更加灵活</p>
+<pre><code>   1  //定义线程
+   2   class PrimeRun implements Runnable &#123;
+   3        long minPrime;
+   4        PrimeRun(long minPrime) &#123;
+   5            this.minPrime = minPrime;
+   6        &#125;
+   7        public void run() &#123;
+   8            // compute primes larger than minPrime
+   9            &amp;nbsp;.&amp;nbsp;.&amp;nbsp;.
+  10        &#125;
+  11    &#125;
+  12  //启动线程
+  13  PrimeRun p = new PrimeRun(143);
+  14  new Thread(p).start();</code></pre>
+</li>
+<li><p>  创建线程时可以给线程指定名字，如果没有指定，会自动为它生成名字</p>
+</li>
+<li><p>  除非另有说明，否则将<code>null</code>参数传递给<code>Thread</code>类中的构造函数或方法将导致抛出 <code>NullPointerException</code></p>
+</li>
+</ul>
+<h2 id="Thread-常用属性"><a href="#Thread-常用属性" class="headerlink" title="Thread 常用属性"></a>Thread 常用属性</h2><p>阅读一个<code>Java</code>类，先从它拥有哪些属性入手：</p>
+<pre><code>     1  //线程名称，创建线程时可以指定线程的名称
+     2  private volatile String name;
+     3  
+     4  //线程优先级，可以设置线程的优先级
+     5  private int priority;
+     6  
+     7  //可以配置线程是否为守护线程，默认为false
+     8  private boolean daemon = false;
+     9  
+    10  //最终执行线程任务的`Runnable`
+    11  private Runnable target;
+    12  
+    13  //描述线程组的类
+    14  private ThreadGroup group;
+    15  
+    16  //此线程的上下文ClassLoader
+    17  private ClassLoader contextClassLoader;
+    18  
+    19  //所有初始化线程的数目，用于自动编号匿名线程，当没有指定线程名称时，会自动为其编号
+    20  private static int threadInitNumber;
+    21  
+    22  //此线程请求的堆栈大小，如果创建者没有指定堆栈大小，则为0。, 虚拟机可以用这个数字做任何喜欢的事情。, 一些虚拟机会忽略它。
+    23  private long stackSize;
+    24  
+    25  //线程id
+    26  private long tid;
+    27  
+    28  //用于生成线程ID
+    29  private static long threadSeqNumber;
+    30  
+    31  //线程状态
+    32  private volatile int threadStatus = 0;
+    33  
+    34  //线程可以拥有的最低优先级
+    35  public final static int MIN_PRIORITY = 1;
+    36  
+    37  //分配给线程的默认优先级。
+    38  public final static int NORM_PRIORITY = 5;
+    39  
+    40  //线程可以拥有的最大优先级
+    41  public final static int MAX_PRIORITY = 10;</code></pre>
+<h2 id="Thread-构造方法"><a href="#Thread-构造方法" class="headerlink" title="Thread 构造方法"></a>Thread 构造方法</h2><p>了解了属性之后，看看<code>Thread</code>实例是怎么构造的？先预览下它大致有多少个构造方法：</p>
+<p><img src="/assets/uploads/files/1548122247324-a77dcb75-2e68-4785-81f8-a4b242b67382-image.png" alt="a77dcb75-2e68-4785-81f8-a4b242b67382-image.png"> </p>
+<p>查看每个构造方法内部源码，发现均调用的是名为<code>init</code>的私有方法，再看<code>init</code>方法有两个重载，而其核心方法如下：</p>
+<pre><code> 1   /**
+ 2     * Initializes a Thread.
+ 3     *
+ 4     * @param g                   线程组
+ 5     * @param target              最终执行任务的 `run()` 方法的对象
+ 6     * @param name                新线程的名称
+ 7     * @param stackSize           新线程所需的堆栈大小，或者 0 表示要忽略此参数
+ 8     * @param acc                 要继承的AccessControlContext，如果为null，则为 AccessController.getContext()
+ 9     * @param inheritThreadLocals 如果为 true，从构造线程继承可继承的线程局部的初始值
+10     */
+11    private void init(ThreadGroup g, Runnable target, String name,
+12                      long stackSize, AccessControlContext acc,
+13                      boolean inheritThreadLocals) &#123;
+14        //线程名称为空，直接抛出空指针异常
+15        if (name == null) &#123;
+16            throw new NullPointerException(&quot;name cannot be null&quot;);
+17        &#125;
+18        //初始化当前线程对象的线程名称
+19        this.name = name;
+20        //获取当前正在执行的线程为父线程
+21        Thread parent = currentThread();
+22        //获取系统安全管理器
+23        SecurityManager security = System.getSecurityManager();
+24        //如果线程组为空
+25        if (g == null) &#123;
+26            //如果安全管理器不为空
+27            if (security != null) &#123;
+28                //获取SecurityManager中的线程组
+29                g = security.getThreadGroup();
+30            &#125;
+31            //如果获取的线程组还是为空
+32            if (g == null) &#123;
+33                //则使用父线程的线程组
+34                g = parent.getThreadGroup();
+35            &#125;
+36        &#125;
+37
+38        //检查安全权限
+39        g.checkAccess();
+40
+41        //使用安全管理器检查是否有权限
+42        if (security != null) &#123;
+43            if (isCCLOverridden(getClass())) &#123;
+44                security.checkPermission(SUBCLASS_IMPLEMENTATION_PERMISSION);
+45            &#125;
+46        &#125;
+47
+48        //线程组中标记未启动的线程数+1，这里方法是同步的，防止出现线程安全问题
+49        g.addUnstarted();
+50
+51        //初始化当前线程对象的线程组
+52        this.group = g;
+53        //初始化当前线程对象的是否守护线程属性，注意到这里初始化时跟父线程一致
+54        this.daemon = parent.isDaemon();
+55        //初始化当前线程对象的线程优先级属性，注意到这里初始化时跟父线程一致
+56        this.priority = parent.getPriority();
+57        //这里初始化类加载器
+58        if (security == null || isCCLOverridden(parent.getClass()))
+59            this.contextClassLoader = parent.getContextClassLoader();
+60        else
+61            this.contextClassLoader = parent.contextClassLoader;
+62        this.inheritedAccessControlContext =
+63                acc != null ? acc : AccessController.getContext();
+64        //初始化当前线程对象的最终执行任务对象
+65        this.target = target;
+66        //这里再对线程的优先级字段进行处理
+67        setPriority(priority);
+68        if (inheritThreadLocals &amp;&amp; parent.inheritableThreadLocals != null)
+69            this.inheritableThreadLocals =
+70                ThreadLocal.createInheritedMap(parent.inheritableThreadLocals);
+71        //初始化当前线程对象的堆栈大小
+72        this.stackSize = stackSize;
+73
+74        //初始化当前线程对象的线程ID，该方法是同步的，内部实际上是threadSeqNumber++
+75        tid = nextThreadID();
+76    &#125;</code></pre>
+<p>另一个重载<code>init</code>私有方法如下，实际上内部调用的是上述<code>init</code>方法：</p>
+<pre><code>1   private void init(ThreadGroup g, Runnable target, String name,
+2                      long stackSize) &#123;
+3        init(g, target, name, stackSize, null, true);
+4   &#125;</code></pre>
+<p>接下来看看所有构造方法：</p>
+<ol>
+<li><p>空构造方法</p>
+<pre><code> 1    public Thread() &#123;
+ 2        init(null, null, &quot;Thread-&quot; + nextThreadNum(), 0);
+ 3    &#125;</code></pre>
+<p> 内部调用的是<code>init</code>第二个重载方法，参数基本都是默认值，线程名称写死为<code>&quot;Thread-&quot; + nextThreadNum()</code>格式，<code>nextThreadNum()</code>为一个同步方法，内部维护一个静态属性表示线程的初始化数量+1：</p>
+<pre><code> 1   private static int threadInitNumber;
+ 2    private static synchronized int nextThreadNum() &#123;
+ 3        return threadInitNumber++;
+ 4    &#125;</code></pre>
+<p> 与第一个构造方法区别在于可以自定义<code>Runnable</code>对象</p>
+</li>
+<li><p>自定义执行任务<code>Runnable</code>对象的构造方法</p>
+<pre><code> 1    private static int threadInitNumber;
+ 2    private static synchronized int nextThreadNum() &#123;
+ 3        return threadInitNumber++;
+ 4    &#125;</code></pre>
+</li>
+<li><p>自定义执行任务<code>Runnable</code>对象和<code>AccessControlContext</code>对象的构造方法</p>
+<pre><code> 1 Thread(Runnable target, AccessControlContext acc) &#123;
+ 2    init(null, target, &quot;Thread-&quot; + nextThreadNum(), 0, acc, false);
+ 3 &#125;</code></pre>
+</li>
+<li><p>自定义线程组<code>ThreadGroup</code>和执行任务<code>Runnable</code>对象的构造方法</p>
+<pre><code> 1  public Thread(ThreadGroup group, Runnable target) &#123;
+ 2    init(group, target, &quot;Thread-&quot; + nextThreadNum(), 0);
+ 3  &#125;</code></pre>
+</li>
+<li><p>自定义线程名称<code>name</code>的构造方法</p>
+<pre><code> 1  public Thread(String name) &#123;
+ 2    init(null, null, name, 0);
+ 3  &#125;</code></pre>
+</li>
+<li><p>自定义线程组<code>ThreadGroup</code>和线程名称<code>name</code>的构造方法</p>
+<pre><code> 1  public Thread(String name) &#123;
+ 2     init(null, null, name, 0);
+ 3  &#125;</code></pre>
+</li>
+<li><p>自定义执行任务<code>Runnable</code>对象和线程名称<code>name</code>的构造方法</p>
+<pre><code> 1  public Thread(Runnable target, String name) &#123;
+ 2     init(null, target, name, 0);
+ 3  &#125;</code></pre>
+</li>
+<li><p>自定义线程组<code>ThreadGroup</code>和线程名称<code>name</code>和执行任务<code>Runnable</code>对象的构造方法</p>
+<pre><code> 1  public Thread(ThreadGroup group, Runnable target, String name) &#123;
+ 2     init(group, target, name, 0);
+ 3  &#125;</code></pre>
+</li>
+<li><p>全部属性都是自定义的构造方法</p>
+<pre><code> 1  public Thread(ThreadGroup group, Runnable target, String name,
+ 2                long stackSize) &#123;
+ 3     init(group, target, name, stackSize);
+ 4  &#125;</code></pre>
+</li>
+</ol>
+<p><code>Thread</code>提供了非常灵活的重载构造方法，方便开发者自定义各种参数的<code>Thread</code>对象。</p>
+<h2 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h2><p>这里记录一些比较常见的方法吧，对于<code>Thread</code>中存在的一些本地方法，我们暂且不用管它～</p>
+<h4 id="设置线程名称"><a href="#设置线程名称" class="headerlink" title="设置线程名称"></a>设置线程名称</h4><p>设置线程名称，该方法为同步方法，为了防止出现线程安全问题，可以手动调用<code>Thread</code>的实例方法设置名称，也可以在构造<code>Thread</code>时在构造方法中传入线程名称，我们通常都是在构造参数时设置</p>
+<pre><code>     1   public final synchronized void setName(String name) &#123;
+     2       　　//检查安全权限
+     3          checkAccess();
+     4       　　//如果形参为空，抛出空指针异常
+     5          if (name == null) &#123;
+     6              throw new NullPointerException(&quot;name cannot be null&quot;);
+     7          &#125;
+     8        //给当前线程对象设置名称
+     9          this.name = name;
+    10          if (threadStatus != 0) &#123;
+    11              setNativeName(name);
+    12          &#125;
+    13      &#125;</code></pre>
+<h4 id="获取线程名称"><a href="#获取线程名称" class="headerlink" title="获取线程名称"></a>获取线程名称</h4><p>内部直接返回当前线程对象的名称属性</p>
+<pre><code>    1  public final String getName() &#123;
+    2        return name;
+    3    &#125;</code></pre>
+<h4 id="启动线程"><a href="#启动线程" class="headerlink" title="启动线程"></a>启动线程</h4><pre><code>     1  public synchronized void start() &#123;
+     2      //如果不是刚创建的线程，抛出异常
+     3      if (threadStatus != 0)
+     4          throw new IllegalThreadStateException();
+     5
+     6      //通知线程组，当前线程即将启动，线程组当前启动线程数+1，未启动线程数-1
+     7      group.add(this);
+     8
+     9      //启动标识
+    10      boolean started = false;
+    11      try &#123;
+    12          //直接调用本地方法启动线程
+    13          start0();
+    14          //设置启动标识为启动成功
+    15          started = true;
+    16      &#125; finally &#123;
+    17          try &#123;
+    18              //如果启动呢失败
+    19              if (!started) &#123;
+    20                  //线程组内部移除当前启动的线程数量-1，同时启动失败的线程数量+1
+    21                  group.threadStartFailed(this);
+    22              &#125;
+    23          &#125; catch (Throwable ignore) &#123;
+    24              /* do nothing. If start0 threw a Throwable then
+    25                it will be passed up the call stack */
+    26          &#125;
+    27      &#125;
+    28  &#125;</code></pre>
+<p>我们正常的启动线程都是调用<code>Thread</code>的<code>start()</code>方法，然后<code>Java</code>虚拟机内部会去调用<code>Thred</code>的<code>run</code>方法，可以看到<code>Thread</code>类也是实现<code>Runnable</code>接口，重写了<code>run</code>方法的：</p>
+<pre><code>    1 @Override
+    2 public void run() &#123;
+    3     //当前执行任务的Runnable对象不为空，则调用其run方法
+    4     if (target != null) &#123;
+    5         target.run();
+    6     &#125;
+    7 &#125;</code></pre>
+<p><code>Thread</code>的两种使用方式：</p>
+<ul>
+<li><p>  继承<code>Thread</code>类，重写<code>run</code>方法，那么此时是直接执行<code>run</code>方法的逻辑，不会使用<code>target.run();</code></p>
+</li>
+<li><p>  实现<code>Runnable</code>接口，重写<code>run</code>方法，因为<code>Java</code>的单继承限制，通常使用这种方式创建线程更加灵活，这里真正的执行逻辑就会交给自定义<code>Runnable</code>去实现</p>
+</li>
+</ul>
+<h4 id="设置守护线程"><a href="#设置守护线程" class="headerlink" title="设置守护线程"></a>设置守护线程</h4><p>本质操作是设置<code>daemon</code>属性</p>
+<pre><code>     1  public final void setDaemon(boolean on) &#123;
+     2      //检查是否有安全权限
+     3      checkAccess();
+     4      //本地方法，测试此线程是否存活。, 如果一个线程已经启动并且尚未死亡，则该线程处于活动状态
+     5      if (isAlive()) &#123;
+     6          //如果线程先启动后再设置守护线程，将抛出异常
+     7          throw new IllegalThreadStateException();
+     8      &#125;
+     9      //设置当前守护线程属性
+    10      daemon = on;
+    11  &#125;</code></pre>
+<h4 id="判断线程是否为守护线程"><a href="#判断线程是否为守护线程" class="headerlink" title="判断线程是否为守护线程"></a>判断线程是否为守护线程</h4><pre><code>    1 public final boolean isDaemon() &#123;
+    2     //直接返回当前对象的守护线程属性
+    3     return daemon;
+    4 &#125;</code></pre>
+<h4 id="线程状态"><a href="#线程状态" class="headerlink" title="线程状态"></a>线程状态</h4><p>先来个线程状态图：</p>
+<p><img src="./2019-01-21_java_thread_source/java_thread_source_1.png" alt="java_thread_source_1.png"> </p>
+<p>获取线程状态：</p>
+<pre><code>    1 public State getState() &#123;
+    2     //由虚拟机实现，获取当前线程的状态
+    3     return sun.misc.VM.toThreadState(threadStatus);
+    4 &#125;</code></pre>
+<p>线程状态主要由内部枚举类<code>State</code>组成：</p>
+<pre><code>     1  public enum State &#123;
+     2
+     3     NEW,
+     4
+     5
+     6     RUNNABLE,
+     7
+     8
+     9     BLOCKED,
+    10
+    11
+    12     WAITING,
+    13
+    14
+    15     TIMED_WAITING,
+    16
+    17
+    18     TERMINATED;
+    19 &#125;</code></pre>
+<ul>
+<li><p>  NEW：刚刚创建，尚未启动的线程处于此状态</p>
+</li>
+<li><p>  RUNNABLE：在Java虚拟机中执行的线程处于此状态</p>
+</li>
+<li><p>  BLOCKED：被阻塞等待监视器锁的线程处于此状态，比如线程在执行过程中遇到<code>synchronized</code>同步块，就会进入此状态，此时线程暂停执行，直到获得请求的锁</p>
+</li>
+<li><p>  WAITING：无限期等待另一个线程执行特定操作的线程处于此状态</p>
+</li>
+</ul>
+<ul>
+<li><p>  通过 wait() 方法等待的线程在等待 notify() 方法</p>
+</li>
+<li><p>  通过 join() 方法等待的线程则会等待目标线程的终止</p>
+</li>
+</ul>
+<ul>
+<li>  TIMED_WAITING：正在等待另一个线程执行动作，直到指定等待时间的线程处于此状态</li>
+</ul>
+<ul>
+<li><p>  通过 wait() 方法，携带超时时间，等待的线程在等待 notify() 方法</p>
+</li>
+<li><p>  通过 join() 方法，携带超时时间，等待的线程则会等待目标线程的终止</p>
+</li>
+</ul>
+<ul>
+<li>  TERMINATED：已退出的线程处于此状态，此时线程无法再回到 RUNNABLE 状态</li>
+</ul>
+<h4 id="线程休眠"><a href="#线程休眠" class="headerlink" title="线程休眠"></a>线程休眠</h4><p>这是一个静态的本地方法，使当前执行的线程休眠暂停执行 <code>millis</code> 毫秒，当休眠被中断时会抛出<code>InterruptedException</code>中断异常</p>
+<pre><code>     1 /**
+     2  * Causes the currently executing thread to sleep (temporarily cease
+     3  * execution) for the specified number of milliseconds, subject to
+     4  * the precision and accuracy of system timers and schedulers. The thread
+     5  * does not lose ownership of any monitors.
+     6  *
+     7  * @param  millis
+     8  *         the length of time to sleep in milliseconds
+     9  *
+    10  * @throws  IllegalArgumentException
+    11  *          if the value of &#123;@code millis&#125; is negative
+    12  *
+    13  * @throws  InterruptedException
+    14  *          if any thread has interrupted the current thread. The
+    15  *          &lt;i&gt;interrupted status&lt;/i&gt; of the current thread is
+    16  *          cleared when this exception is thrown.
+    17  */
+    18 public static native void sleep(long millis) throws InterruptedException;</code></pre>
+<h4 id="检查线程是否存活"><a href="#检查线程是否存活" class="headerlink" title="检查线程是否存活"></a>检查线程是否存活</h4><p>本地方法，测试此线程是否存活。 如果一个线程已经启动并且尚未死亡，则该线程处于活动状态。</p>
+<pre><code>    1  /**
+    2   * Tests if this thread is alive. A thread is alive if it has
+    3   * been started and has not yet died.
+    4   *
+    5   * @return  &lt;code&gt;true&lt;/code&gt; if this thread is alive;
+    6   *          &lt;code&gt;false&lt;/code&gt; otherwise.
+    7   */
+    8  public final native boolean isAlive();</code></pre>
+<h4 id="线程优先级"><a href="#线程优先级" class="headerlink" title="线程优先级"></a>线程优先级</h4><ul>
+<li><p>设置线程优先级</p>
+<pre><code>   1  /**
+   2   * Changes the priority of this thread.
+   3   * &lt;p&gt;
+   4   * First the &lt;code&gt;checkAccess&lt;/code&gt; method of this thread is called
+   5   * with no arguments. This may result in throwing a
+   6   * &lt;code&gt;SecurityException&lt;/code&gt;.
+   7   * &lt;p&gt;
+   8   * Otherwise, the priority of this thread is set to the smaller of
+   9   * the specified &lt;code&gt;newPriority&lt;/code&gt; and the maximum permitted
+  10   * priority of the thread&#39;s thread group.
+  11   *
+  12   * @param newPriority priority to set this thread to
+  13   * @exception  IllegalArgumentException  If the priority is not in the
+  14   *               range &lt;code&gt;MIN_PRIORITY&lt;/code&gt; to
+  15   *               &lt;code&gt;MAX_PRIORITY&lt;/code&gt;.
+  16   * @exception  SecurityException  if the current thread cannot modify
+  17   *               this thread.
+  18   * @see        #getPriority
+  19   * @see        #checkAccess()
+  20   * @see        #getThreadGroup()
+  21   * @see        #MAX_PRIORITY
+  22   * @see        #MIN_PRIORITY
+  23   * @see        ThreadGroup#getMaxPriority()
+  24   */
+  25  public final void setPriority(int newPriority) &#123;
+  26      //线程组
+  27      ThreadGroup g;
+  28      //检查安全权限
+  29      checkAccess();
+  30      //检查优先级形参范围
+  31      if (newPriority &gt; MAX_PRIORITY || newPriority &lt; MIN_PRIORITY) &#123;
+  32          throw new IllegalArgumentException();
+  33      &#125;
+  34      if((g = getThreadGroup()) != null) &#123;
+  35          //如果优先级形参大于线程组最大线程最大优先级
+  36          if (newPriority &gt; g.getMaxPriority()) &#123;
+  37              //则使用线程组的优先级数据
+  38              newPriority = g.getMaxPriority();
+  39          &#125;
+  40          //调用本地设置线程优先级方法
+  41          setPriority0(priority = newPriority);
+  42      &#125;
+  43  &#125;</code></pre>
+</li>
+</ul>
+<h4 id="线程中断"><a href="#线程中断" class="headerlink" title="线程中断"></a>线程中断</h4><p>有一个<code>stop()</code>实例方法可以强制终止线程，不过这个方法因为太过于暴力，已经被标记为过时方法，不建议程序员再使用，因为<strong>强制终止线程</strong>会导致数据不一致的问题。</p>
+<p>这里关于线程中断的方法涉及三个：</p>
+<pre><code>    1 //实例方法，通知线程中断，设置标志位
+    2 public void interrupt()&#123;&#125;
+    3 //静态方法，检查当前线程的中断状态，同时会清除当前线程的中断标志位状态
+    4 public static boolean interrupted()&#123;&#125;
+    5 //实例方法，检查当前线程是否被中断，其实是检查中断标志位
+    6 public boolean isInterrupted()&#123;&#125;</code></pre>
+<p><strong>interrupt() 方法解析</strong></p>
+<pre><code>     1  /**
+     2   * Interrupts this thread.
+     3   *
+     4   * &lt;p&gt; Unless the current thread is interrupting itself, which is
+     5   * always permitted, the &#123;@link #checkAccess() checkAccess&#125; method
+     6   * of this thread is invoked, which may cause a &#123;@link
+     7   * SecurityException&#125; to be thrown.
+     8   *
+     9   * &lt;p&gt; If this thread is blocked in an invocation of the &#123;@link
+    10   * Object#wait() wait()&#125;, &#123;@link Object#wait(long) wait(long)&#125;, or &#123;@link
+    11   * Object#wait(long, int) wait(long, int)&#125; methods of the &#123;@link Object&#125;
+    12   * class, or of the &#123;@link #join()&#125;, &#123;@link #join(long)&#125;, &#123;@link
+    13   * #join(long, int)&#125;, &#123;@link #sleep(long)&#125;, or &#123;@link #sleep(long, int)&#125;,
+    14   * methods of this class, then its interrupt status will be cleared and it
+    15   * will receive an &#123;@link InterruptedException&#125;.
+    16   *
+    17   * &lt;p&gt; If this thread is blocked in an I/O operation upon an &#123;@link
+    18   * java.nio.channels.InterruptibleChannel InterruptibleChannel&#125;
+    19   * then the channel will be closed, the thread&#39;s interrupt
+    20   * status will be set, and the thread will receive a &#123;@link
+    21   * java.nio.channels.ClosedByInterruptException&#125;.
+    22   *
+    23   * &lt;p&gt; If this thread is blocked in a &#123;@link java.nio.channels.Selector&#125;
+    24   * then the thread&#39;s interrupt status will be set and it will return
+    25   * immediately from the selection operation, possibly with a non-zero
+    26   * value, just as if the selector&#39;s &#123;@link
+    27   * java.nio.channels.Selector#wakeup wakeup&#125; method were invoked.
+    28   *
+    29   * &lt;p&gt; If none of the previous conditions hold then this thread&#39;s interrupt
+    30   * status will be set. &lt;/p&gt;
+    31   *
+    32   * &lt;p&gt; Interrupting a thread that is not alive need not have any effect.
+    33   *
+    34   * @throws  SecurityException
+    35   *          if the current thread cannot modify this thread
+    36   *
+    37   * @revised 6.0
+    38   * @spec JSR-51
+    39   */
+    40  public void interrupt() &#123;
+    41      //检查是否是自身调用
+    42      if (this != Thread.currentThread())
+    43          //检查安全权限,这可能导致抛出&#123;@link * SecurityException&#125;。
+    44          checkAccess();
+    45
+    46      //同步代码块
+    47      synchronized (blockerLock) &#123;
+    48          Interruptible b = blocker;
+    49          //检查是否是阻塞线程调用
+    50          if (b != null) &#123;
+    51              //设置线程中断标志位
+    52              interrupt0(); 
+    53              //此时抛出异常，将中断标志位设置为false,此时我们正常会捕获该异常，重新设置中断标志位
+    54              b.interrupt(this);
+    55              return;
+    56          &#125;
+    57      &#125;
+    58      //如无意外，则正常设置中断标志位
+    59      interrupt0();
+    60  &#125;</code></pre>
+<ul>
+<li><p>  线程中断方法不会使线程立即退出，而是给线程发送一个通知，告知目标线程，有人希望你退出啦～</p>
+</li>
+<li><p>  只能由自身调用，否则可能会抛出 <code>SecurityException</code></p>
+</li>
+<li><p>  调用中断方法是由目标线程自己决定是否中断，而如果同时调用了<code>wait</code>,<code>join</code>,<code>sleep</code>等方法，会使当前线程进入阻塞状态，此时有可能发生<code>InterruptedException</code>异常</p>
+</li>
+<li><p>  被阻塞的线程再调用中断方法是不合理的</p>
+</li>
+<li><p>  中断不活动的线程不会产生任何影响</p>
+</li>
+</ul>
+<p>检查线程是否被中断:</p>
+<pre><code>     1  /**
+     2   * Tests whether this thread has been interrupted.  The &lt;i&gt;interrupted
+     3   * status&lt;/i&gt; of the thread is unaffected by this method.
+     4
+     5   测试此线程是否已被中断。, 线程的&lt;i&gt;中断*状态&lt;/ i&gt;不受此方法的影响。
+     6   *
+     7   * &lt;p&gt;A thread interruption ignored because a thread was not alive
+     8   * at the time of the interrupt will be reflected by this method
+     9   * returning false.
+    10   *
+    11   * @return  &lt;code&gt;true&lt;/code&gt; if this thread has been interrupted;
+    12   *          &lt;code&gt;false&lt;/code&gt; otherwise.
+    13   * @see     #interrupted()
+    14   * @revised 6.0
+    15   */
+    16  public boolean isInterrupted() &#123;
+    17      return isInterrupted(false);
+    18  &#125;</code></pre>
+<p>静态方法,会清空当前线程的中断标志位：</p>
+<pre><code>     1   /**
+     2     *测试当前线程是否已被中断。, 此方法清除线程的* &lt;i&gt;中断状态&lt;/ i&gt;。, 换句话说，如果要连续两次调用此方法，则* second调用将返回false（除非当前线程再次被中断，在第一次调用已清除其中断的*状态   之后且在第二次调用已检查之前）, 它）
+     3     *
+     4     * &lt;p&gt;A thread interruption ignored because a thread was not alive
+     5     * at the time of the interrupt will be reflected by this method
+     6     * returning false.
+     7     *
+     8     * @return  &lt;code&gt;true&lt;/code&gt; if the current thread has been interrupted;
+     9     *          &lt;code&gt;false&lt;/code&gt; otherwise.
+    10     * @see #isInterrupted()
+    11     * @revised 6.0
+    12     */
+    13    public static boolean interrupted() &#123;
+    14        return currentThread().isInterrupted(true);
+    15    &#125;</code></pre>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>记录自己阅读<code>Thread</code>类源码的一些思考，不过对于其中用到的很多本地方法只能望而却步，还有一些代码没有看明白，暂且先这样吧，如果有不足之处，请留言告知我，谢谢！后续会在实践中对<code>Thread</code>做出更多总结记录。</p>
+
+        
+<script src="/js/qrious.min.js"></script>
+
+
+        <hr>
+        <div>
+            
+            <p>
+                <span>专题: </span>
+                
+                <a href="/series/#Java Basic">
+                    <code key="Java Basic" class="post-label">Java Basic</code>
+                </a>
+                
+            </p>
+            
+            <p>
+                <span>本文发表于 2019-01-21，最后修改于 2020-11-23。</span>
+            </p>
+            <!-- 文章末尾的提示 start -->
+            
+            
+            
+                
+            <!-- 文章末尾的提示 end -->
+        </div>
+        <hr />
+        <p name="pagination" style="font-size: 1.2em">
+    
+    <a class="float-left" href="/post/java/basic/2017-11-10_java-lambda.html">上一篇 « Java8 lambda表达式10个示例</a>
+    
+    
+</p>
+    </article>
+    <!-- 赞赏 -->
+    <!--打赏-->
+
+    <!-- 推荐阅读三篇文章 -->
+    <div class="col-xs-12">
+        <h3>推荐阅读</h3>
+        
+        <div class="post-preview">
+    <div class="post-img" style="background-image: url('/images/java/basic/java_logo.png')"></div>
+    <div class="post-info">
+        <div class="post-info-center">
+            <div class="hidden-xs">
+                
+                
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#Java"
+                    title="Java">Java</a>
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#异常"
+                    title="异常">异常</a>
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#Java异常"
+                    title="Java异常">Java异常</a>
+                <span>/</span>
+                
+                
+            </div>
+            <a href="/post/java/basic/2016-11-18_try_with_resources.html" class="title">
+                Java7 里 try-with-resources 分析
+            </a>
+            <p class="text-gray">
+                <small>
+                    <span>发表于2016-11-28，</span>
+                    <span class="hidden-xs">全文4249字，</span>
+                    <span>阅读约15分钟</span>
+                </small>
+            </p>
+        </div>
+    </div>
+</div>
+        
+        <div class="post-preview">
+    <div class="post-img" style="background-image: url('/images/java/basic/java_logo.png')"></div>
+    <div class="post-info">
+        <div class="post-info-center">
+            <div class="hidden-xs">
+                
+                
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#Java"
+                    title="Java">Java</a>
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#二进制"
+                    title="二进制">二进制</a>
+                <span>/</span>
+                
+                
+            </div>
+            <a href="/post/java/advance/2016-10-25_number.html" class="title">
+                为什么 8 位有符号整数的范围为 “-128 ~ +127”
+            </a>
+            <p class="text-gray">
+                <small>
+                    <span>发表于2016-10-26，</span>
+                    <span class="hidden-xs">全文2756字，</span>
+                    <span>阅读约10分钟</span>
+                </small>
+            </p>
+        </div>
+    </div>
+</div>
+        
+        <div class="post-preview">
+    <div class="post-img" style="background-image: url('/images/java/basic/java_logo.png')"></div>
+    <div class="post-info">
+        <div class="post-info-center">
+            <div class="hidden-xs">
+                
+                
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#Java"
+                    title="Java">Java</a>
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#HashMap"
+                    title="HashMap">HashMap</a>
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#Java集合"
+                    title="Java集合">Java集合</a>
+                <span>/</span>
+                
+                
+            </div>
+            <a href="/post/java/basic/2016-10-25_hashmap_jdk7.html" class="title">
+                关于 HashMap （JDK 1.7）
+            </a>
+            <p class="text-gray">
+                <small>
+                    <span>发表于2016-10-25，</span>
+                    <span class="hidden-xs">全文3818字，</span>
+                    <span>阅读约13分钟</span>
+                </small>
+            </p>
+        </div>
+    </div>
+</div>
+        
+    </div>
+    <div class="col-xs-12">
+        <!-- 标签列表 -->
+        <!-- Featured Tags -->
+<style>
+    #featured-tag .post-tag-item {
+        font-size: 12px;
+        line-height: 30px;
+        display: inline-block;
+        height: 30px;
+        margin: 5px 0px;
+        padding: 0 7px;
+        color: #333;
+        border-radius: 15px;
+        background: #f6f6f6;
+    }
+
+    #featured-tag .post-tag-item:hover {
+        color: #337ab7;
+    }
+</style>
+<div id="featured-tag">
+    
+    <a class="post-tag-item" href="/tags/#关于我" title="关于我"
+        rel="1">#关于我 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Hello World" title="Hello World"
+        rel="1">#Hello World (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#垃圾回收" title="垃圾回收"
+        rel="1">#垃圾回收 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Java引用" title="Java引用"
+        rel="1">#Java引用 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Java" title="Java"
+        rel="9">#Java (9) </a>
+    
+    <a class="post-tag-item" href="/tags/#HashMap" title="HashMap"
+        rel="1">#HashMap (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Java集合" title="Java集合"
+        rel="1">#Java集合 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#ThreadLocal" title="ThreadLocal"
+        rel="1">#ThreadLocal (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Java线程" title="Java线程"
+        rel="3">#Java线程 (3) </a>
+    
+    <a class="post-tag-item" href="/tags/#异常" title="异常"
+        rel="1">#异常 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Java异常" title="Java异常"
+        rel="1">#Java异常 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#思维导图" title="思维导图"
+        rel="1">#思维导图 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#lambda表达式" title="lambda表达式"
+        rel="1">#lambda表达式 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Idea" title="Idea"
+        rel="1">#Idea (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#JavaIDE" title="JavaIDE"
+        rel="1">#JavaIDE (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#二进制" title="二进制"
+        rel="1">#二进制 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#源码" title="源码"
+        rel="1">#源码 (1) </a>
+    
+</div>
+    </div>
+    <!-- 评论 -->
+    
+    <div class="col-xs-12">
+        
+<div class="col-xs-12 padding-0">
+    <div id="gitalk-container">
+        <div class="gt-container text-center" style="margin-top: 50px;">
+            <button class="gt-btn gt-btn-public"><span class="gt-btn-text">去 Github 评论</span></button>
+        </div>
+    </div>
+    <div id="gitalk-related"></div>
+</div>
+
+<link rel="stylesheet" href="/css/gitalk.css">
+
+
+<script src="/js/gitalk.min.js"></script>
+
+<script>
+    window.addEventListener('load', function () {
+        function renderCommentUrl(data) {
+            var url = (data[window.location.pathname] || {}).url
+            url && getDom('#gitalk-container button').addEventListener('click', function (e) { window.open(url)})
+            url || (getDom('#gitalk-container').style.display = 'none')
+        }
+        const gitalk = new Gitalk({
+            clientID: 'a33ab8f0fc90bd0b86d7',
+            clientSecret: 'cfa4b020ca99ef91be8f4bf8180afbe831bf2a75',
+            accessToken: '',
+            repo: 'blogcmt',
+            owner: 'HassanChiang',
+            admin: ['HassanChiang'],
+            id: window.location.pathname,
+            distractionFreeMode: false
+        });
+        fetch("https://api.github.com/user").then(function(resp){
+            gitalk.render('gitalk-container');
+        }).catch(function(e){
+            fetch('/tool/issues.json').then(function (r) { return r.json() }).then(renderCommentUrl).catch(function (e) { })
+        })
+        getDom('#gitalk-container').addEventListener('click', function (e) {
+            e && e.stopPropagation && e.stopPropagation();
+        });
+    })
+</script>
+<script>
+    window.addEventListener('load', function () {
+        function render(comments) {
+            var template = '<a href="${comment.url}?utm_source=gitalk" class="dis-item-url"><h3 class="dis-item-title">${comment.title}</h3>' +
+                '<p class="dis-item-des">${comment.count} 评论 ● ${comment.date}</p>' +
+                '<div class="dis-item-content"><img class="dis-item-img" src="${comment.icon}" alt="icon"><p><b><span class="dis-item-user">${comment.user}</span></b>&nbsp;——&nbsp;${comment.body}</p></div>' +
+                '</a>'
+
+            var wrapper = getDom('#gitalk-related');
+            comments = shuffle(comments);
+            comments.slice(0, 4).forEach(function (c) {
+                var div = document.createElement('div');
+                div.classList.add('dis-item');
+                div.innerHTML = template.replace("${comment.url}", c.url)
+                    .replace("${comment.title}", c.title)
+                    .replace("${comment.count}", c.count)
+                    .replace("${comment.date}", c.date)
+                    .replace("${comment.icon}", c.icon)
+                    .replace("${comment.user}", c.user)
+                    .replace("${comment.body}", c.body)
+                wrapper.appendChild(div)
+            })
+            var p = document.createElement('p')
+            p.innerHTML = '<a target="_blank" rel="noopener" href="https://geektutu.com/post/blog-experience-7.html">Gitalk Plus</a>';
+            p.classList.add('dis-divide');
+            wrapper.appendChild(p);
+            wrapper.classList.add('dis-wrapper')
+        }
+        function shuffle(a) {
+            for (var i = a.length - 1; i > 0; i--) {
+                var j = Math.floor(Math.random() * (i + 1));
+                [a[i], a[j]] = [a[j], a[i]];
+            }
+            return a;
+        }
+        fetch('/tool/comments.json').then(function (r) { return r.json() }).then(render).catch(function (e) { })
+    })
+</script>
+
+    </div>
+    
+</div>
+<aside class="float-left gkt-sidebar hidden-xs hidden-sm">
+    <div style="clear: both"></div>
+    <div class="gkt-sidebar-wrapper">
+        <section class="box-shadow"><style>
+    .gkt-summary {
+        border: 1px solid #DDDDDD;
+        border-radius: 3px;
+        padding: 5px;
+        width: 100%;
+    }
+
+
+    .gkt-summary nav {
+        overflow: hidden;
+    }
+
+    .gkt-summary nav a {
+        display: inline-block;
+        text-align: center;
+        color: #333;
+        font-size: 12px;
+    }
+
+    .gkt-summary nav span {
+        display: block;
+    }
+
+    .gkt-summary nav .middle {
+        border-left: 1px solid #eaecef;
+        border-right: 1px solid #eaecef;
+    }
+
+    .gkt-summary .number {
+        font-weight: bold;
+    }
+
+    .gkt-summary .link-list {
+        margin-top: 5px;
+        margin-bottom: -5px;
+        padding-top: 7px;
+        border-top: 1px dashed #999;
+        display: flex;
+    }
+
+    .gkt-summary .link-list a {
+        flex: 1;
+    }
+
+    .gkt-summary .link-list img {
+        width: 25px;
+        height: 25px;
+    }
+</style>
+
+<div class="gkt-summary">
+    <nav>
+        <a href="/" class="col-xs-4">
+            <span class="number">12</span><span>文章</span>
+        </a>
+        <a href="/series" class="col-xs-4 middle">
+            <span class="number">3</span><span>专题</span>
+        </a>
+        <a href="/tags" class="col-xs-4">
+            <span class="number">17</span><span>标签</span>
+        </a>
+    </nav>
+
+    
+</div></section>
+        
+        
+        <section class="gkt-sidebar-content box-shadow">
+            <strong>Java Basic</strong>
+            <ul>
+                
+                <li>
+                    <a href="/post/java/basic/2016-10-25_hashmap_jdk7.html"
+                        class="">关于 HashMap （JDK 1.7）</a>
+                    
+                </li>
+                
+                <li>
+                    <a href="/post/java/basic/2016-10-25_threadlocal.html"
+                        class="">ThreadLocal 笔记</a>
+                    
+                </li>
+                
+                <li>
+                    <a href="/post/java/basic/2016-11-18_try_with_resources.html"
+                        class="">Java7 里 try-with-resources 分析</a>
+                    
+                </li>
+                
+                <li>
+                    <a href="/post/java/basic/2017-04-18_java_thread_mind.html"
+                        class="">Java Thread 线程知识整理（思维导图）</a>
+                    
+                </li>
+                
+                <li>
+                    <a href="/post/java/basic/2017-07-14_java_reference.html"
+                        class="">Java 引用</a>
+                    
+                </li>
+                
+                <li>
+                    <a href="/post/java/basic/2017-11-10_java-lambda.html"
+                        class="">Java8 lambda表达式10个示例</a>
+                    
+                </li>
+                
+                <li>
+                    <a href="/post/java/basic/2019-01-21_java_thread_source.html"
+                        class="gkt-sidebar-active">从源码的角度再学「Thread」</a>
+                    
+                    <!-- Table of Contents -->
+<div id="sidebar-toc">
+  <!-- TOC  -->
+  
+  
+  <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-nav-text">前言</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%BB%8E%E6%B3%A8%E9%87%8A%E5%BC%80%E5%A7%8B"><span class="toc-nav-text">从注释开始</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Thread-%E5%B8%B8%E7%94%A8%E5%B1%9E%E6%80%A7"><span class="toc-nav-text">Thread 常用属性</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Thread-%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95"><span class="toc-nav-text">Thread 构造方法</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-nav-text">常用方法</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-nav-text">总结</span></a></li></ol>
+  
+</div>
+
+<script>
+  (function () {
+    var h2 = document.querySelectorAll('article h2');
+    var h3 = document.querySelectorAll('article h3');
+    var linkList = document.querySelectorAll('#sidebar-toc a');
+
+    function findLinkElement(name) {
+      for (var i = 0; i < linkList.length; i++) {
+        var items = linkList[i].href.split('#');
+        if (items && items[items.length - 1] === encodeURIComponent(name)) {
+          return i;
+        }
+      }
+      return -1;
+    }
+
+    function activeLink(titleList) {
+      var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+      for (var i = titleList.length - 1; i >= 0; i--) {
+        if (scrollTop - titleList[i].offsetTop > 0) {
+          var index = findLinkElement(titleList[i].id);
+          index != -1 && linkList[index].classList.add('gkt-sidebar-active');
+          break;
+        }
+      }
+    }
+
+    window.addEventListener("scroll", function (e) {
+      [].slice.call(linkList).forEach(function (link) {
+        link.classList.remove('gkt-sidebar-active');
+      })
+      activeLink(h2);
+    })
+  })();
+</script>
+                    
+                </li>
+                
+            </ul>
+        </section>
+        
+        
+        <section class="gkt-sidebar-content box-shadow">
+            <strong>最近的文章</strong>
+            <ul>
+                
+                <li>
+                    <a href="/post/java/basic/2019-01-21_java_thread_source.html">从源码的角度再学「Thread」</a>
+                </li>
+                
+                <li>
+                    <a href="/post/java/basic/2017-11-10_java-lambda.html">Java8 lambda表达式10个示例</a>
+                </li>
+                
+                <li>
+                    <a href="/post/java/basic/2017-07-14_java_reference.html">Java 引用</a>
+                </li>
+                
+            </ul>
+        </section>
+        
+    </div>
+</aside>
+
+<script>
+    (function () {
+        function resizeUArrow() {
+            var s = getDom('.u-arrow-wrapper').style
+            var pc = getDom('.post-container')
+            s.left = getPosition(pc).x + 'px';
+            s.width = pc.clientWidth + 'px';
+        }
+        resizeUArrow()
+        window.addEventListener('resize', resizeUArrow);
+    })();
+</script>
+
+    
+
+<script>
+    (function () {
+        var ele = getDom('.gkt-sidebar-content')
+        if(!ele) return;
+        var wrapper = getDom('.gkt-sidebar-wrapper')
+        var last = 0
+        ele.style.maxHeight = ((window.innerHeight || 798) - 200) + 'px'
+        var f = function (e) {
+            var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            var isDown = scrollTop > last;
+            var pos = getPosition(ele).y - scrollTop;
+            var downLimit = 50;
+            var upLimit = -100;
+            // uarrow.style.marginTop = scrollTop + 'px';
+            isDown && pos <= downLimit && wrapper.classList.add("gkt-sidebar-fixed");
+            !isDown && pos > upLimit && wrapper.classList.remove("gkt-sidebar-fixed");
+            last = scrollTop
+        }
+        f()
+        window.addEventListener("scroll", f)
+    })();
+</script>
+
+</main>
+    </div>
+    <style>
+    img#go-top {
+        position: fixed;
+        bottom: 100px;
+        width: 50px;
+        cursor: pointer;
+        z-index: 9999;
+    }
+</style>
+<img id="go-top" src="/icon/top.png" class="hidden-xs" style="display: none" />
+<script>
+    (function () {
+        var goTop = document.getElementById('go-top');
+        var mainContainer = document.querySelector('.main-container');
+        
+        goTop.addEventListener('click', function () {
+            window.scroll(0, 0);
+        }, false);
+        window.addEventListener('scroll', function () {
+            var right = document.body.offsetWidth - mainContainer.getBoundingClientRect().right;
+            var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            goTop.style.right = right + 10 + 'px'
+            scrollTop > 700 && (goTop.style.display = "block");
+            scrollTop <= 700 && (goTop.style.display = "none");
+        });
+    })();
+</script>
+    <style>
+    #geektutu-click-img-container {
+        position: fixed;
+        left: 0;
+        top: 0;
+        text-align: center;
+        width: 100%;
+        display: none;
+        z-index: 9999;
+    }
+
+    #geektutu-click-img-container img {
+        object-fit: contain;
+        background: #eaecef;
+        padding: 15px;
+        border-radius: 10px;
+        height: auto;
+        width: auto;
+        vertical-align: middle;
+    }
+</style>
+
+
+<div id="geektutu-click-img-container">
+    <img src="" alt="Big Image">
+</div>
+
+<script>
+    (function () {
+        var container = document.querySelector('#geektutu-click-img-container')
+        var targetImg = container.querySelector('img')
+        var imgs = document.querySelectorAll('article img');
+        targetImg.addEventListener('click', function (e) {
+            container.style.display = 'none';
+            e && e.stopPropagation && e.stopPropagation();
+        }, false);
+
+        for (var i = 0; i < imgs.length; ++i) {
+            var img = imgs[i];
+            img.addEventListener('click', (function (src, rate) {
+                return function (e) {
+                    e && e.stopPropagation && e.stopPropagation();
+                    if (window.innerWidth < 980) {
+                        return
+                    }
+                    targetImg.style.height = targetImg.style.width = 'auto';
+                    if (window.innerWidth / window.innerHeight > rate) {
+                        targetImg.style.height = (window.innerHeight - 20) + 'px';
+                    } else {
+                        targetImg.style.width = (window.innerWidth - 20) + 'px';
+                    }
+                    container.style.height = window.innerHeight + 'px'
+                    container.style.lineHeight = window.innerHeight + 'px'
+                    container.style.display = 'block';
+                    targetImg.src = src;
+                };
+            }(img.src, img.width / img.height)), false)
+        }
+    })();
+</script>
+    <!-- Footer -->
+    <!-- Footer -->
+<style>
+    footer {
+        width: 100%;
+        line-height: 1.5;
+        padding: 20px;
+    }
+
+    footer a {
+        color: #333;
+        text-decoration: none;
+    }
+
+    .footer-hexo img {
+        height: 20px;
+        margin-bottom: -5px;
+    }
+
+    .footer-hexo a {
+        color: #337ab7;
+    }
+</style>
+<footer class="text-center col-xs-12">
+    <p>
+        <small>© 2020 - Hassan - </small>
+        <small>
+            <a target="_blank" rel="nofollow noopener" href="http://beian.miit.gov.cn/"></a>
+        </small>
+    </p>
+    <p class="footer-hexo">
+        <!-- 但若直接使用或修改主题，请务必保留这段声明 -->
+        <small>Powered by <a target="_blank" href="https://hexo.io">Hexo</a> | Theme
+            <a target="_blank" href="https://geektutu.com">Geektutu</a>
+            <a target="_blank" rel="noopener" href="https://github.com/geektutu/hexo-theme-geektutu">
+                <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAYGBgYHBgcICAcKCwoLCg8ODAwODxYQERAREBYiFRkVFRkVIh4kHhweJB42KiYmKjY+NDI0PkxERExfWl98fKcBBgYGBgcGBwgIBwoLCgsKDw4MDA4PFhAREBEQFiIVGRUVGRUiHiQeHB4kHjYqJiYqNj40MjQ+TERETF9aX3x8p//CABEIACIAUAMBIgACEQEDEQH/xAAcAAABBAMBAAAAAAAAAAAAAAAAAQQFBwIDBgj/2gAIAQEAAAAA9KrHSgAYL5/z6zZGuJd12uugbhq3uKtmuRtix20IS7lTLAfAAAn/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/9oACAECEAAAAAAB/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/aAAgBAxAAAAAAAf/EADEQAAICAQIEBQEGBwAAAAAAAAECAwQFAAYREhORBxQhUlQxQVFic5KxJDJCYYGC0f/aAAgBAQABPwCFHnjWUzuvN6hV4cANSRLGjO9yRVUcSzMoA7jVXJYe5N0a2dhmk9kc0bN2GvLN8mbuNeWb5M3ca8s3yZu415Y/Jm7jXlm+TN3H/NeVPyZu40vOk3TZywK8wJ+v3EHVM/wsI/Dq2lrxN3Nnca16eti8chSAIoMbzByhMwP14kHVfwIiSaF5c96J6kwwCOTnHsYk8uvCrdmQy1TI4rJuz3cZLyGR/wCd4+YoOf8AEpUjXitubLYPG4paFsUxcuiGe7yc5gTW3LW44szXmobsi3Dhmic2+Z4+vCVH9CpraPiQ+QvbgTJrPFBWd5YpWrmNIIEXiRO32Pqt4p7cnfHk18lFBdmEVW1LVdIZGOrniTt6plrWKaO69yCykDRxwF+LMAewB0Txtr+Sf31VI8tEPw62fZt7N3Humtbpzz13ucX6CGSWMSuzpLyD1eNgeUka3PuvHbaxq3biTMHfkiSNCS78CwU+3Xg7Vu3MhuTcU6cq3Zemn3Eh2dv8Lzcut+29x1atKbHYqLJUhLwyNMwiZ3j9yDWOxUOV3tgb+3No5LDx1pi9+aeIwRlNY6bc+Jv+IFGrhLxtXJZ7VKcw81diiAAEn0JOrkWZyNfbEr0tz27UGQgkuGzXdIIvyowq99bRxk9ffO/L81SZBPZgEEroQroIxxMZOgeNsfkn99QypHGqO4Vl9CDrN4LDZkwyzyyQ2IgRHZrzGCZVP1XnQglT9oOtw4LC7iqV6uRkZoYpxKFSQpzFRw4EjVRMfSrQ1qqwxQxKFjjTgFUD7BoWYR6iVe+mtxt9Zwf9teaj4AdccPu5tedX5A/VrzUR+sy/q1CwksF19VEfDj/cnQRW+qg66cfsXtrpx+xe2unH7F7a6cfsXtrpx+xe2unH7F7a6cfsXtoxx+xe2gAAOA1//8QAFBEBAAAAAAAAAAAAAAAAAAAAMP/aAAgBAgEBPwB//8QAFBEBAAAAAAAAAAAAAAAAAAAAMP/aAAgBAwEBPwB//9k="
+                    alt="Github Star">
+            </a>
+        </small>
+    </p>
+    
+    <p>
+        <small>
+            <span id="busuanzi_container_site_pv">👁<span id="busuanzi_value_site_pv"></span></span> &nbsp;
+            <span id="busuanzi_container_page_pv">📚<span id="busuanzi_value_page_pv"></span></span>
+        </small>
+    </p>
+    
+    
+
+</footer>
+
+
+<script>
+    window.addEventListener('load', function () {
+        globalAddScript('//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js');
+    })
+</script>
+
+<!-- Baidu Tongji -->
+
+
+
+
+
+    <script>
+        // 非本站网址，新开tab页签
+        (function () {
+            var stopBubble = function (e) {
+                e && e.stopPropagation && e.stopPropagation();
+            }
+            var links = document.querySelectorAll('a');
+            [].slice.call(links).forEach(function (item) {
+                if (item.href && item.href.indexOf(window.location.host) === -1) {
+                    item.target = '_blank'
+                }
+                // 阻止冒泡，不触发彩蛋。
+                item.addEventListener('click', stopBubble, false);
+            });
+            var article = document.querySelector('article');
+            article && article.addEventListener('click', stopBubble, false)
+        })();
+    </script>
+    
+<script>
+    (function (window, document, undefined) {
+        var hearts = [];
+        var keywords = ["点个赞", "留个言", "赞赏一下", "分享之", "blog.fenxiangz.com"];
+        function randomInt(max) {
+            return Math.floor(Math.random() * Math.floor(max));
+        }
+        window.addEventListener('click', createWord)
+
+        function createWord(e) {
+            var d = document.createElement("span");
+            d.style.position = 'fixed';
+            d.style.zIndex = 9999;
+            d.style.color = 'rgb(' + [randomInt(255), randomInt(255), randomInt(255)].join(',') + ')';
+            d.innerHTML = keywords[randomInt(keywords.length)];
+            d.onselectstart = function () { return false; }
+
+            hearts.push({ el: d, x: e.clientX - 5, y: e.clientY - 5, alpha: 1, scale: 1 });
+            document.body.appendChild(d);
+        }
+        (function gameloop() {
+            for (var i = 0; i < hearts.length; i++) {
+                heart = hearts[i];
+                if (heart.alpha <= 0) {
+                    document.body.removeChild(heart.el);
+                    hearts.splice(i, 1);
+                    continue;
+                }
+                heart.y -= heart.alpha < 0.5 ? 2 : 1;
+                heart.scale += 0.002;
+                heart.alpha -= 0.013;
+                heart.el.style.transform = 'scale(' + heart.scale + ')';
+                heart.el.style.left = heart.x + 'px';
+                heart.el.style.top = heart.y + 'px';
+            }
+            setTimeout(gameloop, 10)
+        })();
+    })(window, document);
+</script>
+
+</body>
+
+</html>
