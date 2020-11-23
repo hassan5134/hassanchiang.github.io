@@ -9,7 +9,14 @@
   </url>
   
   <url>
-    <loc>https://blog.fenxiangz.com/post/util/2016-10-25_idea_shotcut.html</loc>
+    <loc>https://blog.fenxiangz.com/post/java/basic/2017-07-14_java_reference.html</loc>
+    
+    <lastmod>2020-11-23</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.fenxiangz.com/post/java/basic/2016-11-18_try_with_resources.html</loc>
     
     <lastmod>2020-11-23</lastmod>
     
@@ -37,13 +44,6 @@
   </url>
   
   <url>
-    <loc>https://blog.fenxiangz.com/post/java/advance/2016-10-25_number.html</loc>
-    
-    <lastmod>2020-11-23</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://blog.fenxiangz.com/post/java/basic/2016-10-25_hashmap_jdk7.html</loc>
     
     <lastmod>2020-11-23</lastmod>
@@ -51,7 +51,14 @@
   </url>
   
   <url>
-    <loc>https://blog.fenxiangz.com/post/java/basic/2016-11-18_try_with_resources.html</loc>
+    <loc>https://blog.fenxiangz.com/post/java/advance/2016-10-25_number.html</loc>
+    
+    <lastmod>2020-11-23</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.fenxiangz.com/post/util/2016-10-25_idea_shotcut.html</loc>
     
     <lastmod>2020-11-23</lastmod>
     
@@ -59,13 +66,6 @@
   
   <url>
     <loc>https://blog.fenxiangz.com/post/link.html</loc>
-    
-    <lastmod>2020-11-23</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.fenxiangz.com/post/java/basic/2017-07-14_java_reference.html</loc>
     
     <lastmod>2020-11-23</lastmod>
     
@@ -237,13 +237,6 @@
 
   
   <url>
-    <loc>https://blog.fenxiangz.com/categories/Java-Basic/</loc>
-    <lastmod>2020-11-23</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.fenxiangz.com/categories/%E5%B7%A5%E5%85%B7/</loc>
     <lastmod>2020-11-23</lastmod>
     <changefreq>daily</changefreq>
@@ -251,7 +244,14 @@
   </url>
   
   <url>
-    <loc>https://blog.fenxiangz.com/categories/Java/</loc>
+    <loc>https://blog.fenxiangz.com/categories/Java-%E8%BF%9B%E9%98%B6/</loc>
+    <lastmod>2020-11-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.fenxiangz.com/categories/Java-%E5%9F%BA%E7%A1%80/</loc>
     <lastmod>2020-11-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
