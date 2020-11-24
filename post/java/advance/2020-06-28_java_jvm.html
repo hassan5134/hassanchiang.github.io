@@ -235,19 +235,19 @@
 <hr>
 <p>在计算机中，cpu和内存的交互最为频繁，相比内存，磁盘读写太慢，内存相当于高速的缓冲区。</p>
 <p>但是随着cpu的发展，内存的读写速度也远远赶不上cpu。因此cpu厂商在每颗cpu上加上高速缓存，用于缓解这种情况。现在cpu和内存的交互大致如下。</p>
-<p><img src="./2020-04-25_java_optimize/1.png"></p>
+<p><img src="./2020-06-28_java_jvm/1.png"></p>
 <p>cpu上加入了高速缓存这样做解决了处理器和内存的矛盾(一快一慢)，但是引来的新的问题 </p>
 <p><strong>缓存一致性</strong></p>
 <p>在多核cpu中，每个处理器都有各自的高速缓存(L1,L2,L3)，而主内存确只有一个 。</p>
 <p>以我的pc为例,因为cpu成本高，缓存区一般也很小。</p>
-<p><img src="./2020-04-25_java_optimize/2.png"></p>
+<p><img src="./2020-06-28_java_jvm/2.png"></p>
 <pre><code>CPU要读取一个数据时，首先从一级缓存中查找，如果没有找到再从二级缓存中查找，如果还是没有就从三级缓存或内存中查找，每个cpu有且只有一套自己的缓存。</code></pre>
 <blockquote>
 <p>如何保证多个处理器运算涉及到同一个内存区域时，多线程场景下会存在缓存一致性问题，那么运行时保证数据一致性？</p>
 <p>为了解决这个问题，各个处理器需遵循一些协议保证一致性。【如MSI，MESI啥啥的协议。。】</p>
 </blockquote>
 <p>大概如下</p>
-<p><img src="./2020-04-25_java_optimize/3.png"></p>
+<p><img src="./2020-06-28_java_jvm/3.png"></p>
 <p>|-cpu与内存-|</p>
 <p>在CPU层面，内存屏障提供了个充分必要条件</p>
 <h3 id="1-1-1-内存屏障-Memory-Barrier"><a href="#1-1-1-内存屏障-Memory-Barrier" class="headerlink" title="1.1.1 内存屏障(Memory Barrier)"></a>1.1.1 内存屏障(Memory Barrier)</h3><p>CPU中，每个CPU又有多级缓存【上图统一定义为高速缓存】，一般分为L1,L2,L3，因为这些缓存的出现，提高了数据访问性能，避免每次都向内存索取，但是弊端也很明显，不能实时的和内存发生信息交换，分<strong>在不同CPU执行的不同线程对同一个变量的缓存值不同。</strong></p>
@@ -270,7 +270,7 @@
 
 注意的是volatile不具有原子性，如volatile++这样的复合操作,这里感谢大家的指正。</code></pre>
 <p>至于volatile底层是怎么实现保证不同线程可见性的，这里涉及到的就是硬件上的，被volatile修饰的变量在进行写操作时，会生成一个特殊的汇编指令，该指令会触发mesi协议，会存在一个总线嗅探机制的东西，简单来说就是这个cpu会不停检测总线中该变量的变化，如果该变量一旦变化了，由于这个嗅探机制，其它cpu会立马将该变量的cpu缓存数据清空掉，重新的去从主内存拿到这个数据。简单画了个图。</p>
-<p><img src="./2020-04-25_java_optimize/4.png"></p>
+<p><img src="./2020-06-28_java_jvm/4.png"></p>
 <h2 id="2-Java内存区域"><a href="#2-Java内存区域" class="headerlink" title="2. Java内存区域"></a>2. Java内存区域</h2><blockquote>
 <p>前提:本文讲的基本都是以Sun HotSpot虚拟机为基础的，Oracle收购了Sun后目前得到了两个【Sun的HotSpot和JRockit(以后可能合并这两个),还有一个是IBM的IBMJVM】</p>
 </blockquote>
@@ -283,7 +283,7 @@
 <p>从下面这张图可以看出来，Java数据区域分为五大数据区域。这些区域各有各的用途，创建及销毁时间。</p>
 <pre><code>其中方法区和堆是所有线程共享的，栈，本地方法栈和程序虚拟机则为线程私有的。</code></pre>
 <p>根据java虚拟机规范，java虚拟机管理的内存将分为下面五大区域。</p>
-<p><img src="./2020-04-25_java_optimize/5.png"></p>
+<p><img src="./2020-06-28_java_jvm/5.png"></p>
 <p>|-jmm-|</p>
 <h3 id="2-1-五大内存区域"><a href="#2-1-五大内存区域" class="headerlink" title="2.1 五大内存区域"></a>2.1 五大内存区域</h3><h4 id="2-1-1-程序计数器"><a href="#2-1-1-程序计数器" class="headerlink" title="2.1.1 程序计数器"></a>2.1.1 程序计数器</h4><pre><code>程序计数器是一块很小的内存空间，它是线程私有的，可以认作为当前线程的行号指示器。</code></pre>
 <p><strong>为什么需要程序计数器</strong></p>
@@ -304,7 +304,7 @@
 <p>reference类型:与基本类型不同的是它不等同本身，即使是String，内部也是char数组组成，它可能是指向一个对象起始位置指针，也可能指向一个代表对象的句柄或其他与该对象有关的位置。</p>
 <p>returnAddress类型:指向一条字节码指令的地址【深入理解Java虚拟机】<a target="_blank" rel="noopener" href="https://links.jianshu.com/go?to=https://www.zhihu.com/question/29056872">怎么理解returnAddress</a></p>
 </blockquote>
-<p><img src="./2020-04-25_java_optimize/6.png"></p>
+<p><img src="./2020-06-28_java_jvm/6.png"></p>
 <p><strong>需要注意的是，局部变量表所需要的内存空间在编译期完成分配，当进入一个方法时，这个方法在栈中需要分配多大的局部变量空间是完全确定的，在方法运行期间不会改变局部变量表大小。</strong></p>
 <blockquote>
 <p>Java虚拟机栈可能出现两种类型的异常：</p>
@@ -344,8 +344,8 @@ publicclassStringIntern&#123;//运行如下代码探究运行时常量池的位�
 <p>做相关设置，比如说这边设定堆大小。（-Xmx5m -Xms5m -XX:-UseGCOverheadLimit）</p>
 <pre><code>这边如果不设置UseGCOverheadLimit将报java.lang.OutOfMemoryError: GC overhead limit exceeded，
 这个错是因为GC占用了多余98%（默认值）的CPU时间却只回收了少于2%（默认值）的堆空间。目的是为了让应用终止，给开发者机会去诊断问题。一般是应用程序在有限的内存上创建了大量的临时对象或者弱引用对象，从而导致该异常。虽然加大内存可以暂时解决这个问题，但是还是强烈建议去优化代码，后者更加有效，也可通过UseGCOverheadLimit避免[不推荐，这里是因为测试用，并不能解决根本问题]</code></pre>
-<p><img src="./2020-04-25_java_optimize/7.png"></p>
-<p><img src="./2020-04-25_java_optimize/8.png"></p>
+<p><img src="./2020-06-28_java_jvm/7.png"></p>
+<p><img src="./2020-06-28_java_jvm/8.png"></p>
 <p><strong>jdk8真正开始废弃永久代，而使用元空间(Metaspace)</strong></p>
 <blockquote>
 <p>java虚拟机对方法区比较宽松，除了跟堆一样可以不存在连续的内存空间，定义空间和可扩展空间，还可以选择不实现垃圾收集。</p>
@@ -361,16 +361,16 @@ publicclassStringIntern&#123;//运行如下代码探究运行时常量池的位�
 
 假设当前为32bit，在对象未被锁定情况下。25bit为存储对象的哈希码、4bit用于存储分代年龄，2bit用于存储锁标志位，1bit固定为0。</code></pre>
 <p>不同状态下存放数据</p>
-<p><img src="./2020-04-25_java_optimize/9.png"></p>
+<p><img src="./2020-06-28_java_jvm/9.png"></p>
 <p>这其中锁标识位需要特别关注下。<strong>锁标志位与是否为偏向锁对应到唯一的锁状态</strong>。</p>
 <p>锁的状态分为四种<code>无锁状态</code>、<code>偏向锁</code>、<code>轻量级锁</code>和<code>重量级锁</code></p>
 <p>不同状态时对象头的区间含义，如图所示。</p>
-<p><img src="./2020-04-25_java_optimize/10.png"></p>
+<p><img src="./2020-06-28_java_jvm/10.png"></p>
 <p>|-对象头-|</p>
 <p>HotSpot底层通过markOop实现Mark Word，具体实现位于<code>markOop.hpp</code>文件。</p>
 <pre><code>markOop中提供了大量方法用于查看当前对象头的状态，以及更新对象头的数据，为synchronized锁的实现提供了基础。[比如说我们知道synchronized锁的是对象而不是代码，而锁的状态保存在对象头中，进而实现锁住对象]。</code></pre>
 <p>关于对象头和锁之间的转换，网上大神总结</p>
-<p><img src="./2020-04-25_java_optimize/11.png"></p>
+<p><img src="./2020-06-28_java_jvm/11.png"></p>
 <p>|-偏向锁轻量级锁重量级锁-|</p>
 <h5 id="2-2-2-实例数据"><a href="#2-2-2-实例数据" class="headerlink" title="2.2.2 实例数据"></a>2.2.2 实例数据</h5><pre><code>存放对象程序中各种类型的字段类型，不管是从父类中继承下来的还是在子类中定义的。
 分配策略:相同宽度的字段总是放在一起，比如double和long</code></pre>
@@ -384,13 +384,13 @@ publicclassStringIntern&#123;//运行如下代码探究运行时常量池的位�
 <h5 id="2-3-1-句柄访问"><a href="#2-3-1-句柄访问" class="headerlink" title="2.3.1 句柄访问"></a>2.3.1 句柄访问</h5><blockquote>
 <p>简单来说就是java堆划出一块内存作为句柄池,引用中存储对象的句柄地址,句柄中包含对象实例数据、类型数据的地址信息。</p>
 <h5 id="优点-引用中存储的是稳定的句柄地址-在对象被移动【垃圾收集时移动对象是常态】只需改变句柄中实例数据的指针，不需要改动引用【ref】本身。"><a href="#优点-引用中存储的是稳定的句柄地址-在对象被移动【垃圾收集时移动对象是常态】只需改变句柄中实例数据的指针，不需要改动引用【ref】本身。" class="headerlink" title="优点:引用中存储的是稳定的句柄地址,在对象被移动【垃圾收集时移动对象是常态】只需改变句柄中实例数据的指针，不需要改动引用【ref】本身。"></a>优点:引用中存储的是稳定的句柄地址,在对象被移动【垃圾收集时移动对象是常态】只需改变句柄中实例数据的指针，不需要改动引用【ref】本身。</h5></blockquote>
-<p><img src="./2020-04-25_java_optimize/12.png"></p>
+<p><img src="./2020-06-28_java_jvm/12.png"></p>
 <p>|-访问方式2-|</p>
 <h5 id="2-3-2-直接指针"><a href="#2-3-2-直接指针" class="headerlink" title="2.3.2 直接指针"></a>2.3.2 直接指针</h5><blockquote>
 <p>与句柄访问不同的是，ref中直接存储的就是对象的实例数据,但是类型数据跟句柄访问方式一样。</p>
 <p>优点:优势很明显，就是速度快，<strong>相比于句柄访问少了一次指针定位的开销时间</strong>。【可能是出于Java中对象的访问时十分频繁的,平时我们常用的JVM HotSpot采用此种方式】</p>
 </blockquote>
-<p><img src="./2020-04-25_java_optimize/13.png"></p>
+<p><img src="./2020-06-28_java_jvm/13.png"></p>
 <p>|-访问方式1-|</p>
 <h2 id="3-内存溢出"><a href="#3-内存溢出" class="headerlink" title="3.内存溢出"></a>3.内存溢出</h2><pre><code>两种内存溢出异常[注意内存溢出是error级别的]
 1.StackOverFlowError:当请求的栈深度大于虚拟机所允许的最大深度
@@ -404,7 +404,7 @@ publicclassStringIntern&#123;//运行如下代码探究运行时常量池的位�
                 list.add(newObject());//创建对象速度可能高于jvm回收速度&#125;&#125;catch(OutOfMemoryError e)&#123;
             e.printStackTrace();&#125;try&#123;hi();//递归造成StackOverflowError 这边因为每运行一个方法将创建一个栈帧，栈帧创建太多无法继续申请到内存扩展&#125;catch(StackOverflowError e)&#123;
             e.printStackTrace();&#125;&#125;publicstaticvoidhi()&#123;hi();&#125;&#125;</code></pre>
-<p><img src="./2020-04-25_java_optimize/14.png"></p>
+<p><img src="./2020-06-28_java_jvm/14.png"></p>
 <h2 id="4-GC简介"><a href="#4-GC简介" class="headerlink" title="4.GC简介"></a>4.GC简介</h2><blockquote>
 <p>GC(Garbage Collection)：即垃圾回收器，诞生于1960年MIT的Lisp语言，主要是用来回收，释放垃圾占用的空间。</p>
 </blockquote>
@@ -440,7 +440,7 @@ publicclassStringIntern&#123;//运行如下代码探究运行时常量池的位�
 2.可达性分析算法
 目前主流的商用语言[如java、c#]采用的是可达性分析算法判断对象是否存活。这个算法有效解决了循环利用的弊端。
 它的基本思路是通过一个称为“GC Roots”的对象为起始点，搜索所经过的路径称为引用链，当一个对象到GC Roots没有任何引用跟它连接则证明对象是不可用的。</code></pre>
-<p><img src="./2020-04-25_java_optimize/15.png"></p>
+<p><img src="./2020-06-28_java_jvm/15.png"></p>
 <p>|-gc-|</p>
 <p>可作为GC Roots的对象有四种</p>
 <pre><code>①虚拟机栈(栈桢中的本地变量表)中的引用的对象，就是平时所指的java对象，存放在堆中。
@@ -494,7 +494,7 @@ Serial、ParNew、Parallel Scavenge
 Serial Old、Parallel Old、CMS收集器
 特殊收集器
 G1收集器[新型，不在年轻、老年代范畴内]</code></pre>
-<p><img src="./2020-04-25_java_optimize/16.png"></p>
+<p><img src="./2020-06-28_java_jvm/16.png"></p>
 <p>|-收集器，连线代表可结合使用-|</p>
 <h3 id="新生代收集器"><a href="#新生代收集器" class="headerlink" title="新生代收集器"></a>新生代收集器</h3><h3 id="6-1-Serial"><a href="#6-1-Serial" class="headerlink" title="6.1 Serial"></a>6.1 Serial</h3><p>最基本、发展最久的收集器，在jdk3以前是gc收集器的唯一选择，Serial是单线程收集器，Serial收集器只能使用一条线程进行收集工作，在收集的时候必须得停掉其它线程，等待收集工作完成其它线程才可以继续工作。</p>
 <pre><code>虽然Serial看起来很坑，需停掉别的线程以完成自己的gc工作，但是也不是完全没用的，比如说Serial在运行在Client模式下优于其它收集器[简单高效,不过一般都是用Server模式，64bit的jvm甚至没Client模式]</code></pre>
@@ -576,7 +576,7 @@ G1收集器[新型，不在年轻、老年代范畴内]</code></pre>
 </blockquote>
 <h2 id="8-查看GC日志"><a href="#8-查看GC日志" class="headerlink" title="8 查看GC日志"></a>8 查看GC日志</h2><h4 id="8-1-简单日志查看"><a href="#8-1-简单日志查看" class="headerlink" title="8.1 简单日志查看"></a>8.1 简单日志查看</h4><p>要看得懂并理解GC，需要看懂GC日志。</p>
 <p>这边我在idea上试了个小例子，需要在idea配置参数(-XX:+PrintGCDetails)。</p>
-<p><img src="./2020-04-25_java_optimize/17.png"></p>
+<p><img src="./2020-06-28_java_jvm/17.png"></p>
 <pre><code>publicclassGCtest&#123;publicstaticvoidmain(String[] args)&#123;for(int i =0; i &lt;10000; i++)&#123;List&lt;String&gt; list =newArrayList&lt;&gt;();
             list.add(&quot;aaaaaaaaaaaaa&quot;);&#125;System.gc();&#125;&#125;
 
@@ -593,14 +593,14 @@ Heap
   class space    used 352K, capacity 388K, committed 512K, reserved 1048576K</code></pre>
 <h4 id="8-2-离线工具查看"><a href="#8-2-离线工具查看" class="headerlink" title="8.2 离线工具查看"></a>8.2 离线工具查看</h4><p>比如sun的<a target="_blank" rel="noopener" href="https://links.jianshu.com/go?to=https://java.net/projects/gchisto">gchisto</a>，<a target="_blank" rel="noopener" href="https://links.jianshu.com/go?to=https://github.com/chewiebug/GCViewer">gcviewer</a>离线分析工具，做个笔记先了解下还没用过，可视化好像很好用的样子。</p>
 <h3 id="8-3-自带的jconsole工具、jstat命令"><a href="#8-3-自带的jconsole工具、jstat命令" class="headerlink" title="8.3 自带的jconsole工具、jstat命令"></a>8.3 自带的jconsole工具、jstat命令</h3><p>终端输入jconsole就会出现jdk自带的gui监控工具</p>
-<p><img src="./2020-04-25_java_optimize/18.png"></p>
+<p><img src="./2020-06-28_java_jvm/18.png"></p>
 <p>|-jconsole-|</p>
 <p>可以根据内存使用情况间接了解内存使用和gc情况</p>
-<p><img src="./2020-04-25_java_optimize/19.png"></p>
+<p><img src="./2020-06-28_java_jvm/19.png"></p>
 <p>|-jconsole-|</p>
 <p>jstat命令</p>
 <p>比如jstat -gcutil pid查看对应java进程gc情况</p>
-<p><img src="./2020-04-25_java_optimize/20.png"></p>
+<p><img src="./2020-06-28_java_jvm/20.png"></p>
 <p>|-jstat-|</p>
 <pre><code>s0: 新生代survivor space0简称 就是准备复制的那块 单位为%
 s1:指新生代s1已使用百分比，为0的话说明没有存活对象到这边
@@ -655,10 +655,10 @@ java -server -XX:+UnlockExperimentalVMOptions -XX:+UnlockDiagnosticVMOptions -XX
 
 #获得用户自定义的设置或者jvm设置的详细的xx参数和值
 java -server -XX:+PrintCommandLineFlags Benchmark</code></pre>
-<p><img src="./2020-04-25_java_optimize/21.png"></p>
+<p><img src="./2020-06-28_java_jvm/21.png"></p>
 <p>本人用的jdk8，这边UseParallelGC为true，参考深入理解jvm那本书说这个是Parallel Scavenge+Serial old搭配组合的开关，但是网上又说8默认是Parallel Scavenge+Parallel Old,我还是信书的吧 - -。</p>
 <p>更多相关参数<a target="_blank" rel="noopener" href="https://links.jianshu.com/go?to=https://upload-images.jianshu.io/upload_images/4914401-4503c1ac0196db78.png">来源</a></p>
-<p><img src="./2020-04-25_java_optimize/22.png"></p>
+<p><img src="./2020-06-28_java_jvm/22.png"></p>
 <p>|-常用参数-|</p>
 <blockquote>
 <p>据说更高版本的jvm默认使用g1</p>
@@ -677,7 +677,7 @@ java -server -XX:+PrintCommandLineFlags Benchmark</code></pre>
 <p>G1 GC 是区域化、并行-并发、增量式垃圾回收器，相比其他 HotSpot 垃圾回收器，可提供更多可预测的暂停。增量的特性使 G1 GC 适用于更大的堆，在最坏的情况下仍能提供不错的响应。G1 GC 的自适应特性使 JVM 命令行只需要软实时暂停时间目标的最大值以及 Java 堆大小的最大值和最小值，即可开始工作。</p>
 </blockquote>
 <p>g1不再区分老年代、年轻代这样的内存空间，这是较以往收集器很大的差异，所有的内存空间就是一块划分为不同子区域，每个区域大小为1m-32m，最多支持的内存为64g左右，且由于它为了的特性适用于大内存机器。</p>
-<p><img src="./2020-04-25_java_optimize/23.png"></p>
+<p><img src="./2020-06-28_java_jvm/23.png"></p>
 <p>|-g1回收时堆内存情况-|</p>
 <p>适用场景:</p>
 <p>1.像cms能与应用程序并发执行，GC停顿短【短而且可控】，用户体验好的场景。</p>
@@ -751,24 +751,20 @@ java -server -XX:+PrintCommandLineFlags Benchmark</code></pre>
                     title="Java">Java</a>
                 <span>/</span>
                 
-                <a class="text-gray" href="/tags/#ThreadLocal"
-                    title="ThreadLocal">ThreadLocal</a>
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#Java线程"
-                    title="Java线程">Java线程</a>
+                <a class="text-gray" href="/tags/#性能优化"
+                    title="性能优化">性能优化</a>
                 <span>/</span>
                 
                 
             </div>
-            <a href="/post/java/basic/2016-10-25_threadlocal.html" class="title">
-                ThreadLocal 笔记
+            <a href="/post/java/advance/2020-04-25_java_optimize.html" class="title">
+                接口性能优化思路
             </a>
             <p class="text-gray">
                 <small>
-                    <span>发表于2016-10-25，</span>
-                    <span class="hidden-xs">全文3731字，</span>
-                    <span>阅读约13分钟</span>
+                    <span>发表于2020-04-25，</span>
+                    <span class="hidden-xs">全文299字，</span>
+                    <span>阅读约1分钟</span>
                 </small>
             </p>
         </div>
@@ -776,36 +772,36 @@ java -server -XX:+PrintCommandLineFlags Benchmark</code></pre>
 </div>
         
         <div class="post-preview">
-    <div class="post-img" style="background-image: url('/images/idea_logo.png')"></div>
+    <div class="post-img" style="background-image: url('/images/java/basic/java_logo.png')"></div>
     <div class="post-info">
         <div class="post-info-center">
             <div class="hidden-xs">
                 
                 
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#Idea"
-                    title="Idea">Idea</a>
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#JavaIDE"
-                    title="JavaIDE">JavaIDE</a>
                 <span>/</span>
                 
                 <a class="text-gray" href="/tags/#Java"
                     title="Java">Java</a>
                 <span>/</span>
                 
+                <a class="text-gray" href="/tags/#函数式编程"
+                    title="函数式编程">函数式编程</a>
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#lambda"
+                    title="lambda">lambda</a>
+                <span>/</span>
+                
                 
             </div>
-            <a href="/post/util/2016-10-25_idea_shotcut.html" class="title">
-                IntelliJ 各种快捷键
+            <a href="/post/java/advance/2019-05-04_java_labmda.html" class="title">
+                Java8新特性学习-函数式编程
             </a>
             <p class="text-gray">
                 <small>
-                    <span>发表于2016-10-25，</span>
-                    <span class="hidden-xs">全文2212字，</span>
-                    <span>阅读约8分钟</span>
+                    <span>发表于2019-05-04，</span>
+                    <span class="hidden-xs">全文13622字，</span>
+                    <span>阅读约46分钟</span>
                 </small>
             </p>
         </div>
@@ -813,20 +809,35 @@ java -server -XX:+PrintCommandLineFlags Benchmark</code></pre>
 </div>
         
         <div class="post-preview">
-    <div class="post-img" style="background-image: url('/')"></div>
+    <div class="post-img" style="background-image: url('/images/java/basic/java_logo.png')"></div>
     <div class="post-info">
         <div class="post-info-center">
             <div class="hidden-xs">
                 
                 
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#Java"
+                    title="Java">Java</a>
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#Java线程"
+                    title="Java线程">Java线程</a>
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#思维导图"
+                    title="思维导图">思维导图</a>
+                <span>/</span>
+                
+                
             </div>
-            <a href="/post/link.html" class="title">
-                友情链接
+            <a href="/post/java/basic/2017-04-18_java_thread_mind.html" class="title">
+                Java Thread 线程知识整理（思维导图）
             </a>
             <p class="text-gray">
                 <small>
-                    <span>发表于2012-11-03，</span>
-                    <span class="hidden-xs">全文65字，</span>
+                    <span>发表于2017-04-18，</span>
+                    <span class="hidden-xs">全文283字，</span>
                     <span>阅读约1分钟</span>
                 </small>
             </p>
