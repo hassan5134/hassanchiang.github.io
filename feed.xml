@@ -15,7 +15,7 @@
     <atom:link href="https://blog.fenxiangz.com/feed.xml" rel="self" type="application/rss+xml"/>
     
     <description>Share everything</description>
-    <pubDate>Mon, 23 Nov 2020 16:44:33 GMT</pubDate>
+    <pubDate>Tue, 24 Nov 2020 11:55:43 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
@@ -97,11 +97,11 @@
       <category domain="https://blog.fenxiangz.com/categories/Java-%E5%9F%BA%E7%A1%80/">Java 基础</category>
       
       
+      <category domain="https://blog.fenxiangz.com/tags/Java/">Java</category>
+      
       <category domain="https://blog.fenxiangz.com/tags/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/">垃圾回收</category>
       
       <category domain="https://blog.fenxiangz.com/tags/Java%E5%BC%95%E7%94%A8/">Java引用</category>
-      
-      <category domain="https://blog.fenxiangz.com/tags/Java/">Java</category>
       
       
       <comments>https://blog.fenxiangz.com/post/java/basic/2017-07-14_java_reference.html#disqus_thread</comments>
@@ -220,11 +220,11 @@
       <category domain="https://blog.fenxiangz.com/categories/%E5%B7%A5%E5%85%B7/">工具</category>
       
       
-      <category domain="https://blog.fenxiangz.com/tags/Java/">Java</category>
-      
       <category domain="https://blog.fenxiangz.com/tags/Idea/">Idea</category>
       
       <category domain="https://blog.fenxiangz.com/tags/JavaIDE/">JavaIDE</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/Java/">Java</category>
       
       
       <comments>https://blog.fenxiangz.com/post/util/2016-10-25_idea_shotcut.html#disqus_thread</comments>
