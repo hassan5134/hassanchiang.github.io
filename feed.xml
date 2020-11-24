@@ -140,6 +140,63 @@
     </item>
     
     <item>
+      <title>【战略收藏】Java知识体系</title>
+      <link>https://blog.fenxiangz.com/post/java/advance/2017-03-28_java_acknowledge.html</link>
+      <guid>https://blog.fenxiangz.com/post/java/advance/2017-03-28_java_acknowledge.html</guid>
+      <pubDate>Mon, 27 Mar 2017 16:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;先看看这些程序员技能树，你掌握或了解哪些？OMG竟然有么多～～～震精！震精！！！&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;./2017-03-28_java_acknowledge/1.png&quot; alt=&quot;1&quot;&gt;&lt;br&gt;&lt;img src=&quot;./2017-03-28_java_ac</description>
+        
+      
+      
+      <enclosure url="https://blog.fenxiangz.com/images/java/basic/java_logo.png" type="image"/>
+      
+      
+      
+      <category domain="https://blog.fenxiangz.com/categories/Java-%E8%BF%9B%E9%98%B6/">Java 进阶</category>
+      
+      
+      <category domain="https://blog.fenxiangz.com/tags/Java/">Java</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/">知识体系</category>
+      
+      
+      <comments>https://blog.fenxiangz.com/post/java/advance/2017-03-28_java_acknowledge.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Java书籍推荐</title>
+      <link>https://blog.fenxiangz.com/post/java/advance/2016-12-09_java_books.html</link>
+      <guid>https://blog.fenxiangz.com/post/java/advance/2016-12-09_java_books.html</guid>
+      <pubDate>Thu, 08 Dec 2016 16:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;《深入理解 Java 虚拟机：JVM 高级特性与最佳实践》&lt;br&gt;《HotSpot 实战》&lt;br&gt;《Java 并发编程实战》&lt;br&gt;《java 多线程编程核心技术》&lt;br&gt;《Effective Java 中文版》&lt;br&gt;《深入分析 Java Web 技术内幕》&lt;br&gt;《大型</description>
+        
+      
+      
+      <enclosure url="https://blog.fenxiangz.com/images/java/basic/java_logo.png" type="image"/>
+      
+      
+      
+      <category domain="https://blog.fenxiangz.com/categories/Java-%E8%BF%9B%E9%98%B6/">Java 进阶</category>
+      
+      
+      <category domain="https://blog.fenxiangz.com/tags/Java/">Java</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/%E4%B9%A6%E7%B1%8D%E6%8E%A8%E8%8D%90/">书籍推荐</category>
+      
+      
+      <comments>https://blog.fenxiangz.com/post/java/advance/2016-12-09_java_books.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
       <title>Java7 里 try-with-resources 分析</title>
       <link>https://blog.fenxiangz.com/post/java/basic/2016-11-18_try_with_resources.html</link>
       <guid>https://blog.fenxiangz.com/post/java/basic/2016-11-18_try_with_resources.html</guid>
@@ -168,6 +225,64 @@
       
       
       <comments>https://blog.fenxiangz.com/post/java/basic/2016-11-18_try_with_resources.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>序列化和反序列化浅析</title>
+      <link>https://blog.fenxiangz.com/post/java/advance/2016-11-24_java_serializable.html</link>
+      <guid>https://blog.fenxiangz.com/post/java/advance/2016-11-24_java_serializable.html</guid>
+      <pubDate>Wed, 23 Nov 2016 16:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h1 id=&quot;0-简介&quot;&gt;&lt;a href=&quot;#0-简介&quot; class=&quot;headerlink&quot; title=&quot;0.简介&quot;&gt;&lt;/a&gt;0.简介&lt;/h1&gt;&lt;p&gt;序列化和反序列化对于现代的程序员来说是一个既熟悉又陌生的概念。说熟悉是因为几乎每个程序员在工作中都直接或间接的使用过它，说陌</description>
+        
+      
+      
+      <enclosure url="https://blog.fenxiangz.com/images/java/basic/java_logo.png" type="image"/>
+      
+      
+      
+      <category domain="https://blog.fenxiangz.com/categories/Java-%E8%BF%9B%E9%98%B6/">Java 进阶</category>
+      
+      
+      <category domain="https://blog.fenxiangz.com/tags/Java/">Java</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/%E5%BA%8F%E5%88%97%E5%8C%96/">序列化</category>
+      
+      
+      <comments>https://blog.fenxiangz.com/post/java/advance/2016-11-24_java_serializable.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Java 内存分配和泄露</title>
+      <link>https://blog.fenxiangz.com/post/java/advance/2016-11-03_java_memory_malloc.html</link>
+      <guid>https://blog.fenxiangz.com/post/java/advance/2016-11-03_java_memory_malloc.html</guid>
+      <pubDate>Thu, 03 Nov 2016 05:29:24 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h3 id=&quot;Java-内存分配策略&quot;&gt;&lt;a href=&quot;#Java-内存分配策略&quot; class=&quot;headerlink&quot; title=&quot;Java 内存分配策略&quot;&gt;&lt;/a&gt;Java 内存分配策略&lt;/h3&gt;&lt;p&gt;Java 程序运行时的内存分配策略有三种, 分别是静态分配, 栈式分</description>
+        
+      
+      
+      <enclosure url="https://blog.fenxiangz.com/images/java/basic/java_logo.png" type="image"/>
+      
+      
+      
+      <category domain="https://blog.fenxiangz.com/categories/Java-%E8%BF%9B%E9%98%B6/">Java 进阶</category>
+      
+      
+      <category domain="https://blog.fenxiangz.com/tags/Java/">Java</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/">内存分配</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/%E5%86%85%E5%AD%98%E6%B3%84%E9%9C%B2/">内存泄露</category>
+      
+      
+      <comments>https://blog.fenxiangz.com/post/java/advance/2016-11-03_java_memory_malloc.html#disqus_thread</comments>
       
     </item>
     
