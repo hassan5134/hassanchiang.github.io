@@ -1,0 +1,1360 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<!-- Head tag -->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  <meta name="baidu-site-verification" content="" />
+  <meta name="google-site-verification" content="" />
+  <meta name="msvalidate.01" content="" />
+  <meta name="360-site-verification" content="" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- if page has tags, then add tags to keyword -->
+  
+  
+  <meta name="keywords" content=",Java,函数式编程,lambda,">
+  <!-- page.description has higher priority -->
+  <meta name="description" content="Share everything">
+  <link rel="shortcut icon" href="/favico.png">
+  <title>
+    
+    Java8新特性学习-函数式编程 | 分享之
+    
+  </title>
+
+  <link rel="canonical" href="/post/java/advance/2019-05-04_java_labmda.html">
+  
+<link rel="stylesheet" href="/css/reset.css">
+
+  
+<link rel="stylesheet" href="/css/layout.css">
+
+  
+<link rel="stylesheet" href="/css/markdown.css">
+
+  <!-- Pygments Highlight CSS -->
+  
+<link rel="stylesheet" href="/css/highlight.css">
+
+  
+<link rel="stylesheet" href="/css/geektutu.css">
+
+  <!-- global function -->
+  <script>
+    window.globalAddScript = function (url, onload, onerror) {
+      var s = document.createElement('script');
+      s.src = url;
+      onload && (s.onload = onload);
+      onerror && (s.onerror = onerror);
+      document.body.appendChild(s);
+    }
+    window.globalAddCss = function (url) {
+      var s = document.createElement('link');
+      s.rel = 'stylesheet';
+      s.href = url;
+      document.body.appendChild(s);
+    }
+    window.getPosition = function (ele) {
+      var x = 0, y = 0;
+      while (ele) {
+        x += (ele.offsetLeft - ele.scrollLeft + ele.clientLeft);
+        y += (ele.offsetTop - ele.scrollTop + ele.clientTop);
+        ele = ele.offsetParent;
+      }
+      return { x: x, y: y };
+    }
+    window.getDom = function (str) { return document.querySelector(str) }
+  </script>
+  <!-- google ad -->
+  
+<meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/feed.xml" title="分享之" type="application/rss+xml">
+</head>
+
+<body>
+    <header class="gkt-header col-xs-12 padding-0">
+    <div id="gkt-nav" class="gkt-header-container">
+        <a href="/" class="gkt-header-title float-left">
+            <img class="float-left" src="/favico.png" alt="">
+            <span>分享之</span>
+        </a>
+        <nav class="gkt-header-nav text-right">
+            <ul>
+                <li><a class="hidden-xs" href="/feed.xml">订阅</a></li>
+                <li><a href="/series/">专题</a></li>
+                <li><a href="/archives/">归档</a></li>
+                <li><a href="/post/link.html">友链</a></li>
+                <li><a href="/post/about.html">关于</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div id="gkt-cate-nav" class="gkt-header-container hidden-xs">
+        
+        <nav class="gkt-header-nav float-left">
+            <ul>
+                
+                
+                <li class="gkt-cate-name float-left active">
+                    <a class="float-left" href="/post/java/basic/2016-10-25_hashmap_jdk7.html">Java ▾</a>
+                    
+                    <ul class="gkt-sub-cate">
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/java/basic/2016-10-25_hashmap_jdk7.html">Java 基础</a></li>
+                        
+                        <li class="gkt-sub-cate-name active"><a class="float-left"
+                                href="/post/java/advance/2016-10-25_number.html">Java 进阶</a></li>
+                        
+                    </ul>
+                    
+                </li>
+                
+                <li class="gkt-cate-name float-left ">
+                    <a class="float-left" href="/post/util/2016-10-25_idea_shotcut.html">开发工具</a>
+                    
+                </li>
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+<div class="gkt-header-placeholder" style="height: 44px"></div>
+<div class="gkt-header-placeholder hidden-xs" style="height: 44px"></div>
+<script>
+    (function () {
+        window.addEventListener('scroll', function () {
+            if (window.innerWidth < 768) {
+                return;
+            }
+            var nav = document.querySelector('#gkt-nav');
+            var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            scrollTop > 50 && (nav.classList.add('hide'));
+            scrollTop <= 50 && (nav.classList.remove('hide'));
+        });
+        var cateNavs = document.querySelectorAll('#gkt-cate-nav>nav>ul>li');
+        [].slice.call(cateNavs).forEach(function (item) {
+            var sub = item.querySelector('.gkt-sub-cate');
+            if (!sub) return;
+            item.addEventListener('mouseenter', function (e) { sub.style.display = 'block'; }, false);
+            item.addEventListener('mouseleave', function (e) { sub.style.display = 'none'; }, false);
+        })
+    })();
+</script>
+    <!-- Main Content -->
+    <div class="main-container">
+        <!-- Main Content -->
+<main class="col-xs-12 padding-0 markdown-it">
+    <!-- Post Container -->
+    
+    
+    <!-- Post Content -->
+<div class="float-left post-container box-shadow">
+    <div class="u-arrow-wrapper hidden-xs">
+        
+        <a class="float-left" href="/post/java/advance/2019-03-06_java_os.html"><i class="u-arrow-left"></i></a>
+        
+        
+        <a class="float-right" href="/post/java/advance/2019-07-22_java_stack.html"><i class="u-arrow-right"></i></a>
+        
+    </div>
+    <article class="col-xs-12">
+        <h1> Java8新特性学习-函数式编程 </h1>
+        
+        
+        <div class="hidden-lg hidden-md series_links">
+            <p> <strong> Java 进阶系列文章链接：</strong></p>
+            <ul>
+                
+                <li>
+                    <a href="/post/java/advance/2016-10-25_number.html">为什么 8 位有符号整数的范围为 “-128 ~ +127”</a>
+                    <span class="post-item-date">(Oct 26, 2016)</span>
+                </li>
+                
+                <li>
+                    <a href="/post/java/advance/2016-11-03_java_memory_malloc.html">Java 内存分配和泄露</a>
+                    <span class="post-item-date">(Nov 3, 2016)</span>
+                </li>
+                
+                <li>
+                    <a href="/post/java/advance/2016-11-24_java_serializable.html">序列化和反序列化浅析</a>
+                    <span class="post-item-date">(Nov 24, 2016)</span>
+                </li>
+                
+                <li>
+                    <a href="/post/java/advance/2016-12-09_java_books.html">Java书籍推荐</a>
+                    <span class="post-item-date">(Dec 9, 2016)</span>
+                </li>
+                
+                <li>
+                    <a href="/post/java/advance/2017-03-28_java_acknowledge.html">【战略收藏】Java知识体系</a>
+                    <span class="post-item-date">(Mar 28, 2017)</span>
+                </li>
+                
+                <li>
+                    <a href="/post/java/advance/2017-04-18_java_0xff.html">为什么要与上0xff（&0xff），有什么意义？</a>
+                    <span class="post-item-date">(Apr 18, 2017)</span>
+                </li>
+                
+                <li>
+                    <a href="/post/java/advance/2018-11-05_java_vertx.html">Vert.x - 从零开始变(micro)大拿</a>
+                    <span class="post-item-date">(Nov 5, 2018)</span>
+                </li>
+                
+                <li>
+                    <a href="/post/java/advance/2019-03-06_java_os.html">Java 和操作系统交互细节</a>
+                    <span class="post-item-date">(Mar 6, 2019)</span>
+                </li>
+                
+                <li>
+                    <a href="/post/java/advance/2019-05-04_java_labmda.html">Java8新特性学习-函数式编程</a>
+                    <span class="post-item-date">(May 4, 2019)</span>
+                </li>
+                
+                <li>
+                    <a href="/post/java/advance/2019-07-22_java_stack.html">JVM内存结构：堆、栈、方法区</a>
+                    <span class="post-item-date">(Jul 22, 2019)</span>
+                </li>
+                
+                <li>
+                    <a href="/post/java/advance/2020-04-25_java_optimize.html">接口性能优化思路</a>
+                    <span class="post-item-date">(Apr 25, 2020)</span>
+                </li>
+                
+                <li>
+                    <a href="/post/java/advance/2020-06-28_java_jvm.html">深入理解JVM-内存模型（jmm）和GC</a>
+                    <span class="post-item-date">(Jun 28, 2020)</span>
+                </li>
+                
+            </ul>
+        </div>
+        
+        
+        <p>Java8 新引入函数式编程方式，大大的提高了编码效率。本文将对涉及的对象等进行统一的学习及记录。内容包括：Stream/Function/Optional/Consumer。</p>
+<p>首先需要清楚一个概念：函数式接口；它指的是有且只有一个未实现的方法的接口，一般通过 FunctionalInterface 这个注解来表明某个接口是一个函数式接口。函数式接口是 Java 支持函数式编程的基础。</p>
+<p>本文目录：</p>
+<ul>
+<li><p><a href="#1-java8-%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E8%AF%AD%E6%B3%95%E5%85%A5%E9%97%A8">1 Java8 函数式编程语法入门</a></p>
+</li>
+<li><p><a href="#2-java-%E5%87%BD%E6%95%B0%E5%BC%8F%E6%8E%A5%E5%8F%A3">2 Java 函数式接口</a></p>
+</li>
+<li><p><a href="#2-1-consumer">2.1 Consumer</a></p>
+</li>
+<li><p><a href="#2-2-function">2.2 Function</a></p>
+</li>
+<li><p><a href="#2-3-predicate">2.3 Predicate</a></p>
+</li>
+<li><p><a href="#3-%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E6%8E%A5%E5%8F%A3%E7%9A%84%E4%BD%BF%E7%94%A8">3 函数式编程接口的使用</a></p>
+</li>
+<li><p><a href="#3-1-stream">3.1 Stream</a></p>
+</li>
+<li><p><a href="#3-1-1-stream-%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%88%9B%E5%BB%BA">3.1.1 Stream 对象的创建</a></p>
+</li>
+<li><p><a href="#3-1-2-stream-%E5%AF%B9%E8%B1%A1%E7%9A%84%E4%BD%BF%E7%94%A8">3.1.2 Stream 对象的使用</a></p>
+</li>
+<li><p><a href="#3-1-2-1-filter">3.1.2.1 filter</a></p>
+</li>
+<li><p><a href="#3-1-2-2-map">3.1.2.2 map</a></p>
+</li>
+<li><p><a href="#3-1-2-3-flatmap">3.1.2.3 flatMap</a></p>
+</li>
+<li><p><a href="#3-1-2-4-takewhile">3.1.2.4 takeWhile</a></p>
+</li>
+<li><p><a href="#3-1-2-5-dropwhile">3.1.2.5 dropWhile</a></p>
+</li>
+<li><p><a href="#3-1-2-6-reduce-%E4%B8%8E-collect">3.1.2.6 reduce 与 collect</a></p>
+</li>
+<li><p><a href="#3-2-optional">3.2 Optional</a></p>
+</li>
+<li><p><a href="#3-2-1-optional%E5%AF%B9%E8%B1%A1%E5%88%9B%E5%BB%BA">3.2.1 Optional 对象创建</a></p>
+</li>
+<li><p><a href="#3-2-1-1-empty">3.2.1.1 empty</a></p>
+</li>
+<li><p><a href="#3-2-1-2-of">3.2.1.2 of</a></p>
+</li>
+<li><p><a href="#3-2-1-3-ofnullable">3.2.1.3 ofNullable</a></p>
+</li>
+<li><p><a href="#3-2-2-%E6%96%B9%E6%B3%95">3.2.2 方法</a></p>
+</li>
+<li><p><a href="#3-2-3-%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF">3.2.3 使用场景</a></p>
+</li>
+<li><p><a href="#3-2-3-1-%E5%88%A4%E6%96%AD%E7%BB%93%E6%9E%9C%E4%B8%8D%E4%B8%BA%E7%A9%BA%E5%90%8E%E4%BD%BF%E7%94%A8">3.2.3.1 判断结果不为空后使用</a></p>
+</li>
+<li><p><a href="#3-2-3-2-%E5%8F%98%E9%87%8F%E4%B8%BA%E7%A9%BA%E6%97%B6%E6%8F%90%E4%BE%9B%E9%BB%98%E8%AE%A4%E5%80%BC">3.2.3.2 变量为空时提供默认值</a></p>
+</li>
+<li><p><a href="#3-2-3-3-%E5%8F%98%E9%87%8F%E4%B8%BA%E7%A9%BA%E6%97%B6%E6%8A%9B%E5%87%BA%E5%BC%82%E5%B8%B8-%E5%90%A6%E5%88%99%E4%BD%BF%E7%94%A8">3.2.3.3 变量为空时抛出异常,否则使用</a></p>
+</li>
+</ul>
+<h1 id="1-Java8-函数式编程语法入门"><a href="#1-Java8-函数式编程语法入门" class="headerlink" title="1 Java8 函数式编程语法入门"></a>1 Java8 函数式编程语法入门</h1><p>Java8 中函数式编程语法能够精简代码。 </p>
+<p>使用 Consumer 作为示例，它是一个函数式接口，包含一个抽象方法 accept，这个方法只有输入而无输出。 </p>
+<p>现在我们要定义一个 Consumer 对象，传统的方式是这样定义的：</p>
+<pre><code>Consumer c = new Consumer() &#123;
+    @Overridepublicvoidaccept(Object o) &#123;
+        System.out.println(o);
+    &#125;
+&#125;;</code></pre>
+<p>而在 Java8 中，针对函数式编程接口，可以这样定义：</p>
+<pre><code>Consumer c = (o) -&gt; &#123;
+    System.out.println(o);
+&#125;;  </code></pre>
+<p>上面已说明，函数式编程接口都只有一个抽象方法，因此在采用这种写法时，编译器会将这段函数编译后当作该抽象方法的实现。 </p>
+<p>如果接口有多个抽象方法，编译器就不知道这段函数应该是实现哪个方法的了。 </p>
+<p>因此，= 后面的函数体我们就可以看成是 accept 函数的实现。</p>
+<ul>
+<li>输入：-&gt;前面的部分，即被 () 包围的部分。此处只有一个输入参数，实际上输入是可以有多个的，如两个参数时写法：(a, b); 当然也可以没有输入，此时直接就可以是()。  </li>
+<li>函数体：-&gt;后面的部分，即被 {} 包围的部分；可以是一段代码。</li>
+<li>输出：函数式编程可以没有返回值，也可以有返回值。如果有返回值时，需要代码段的最后一句通过 return 的方式返回对应的值。</li>
+</ul>
+<p>当函数体中只有一个语句时，可以去掉 {} 进一步简化：</p>
+<pre><code>Consumer c = (o) -&gt; System.out.println(o);</code></pre>
+<p>然而这还不是最简的，由于此处只是进行打印，调用了 System.out 中的 println 静态方法对输入参数直接进行打印，因此可以简化成以下写法：</p>
+<pre><code>Consumer c = System.out::println;</code></pre>
+<p>它表示的意思就是针对输入的参数将其调用 System.out 中的静态方法 println 进行打印。 </p>
+<p>到这一步就可以感受到函数式编程的强大能力。 </p>
+<p>通过最后一段代码，我们可以简单的理解函数式编程，Consumer 接口直接就可以当成一个函数了，这个函数接收一个输入参数，然后针对这个输入进行处理；当然其本质上仍旧是一个对象，但我们已经省去了诸如老方式中的对象定义过程，直接使用一段代码来给函数式接口对象赋值。 </p>
+<p>而且最为关键的是，这个函数式对象因为本质上仍旧是一个对象，因此可以做为其它方法的参数或者返回值，可以与原有的代码实现无缝集成！</p>
+<p>下面对 Java 中的几个预先定义的函数式接口及其经常使用的类进行分析学习。</p>
+<h1 id="2-Java-函数式接口"><a href="#2-Java-函数式接口" class="headerlink" title="2 Java 函数式接口"></a>2 Java 函数式接口</h1><h2 id="2-1-Consumer"><a href="#2-1-Consumer" class="headerlink" title="2.1 Consumer"></a>2.1 Consumer</h2><p>Consumer 是一个函数式编程接口； 顾名思义，Consumer 的意思就是消费，即针对某个东西我们来使用它，因此它包含有一个有输入而无输出的 accept 接口方法；  </p>
+<p>除 accept 方法，它还包含有 andThen 这个方法； </p>
+<p>其定义如下：</p>
+<pre><code>default Consumer&lt;T&gt; andThen(Consumer&lt;? super T&gt; after) &#123;
+    Objects.requireNonNull(after);
+    return (T t) -&gt; &#123; accept(t); after.accept(t); &#125;;
+&#125;</code></pre>
+<p>可见这个方法就是指定在调用当前 Consumer 后是否还要调用其它的 Consumer；  </p>
+<p>使用示例：</p>
+<pre><code>publicstaticvoidconsumerTest() &#123;
+    Consumer f = System.out::println;
+    Consumer f2 = n -&gt; System.out.println(n + &quot;-F2&quot;);
+
+    //执行完F后再执行F2的Accept方法
+    f.andThen(f2).accept(&quot;test&quot;);
+
+    //连续执行F的Accept方法
+    f.andThen(f).andThen(f).andThen(f).accept(&quot;test1&quot;);
+&#125;</code></pre>
+<h2 id="2-2-Function"><a href="#2-2-Function" class="headerlink" title="2.2 Function"></a>2.2 Function</h2><p>Function 也是一个函数式编程接口；它代表的含义是 “函数”，而函数经常是有输入输出的，因此它含有一个 apply 方法，包含一个输入与一个输出；  </p>
+<p>除 apply 方法外，它还有 compose 与 andThen 及 indentity 三个方法，其使用见下述示例；</p>
+<pre><code>/**
+ * Function测试
+ */publicstaticvoidfunctionTest() &#123;
+    Function&lt;Integer, Integer&gt; f = s -&gt; s++;
+    Function&lt;Integer, Integer&gt; g = s -&gt; s * 2;
+
+    /**
+     * 下面表示在执行F时，先执行G，并且执行F时使用G的输出当作输入。
+     * 相当于以下代码：
+     * Integer a = g.apply(1);
+     * System.out.println(f.apply(a));
+     */
+    System.out.println(f.compose(g).apply(1));
+
+    /**
+     * 表示执行F的Apply后使用其返回的值当作输入再执行G的Apply；
+     * 相当于以下代码
+     * Integer a = f.apply(1);
+     * System.out.println(g.apply(a));
+     */
+    System.out.println(f.andThen(g).apply(1));
+
+    /**
+     * identity方法会返回一个不进行任何处理的Function，即输出与输入值相等； 
+     */
+    System.out.println(Function.identity().apply(&quot;a&quot;));
+&#125;</code></pre>
+<h2 id="2-3-Predicate"><a href="#2-3-Predicate" class="headerlink" title="2.3 Predicate"></a>2.3 Predicate</h2><p>Predicate 为函数式接口，predicate 的中文意思是 “断定”，即判断的意思，判断某个东西是否满足某种条件； 因此它包含 test 方法，根据输入值来做逻辑判断，其结果为 True 或者 False。 </p>
+<p>它的使用方法示例如下：</p>
+<pre><code>/**
+ * Predicate测试
+ */privatestaticvoidpredicateTest() &#123;
+    Predicate&lt;String&gt; p = o -&gt; o.equals(&quot;test&quot;);
+    Predicate&lt;String&gt; g = o -&gt; o.startsWith(&quot;t&quot;);
+
+    /**
+     * negate: 用于对原来的Predicate做取反处理；
+     * 如当调用p.test(&quot;test&quot;)为True时，调用p.negate().test(&quot;test&quot;)就会是False；
+     */
+    Assert.assertFalse(p.negate().test(&quot;test&quot;));
+
+    /**
+     * and: 针对同一输入值，多个Predicate均返回True时返回True，否则返回False；
+     */
+    Assert.assertTrue(p.and(g).test(&quot;test&quot;));
+
+    /**
+     * or: 针对同一输入值，多个Predicate只要有一个返回True则返回True，否则返回False
+     */
+    Assert.assertTrue(p.or(g).test(&quot;ta&quot;));
+&#125;</code></pre>
+<h1 id="3-函数式编程接口的使用"><a href="#3-函数式编程接口的使用" class="headerlink" title="3 函数式编程接口的使用"></a>3 函数式编程接口的使用</h1><p>通过 Stream 以及 Optional 两个类，可以进一步利用函数式接口来简化代码。</p>
+<h2 id="3-1-Stream"><a href="#3-1-Stream" class="headerlink" title="3.1 Stream"></a>3.1 Stream</h2><p>Stream 可以对多个元素进行一系列的操作，也可以支持对某些操作进行并发处理。</p>
+<h3 id="3-1-1-Stream-对象的创建"><a href="#3-1-1-Stream-对象的创建" class="headerlink" title="3.1.1 Stream 对象的创建"></a>3.1.1 Stream 对象的创建</h3><p>Stream 对象的创建途径有以下几种</p>
+<p>a. 创建空的 Stream 对象</p>
+<pre><code>Stream stream = Stream.empty();</code></pre>
+<p>b. 通过集合类中的 stream 或者 parallelStream 方法创建； </p>
+<pre><code>List&lt;String&gt; list = Arrays.asList(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;);
+Stream listStream = list.stream();                   //获取串行的Stream对象
+Stream parallelListStream = list.parallelStream();   //获取并行的Stream对象  </code></pre>
+<p>c. 通过 Stream 中的 of 方法创建：</p>
+<pre><code>Stream s = Stream.of(&quot;test&quot;);
+Stream s1 = Stream.of(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;);</code></pre>
+<p>d. 通过 Stream 中的 iterate 方法创建： </p>
+<p>iterate 方法有两个不同参数的方法：</p>
+<pre><code>publicstatic&lt;T&gt; Stream&lt;T&gt; iterate(final T seed, final UnaryOperator&lt;T&gt; f);  
+publicstatic&lt;T&gt; Stream&lt;T&gt; iterate(T seed, Predicate&lt;? super T&gt; hasNext, UnaryOperator&lt;T&gt; next)</code></pre>
+<p>其中第一个方法将会返回一个无限有序值的 Stream 对象：它的第一个元素是 seed，第二个元素是 f.apply(seed); 第 N 个元素是 f.apply(n-1 个元素的值)；生成无限值的方法实际上与 Stream 的中间方法类似，在遇到中止方法前一般是不真正的执行的。因此无限值的这个方法一般与 limit 等方法一起使用，来获取前多少个元素。 </p>
+<p>当然获取前多少个元素也可以使用第二个方法。  </p>
+<p>第二个方法与第一个方法生成元素的方式类似，不同的是它返回的是一个有限值的 Stream；中止条件是由 hasNext 来断定的。  </p>
+<p>第二种方法的使用示例如下： </p>
+<pre><code>/**
+ * 本示例表示从1开始组装一个序列，第一个是1，第二个是1+1即2，第三个是2+1即3..，直接10时中止；
+ * 也可简化成以下形式：
+ *        Stream.iterate(1,
+ *        n -&gt; n &lt;= 10,
+ *        n -&gt; n+1).forEach(System.out::println);
+ * 写成以下方式是为简化理解
+ */
+Stream.iterate(1,
+        new Predicate&lt;Integer&gt;() &#123;
+            @Overridepublicbooleantest(Integer integer) &#123;
+                return integer &lt;= 10;
+            &#125;
+        &#125;,
+    new UnaryOperator&lt;Integer&gt;() &#123;
+        @Overridepublic Integer apply(Integer integer) &#123;
+            return integer+1;
+        &#125;
+&#125;).forEach(System.out::println);</code></pre>
+<p>e. 通过 Stream 中的 generate 方法创建  </p>
+<p>与 iterate 中创建无限元素的 Stream 类似，不过它的每个元素与前一元素无关，且生成的是一个无序的队列。也就是说每一个元素都可以随机生成。因此一般用来创建常量的 Stream 以及随机的 Stream 等。  </p>
+<p>示例如下：</p>
+<pre><code>/**
+ * 随机生成10个Double元素的Stream并将其打印
+ */
+Stream.generate(new Supplier&lt;Double&gt;() &#123;
+    @Overridepublic Double get() &#123;
+        return Math.random();
+    &#125;
+&#125;).limit(10).forEach(System.out::println);
+
+//上述写法可以简化成以下写法：
+Stream.generate(() -&gt; Math.random()).limit(10).forEach(System.out::println);</code></pre>
+<p>f. 通过 Stream 中的 concat 方法连接两个 Stream 对象生成新的 Stream 对象 </p>
+<p>这个比较好理解不再赘述。  </p>
+<h3 id="3-1-2-Stream-对象的使用"><a href="#3-1-2-Stream-对象的使用" class="headerlink" title="3.1.2 Stream 对象的使用"></a>3.1.2 Stream 对象的使用</h3><p>Stream 对象提供多个非常有用的方法，这些方法可以分成两类：  </p>
+<p>中间操作：将原始的 Stream 转换成另外一个 Stream；如 filter 返回的是过滤后的 Stream。 </p>
+<p>终端操作：产生的是一个结果或者其它的复合操作；如 count 或者 forEach 操作。</p>
+<p>其清单如下所示，方法的具体说明及使用示例见后文。 </p>
+<p>所有中间操作</p>
+<p>方法说明sequential返回一个相等的串行的 Stream 对象，如果原 Stream 对象已经是串行就可能会返回原对象parallel返回一个相等的并行的 Stream 对象，如果原 Stream 对象已经是并行的就会返回原对象unordered返回一个不关心顺序的 Stream 对象，如果原对象已经是这类型的对象就会返回原对象onClose返回一个相等的 Steam 对象，同时新的 Stream 对象在执行 Close 方法时会调用传入的 Runnable 对象close关闭 Stream 对象filter元素过滤：对 Stream 对象按指定的 Predicate 进行过滤，返回的 Stream 对象中仅包含未被过滤的元素map元素一对一转换：使用传入的 Function 对象对 Stream 中的所有元素进行处理，返回的 Stream 对象中的元素为原元素处理后的结果mapToInt元素一对一转换：将原 Stream 中的使用传入的 IntFunction 加工后返回一个 IntStream 对象flatMap元素一对多转换：对原 Stream 中的所有元素进行操作，每个元素会有一个或者多个结果，然后将返回的所有元素组合成一个统一的 Stream 并返回；distinct去重：返回一个去重后的 Stream 对象sorted排序：返回排序后的 Stream 对象peek使用传入的 Consumer 对象对所有元素进行消费后，返回一个新的包含所有原来元素的 Stream 对象limit获取有限个元素组成新的 Stream 对象返回skip抛弃前指定个元素后使用剩下的元素组成新的 Stream 返回takeWhile如果 Stream 是有序的（Ordered），那么返回最长命中序列（符合传入的 Predicate 的最长命中序列）组成的 Stream；如果是无序的，那么返回的是所有符合传入的 Predicate 的元素序列组成的 Stream。dropWhile与 takeWhile 相反，如果是有序的，返回除最长命中序列外的所有元素组成的 Stream；如果是无序的，返回所有未命中的元素组成的 Stream。</p>
+<p>所有终端操作</p>
+<p>方法说明iterator返回 Stream 中所有对象的迭代器;spliterator返回对所有对象进行的 spliterator 对象forEach对所有元素进行迭代处理，无返回值forEachOrdered按 Stream 的 Encounter 所决定的序列进行迭代处理，无返回值toArray返回所有元素的数组reduce使用一个初始化的值，与 Stream 中的元素一一做传入的二合运算后返回最终的值。每与一个元素做运算后的结果，再与下一个元素做运算。它不保证会按序列执行整个过程。collect根据传入参数做相关汇聚计算min返回所有元素中最小值的 Optional 对象；如果 Stream 中无任何元素，那么返回的 Optional 对象为 Emptymax与 Min 相反count所有元素个数anyMatch只要其中有一个元素满足传入的 Predicate 时返回 True，否则返回 FalseallMatch所有元素均满足传入的 Predicate 时返回 True，否则 FalsenoneMatch所有元素均不满足传入的 Predicate 时返回 True，否则 FalsefindFirst返回第一个元素的 Optioanl 对象；如果无元素返回的是空的 Optional； 如果 Stream 是无序的，那么任何元素都可能被返回。findAny返回任意一个元素的 Optional 对象，如果无元素返回的是空的 Optioanl。isParallel判断是否当前 Stream 对象是并行的</p>
+<p>下面就几个比较常用的方法举例说明其用法： </p>
+<h4 id="3-1-2-1-filter"><a href="#3-1-2-1-filter" class="headerlink" title="3.1.2.1 filter"></a>3.1.2.1 filter</h4><p>用于对 Stream 中的元素进行过滤，返回一个过滤后的 Stream </p>
+<p>其方法定义如下： </p>
+<pre><code>Stream&lt;T&gt; filter(Predicate&lt;? super T&gt; predicate);</code></pre>
+<p>使用示例：</p>
+<pre><code>Stream&lt;String&gt; s = Stream.of(&quot;test&quot;, &quot;t1&quot;, &quot;t2&quot;, &quot;teeeee&quot;, &quot;aaaa&quot;);
+//查找所有包含t的元素并进行打印
+s.filter(n -&gt; n.contains(&quot;t&quot;)).forEach(System.out::println);</code></pre>
+<h4 id="3-1-2-2-map"><a href="#3-1-2-2-map" class="headerlink" title="3.1.2.2 map"></a>3.1.2.2 map</h4><p>元素一对一转换。 </p>
+<p>它接收一个 Funcation 参数，用其对 Stream 中的所有元素进行处理，返回的 Stream 对象中的元素为 Function 对原元素处理后的结果 </p>
+<p>其方法定义如下：</p>
+<pre><code>&lt;R&gt; Stream&lt;R&gt; map(Function&lt;? super T, ? extends R&gt; mapper);</code></pre>
+<p>示例，假设我们要将一个 String 类型的 Stream 对象中的每个元素添加相同的后缀. txt，如 a 变成 a.txt，其写法如下： </p>
+<pre><code>Stream&lt;String&gt; s = Stream.of(&quot;test&quot;, &quot;t1&quot;, &quot;t2&quot;, &quot;teeeee&quot;, &quot;aaaa&quot;);
+s.map(n -&gt; n.concat(&quot;.txt&quot;)).forEach(System.out::println);</code></pre>
+<h4 id="3-1-2-3-flatMap"><a href="#3-1-2-3-flatMap" class="headerlink" title="3.1.2.3 flatMap"></a>3.1.2.3 flatMap</h4><p>元素一对多转换：对原 Stream 中的所有元素使用传入的 Function 进行处理，每个元素经过处理后生成一个多个元素的 Stream 对象，然后将返回的所有 Stream 对象中的所有元素组合成一个统一的 Stream 并返回； </p>
+<p>方法定义如下：</p>
+<pre><code>&lt;R&gt; Stream&lt;R&gt; flatMap(Function&lt;? super T, ? extends Stream&lt;? extends R&gt;&gt; mapper);</code></pre>
+<p>示例，假设要对一个 String 类型的 Stream 进行处理，将每一个元素的拆分成单个字母，并打印： </p>
+<pre><code>Stream&lt;String&gt; s = Stream.of(&quot;test&quot;, &quot;t1&quot;, &quot;t2&quot;, &quot;teeeee&quot;, &quot;aaaa&quot;);
+s.flatMap(n -&gt; Stream.of(n.split(&quot;&quot;))).forEach(System.out::println);</code></pre>
+<h4 id="3-1-2-4-takeWhile"><a href="#3-1-2-4-takeWhile" class="headerlink" title="3.1.2.4 takeWhile"></a>3.1.2.4 takeWhile</h4><p>方法定义如下： </p>
+<pre><code>default Stream&lt;T&gt; takeWhile(Predicate&lt;? super T&gt; predicate)</code></pre>
+<p>如果 Stream 是有序的（Ordered），那么返回最长命中序列（符合传入的 Predicate 的最长命中序列）组成的 Stream；如果是无序的，那么返回的是所有符合传入的 Predicate 的元素序列组成的 Stream。 </p>
+<p>与 Filter 有点类似，不同的地方就在当 Stream 是有序时，返回的只是最长命中序列。 </p>
+<p>如以下示例，通过 takeWhile 查找”test”, “t1”, “t2”, “teeeee”, “aaaa”, “taaa” 这几个元素中包含 t 的最长命中序列： </p>
+<pre><code>Stream&lt;String&gt; s = Stream.of(&quot;test&quot;, &quot;t1&quot;, &quot;t2&quot;, &quot;teeeee&quot;, &quot;aaaa&quot;, &quot;taaa&quot;);
+//以下结果将打印： &quot;test&quot;, &quot;t1&quot;, &quot;t2&quot;, &quot;teeeee&quot;，最后的那个taaa不会进行打印 
+s.takeWhile(n -&gt; n.contains(&quot;t&quot;)).forEach(System.out::println);</code></pre>
+<h4 id="3-1-2-5-dropWhile"><a href="#3-1-2-5-dropWhile" class="headerlink" title="3.1.2.5 dropWhile"></a>3.1.2.5 dropWhile</h4><p>与 takeWhile 相反，如果是有序的，返回除最长命中序列外的所有元素组成的 Stream；如果是无序的，返回所有未命中的元素组成的 Stream; 其定义如下：</p>
+<pre><code>default Stream&lt;T&gt; dropWhile(Predicate&lt;? super T&gt; predicate)</code></pre>
+<p>如以下示例，通过 dropWhile 删除”test”, “t1”, “t2”, “teeeee”, “aaaa”, “taaa” 这几个元素中包含 t 的最长命中序列：</p>
+<pre><code>Stream&lt;String&gt; s = Stream.of(&quot;test&quot;, &quot;t1&quot;, &quot;t2&quot;, &quot;teeeee&quot;, &quot;aaaa&quot;, &quot;taaa&quot;);
+//以下结果将打印：&quot;aaaa&quot;, &quot;taaa&quot; 　
+s.dropWhile(n -&gt; n.contains(&quot;t&quot;)).forEach(System.out::println);</code></pre>
+<h4 id="3-1-2-6-reduce-与-collect"><a href="#3-1-2-6-reduce-与-collect" class="headerlink" title="3.1.2.6 reduce 与 collect"></a>3.1.2.6 reduce 与 collect</h4><p>关于 reduce 与 collect 由于功能较为复杂，在后续将进行单独分析与学习，此处暂不涉及。</p>
+<h2 id="3-2-Optional"><a href="#3-2-Optional" class="headerlink" title="3.2 Optional"></a>3.2 Optional</h2><p>用于简化 Java 中对空值的判断处理，以防止出现各种空指针异常。 </p>
+<p>Optional 实际上是对一个变量进行封装，它包含有一个属性 value，实际上就是这个变量的值。</p>
+<h3 id="3-2-1-Optional-对象创建"><a href="#3-2-1-Optional-对象创建" class="headerlink" title="3.2.1 Optional 对象创建"></a>3.2.1 Optional 对象创建</h3><p>它的构造函数都是 private 类型的，因此要初始化一个 Optional 的对象无法通过其构造函数进行创建。它提供了一系列的静态方法用于构建 Optional 对象:</p>
+<h4 id="3-2-1-1-empty"><a href="#3-2-1-1-empty" class="headerlink" title="3.2.1.1 empty"></a>3.2.1.1 empty</h4><p>用于创建一个空的 Optional 对象；其 value 属性为 Null。 </p>
+<p>如：</p>
+<pre><code>Optional o = Optional.empty();</code></pre>
+<h4 id="3-2-1-2-of"><a href="#3-2-1-2-of" class="headerlink" title="3.2.1.2 of"></a>3.2.1.2 of</h4><p>根据传入的值构建一个 Optional 对象;  </p>
+<p>传入的值必须是非空值，否则如果传入的值为空值，则会抛出空指针异常。 </p>
+<p>使用：</p>
+<pre><code>o = Optional.of(&quot;test&quot;); </code></pre>
+<h4 id="3-2-1-3-ofNullable"><a href="#3-2-1-3-ofNullable" class="headerlink" title="3.2.1.3 ofNullable"></a>3.2.1.3 ofNullable</h4><p>根据传入值构建一个 Optional 对象  </p>
+<p>传入的值可以是空值，如果传入的值是空值，则与 empty 返回的结果是一样的。  </p>
+<h3 id="3-2-2-方法"><a href="#3-2-2-方法" class="headerlink" title="3.2.2 方法"></a>3.2.2 方法</h3><p>Optional 包含以下方法：</p>
+<p>方法名说明get获取 Value 的值，如果 Value 值是空值，则会抛出 NoSuchElementException 异常；因此返回的 Value 值无需再做空值判断，只要没有抛出异常，都会是非空值。isPresentValue 是否为空值的判断；ifPresent当 Value 不为空时，执行传入的 Consumer；ifPresentOrElseValue 不为空时，执行传入的 Consumer；否则执行传入的 Runnable 对象；filter当 Value 为空或者传入的 Predicate 对象调用 test(value) 返回 False 时，返回 Empty 对象；否则返回当前的 Optional 对象map一对一转换：当 Value 为空时返回 Empty 对象，否则返回传入的 Function 执行 apply(value) 后的结果组装的 Optional 对象；flatMap一对多转换：当 Value 为空时返回 Empty 对象，否则传入的 Function 执行 apply(value) 后返回的结果（其返回结果直接是 Optional 对象）or如果 Value 不为空，则返回当前的 Optional 对象；否则，返回传入的 Supplier 生成的 Optional 对象；stream如果 Value 为空，返回 Stream 对象的 Empty 值；否则返回 Stream.of(value) 的 Stream 对象；orElseValue 不为空则返回 Value，否则返回传入的值；orElseGetValue 不为空则返回 Value，否则返回传入的 Supplier 生成的值；orElseThrowValue 不为空则返回 Value，否则抛出 Supplier 中生成的异常对象；</p>
+<h3 id="3-2-3-使用场景"><a href="#3-2-3-使用场景" class="headerlink" title="3.2.3 使用场景"></a>3.2.3 使用场景</h3><p>常用的使用场景如下：</p>
+<h4 id="3-2-3-1-判断结果不为空后使用"><a href="#3-2-3-1-判断结果不为空后使用" class="headerlink" title="3.2.3.1 判断结果不为空后使用"></a>3.2.3.1 判断结果不为空后使用</h4><p>如某个函数可能会返回空值，以往的做法：</p>
+<pre><code>String s = test();
+if (null != s) &#123;
+    System.out.println(s);
+&#125;</code></pre>
+<p>现在的写法就可以是：</p>
+<pre><code>Optional&lt;String&gt; s = Optional.ofNullable(test());
+s.ifPresent(System.out::println);</code></pre>
+<p>乍一看代码复杂度上差不多甚至是略有提升；那为什么要这么做呢？ </p>
+<p>一般情况下，我们在使用某一个函数返回值时，要做的第一步就是去分析这个函数是否会返回空值；如果没有进行分析或者分析的结果出现偏差，导致函数会抛出空值而没有做检测，那么就会相应的抛出空指针异常！ </p>
+<p>而有了 Optional 后，在我们不确定时就可以不用去做这个检测了，所有的检测 Optional 对象都帮忙我们完成，我们要做的就是按上述方式去处理。</p>
+<h4 id="3-2-3-2-变量为空时提供默认值"><a href="#3-2-3-2-变量为空时提供默认值" class="headerlink" title="3.2.3.2 变量为空时提供默认值"></a>3.2.3.2 变量为空时提供默认值</h4><p>如要判断某个变量为空时使用提供的值，然后再针对这个变量做某种运算；  </p>
+<p>以往做法：</p>
+<pre><code>if (null == s) &#123;
+    s = &quot;test&quot;;
+&#125;
+System.out.println(s);</code></pre>
+<p>现在的做法：</p>
+<pre><code>Optional&lt;String&gt; o = Optional.ofNullable(s);
+System.out.println(o.orElse(&quot;test&quot;));</code></pre>
+<h4 id="3-2-3-3-变量为空时抛出异常，否则使用"><a href="#3-2-3-3-变量为空时抛出异常，否则使用" class="headerlink" title="3.2.3.3 变量为空时抛出异常，否则使用"></a>3.2.3.3 变量为空时抛出异常，否则使用</h4><p>以往写法：</p>
+<pre><code>if (null == s) &#123;
+    thrownew Exception(&quot;test&quot;);
+&#125;
+System.out.println(s);</code></pre>
+<p>现在写法：</p>
+<pre><code>Optional&lt;String&gt; o = Optional.ofNullable(s);
+System.out.println(o.orElseThrow(()-&gt;new Exception(&quot;test&quot;)));</code></pre>
+<p>其它场景待补充。</p>
+<p>原文：<a target="_blank" rel="noopener" href="https://blog.csdn.net/icarusliu/article/details/79495534">https://blog.csdn.net/icarusliu/article/details/79495534</a></p>
+
+        
+<script src="/js/qrious.min.js"></script>
+
+
+        <hr>
+        <div>
+            
+            <p>
+                <span>专题: </span>
+                
+                <a href="/series/#Java 进阶">
+                    <code key="Java 进阶" class="post-label">Java 进阶</code>
+                </a>
+                
+            </p>
+            
+            <p>
+                <span>本文发表于 2019-05-04，最后修改于 2020-11-24。</span>
+            </p>
+            <!-- 文章末尾的提示 start -->
+            
+            
+            
+                
+            <!-- 文章末尾的提示 end -->
+        </div>
+        <hr />
+        <p name="pagination" style="font-size: 1.2em">
+    
+    <a class="float-left" href="/post/java/advance/2019-03-06_java_os.html">上一篇 « Java 和操作系统交互细节</a>
+    
+    
+    <a class="float-right" href="/post/java/advance/2019-07-22_java_stack.html">下一篇 » JVM内存结构：堆、栈、方法区</a>
+    
+</p>
+    </article>
+    <!-- 赞赏 -->
+    <!--打赏-->
+
+    <!-- 推荐阅读三篇文章 -->
+    <div class="col-xs-12">
+        <h3>推荐阅读</h3>
+        
+        <div class="post-preview">
+    <div class="post-img" style="background-image: url('/images/java/basic/java_logo.png')"></div>
+    <div class="post-info">
+        <div class="post-info-center">
+            <div class="hidden-xs">
+                
+                
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#Java"
+                    title="Java">Java</a>
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#垃圾回收"
+                    title="垃圾回收">垃圾回收</a>
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#jvm"
+                    title="jvm">jvm</a>
+                <span>/</span>
+                
+                
+            </div>
+            <a href="/post/java/advance/2020-06-28_java_jvm.html" class="title">
+                深入理解JVM-内存模型（jmm）和GC
+            </a>
+            <p class="text-gray">
+                <small>
+                    <span>发表于2020-06-28，</span>
+                    <span class="hidden-xs">全文26503字，</span>
+                    <span>阅读约89分钟</span>
+                </small>
+            </p>
+        </div>
+    </div>
+</div>
+        
+        <div class="post-preview">
+    <div class="post-img" style="background-image: url('/images/java/basic/java_logo.png')"></div>
+    <div class="post-info">
+        <div class="post-info-center">
+            <div class="hidden-xs">
+                
+                
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#Java"
+                    title="Java">Java</a>
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#HashMap"
+                    title="HashMap">HashMap</a>
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#Java集合"
+                    title="Java集合">Java集合</a>
+                <span>/</span>
+                
+                
+            </div>
+            <a href="/post/java/basic/2016-10-25_hashmap_jdk7.html" class="title">
+                关于 HashMap （JDK 1.7）
+            </a>
+            <p class="text-gray">
+                <small>
+                    <span>发表于2016-10-25，</span>
+                    <span class="hidden-xs">全文3816字，</span>
+                    <span>阅读约13分钟</span>
+                </small>
+            </p>
+        </div>
+    </div>
+</div>
+        
+        <div class="post-preview">
+    <div class="post-img" style="background-image: url('/')"></div>
+    <div class="post-info">
+        <div class="post-info-center">
+            <div class="hidden-xs">
+                
+                
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#关于我"
+                    title="关于我">关于我</a>
+                <span>/</span>
+                
+                
+            </div>
+            <a href="/post/about.html" class="title">
+                关于我
+            </a>
+            <p class="text-gray">
+                <small>
+                    <span>发表于2012-11-03，</span>
+                    <span class="hidden-xs">全文73字，</span>
+                    <span>阅读约1分钟</span>
+                </small>
+            </p>
+        </div>
+    </div>
+</div>
+        
+    </div>
+    <div class="col-xs-12">
+        <!-- 标签列表 -->
+        <!-- Featured Tags -->
+<style>
+    #featured-tag .post-tag-item {
+        font-size: 12px;
+        line-height: 30px;
+        display: inline-block;
+        height: 30px;
+        margin: 5px 0px;
+        padding: 0 7px;
+        color: #333;
+        border-radius: 15px;
+        background: #f6f6f6;
+    }
+
+    #featured-tag .post-tag-item:hover {
+        color: #337ab7;
+    }
+</style>
+<div id="featured-tag">
+    
+    <a class="post-tag-item" href="/tags/#关于我" title="关于我"
+        rel="1">#关于我 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Hello World" title="Hello World"
+        rel="1">#Hello World (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Idea" title="Idea"
+        rel="1">#Idea (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#JavaIDE" title="JavaIDE"
+        rel="1">#JavaIDE (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Java" title="Java"
+        rel="20">#Java (20) </a>
+    
+    <a class="post-tag-item" href="/tags/#二进制" title="二进制"
+        rel="2">#二进制 (2) </a>
+    
+    <a class="post-tag-item" href="/tags/#HashMap" title="HashMap"
+        rel="1">#HashMap (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Java集合" title="Java集合"
+        rel="1">#Java集合 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#ThreadLocal" title="ThreadLocal"
+        rel="1">#ThreadLocal (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Java线程" title="Java线程"
+        rel="3">#Java线程 (3) </a>
+    
+    <a class="post-tag-item" href="/tags/#异常" title="异常"
+        rel="1">#异常 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Java异常" title="Java异常"
+        rel="1">#Java异常 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#思维导图" title="思维导图"
+        rel="1">#思维导图 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#垃圾回收" title="垃圾回收"
+        rel="2">#垃圾回收 (2) </a>
+    
+    <a class="post-tag-item" href="/tags/#Java引用" title="Java引用"
+        rel="1">#Java引用 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#lambda表达式" title="lambda表达式"
+        rel="1">#lambda表达式 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#源码" title="源码"
+        rel="1">#源码 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#内存分配" title="内存分配"
+        rel="1">#内存分配 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#内存泄露" title="内存泄露"
+        rel="1">#内存泄露 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#书籍推荐" title="书籍推荐"
+        rel="1">#书籍推荐 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#知识体系" title="知识体系"
+        rel="1">#知识体系 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#序列化" title="序列化"
+        rel="1">#序列化 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#反码" title="反码"
+        rel="1">#反码 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#补码" title="补码"
+        rel="1">#补码 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#内存模型" title="内存模型"
+        rel="1">#内存模型 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#jvm" title="jvm"
+        rel="3">#jvm (3) </a>
+    
+    <a class="post-tag-item" href="/tags/#性能优化" title="性能优化"
+        rel="1">#性能优化 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#函数式编程" title="函数式编程"
+        rel="1">#函数式编程 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#lambda" title="lambda"
+        rel="1">#lambda (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#操作系统" title="操作系统"
+        rel="1">#操作系统 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#微服务" title="微服务"
+        rel="1">#微服务 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Vert.x" title="Vert.x"
+        rel="1">#Vert.x (1) </a>
+    
+</div>
+    </div>
+    <!-- 评论 -->
+    
+    <div class="col-xs-12">
+        
+<div class="col-xs-12 padding-0">
+    <div id="gitalk-container">
+        <div class="gt-container text-center" style="margin-top: 50px;">
+            <button class="gt-btn gt-btn-public"><span class="gt-btn-text">去 Github 评论</span></button>
+        </div>
+    </div>
+    <div id="gitalk-related"></div>
+</div>
+
+<link rel="stylesheet" href="/css/gitalk.css">
+
+
+<script src="/js/gitalk.min.js"></script>
+
+<script>
+    window.addEventListener('load', function () {
+        function renderCommentUrl(data) {
+            var url = (data[window.location.pathname] || {}).url
+            url && getDom('#gitalk-container button').addEventListener('click', function (e) { window.open(url)})
+            url || (getDom('#gitalk-container').style.display = 'none')
+        }
+        const gitalk = new Gitalk({
+            clientID: 'a33ab8f0fc90bd0b86d7',
+            clientSecret: 'cfa4b020ca99ef91be8f4bf8180afbe831bf2a75',
+            accessToken: '',
+            repo: 'blogcmt',
+            owner: 'HassanChiang',
+            admin: ['HassanChiang'],
+            id: window.location.pathname,
+            distractionFreeMode: false
+        });
+        fetch("https://api.github.com/user").then(function(resp){
+            gitalk.render('gitalk-container');
+        }).catch(function(e){
+            fetch('/tool/issues.json').then(function (r) { return r.json() }).then(renderCommentUrl).catch(function (e) { })
+        })
+        getDom('#gitalk-container').addEventListener('click', function (e) {
+            e && e.stopPropagation && e.stopPropagation();
+        });
+    })
+</script>
+<script>
+    window.addEventListener('load', function () {
+        function render(comments) {
+            var template = '<a href="${comment.url}?utm_source=gitalk" class="dis-item-url"><h3 class="dis-item-title">${comment.title}</h3>' +
+                '<p class="dis-item-des">${comment.count} 评论 ● ${comment.date}</p>' +
+                '<div class="dis-item-content"><img class="dis-item-img" src="${comment.icon}" alt="icon"><p><b><span class="dis-item-user">${comment.user}</span></b>&nbsp;——&nbsp;${comment.body}</p></div>' +
+                '</a>'
+
+            var wrapper = getDom('#gitalk-related');
+            comments = shuffle(comments);
+            comments.slice(0, 4).forEach(function (c) {
+                var div = document.createElement('div');
+                div.classList.add('dis-item');
+                div.innerHTML = template.replace("${comment.url}", c.url)
+                    .replace("${comment.title}", c.title)
+                    .replace("${comment.count}", c.count)
+                    .replace("${comment.date}", c.date)
+                    .replace("${comment.icon}", c.icon)
+                    .replace("${comment.user}", c.user)
+                    .replace("${comment.body}", c.body)
+                wrapper.appendChild(div)
+            })
+            var p = document.createElement('p')
+            p.innerHTML = '<a target="_blank" rel="noopener" href="https://geektutu.com/post/blog-experience-7.html">Gitalk Plus</a>';
+            p.classList.add('dis-divide');
+            wrapper.appendChild(p);
+            wrapper.classList.add('dis-wrapper')
+        }
+        function shuffle(a) {
+            for (var i = a.length - 1; i > 0; i--) {
+                var j = Math.floor(Math.random() * (i + 1));
+                [a[i], a[j]] = [a[j], a[i]];
+            }
+            return a;
+        }
+        fetch('/tool/comments.json').then(function (r) { return r.json() }).then(render).catch(function (e) { })
+    })
+</script>
+
+    </div>
+    
+</div>
+<aside class="float-left gkt-sidebar hidden-xs hidden-sm">
+    <div style="clear: both"></div>
+    <div class="gkt-sidebar-wrapper">
+        <section class="box-shadow"><style>
+    .gkt-summary {
+        border: 1px solid #DDDDDD;
+        border-radius: 3px;
+        padding: 5px;
+        width: 100%;
+    }
+
+
+    .gkt-summary nav {
+        overflow: hidden;
+    }
+
+    .gkt-summary nav a {
+        display: inline-block;
+        text-align: center;
+        color: #333;
+        font-size: 12px;
+    }
+
+    .gkt-summary nav span {
+        display: block;
+    }
+
+    .gkt-summary nav .middle {
+        border-left: 1px solid #eaecef;
+        border-right: 1px solid #eaecef;
+    }
+
+    .gkt-summary .number {
+        font-weight: bold;
+    }
+
+    .gkt-summary .link-list {
+        margin-top: 5px;
+        margin-bottom: -5px;
+        padding-top: 7px;
+        border-top: 1px dashed #999;
+        display: flex;
+    }
+
+    .gkt-summary .link-list a {
+        flex: 1;
+    }
+
+    .gkt-summary .link-list img {
+        width: 25px;
+        height: 25px;
+    }
+</style>
+
+<div class="gkt-summary">
+    <nav>
+        <a href="/" class="col-xs-4">
+            <span class="number">23</span><span>文章</span>
+        </a>
+        <a href="/series" class="col-xs-4 middle">
+            <span class="number">3</span><span>专题</span>
+        </a>
+        <a href="/tags" class="col-xs-4">
+            <span class="number">32</span><span>标签</span>
+        </a>
+    </nav>
+
+    
+</div></section>
+        
+        
+        <section class="gkt-sidebar-content box-shadow">
+            <strong>Java 进阶</strong>
+            <ul>
+                
+                <li>
+                    <a href="/post/java/advance/2016-10-25_number.html"
+                        class="">为什么 8 位有符号整数的范围为 “-128 ~ +127”</a>
+                    
+                </li>
+                
+                <li>
+                    <a href="/post/java/advance/2016-11-03_java_memory_malloc.html"
+                        class="">Java 内存分配和泄露</a>
+                    
+                </li>
+                
+                <li>
+                    <a href="/post/java/advance/2016-11-24_java_serializable.html"
+                        class="">序列化和反序列化浅析</a>
+                    
+                </li>
+                
+                <li>
+                    <a href="/post/java/advance/2016-12-09_java_books.html"
+                        class="">Java书籍推荐</a>
+                    
+                </li>
+                
+                <li>
+                    <a href="/post/java/advance/2017-03-28_java_acknowledge.html"
+                        class="">【战略收藏】Java知识体系</a>
+                    
+                </li>
+                
+                <li>
+                    <a href="/post/java/advance/2017-04-18_java_0xff.html"
+                        class="">为什么要与上0xff（&amp;0xff），有什么意义？</a>
+                    
+                </li>
+                
+                <li>
+                    <a href="/post/java/advance/2018-11-05_java_vertx.html"
+                        class="">从零开始变(micro)大拿</a>
+                    
+                </li>
+                
+                <li>
+                    <a href="/post/java/advance/2019-03-06_java_os.html"
+                        class="">Java 和操作系统交互细节</a>
+                    
+                </li>
+                
+                <li>
+                    <a href="/post/java/advance/2019-05-04_java_labmda.html"
+                        class="gkt-sidebar-active">Java8新特性学习-函数式编程</a>
+                    
+                    <!-- Table of Contents -->
+<div id="sidebar-toc">
+  <!-- TOC  -->
+  
+  
+  <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#1-Java8-%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E8%AF%AD%E6%B3%95%E5%85%A5%E9%97%A8"><span class="toc-nav-text">1 Java8 函数式编程语法入门</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#2-Java-%E5%87%BD%E6%95%B0%E5%BC%8F%E6%8E%A5%E5%8F%A3"><span class="toc-nav-text">2 Java 函数式接口</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#2-1-Consumer"><span class="toc-nav-text">2.1 Consumer</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#2-2-Function"><span class="toc-nav-text">2.2 Function</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#2-3-Predicate"><span class="toc-nav-text">2.3 Predicate</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#3-%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E6%8E%A5%E5%8F%A3%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-nav-text">3 函数式编程接口的使用</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#3-1-Stream"><span class="toc-nav-text">3.1 Stream</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#3-2-Optional"><span class="toc-nav-text">3.2 Optional</span></a></li></ol></li></ol>
+  
+</div>
+
+<script>
+  (function () {
+    var h2 = document.querySelectorAll('article h2');
+    var h3 = document.querySelectorAll('article h3');
+    var linkList = document.querySelectorAll('#sidebar-toc a');
+
+    function findLinkElement(name) {
+      for (var i = 0; i < linkList.length; i++) {
+        var items = linkList[i].href.split('#');
+        if (items && items[items.length - 1] === encodeURIComponent(name)) {
+          return i;
+        }
+      }
+      return -1;
+    }
+
+    function activeLink(titleList) {
+      var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+      for (var i = titleList.length - 1; i >= 0; i--) {
+        if (scrollTop - titleList[i].offsetTop > 0) {
+          var index = findLinkElement(titleList[i].id);
+          index != -1 && linkList[index].classList.add('gkt-sidebar-active');
+          break;
+        }
+      }
+    }
+
+    window.addEventListener("scroll", function (e) {
+      [].slice.call(linkList).forEach(function (link) {
+        link.classList.remove('gkt-sidebar-active');
+      })
+      activeLink(h2);
+    })
+  })();
+</script>
+                    
+                </li>
+                
+                <li>
+                    <a href="/post/java/advance/2019-07-22_java_stack.html"
+                        class="">JVM内存结构：堆、栈、方法区</a>
+                    
+                </li>
+                
+                <li>
+                    <a href="/post/java/advance/2020-04-25_java_optimize.html"
+                        class="">接口性能优化思路</a>
+                    
+                </li>
+                
+                <li>
+                    <a href="/post/java/advance/2020-06-28_java_jvm.html"
+                        class="">深入理解JVM-内存模型（jmm）和GC</a>
+                    
+                </li>
+                
+            </ul>
+        </section>
+        
+        
+        <section class="gkt-sidebar-content box-shadow">
+            <strong>最近的文章</strong>
+            <ul>
+                
+                <li>
+                    <a href="/post/java/advance/2020-06-28_java_jvm.html">深入理解JVM-内存模型（jmm）和GC</a>
+                </li>
+                
+                <li>
+                    <a href="/post/java/advance/2020-04-25_java_optimize.html">接口性能优化思路</a>
+                </li>
+                
+                <li>
+                    <a href="/post/java/advance/2019-07-22_java_stack.html">JVM内存结构：堆、栈、方法区</a>
+                </li>
+                
+            </ul>
+        </section>
+        
+    </div>
+</aside>
+
+<script>
+    (function () {
+        function resizeUArrow() {
+            var s = getDom('.u-arrow-wrapper').style
+            var pc = getDom('.post-container')
+            s.left = getPosition(pc).x + 'px';
+            s.width = pc.clientWidth + 'px';
+        }
+        resizeUArrow()
+        window.addEventListener('resize', resizeUArrow);
+    })();
+</script>
+
+    
+
+<script>
+    (function () {
+        var ele = getDom('.gkt-sidebar-content')
+        if(!ele) return;
+        var wrapper = getDom('.gkt-sidebar-wrapper')
+        var last = 0
+        ele.style.maxHeight = ((window.innerHeight || 798) - 200) + 'px'
+        var f = function (e) {
+            var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            var isDown = scrollTop > last;
+            var pos = getPosition(ele).y - scrollTop;
+            var downLimit = 50;
+            var upLimit = -100;
+            // uarrow.style.marginTop = scrollTop + 'px';
+            isDown && pos <= downLimit && wrapper.classList.add("gkt-sidebar-fixed");
+            !isDown && pos > upLimit && wrapper.classList.remove("gkt-sidebar-fixed");
+            last = scrollTop
+        }
+        f()
+        window.addEventListener("scroll", f)
+    })();
+</script>
+
+</main>
+    </div>
+    <style>
+    img#go-top {
+        position: fixed;
+        bottom: 100px;
+        width: 50px;
+        cursor: pointer;
+        z-index: 9999;
+    }
+</style>
+<img id="go-top" src="/icon/top.png" class="hidden-xs" style="display: none" />
+<script>
+    (function () {
+        var goTop = document.getElementById('go-top');
+        var mainContainer = document.querySelector('.main-container');
+        
+        goTop.addEventListener('click', function () {
+            window.scroll(0, 0);
+        }, false);
+        window.addEventListener('scroll', function () {
+            var right = document.body.offsetWidth - mainContainer.getBoundingClientRect().right;
+            var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            goTop.style.right = right + 10 + 'px'
+            scrollTop > 700 && (goTop.style.display = "block");
+            scrollTop <= 700 && (goTop.style.display = "none");
+        });
+    })();
+</script>
+    <style>
+    #geektutu-click-img-container {
+        position: fixed;
+        left: 0;
+        top: 0;
+        text-align: center;
+        width: 100%;
+        display: none;
+        z-index: 9999;
+    }
+
+    #geektutu-click-img-container img {
+        object-fit: contain;
+        background: #eaecef;
+        padding: 15px;
+        border-radius: 10px;
+        height: auto;
+        width: auto;
+        vertical-align: middle;
+    }
+</style>
+
+
+<div id="geektutu-click-img-container">
+    <img src="" alt="Big Image">
+</div>
+
+<script>
+    (function () {
+        var container = document.querySelector('#geektutu-click-img-container')
+        var targetImg = container.querySelector('img')
+        var imgs = document.querySelectorAll('article img');
+        targetImg.addEventListener('click', function (e) {
+            container.style.display = 'none';
+            e && e.stopPropagation && e.stopPropagation();
+        }, false);
+
+        for (var i = 0; i < imgs.length; ++i) {
+            var img = imgs[i];
+            img.addEventListener('click', (function (src, rate) {
+                return function (e) {
+                    e && e.stopPropagation && e.stopPropagation();
+                    if (window.innerWidth < 980) {
+                        return
+                    }
+                    targetImg.style.height = targetImg.style.width = 'auto';
+                    if (window.innerWidth / window.innerHeight > rate) {
+                        targetImg.style.height = (window.innerHeight - 20) + 'px';
+                    } else {
+                        targetImg.style.width = (window.innerWidth - 20) + 'px';
+                    }
+                    container.style.height = window.innerHeight + 'px'
+                    container.style.lineHeight = window.innerHeight + 'px'
+                    container.style.display = 'block';
+                    targetImg.src = src;
+                };
+            }(img.src, img.width / img.height)), false)
+        }
+    })();
+</script>
+    <!-- Footer -->
+    <!-- Footer -->
+<style>
+    footer {
+        width: 100%;
+        line-height: 1.5;
+        padding: 20px;
+    }
+
+    footer a {
+        color: #333;
+        text-decoration: none;
+    }
+
+    .footer-hexo img {
+        height: 20px;
+        margin-bottom: -5px;
+    }
+
+    .footer-hexo a {
+        color: #337ab7;
+    }
+</style>
+<footer class="text-center col-xs-12">
+    <p>
+        <small>© 2020 - Hassan - </small>
+        <small>
+            <a target="_blank" rel="nofollow noopener" href="http://beian.miit.gov.cn/"></a>
+        </small>
+    </p>
+    <p class="footer-hexo">
+        <!-- 但若直接使用或修改主题，请务必保留这段声明 -->
+        <small>Powered by <a target="_blank" href="https://hexo.io">Hexo</a> | Theme
+            <a target="_blank" href="https://geektutu.com">Geektutu</a>
+            <a target="_blank" rel="noopener" href="https://github.com/geektutu/hexo-theme-geektutu">
+                <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAYGBgYHBgcICAcKCwoLCg8ODAwODxYQERAREBYiFRkVFRkVIh4kHhweJB42KiYmKjY+NDI0PkxERExfWl98fKcBBgYGBgcGBwgIBwoLCgsKDw4MDA4PFhAREBEQFiIVGRUVGRUiHiQeHB4kHjYqJiYqNj40MjQ+TERETF9aX3x8p//CABEIACIAUAMBIgACEQEDEQH/xAAcAAABBAMBAAAAAAAAAAAAAAAAAQQFBwIDBgj/2gAIAQEAAAAA9KrHSgAYL5/z6zZGuJd12uugbhq3uKtmuRtix20IS7lTLAfAAAn/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/9oACAECEAAAAAAB/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/aAAgBAxAAAAAAAf/EADEQAAICAQIEBQEGBwAAAAAAAAECAwQFAAYREhORBxQhUlQxQVFic5KxJDJCYYGC0f/aAAgBAQABPwCFHnjWUzuvN6hV4cANSRLGjO9yRVUcSzMoA7jVXJYe5N0a2dhmk9kc0bN2GvLN8mbuNeWb5M3ca8s3yZu415Y/Jm7jXlm+TN3H/NeVPyZu40vOk3TZywK8wJ+v3EHVM/wsI/Dq2lrxN3Nnca16eti8chSAIoMbzByhMwP14kHVfwIiSaF5c96J6kwwCOTnHsYk8uvCrdmQy1TI4rJuz3cZLyGR/wCd4+YoOf8AEpUjXitubLYPG4paFsUxcuiGe7yc5gTW3LW44szXmobsi3Dhmic2+Z4+vCVH9CpraPiQ+QvbgTJrPFBWd5YpWrmNIIEXiRO32Pqt4p7cnfHk18lFBdmEVW1LVdIZGOrniTt6plrWKaO69yCykDRxwF+LMAewB0Txtr+Sf31VI8tEPw62fZt7N3Humtbpzz13ucX6CGSWMSuzpLyD1eNgeUka3PuvHbaxq3biTMHfkiSNCS78CwU+3Xg7Vu3MhuTcU6cq3Zemn3Eh2dv8Lzcut+29x1atKbHYqLJUhLwyNMwiZ3j9yDWOxUOV3tgb+3No5LDx1pi9+aeIwRlNY6bc+Jv+IFGrhLxtXJZ7VKcw81diiAAEn0JOrkWZyNfbEr0tz27UGQgkuGzXdIIvyowq99bRxk9ffO/L81SZBPZgEEroQroIxxMZOgeNsfkn99QypHGqO4Vl9CDrN4LDZkwyzyyQ2IgRHZrzGCZVP1XnQglT9oOtw4LC7iqV6uRkZoYpxKFSQpzFRw4EjVRMfSrQ1qqwxQxKFjjTgFUD7BoWYR6iVe+mtxt9Zwf9teaj4AdccPu5tedX5A/VrzUR+sy/q1CwksF19VEfDj/cnQRW+qg66cfsXtrpx+xe2unH7F7a6cfsXtrpx+xe2unH7F7a6cfsXtoxx+xe2gAAOA1//8QAFBEBAAAAAAAAAAAAAAAAAAAAMP/aAAgBAgEBPwB//8QAFBEBAAAAAAAAAAAAAAAAAAAAMP/aAAgBAwEBPwB//9k="
+                    alt="Github Star">
+            </a>
+        </small>
+    </p>
+    
+    <p>
+        <small>
+            <span id="busuanzi_container_site_pv">👁<span id="busuanzi_value_site_pv"></span></span> &nbsp;
+            <span id="busuanzi_container_page_pv">📚<span id="busuanzi_value_page_pv"></span></span>
+        </small>
+    </p>
+    
+    
+
+</footer>
+
+
+<script>
+    window.addEventListener('load', function () {
+        globalAddScript('//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js');
+    })
+</script>
+
+<!-- Baidu Tongji -->
+
+
+
+
+
+    <script>
+        // 非本站网址，新开tab页签
+        (function () {
+            var stopBubble = function (e) {
+                e && e.stopPropagation && e.stopPropagation();
+            }
+            var links = document.querySelectorAll('a');
+            [].slice.call(links).forEach(function (item) {
+                if (item.href && item.href.indexOf(window.location.host) === -1) {
+                    item.target = '_blank'
+                }
+                // 阻止冒泡，不触发彩蛋。
+                item.addEventListener('click', stopBubble, false);
+            });
+            var article = document.querySelector('article');
+            article && article.addEventListener('click', stopBubble, false)
+        })();
+    </script>
+    
+<script>
+    (function (window, document, undefined) {
+        var hearts = [];
+        var keywords = ["点个赞", "留个言", "赞赏一下", "分享之", "blog.fenxiangz.com"];
+        function randomInt(max) {
+            return Math.floor(Math.random() * Math.floor(max));
+        }
+        window.addEventListener('click', createWord)
+
+        function createWord(e) {
+            var d = document.createElement("span");
+            d.style.position = 'fixed';
+            d.style.zIndex = 9999;
+            d.style.color = 'rgb(' + [randomInt(255), randomInt(255), randomInt(255)].join(',') + ')';
+            d.innerHTML = keywords[randomInt(keywords.length)];
+            d.onselectstart = function () { return false; }
+
+            hearts.push({ el: d, x: e.clientX - 5, y: e.clientY - 5, alpha: 1, scale: 1 });
+            document.body.appendChild(d);
+        }
+        (function gameloop() {
+            for (var i = 0; i < hearts.length; i++) {
+                heart = hearts[i];
+                if (heart.alpha <= 0) {
+                    document.body.removeChild(heart.el);
+                    hearts.splice(i, 1);
+                    continue;
+                }
+                heart.y -= heart.alpha < 0.5 ? 2 : 1;
+                heart.scale += 0.002;
+                heart.alpha -= 0.013;
+                heart.el.style.transform = 'scale(' + heart.scale + ')';
+                heart.el.style.left = heart.x + 'px';
+                heart.el.style.top = heart.y + 'px';
+            }
+            setTimeout(gameloop, 10)
+        })();
+    })(window, document);
+</script>
+
+</body>
+
+</html>

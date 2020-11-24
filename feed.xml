@@ -15,8 +15,160 @@
     <atom:link href="https://blog.fenxiangz.com/feed.xml" rel="self" type="application/rss+xml"/>
     
     <description>Share everything</description>
-    <pubDate>Tue, 24 Nov 2020 11:55:43 GMT</pubDate>
+    <pubDate>Tue, 24 Nov 2020 13:12:19 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>深入理解JVM-内存模型（jmm）和GC</title>
+      <link>https://blog.fenxiangz.com/post/java/advance/2020-06-28_java_jvm.html</link>
+      <guid>https://blog.fenxiangz.com/post/java/advance/2020-06-28_java_jvm.html</guid>
+      <pubDate>Sat, 27 Jun 2020 16:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;转载：&lt;a href=&quot;https://www.jianshu.com/p/76959115d486&quot;&gt;https://www.jianshu.com/p/76959115d486&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;1-CPU和内存的交互&quot;&gt;&lt;a href=&quot;#1-CPU和内</description>
+        
+      
+      
+      <enclosure url="https://blog.fenxiangz.com/images/java/basic/java_logo.png" type="image"/>
+      
+      
+      
+      <category domain="https://blog.fenxiangz.com/categories/Java-%E8%BF%9B%E9%98%B6/">Java 进阶</category>
+      
+      
+      <category domain="https://blog.fenxiangz.com/tags/Java/">Java</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/">垃圾回收</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/jvm/">jvm</category>
+      
+      
+      <comments>https://blog.fenxiangz.com/post/java/advance/2020-06-28_java_jvm.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>接口性能优化思路</title>
+      <link>https://blog.fenxiangz.com/post/java/advance/2020-04-25_java_optimize.html</link>
+      <guid>https://blog.fenxiangz.com/post/java/advance/2020-04-25_java_optimize.html</guid>
+      <pubDate>Fri, 24 Apr 2020 16:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h4 id=&quot;1-数据库查询是否有问题，是不是慢查？索引？数据量？&quot;&gt;&lt;a href=&quot;#1-数据库查询是否有问题，是不是慢查？索引？数据量？&quot; class=&quot;headerlink&quot; title=&quot;1. 数据库查询是否有问题，是不是慢查？索引？数据量？&quot;&gt;&lt;/a&gt;1. 数据库查</description>
+        
+      
+      
+      <enclosure url="https://blog.fenxiangz.com/images/java/basic/java_logo.png" type="image"/>
+      
+      
+      
+      <category domain="https://blog.fenxiangz.com/categories/Java-%E8%BF%9B%E9%98%B6/">Java 进阶</category>
+      
+      
+      <category domain="https://blog.fenxiangz.com/tags/Java/">Java</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">性能优化</category>
+      
+      
+      <comments>https://blog.fenxiangz.com/post/java/advance/2020-04-25_java_optimize.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>JVM内存结构：堆、栈、方法区</title>
+      <link>https://blog.fenxiangz.com/post/java/advance/2019-07-22_java_stack.html</link>
+      <guid>https://blog.fenxiangz.com/post/java/advance/2019-07-22_java_stack.html</guid>
+      <pubDate>Sun, 21 Jul 2019 16:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;一、定义 &lt;/p&gt;
+&lt;p&gt;1、堆：FIFO队列优先，先进先出。jvm只有一个堆区被所有线程所共享！堆存放在二级缓存中，调用对象的速度相对慢一些，生命周期由虚拟机的垃圾回收机制定。&lt;/p&gt;
+&lt;p&gt;2、栈：FILO先进后出，暂存数据的地方。每个线程都包含一个栈区！栈存放在一级缓</description>
+        
+      
+      
+      <enclosure url="https://blog.fenxiangz.com/images/java/basic/java_logo.png" type="image"/>
+      
+      
+      
+      <category domain="https://blog.fenxiangz.com/categories/Java-%E8%BF%9B%E9%98%B6/">Java 进阶</category>
+      
+      
+      <category domain="https://blog.fenxiangz.com/tags/Java/">Java</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/">内存模型</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/jvm/">jvm</category>
+      
+      
+      <comments>https://blog.fenxiangz.com/post/java/advance/2019-07-22_java_stack.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Java8新特性学习-函数式编程</title>
+      <link>https://blog.fenxiangz.com/post/java/advance/2019-05-04_java_labmda.html</link>
+      <guid>https://blog.fenxiangz.com/post/java/advance/2019-05-04_java_labmda.html</guid>
+      <pubDate>Fri, 03 May 2019 16:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;Java8 新引入函数式编程方式，大大的提高了编码效率。本文将对涉及的对象等进行统一的学习及记录。内容包括：Stream/Function/Optional/Consumer。&lt;/p&gt;
+&lt;p&gt;首先需要清楚一个概念：函数式接口；它指的是有且只有一个未实现的方法的接口，一般通过</description>
+        
+      
+      
+      <enclosure url="https://blog.fenxiangz.com/images/java/basic/java_logo.png" type="image"/>
+      
+      
+      
+      <category domain="https://blog.fenxiangz.com/categories/Java-%E8%BF%9B%E9%98%B6/">Java 进阶</category>
+      
+      
+      <category domain="https://blog.fenxiangz.com/tags/Java/">Java</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/">函数式编程</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/lambda/">lambda</category>
+      
+      
+      <comments>https://blog.fenxiangz.com/post/java/advance/2019-05-04_java_labmda.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Java 和操作系统交互细节</title>
+      <link>https://blog.fenxiangz.com/post/java/advance/2019-03-06_java_os.html</link>
+      <guid>https://blog.fenxiangz.com/post/java/advance/2019-03-06_java_os.html</guid>
+      <pubDate>Tue, 05 Mar 2019 16:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h2 id=&quot;结合-CPU-理解一行-Java-代码是怎么执行的&quot;&gt;&lt;a href=&quot;#结合-CPU-理解一行-Java-代码是怎么执行的&quot; class=&quot;headerlink&quot; title=&quot;结合 CPU 理解一行 Java 代码是怎么执行的&quot;&gt;&lt;/a&gt;结合 CPU 理解一行</description>
+        
+      
+      
+      <enclosure url="https://blog.fenxiangz.com/images/java/basic/java_logo.png" type="image"/>
+      
+      
+      
+      <category domain="https://blog.fenxiangz.com/categories/Java-%E8%BF%9B%E9%98%B6/">Java 进阶</category>
+      
+      
+      <category domain="https://blog.fenxiangz.com/tags/Java/">Java</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/jvm/">jvm</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</category>
+      
+      
+      <comments>https://blog.fenxiangz.com/post/java/advance/2019-03-06_java_os.html#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>从源码的角度再学「Thread」</title>
@@ -47,6 +199,36 @@
       
       
       <comments>https://blog.fenxiangz.com/post/java/basic/2019-01-21_java_thread_source.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Vert.x - 从零开始变(micro)大拿</title>
+      <link>https://blog.fenxiangz.com/post/java/advance/2018-11-05_java_vertx.html</link>
+      <guid>https://blog.fenxiangz.com/post/java/advance/2018-11-05_java_vertx.html</guid>
+      <pubDate>Sun, 04 Nov 2018 16:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;Clement Escoffier, Julien Viet, 沈勇 译Version 0.6,Dec, 23th, 2017 原文：&lt;a href=&quot;http://escoffier.me/vertx-hol/&quot;&gt;http://escoffier.me/vertx-hol</description>
+        
+      
+      
+      <enclosure url="https://blog.fenxiangz.com/images/java/basic/java_logo.png" type="image"/>
+      
+      
+      
+      <category domain="https://blog.fenxiangz.com/categories/Java-%E8%BF%9B%E9%98%B6/">Java 进阶</category>
+      
+      
+      <category domain="https://blog.fenxiangz.com/tags/Java/">Java</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/Vert-x/">Vert.x</category>
+      
+      
+      <comments>https://blog.fenxiangz.com/post/java/advance/2018-11-05_java_vertx.html#disqus_thread</comments>
       
     </item>
     
@@ -136,6 +318,40 @@
       
       
       <comments>https://blog.fenxiangz.com/post/java/basic/2017-04-18_java_thread_mind.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>为什么要与上0xff（&amp;0xff），有什么意义？</title>
+      <link>https://blog.fenxiangz.com/post/java/advance/2017-04-18_java_0xff.html</link>
+      <guid>https://blog.fenxiangz.com/post/java/advance/2017-04-18_java_0xff.html</guid>
+      <pubDate>Mon, 17 Apr 2017 16:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;java.io.PipedInputStream#receive(int) 源码：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;protected synchronized void receive(int b) throws IOException &amp;#123;
+    checkSt</description>
+        
+      
+      
+      <enclosure url="https://blog.fenxiangz.com/images/java/basic/java_logo.png" type="image"/>
+      
+      
+      
+      <category domain="https://blog.fenxiangz.com/categories/Java-%E8%BF%9B%E9%98%B6/">Java 进阶</category>
+      
+      
+      <category domain="https://blog.fenxiangz.com/tags/Java/">Java</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/%E4%BA%8C%E8%BF%9B%E5%88%B6/">二进制</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/%E5%8F%8D%E7%A0%81/">反码</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/%E8%A1%A5%E7%A0%81/">补码</category>
+      
+      
+      <comments>https://blog.fenxiangz.com/post/java/advance/2017-04-18_java_0xff.html#disqus_thread</comments>
       
     </item>
     
