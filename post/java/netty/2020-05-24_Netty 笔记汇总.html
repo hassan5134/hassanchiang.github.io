@@ -15,17 +15,17 @@
   <!-- if page has tags, then add tags to keyword -->
   
   
-  <meta name="keywords" content=",Idea,JavaIDE,Java,">
+  <meta name="keywords" content=",Java,Netty,笔记,">
   <!-- page.description has higher priority -->
   <meta name="description" content="Share everything">
   <link rel="shortcut icon" href="/favico.png">
   <title>
     
-    IntelliJ 各种快捷键 | 分享之
+    Netty 笔记汇总 | 分享之
     
   </title>
 
-  <link rel="canonical" href="/post/util/2016-10-25_idea_shotcut.html">
+  <link rel="canonical" href="/post/java/netty/2020-05-24_Netty 笔记汇总.html">
   
 <link rel="stylesheet" href="/css/reset.css">
 
@@ -117,8 +117,28 @@
                     
                 </li>
                 
+                <li class="gkt-cate-name float-left ">
+                    <a class="float-left" href="/post/java/spring/2016-10-30_Spring 组合注解&amp;注解继承.html">Spring ▾</a>
+                    
+                    <ul class="gkt-sub-cate">
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/java/spring/2016-10-30_Spring 组合注解&amp;注解继承.html">Spring Core</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/java/spring/2019-12-28_【译】Spring Boot 从 classpath 加载文件.html">Spring Boot</a></li>
+                        
+                    </ul>
+                    
+                </li>
+                
+                <li class="gkt-cate-name float-left ">
+                    <a class="float-left" href="/post/util/2017-10-25_idea_shotcut.html">开发工具</a>
+                    
+                </li>
+                
                 <li class="gkt-cate-name float-left active">
-                    <a class="float-left" href="/post/util/2016-10-25_idea_shotcut.html">开发工具</a>
+                    <a class="float-left" href="/post/java/netty/2019-01-02_小白科普：Netty有什么用？.html">Java 框架</a>
                     
                 </li>
                 
@@ -159,101 +179,56 @@
 <div class="float-left post-container box-shadow">
     <div class="u-arrow-wrapper hidden-xs">
         
-        <a class="float-left" href="/post/java/basic/2016-10-25_threadlocal.html"><i class="u-arrow-left"></i></a>
+        <a class="float-left" href="/post/java/spring/2020-05-20_Spring Boot 排坑.html"><i class="u-arrow-left"></i></a>
         
         
-        <a class="float-right" href="/post/java/advance/2016-10-25_number.html"><i class="u-arrow-right"></i></a>
+        <a class="float-right" href="/post/java/netty/2020-05-26_Netty 知识点思维导图.html"><i class="u-arrow-right"></i></a>
         
     </div>
     <article class="col-xs-12">
-        <h1> IntelliJ 各种快捷键 </h1>
+        <h1> Netty 笔记汇总 </h1>
         
         
         <div class="hidden-lg hidden-md series_links">
-            <p> <strong> 工具系列文章链接：</strong></p>
+            <p> <strong> Netty系列文章链接：</strong></p>
             <ul>
                 
                 <li>
-                    <a href="/post/util/2016-10-25_idea_shotcut.html">IntelliJ 各种快捷键</a>
-                    <span class="post-item-date">(Oct 25, 2016)</span>
+                    <a href="/post/java/netty/2019-01-02_小白科普：Netty有什么用？.html">小白科普：Netty有什么用？</a>
+                    <span class="post-item-date">(Jan 2, 2019)</span>
+                </li>
+                
+                <li>
+                    <a href="/post/java/netty/2019-03-26_大厨小鲜——基于Netty自己动手实现RPC框架.html">大厨小鲜——基于Netty自己动手实现RPC框架</a>
+                    <span class="post-item-date">(Mar 26, 2019)</span>
+                </li>
+                
+                <li>
+                    <a href="/post/java/netty/2020-05-24_Netty 笔记汇总.html">Netty 笔记汇总</a>
+                    <span class="post-item-date">(May 24, 2020)</span>
+                </li>
+                
+                <li>
+                    <a href="/post/java/netty/2020-05-26_Netty 知识点思维导图.html">Netty 知识点思维导图</a>
+                    <span class="post-item-date">(May 26, 2020)</span>
                 </li>
                 
             </ul>
         </div>
         
         
-        <p>工欲善其事必先利其器，花一点时间，记录一下 Intellij 各种快捷键。</p>
-<p><strong>窗口交互</strong></p>
-<p>Alt + 1 显示 Project 窗口 ☆☆☆<br>Alt + 2 显示 Favorite 窗口<br>Alt + 3 显示 Find 窗口<br>Alt + 5 显示 Debug 窗口<br>…..</p>
-<p>具体看显示窗口的标签标注 1 类似的就是快捷键值了</p>
-<p>Ctrl + Shift + F12 最大化编辑窗口与上次视图进行切换</p>
-<p>Alt + Home 定位到导航目录，然后可以使用上下左右建进行文件目录导航</p>
-<p>Esc 焦点进入编辑器</p>
-<p><strong>代码补全</strong></p>
-<p>Ctrl + Space 基本补全</p>
-<p>Ctrl + Shift + Space 智能补全</p>
-<p>Alt + / 按照最近的关键字补全</p>
-<p>Ctrl + Shift + Enter 补全代码结构，包括缺失的小括号、中括号、大括号以及必要的结构</p>
-<p><strong>编辑器常用</strong></p>
-<p>Ctrl + Shift + Up 和 Ctrl + Shift + Down 移动选中的代码行 ☆☆☆</p>
-<p>Ctrl + D 复制选中的代码行 ☆☆☆☆</p>
-<p>Ctrl + Y 删除选中的代码行 ☆☆☆☆</p>
-<p>Ctrl + / 按行注释代码或取消注释代码 ☆☆☆☆☆</p>
-<p>Ctrl + Shift + / 按块注释代码或取消注释代码 ☆☆☆☆☆</p>
-<p>Ctrl + F 或 Alt + F3 在当前打开文件查找 ☆☆☆☆☆</p>
-<p>Ctrl + R 在当前打开文件查找并替换</p>
-<p>Alt + Right 和 Alt + Left 导航打开的编辑器窗口 ☆☆☆☆</p>
-<p>Ctrl + Alt + Left 和 Ctrl + Alt + Right 导航焦点 ☆☆☆☆☆</p>
-<p>Ctrl + - （中横线，减号） 收起代码块</p>
-<p>Ctrl + - （加号，等于号） 展开代码块</p>
-<p>Alt + Insert 打开代码生成菜单</p>
-<p>Ctrl + Alt + T 打开代码包围菜单，可以快速将代码使用 if ，try catch 等语法进行围绕</p>
-<p>Ctrl + W 选中代码块，试几次就知道啥意思了</p>
-<p>Alt + J 和 Alt + Shift + J 向下或向上查找选中的关键字 ☆☆☆☆</p>
-<p><strong>导航</strong></p>
-<p>Ctrl + E 打开最近文件菜单 ☆☆☆</p>
-<p>Ctrl + N 类搜索，这个功能应该非常常用了，使用频率很高，模糊搜索非常好用 ☆☆☆☆☆</p>
-<p>Ctrl + Shift + N 文件搜索，搜索资源文件常用到 ☆☆☆☆☆</p>
-<p>Ctrl + Shift + Alt + N 符号搜索，搜索方法和变量名的时候会用到</p>
-<p><strong>查看结构</strong></p>
-<p>Ctrl + F12 查看文件结构，类，JSP，XML，Properties 文件等都可以查看 ☆☆☆☆☆</p>
-<p>Alt + F1 选择文件在什么窗口打开，选项很多，可以自己看看。 Alt + F1 然后 C ，使用本地 Explorer 打开还挺好用的 ☆☆☆☆</p>
-<p>Ctrl + Q 查看 Java doc</p>
-<p>Ctrl + Shift + I 查看定义</p>
-<p>Ctrl + Alt + F7 查看调用方，这个我比较不习惯，喜欢用 Alt + F7，在 Find 窗口上查看 ☆☆☆☆☆</p>
-<p>Ctrl + Alt + B 查看实现，非常常用 ☆☆☆☆☆</p>
-<p>Ctrl + U 查看接口</p>
-<p><strong>重构</strong></p>
-<p>Shift + F6 重命名 ☆☆☆☆☆</p>
-<p>Ctrl + Alt + V 重构成变量，一般就是要给方法的返回值，赋值给一个变量</p>
-<p>Ctrl + Alt + F 重构成成员变量 和 V 类似</p>
-<p>Ctrl + Alt + C 重构成常量</p>
-<p>Ctrl + Alt + M 重构成一个方法，这个还挺常用的 ☆☆☆☆</p>
-<p>Ctrl + Alt + N 选择多行代码，重构成一行代码，这个应该不常用，影响代码可读性</p>
-<p>F5 复制</p>
-<p>F6 移动</p>
-<p>Ctrl + Shift + Alt + T 打开重构菜单</p>
-<p>代码格式</p>
-<p>Ctrl + Alt + I 默认使用空格缩进</p>
-<p>Ctrl + Alt + L 格式化，呵呵，这个和 QQ 冲突了</p>
-<p>Ctrl + Alt + L 代码导入（import）</p>
-<p><strong>版本控制</strong></p>
-<p>Alt + 9 or Shift + Alt + 9 上面已经提到过，打开版本控制窗口</p>
-<p>Alt + Back Quote 这个说是打开 CVS 操作菜单，but，我的 IDE 没有反应</p>
-<p>Ctrl + K 提交代码</p>
-<p>Ctrl + T 更新代码</p>
-<p>Ctrl + Shift + K push 代码 GIT 用的吧？我这 SVN 没有发现有什么功能</p>
-<p><strong>编译</strong></p>
-<p>Ctrl + F9</p>
-<p>Debug</p>
-<p>Ctrl + F8 打断点</p>
-<p>F7 进入下一步</p>
-<p>Shift + F7 智能进入下一步</p>
-<p>F8 结束这一步</p>
-<p>Shift + F8 结束当前方法，返回</p>
-<p>…</p>
-<p>在面板上可以查看其他快捷键的使用</p>
-<p>完。</p>
+        <h1 id="netty概要"><a href="#netty概要" class="headerlink" title="netty概要"></a>netty概要</h1><p>netty是一个异步非阻塞的通信框架（类似的框架还有mina，grizzly）。</p>
+<p>底层封装了NIO2.0模块，即AIO。</p>
+<p>好处：使用起来无需关注如何连接，只需关注业务逻辑处理代码，而且性能高效。遵循servlet3.0标准规范的，和tomcat等web容器不同的是异步非阻塞。tomcat容器支持最大并发量大概在800左右。而且netty也不算是web容器。</p>
+<p>使用流程：<br>服务端：配置端口，长连接还是短连接（针对业务，比如聊天一般用长连接，和客户端保持连接，短连接是针对是数据量大连接次数少的情况，比如一小时上传文件4到5次），最后要调用下异步关闭，否则服务端会关闭的，一般我们是不允许服务端关闭的。</p>
+<p>应用场景：作为路由网关、文件上传和下载，消息通信，心跳检测等。</p>
+<p>拆包粘包问题：设置定长（一次只能传输200K以下的数据，小于200k的后面以空格补全）、设置特殊分割符（编解码）、自定义协议（实现编解码的接口，进行扩展而已）。</p>
+<p>编解码（序列化）：传输数据如果为对象，实体类必须要实现serialable接口，但java序列化码流大，传输慢，性能低。可以使用joss框架Marshalling+压缩解压缩这样的方式实现。</p>
+<p>业务问题：<br>1、若客户端和服务端为短连接，规定时间内（比如5秒）不传输数据默认断开，如何实现？<br>调用readTimeoutHandler(5)。<br>2、若客户端和服务端断开连接后，客户端再次发送请求，如何才能保证服务端接收到数据？<br>在客户端初始化的时候，判断下客户端是否服务端保持连接，如果没有，重新连接下。</p>
+<p>摘自：<a target="_blank" rel="noopener" href="https://github.com/ouzhrm/netty_study/blob/master/README.md">https://github.com/ouzhrm/netty_study/blob/master/README.md</a></p>
+<h1 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h1><p><img src="./2020-05-24_Netty%20%E7%AC%94%E8%AE%B0%E6%B1%87%E6%80%BB/1.png"> </p>
+<h2 id="ByteBuf"><a href="#ByteBuf" class="headerlink" title="ByteBuf"></a>ByteBuf</h2><h2 id="Channel-和-Unsafe"><a href="#Channel-和-Unsafe" class="headerlink" title="Channel 和 Unsafe"></a>Channel 和 Unsafe</h2><h3 id="OioServerSocketChannel-和-OioSocketChannel"><a href="#OioServerSocketChannel-和-OioSocketChannel" class="headerlink" title="OioServerSocketChannel 和 OioSocketChannel"></a>OioServerSocketChannel 和 OioSocketChannel</h3><h3 id="NioServerSocketChannel-和-NioSocketChannel"><a href="#NioServerSocketChannel-和-NioSocketChannel" class="headerlink" title="NioServerSocketChannel 和 NioSocketChannel"></a>NioServerSocketChannel 和 NioSocketChannel</h3><h2 id="ChannelPipeline-和-ChannelHandler"><a href="#ChannelPipeline-和-ChannelHandler" class="headerlink" title="ChannelPipeline 和 ChannelHandler"></a>ChannelPipeline 和 ChannelHandler</h2><h2 id="Future-和-Promise"><a href="#Future-和-Promise" class="headerlink" title="Future 和 Promise"></a>Future 和 Promise</h2><h2 id="EventLoop-和-EventLoopGroup"><a href="#EventLoop-和-EventLoopGroup" class="headerlink" title="EventLoop 和 EventLoopGroup"></a>EventLoop 和 EventLoopGroup</h2><h2 id="ServerBootstrap-和-Bootstrap"><a href="#ServerBootstrap-和-Bootstrap" class="headerlink" title="ServerBootstrap 和 Bootstrap"></a>ServerBootstrap 和 Bootstrap</h2><p>启动类</p>
+<h2 id="Encode-和-Decoder"><a href="#Encode-和-Decoder" class="headerlink" title="Encode 和 Decoder"></a>Encode 和 Decoder</h2><p>协议～</p>
 
         
 <script src="/js/qrious.min.js"></script>
@@ -265,14 +240,14 @@
             <p>
                 <span>专题: </span>
                 
-                <a href="/series/#工具">
-                    <code key="工具" class="post-label">工具</code>
+                <a href="/series/#Netty">
+                    <code key="Netty" class="post-label">Netty</code>
                 </a>
                 
             </p>
             
             <p>
-                <span>本文发表于 2016-10-25，最后修改于 2020-11-24。</span>
+                <span>本文发表于 2020-05-24，最后修改于 2020-11-25。</span>
             </p>
             <!-- 文章末尾的提示 start -->
             
@@ -284,10 +259,10 @@
         <hr />
         <p name="pagination" style="font-size: 1.2em">
     
-    <a class="float-left" href="/post/java/basic/2016-10-25_threadlocal.html">上一篇 « ThreadLocal 笔记</a>
+    <a class="float-left" href="/post/java/spring/2020-05-20_Spring Boot 排坑.html">上一篇 « Spring Boot 排坑</a>
     
     
-    <a class="float-right" href="/post/java/advance/2016-10-25_number.html">下一篇 » 为什么 8 位有符号整数的范围为 “-128 ~ +127”</a>
+    <a class="float-right" href="/post/java/netty/2020-05-26_Netty 知识点思维导图.html">下一篇 » Netty 知识点思维导图</a>
     
 </p>
     </article>
@@ -299,7 +274,7 @@
         <h3>推荐阅读</h3>
         
         <div class="post-preview">
-    <div class="post-img" style="background-image: url('/images/java/basic/java_logo.png')"></div>
+    <div class="post-img" style="background-image: url('/images/java/spring-framework.png')"></div>
     <div class="post-info">
         <div class="post-info-center">
             <div class="hidden-xs">
@@ -311,24 +286,61 @@
                     title="Java">Java</a>
                 <span>/</span>
                 
-                <a class="text-gray" href="/tags/#IO"
-                    title="IO">IO</a>
+                <a class="text-gray" href="/tags/#Spring"
+                    title="Spring">Spring</a>
                 <span>/</span>
                 
-                <a class="text-gray" href="/tags/#Exception"
-                    title="Exception">Exception</a>
+                <a class="text-gray" href="/tags/#Spring Boot"
+                    title="Spring Boot">Spring Boot</a>
                 <span>/</span>
                 
                 
             </div>
-            <a href="/post/java/io/2017-04-19_java_io_5_exception.html" class="title">
-                Java IO(5) 异常处理
+            <a href="/post/java/spring/2020-05-20_请给Sprint Boot多一些内存.html" class="title">
+                请给Sprint Boot多一些内存
             </a>
             <p class="text-gray">
                 <small>
-                    <span>发表于2017-04-19，</span>
-                    <span class="hidden-xs">全文5853字，</span>
-                    <span>阅读约20分钟</span>
+                    <span>发表于2020-05-20，</span>
+                    <span class="hidden-xs">全文2418字，</span>
+                    <span>阅读约9分钟</span>
+                </small>
+            </p>
+        </div>
+    </div>
+</div>
+        
+        <div class="post-preview">
+    <div class="post-img" style="background-image: url('/images/java/spring-framework.png')"></div>
+    <div class="post-info">
+        <div class="post-info-center">
+            <div class="hidden-xs">
+                
+                
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#Java"
+                    title="Java">Java</a>
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#Spring"
+                    title="Spring">Spring</a>
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#Spring Boot"
+                    title="Spring Boot">Spring Boot</a>
+                <span>/</span>
+                
+                
+            </div>
+            <a href="/post/java/spring/2020-05-20_Spring Boot 排坑.html" class="title">
+                Spring Boot 排坑
+            </a>
+            <p class="text-gray">
+                <small>
+                    <span>发表于2020-05-20，</span>
+                    <span class="hidden-xs">全文567字，</span>
+                    <span>阅读约2分钟</span>
                 </small>
             </p>
         </div>
@@ -348,61 +360,24 @@
                     title="Java">Java</a>
                 <span>/</span>
                 
-                <a class="text-gray" href="/tags/#二进制"
-                    title="二进制">二进制</a>
+                <a class="text-gray" href="/tags/#Java线程"
+                    title="Java线程">Java线程</a>
                 <span>/</span>
                 
-                <a class="text-gray" href="/tags/#反码"
-                    title="反码">反码</a>
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#补码"
-                    title="补码">补码</a>
+                <a class="text-gray" href="/tags/#源码"
+                    title="源码">源码</a>
                 <span>/</span>
                 
                 
             </div>
-            <a href="/post/java/advance/2017-04-18_java_0xff.html" class="title">
-                为什么要与上0xff（&0xff），有什么意义？
+            <a href="/post/java/basic/2019-01-21_java_thread_source.html" class="title">
+                从源码的角度再学「Thread」
             </a>
             <p class="text-gray">
                 <small>
-                    <span>发表于2017-04-18，</span>
-                    <span class="hidden-xs">全文2003字，</span>
-                    <span>阅读约7分钟</span>
-                </small>
-            </p>
-        </div>
-    </div>
-</div>
-        
-        <div class="post-preview">
-    <div class="post-img" style="background-image: url('/images/java/basic/java_logo.png')"></div>
-    <div class="post-info">
-        <div class="post-info-center">
-            <div class="hidden-xs">
-                
-                
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#Java"
-                    title="Java">Java</a>
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#二进制"
-                    title="二进制">二进制</a>
-                <span>/</span>
-                
-                
-            </div>
-            <a href="/post/java/advance/2016-10-25_number.html" class="title">
-                为什么 8 位有符号整数的范围为 “-128 ~ +127”
-            </a>
-            <p class="text-gray">
-                <small>
-                    <span>发表于2016-10-26，</span>
-                    <span class="hidden-xs">全文2759字，</span>
-                    <span>阅读约10分钟</span>
+                    <span>发表于2019-01-21，</span>
+                    <span class="hidden-xs">全文19165字，</span>
+                    <span>阅读约64分钟</span>
                 </small>
             </p>
         </div>
@@ -445,10 +420,37 @@
         rel="1">#JavaIDE (1) </a>
     
     <a class="post-tag-item" href="/tags/#Java" title="Java"
-        rel="34">#Java (34) </a>
+        rel="43">#Java (43) </a>
     
     <a class="post-tag-item" href="/tags/#二进制" title="二进制"
         rel="2">#二进制 (2) </a>
+    
+    <a class="post-tag-item" href="/tags/#内存分配" title="内存分配"
+        rel="1">#内存分配 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#内存泄露" title="内存泄露"
+        rel="1">#内存泄露 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#书籍推荐" title="书籍推荐"
+        rel="1">#书籍推荐 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#知识体系" title="知识体系"
+        rel="1">#知识体系 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#反码" title="反码"
+        rel="1">#反码 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#补码" title="补码"
+        rel="1">#补码 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#内存模型" title="内存模型"
+        rel="1">#内存模型 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#jvm" title="jvm"
+        rel="3">#jvm (3) </a>
+    
+    <a class="post-tag-item" href="/tags/#性能优化" title="性能优化"
+        rel="1">#性能优化 (1) </a>
     
     <a class="post-tag-item" href="/tags/#HashMap" title="HashMap"
         rel="1">#HashMap (1) </a>
@@ -469,64 +471,13 @@
         rel="1">#Java异常 (1) </a>
     
     <a class="post-tag-item" href="/tags/#思维导图" title="思维导图"
-        rel="1">#思维导图 (1) </a>
+        rel="2">#思维导图 (2) </a>
     
     <a class="post-tag-item" href="/tags/#垃圾回收" title="垃圾回收"
         rel="2">#垃圾回收 (2) </a>
     
     <a class="post-tag-item" href="/tags/#Java引用" title="Java引用"
         rel="1">#Java引用 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#lambda表达式" title="lambda表达式"
-        rel="1">#lambda表达式 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#源码" title="源码"
-        rel="1">#源码 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#内存分配" title="内存分配"
-        rel="1">#内存分配 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#内存泄露" title="内存泄露"
-        rel="1">#内存泄露 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#书籍推荐" title="书籍推荐"
-        rel="1">#书籍推荐 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#知识体系" title="知识体系"
-        rel="1">#知识体系 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#序列化" title="序列化"
-        rel="1">#序列化 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#反码" title="反码"
-        rel="1">#反码 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#补码" title="补码"
-        rel="1">#补码 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#内存模型" title="内存模型"
-        rel="1">#内存模型 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#jvm" title="jvm"
-        rel="3">#jvm (3) </a>
-    
-    <a class="post-tag-item" href="/tags/#性能优化" title="性能优化"
-        rel="1">#性能优化 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#函数式编程" title="函数式编程"
-        rel="1">#函数式编程 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#lambda" title="lambda"
-        rel="1">#lambda (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#操作系统" title="操作系统"
-        rel="1">#操作系统 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#微服务" title="微服务"
-        rel="1">#微服务 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Vert.x" title="Vert.x"
-        rel="1">#Vert.x (1) </a>
     
     <a class="post-tag-item" href="/tags/#IO" title="IO"
         rel="6">#IO (6) </a>
@@ -536,6 +487,12 @@
     
     <a class="post-tag-item" href="/tags/#Stream" title="Stream"
         rel="1">#Stream (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Netty" title="Netty"
+        rel="4">#Netty (4) </a>
+    
+    <a class="post-tag-item" href="/tags/#笔记" title="笔记"
+        rel="1">#笔记 (1) </a>
     
     <a class="post-tag-item" href="/tags/#NIO" title="NIO"
         rel="7">#NIO (7) </a>
@@ -558,17 +515,59 @@
     <a class="post-tag-item" href="/tags/#堆内存" title="堆内存"
         rel="1">#堆内存 (1) </a>
     
+    <a class="post-tag-item" href="/tags/#注解" title="注解"
+        rel="1">#注解 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Spring" title="Spring"
+        rel="5">#Spring (5) </a>
+    
+    <a class="post-tag-item" href="/tags/#文件加载" title="文件加载"
+        rel="1">#文件加载 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Spring Boot" title="Spring Boot"
+        rel="3">#Spring Boot (3) </a>
+    
+    <a class="post-tag-item" href="/tags/#Spring Cloud" title="Spring Cloud"
+        rel="1">#Spring Cloud (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#序列化" title="序列化"
+        rel="1">#序列化 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#函数式编程" title="函数式编程"
+        rel="1">#函数式编程 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#lambda" title="lambda"
+        rel="1">#lambda (1) </a>
+    
     <a class="post-tag-item" href="/tags/#并发编程" title="并发编程"
         rel="1">#并发编程 (1) </a>
     
     <a class="post-tag-item" href="/tags/#JUC" title="JUC"
         rel="1">#JUC (1) </a>
     
+    <a class="post-tag-item" href="/tags/#lambda表达式" title="lambda表达式"
+        rel="1">#lambda表达式 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#源码" title="源码"
+        rel="1">#源码 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#RPC" title="RPC"
+        rel="1">#RPC (1) </a>
+    
     <a class="post-tag-item" href="/tags/#Reactor" title="Reactor"
         rel="1">#Reactor (1) </a>
     
     <a class="post-tag-item" href="/tags/#NIO模型" title="NIO模型"
         rel="1">#NIO模型 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#操作系统" title="操作系统"
+        rel="1">#操作系统 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#微服务" title="微服务"
+        rel="1">#微服务 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Vert.x" title="Vert.x"
+        rel="1">#Vert.x (1) </a>
     
 </div>
     </div>
@@ -716,13 +715,13 @@
 <div class="gkt-summary">
     <nav>
         <a href="/" class="col-xs-4">
-            <span class="number">37</span><span>文章</span>
+            <span class="number">46</span><span>文章</span>
         </a>
         <a href="/series" class="col-xs-4 middle">
-            <span class="number">5</span><span>专题</span>
+            <span class="number">8</span><span>专题</span>
         </a>
         <a href="/tags" class="col-xs-4">
-            <span class="number">46</span><span>标签</span>
+            <span class="number">54</span><span>标签</span>
         </a>
     </nav>
 
@@ -731,17 +730,31 @@
         
         
         <section class="gkt-sidebar-content box-shadow">
-            <strong>工具</strong>
+            <strong>Netty</strong>
             <ul>
                 
                 <li>
-                    <a href="/post/util/2016-10-25_idea_shotcut.html"
-                        class="gkt-sidebar-active">IntelliJ 各种快捷键</a>
+                    <a href="/post/java/netty/2019-01-02_小白科普：Netty有什么用？.html"
+                        class="">小白科普：Netty有什么用？</a>
+                    
+                </li>
+                
+                <li>
+                    <a href="/post/java/netty/2019-03-26_大厨小鲜——基于Netty自己动手实现RPC框架.html"
+                        class="">大厨小鲜——基于Netty自己动手实现RPC框架</a>
+                    
+                </li>
+                
+                <li>
+                    <a href="/post/java/netty/2020-05-24_Netty 笔记汇总.html"
+                        class="gkt-sidebar-active">Netty 笔记汇总</a>
                     
                     <!-- Table of Contents -->
 <div id="sidebar-toc">
   <!-- TOC  -->
   
+  
+  <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#netty%E6%A6%82%E8%A6%81"><span class="toc-nav-text">netty概要</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#%E7%BB%84%E4%BB%B6"><span class="toc-nav-text">组件</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#ByteBuf"><span class="toc-nav-text">ByteBuf</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Channel-%E5%92%8C-Unsafe"><span class="toc-nav-text">Channel 和 Unsafe</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#ChannelPipeline-%E5%92%8C-ChannelHandler"><span class="toc-nav-text">ChannelPipeline 和 ChannelHandler</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Future-%E5%92%8C-Promise"><span class="toc-nav-text">Future 和 Promise</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#EventLoop-%E5%92%8C-EventLoopGroup"><span class="toc-nav-text">EventLoop 和 EventLoopGroup</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#ServerBootstrap-%E5%92%8C-Bootstrap"><span class="toc-nav-text">ServerBootstrap 和 Bootstrap</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Encode-%E5%92%8C-Decoder"><span class="toc-nav-text">Encode 和 Decoder</span></a></li></ol></li></ol>
   
 </div>
 
@@ -783,6 +796,12 @@
                     
                 </li>
                 
+                <li>
+                    <a href="/post/java/netty/2020-05-26_Netty 知识点思维导图.html"
+                        class="">Netty 知识点思维导图</a>
+                    
+                </li>
+                
             </ul>
         </section>
         
@@ -792,15 +811,15 @@
             <ul>
                 
                 <li>
+                    <a href="/post/java/spring/2020-09-02_How to learn Spring Cloud – the practical way.html">How to learn Spring Cloud – the practical way</a>
+                </li>
+                
+                <li>
                     <a href="/post/java/advance/2020-06-28_java_jvm.html">深入理解JVM-内存模型（jmm）和GC</a>
                 </li>
                 
                 <li>
-                    <a href="/post/java/advance/2020-05-02_java_juc.html">JUC 概览</a>
-                </li>
-                
-                <li>
-                    <a href="/post/java/advance/2020-04-25_java_optimize.html">接口性能优化思路</a>
+                    <a href="/post/java/netty/2020-05-26_Netty 知识点思维导图.html">Netty 知识点思维导图</a>
                 </li>
                 
             </ul>

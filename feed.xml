@@ -15,8 +15,38 @@
     <atom:link href="https://blog.fenxiangz.com/feed.xml" rel="self" type="application/rss+xml"/>
     
     <description>Share everything</description>
-    <pubDate>Tue, 24 Nov 2020 13:29:03 GMT</pubDate>
+    <pubDate>Wed, 25 Nov 2020 15:52:55 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>How to learn Spring Cloud – the practical way</title>
+      <link>https://blog.fenxiangz.com/post/java/spring/2020-09-02_How%20to%20learn%20Spring%20Cloud%20%E2%80%93%20the%20practical%20way.html</link>
+      <guid>https://blog.fenxiangz.com/post/java/spring/2020-09-02_How%20to%20learn%20Spring%20Cloud%20%E2%80%93%20the%20practical%20way.html</guid>
+      <pubDate>Tue, 01 Sep 2020 16:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;I have recently spoken at a meetup about &lt;a href=&quot;https://www.e4developer.com/2018/02/20/practical-choreography-with-spring-cloud-present</description>
+        
+      
+      
+      <enclosure url="https://blog.fenxiangz.com/images/java/spring-framework.png" type="image"/>
+      
+      
+      
+      <category domain="https://blog.fenxiangz.com/categories/Spring-Boot/">Spring Boot</category>
+      
+      
+      <category domain="https://blog.fenxiangz.com/tags/Java/">Java</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/Spring/">Spring</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/Spring-Cloud/">Spring Cloud</category>
+      
+      
+      <comments>https://blog.fenxiangz.com/post/java/spring/2020-09-02_How%20to%20learn%20Spring%20Cloud%20%E2%80%93%20the%20practical%20way.html#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>深入理解JVM-内存模型（jmm）和GC</title>
@@ -40,12 +70,135 @@
       
       <category domain="https://blog.fenxiangz.com/tags/Java/">Java</category>
       
-      <category domain="https://blog.fenxiangz.com/tags/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/">垃圾回收</category>
-      
       <category domain="https://blog.fenxiangz.com/tags/jvm/">jvm</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/">垃圾回收</category>
       
       
       <comments>https://blog.fenxiangz.com/post/java/advance/2020-06-28_java_jvm.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Netty 知识点思维导图</title>
+      <link>https://blog.fenxiangz.com/post/java/netty/2020-05-26_Netty%20%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE.html</link>
+      <guid>https://blog.fenxiangz.com/post/java/netty/2020-05-26_Netty%20%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE.html</guid>
+      <pubDate>Mon, 25 May 2020 16:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;右键新 Tab页打开查看大图&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;./2020-05-26_Netty%20%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE/1.png&quot;&gt;&lt;/p&gt;
+</description>
+        
+      
+      
+      <enclosure url="https://blog.fenxiangz.com/images/java/netty-logo.png" type="image"/>
+      
+      
+      
+      <category domain="https://blog.fenxiangz.com/categories/Netty/">Netty</category>
+      
+      
+      <category domain="https://blog.fenxiangz.com/tags/Java/">Java</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE/">思维导图</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/Netty/">Netty</category>
+      
+      
+      <comments>https://blog.fenxiangz.com/post/java/netty/2020-05-26_Netty%20%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Netty 笔记汇总</title>
+      <link>https://blog.fenxiangz.com/post/java/netty/2020-05-24_Netty%20%E7%AC%94%E8%AE%B0%E6%B1%87%E6%80%BB.html</link>
+      <guid>https://blog.fenxiangz.com/post/java/netty/2020-05-24_Netty%20%E7%AC%94%E8%AE%B0%E6%B1%87%E6%80%BB.html</guid>
+      <pubDate>Sat, 23 May 2020 16:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h1 id=&quot;netty概要&quot;&gt;&lt;a href=&quot;#netty概要&quot; class=&quot;headerlink&quot; title=&quot;netty概要&quot;&gt;&lt;/a&gt;netty概要&lt;/h1&gt;&lt;p&gt;netty是一个异步非阻塞的通信框架（类似的框架还有mina，grizzly）。&lt;/p&gt;
+&lt;p&gt;底层</description>
+        
+      
+      
+      <enclosure url="https://blog.fenxiangz.com/images/java/netty-logo.png" type="image"/>
+      
+      
+      
+      <category domain="https://blog.fenxiangz.com/categories/Netty/">Netty</category>
+      
+      
+      <category domain="https://blog.fenxiangz.com/tags/Java/">Java</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/Netty/">Netty</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/%E7%AC%94%E8%AE%B0/">笔记</category>
+      
+      
+      <comments>https://blog.fenxiangz.com/post/java/netty/2020-05-24_Netty%20%E7%AC%94%E8%AE%B0%E6%B1%87%E6%80%BB.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Spring Boot 排坑</title>
+      <link>https://blog.fenxiangz.com/post/java/spring/2020-05-20_Spring%20Boot%20%E6%8E%92%E5%9D%91.html</link>
+      <guid>https://blog.fenxiangz.com/post/java/spring/2020-05-20_Spring%20Boot%20%E6%8E%92%E5%9D%91.html</guid>
+      <pubDate>Tue, 19 May 2020 16:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h3 id=&quot;1&quot;&gt;&lt;a href=&quot;#1&quot; class=&quot;headerlink&quot; title=&quot;1&quot;&gt;&lt;/a&gt;&lt;strong&gt;1&lt;/strong&gt;&lt;/h3&gt;&lt;p&gt;&lt;img src=&quot;./2020-05-20_Spring%20Boot%20%E6%8E%92%E5%9D%91</description>
+        
+      
+      
+      <enclosure url="https://blog.fenxiangz.com/images/java/spring-framework.png" type="image"/>
+      
+      
+      
+      <category domain="https://blog.fenxiangz.com/categories/Spring-Boot/">Spring Boot</category>
+      
+      
+      <category domain="https://blog.fenxiangz.com/tags/Java/">Java</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/Spring/">Spring</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/Spring-Boot/">Spring Boot</category>
+      
+      
+      <comments>https://blog.fenxiangz.com/post/java/spring/2020-05-20_Spring%20Boot%20%E6%8E%92%E5%9D%91.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>请给Sprint Boot多一些内存</title>
+      <link>https://blog.fenxiangz.com/post/java/spring/2020-05-20_%E8%AF%B7%E7%BB%99Sprint%20Boot%E5%A4%9A%E4%B8%80%E4%BA%9B%E5%86%85%E5%AD%98.html</link>
+      <guid>https://blog.fenxiangz.com/post/java/spring/2020-05-20_%E8%AF%B7%E7%BB%99Sprint%20Boot%E5%A4%9A%E4%B8%80%E4%BA%9B%E5%86%85%E5%AD%98.html</guid>
+      <pubDate>Tue, 19 May 2020 16:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h2 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h2&gt;&lt;p&gt;SprintBoot总体来说，搭建还是比较容易的，特别是SpringCloud全家桶，简称亲民微服务，但在发展趋势中，容器化技术已经成熟，面</description>
+        
+      
+      
+      <enclosure url="https://blog.fenxiangz.com/images/java/spring-framework.png" type="image"/>
+      
+      
+      
+      <category domain="https://blog.fenxiangz.com/categories/Spring-Boot/">Spring Boot</category>
+      
+      
+      <category domain="https://blog.fenxiangz.com/tags/Java/">Java</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/Spring/">Spring</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/Spring-Boot/">Spring Boot</category>
+      
+      
+      <comments>https://blog.fenxiangz.com/post/java/spring/2020-05-20_%E8%AF%B7%E7%BB%99Sprint%20Boot%E5%A4%9A%E4%B8%80%E4%BA%9B%E5%86%85%E5%AD%98.html#disqus_thread</comments>
       
     </item>
     
@@ -109,6 +262,38 @@
     </item>
     
     <item>
+      <title>【译】Spring Boot 从 classpath 加载文件</title>
+      <link>https://blog.fenxiangz.com/post/java/spring/2019-12-28_%E3%80%90%E8%AF%91%E3%80%91Spring%20Boot%20%E4%BB%8E%20classpath%20%E5%8A%A0%E8%BD%BD%E6%96%87%E4%BB%B6.html</link>
+      <guid>https://blog.fenxiangz.com/post/java/spring/2019-12-28_%E3%80%90%E8%AF%91%E3%80%91Spring%20Boot%20%E4%BB%8E%20classpath%20%E5%8A%A0%E8%BD%BD%E6%96%87%E4%BB%B6.html</guid>
+      <pubDate>Fri, 27 Dec 2019 16:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h2 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h2&gt;&lt;p&gt;在创建Spring Boot web应用程序时，有时需要从 &lt;code&gt;classpath&lt;/code&gt; 加载文件，例如，数据仅作为文件可用</description>
+        
+      
+      
+      <enclosure url="https://blog.fenxiangz.com/images/java/spring-framework.png" type="image"/>
+      
+      
+      
+      <category domain="https://blog.fenxiangz.com/categories/Spring-Boot/">Spring Boot</category>
+      
+      
+      <category domain="https://blog.fenxiangz.com/tags/Java/">Java</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/Spring/">Spring</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/%E6%96%87%E4%BB%B6%E5%8A%A0%E8%BD%BD/">文件加载</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/Spring-Boot/">Spring Boot</category>
+      
+      
+      <comments>https://blog.fenxiangz.com/post/java/spring/2019-12-28_%E3%80%90%E8%AF%91%E3%80%91Spring%20Boot%20%E4%BB%8E%20classpath%20%E5%8A%A0%E8%BD%BD%E6%96%87%E4%BB%B6.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
       <title>JVM内存结构：堆、栈、方法区</title>
       <link>https://blog.fenxiangz.com/post/java/advance/2019-07-22_java_stack.html</link>
       <guid>https://blog.fenxiangz.com/post/java/advance/2019-07-22_java_stack.html</guid>
@@ -153,7 +338,7 @@
         
       
       
-      <enclosure url="https://blog.fenxiangz.com/images/java/basic/java_logo.png" type="image"/>
+      <enclosure url="https://blog.fenxiangz.com/images/java/io.png" type="image"/>
       
       
       
@@ -221,7 +406,7 @@
         
       
       
-      <enclosure url="https://blog.fenxiangz.com/images/java/basic/java_logo.png" type="image"/>
+      <enclosure url="https://blog.fenxiangz.com/images/java/io.png" type="image"/>
       
       
       
@@ -253,7 +438,7 @@
         
       
       
-      <enclosure url="https://blog.fenxiangz.com/images/java/basic/java_logo.png" type="image"/>
+      <enclosure url="https://blog.fenxiangz.com/images/java/io.png" type="image"/>
       
       
       
@@ -268,6 +453,38 @@
       
       
       <comments>https://blog.fenxiangz.com/post/java/nio/2019-04-07_java_nio_%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F%E7%82%B9.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>大厨小鲜——基于Netty自己动手实现RPC框架</title>
+      <link>https://blog.fenxiangz.com/post/java/netty/2019-03-26_%E5%A4%A7%E5%8E%A8%E5%B0%8F%E9%B2%9C%E2%80%94%E2%80%94%E5%9F%BA%E4%BA%8ENetty%E8%87%AA%E5%B7%B1%E5%8A%A8%E6%89%8B%E5%AE%9E%E7%8E%B0RPC%E6%A1%86%E6%9E%B6.html</link>
+      <guid>https://blog.fenxiangz.com/post/java/netty/2019-03-26_%E5%A4%A7%E5%8E%A8%E5%B0%8F%E9%B2%9C%E2%80%94%E2%80%94%E5%9F%BA%E4%BA%8ENetty%E8%87%AA%E5%B7%B1%E5%8A%A8%E6%89%8B%E5%AE%9E%E7%8E%B0RPC%E6%A1%86%E6%9E%B6.html</guid>
+      <pubDate>Mon, 25 Mar 2019 16:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;今天我们要来做一道小菜，这道菜就是RPC通讯框架。它使用netty作为原料，fastjson序列化工具作为调料，来实现一个极简的多线程RPC服务框架。&lt;/p&gt;
+&lt;p&gt;我们暂且命名该RPC框架为rpckids。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;./2019-03-26_%E</description>
+        
+      
+      
+      <enclosure url="https://blog.fenxiangz.com/images/java/netty-logo.png" type="image"/>
+      
+      
+      
+      <category domain="https://blog.fenxiangz.com/categories/Netty/">Netty</category>
+      
+      
+      <category domain="https://blog.fenxiangz.com/tags/Java/">Java</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/Netty/">Netty</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/RPC/">RPC</category>
+      
+      
+      <comments>https://blog.fenxiangz.com/post/java/netty/2019-03-26_%E5%A4%A7%E5%8E%A8%E5%B0%8F%E9%B2%9C%E2%80%94%E2%80%94%E5%9F%BA%E4%BA%8ENetty%E8%87%AA%E5%B7%B1%E5%8A%A8%E6%89%8B%E5%AE%9E%E7%8E%B0RPC%E6%A1%86%E6%9E%B6.html#disqus_thread</comments>
       
     </item>
     
@@ -313,7 +530,7 @@
         
       
       
-      <enclosure url="https://blog.fenxiangz.com/images/java/basic/java_logo.png" type="image"/>
+      <enclosure url="https://blog.fenxiangz.com/images/java/io.png" type="image"/>
       
       
       
@@ -362,6 +579,35 @@
       
       
       <comments>https://blog.fenxiangz.com/post/java/basic/2019-01-21_java_thread_source.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>小白科普：Netty有什么用？</title>
+      <link>https://blog.fenxiangz.com/post/java/netty/2019-01-02_%E5%B0%8F%E7%99%BD%E7%A7%91%E6%99%AE%EF%BC%9ANetty%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8%EF%BC%9F.html</link>
+      <guid>https://blog.fenxiangz.com/post/java/netty/2019-01-02_%E5%B0%8F%E7%99%BD%E7%A7%91%E6%99%AE%EF%BC%9ANetty%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8%EF%BC%9F.html</guid>
+      <pubDate>Tue, 01 Jan 2019 16:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;随着移动互联网的爆发性增长，小明公司的电子商务系统访问量越来越大，由于现有系统是个单体的巨型应用，已经无法满足海量的并发请求，拆分势在必行。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;2020-09-02_%E5%B0%8F%E7%99%BD%E7%A7%91%E6%99%AE%E</description>
+        
+      
+      
+      <enclosure url="https://blog.fenxiangz.com/images/java/netty-logo.png" type="image"/>
+      
+      
+      
+      <category domain="https://blog.fenxiangz.com/categories/Netty/">Netty</category>
+      
+      
+      <category domain="https://blog.fenxiangz.com/tags/Java/">Java</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/Netty/">Netty</category>
+      
+      
+      <comments>https://blog.fenxiangz.com/post/java/netty/2019-01-02_%E5%B0%8F%E7%99%BD%E7%A7%91%E6%99%AE%EF%BC%9ANetty%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8%EF%BC%9F.html#disqus_thread</comments>
       
     </item>
     
@@ -424,6 +670,38 @@
     </item>
     
     <item>
+      <title>IntelliJ 各种快捷键</title>
+      <link>https://blog.fenxiangz.com/post/util/2017-10-25_idea_shotcut.html</link>
+      <guid>https://blog.fenxiangz.com/post/util/2017-10-25_idea_shotcut.html</guid>
+      <pubDate>Wed, 25 Oct 2017 03:29:24 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;工欲善其事必先利其器，花一点时间，记录一下 Intellij 各种快捷键。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;窗口交互&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Alt + 1 显示 Project 窗口 ☆☆☆&lt;br&gt;Alt + 2 显示 Favorite 窗口&lt;br&gt;Alt + 3 </description>
+        
+      
+      
+      <enclosure url="https://blog.fenxiangz.com/images/idea_logo.png" type="image"/>
+      
+      
+      
+      <category domain="https://blog.fenxiangz.com/categories/%E5%B7%A5%E5%85%B7/">工具</category>
+      
+      
+      <category domain="https://blog.fenxiangz.com/tags/Idea/">Idea</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/JavaIDE/">JavaIDE</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/Java/">Java</category>
+      
+      
+      <comments>https://blog.fenxiangz.com/post/util/2017-10-25_idea_shotcut.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
       <title>Java 引用</title>
       <link>https://blog.fenxiangz.com/post/java/basic/2017-07-14_java_reference.html</link>
       <guid>https://blog.fenxiangz.com/post/java/basic/2017-07-14_java_reference.html</guid>
@@ -466,7 +744,7 @@
         
       
       
-      <enclosure url="https://blog.fenxiangz.com/images/java/basic/java_logo.png" type="image"/>
+      <enclosure url="https://blog.fenxiangz.com/images/java/io.png" type="image"/>
       
       
       
@@ -497,7 +775,7 @@
         
       
       
-      <enclosure url="https://blog.fenxiangz.com/images/java/basic/java_logo.png" type="image"/>
+      <enclosure url="https://blog.fenxiangz.com/images/java/io.png" type="image"/>
       
       
       
@@ -528,7 +806,7 @@
         
       
       
-      <enclosure url="https://blog.fenxiangz.com/images/java/basic/java_logo.png" type="image"/>
+      <enclosure url="https://blog.fenxiangz.com/images/java/io.png" type="image"/>
       
       
       
@@ -557,7 +835,7 @@
         
       
       
-      <enclosure url="https://blog.fenxiangz.com/images/java/basic/java_logo.png" type="image"/>
+      <enclosure url="https://blog.fenxiangz.com/images/java/io.png" type="image"/>
       
       
       
@@ -592,7 +870,7 @@ try &amp;#123;
         
       
       
-      <enclosure url="https://blog.fenxiangz.com/images/java/basic/java_logo.png" type="image"/>
+      <enclosure url="https://blog.fenxiangz.com/images/java/io.png" type="image"/>
       
       
       
@@ -687,7 +965,7 @@ try &amp;#123;
         
       
       
-      <enclosure url="https://blog.fenxiangz.com/images/java/basic/java_logo.png" type="image"/>
+      <enclosure url="https://blog.fenxiangz.com/images/java/io.png" type="image"/>
       
       
       
@@ -717,7 +995,7 @@ public final static PrintStream o</description>
         
       
       
-      <enclosure url="https://blog.fenxiangz.com/images/java/basic/java_logo.png" type="image"/>
+      <enclosure url="https://blog.fenxiangz.com/images/java/io.png" type="image"/>
       
       
       
@@ -750,7 +1028,7 @@ public class PipeExa</description>
         
       
       
-      <enclosure url="https://blog.fenxiangz.com/images/java/basic/java_logo.png" type="image"/>
+      <enclosure url="https://blog.fenxiangz.com/images/java/io.png" type="image"/>
       
       
       
@@ -779,7 +1057,7 @@ public class PipeExa</description>
         
       
       
-      <enclosure url="https://blog.fenxiangz.com/images/java/basic/java_logo.png" type="image"/>
+      <enclosure url="https://blog.fenxiangz.com/images/java/io.png" type="image"/>
       
       
       
@@ -943,6 +1221,39 @@ public class PipeExa</description>
     </item>
     
     <item>
+      <title>Spring 组合注解&amp;注解继承</title>
+      <link>https://blog.fenxiangz.com/post/java/spring/2016-10-30_Spring%20%E7%BB%84%E5%90%88%E6%B3%A8%E8%A7%A3&amp;%E6%B3%A8%E8%A7%A3%E7%BB%A7%E6%89%BF.html</link>
+      <guid>https://blog.fenxiangz.com/post/java/spring/2016-10-30_Spring%20%E7%BB%84%E5%90%88%E6%B3%A8%E8%A7%A3&amp;%E6%B3%A8%E8%A7%A3%E7%BB%A7%E6%89%BF.html</guid>
+      <pubDate>Sat, 29 Oct 2016 16:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h3 id=&quot;组合注解&quot;&gt;&lt;a href=&quot;#组合注解&quot; class=&quot;headerlink&quot; title=&quot;组合注解&quot;&gt;&lt;/a&gt;组合注解&lt;/h3&gt;&lt;p&gt;被注解的注解称为组合注解。&lt;/p&gt;
+&lt;p&gt;1.好处&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;简单化注解配置，用很少的注解来标注特定含义的多</description>
+        
+      
+      
+      <enclosure url="https://blog.fenxiangz.com/images/java/spring-framework.png" type="image"/>
+      
+      
+      
+      <category domain="https://blog.fenxiangz.com/categories/Spring-Core/">Spring Core</category>
+      
+      
+      <category domain="https://blog.fenxiangz.com/tags/Java/">Java</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/%E6%B3%A8%E8%A7%A3/">注解</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/Spring/">Spring</category>
+      
+      
+      <comments>https://blog.fenxiangz.com/post/java/spring/2016-10-30_Spring%20%E7%BB%84%E5%90%88%E6%B3%A8%E8%A7%A3&amp;%E6%B3%A8%E8%A7%A3%E7%BB%A7%E6%89%BF.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
       <title>为什么 8 位有符号整数的范围为 “-128 ~ +127”</title>
       <link>https://blog.fenxiangz.com/post/java/advance/2016-10-25_number.html</link>
       <guid>https://blog.fenxiangz.com/post/java/advance/2016-10-25_number.html</guid>
@@ -967,38 +1278,6 @@ public class PipeExa</description>
       
       
       <comments>https://blog.fenxiangz.com/post/java/advance/2016-10-25_number.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>IntelliJ 各种快捷键</title>
-      <link>https://blog.fenxiangz.com/post/util/2016-10-25_idea_shotcut.html</link>
-      <guid>https://blog.fenxiangz.com/post/util/2016-10-25_idea_shotcut.html</guid>
-      <pubDate>Tue, 25 Oct 2016 03:29:24 GMT</pubDate>
-      
-        
-        
-      <description>&lt;p&gt;工欲善其事必先利其器，花一点时间，记录一下 Intellij 各种快捷键。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;窗口交互&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Alt + 1 显示 Project 窗口 ☆☆☆&lt;br&gt;Alt + 2 显示 Favorite 窗口&lt;br&gt;Alt + 3 </description>
-        
-      
-      
-      <enclosure url="https://blog.fenxiangz.com/images/idea_logo.png" type="image"/>
-      
-      
-      
-      <category domain="https://blog.fenxiangz.com/categories/%E5%B7%A5%E5%85%B7/">工具</category>
-      
-      
-      <category domain="https://blog.fenxiangz.com/tags/Idea/">Idea</category>
-      
-      <category domain="https://blog.fenxiangz.com/tags/JavaIDE/">JavaIDE</category>
-      
-      <category domain="https://blog.fenxiangz.com/tags/Java/">Java</category>
-      
-      
-      <comments>https://blog.fenxiangz.com/post/util/2016-10-25_idea_shotcut.html#disqus_thread</comments>
       
     </item>
     
@@ -1037,7 +1316,7 @@ public class PipeExa</description>
       <title>关于 HashMap （JDK 1.7）</title>
       <link>https://blog.fenxiangz.com/post/java/basic/2016-10-25_hashmap_jdk7.html</link>
       <guid>https://blog.fenxiangz.com/post/java/basic/2016-10-25_hashmap_jdk7.html</guid>
-      <pubDate>Tue, 25 Oct 2016 03:20:24 GMT</pubDate>
+      <pubDate>Mon, 24 Oct 2016 16:00:00 GMT</pubDate>
       
         
         
