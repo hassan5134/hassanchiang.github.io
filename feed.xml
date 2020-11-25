@@ -50,6 +50,37 @@
     </item>
     
     <item>
+      <title>JUC 概览</title>
+      <link>https://blog.fenxiangz.com/post/java/advance/2020-05-02_java_juc.html</link>
+      <guid>https://blog.fenxiangz.com/post/java/advance/2020-05-02_java_juc.html</guid>
+      <pubDate>Fri, 01 May 2020 16:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;在Java中，线程部分是一个重点，本篇文章说的JUC也是关于线程的。JUC就是java.util .concurrent工具包的简称。这是一个处理线程的工具包，JDK 1.5开始出现的。下面一起来看看它怎么使用。&lt;/p&gt;
+&lt;h1 id=&quot;一、volatile关键字与内存可见</description>
+        
+      
+      
+      <enclosure url="https://blog.fenxiangz.com/images/java/basic/java_logo.png" type="image"/>
+      
+      
+      
+      <category domain="https://blog.fenxiangz.com/categories/Java-%E8%BF%9B%E9%98%B6/">Java 进阶</category>
+      
+      
+      <category domain="https://blog.fenxiangz.com/tags/Java/">Java</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/">并发编程</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/JUC/">JUC</category>
+      
+      
+      <comments>https://blog.fenxiangz.com/post/java/advance/2020-05-02_java_juc.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
       <title>接口性能优化思路</title>
       <link>https://blog.fenxiangz.com/post/java/advance/2020-04-25_java_optimize.html</link>
       <guid>https://blog.fenxiangz.com/post/java/advance/2020-04-25_java_optimize.html</guid>
@@ -110,6 +141,41 @@
     </item>
     
     <item>
+      <title>Java直接内存与非直接内存性能测试</title>
+      <link>https://blog.fenxiangz.com/post/java/nio/2019-07-22_java_nio_Java%E7%9B%B4%E6%8E%A5%E5%86%85%E5%AD%98%E4%B8%8E%E9%9D%9E%E7%9B%B4%E6%8E%A5%E5%86%85%E5%AD%98%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95.html</link>
+      <guid>https://blog.fenxiangz.com/post/java/nio/2019-07-22_java_nio_Java%E7%9B%B4%E6%8E%A5%E5%86%85%E5%AD%98%E4%B8%8E%E9%9D%9E%E7%9B%B4%E6%8E%A5%E5%86%85%E5%AD%98%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95.html</guid>
+      <pubDate>Sun, 21 Jul 2019 16:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h2 id=&quot;什么是直接内存与非直接内存&quot;&gt;&lt;a href=&quot;#什么是直接内存与非直接内存&quot; class=&quot;headerlink&quot; title=&quot;什么是直接内存与非直接内存&quot;&gt;&lt;/a&gt;什么是直接内存与非直接内存&lt;/h2&gt;&lt;p&gt;根据官方文档的描述：&lt;/p&gt;
+&lt;blockquote</description>
+        
+      
+      
+      <enclosure url="https://blog.fenxiangz.com/images/java/basic/java_logo.png" type="image"/>
+      
+      
+      
+      <category domain="https://blog.fenxiangz.com/categories/Java-NIO/">Java NIO</category>
+      
+      
+      <category domain="https://blog.fenxiangz.com/tags/Java/">Java</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/NIO/">NIO</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/%E7%9B%B4%E6%8E%A5%E5%86%85%E5%AD%98/">直接内存</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/%E9%9D%9E%E7%9B%B4%E6%8E%A5%E5%86%85%E5%AD%98/">非直接内存</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/%E5%A0%86%E5%86%85%E5%AD%98/">堆内存</category>
+      
+      
+      <comments>https://blog.fenxiangz.com/post/java/nio/2019-07-22_java_nio_Java%E7%9B%B4%E6%8E%A5%E5%86%85%E5%AD%98%E4%B8%8E%E9%9D%9E%E7%9B%B4%E6%8E%A5%E5%86%85%E5%AD%98%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
       <title>Java8新特性学习-函数式编程</title>
       <link>https://blog.fenxiangz.com/post/java/advance/2019-05-04_java_labmda.html</link>
       <guid>https://blog.fenxiangz.com/post/java/advance/2019-05-04_java_labmda.html</guid>
@@ -141,6 +207,71 @@
     </item>
     
     <item>
+      <title>Java NIO客户端主动关闭连接，导致服务器空轮询</title>
+      <link>https://blog.fenxiangz.com/post/java/nio/2019-04-07_java_nio_debug.html</link>
+      <guid>https://blog.fenxiangz.com/post/java/nio/2019-04-07_java_nio_debug.html</guid>
+      <pubDate>Sat, 06 Apr 2019 16:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;当客户端连接关闭时，服务器select()不会阻塞，然后一直分发读就绪操作，且读到的字节长度都是0，这是什么情况。&lt;/p&gt;
+&lt;p&gt;服务器代码:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;try &amp;#123;
+    ServerSocketChannel serverChannel =</description>
+        
+      
+      
+      <enclosure url="https://blog.fenxiangz.com/images/java/basic/java_logo.png" type="image"/>
+      
+      
+      
+      <category domain="https://blog.fenxiangz.com/categories/Java-NIO/">Java NIO</category>
+      
+      
+      <category domain="https://blog.fenxiangz.com/tags/Java/">Java</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/NIO/">NIO</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/%E9%97%AE%E9%A2%98/">问题</category>
+      
+      
+      <comments>https://blog.fenxiangz.com/post/java/nio/2019-04-07_java_nio_debug.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>NIO 各种使用注意点</title>
+      <link>https://blog.fenxiangz.com/post/java/nio/2019-04-07_java_nio_%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F%E7%82%B9.html</link>
+      <guid>https://blog.fenxiangz.com/post/java/nio/2019-04-07_java_nio_%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F%E7%82%B9.html</guid>
+      <pubDate>Sat, 06 Apr 2019 16:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;找问题的时后发现了这篇文章，惊为天人，几乎涵盖了我所有碰到的坑，非常不错！&lt;/p&gt;
+&lt;p&gt;不得不说，NIO的API设计的够难用的，坑还巨多….这也是为什么大家都不直接使用nio的原因吧，一般会用mina或者netty啥的（这是个记录的博客，所以会不断更新）&lt;/p&gt;
+&lt;p&gt;关</description>
+        
+      
+      
+      <enclosure url="https://blog.fenxiangz.com/images/java/basic/java_logo.png" type="image"/>
+      
+      
+      
+      <category domain="https://blog.fenxiangz.com/categories/Java-NIO/">Java NIO</category>
+      
+      
+      <category domain="https://blog.fenxiangz.com/tags/Java/">Java</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/NIO/">NIO</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/%E9%97%AE%E9%A2%98/">问题</category>
+      
+      
+      <comments>https://blog.fenxiangz.com/post/java/nio/2019-04-07_java_nio_%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F%E7%82%B9.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
       <title>Java 和操作系统交互细节</title>
       <link>https://blog.fenxiangz.com/post/java/advance/2019-03-06_java_os.html</link>
       <guid>https://blog.fenxiangz.com/post/java/advance/2019-03-06_java_os.html</guid>
@@ -167,6 +298,38 @@
       
       
       <comments>https://blog.fenxiangz.com/post/java/advance/2019-03-06_java_os.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>谈一谈 Java IO 模型</title>
+      <link>https://blog.fenxiangz.com/post/java/nio/2019-02-27_java_nio_model.html</link>
+      <guid>https://blog.fenxiangz.com/post/java/nio/2019-02-27_java_nio_model.html</guid>
+      <pubDate>Tue, 26 Feb 2019 16:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;Java IO 模型对于 Java 开发工程师来说，是日常工作中经常接触的内容，特别是随着分布式系统的兴起，IO 也显得越来越重要，Java 的 IO 模型本质上还是利用操作系统提供的接口来实现，不熟悉这一部分内容的话，可以先看一下上篇文章&lt;a href=&quot;https://</description>
+        
+      
+      
+      <enclosure url="https://blog.fenxiangz.com/images/java/basic/java_logo.png" type="image"/>
+      
+      
+      
+      <category domain="https://blog.fenxiangz.com/categories/Java-NIO/">Java NIO</category>
+      
+      
+      <category domain="https://blog.fenxiangz.com/tags/Java/">Java</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/NIO/">NIO</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/Reactor/">Reactor</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/NIO%E6%A8%A1%E5%9E%8B/">NIO模型</category>
+      
+      
+      <comments>https://blog.fenxiangz.com/post/java/nio/2019-02-27_java_nio_model.html#disqus_thread</comments>
       
     </item>
     
@@ -291,6 +454,163 @@
     </item>
     
     <item>
+      <title>Java NIO(3) 选择器 Selector</title>
+      <link>https://blog.fenxiangz.com/post/java/nio/2017-04-23_java_nio_3.html</link>
+      <guid>https://blog.fenxiangz.com/post/java/nio/2017-04-23_java_nio_3.html</guid>
+      <pubDate>Sat, 22 Apr 2017 16:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;Selector 是Java NIO的重要组件之一，它可以检查一个或多个通道（Channel），并确定哪个通道进入准备好的状态，比如：准备读或者准备写数据。通过Selector 这种方式，单个线程可以管理多个通道，从而实现处理多个网络连接。&lt;/p&gt;
+&lt;h2 id=&quot;为什么用</description>
+        
+      
+      
+      <enclosure url="https://blog.fenxiangz.com/images/java/basic/java_logo.png" type="image"/>
+      
+      
+      
+      <category domain="https://blog.fenxiangz.com/categories/Java-NIO/">Java NIO</category>
+      
+      
+      <category domain="https://blog.fenxiangz.com/tags/Java/">Java</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/NIO/">NIO</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/Selector/">Selector</category>
+      
+      
+      <comments>https://blog.fenxiangz.com/post/java/nio/2017-04-23_java_nio_3.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Java NIO(2) Buffer</title>
+      <link>https://blog.fenxiangz.com/post/java/nio/2017-04-22_java_nio_2.html</link>
+      <guid>https://blog.fenxiangz.com/post/java/nio/2017-04-22_java_nio_2.html</guid>
+      <pubDate>Fri, 21 Apr 2017 16:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;Buffer 本质上是内存区域上的一块你可以读写的内存块。这个内存块被包在 NIO Buffer对象中，我们通过 Buffer 提供的一系列方法来便捷的操作这个内存块。&lt;/p&gt;
+&lt;h2 id=&quot;Buffer-的基本使用&quot;&gt;&lt;a href=&quot;#Buffer-的基本使用&quot; cl</description>
+        
+      
+      
+      <enclosure url="https://blog.fenxiangz.com/images/java/basic/java_logo.png" type="image"/>
+      
+      
+      
+      <category domain="https://blog.fenxiangz.com/categories/Java-NIO/">Java NIO</category>
+      
+      
+      <category domain="https://blog.fenxiangz.com/tags/Java/">Java</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/NIO/">NIO</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/Buffer/">Buffer</category>
+      
+      
+      <comments>https://blog.fenxiangz.com/post/java/nio/2017-04-22_java_nio_2.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Java NIO (1) 基本概念</title>
+      <link>https://blog.fenxiangz.com/post/java/nio/2017-04-21_java_nio_1.html</link>
+      <guid>https://blog.fenxiangz.com/post/java/nio/2017-04-21_java_nio_1.html</guid>
+      <pubDate>Thu, 20 Apr 2017 16:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;Java 1.4之后引入了NIO框架。&lt;/p&gt;
+&lt;h2 id=&quot;Java-NIO-Channels-and-Buffers（通道和缓冲区）&quot;&gt;&lt;a href=&quot;#Java-NIO-Channels-and-Buffers（通道和缓冲区）&quot; class=&quot;headerlink</description>
+        
+      
+      
+      <enclosure url="https://blog.fenxiangz.com/images/java/basic/java_logo.png" type="image"/>
+      
+      
+      
+      <category domain="https://blog.fenxiangz.com/categories/Java-NIO/">Java NIO</category>
+      
+      
+      <category domain="https://blog.fenxiangz.com/tags/Java/">Java</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/NIO/">NIO</category>
+      
+      
+      <comments>https://blog.fenxiangz.com/post/java/nio/2017-04-21_java_nio_1.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Java IO(6) InputStream和OutputStream</title>
+      <link>https://blog.fenxiangz.com/post/java/io/2017-04-20_java_io_6_stream.html</link>
+      <guid>https://blog.fenxiangz.com/post/java/io/2017-04-20_java_io_6_stream.html</guid>
+      <pubDate>Wed, 19 Apr 2017 16:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h1 id=&quot;InputStream&quot;&gt;&lt;a href=&quot;#InputStream&quot; class=&quot;headerlink&quot; title=&quot;InputStream&quot;&gt;&lt;/a&gt;InputStream&lt;/h1&gt;&lt;p&gt;例子：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;InputStream inp</description>
+        
+      
+      
+      <enclosure url="https://blog.fenxiangz.com/images/java/basic/java_logo.png" type="image"/>
+      
+      
+      
+      <category domain="https://blog.fenxiangz.com/categories/Java-IO/">Java IO</category>
+      
+      
+      <category domain="https://blog.fenxiangz.com/tags/Java/">Java</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/IO/">IO</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/Stream/">Stream</category>
+      
+      
+      <comments>https://blog.fenxiangz.com/post/java/io/2017-04-20_java_io_6_stream.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Java IO(5) 异常处理</title>
+      <link>https://blog.fenxiangz.com/post/java/io/2017-04-19_java_io_5_exception.html</link>
+      <guid>https://blog.fenxiangz.com/post/java/io/2017-04-19_java_io_5_exception.html</guid>
+      <pubDate>Tue, 18 Apr 2017 16:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;传统的写法：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;InputStream input = null;
+try &amp;#123;
+    input = new FileInputStream(&amp;quot;c:\\data\\input-text.txt&amp;quot;);
+
+    in</description>
+        
+      
+      
+      <enclosure url="https://blog.fenxiangz.com/images/java/basic/java_logo.png" type="image"/>
+      
+      
+      
+      <category domain="https://blog.fenxiangz.com/categories/Java-IO/">Java IO</category>
+      
+      
+      <category domain="https://blog.fenxiangz.com/tags/Java/">Java</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/IO/">IO</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/Exception/">Exception</category>
+      
+      
+      <comments>https://blog.fenxiangz.com/post/java/io/2017-04-19_java_io_5_exception.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
       <title>Java Thread 线程知识整理（思维导图）</title>
       <link>https://blog.fenxiangz.com/post/java/basic/2017-04-18_java_thread_mind.html</link>
       <guid>https://blog.fenxiangz.com/post/java/basic/2017-04-18_java_thread_mind.html</guid>
@@ -352,6 +672,126 @@
       
       
       <comments>https://blog.fenxiangz.com/post/java/advance/2017-04-18_java_0xff.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Java IO(4) 替换流，数组，文件或者大的字符串的一种方式</title>
+      <link>https://blog.fenxiangz.com/post/java/io/2017-04-18_java_io_4_reader.html</link>
+      <guid>https://blog.fenxiangz.com/post/java/io/2017-04-18_java_io_4_reader.html</guid>
+      <pubDate>Mon, 17 Apr 2017 16:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;传统的字符替换，我们通常会想到使用 String.replace()，但是这个有些问题。&lt;br&gt;String.replace()每次替换，都会产生新的字符串，替换5次就产生5个新的字符串。这样空间复杂度就是 O(N*M)。N是字符串大小，M是替换的次数。这种情况下，如果是替</description>
+        
+      
+      
+      <enclosure url="https://blog.fenxiangz.com/images/java/basic/java_logo.png" type="image"/>
+      
+      
+      
+      <category domain="https://blog.fenxiangz.com/categories/Java-IO/">Java IO</category>
+      
+      
+      <category domain="https://blog.fenxiangz.com/tags/Java/">Java</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/IO/">IO</category>
+      
+      
+      <comments>https://blog.fenxiangz.com/post/java/io/2017-04-18_java_io_4_reader.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Java IO(3)  System.in , System.out,  and System.error</title>
+      <link>https://blog.fenxiangz.com/post/java/io/2017-04-17_java_io_3_system_in.html</link>
+      <guid>https://blog.fenxiangz.com/post/java/io/2017-04-17_java_io_3_system_in.html</guid>
+      <pubDate>Sun, 16 Apr 2017 16:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt; System.out, System.in 和 System.err 在源码里的定义是：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;public final static InputStream in = null;
+public final static PrintStream o</description>
+        
+      
+      
+      <enclosure url="https://blog.fenxiangz.com/images/java/basic/java_logo.png" type="image"/>
+      
+      
+      
+      <category domain="https://blog.fenxiangz.com/categories/Java-IO/">Java IO</category>
+      
+      
+      <category domain="https://blog.fenxiangz.com/tags/Java/">Java</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/IO/">IO</category>
+      
+      
+      <comments>https://blog.fenxiangz.com/post/java/io/2017-04-17_java_io_3_system_in.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Java IO(2) 管道流</title>
+      <link>https://blog.fenxiangz.com/post/java/io/2017-04-16_java_io_2_pipeline.html</link>
+      <guid>https://blog.fenxiangz.com/post/java/io/2017-04-16_java_io_2_pipeline.html</guid>
+      <pubDate>Sat, 15 Apr 2017 16:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;Demo:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;import java.io.IOException;
+import java.io.PipedInputStream;
+import java.io.PipedOutputStream;
+
+public class PipeExa</description>
+        
+      
+      
+      <enclosure url="https://blog.fenxiangz.com/images/java/basic/java_logo.png" type="image"/>
+      
+      
+      
+      <category domain="https://blog.fenxiangz.com/categories/Java-IO/">Java IO</category>
+      
+      
+      <category domain="https://blog.fenxiangz.com/tags/Java/">Java</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/IO/">IO</category>
+      
+      
+      <comments>https://blog.fenxiangz.com/post/java/io/2017-04-16_java_io_2_pipeline.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Java IO(1) Overview</title>
+      <link>https://blog.fenxiangz.com/post/java/io/2017-04-15_java_io_1_overview.html</link>
+      <guid>https://blog.fenxiangz.com/post/java/io/2017-04-15_java_io_1_overview.html</guid>
+      <pubDate>Fri, 14 Apr 2017 16:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h2 id=&quot;Java-IO-支持特性&quot;&gt;&lt;a href=&quot;#Java-IO-支持特性&quot; class=&quot;headerlink&quot; title=&quot;Java IO  支持特性&quot;&gt;&lt;/a&gt;Java IO  支持特性&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;文件访问&lt;br&gt;网络访问&lt;br</description>
+        
+      
+      
+      <enclosure url="https://blog.fenxiangz.com/images/java/basic/java_logo.png" type="image"/>
+      
+      
+      
+      <category domain="https://blog.fenxiangz.com/categories/Java-IO/">Java IO</category>
+      
+      
+      <category domain="https://blog.fenxiangz.com/tags/Java/">Java</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/IO/">IO</category>
+      
+      
+      <comments>https://blog.fenxiangz.com/post/java/io/2017-04-15_java_io_1_overview.html#disqus_thread</comments>
       
     </item>
     
