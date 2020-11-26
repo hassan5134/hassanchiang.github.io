@@ -1,0 +1,1217 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<!-- Head tag -->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  <meta name="baidu-site-verification" content="" />
+  <meta name="google-site-verification" content="" />
+  <meta name="msvalidate.01" content="" />
+  <meta name="360-site-verification" content="" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- if page has tags, then add tags to keyword -->
+  
+  
+  <meta name="keywords" content=",Java,包管理,Gradle,">
+  <!-- page.description has higher priority -->
+  <meta name="description" content="Share everything">
+  <link rel="shortcut icon" href="/favico.png">
+  <title>
+    
+    Learn Gradle - 3 Java 快速入门 | 分享之
+    
+  </title>
+
+  <link rel="canonical" href="/post/util/gradle/LearnGradle_3_Java快速入门.html">
+  
+<link rel="stylesheet" href="/css/reset.css">
+
+  
+<link rel="stylesheet" href="/css/layout.css">
+
+  
+<link rel="stylesheet" href="/css/markdown.css">
+
+  <!-- Pygments Highlight CSS -->
+  
+<link rel="stylesheet" href="/css/highlight.css">
+
+  
+<link rel="stylesheet" href="/css/geektutu.css">
+
+  <!-- global function -->
+  <script>
+    window.globalAddScript = function (url, onload, onerror) {
+      var s = document.createElement('script');
+      s.src = url;
+      onload && (s.onload = onload);
+      onerror && (s.onerror = onerror);
+      document.body.appendChild(s);
+    }
+    window.globalAddCss = function (url) {
+      var s = document.createElement('link');
+      s.rel = 'stylesheet';
+      s.href = url;
+      document.body.appendChild(s);
+    }
+    window.getPosition = function (ele) {
+      var x = 0, y = 0;
+      while (ele) {
+        x += (ele.offsetLeft - ele.scrollLeft + ele.clientLeft);
+        y += (ele.offsetTop - ele.scrollTop + ele.clientTop);
+        ele = ele.offsetParent;
+      }
+      return { x: x, y: y };
+    }
+    window.getDom = function (str) { return document.querySelector(str) }
+  </script>
+  <!-- google ad -->
+  
+<meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/feed.xml" title="分享之" type="application/rss+xml">
+</head>
+
+<body>
+    <header class="gkt-header col-xs-12 padding-0">
+    <div id="gkt-nav" class="gkt-header-container">
+        <a href="/" class="gkt-header-title float-left">
+            <img class="float-left" src="/favico.png" alt="">
+            <span>分享之</span>
+        </a>
+        <nav class="gkt-header-nav text-right">
+            <ul>
+                <li><a class="hidden-xs" href="/feed.xml">订阅</a></li>
+                <li><a href="/series/">专题</a></li>
+                <li><a href="/archives/">归档</a></li>
+                <li><a href="/post/link.html">友链</a></li>
+                <li><a href="/post/about.html">关于</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div id="gkt-cate-nav" class="gkt-header-container hidden-xs">
+        
+        <nav class="gkt-header-nav float-left">
+            <ul>
+                
+                
+                <li class="gkt-cate-name float-left ">
+                    <a class="float-left" href="/post/java/basic/2016-10-25_hashmap_jdk7.html">Java ▾</a>
+                    
+                    <ul class="gkt-sub-cate">
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/java/basic/2016-10-25_hashmap_jdk7.html">Java 基础</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/java/advance/2016-10-25_number.html">Java 进阶</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/java/io/2017-04-15_java_io_1_overview.html">Java IO</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/java/nio/2017-04-21_java_nio_1.html">Java NIO</a></li>
+                        
+                    </ul>
+                    
+                </li>
+                
+                <li class="gkt-cate-name float-left ">
+                    <a class="float-left" href="/post/java/spring/2016-10-30_Spring 组合注解&amp;注解继承.html">Spring ▾</a>
+                    
+                    <ul class="gkt-sub-cate">
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/java/spring/2016-10-30_Spring 组合注解&amp;注解继承.html">Spring Core</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/java/spring/2019-12-28_【译】Spring Boot 从 classpath 加载文件.html">Spring Boot</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/java/spring/2020-09-02_How-to-learn-Spring-Cloud.html">Spring Cloud</a></li>
+                        
+                    </ul>
+                    
+                </li>
+                
+                <li class="gkt-cate-name float-left ">
+                    <a class="float-left" href="/post/java/netty/2019-01-02_小白科普Netty有什么用.html">Java 框架</a>
+                    
+                </li>
+                
+                <li class="gkt-cate-name float-left active">
+                    <a class="float-left" href="/post/util/2017-10-25_idea_shotcut.html">开发工具 ▾</a>
+                    
+                    <ul class="gkt-sub-cate">
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/util/2017-10-25_idea_shotcut.html">IDE</a></li>
+                        
+                        <li class="gkt-sub-cate-name active"><a class="float-left"
+                                href="/post/util/gradle/LearnGradle_1_安装.html">Gradle</a></li>
+                        
+                    </ul>
+                    
+                </li>
+                
+                <li class="gkt-cate-name float-left ">
+                    <a class="float-left" href="/post/design/2019-01-03_Java经典设计模式_1_五大创建型模式.html">设计模式</a>
+                    
+                </li>
+                
+                <li class="gkt-cate-name float-left ">
+                    <a class="float-left" href="/post/distribution/2019-08-12_CAP定理的含义.html">分布式 ▾</a>
+                    
+                    <ul class="gkt-sub-cate">
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/distribution/2019-08-12_CAP定理的含义.html">理论</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/distribution/2019-08-13_Zookeeper是如何解决脑裂问题.html">zookeeper</a></li>
+                        
+                    </ul>
+                    
+                </li>
+                
+                <li class="gkt-cate-name float-left ">
+                    <a class="float-left" href="/post/algorithm/八皇后算法解析.html">算法</a>
+                    
+                </li>
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+<div class="gkt-header-placeholder" style="height: 44px"></div>
+<div class="gkt-header-placeholder hidden-xs" style="height: 44px"></div>
+<script>
+    (function () {
+        window.addEventListener('scroll', function () {
+            if (window.innerWidth < 768) {
+                return;
+            }
+            var nav = document.querySelector('#gkt-nav');
+            var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            scrollTop > 50 && (nav.classList.add('hide'));
+            scrollTop <= 50 && (nav.classList.remove('hide'));
+        });
+        var cateNavs = document.querySelectorAll('#gkt-cate-nav>nav>ul>li');
+        [].slice.call(cateNavs).forEach(function (item) {
+            var sub = item.querySelector('.gkt-sub-cate');
+            if (!sub) return;
+            item.addEventListener('mouseenter', function (e) { sub.style.display = 'block'; }, false);
+            item.addEventListener('mouseleave', function (e) { sub.style.display = 'none'; }, false);
+        })
+    })();
+</script>
+    <!-- Main Content -->
+    <div class="main-container">
+        <!-- Main Content -->
+<main class="col-xs-12 padding-0 markdown-it">
+    <!-- Post Container -->
+    
+    
+    <!-- Post Content -->
+<div class="float-left post-container box-shadow">
+    <div class="u-arrow-wrapper hidden-xs">
+        
+        <a class="float-left" href="/post/util/gradle/LearnGradle_2_基本的构建脚本介绍.html"><i class="u-arrow-left"></i></a>
+        
+        
+        <a class="float-right" href="/post/java/basic/2017-11-10_java-lambda.html"><i class="u-arrow-right"></i></a>
+        
+    </div>
+    <article class="col-xs-12">
+        <h1> Learn Gradle - 3 Java 快速入门 </h1>
+        
+        
+        <div class="hidden-lg hidden-md series_links">
+            <p> <strong> Gradle系列文章链接：</strong></p>
+            <ul>
+                
+                <li>
+                    <a href="/post/util/gradle/LearnGradle_1_安装.html">Learn Gradle - 1 安装</a>
+                    <span class="post-item-date">(Oct 26, 2017)</span>
+                </li>
+                
+                <li>
+                    <a href="/post/util/gradle/LearnGradle_2_基本的构建脚本介绍.html">Learn Gradle - 2 基本的构建脚本介绍</a>
+                    <span class="post-item-date">(Oct 27, 2017)</span>
+                </li>
+                
+                <li>
+                    <a href="/post/util/gradle/LearnGradle_3_Java快速入门.html">Learn Gradle - 3 Java 快速入门</a>
+                    <span class="post-item-date">(Oct 28, 2017)</span>
+                </li>
+                
+            </ul>
+        </div>
+        
+        
+        <p>上一节主要对Gradle的脚本进行了简要的介绍，本节将继续学习Gradle的另外一个特性——插件（plugins）。</p>
+<h2 id="1、插件介绍"><a href="#1、插件介绍" class="headerlink" title="1、插件介绍"></a>1、插件介绍</h2><p>插件是对Gradle功能的扩展，Gradle有着丰富的插件，你可以在这里搜索相关插件（<a target="_blank" rel="noopener" href="https://plugins.gradle.org/">传送门</a>）。本章将简要介绍Gradle的Java插件（Java plugin），这个插件会给你的构建项目添加一些任务，比如编译java类、执行单元测试和将编译的class文件打包成jar文件等。</p>
+<p>Java插件是基于约定的（约定优于配置），它在项目的很多方面定义了默认值，例如，Java源文件应该位于什么位置。我们只要遵循插件的约定，就不需要在Gradle配置脚本进行额外的相关配置。当然，在某些情况下，你的项目不想或不能遵循这个约定也是可以的，这样你就需要额外的配置你的构建脚本。</p>
+<p>Gradle Java插件对于项目文件存放的默认位置与maven类似。</p>
+<a id="more"></a>
+
+<p>Java源码存放在目录：src/main/java</p>
+<p>Java测试代码存放目录：src/test/java</p>
+<p>资源文件存放目录：src/main/resources</p>
+<p>测试相关资源文件存放目录：src/test/resources</p>
+<p>所有输出文件位于目录：build</p>
+<p>输出的jar文件位于目录：build/libs</p>
+<h2 id="2、一个简单的Java项目"><a href="#2、一个简单的Java项目" class="headerlink" title="2、一个简单的Java项目"></a>2、一个简单的Java项目</h2><p>新建一个文件build.gradle，添加代码：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apply plugin: <span class="string">&#x27;java&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>以上代码即配置java插件到构建脚本中。当执行构建脚本时，它将给项目添加一系列任务。我们执行：gradle build，来看看输出的结果：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">:compileJava UP-TO-DATE</span><br><span class="line">:processResources UP-TO-DATE</span><br><span class="line">:classes UP-TO-DATE</span><br><span class="line">:jar UP-TO-DATE</span><br><span class="line">:assemble UP-TO-DATE</span><br><span class="line">:compileTestJava UP-TO-DATE</span><br><span class="line">:processTestResources UP-TO-DATE</span><br><span class="line">:testClasses UP-TO-DATE</span><br><span class="line">:<span class="built_in">test</span> UP-TO-DATE</span><br><span class="line">:check UP-TO-DATE</span><br><span class="line">:build UP-TO-DATE</span><br><span class="line"> </span><br><span class="line">BUILD SUCCESSFUL</span><br></pre></td></tr></table></figure>
+
+<p>根据输出结果可以看出，我们执行的build这个任务依赖其他任务，比如compileJava等，这就是java插件预先定义好的一系列任务。</p>
+<p>你还可以执行一些其他的任务，比如执行：gradle clean，gradle assemble，gradle check等。</p>
+<p>gradle clean：删除构建目录以及已经构建完成的文件；</p>
+<p>gradle assemble（装配）：编译和打包java代码，但是不会执行单元测试（从上面的任务依赖结果也可以看出来）。如果你应用了其他插件，那么还会完成一下其他动作。例如，如果你应用了<a target="_blank" rel="noopener" href="https://docs.gradle.org/current/userguide/war_plugin.html">War</a>这个插件，那么这个任务将会为你的项目生成war文件。</p>
+<p>gradle check：编译且执行测试。与assemble类似，如果你应用了其他包含check任务的插件，例如，<a target="_blank" rel="noopener" href="https://docs.gradle.org/current/userguide/checkstyle_plugin.html">Checkstyle</a>插件，那么这个任务将会检查你的项目代码的质量，并且生成检测报告。</p>
+<p>如果想知道Gradle当前配置下哪些任务可执行，可以执行：gradle tasks，例如应用了java插件的配置，执行该命令，输出：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">:tasks</span><br><span class="line"> </span><br><span class="line">------------------------------------------------------------</span><br><span class="line">All tasks runnable from root project</span><br><span class="line">------------------------------------------------------------</span><br><span class="line"> </span><br><span class="line">Build tasks</span><br><span class="line">-----------</span><br><span class="line">assemble - Assembles the outputs of this project.</span><br><span class="line">build - Assembles and tests this project.</span><br><span class="line">buildDependents - Assembles and tests this project and all projects that depend on it.</span><br><span class="line">buildNeeded - Assembles and tests this project and all projects it depends on.</span><br><span class="line">classes - Assembles classes <span class="string">&#x27;main&#x27;</span>.</span><br><span class="line">clean - Deletes the build directory.</span><br><span class="line">jar - Assembles a jar archive containing the main classes.</span><br><span class="line">testClasses - Assembles classes <span class="string">&#x27;test&#x27;</span>.</span><br><span class="line"> </span><br><span class="line">Build Setup tasks</span><br><span class="line">-----------------</span><br><span class="line">init - Initializes a new Gradle build. [incubating]</span><br><span class="line">wrapper - Generates Gradle wrapper files. [incubating]</span><br><span class="line"> </span><br><span class="line">Documentation tasks</span><br><span class="line">-------------------</span><br><span class="line">javadoc - Generates Javadoc API documentation <span class="keyword">for</span> the main <span class="built_in">source</span> code.</span><br><span class="line"> </span><br><span class="line">Help tasks</span><br><span class="line">----------</span><br><span class="line">components - Displays the components produced by root project <span class="string">&#x27;learn-gradle&#x27;</span>. [incubating]</span><br><span class="line">dependencies - Displays all dependencies declared <span class="keyword">in</span> root project <span class="string">&#x27;learn-gradle&#x27;</span>.</span><br><span class="line">dependencyInsight - Displays the insight into a specific dependency <span class="keyword">in</span> root project <span class="string">&#x27;learn-gradle&#x27;</span>.</span><br><span class="line"><span class="built_in">help</span> - Displays a <span class="built_in">help</span> message.</span><br><span class="line">model - Displays the configuration model of root project <span class="string">&#x27;learn-gradle&#x27;</span>. [incubating]</span><br><span class="line">projects - Displays the sub-projects of root project <span class="string">&#x27;learn-gradle&#x27;</span>.</span><br><span class="line">properties - Displays the properties of root project <span class="string">&#x27;learn-gradle&#x27;</span>.</span><br><span class="line">tasks - Displays the tasks runnable from root project <span class="string">&#x27;learn-gradle&#x27;</span>.</span><br><span class="line"> </span><br><span class="line">Verification tasks</span><br><span class="line">------------------</span><br><span class="line">check - Runs all checks.</span><br><span class="line"><span class="built_in">test</span> - Runs the unit tests.</span><br><span class="line"> </span><br><span class="line">Rules</span><br><span class="line">-----</span><br><span class="line">Pattern: clean&lt;TaskName&gt;: Cleans the output files of a task.</span><br><span class="line">Pattern: build&lt;ConfigurationName&gt;: Assembles the artifacts of a configuration.</span><br><span class="line">Pattern: upload&lt;ConfigurationName&gt;: Assembles and uploads the artifacts belonging to a configuration.</span><br><span class="line"> </span><br><span class="line">To see all tasks and more detail, run gradle tasks --all</span><br><span class="line"> </span><br><span class="line">To see more detail about a task, run gradle <span class="built_in">help</span> --task &lt;task&gt;</span><br><span class="line"> </span><br><span class="line">BUILD SUCCESSFUL</span><br></pre></td></tr></table></figure>
+
+<p>小伙伴们看到这里会不会有疑问，如果在构建脚本中定义了名为tasks的任务，执行会是如何？好奇的小伙伴可以自己试一试噢。事实上，是会覆盖原有的任务的。</p>
+<h2 id="3、外部依赖"><a href="#3、外部依赖" class="headerlink" title="3、外部依赖"></a>3、外部依赖</h2><p>通常一个Java项目会依赖多个其他项目或jar文件，我们可以通过配置gradle仓库（repository）告诉gradle从哪里获取需要的依赖，并且gradle还可以配置使用maven仓库。例如，我们配置gradle使用maven中央仓库，在build.gradle中添加代码：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">repositories &#123;</span><br><span class="line">    mavenCentral()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>接下来，我们来添加一些依赖。代码示例：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dependencies &#123;</span><br><span class="line">    compile group: <span class="string">&#x27;commons-collections&#x27;</span>, name: <span class="string">&#x27;commons-collections&#x27;</span>, version: <span class="string">&#x27;3.2&#x27;</span></span><br><span class="line">    testCompile group: <span class="string">&#x27;junit&#x27;</span>, name: <span class="string">&#x27;junit&#x27;</span>, version: <span class="string">&#x27;4.+&#x27;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>关于依赖，暂时就点这么多。详细可以参考<a target="_blank" rel="noopener" href="https://docs.gradle.org/current/userguide/artifact_dependencies_tutorial.html">gradle依赖管理基础</a>，也可以关注后续文章。</p>
+<h2 id="4、定义项目属性"><a href="#4、定义项目属性" class="headerlink" title="4、定义项目属性"></a>4、定义项目属性</h2><p>Java插件会为项目添加一系列的属性，通常情况下，初始的Java项目使用这些默认配置就足够了，我们不需要进行额外的配置。但是如果默认属性不满足于你的项目，你也可以进行自定义项目的一些信息。例如我们为项目指定版本号和一些jar manifest信息。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sourceCompatibility = 1.5</span><br><span class="line">version = <span class="string">&#x27;1.0&#x27;</span></span><br><span class="line">jar &#123;</span><br><span class="line">    manifest &#123;</span><br><span class="line">        attributes <span class="string">&#x27;Implementation-Title&#x27;</span>: <span class="string">&#x27;Gradle Quickstart&#x27;</span>, <span class="string">&#x27;Implementation-Version&#x27;</span>: version</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>事实上，Java插件添加的一系列任务与我们之前在脚本中自定义的任务没什么区别，都是很常规的任务。我们可以随意定制和修改这些任务。例如，设置任务的属性、为任务添加行为、改变任务的依赖，甚至替换已有的任务。例如我们可以配置Test类型的test任务，当test任务执行的时候，添加一个系统属性。配置脚本如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">test</span> &#123;</span><br><span class="line">    systemProperties <span class="string">&#x27;property&#x27;</span>: <span class="string">&#x27;value&#x27;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>另外，与之前提到的“gradle tasks”命令类型，我们可以通过“gradle properties”来查看当前配置所支持的可配置属性有哪些。</p>
+<h2 id="5、将Jar文件发布到仓库"><a href="#5、将Jar文件发布到仓库" class="headerlink" title="5、将Jar文件发布到仓库"></a>5、将Jar文件发布到仓库</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">uploadArchives &#123;</span><br><span class="line">    repositories &#123;</span><br><span class="line">       flatDir &#123;</span><br><span class="line">           <span class="built_in">dirs</span> <span class="string">&#x27;repos&#x27;</span></span><br><span class="line">       &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>执行gradle uploadArchives，将会把相关jar文件发布到reops仓库中。更多参考：<a target="_blank" rel="noopener" href="https://docs.gradle.org/current/userguide/artifact_dependencies_tutorial.html#N10669">Publishing artifacts</a></p>
+<h2 id="6、构建多个Java项目"><a href="#6、构建多个Java项目" class="headerlink" title="6、构建多个Java项目"></a>6、构建多个Java项目</h2><p>假设我们的项目结构如下所示：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">multiproject/</span><br><span class="line">--api/</span><br><span class="line">--services/webservice/</span><br><span class="line">--shared/</span><br><span class="line">--services/shared/</span><br></pre></td></tr></table></figure>
+
+<p>项目api生成jar文件，Java客户端通过jar提供的接口访问web服务；项目services/webservice是一个webapp，提供web服务；项目shared 包含api和webservice公共代码；项目services/shared依赖shared项目，包含webservice公共代码。</p>
+<p>接下来，我们开始定义多项目构建。</p>
+<p>1）首先，我们需要添加一个配置文件：settings.gradle文件。settings.gradle位于项目的根目录，也就是multiproject目录。编辑settings.gradle，输入配置信息：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">include <span class="string">&quot;shared&quot;</span>, <span class="string">&quot;api&quot;</span>, <span class="string">&quot;services:webservice&quot;</span>, <span class="string">&quot;services:shared&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>include是<a target="_blank" rel="noopener" href="https://docs.gradle.org/current/dsl/">Gradle DSL</a>定义的核心类型Settings的方法，用于构建指定项目。配置中指定的参数“shared”、“api”等值默认是当前配置目录的目录名称，而“services:webservice”将根据默认约定映射系统物理路径”services/webservice”（相对于根目录）。关于include更详细的信息可以参考：<a target="_blank" rel="noopener" href="https://docs.gradle.org/current/userguide/build_lifecycle.html#sub:building_the_tree">构建树</a>。</p>
+<p>2）定义所有子项目公用配置。在根目录创建文件：build.gradle，输入配置信息：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">subprojects &#123;</span><br><span class="line">    apply plugin: <span class="string">&#x27;java&#x27;</span></span><br><span class="line">    apply plugin: <span class="string">&#x27;eclipse-wtp&#x27;</span></span><br><span class="line"> </span><br><span class="line">    repositories &#123;</span><br><span class="line">       mavenCentral()</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    dependencies &#123;</span><br><span class="line">        testCompile <span class="string">&#x27;junit:junit:4.12&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    version = <span class="string">&#x27;1.0&#x27;</span></span><br><span class="line"> </span><br><span class="line">    jar &#123;</span><br><span class="line">        manifest.attributes provider: <span class="string">&#x27;gradle&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>subprojects 是<a target="_blank" rel="noopener" href="https://docs.gradle.org/current/dsl/">Gradle DSL</a>定义的构建脚本模块之一，用于定义所有子项目的配置信息。在以上配置中，我们给所有子项目定义了使用“java”和“<a target="_blank" rel="noopener" href="https://docs.gradle.org/current/dsl/org.gradle.plugins.ide.eclipse.model.EclipseWtp.html">eclipse-wtp</a>”插件，还定义了仓库、依赖、版本号以及jar（jar是Gradle的任务类型之一，任务是装配jar包，jar任务包含属性manifest，用于描述jar的信息，具体参考：<a target="_blank" rel="noopener" href="https://docs.gradle.org/current/dsl/org.gradle.api.tasks.bundling.Jar.html">Jar</a>）。</p>
+<p>我们在根目录执行gradle build命令时，这些配置会应用到所有子项目中。</p>
+<p>3）给项目添加依赖</p>
+<p>新建文件：api/build.gradle，添加配置：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dependencies &#123;</span><br><span class="line">    compile project(<span class="string">&#x27;:shared&#x27;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>以上，我们定义了api项目依赖shared项目，当我们在根目录执行gradle build命令时，gradle会确保在编译api之前，先完成shared项目编译，然后才会编译api项目。</p>
+<p>同样，添加services/webservice/build.gradle，添加配置：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dependencies &#123;</span><br><span class="line">    compile project(<span class="string">&#x27;:services:shared&#x27;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在根目录执行：gradle compileJava，输出：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">:shared:compileJava UP-TO-DATE</span><br><span class="line">:shared:processResources UP-TO-DATE</span><br><span class="line">:shared:classes UP-TO-DATE</span><br><span class="line">:shared:jar UP-TO-DATE</span><br><span class="line">:api:compileJava UP-TO-DATE</span><br><span class="line">:services:compileJava UP-TO-DATE</span><br><span class="line">:services:shared:compileJava UP-TO-DATE</span><br><span class="line">:services:shared:processResources UP-TO-DATE</span><br><span class="line">:services:shared:classes UP-TO-DATE</span><br><span class="line">:services:shared:jar UP-TO-DATE</span><br><span class="line">:services:webservice:compileJava UP-TO-DATE</span><br><span class="line"> </span><br><span class="line">BUILD SUCCESSFUL</span><br></pre></td></tr></table></figure>
+
+<p>通过输出信息我们就可以清楚看出依赖配置是否正确啦。</p>
+
+        
+<script src="/js/qrious.min.js"></script>
+
+
+        <hr>
+        <div>
+            
+            <p>
+                <span>专题: </span>
+                
+                <a href="/series/#Gradle">
+                    <code key="Gradle" class="post-label">Gradle</code>
+                </a>
+                
+            </p>
+            
+            <p>
+                <span>本文发表于 2017-10-28，最后修改于 2020-11-26。</span>
+            </p>
+            <!-- 文章末尾的提示 start -->
+            
+            
+            
+                
+            <!-- 文章末尾的提示 end -->
+        </div>
+        <hr />
+        <p name="pagination" style="font-size: 1.2em">
+    
+    <a class="float-left" href="/post/util/gradle/LearnGradle_2_基本的构建脚本介绍.html">上一篇 « Learn Gradle - 2 基本的构建脚本介绍</a>
+    
+    
+    <a class="float-right" href="/post/java/basic/2017-11-10_java-lambda.html">下一篇 » Java8 lambda表达式10个示例</a>
+    
+</p>
+    </article>
+    <!-- 赞赏 -->
+    <!--打赏-->
+
+    <!-- 推荐阅读三篇文章 -->
+    <div class="col-xs-12">
+        <h3>推荐阅读</h3>
+        
+        <div class="post-preview">
+    <div class="post-img" style="background-image: url('/images/java/spring-framework.png')"></div>
+    <div class="post-info">
+        <div class="post-info-center">
+            <div class="hidden-xs">
+                
+                
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#Java"
+                    title="Java">Java</a>
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#Spring"
+                    title="Spring">Spring</a>
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#Spring Boot"
+                    title="Spring Boot">Spring Boot</a>
+                <span>/</span>
+                
+                
+            </div>
+            <a href="/post/java/spring/2020-05-20_SpringBoot排坑.html" class="title">
+                Spring Boot 排坑
+            </a>
+            <p class="text-gray">
+                <small>
+                    <span>发表于2020-05-20，</span>
+                    <span class="hidden-xs">全文561字，</span>
+                    <span>阅读约2分钟</span>
+                </small>
+            </p>
+        </div>
+    </div>
+</div>
+        
+        <div class="post-preview">
+    <div class="post-img" style="background-image: url('/images/java/basic/java_logo.png')"></div>
+    <div class="post-info">
+        <div class="post-info-center">
+            <div class="hidden-xs">
+                
+                
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#Java"
+                    title="Java">Java</a>
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#内存模型"
+                    title="内存模型">内存模型</a>
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#jvm"
+                    title="jvm">jvm</a>
+                <span>/</span>
+                
+                
+            </div>
+            <a href="/post/java/advance/2019-07-22_java_stack.html" class="title">
+                JVM内存结构：堆、栈、方法区
+            </a>
+            <p class="text-gray">
+                <small>
+                    <span>发表于2019-07-22，</span>
+                    <span class="hidden-xs">全文4013字，</span>
+                    <span>阅读约14分钟</span>
+                </small>
+            </p>
+        </div>
+    </div>
+</div>
+        
+        <div class="post-preview">
+    <div class="post-img" style="background-image: url('/images/gradle.png')"></div>
+    <div class="post-info">
+        <div class="post-info-center">
+            <div class="hidden-xs">
+                
+                
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#Java"
+                    title="Java">Java</a>
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#包管理"
+                    title="包管理">包管理</a>
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#Gradle"
+                    title="Gradle">Gradle</a>
+                <span>/</span>
+                
+                
+            </div>
+            <a href="/post/util/gradle/LearnGradle_2_基本的构建脚本介绍.html" class="title">
+                Learn Gradle - 2 基本的构建脚本介绍
+            </a>
+            <p class="text-gray">
+                <small>
+                    <span>发表于2017-10-27，</span>
+                    <span class="hidden-xs">全文4751字，</span>
+                    <span>阅读约16分钟</span>
+                </small>
+            </p>
+        </div>
+    </div>
+</div>
+        
+    </div>
+    <div class="col-xs-12">
+        <!-- 标签列表 -->
+        <!-- Featured Tags -->
+<style>
+    #featured-tag .post-tag-item {
+        font-size: 12px;
+        line-height: 30px;
+        display: inline-block;
+        height: 30px;
+        margin: 5px 0px;
+        padding: 0 7px;
+        color: #333;
+        border-radius: 15px;
+        background: #f6f6f6;
+    }
+
+    #featured-tag .post-tag-item:hover {
+        color: #337ab7;
+    }
+</style>
+<div id="featured-tag">
+    
+    <a class="post-tag-item" href="/tags/#关于我" title="关于我"
+        rel="1">#关于我 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Hello World" title="Hello World"
+        rel="1">#Hello World (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Idea" title="Idea"
+        rel="1">#Idea (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#JavaIDE" title="JavaIDE"
+        rel="1">#JavaIDE (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Java" title="Java"
+        rel="48">#Java (48) </a>
+    
+    <a class="post-tag-item" href="/tags/#二进制" title="二进制"
+        rel="2">#二进制 (2) </a>
+    
+    <a class="post-tag-item" href="/tags/#内存分配" title="内存分配"
+        rel="1">#内存分配 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#内存泄露" title="内存泄露"
+        rel="1">#内存泄露 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#书籍推荐" title="书籍推荐"
+        rel="1">#书籍推荐 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#知识体系" title="知识体系"
+        rel="1">#知识体系 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#反码" title="反码"
+        rel="1">#反码 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#补码" title="补码"
+        rel="1">#补码 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#内存模型" title="内存模型"
+        rel="1">#内存模型 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#jvm" title="jvm"
+        rel="3">#jvm (3) </a>
+    
+    <a class="post-tag-item" href="/tags/#性能优化" title="性能优化"
+        rel="1">#性能优化 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#HashMap" title="HashMap"
+        rel="1">#HashMap (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Java集合" title="Java集合"
+        rel="1">#Java集合 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#ThreadLocal" title="ThreadLocal"
+        rel="1">#ThreadLocal (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Java线程" title="Java线程"
+        rel="3">#Java线程 (3) </a>
+    
+    <a class="post-tag-item" href="/tags/#异常" title="异常"
+        rel="1">#异常 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Java异常" title="Java异常"
+        rel="1">#Java异常 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#思维导图" title="思维导图"
+        rel="2">#思维导图 (2) </a>
+    
+    <a class="post-tag-item" href="/tags/#垃圾回收" title="垃圾回收"
+        rel="2">#垃圾回收 (2) </a>
+    
+    <a class="post-tag-item" href="/tags/#Java引用" title="Java引用"
+        rel="1">#Java引用 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#IO" title="IO"
+        rel="6">#IO (6) </a>
+    
+    <a class="post-tag-item" href="/tags/#Exception" title="Exception"
+        rel="1">#Exception (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Stream" title="Stream"
+        rel="1">#Stream (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Netty" title="Netty"
+        rel="4">#Netty (4) </a>
+    
+    <a class="post-tag-item" href="/tags/#笔记" title="笔记"
+        rel="1">#笔记 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#NIO" title="NIO"
+        rel="7">#NIO (7) </a>
+    
+    <a class="post-tag-item" href="/tags/#Buffer" title="Buffer"
+        rel="1">#Buffer (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Selector" title="Selector"
+        rel="1">#Selector (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#问题" title="问题"
+        rel="2">#问题 (2) </a>
+    
+    <a class="post-tag-item" href="/tags/#直接内存" title="直接内存"
+        rel="1">#直接内存 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#非直接内存" title="非直接内存"
+        rel="1">#非直接内存 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#堆内存" title="堆内存"
+        rel="1">#堆内存 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#注解" title="注解"
+        rel="1">#注解 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Spring" title="Spring"
+        rel="6">#Spring (6) </a>
+    
+    <a class="post-tag-item" href="/tags/#文件加载" title="文件加载"
+        rel="1">#文件加载 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Spring Boot" title="Spring Boot"
+        rel="3">#Spring Boot (3) </a>
+    
+    <a class="post-tag-item" href="/tags/#Spring Cloud" title="Spring Cloud"
+        rel="1">#Spring Cloud (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#序列化" title="序列化"
+        rel="1">#序列化 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#函数式编程" title="函数式编程"
+        rel="1">#函数式编程 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#lambda" title="lambda"
+        rel="1">#lambda (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#并发编程" title="并发编程"
+        rel="1">#并发编程 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#JUC" title="JUC"
+        rel="1">#JUC (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#lambda表达式" title="lambda表达式"
+        rel="1">#lambda表达式 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#源码" title="源码"
+        rel="1">#源码 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#RPC" title="RPC"
+        rel="1">#RPC (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Reactor" title="Reactor"
+        rel="1">#Reactor (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#NIO模型" title="NIO模型"
+        rel="1">#NIO模型 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#操作系统" title="操作系统"
+        rel="1">#操作系统 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#微服务" title="微服务"
+        rel="1">#微服务 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Vert.x" title="Vert.x"
+        rel="1">#Vert.x (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#八皇后" title="八皇后"
+        rel="1">#八皇后 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#算法" title="算法"
+        rel="1">#算法 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#创建型模式" title="创建型模式"
+        rel="1">#创建型模式 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#设计模式" title="设计模式"
+        rel="3">#设计模式 (3) </a>
+    
+    <a class="post-tag-item" href="/tags/#分布式" title="分布式"
+        rel="2">#分布式 (2) </a>
+    
+    <a class="post-tag-item" href="/tags/#CAP" title="CAP"
+        rel="1">#CAP (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#理论" title="理论"
+        rel="2">#理论 (2) </a>
+    
+    <a class="post-tag-item" href="/tags/#脑裂" title="脑裂"
+        rel="1">#脑裂 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#单例" title="单例"
+        rel="1">#单例 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#DCL" title="DCL"
+        rel="1">#DCL (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#包管理" title="包管理"
+        rel="3">#包管理 (3) </a>
+    
+    <a class="post-tag-item" href="/tags/#Gradle" title="Gradle"
+        rel="3">#Gradle (3) </a>
+    
+    <a class="post-tag-item" href="/tags/#结构型模式" title="结构型模式"
+        rel="1">#结构型模式 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#行为型模式" title="行为型模式"
+        rel="1">#行为型模式 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Spring Core" title="Spring Core"
+        rel="1">#Spring Core (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#源码分析" title="源码分析"
+        rel="1">#源码分析 (1) </a>
+    
+</div>
+    </div>
+    <!-- 评论 -->
+    
+    <div class="col-xs-12">
+        
+<div class="col-xs-12 padding-0">
+    <div id="gitalk-container">
+        <div class="gt-container text-center" style="margin-top: 50px;">
+            <button class="gt-btn gt-btn-public"><span class="gt-btn-text">去 Github 评论</span></button>
+        </div>
+    </div>
+    <div id="gitalk-related"></div>
+</div>
+
+<link rel="stylesheet" href="/css/gitalk.css">
+
+
+<script src="/js/gitalk.min.js"></script>
+
+<script>
+    window.addEventListener('load', function () {
+        function renderCommentUrl(data) {
+            var url = (data[window.location.pathname] || {}).url
+            url && getDom('#gitalk-container button').addEventListener('click', function (e) { window.open(url)})
+            url || (getDom('#gitalk-container').style.display = 'none')
+        }
+        const gitalk = new Gitalk({
+            clientID: 'a33ab8f0fc90bd0b86d7',
+            clientSecret: 'cfa4b020ca99ef91be8f4bf8180afbe831bf2a75',
+            accessToken: '',
+            repo: 'blogcmt',
+            owner: 'HassanChiang',
+            admin: ['HassanChiang'],
+            id: window.location.pathname,
+            distractionFreeMode: false
+        });
+        fetch("https://api.github.com/user").then(function(resp){
+            gitalk.render('gitalk-container');
+        }).catch(function(e){
+            fetch('/tool/issues.json').then(function (r) { return r.json() }).then(renderCommentUrl).catch(function (e) { })
+        })
+        getDom('#gitalk-container').addEventListener('click', function (e) {
+            e && e.stopPropagation && e.stopPropagation();
+        });
+    })
+</script>
+<script>
+    window.addEventListener('load', function () {
+        function render(comments) {
+            var template = '<a href="${comment.url}?utm_source=gitalk" class="dis-item-url"><h3 class="dis-item-title">${comment.title}</h3>' +
+                '<p class="dis-item-des">${comment.count} 评论 ● ${comment.date}</p>' +
+                '<div class="dis-item-content"><img class="dis-item-img" src="${comment.icon}" alt="icon"><p><b><span class="dis-item-user">${comment.user}</span></b>&nbsp;——&nbsp;${comment.body}</p></div>' +
+                '</a>'
+
+            var wrapper = getDom('#gitalk-related');
+            comments = shuffle(comments);
+            comments.slice(0, 4).forEach(function (c) {
+                var div = document.createElement('div');
+                div.classList.add('dis-item');
+                div.innerHTML = template.replace("${comment.url}", c.url)
+                    .replace("${comment.title}", c.title)
+                    .replace("${comment.count}", c.count)
+                    .replace("${comment.date}", c.date)
+                    .replace("${comment.icon}", c.icon)
+                    .replace("${comment.user}", c.user)
+                    .replace("${comment.body}", c.body)
+                wrapper.appendChild(div)
+            })
+            var p = document.createElement('p')
+            p.innerHTML = '<a target="_blank" rel="noopener" href="https://geektutu.com/post/blog-experience-7.html">Gitalk Plus</a>';
+            p.classList.add('dis-divide');
+            wrapper.appendChild(p);
+            wrapper.classList.add('dis-wrapper')
+        }
+        function shuffle(a) {
+            for (var i = a.length - 1; i > 0; i--) {
+                var j = Math.floor(Math.random() * (i + 1));
+                [a[i], a[j]] = [a[j], a[i]];
+            }
+            return a;
+        }
+        fetch('/tool/comments.json').then(function (r) { return r.json() }).then(render).catch(function (e) { })
+    })
+</script>
+
+    </div>
+    
+</div>
+<aside class="float-left gkt-sidebar hidden-xs hidden-sm">
+    <div style="clear: both"></div>
+    <div class="gkt-sidebar-wrapper">
+        <section class="box-shadow"><style>
+    .gkt-summary {
+        border: 1px solid #DDDDDD;
+        border-radius: 3px;
+        padding: 5px;
+        width: 100%;
+    }
+
+
+    .gkt-summary nav {
+        overflow: hidden;
+    }
+
+    .gkt-summary nav a {
+        display: inline-block;
+        text-align: center;
+        color: #333;
+        font-size: 12px;
+    }
+
+    .gkt-summary nav span {
+        display: block;
+    }
+
+    .gkt-summary nav .middle {
+        border-left: 1px solid #eaecef;
+        border-right: 1px solid #eaecef;
+    }
+
+    .gkt-summary .number {
+        font-weight: bold;
+    }
+
+    .gkt-summary .link-list {
+        margin-top: 5px;
+        margin-bottom: -5px;
+        padding-top: 7px;
+        border-top: 1px dashed #999;
+        display: flex;
+    }
+
+    .gkt-summary .link-list a {
+        flex: 1;
+    }
+
+    .gkt-summary .link-list img {
+        width: 25px;
+        height: 25px;
+    }
+</style>
+
+<div class="gkt-summary">
+    <nav>
+        <a href="/" class="col-xs-4">
+            <span class="number">57</span><span>文章</span>
+        </a>
+        <a href="/series" class="col-xs-4 middle">
+            <span class="number">14</span><span>专题</span>
+        </a>
+        <a href="/tags" class="col-xs-4">
+            <span class="number">70</span><span>标签</span>
+        </a>
+    </nav>
+
+    
+</div></section>
+        
+        
+        <section class="gkt-sidebar-content box-shadow">
+            <strong>Gradle</strong>
+            <ul>
+                
+                <li>
+                    <a href="/post/util/gradle/LearnGradle_1_安装.html"
+                        class="">1 安装</a>
+                    
+                </li>
+                
+                <li>
+                    <a href="/post/util/gradle/LearnGradle_2_基本的构建脚本介绍.html"
+                        class="">2 基本的构建脚本介绍</a>
+                    
+                </li>
+                
+                <li>
+                    <a href="/post/util/gradle/LearnGradle_3_Java快速入门.html"
+                        class="gkt-sidebar-active">3 Java 快速入门</a>
+                    
+                    <!-- Table of Contents -->
+<div id="sidebar-toc">
+  <!-- TOC  -->
+  
+  
+  <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#1%E3%80%81%E6%8F%92%E4%BB%B6%E4%BB%8B%E7%BB%8D"><span class="toc-nav-text">1、插件介绍</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#2%E3%80%81%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84Java%E9%A1%B9%E7%9B%AE"><span class="toc-nav-text">2、一个简单的Java项目</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#3%E3%80%81%E5%A4%96%E9%83%A8%E4%BE%9D%E8%B5%96"><span class="toc-nav-text">3、外部依赖</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#4%E3%80%81%E5%AE%9A%E4%B9%89%E9%A1%B9%E7%9B%AE%E5%B1%9E%E6%80%A7"><span class="toc-nav-text">4、定义项目属性</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#5%E3%80%81%E5%B0%86Jar%E6%96%87%E4%BB%B6%E5%8F%91%E5%B8%83%E5%88%B0%E4%BB%93%E5%BA%93"><span class="toc-nav-text">5、将Jar文件发布到仓库</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#6%E3%80%81%E6%9E%84%E5%BB%BA%E5%A4%9A%E4%B8%AAJava%E9%A1%B9%E7%9B%AE"><span class="toc-nav-text">6、构建多个Java项目</span></a></li></ol>
+  
+</div>
+
+<script>
+  (function () {
+    var h2 = document.querySelectorAll('article h2');
+    var h3 = document.querySelectorAll('article h3');
+    var linkList = document.querySelectorAll('#sidebar-toc a');
+
+    function findLinkElement(name) {
+      for (var i = 0; i < linkList.length; i++) {
+        var items = linkList[i].href.split('#');
+        if (items && items[items.length - 1] === encodeURIComponent(name)) {
+          return i;
+        }
+      }
+      return -1;
+    }
+
+    function activeLink(titleList) {
+      var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+      for (var i = titleList.length - 1; i >= 0; i--) {
+        if (scrollTop - titleList[i].offsetTop > 0) {
+          var index = findLinkElement(titleList[i].id);
+          index != -1 && linkList[index].classList.add('gkt-sidebar-active');
+          break;
+        }
+      }
+    }
+
+    window.addEventListener("scroll", function (e) {
+      [].slice.call(linkList).forEach(function (link) {
+        link.classList.remove('gkt-sidebar-active');
+      })
+      activeLink(h2);
+    })
+  })();
+</script>
+                    
+                </li>
+                
+            </ul>
+        </section>
+        
+        
+        <section class="gkt-sidebar-content box-shadow">
+            <strong>最近的文章</strong>
+            <ul>
+                
+                <li>
+                    <a href="/post/java/spring/2020-09-02_How-to-learn-Spring-Cloud.html">How to learn Spring Cloud – the practical way</a>
+                </li>
+                
+                <li>
+                    <a href="/post/java/advance/2020-06-28_java_jvm.html">深入理解JVM-内存模型（jmm）和GC</a>
+                </li>
+                
+                <li>
+                    <a href="/post/java/netty/2020-05-26_Netty 知识点思维导图.html">Netty 知识点思维导图</a>
+                </li>
+                
+            </ul>
+        </section>
+        
+    </div>
+</aside>
+
+<script>
+    (function () {
+        function resizeUArrow() {
+            var s = getDom('.u-arrow-wrapper').style
+            var pc = getDom('.post-container')
+            s.left = getPosition(pc).x + 'px';
+            s.width = pc.clientWidth + 'px';
+        }
+        resizeUArrow()
+        window.addEventListener('resize', resizeUArrow);
+    })();
+</script>
+
+    
+
+<script>
+    (function () {
+        var ele = getDom('.gkt-sidebar-content')
+        if(!ele) return;
+        var wrapper = getDom('.gkt-sidebar-wrapper')
+        var last = 0
+        ele.style.maxHeight = ((window.innerHeight || 798) - 200) + 'px'
+        var f = function (e) {
+            var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            var isDown = scrollTop > last;
+            var pos = getPosition(ele).y - scrollTop;
+            var downLimit = 50;
+            var upLimit = -100;
+            // uarrow.style.marginTop = scrollTop + 'px';
+            isDown && pos <= downLimit && wrapper.classList.add("gkt-sidebar-fixed");
+            !isDown && pos > upLimit && wrapper.classList.remove("gkt-sidebar-fixed");
+            last = scrollTop
+        }
+        f()
+        window.addEventListener("scroll", f)
+    })();
+</script>
+
+</main>
+    </div>
+    <style>
+    img#go-top {
+        position: fixed;
+        bottom: 100px;
+        width: 50px;
+        cursor: pointer;
+        z-index: 9999;
+    }
+</style>
+<img id="go-top" src="/icon/top.png" class="hidden-xs" style="display: none" />
+<script>
+    (function () {
+        var goTop = document.getElementById('go-top');
+        var mainContainer = document.querySelector('.main-container');
+        
+        goTop.addEventListener('click', function () {
+            window.scroll(0, 0);
+        }, false);
+        window.addEventListener('scroll', function () {
+            var right = document.body.offsetWidth - mainContainer.getBoundingClientRect().right;
+            var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            goTop.style.right = right + 10 + 'px'
+            scrollTop > 700 && (goTop.style.display = "block");
+            scrollTop <= 700 && (goTop.style.display = "none");
+        });
+    })();
+</script>
+    <style>
+    #geektutu-click-img-container {
+        position: fixed;
+        left: 0;
+        top: 0;
+        text-align: center;
+        width: 100%;
+        display: none;
+        z-index: 9999;
+    }
+
+    #geektutu-click-img-container img {
+        object-fit: contain;
+        background: #eaecef;
+        padding: 15px;
+        border-radius: 10px;
+        height: auto;
+        width: auto;
+        vertical-align: middle;
+    }
+</style>
+
+
+<div id="geektutu-click-img-container">
+    <img src="" alt="Big Image">
+</div>
+
+<script>
+    (function () {
+        var container = document.querySelector('#geektutu-click-img-container')
+        var targetImg = container.querySelector('img')
+        var imgs = document.querySelectorAll('article img');
+        targetImg.addEventListener('click', function (e) {
+            container.style.display = 'none';
+            e && e.stopPropagation && e.stopPropagation();
+        }, false);
+
+        for (var i = 0; i < imgs.length; ++i) {
+            var img = imgs[i];
+            img.addEventListener('click', (function (src, rate) {
+                return function (e) {
+                    e && e.stopPropagation && e.stopPropagation();
+                    if (window.innerWidth < 980) {
+                        return
+                    }
+                    targetImg.style.height = targetImg.style.width = 'auto';
+                    if (window.innerWidth / window.innerHeight > rate) {
+                        targetImg.style.height = (window.innerHeight - 20) + 'px';
+                    } else {
+                        targetImg.style.width = (window.innerWidth - 20) + 'px';
+                    }
+                    container.style.height = window.innerHeight + 'px'
+                    container.style.lineHeight = window.innerHeight + 'px'
+                    container.style.display = 'block';
+                    targetImg.src = src;
+                };
+            }(img.src, img.width / img.height)), false)
+        }
+    })();
+</script>
+    <!-- Footer -->
+    <!-- Footer -->
+<style>
+    footer {
+        width: 100%;
+        line-height: 1.5;
+        padding: 20px;
+    }
+
+    footer a {
+        color: #333;
+        text-decoration: none;
+    }
+
+    .footer-hexo img {
+        height: 20px;
+        margin-bottom: -5px;
+    }
+
+    .footer-hexo a {
+        color: #337ab7;
+    }
+</style>
+<footer class="text-center col-xs-12">
+    <p>
+        <small>© 2020 - Hassan - </small>
+        <small>
+            <a target="_blank" rel="nofollow noopener" href="http://beian.miit.gov.cn/"></a>
+        </small>
+    </p>
+    <p class="footer-hexo">
+        <!-- 但若直接使用或修改主题，请务必保留这段声明 -->
+        <small>Powered by <a target="_blank" href="https://hexo.io">Hexo</a> | Theme
+            <a target="_blank" href="https://geektutu.com">Geektutu</a>
+            <a target="_blank" rel="noopener" href="https://github.com/geektutu/hexo-theme-geektutu">
+                <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAYGBgYHBgcICAcKCwoLCg8ODAwODxYQERAREBYiFRkVFRkVIh4kHhweJB42KiYmKjY+NDI0PkxERExfWl98fKcBBgYGBgcGBwgIBwoLCgsKDw4MDA4PFhAREBEQFiIVGRUVGRUiHiQeHB4kHjYqJiYqNj40MjQ+TERETF9aX3x8p//CABEIACIAUAMBIgACEQEDEQH/xAAcAAABBAMBAAAAAAAAAAAAAAAAAQQFBwIDBgj/2gAIAQEAAAAA9KrHSgAYL5/z6zZGuJd12uugbhq3uKtmuRtix20IS7lTLAfAAAn/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/9oACAECEAAAAAAB/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/aAAgBAxAAAAAAAf/EADEQAAICAQIEBQEGBwAAAAAAAAECAwQFAAYREhORBxQhUlQxQVFic5KxJDJCYYGC0f/aAAgBAQABPwCFHnjWUzuvN6hV4cANSRLGjO9yRVUcSzMoA7jVXJYe5N0a2dhmk9kc0bN2GvLN8mbuNeWb5M3ca8s3yZu415Y/Jm7jXlm+TN3H/NeVPyZu40vOk3TZywK8wJ+v3EHVM/wsI/Dq2lrxN3Nnca16eti8chSAIoMbzByhMwP14kHVfwIiSaF5c96J6kwwCOTnHsYk8uvCrdmQy1TI4rJuz3cZLyGR/wCd4+YoOf8AEpUjXitubLYPG4paFsUxcuiGe7yc5gTW3LW44szXmobsi3Dhmic2+Z4+vCVH9CpraPiQ+QvbgTJrPFBWd5YpWrmNIIEXiRO32Pqt4p7cnfHk18lFBdmEVW1LVdIZGOrniTt6plrWKaO69yCykDRxwF+LMAewB0Txtr+Sf31VI8tEPw62fZt7N3Humtbpzz13ucX6CGSWMSuzpLyD1eNgeUka3PuvHbaxq3biTMHfkiSNCS78CwU+3Xg7Vu3MhuTcU6cq3Zemn3Eh2dv8Lzcut+29x1atKbHYqLJUhLwyNMwiZ3j9yDWOxUOV3tgb+3No5LDx1pi9+aeIwRlNY6bc+Jv+IFGrhLxtXJZ7VKcw81diiAAEn0JOrkWZyNfbEr0tz27UGQgkuGzXdIIvyowq99bRxk9ffO/L81SZBPZgEEroQroIxxMZOgeNsfkn99QypHGqO4Vl9CDrN4LDZkwyzyyQ2IgRHZrzGCZVP1XnQglT9oOtw4LC7iqV6uRkZoYpxKFSQpzFRw4EjVRMfSrQ1qqwxQxKFjjTgFUD7BoWYR6iVe+mtxt9Zwf9teaj4AdccPu5tedX5A/VrzUR+sy/q1CwksF19VEfDj/cnQRW+qg66cfsXtrpx+xe2unH7F7a6cfsXtrpx+xe2unH7F7a6cfsXtoxx+xe2gAAOA1//8QAFBEBAAAAAAAAAAAAAAAAAAAAMP/aAAgBAgEBPwB//8QAFBEBAAAAAAAAAAAAAAAAAAAAMP/aAAgBAwEBPwB//9k="
+                    alt="Github Star">
+            </a>
+        </small>
+    </p>
+    
+    <p>
+        <small>
+            <span id="busuanzi_container_site_pv">👁<span id="busuanzi_value_site_pv"></span></span> &nbsp;
+            <span id="busuanzi_container_page_pv">📚<span id="busuanzi_value_page_pv"></span></span>
+        </small>
+    </p>
+    
+    
+
+</footer>
+
+
+<script>
+    window.addEventListener('load', function () {
+        globalAddScript('//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js');
+    })
+</script>
+
+<!-- Baidu Tongji -->
+
+
+
+
+
+    <script>
+        // 非本站网址，新开tab页签
+        (function () {
+            var stopBubble = function (e) {
+                e && e.stopPropagation && e.stopPropagation();
+            }
+            var links = document.querySelectorAll('a');
+            [].slice.call(links).forEach(function (item) {
+                if (item.href && item.href.indexOf(window.location.host) === -1) {
+                    item.target = '_blank'
+                }
+                // 阻止冒泡，不触发彩蛋。
+                item.addEventListener('click', stopBubble, false);
+            });
+            var article = document.querySelector('article');
+            article && article.addEventListener('click', stopBubble, false)
+        })();
+    </script>
+    
+<script>
+    (function (window, document, undefined) {
+        var hearts = [];
+        var keywords = ["点个赞", "留个言", "赞赏一下", "分享之", "blog.fenxiangz.com"];
+        function randomInt(max) {
+            return Math.floor(Math.random() * Math.floor(max));
+        }
+        window.addEventListener('click', createWord)
+
+        function createWord(e) {
+            var d = document.createElement("span");
+            d.style.position = 'fixed';
+            d.style.zIndex = 9999;
+            d.style.color = 'rgb(' + [randomInt(255), randomInt(255), randomInt(255)].join(',') + ')';
+            d.innerHTML = keywords[randomInt(keywords.length)];
+            d.onselectstart = function () { return false; }
+
+            hearts.push({ el: d, x: e.clientX - 5, y: e.clientY - 5, alpha: 1, scale: 1 });
+            document.body.appendChild(d);
+        }
+        (function gameloop() {
+            for (var i = 0; i < hearts.length; i++) {
+                heart = hearts[i];
+                if (heart.alpha <= 0) {
+                    document.body.removeChild(heart.el);
+                    hearts.splice(i, 1);
+                    continue;
+                }
+                heart.y -= heart.alpha < 0.5 ? 2 : 1;
+                heart.scale += 0.002;
+                heart.alpha -= 0.013;
+                heart.el.style.transform = 'scale(' + heart.scale + ')';
+                heart.el.style.left = heart.x + 'px';
+                heart.el.style.top = heart.y + 'px';
+            }
+            setTimeout(gameloop, 10)
+        })();
+    })(window, document);
+</script>
+
+</body>
+
+</html>

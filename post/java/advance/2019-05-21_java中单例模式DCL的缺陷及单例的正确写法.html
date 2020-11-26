@@ -15,17 +15,17 @@
   <!-- if page has tags, then add tags to keyword -->
   
   
-  <meta name="keywords" content=",Java,Spring,Spring Boot,">
+  <meta name="keywords" content=",Java,单例,DCL,">
   <!-- page.description has higher priority -->
   <meta name="description" content="Share everything">
   <link rel="shortcut icon" href="/favico.png">
   <title>
     
-    请给Sprint Boot多一些内存 | 分享之
+    Java 中单例模式DCL的缺陷及单例的正确写法 | 分享之
     
   </title>
 
-  <link rel="canonical" href="/post/java/spring/2020-05-20_请给Sprint Boot多一些内存.html">
+  <link rel="canonical" href="/post/java/advance/2019-05-21_java中单例模式DCL的缺陷及单例的正确写法.html">
   
 <link rel="stylesheet" href="/css/reset.css">
 
@@ -96,7 +96,7 @@
             <ul>
                 
                 
-                <li class="gkt-cate-name float-left ">
+                <li class="gkt-cate-name float-left active">
                     <a class="float-left" href="/post/java/basic/2016-10-25_hashmap_jdk7.html">Java ▾</a>
                     
                     <ul class="gkt-sub-cate">
@@ -104,7 +104,7 @@
                         <li class="gkt-sub-cate-name "><a class="float-left"
                                 href="/post/java/basic/2016-10-25_hashmap_jdk7.html">Java 基础</a></li>
                         
-                        <li class="gkt-sub-cate-name "><a class="float-left"
+                        <li class="gkt-sub-cate-name active"><a class="float-left"
                                 href="/post/java/advance/2016-10-25_number.html">Java 进阶</a></li>
                         
                         <li class="gkt-sub-cate-name "><a class="float-left"
@@ -117,7 +117,7 @@
                     
                 </li>
                 
-                <li class="gkt-cate-name float-left active">
+                <li class="gkt-cate-name float-left ">
                     <a class="float-left" href="/post/java/spring/2016-10-30_Spring 组合注解&amp;注解继承.html">Spring ▾</a>
                     
                     <ul class="gkt-sub-cate">
@@ -125,20 +125,53 @@
                         <li class="gkt-sub-cate-name "><a class="float-left"
                                 href="/post/java/spring/2016-10-30_Spring 组合注解&amp;注解继承.html">Spring Core</a></li>
                         
-                        <li class="gkt-sub-cate-name active"><a class="float-left"
+                        <li class="gkt-sub-cate-name "><a class="float-left"
                                 href="/post/java/spring/2019-12-28_【译】Spring Boot 从 classpath 加载文件.html">Spring Boot</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/java/spring/2020-09-02_How-to-learn-Spring-Cloud.html">Spring Cloud</a></li>
                         
                     </ul>
                     
                 </li>
                 
                 <li class="gkt-cate-name float-left ">
-                    <a class="float-left" href="/post/util/2017-10-25_idea_shotcut.html">开发工具</a>
+                    <a class="float-left" href="/post/java/netty/2019-01-02_小白科普Netty有什么用.html">Java 框架</a>
                     
                 </li>
                 
                 <li class="gkt-cate-name float-left ">
-                    <a class="float-left" href="/post/java/netty/2019-01-02_小白科普：Netty有什么用？.html">Java 框架</a>
+                    <a class="float-left" href="/post/util/2017-10-25_idea_shotcut.html">开发工具 ▾</a>
+                    
+                    <ul class="gkt-sub-cate">
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/util/2017-10-25_idea_shotcut.html">IDE</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/util/gradle/LearnGradle_1_安装.html">Gradle</a></li>
+                        
+                    </ul>
+                    
+                </li>
+                
+                <li class="gkt-cate-name float-left ">
+                    <a class="float-left" href="/post/design/2019-01-03_Java经典设计模式_1_五大创建型模式.html">设计模式</a>
+                    
+                </li>
+                
+                <li class="gkt-cate-name float-left ">
+                    <a class="float-left" href="/post/distribution/2019-08-12_CAP定理的含义.html">分布式 ▾</a>
+                    
+                    <ul class="gkt-sub-cate">
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/distribution/2019-08-12_CAP定理的含义.html">理论</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/distribution/2019-08-13_Zookeeper是如何解决脑裂问题.html">zookeeper</a></li>
+                        
+                    </ul>
                     
                 </li>
                 
@@ -184,99 +217,190 @@
 <div class="float-left post-container box-shadow">
     <div class="u-arrow-wrapper hidden-xs">
         
-        <a class="float-left" href="/post/java/advance/2020-05-02_java_juc.html"><i class="u-arrow-left"></i></a>
+        <a class="float-left" href="/post/java/spring/2020-05-20_SpringBoot排坑.html"><i class="u-arrow-left"></i></a>
         
         
-        <a class="float-right" href="/post/java/spring/2020-05-20_Spring Boot 排坑.html"><i class="u-arrow-right"></i></a>
+        <a class="float-right" href="/post/java/netty/2020-05-24_Netty 笔记汇总.html"><i class="u-arrow-right"></i></a>
         
     </div>
     <article class="col-xs-12">
-        <h1> 请给Sprint Boot多一些内存 </h1>
+        <h1> Java 中单例模式DCL的缺陷及单例的正确写法 </h1>
         
         
         <div class="hidden-lg hidden-md series_links">
-            <p> <strong> Spring Boot系列文章链接：</strong></p>
+            <p> <strong> Java 进阶系列文章链接：</strong></p>
             <ul>
                 
                 <li>
-                    <a href="/post/java/spring/2019-12-28_【译】Spring Boot 从 classpath 加载文件.html">【译】Spring Boot 从 classpath 加载文件</a>
-                    <span class="post-item-date">(Dec 28, 2019)</span>
+                    <a href="/post/java/advance/2016-10-25_number.html">为什么 8 位有符号整数的范围为 “-128 ~ +127”</a>
+                    <span class="post-item-date">(Oct 26, 2016)</span>
                 </li>
                 
                 <li>
-                    <a href="/post/java/spring/2020-05-20_Spring Boot 排坑.html">Spring Boot 排坑</a>
-                    <span class="post-item-date">(May 20, 2020)</span>
+                    <a href="/post/java/advance/2016-11-03_java_memory_malloc.html">Java 内存分配和泄露</a>
+                    <span class="post-item-date">(Nov 3, 2016)</span>
                 </li>
                 
                 <li>
-                    <a href="/post/java/spring/2020-05-20_请给Sprint Boot多一些内存.html">请给Sprint Boot多一些内存</a>
-                    <span class="post-item-date">(May 20, 2020)</span>
+                    <a href="/post/java/advance/2016-11-24_java_serializable.html">序列化和反序列化浅析</a>
+                    <span class="post-item-date">(Nov 24, 2016)</span>
                 </li>
                 
                 <li>
-                    <a href="/post/java/spring/2020-09-02_How to learn Spring Cloud – the practical way.html">How to learn Spring Cloud – the practical way</a>
-                    <span class="post-item-date">(Sep 2, 2020)</span>
+                    <a href="/post/java/advance/2016-12-09_java_books.html">Java书籍推荐</a>
+                    <span class="post-item-date">(Dec 9, 2016)</span>
+                </li>
+                
+                <li>
+                    <a href="/post/java/advance/2017-03-28_java_acknowledge.html">【战略收藏】Java知识体系</a>
+                    <span class="post-item-date">(Mar 28, 2017)</span>
+                </li>
+                
+                <li>
+                    <a href="/post/java/advance/2017-04-18_java_0xff.html">为什么要与上0xff（&0xff），有什么意义？</a>
+                    <span class="post-item-date">(Apr 18, 2017)</span>
+                </li>
+                
+                <li>
+                    <a href="/post/java/advance/2018-11-05_java_vertx.html">Vert.x - 从零开始变(micro)大拿</a>
+                    <span class="post-item-date">(Nov 5, 2018)</span>
+                </li>
+                
+                <li>
+                    <a href="/post/java/advance/2019-03-06_java_os.html">Java 和操作系统交互细节</a>
+                    <span class="post-item-date">(Mar 6, 2019)</span>
+                </li>
+                
+                <li>
+                    <a href="/post/java/advance/2019-05-04_java_labmda.html">Java8新特性学习-函数式编程</a>
+                    <span class="post-item-date">(May 4, 2019)</span>
+                </li>
+                
+                <li>
+                    <a href="/post/java/advance/2019-07-22_java_stack.html">JVM内存结构：堆、栈、方法区</a>
+                    <span class="post-item-date">(Jul 22, 2019)</span>
+                </li>
+                
+                <li>
+                    <a href="/post/java/advance/2020-04-25_java_optimize.html">接口性能优化思路</a>
+                    <span class="post-item-date">(Apr 25, 2020)</span>
+                </li>
+                
+                <li>
+                    <a href="/post/java/advance/2020-05-02_java_juc.html">JUC 概览</a>
+                    <span class="post-item-date">(May 2, 2020)</span>
+                </li>
+                
+                <li>
+                    <a href="/post/java/advance/2019-05-21_java中单例模式DCL的缺陷及单例的正确写法.html">Java 中单例模式DCL的缺陷及单例的正确写法</a>
+                    <span class="post-item-date">(May 21, 2020)</span>
+                </li>
+                
+                <li>
+                    <a href="/post/java/advance/2020-06-28_java_jvm.html">深入理解JVM-内存模型（jmm）和GC</a>
+                    <span class="post-item-date">(Jun 28, 2020)</span>
                 </li>
                 
             </ul>
         </div>
         
         
-        <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>SprintBoot总体来说，搭建还是比较容易的，特别是SpringCloud全家桶，简称亲民微服务，但在发展趋势中，容器化技术已经成熟，面对巨耗内存的SprintBoot，小公司表示用不起。如今，很多刚诞生的JAVA微服务框架大多主打“轻量级”，主要还是因为SprintBoot太重。</p>
-<h2 id="JAVA系微服务框架No1-Spring-Cloud"><a href="#JAVA系微服务框架No1-Spring-Cloud" class="headerlink" title="JAVA系微服务框架No1-Spring Cloud"></a>JAVA系微服务框架No1-Spring Cloud</h2><h4 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h4><p>有Spring大靠山在，更新、稳定性、成熟度的问题根本不需要考虑。在JAVA系混的技术人员大约都听说过Spring的大名吧，所以不缺程序员……，而且这入手的难度十分低，完全可以省去一个架构师。<br>但是，你必然在服务器上付出：</p>
-<ul>
-<li>至少一台“服务发现 ”的服务器；</li>
-<li>可能有一个统一的网关Gateway;</li>
-<li>可能需要一个用于“分布式配置管理”的配置中心；</li>
-<li>可能进行“服务追踪”，知道我的请求从哪里来，到哪里去；</li>
-<li>可能需要“集群监控”；<br>项目上线后发现，我们需要好多服务器，每次在集群中增加服务器时，都感觉心疼；</li>
-</ul>
-<h4 id="压测30秒"><a href="#压测30秒" class="headerlink" title="压测30秒"></a>压测30秒</h4><h5 id="压测前的内存占用"><a href="#压测前的内存占用" class="headerlink" title="压测前的内存占用"></a>压测前的内存占用</h5><p><img src="2020-05-20_%E8%AF%B7%E7%BB%99Sprint%20Boot%E5%A4%9A%E4%B8%80%E4%BA%9B%E5%86%85%E5%AD%98/1.png"><br>如图，内存占用304M。</p>
-<h5 id="压测时的内存占用"><a href="#压测时的内存占用" class="headerlink" title="压测时的内存占用"></a>压测时的内存占用</h5><p><img src="2020-05-20_%E8%AF%B7%E7%BB%99Sprint%20Boot%E5%A4%9A%E4%B8%80%E4%BA%9B%E5%86%85%E5%AD%98/2.png"><br>如图，内存占用1520M（1.5G），CPU上升到321%</p>
-<h5 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h5><p><img src="2020-05-20_%E8%AF%B7%E7%BB%99Sprint%20Boot%E5%A4%9A%E4%B8%80%E4%BA%9B%E5%86%85%E5%AD%98/3.png"></p>
-<h5 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h5><p>一个SprintBoot的简单应用，最少1G内存，一个业务点比较少的微服务编译后的JAR会大约50M；而SprintCloud引入的组件会相对多一些，消耗的资源也会相对更多一些。</p>
-<p>启动时间大约10秒左右: <code>Started Application in 10.153 seconds (JVM running for 10.915)</code></p>
-<h2 id="JAVA系响应式编程的工具包Vert-x"><a href="#JAVA系响应式编程的工具包Vert-x" class="headerlink" title="JAVA系响应式编程的工具包Vert.x"></a>JAVA系响应式编程的工具包Vert.x</h2><h4 id="介绍-1"><a href="#介绍-1" class="headerlink" title="介绍"></a>介绍</h4><p>背靠Eclipse的<a target="_blank" rel="noopener" href="https://vertx.io/">Eclipse Vert.x</a>是一个用于在JVM上构建响应式应用程序的工具包。定位上与SprintBoot不冲突，甚至可以将Vert.x结合SprintBoot使用。众多Vert.x模块提供了大量微服务的组件，在很多人眼里是一种微服务架构的选择。</p>
-<p>华为微服务框架<a target="_blank" rel="noopener" href="http://servicecomb.apache.org/cn/">Apache ServiceComb</a>就是以Vert.x为底层框架实现的，在”基准测试网站TechEmpower”中，Vert.x的表现也十分亮眼。</p>
-<h4 id="压测30秒-1"><a href="#压测30秒-1" class="headerlink" title="压测30秒"></a>压测30秒</h4><h5 id="压测前的内存占用-1"><a href="#压测前的内存占用-1" class="headerlink" title="压测前的内存占用"></a>压测前的内存占用</h5><p><img src="2020-05-20_%E8%AF%B7%E7%BB%99Sprint%20Boot%E5%A4%9A%E4%B8%80%E4%BA%9B%E5%86%85%E5%AD%98/4.png"><br>如图，内存占用65M。</p>
-<h5 id="压测时的内存占用-1"><a href="#压测时的内存占用-1" class="headerlink" title="压测时的内存占用"></a>压测时的内存占用</h5><p><img src="2020-05-20_%E8%AF%B7%E7%BB%99Sprint%20Boot%E5%A4%9A%E4%B8%80%E4%BA%9B%E5%86%85%E5%AD%98/5.png"><br>如图，内存占139M，CPU占2.1%，给人的感觉似乎并没有进行压测。</p>
-<h5 id="概览-1"><a href="#概览-1" class="headerlink" title="概览"></a>概览</h5><p><img src="2020-05-20_%E8%AF%B7%E7%BB%99Sprint%20Boot%E5%A4%9A%E4%B8%80%E4%BA%9B%E5%86%85%E5%AD%98/6.png"></p>
-<h5 id="总结-1"><a href="#总结-1" class="headerlink" title="总结"></a>总结</h5><p>Vert.x单个服务打包完成后大约7M左右的JAR，不依赖Tomcat、Jetty之类的容器，直接在JVM上跑。</p>
-<p>Vert.x消耗的资源很低，感觉一个1核2G的服务器已经能够部署许多个Vert.x服务。除去编码方面的问题，真心符合小项目和小模块。git市场上已经出现了基于Vert.x实现的开源网关- <a target="_blank" rel="noopener" href="https://duhua.gitee.io/vx-api-gateway-doc/">VX-API-Gateway帮助文档</a><br>对多语言支持，很适合小型项目快速上线。</p>
-<p>启动时间不到1秒：<code>Started Vert.x in 0.274 seconds (JVM running for 0.274)</code></p>
-<h2 id="JAVA系其他微服务框架"><a href="#JAVA系其他微服务框架" class="headerlink" title="JAVA系其他微服务框架"></a>JAVA系其他微服务框架</h2><h3 id="SparkJava"><a href="#SparkJava" class="headerlink" title="SparkJava"></a>SparkJava</h3><ul>
-<li>jar比较小，大约10M</li>
-<li>占内存小，大约30~60MB；</li>
-<li>性能还可以，与SprintBoot相仿；</li>
-</ul>
-<h3 id="Micronaut"><a href="#Micronaut" class="headerlink" title="Micronaut"></a>Micronaut</h3><ul>
-<li>Grails团队新宠；</li>
-<li>可以用 Java、Groovy 和 Kotlin 编写的基于微服务的应用程序；</li>
-<li>相比SprintBoot已经比较全面；</li>
-<li>性能较优，编码方式与SprintBoot比较类似；</li>
-<li>启动时间和内存消耗方面比其他框架更高效；</li>
-<li>多语言；</li>
-<li>依赖注入；</li>
-<li>内置多种云本地功能；</li>
-<li>很新，刚发布1.0.0</li>
-</ul>
-<h3 id="Javalin"><a href="#Javalin" class="headerlink" title="Javalin"></a>Javalin</h3><ul>
-<li>上手极为容易；</li>
-<li>灵活，可以兼容同步和异步两种编程思路；</li>
-<li>JAR小，4～5M；</li>
-<li>多语言；</li>
-<li>有KOA的影子；</li>
-<li>只有大约2000行源代码，源代码足够简单，可以理解和修复；</li>
-<li>符合当今趋势；</li>
-<li>多语言；</li>
-<li>嵌入式服务器Jetty；</li>
-</ul>
-<h3 id="Quarkus"><a href="#Quarkus" class="headerlink" title="Quarkus"></a>Quarkus</h3><ul>
-<li>启动快；</li>
-<li>JAR小，大约10M；</li>
-<li>文档很少；</li>
-</ul>
-<p>原文：<a target="_blank" rel="noopener" href="https://juejin.im/post/5c89f266f265da2d8763b5f9">https://juejin.im/post/5c89f266f265da2d8763b5f9</a></p>
+        <p>首先在说明单例设计模式中的 DCL 问题之前我们首先看看实现单例设计模式的两种方式：饿汉式和懒汉式。</p>
+<h2 id="什么是饿汉式？"><a href="#什么是饿汉式？" class="headerlink" title="什么是饿汉式？"></a>什么是饿汉式？</h2><p>饿汉式就是不管你是否用的上，一开始就先初始化对象（也叫做提前初始化）</p>
+<p><strong>代码示例：</strong></p>
+<pre><code>public class EagerInitialization&#123;
+    private EagerInitialization() &#123;&#125;
+    private static Resource resource = new Resource();
+    public static Resource getResource()&#123;
+        return resource;
+    &#125;
+&#125;</code></pre>
+<h3 id="什么是懒汉式？"><a href="#什么是懒汉式？" class="headerlink" title="什么是懒汉式？"></a>什么是懒汉式？</h3><p>懒汉式就是当你真正需要使用时才创建对象。</p>
+<p>于是，关于懒汉式的问题也就随之产生了～～～</p>
+<p>我们先看一下有问题的代码：</p>
+<p><strong>代码示例：</strong></p>
+<pre><code>public class LazyInitialization&#123;
+    private static Resource resource;
+    public static Resource getResource()&#123;
+        if (resource == null)
+            resource = new Resource();//不安全！
+        return resource;
+    &#125;
+&#125;</code></pre>
+<p>我们都知道上面的这个代码在单线程中运行是没有问题的，但是在平时的开发中常常会使用多线程，此时这个方法就会出现问题，假设有两个线程 A、B，当 A 线程满足判断还未来得及执行到 resource = new Resource() 时，线程执行资格被 B 拿走，此时线程 B 进入 getResource(), 而此时它也满足 resource 的值为 null, 于是导致最后产生两个实例。</p>
+<p>针对上面的问题，于是有了相应的解决方案，即线程安全的延迟初始化，可以解决懒汉式出现的上述问题：</p>
+<p><strong>代码示例：</strong></p>
+<pre><code>public class LazyInitialization&#123;
+    private static Resource resource;
+    public synchronized static Resource getResource()&#123;
+        if (resource == null)
+            resource = new Resource();
+        return resource;
+    &#125;
+&#125;</code></pre>
+<p>上面代码通过使用 synchronized 关键字将 getResource 变成同步函数来保证方法的原子性，从而保证了线程安全而防止最后多个线程产生多个实例的现象。</p>
+<p>我们都知道，在上述例子当中，每次在调用 getResource() 时都需要进行同步，而且在大多数时这种同步是没有必要的，并且大量无用的同步会对性能造成极大的影响。为什么呢？因为在第一次调用 getResource() 方法时就已经创建了 resource 实例了，之后 resource 就不再为空，然而之后再调用 getResource 时都需要进行同步，从而对性能造成了很大的影响。基于这些问题，一个新的方法也就产生了，这也是我们需要着重讨论的一个方法——双重检查加锁 (Double Check Locking) DCL。</p>
+<h2 id="双重检查加锁-DCL-Double-Check-Locking"><a href="#双重检查加锁-DCL-Double-Check-Locking" class="headerlink" title="双重检查加锁 DCL (Double Check Locking)"></a>双重检查加锁 DCL (Double Check Locking)</h2><p>首先我们看看 DCL 的代码：</p>
+<p><strong>示例代码：</strong></p>
+<pre><code>public class DoubleCheckedLocking&#123;
+    private static Resource resource;
+    public static Resource getResource()&#123;
+        if (resource == null) &#123;
+            synchronized (DoubleCheckedLocking.class) &#123;
+                if (resource == null)
+                    resource = new Resource();
+            &#125;
+        &#125;
+        return resource;
+    &#125;
+&#125;</code></pre>
+<p>你可能会疑惑，这样做不是挺好么，这样就可以解决刚刚说的那些问题了么，当 resource 被实例化后再调用 getResource() 方法不就不会再进行同步，这样不就节约了资源，提升了性能么？</p>
+<p>说的对，DCL 确实存在着这些优点，但是与此同时，这个方法也会带来相应的问题，因为这个方法是含有缺陷的。再次之前，先了解一下JVM内存模型。</p>
+<h2 id="JVM内存模型"><a href="#JVM内存模型" class="headerlink" title="JVM内存模型"></a>JVM内存模型</h2><p>JVM模型如下图：<br><img src="./2019-05-21_java%E4%B8%AD%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8FDCL%E7%9A%84%E7%BC%BA%E9%99%B7%E5%8F%8A%E5%8D%95%E4%BE%8B%E7%9A%84%E6%AD%A3%E7%A1%AE%E5%86%99%E6%B3%95/1.png"></p>
+<p>Thread Stack 是线程私有的区域。他是java方法执行时的字典：它里面记录了局部变量表、 操作数栈、 动态链接、 方法出口等信息。</p>
+<p>在《java虚拟机规范》一书中对这部分的描述如下：</p>
+<p>栈帧（ Frame）是用来存储数据和部分过程结果的数据结构，同时也被用来处理动态链接 (Dynamic Linking)、 方法返回值和异常分派（ Dispatch Exception）。</p>
+<p>栈帧随着方法调用而创建，随着方法结束而销毁——无论方法是正常完成还是异常完成（抛出了在方法内未被捕获的异常）都算作方法结束。</p>
+<p>栈帧的存储空间分配在 Java 虚拟机栈（ §2.5.5）之中，每一个栈帧都有自己的局部变量表（ Local Variables， §2.6.1）、操作数栈（ OperandStack， §2.6.2）和指向当前方法所属的类的运行时常量池（ §2.5.5）的引用。</p>
+<p>Java 中某个线程在访问堆中的线程共享变量时，为了加快访问速度，提升效率，会把该变量临时拷贝一份到自己的 Thread Stack 中，并保持和堆中数据的同步。</p>
+<h2 id="缺陷"><a href="#缺陷" class="headerlink" title="缺陷"></a>缺陷</h2><p>首先我们看到，DCL 方法包含了层判断语句，第一层判断语句用于判断 resource 对象是否为空，也就是是否被实例化，如果为空时就进入同步代码块进一步判断，问题就出在了 resource 的实例化语句 <code>resource = new Resource() </code> 上，因为这个语句实际上不是原子性的。这句话可以大致分解为如下步骤：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. 给 Resource 的实例分配内存</span><br><span class="line">2. 初始化 Resource 构造器</span><br><span class="line">3. 将 resource 实例指向分配的内存空间，此时 resource 实例就不再为空</span><br></pre></td></tr></table></figure>
+
+<p>我们都希望这条语句的执行顺序是上述的 1——&gt;2——&gt;3，但是，由于 Java 编译器允许处理器乱序执行，以及 JDK1.5 之前 JMM（Java Memory Medel，即 Java 内存模型）中 Cache、寄存器到主内存回写顺序的规定，上面的第二点和第三点的顺序是无法保证的，也就是说，执行顺序可能是 1——&gt;2——&gt;3 也可能是 1——&gt;3——&gt;2。</p>
+<p>如果有两个线程 A 和 B，如果 A 线程执行完 1 后先执行 3 然后执行 2，并且在 3 执行完毕、2 未执行之前，被切换到线程 B 上，这时候 resource 因为已经在线程 A 内执行过了第三点（jvm将未完成 Resource 构造器的值拷贝回堆中），resource 已经是非空了，所以线程 B 直接拿走 resource，然后使用，然后顺理成章地报错，而且这种难以跟踪难以重现的错误很可能会隐藏很久。</p>
+<p>好了，关于 DCL 的问题阐述完了，那么这个方法既然有问题，那么该如何修改呢？</p>
+<h2 id="Happen-Before-原则"><a href="#Happen-Before-原则" class="headerlink" title="Happen-Before 原则"></a>Happen-Before 原则</h2><p>通过遵守 Happen-Before 原则，解决并发顺序问题。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1. 同一个线程中，书写在前面的操作happen-before书写在后面的操作。这条规则是说，在单线程中操作间happen-before关系完全是由源代码的顺序决定的，这里的前提“在同一个线程中”是很重要的，这条规则也称为单线程规则 。这个规则多少说得有些简单了，考虑到控制结构和循环结构，书写在后面的操作可能happen-before书写在前面的操作，不过我想读者应该明白我的意思。</span><br><span class="line"></span><br><span class="line">2. 对锁的unlock操作happen-before后续的对同一个锁的lock操作。这里的“后续”指的是时间上的先后关系，unlock操作发生在退出同步块之后，lock操作发生在进入同步块之前。这是条最关键性的规则，线程安全性主要依赖于这条规则。但是仅仅是这条规则仍然不起任何作用，它必须和下面这条规则联合起来使用才显得意义重大。这里关键条件是必须对“同一个锁”的lock和unlock。</span><br><span class="line">如果操作A happen-before操作B，操作B happen-before操作C，那么操作A happen-before操作C。这条规则也称为传递规。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="通过-volatile-防止指令重排序"><a href="#通过-volatile-防止指令重排序" class="headerlink" title="通过 volatile 防止指令重排序"></a>通过 volatile 防止指令重排序</h2><p>在 JMM 的后续版本（Java 5.0 及以上）中，如果把 resource 声明为 volatile 类型，因为 volatile 可以防止指令的重排序（对 volatile 字段的写操作 happen-before 后续的对同一个字段的读操作），那么这样就可以启用 DCL，并且这种方式对性能的影响很小，因为 volatile 变量读取操作的性能通常只是略高于非 volatile 变量读取操作的性能。改进后的 DCL 方法如下代码所示</p>
+<p><strong>代码示例：</strong></p>
+<pre><code>public class DoubleCheckedLocking&#123;
+    private static volatile Resource resource;
+    public static Resource getResource&#123;
+        if (resource == null) &#123;
+            synchronized (DoubleCheckedLocking.class) &#123;
+                if (resource == null)
+                    resource = new Resource();
+            &#125;
+        &#125;
+        return resource;
+    &#125;
+&#125;</code></pre>
+<p>但是，DCL 的这种方法已经被广泛地遗弃了，因为促使该模式出现的驱动力（无竞争同步的执行速度很慢，以及 JVM 启动时很慢）已经不复存在，因为它不是一种高效的优化措施。延迟初始化占位类模式能带来同样的优势，并且更容易理解，延迟初始化占位类模式代码如下：</p>
+<p><strong>代码示例：</strong></p>
+<pre><code>public class ResourceFactory&#123;
+    private static class ResourceHolder &#123;
+        public static Resource resource = new Resource();
+    &#125;
+    public static Resource getResource()&#123;
+        return ResourceHolder.resource;
+    &#125;
+&#125;</code></pre>
+<p>关于单例和 DCL 问题就分析到这里了，在实际开发当中由于经常要考虑到代码的效率和安全性，一般使用饿汉式和延长初始化占位类模式，而延迟占位类模式更是优势明显并且容易使用和理解，是良好的单例设计模式的实现方法。</p>
+<p>参考资料：</p>
+<p>《java 并发编程实战》</p>
+<p>关于 volatile 的问题可以参考：<br><a target="_blank" rel="noopener" href="http://blog.csdn.net/wxwzy738/article/details/43238089">http://blog.csdn.net/wxwzy738/article/details/43238089</a></p>
+<p>关于 DCL 的其他问题可以参考：<br><a target="_blank" rel="noopener" href="http://blog.csdn.net/ns_code/article/details/17359719">http://blog.csdn.net/ns_code/article/details/17359719</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/qiyei2009/article/details/71813069">https://blog.csdn.net/qiyei2009/article/details/71813069</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/u013393958/article/details/70941579">https://blog.csdn.net/u013393958/article/details/70941579</a></p>
 
         
 <script src="/js/qrious.min.js"></script>
@@ -288,14 +412,14 @@
             <p>
                 <span>专题: </span>
                 
-                <a href="/series/#Spring Boot">
-                    <code key="Spring Boot" class="post-label">Spring Boot</code>
+                <a href="/series/#Java 进阶">
+                    <code key="Java 进阶" class="post-label">Java 进阶</code>
                 </a>
                 
             </p>
             
             <p>
-                <span>本文发表于 2020-05-20，最后修改于 2020-11-25。</span>
+                <span>本文发表于 2020-05-21，最后修改于 2020-11-26。</span>
             </p>
             <!-- 文章末尾的提示 start -->
             
@@ -307,10 +431,10 @@
         <hr />
         <p name="pagination" style="font-size: 1.2em">
     
-    <a class="float-left" href="/post/java/advance/2020-05-02_java_juc.html">上一篇 « JUC 概览</a>
+    <a class="float-left" href="/post/java/spring/2020-05-20_SpringBoot排坑.html">上一篇 « Spring Boot 排坑</a>
     
     
-    <a class="float-right" href="/post/java/spring/2020-05-20_Spring Boot 排坑.html">下一篇 » Spring Boot 排坑</a>
+    <a class="float-right" href="/post/java/netty/2020-05-24_Netty 笔记汇总.html">下一篇 » Netty 笔记汇总</a>
     
 </p>
     </article>
@@ -322,7 +446,7 @@
         <h3>推荐阅读</h3>
         
         <div class="post-preview">
-    <div class="post-img" style="background-image: url('/images/java/basic/java_logo.png')"></div>
+    <div class="post-img" style="background-image: url('/images/java/netty-logo.png')"></div>
     <div class="post-info">
         <div class="post-info-center">
             <div class="hidden-xs">
@@ -334,23 +458,23 @@
                     title="Java">Java</a>
                 <span>/</span>
                 
-                <a class="text-gray" href="/tags/#Java线程"
-                    title="Java线程">Java线程</a>
-                <span>/</span>
-                
                 <a class="text-gray" href="/tags/#思维导图"
                     title="思维导图">思维导图</a>
                 <span>/</span>
                 
+                <a class="text-gray" href="/tags/#Netty"
+                    title="Netty">Netty</a>
+                <span>/</span>
+                
                 
             </div>
-            <a href="/post/java/basic/2017-04-18_java_thread_mind.html" class="title">
-                Java Thread 线程知识整理（思维导图）
+            <a href="/post/java/netty/2020-05-26_Netty 知识点思维导图.html" class="title">
+                Netty 知识点思维导图
             </a>
             <p class="text-gray">
                 <small>
-                    <span>发表于2017-04-18，</span>
-                    <span class="hidden-xs">全文283字，</span>
+                    <span>发表于2020-05-26，</span>
+                    <span class="hidden-xs">全文219字，</span>
                     <span>阅读约1分钟</span>
                 </small>
             </p>
@@ -359,7 +483,7 @@
 </div>
         
         <div class="post-preview">
-    <div class="post-img" style="background-image: url('/images/java/io.png')"></div>
+    <div class="post-img" style="background-image: url('/images/zookeeper.jpeg')"></div>
     <div class="post-info">
         <div class="post-info-center">
             <div class="hidden-xs">
@@ -367,24 +491,28 @@
                 
                 <span>/</span>
                 
-                <a class="text-gray" href="/tags/#Java"
-                    title="Java">Java</a>
+                <a class="text-gray" href="/tags/#分布式"
+                    title="分布式">分布式</a>
                 <span>/</span>
                 
-                <a class="text-gray" href="/tags/#IO"
-                    title="IO">IO</a>
+                <a class="text-gray" href="/tags/#理论"
+                    title="理论">理论</a>
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#脑裂"
+                    title="脑裂">脑裂</a>
                 <span>/</span>
                 
                 
             </div>
-            <a href="/post/java/io/2017-04-17_java_io_3_system_in.html" class="title">
-                Java IO(3)  System.in , System.out,  and System.error
+            <a href="/post/distribution/2019-08-13_Zookeeper是如何解决脑裂问题.html" class="title">
+                Zookeeper是如何解决脑裂问题
             </a>
             <p class="text-gray">
                 <small>
-                    <span>发表于2017-04-17，</span>
-                    <span class="hidden-xs">全文1250字，</span>
-                    <span>阅读约5分钟</span>
+                    <span>发表于2019-08-12，</span>
+                    <span class="hidden-xs">全文2959字，</span>
+                    <span>阅读约10分钟</span>
                 </small>
             </p>
         </div>
@@ -392,7 +520,7 @@
 </div>
         
         <div class="post-preview">
-    <div class="post-img" style="background-image: url('/images/java/basic/java_logo.png')"></div>
+    <div class="post-img" style="background-image: url('/images/idea_logo.png')"></div>
     <div class="post-info">
         <div class="post-info-center">
             <div class="hidden-xs">
@@ -400,24 +528,28 @@
                 
                 <span>/</span>
                 
+                <a class="text-gray" href="/tags/#Idea"
+                    title="Idea">Idea</a>
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#JavaIDE"
+                    title="JavaIDE">JavaIDE</a>
+                <span>/</span>
+                
                 <a class="text-gray" href="/tags/#Java"
                     title="Java">Java</a>
                 <span>/</span>
                 
-                <a class="text-gray" href="/tags/#二进制"
-                    title="二进制">二进制</a>
-                <span>/</span>
-                
                 
             </div>
-            <a href="/post/java/advance/2016-10-25_number.html" class="title">
-                为什么 8 位有符号整数的范围为 “-128 ~ +127”
+            <a href="/post/util/2017-10-25_idea_shotcut.html" class="title">
+                IntelliJ 各种快捷键
             </a>
             <p class="text-gray">
                 <small>
-                    <span>发表于2016-10-26，</span>
-                    <span class="hidden-xs">全文2759字，</span>
-                    <span>阅读约10分钟</span>
+                    <span>发表于2017-10-25，</span>
+                    <span class="hidden-xs">全文2213字，</span>
+                    <span>阅读约8分钟</span>
                 </small>
             </p>
         </div>
@@ -460,7 +592,7 @@
         rel="1">#JavaIDE (1) </a>
     
     <a class="post-tag-item" href="/tags/#Java" title="Java"
-        rel="43">#Java (43) </a>
+        rel="48">#Java (48) </a>
     
     <a class="post-tag-item" href="/tags/#二进制" title="二进制"
         rel="2">#二进制 (2) </a>
@@ -559,7 +691,7 @@
         rel="1">#注解 (1) </a>
     
     <a class="post-tag-item" href="/tags/#Spring" title="Spring"
-        rel="5">#Spring (5) </a>
+        rel="6">#Spring (6) </a>
     
     <a class="post-tag-item" href="/tags/#文件加载" title="文件加载"
         rel="1">#文件加载 (1) </a>
@@ -614,6 +746,48 @@
     
     <a class="post-tag-item" href="/tags/#算法" title="算法"
         rel="1">#算法 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#创建型模式" title="创建型模式"
+        rel="1">#创建型模式 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#设计模式" title="设计模式"
+        rel="3">#设计模式 (3) </a>
+    
+    <a class="post-tag-item" href="/tags/#分布式" title="分布式"
+        rel="2">#分布式 (2) </a>
+    
+    <a class="post-tag-item" href="/tags/#CAP" title="CAP"
+        rel="1">#CAP (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#理论" title="理论"
+        rel="2">#理论 (2) </a>
+    
+    <a class="post-tag-item" href="/tags/#脑裂" title="脑裂"
+        rel="1">#脑裂 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#单例" title="单例"
+        rel="1">#单例 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#DCL" title="DCL"
+        rel="1">#DCL (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#包管理" title="包管理"
+        rel="3">#包管理 (3) </a>
+    
+    <a class="post-tag-item" href="/tags/#Gradle" title="Gradle"
+        rel="3">#Gradle (3) </a>
+    
+    <a class="post-tag-item" href="/tags/#结构型模式" title="结构型模式"
+        rel="1">#结构型模式 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#行为型模式" title="行为型模式"
+        rel="1">#行为型模式 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Spring Core" title="Spring Core"
+        rel="1">#Spring Core (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#源码分析" title="源码分析"
+        rel="1">#源码分析 (1) </a>
     
 </div>
     </div>
@@ -761,13 +935,13 @@
 <div class="gkt-summary">
     <nav>
         <a href="/" class="col-xs-4">
-            <span class="number">47</span><span>文章</span>
+            <span class="number">57</span><span>文章</span>
         </a>
         <a href="/series" class="col-xs-4 middle">
-            <span class="number">9</span><span>专题</span>
+            <span class="number">14</span><span>专题</span>
         </a>
         <a href="/tags" class="col-xs-4">
-            <span class="number">56</span><span>标签</span>
+            <span class="number">70</span><span>标签</span>
         </a>
     </nav>
 
@@ -776,31 +950,91 @@
         
         
         <section class="gkt-sidebar-content box-shadow">
-            <strong>Spring Boot</strong>
+            <strong>Java 进阶</strong>
             <ul>
                 
                 <li>
-                    <a href="/post/java/spring/2019-12-28_【译】Spring Boot 从 classpath 加载文件.html"
-                        class="">【译】Spring Boot 从 classpath 加载文件</a>
+                    <a href="/post/java/advance/2016-10-25_number.html"
+                        class="">为什么 8 位有符号整数的范围为 “-128 ~ +127”</a>
                     
                 </li>
                 
                 <li>
-                    <a href="/post/java/spring/2020-05-20_Spring Boot 排坑.html"
-                        class="">Spring Boot 排坑</a>
+                    <a href="/post/java/advance/2016-11-03_java_memory_malloc.html"
+                        class="">Java 内存分配和泄露</a>
                     
                 </li>
                 
                 <li>
-                    <a href="/post/java/spring/2020-05-20_请给Sprint Boot多一些内存.html"
-                        class="gkt-sidebar-active">请给Sprint Boot多一些内存</a>
+                    <a href="/post/java/advance/2016-11-24_java_serializable.html"
+                        class="">序列化和反序列化浅析</a>
+                    
+                </li>
+                
+                <li>
+                    <a href="/post/java/advance/2016-12-09_java_books.html"
+                        class="">Java书籍推荐</a>
+                    
+                </li>
+                
+                <li>
+                    <a href="/post/java/advance/2017-03-28_java_acknowledge.html"
+                        class="">【战略收藏】Java知识体系</a>
+                    
+                </li>
+                
+                <li>
+                    <a href="/post/java/advance/2017-04-18_java_0xff.html"
+                        class="">为什么要与上0xff（&amp;0xff），有什么意义？</a>
+                    
+                </li>
+                
+                <li>
+                    <a href="/post/java/advance/2018-11-05_java_vertx.html"
+                        class="">从零开始变(micro)大拿</a>
+                    
+                </li>
+                
+                <li>
+                    <a href="/post/java/advance/2019-03-06_java_os.html"
+                        class="">Java 和操作系统交互细节</a>
+                    
+                </li>
+                
+                <li>
+                    <a href="/post/java/advance/2019-05-04_java_labmda.html"
+                        class="">Java8新特性学习-函数式编程</a>
+                    
+                </li>
+                
+                <li>
+                    <a href="/post/java/advance/2019-07-22_java_stack.html"
+                        class="">JVM内存结构：堆、栈、方法区</a>
+                    
+                </li>
+                
+                <li>
+                    <a href="/post/java/advance/2020-04-25_java_optimize.html"
+                        class="">接口性能优化思路</a>
+                    
+                </li>
+                
+                <li>
+                    <a href="/post/java/advance/2020-05-02_java_juc.html"
+                        class="">JUC 概览</a>
+                    
+                </li>
+                
+                <li>
+                    <a href="/post/java/advance/2019-05-21_java中单例模式DCL的缺陷及单例的正确写法.html"
+                        class="gkt-sidebar-active">Java 中单例模式DCL的缺陷及单例的正确写法</a>
                     
                     <!-- Table of Contents -->
 <div id="sidebar-toc">
   <!-- TOC  -->
   
   
-  <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%A6%82%E8%BF%B0"><span class="toc-nav-text">概述</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#JAVA%E7%B3%BB%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%A1%86%E6%9E%B6No1-Spring-Cloud"><span class="toc-nav-text">JAVA系微服务框架No1-Spring Cloud</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#JAVA%E7%B3%BB%E5%93%8D%E5%BA%94%E5%BC%8F%E7%BC%96%E7%A8%8B%E7%9A%84%E5%B7%A5%E5%85%B7%E5%8C%85Vert-x"><span class="toc-nav-text">JAVA系响应式编程的工具包Vert.x</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#JAVA%E7%B3%BB%E5%85%B6%E4%BB%96%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%A1%86%E6%9E%B6"><span class="toc-nav-text">JAVA系其他微服务框架</span></a></li></ol>
+  <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E9%A5%BF%E6%B1%89%E5%BC%8F%EF%BC%9F"><span class="toc-nav-text">什么是饿汉式？</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%8F%8C%E9%87%8D%E6%A3%80%E6%9F%A5%E5%8A%A0%E9%94%81-DCL-Double-Check-Locking"><span class="toc-nav-text">双重检查加锁 DCL (Double Check Locking)</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#JVM%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B"><span class="toc-nav-text">JVM内存模型</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E7%BC%BA%E9%99%B7"><span class="toc-nav-text">缺陷</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Happen-Before-%E5%8E%9F%E5%88%99"><span class="toc-nav-text">Happen-Before 原则</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E9%80%9A%E8%BF%87-volatile-%E9%98%B2%E6%AD%A2%E6%8C%87%E4%BB%A4%E9%87%8D%E6%8E%92%E5%BA%8F"><span class="toc-nav-text">通过 volatile 防止指令重排序</span></a></li></ol>
   
 </div>
 
@@ -843,8 +1077,8 @@
                 </li>
                 
                 <li>
-                    <a href="/post/java/spring/2020-09-02_How to learn Spring Cloud – the practical way.html"
-                        class="">How to learn Spring Cloud – the practical way</a>
+                    <a href="/post/java/advance/2020-06-28_java_jvm.html"
+                        class="">深入理解JVM-内存模型（jmm）和GC</a>
                     
                 </li>
                 
@@ -857,7 +1091,7 @@
             <ul>
                 
                 <li>
-                    <a href="/post/java/spring/2020-09-02_How to learn Spring Cloud – the practical way.html">How to learn Spring Cloud – the practical way</a>
+                    <a href="/post/java/spring/2020-09-02_How-to-learn-Spring-Cloud.html">How to learn Spring Cloud – the practical way</a>
                 </li>
                 
                 <li>

@@ -2,7 +2,119 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.fenxiangz.com/post/util/gradle/LearnGradle_2_%E5%9F%BA%E6%9C%AC%E7%9A%84%E6%9E%84%E5%BB%BA%E8%84%9A%E6%9C%AC%E4%BB%8B%E7%BB%8D.html</loc>
+    
+    <lastmod>2020-11-26</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.fenxiangz.com/post/util/gradle/LearnGradle_3_Java%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8.html</loc>
+    
+    <lastmod>2020-11-26</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.fenxiangz.com/post/util/2017-10-25_idea_shotcut.html</loc>
+    
+    <lastmod>2020-11-26</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.fenxiangz.com/post/util/gradle/LearnGradle_1_%E5%AE%89%E8%A3%85.html</loc>
+    
+    <lastmod>2020-11-26</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.fenxiangz.com/post/java/spring/2020-11-20_SpringIOC%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90.html</loc>
+    
+    <lastmod>2020-11-26</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.fenxiangz.com/post/java/spring/2020-09-02_How-to-learn-Spring-Cloud.html</loc>
+    
+    <lastmod>2020-11-26</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.fenxiangz.com/post/java/spring/2020-05-20_%E8%AF%B7%E7%BB%99SprintBoot%E5%A4%9A%E4%B8%80%E4%BA%9B%E5%86%85%E5%AD%98.html</loc>
+    
+    <lastmod>2020-11-26</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.fenxiangz.com/post/java/spring/2020-05-20_SpringBoot%E6%8E%92%E5%9D%91.html</loc>
+    
+    <lastmod>2020-11-26</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.fenxiangz.com/post/java/netty/2019-03-26_%E5%9F%BA%E4%BA%8ENetty%E8%87%AA%E5%B7%B1%E5%8A%A8%E6%89%8B%E5%AE%9E%E7%8E%B0RPC%E6%A1%86%E6%9E%B6.html</loc>
+    
+    <lastmod>2020-11-26</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.fenxiangz.com/post/java/netty/2019-01-02_%E5%B0%8F%E7%99%BD%E7%A7%91%E6%99%AENetty%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8.html</loc>
+    
+    <lastmod>2020-11-26</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.fenxiangz.com/post/distribution/2019-08-13_Zookeeper%E6%98%AF%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%E8%84%91%E8%A3%82%E9%97%AE%E9%A2%98.html</loc>
+    
+    <lastmod>2020-11-26</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.fenxiangz.com/post/java/advance/2019-05-21_java%E4%B8%AD%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8FDCL%E7%9A%84%E7%BC%BA%E9%99%B7%E5%8F%8A%E5%8D%95%E4%BE%8B%E7%9A%84%E6%AD%A3%E7%A1%AE%E5%86%99%E6%B3%95.html</loc>
+    
+    <lastmod>2020-11-26</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.fenxiangz.com/post/distribution/2019-08-12_CAP%E5%AE%9A%E7%90%86%E7%9A%84%E5%90%AB%E4%B9%89.html</loc>
+    
+    <lastmod>2020-11-26</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.fenxiangz.com/post/design/2019-01-05_Java%E7%BB%8F%E5%85%B8%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F_3_%E5%8D%81%E4%B8%80%E7%A7%8D%E8%A1%8C%E4%B8%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F.html</loc>
+    
+    <lastmod>2020-11-26</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.fenxiangz.com/post/design/2019-01-04_Java%E7%BB%8F%E5%85%B8%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F_2_%E4%B8%83%E5%A4%A7%E7%BB%93%E6%9E%84%E5%9E%8B%E6%A8%A1%E5%BC%8F.html</loc>
+    
+    <lastmod>2020-11-26</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.fenxiangz.com/post/algorithm/%E5%85%AB%E7%9A%87%E5%90%8E%E7%AE%97%E6%B3%95%E8%A7%A3%E6%9E%90.html</loc>
+    
+    <lastmod>2020-11-26</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.fenxiangz.com/post/design/2019-01-03_Java%E7%BB%8F%E5%85%B8%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F_1_%E4%BA%94%E5%A4%A7%E5%88%9B%E5%BB%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F.html</loc>
     
     <lastmod>2020-11-26</lastmod>
     
@@ -23,49 +135,7 @@
   </url>
   
   <url>
-    <loc>https://blog.fenxiangz.com/post/java/netty/2019-03-26_%E5%A4%A7%E5%8E%A8%E5%B0%8F%E9%B2%9C%E2%80%94%E2%80%94%E5%9F%BA%E4%BA%8ENetty%E8%87%AA%E5%B7%B1%E5%8A%A8%E6%89%8B%E5%AE%9E%E7%8E%B0RPC%E6%A1%86%E6%9E%B6.html</loc>
-    
-    <lastmod>2020-11-25</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.fenxiangz.com/post/java/netty/2019-01-02_%E5%B0%8F%E7%99%BD%E7%A7%91%E6%99%AE%EF%BC%9ANetty%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8%EF%BC%9F.html</loc>
-    
-    <lastmod>2020-11-25</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.fenxiangz.com/post/util/2017-10-25_idea_shotcut.html</loc>
-    
-    <lastmod>2020-11-25</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.fenxiangz.com/post/java/spring/2020-09-02_How%20to%20learn%20Spring%20Cloud%20%E2%80%93%20the%20practical%20way.html</loc>
-    
-    <lastmod>2020-11-25</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://blog.fenxiangz.com/post/java/spring/2019-12-28_%E3%80%90%E8%AF%91%E3%80%91Spring%20Boot%20%E4%BB%8E%20classpath%20%E5%8A%A0%E8%BD%BD%E6%96%87%E4%BB%B6.html</loc>
-    
-    <lastmod>2020-11-25</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.fenxiangz.com/post/java/spring/2020-05-20_Spring%20Boot%20%E6%8E%92%E5%9D%91.html</loc>
-    
-    <lastmod>2020-11-25</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.fenxiangz.com/post/java/spring/2020-05-20_%E8%AF%B7%E7%BB%99Sprint%20Boot%E5%A4%9A%E4%B8%80%E4%BA%9B%E5%86%85%E5%AD%98.html</loc>
     
     <lastmod>2020-11-25</lastmod>
     
@@ -752,14 +822,105 @@
     <priority>0.6</priority>
   </url>
   
-
-  
   <url>
-    <loc>https://blog.fenxiangz.com/categories/%E5%B7%A5%E5%85%B7/</loc>
+    <loc>https://blog.fenxiangz.com/tags/%E5%88%9B%E5%BB%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F/</loc>
     <lastmod>2020-11-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
+  
+  <url>
+    <loc>https://blog.fenxiangz.com/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</loc>
+    <lastmod>2020-11-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.fenxiangz.com/tags/%E5%88%86%E5%B8%83%E5%BC%8F/</loc>
+    <lastmod>2020-11-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.fenxiangz.com/tags/CAP/</loc>
+    <lastmod>2020-11-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.fenxiangz.com/tags/%E7%90%86%E8%AE%BA/</loc>
+    <lastmod>2020-11-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.fenxiangz.com/tags/%E8%84%91%E8%A3%82/</loc>
+    <lastmod>2020-11-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.fenxiangz.com/tags/%E5%8D%95%E4%BE%8B/</loc>
+    <lastmod>2020-11-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.fenxiangz.com/tags/DCL/</loc>
+    <lastmod>2020-11-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.fenxiangz.com/tags/%E5%8C%85%E7%AE%A1%E7%90%86/</loc>
+    <lastmod>2020-11-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.fenxiangz.com/tags/Gradle/</loc>
+    <lastmod>2020-11-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.fenxiangz.com/tags/%E7%BB%93%E6%9E%84%E5%9E%8B%E6%A8%A1%E5%BC%8F/</loc>
+    <lastmod>2020-11-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.fenxiangz.com/tags/%E8%A1%8C%E4%B8%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F/</loc>
+    <lastmod>2020-11-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.fenxiangz.com/tags/Spring-Core/</loc>
+    <lastmod>2020-11-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.fenxiangz.com/tags/%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/</loc>
+    <lastmod>2020-11-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+
   
   <url>
     <loc>https://blog.fenxiangz.com/categories/Java-%E8%BF%9B%E9%98%B6/</loc>
@@ -812,6 +973,48 @@
   
   <url>
     <loc>https://blog.fenxiangz.com/categories/%E7%AE%97%E6%B3%95/</loc>
+    <lastmod>2020-11-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.fenxiangz.com/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</loc>
+    <lastmod>2020-11-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.fenxiangz.com/categories/%E7%90%86%E8%AE%BA/</loc>
+    <lastmod>2020-11-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.fenxiangz.com/categories/zookeeper/</loc>
+    <lastmod>2020-11-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.fenxiangz.com/categories/IDE/</loc>
+    <lastmod>2020-11-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.fenxiangz.com/categories/Spring-Cloud/</loc>
+    <lastmod>2020-11-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.fenxiangz.com/categories/Gradle/</loc>
     <lastmod>2020-11-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>

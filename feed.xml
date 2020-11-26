@@ -15,13 +15,13 @@
     <atom:link href="https://blog.fenxiangz.com/feed.xml" rel="self" type="application/rss+xml"/>
     
     <description>Share everything</description>
-    <pubDate>Wed, 25 Nov 2020 15:52:55 GMT</pubDate>
+    <pubDate>Thu, 26 Nov 2020 15:56:59 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
       <title>How to learn Spring Cloud – the practical way</title>
-      <link>https://blog.fenxiangz.com/post/java/spring/2020-09-02_How%20to%20learn%20Spring%20Cloud%20%E2%80%93%20the%20practical%20way.html</link>
-      <guid>https://blog.fenxiangz.com/post/java/spring/2020-09-02_How%20to%20learn%20Spring%20Cloud%20%E2%80%93%20the%20practical%20way.html</guid>
+      <link>https://blog.fenxiangz.com/post/java/spring/2020-09-02_How-to-learn-Spring-Cloud.html</link>
+      <guid>https://blog.fenxiangz.com/post/java/spring/2020-09-02_How-to-learn-Spring-Cloud.html</guid>
       <pubDate>Tue, 01 Sep 2020 16:00:00 GMT</pubDate>
       
         
@@ -34,7 +34,7 @@
       
       
       
-      <category domain="https://blog.fenxiangz.com/categories/Spring-Boot/">Spring Boot</category>
+      <category domain="https://blog.fenxiangz.com/categories/Spring-Cloud/">Spring Cloud</category>
       
       
       <category domain="https://blog.fenxiangz.com/tags/Java/">Java</category>
@@ -44,7 +44,7 @@
       <category domain="https://blog.fenxiangz.com/tags/Spring-Cloud/">Spring Cloud</category>
       
       
-      <comments>https://blog.fenxiangz.com/post/java/spring/2020-09-02_How%20to%20learn%20Spring%20Cloud%20%E2%80%93%20the%20practical%20way.html#disqus_thread</comments>
+      <comments>https://blog.fenxiangz.com/post/java/spring/2020-09-02_How-to-learn-Spring-Cloud.html#disqus_thread</comments>
       
     </item>
     
@@ -143,14 +143,45 @@
     </item>
     
     <item>
+      <title>Java 中单例模式DCL的缺陷及单例的正确写法</title>
+      <link>https://blog.fenxiangz.com/post/java/advance/2019-05-21_java%E4%B8%AD%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8FDCL%E7%9A%84%E7%BC%BA%E9%99%B7%E5%8F%8A%E5%8D%95%E4%BE%8B%E7%9A%84%E6%AD%A3%E7%A1%AE%E5%86%99%E6%B3%95.html</link>
+      <guid>https://blog.fenxiangz.com/post/java/advance/2019-05-21_java%E4%B8%AD%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8FDCL%E7%9A%84%E7%BC%BA%E9%99%B7%E5%8F%8A%E5%8D%95%E4%BE%8B%E7%9A%84%E6%AD%A3%E7%A1%AE%E5%86%99%E6%B3%95.html</guid>
+      <pubDate>Wed, 20 May 2020 16:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;首先在说明单例设计模式中的 DCL 问题之前我们首先看看实现单例设计模式的两种方式：饿汉式和懒汉式。&lt;/p&gt;
+&lt;h2 id=&quot;什么是饿汉式？&quot;&gt;&lt;a href=&quot;#什么是饿汉式？&quot; class=&quot;headerlink&quot; title=&quot;什么是饿汉式？&quot;&gt;&lt;/a&gt;什么是饿汉式？</description>
+        
+      
+      
+      <enclosure url="https://blog.fenxiangz.com/images/java/basic/java_logo.png" type="image"/>
+      
+      
+      
+      <category domain="https://blog.fenxiangz.com/categories/Java-%E8%BF%9B%E9%98%B6/">Java 进阶</category>
+      
+      
+      <category domain="https://blog.fenxiangz.com/tags/Java/">Java</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/%E5%8D%95%E4%BE%8B/">单例</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/DCL/">DCL</category>
+      
+      
+      <comments>https://blog.fenxiangz.com/post/java/advance/2019-05-21_java%E4%B8%AD%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8FDCL%E7%9A%84%E7%BC%BA%E9%99%B7%E5%8F%8A%E5%8D%95%E4%BE%8B%E7%9A%84%E6%AD%A3%E7%A1%AE%E5%86%99%E6%B3%95.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
       <title>Spring Boot 排坑</title>
-      <link>https://blog.fenxiangz.com/post/java/spring/2020-05-20_Spring%20Boot%20%E6%8E%92%E5%9D%91.html</link>
-      <guid>https://blog.fenxiangz.com/post/java/spring/2020-05-20_Spring%20Boot%20%E6%8E%92%E5%9D%91.html</guid>
+      <link>https://blog.fenxiangz.com/post/java/spring/2020-05-20_SpringBoot%E6%8E%92%E5%9D%91.html</link>
+      <guid>https://blog.fenxiangz.com/post/java/spring/2020-05-20_SpringBoot%E6%8E%92%E5%9D%91.html</guid>
       <pubDate>Tue, 19 May 2020 16:00:00 GMT</pubDate>
       
         
         
-      <description>&lt;h3 id=&quot;1&quot;&gt;&lt;a href=&quot;#1&quot; class=&quot;headerlink&quot; title=&quot;1&quot;&gt;&lt;/a&gt;&lt;strong&gt;1&lt;/strong&gt;&lt;/h3&gt;&lt;p&gt;&lt;img src=&quot;./2020-05-20_Spring%20Boot%20%E6%8E%92%E5%9D%91</description>
+      <description>&lt;h3 id=&quot;1&quot;&gt;&lt;a href=&quot;#1&quot; class=&quot;headerlink&quot; title=&quot;1&quot;&gt;&lt;/a&gt;&lt;strong&gt;1&lt;/strong&gt;&lt;/h3&gt;&lt;p&gt;&lt;img src=&quot;./2020-05-20_SpringBoot%E6%8E%92%E5%9D%91/1.png</description>
         
       
       
@@ -168,14 +199,14 @@
       <category domain="https://blog.fenxiangz.com/tags/Spring-Boot/">Spring Boot</category>
       
       
-      <comments>https://blog.fenxiangz.com/post/java/spring/2020-05-20_Spring%20Boot%20%E6%8E%92%E5%9D%91.html#disqus_thread</comments>
+      <comments>https://blog.fenxiangz.com/post/java/spring/2020-05-20_SpringBoot%E6%8E%92%E5%9D%91.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>请给Sprint Boot多一些内存</title>
-      <link>https://blog.fenxiangz.com/post/java/spring/2020-05-20_%E8%AF%B7%E7%BB%99Sprint%20Boot%E5%A4%9A%E4%B8%80%E4%BA%9B%E5%86%85%E5%AD%98.html</link>
-      <guid>https://blog.fenxiangz.com/post/java/spring/2020-05-20_%E8%AF%B7%E7%BB%99Sprint%20Boot%E5%A4%9A%E4%B8%80%E4%BA%9B%E5%86%85%E5%AD%98.html</guid>
+      <link>https://blog.fenxiangz.com/post/java/spring/2020-05-20_%E8%AF%B7%E7%BB%99SprintBoot%E5%A4%9A%E4%B8%80%E4%BA%9B%E5%86%85%E5%AD%98.html</link>
+      <guid>https://blog.fenxiangz.com/post/java/spring/2020-05-20_%E8%AF%B7%E7%BB%99SprintBoot%E5%A4%9A%E4%B8%80%E4%BA%9B%E5%86%85%E5%AD%98.html</guid>
       <pubDate>Tue, 19 May 2020 16:00:00 GMT</pubDate>
       
         
@@ -198,7 +229,39 @@
       <category domain="https://blog.fenxiangz.com/tags/Spring-Boot/">Spring Boot</category>
       
       
-      <comments>https://blog.fenxiangz.com/post/java/spring/2020-05-20_%E8%AF%B7%E7%BB%99Sprint%20Boot%E5%A4%9A%E4%B8%80%E4%BA%9B%E5%86%85%E5%AD%98.html#disqus_thread</comments>
+      <comments>https://blog.fenxiangz.com/post/java/spring/2020-05-20_%E8%AF%B7%E7%BB%99SprintBoot%E5%A4%9A%E4%B8%80%E4%BA%9B%E5%86%85%E5%AD%98.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Spring IOC 容器源码分析</title>
+      <link>https://blog.fenxiangz.com/post/java/spring/2020-11-20_SpringIOC%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90.html</link>
+      <guid>https://blog.fenxiangz.com/post/java/spring/2020-11-20_SpringIOC%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90.html</guid>
+      <pubDate>Tue, 19 May 2020 16:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;Spring 最重要的概念是 IOC 和 AOP，本篇文章其实就是要带领大家来分析下 Spring 的 IOC 容器。既然大家平时都要用到 Spring，怎么可以不好好了解 Spring 呢？阅读本文并不能让你成为 Spring 专家，不过一定有助于大家理解 Spring </description>
+        
+      
+      
+      <enclosure url="https://blog.fenxiangz.com/images/java/spring-framework.png" type="image"/>
+      
+      
+      
+      <category domain="https://blog.fenxiangz.com/categories/Spring-Core/">Spring Core</category>
+      
+      
+      <category domain="https://blog.fenxiangz.com/tags/Java/">Java</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/Spring/">Spring</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/Spring-Core/">Spring Core</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/">源码分析</category>
+      
+      
+      <comments>https://blog.fenxiangz.com/post/java/spring/2020-11-20_SpringIOC%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90.html#disqus_thread</comments>
       
     </item>
     
@@ -305,7 +368,7 @@
         
       
       
-      <enclosure url="https://blog.fenxiangz.com/images/idea_logo.png" type="image"/>
+      <enclosure url="https://blog.fenxiangz.com/images/algorithm.jpg" type="image"/>
       
       
       
@@ -318,6 +381,69 @@
       
       
       <comments>https://blog.fenxiangz.com/post/algorithm/%E5%85%AB%E7%9A%87%E5%90%8E%E7%AE%97%E6%B3%95%E8%A7%A3%E6%9E%90.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>【转载-阮一峰】CAP 定理的含义</title>
+      <link>https://blog.fenxiangz.com/post/distribution/2019-08-12_CAP%E5%AE%9A%E7%90%86%E7%9A%84%E5%90%AB%E4%B9%89.html</link>
+      <guid>https://blog.fenxiangz.com/post/distribution/2019-08-12_CAP%E5%AE%9A%E7%90%86%E7%9A%84%E5%90%AB%E4%B9%89.html</guid>
+      <pubDate>Sun, 11 Aug 2019 16:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;分布式系统（distributed system）正变得越来越重要，大型网站几乎都是分布式的。&lt;/p&gt;
+&lt;p&gt;分布式系统的最大难点，就是各个节点的状态如何同步。CAP 定理是这方面的基本定理，也是理解分布式系统的起点。&lt;/p&gt;
+&lt;p&gt;本文介绍该定理。它其实很好懂，而且是显而</description>
+        
+      
+      
+      <enclosure url="https://blog.fenxiangz.com/images/distribution.png" type="image"/>
+      
+      
+      
+      <category domain="https://blog.fenxiangz.com/categories/%E7%90%86%E8%AE%BA/">理论</category>
+      
+      
+      <category domain="https://blog.fenxiangz.com/tags/%E5%88%86%E5%B8%83%E5%BC%8F/">分布式</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/CAP/">CAP</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/%E7%90%86%E8%AE%BA/">理论</category>
+      
+      
+      <comments>https://blog.fenxiangz.com/post/distribution/2019-08-12_CAP%E5%AE%9A%E7%90%86%E7%9A%84%E5%90%AB%E4%B9%89.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Zookeeper是如何解决脑裂问题</title>
+      <link>https://blog.fenxiangz.com/post/distribution/2019-08-13_Zookeeper%E6%98%AF%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%E8%84%91%E8%A3%82%E9%97%AE%E9%A2%98.html</link>
+      <guid>https://blog.fenxiangz.com/post/distribution/2019-08-13_Zookeeper%E6%98%AF%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%E8%84%91%E8%A3%82%E9%97%AE%E9%A2%98.html</guid>
+      <pubDate>Sun, 11 Aug 2019 16:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;这是分布式系统中一个很实际的问题，书上说的不是很详细，整理总结一下。&lt;/p&gt;
+&lt;h1 id=&quot;1、脑裂和假死&quot;&gt;&lt;a href=&quot;#1、脑裂</description>
+        
+      
+      
+      <enclosure url="https://blog.fenxiangz.com/images/zookeeper.jpeg" type="image"/>
+      
+      
+      
+      <category domain="https://blog.fenxiangz.com/categories/zookeeper/">zookeeper</category>
+      
+      
+      <category domain="https://blog.fenxiangz.com/tags/%E5%88%86%E5%B8%83%E5%BC%8F/">分布式</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/%E7%90%86%E8%AE%BA/">理论</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/%E8%84%91%E8%A3%82/">脑裂</category>
+      
+      
+      <comments>https://blog.fenxiangz.com/post/distribution/2019-08-13_Zookeeper%E6%98%AF%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%E8%84%91%E8%A3%82%E9%97%AE%E9%A2%98.html#disqus_thread</comments>
       
     </item>
     
@@ -485,9 +611,9 @@
     </item>
     
     <item>
-      <title>大厨小鲜——基于Netty自己动手实现RPC框架</title>
-      <link>https://blog.fenxiangz.com/post/java/netty/2019-03-26_%E5%A4%A7%E5%8E%A8%E5%B0%8F%E9%B2%9C%E2%80%94%E2%80%94%E5%9F%BA%E4%BA%8ENetty%E8%87%AA%E5%B7%B1%E5%8A%A8%E6%89%8B%E5%AE%9E%E7%8E%B0RPC%E6%A1%86%E6%9E%B6.html</link>
-      <guid>https://blog.fenxiangz.com/post/java/netty/2019-03-26_%E5%A4%A7%E5%8E%A8%E5%B0%8F%E9%B2%9C%E2%80%94%E2%80%94%E5%9F%BA%E4%BA%8ENetty%E8%87%AA%E5%B7%B1%E5%8A%A8%E6%89%8B%E5%AE%9E%E7%8E%B0RPC%E6%A1%86%E6%9E%B6.html</guid>
+      <title>基于Netty自己动手实现RPC框架</title>
+      <link>https://blog.fenxiangz.com/post/java/netty/2019-03-26_%E5%9F%BA%E4%BA%8ENetty%E8%87%AA%E5%B7%B1%E5%8A%A8%E6%89%8B%E5%AE%9E%E7%8E%B0RPC%E6%A1%86%E6%9E%B6.html</link>
+      <guid>https://blog.fenxiangz.com/post/java/netty/2019-03-26_%E5%9F%BA%E4%BA%8ENetty%E8%87%AA%E5%B7%B1%E5%8A%A8%E6%89%8B%E5%AE%9E%E7%8E%B0RPC%E6%A1%86%E6%9E%B6.html</guid>
       <pubDate>Mon, 25 Mar 2019 16:00:00 GMT</pubDate>
       
         
@@ -512,7 +638,7 @@
       <category domain="https://blog.fenxiangz.com/tags/RPC/">RPC</category>
       
       
-      <comments>https://blog.fenxiangz.com/post/java/netty/2019-03-26_%E5%A4%A7%E5%8E%A8%E5%B0%8F%E9%B2%9C%E2%80%94%E2%80%94%E5%9F%BA%E4%BA%8ENetty%E8%87%AA%E5%B7%B1%E5%8A%A8%E6%89%8B%E5%AE%9E%E7%8E%B0RPC%E6%A1%86%E6%9E%B6.html#disqus_thread</comments>
+      <comments>https://blog.fenxiangz.com/post/java/netty/2019-03-26_%E5%9F%BA%E4%BA%8ENetty%E8%87%AA%E5%B7%B1%E5%8A%A8%E6%89%8B%E5%AE%9E%E7%8E%B0RPC%E6%A1%86%E6%9E%B6.html#disqus_thread</comments>
       
     </item>
     
@@ -611,31 +737,90 @@
     </item>
     
     <item>
-      <title>小白科普：Netty有什么用？</title>
-      <link>https://blog.fenxiangz.com/post/java/netty/2019-01-02_%E5%B0%8F%E7%99%BD%E7%A7%91%E6%99%AE%EF%BC%9ANetty%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8%EF%BC%9F.html</link>
-      <guid>https://blog.fenxiangz.com/post/java/netty/2019-01-02_%E5%B0%8F%E7%99%BD%E7%A7%91%E6%99%AE%EF%BC%9ANetty%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8%EF%BC%9F.html</guid>
-      <pubDate>Tue, 01 Jan 2019 16:00:00 GMT</pubDate>
+      <title>Java 经典设计模式（3）：十一种行为型模式</title>
+      <link>https://blog.fenxiangz.com/post/design/2019-01-05_Java%E7%BB%8F%E5%85%B8%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F_3_%E5%8D%81%E4%B8%80%E7%A7%8D%E8%A1%8C%E4%B8%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F.html</link>
+      <guid>https://blog.fenxiangz.com/post/design/2019-01-05_Java%E7%BB%8F%E5%85%B8%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F_3_%E5%8D%81%E4%B8%80%E7%A7%8D%E8%A1%8C%E4%B8%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F.html</guid>
+      <pubDate>Fri, 04 Jan 2019 16:00:00 GMT</pubDate>
+      
+      <description>&lt;p&gt;行为型模式细分为如下11种：策略模式、模板方法模式、观察者模式、迭代子模式、责任链模式、命令模式、备忘录模式、状态模式、访问者模式、中介者模式、解释器模式。&lt;br&gt;接下来对11种行为型模式逐个进行介绍。&lt;/p&gt;
+&lt;h3 id=&quot;一、策略模式&quot;&gt;&lt;a href=&quot;#一、策略模式&quot; class=&quot;headerlink&quot; title=&quot;一、策略模式&quot;&gt;&lt;/a&gt;一、策略模式&lt;/h3&gt;&lt;p&gt;策略模式定义了一系列算法，并将每个算法封装起来，使他们可以相互替换，且算法的变化不会影响到使用算法的客户。需要设计一个接口，为一系列实现类提供统一的方法，多个实现类实现该接口，设计一个抽象类（可有可无，属于辅助类，视实际需求是否添加），提供辅助函数。&lt;/p&gt;
+&lt;p&gt;首先统一接口：&lt;/p&gt;
+&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;package&lt;/span&gt; com.model.behaviour;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;ICalculator&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;calculate&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(String exp)&lt;/span&gt;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;辅助类：&lt;/p&gt;
+&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;package&lt;/span&gt; com.model.behaviour;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;abstract&lt;/span&gt; &lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;AbstractCalculator&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt;[] split(String exp, String opt) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        String array[] = exp.split(opt);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; arrayInt[] = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt;[&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        arrayInt[&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;] = Integer.parseInt(array[&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;]);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        arrayInt[&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;] = Integer.parseInt(array[&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;]);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; arrayInt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</description>
+      
+      
+      <enclosure url="https://blog.fenxiangz.com/images/idea_logo.png" type="image"/>
+      
+      
+      
+      <category domain="https://blog.fenxiangz.com/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</category>
+      
+      
+      <category domain="https://blog.fenxiangz.com/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/%E8%A1%8C%E4%B8%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F/">行为型模式</category>
+      
+      
+      <comments>https://blog.fenxiangz.com/post/design/2019-01-05_Java%E7%BB%8F%E5%85%B8%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F_3_%E5%8D%81%E4%B8%80%E7%A7%8D%E8%A1%8C%E4%B8%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Java经典设计模式（2）：七大结构型模式</title>
+      <link>https://blog.fenxiangz.com/post/design/2019-01-04_Java%E7%BB%8F%E5%85%B8%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F_2_%E4%B8%83%E5%A4%A7%E7%BB%93%E6%9E%84%E5%9E%8B%E6%A8%A1%E5%BC%8F.html</link>
+      <guid>https://blog.fenxiangz.com/post/design/2019-01-04_Java%E7%BB%8F%E5%85%B8%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F_2_%E4%B8%83%E5%A4%A7%E7%BB%93%E6%9E%84%E5%9E%8B%E6%A8%A1%E5%BC%8F.html</guid>
+      <pubDate>Thu, 03 Jan 2019 16:00:00 GMT</pubDate>
       
         
         
-      <description>&lt;p&gt;随着移动互联网的爆发性增长，小明公司的电子商务系统访问量越来越大，由于现有系统是个单体的巨型应用，已经无法满足海量的并发请求，拆分势在必行。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;2020-09-02_%E5%B0%8F%E7%99%BD%E7%A7%91%E6%99%AE%E</description>
+      <description>&lt;p&gt;接下来我们看看结构型模式，共七种：适配器模式、装饰器模式、代理模式、外观模式、桥接模式、组合模式、享元模式。其中适配器模式主要分为三类：类的适配器模式、对象的适配器模式、接口的适配器模式。其中的对象的适配器模式是各种结构型模式的起源。&lt;/p&gt;
+&lt;h2 id=&quot;一、适配器模式</description>
         
       
       
-      <enclosure url="https://blog.fenxiangz.com/images/java/netty-logo.png" type="image"/>
+      <enclosure url="https://blog.fenxiangz.com/images/idea_logo.png" type="image"/>
       
       
       
-      <category domain="https://blog.fenxiangz.com/categories/Netty/">Netty</category>
+      <category domain="https://blog.fenxiangz.com/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</category>
       
       
-      <category domain="https://blog.fenxiangz.com/tags/Java/">Java</category>
+      <category domain="https://blog.fenxiangz.com/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</category>
       
-      <category domain="https://blog.fenxiangz.com/tags/Netty/">Netty</category>
+      <category domain="https://blog.fenxiangz.com/tags/%E7%BB%93%E6%9E%84%E5%9E%8B%E6%A8%A1%E5%BC%8F/">结构型模式</category>
       
       
-      <comments>https://blog.fenxiangz.com/post/java/netty/2019-01-02_%E5%B0%8F%E7%99%BD%E7%A7%91%E6%99%AE%EF%BC%9ANetty%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8%EF%BC%9F.html#disqus_thread</comments>
+      <comments>https://blog.fenxiangz.com/post/design/2019-01-04_Java%E7%BB%8F%E5%85%B8%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F_2_%E4%B8%83%E5%A4%A7%E7%BB%93%E6%9E%84%E5%9E%8B%E6%A8%A1%E5%BC%8F.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Java 经典设计模式（1）：五大创建型模式</title>
+      <link>https://blog.fenxiangz.com/post/design/2019-01-03_Java%E7%BB%8F%E5%85%B8%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F_1_%E4%BA%94%E5%A4%A7%E5%88%9B%E5%BB%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F.html</link>
+      <guid>https://blog.fenxiangz.com/post/design/2019-01-03_Java%E7%BB%8F%E5%85%B8%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F_1_%E4%BA%94%E5%A4%A7%E5%88%9B%E5%BB%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F.html</guid>
+      <pubDate>Wed, 02 Jan 2019 16:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;hr&gt;
+&lt;h2 id=&quot;一、概况&quot;&gt;&lt;a href=&quot;#一、概况&quot; class=&quot;headerlink&quot; title=&quot;一、概况&quot;&gt;&lt;/a&gt;一、概况&lt;/h2&gt;&lt;h3 id=&quot;总体来说设计模式分为三大类：&quot;&gt;&lt;a href=&quot;#总体来说设计模式分为三大类：&quot; class=&quot;hea</description>
+        
+      
+      
+      <enclosure url="https://blog.fenxiangz.com/images/idea_logo.png" type="image"/>
+      
+      
+      
+      <category domain="https://blog.fenxiangz.com/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</category>
+      
+      
+      <category domain="https://blog.fenxiangz.com/tags/%E5%88%9B%E5%BB%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F/">创建型模式</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</category>
+      
+      
+      <comments>https://blog.fenxiangz.com/post/design/2019-01-03_Java%E7%BB%8F%E5%85%B8%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F_1_%E4%BA%94%E5%A4%A7%E5%88%9B%E5%BB%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F.html#disqus_thread</comments>
       
     </item>
     
@@ -698,6 +883,104 @@
     </item>
     
     <item>
+      <title>Learn Gradle - 3 Java 快速入门</title>
+      <link>https://blog.fenxiangz.com/post/util/gradle/LearnGradle_3_Java%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8.html</link>
+      <guid>https://blog.fenxiangz.com/post/util/gradle/LearnGradle_3_Java%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8.html</guid>
+      <pubDate>Fri, 27 Oct 2017 16:00:00 GMT</pubDate>
+      
+      <description>&lt;p&gt;上一节主要对Gradle的脚本进行了简要的介绍，本节将继续学习Gradle的另外一个特性——插件（plugins）。&lt;/p&gt;
+&lt;h2 id=&quot;1、插件介绍&quot;&gt;&lt;a href=&quot;#1、插件介绍&quot; class=&quot;headerlink&quot; title=&quot;1、插件介绍&quot;&gt;&lt;/a&gt;1、插件介绍&lt;/h2&gt;&lt;p&gt;插件是对Gradle功能的扩展，Gradle有着丰富的插件，你可以在这里搜索相关插件（&lt;a href=&quot;https://plugins.gradle.org/&quot;&gt;传送门&lt;/a&gt;）。本章将简要介绍Gradle的Java插件（Java plugin），这个插件会给你的构建项目添加一些任务，比如编译java类、执行单元测试和将编译的class文件打包成jar文件等。&lt;/p&gt;
+&lt;p&gt;Java插件是基于约定的（约定优于配置），它在项目的很多方面定义了默认值，例如，Java源文件应该位于什么位置。我们只要遵循插件的约定，就不需要在Gradle配置脚本进行额外的相关配置。当然，在某些情况下，你的项目不想或不能遵循这个约定也是可以的，这样你就需要额外的配置你的构建脚本。&lt;/p&gt;
+&lt;p&gt;Gradle Java插件对于项目文件存放的默认位置与maven类似。&lt;/p&gt;</description>
+      
+      
+      <enclosure url="https://blog.fenxiangz.com/images/gradle.png" type="image"/>
+      
+      
+      
+      <category domain="https://blog.fenxiangz.com/categories/Gradle/">Gradle</category>
+      
+      
+      <category domain="https://blog.fenxiangz.com/tags/Java/">Java</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/%E5%8C%85%E7%AE%A1%E7%90%86/">包管理</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/Gradle/">Gradle</category>
+      
+      
+      <comments>https://blog.fenxiangz.com/post/util/gradle/LearnGradle_3_Java%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Learn Gradle - 2 基本的构建脚本介绍</title>
+      <link>https://blog.fenxiangz.com/post/util/gradle/LearnGradle_2_%E5%9F%BA%E6%9C%AC%E7%9A%84%E6%9E%84%E5%BB%BA%E8%84%9A%E6%9C%AC%E4%BB%8B%E7%BB%8D.html</link>
+      <guid>https://blog.fenxiangz.com/post/util/gradle/LearnGradle_2_%E5%9F%BA%E6%9C%AC%E7%9A%84%E6%9E%84%E5%BB%BA%E8%84%9A%E6%9C%AC%E4%BB%8B%E7%BB%8D.html</guid>
+      <pubDate>Thu, 26 Oct 2017 16:00:00 GMT</pubDate>
+      
+      <description>&lt;h2 id=&quot;1、项目和任务&quot;&gt;&lt;a href=&quot;#1、项目和任务&quot; class=&quot;headerlink&quot; title=&quot;1、项目和任务&quot;&gt;&lt;/a&gt;1、项目和任务&lt;/h2&gt;&lt;p&gt;Gradle 构建脚本包括两个最基本的概念，就是项目（projects）和任务（tasks）。&lt;/p&gt;
+&lt;p&gt;项目是指我们的构建产物（比如jar包）或实施产物（比如web application等）。&lt;strong&gt;Gradle构建脚本包含一个或多个项目。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;任务是指不可分的最小工作单元，执行构建工作（比如编译一些类文件、创建jar文件、生成javadoc以及发布架构文档到仓库等）。&lt;strong&gt;一个项目包含一个或多个任务。&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&quot;2、Hello-World！！&quot;&gt;&lt;a href=&quot;#2、Hello-World！！&quot; class=&quot;headerlink&quot; title=&quot;2、Hello World！！&quot;&gt;&lt;/a&gt;2、Hello World！！&lt;/h2&gt;&lt;p&gt;下面我们学习一个简单的hello world例子来简单认识一下Gradle构建脚本。&lt;/p&gt;
+&lt;p&gt;新建文件：build.gradle &lt;/p&gt;
+&lt;p&gt;添加内容：&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;task hello &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    doLast &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        println &lt;span class=&quot;string&quot;&gt;&amp;#x27;Hello world!&amp;#x27;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;使用命令行进入build.gradle所在目录，执行：gradle hello ，输出：&lt;/p&gt;</description>
+      
+      
+      <enclosure url="https://blog.fenxiangz.com/images/gradle.png" type="image"/>
+      
+      
+      
+      <category domain="https://blog.fenxiangz.com/categories/Gradle/">Gradle</category>
+      
+      
+      <category domain="https://blog.fenxiangz.com/tags/Java/">Java</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/%E5%8C%85%E7%AE%A1%E7%90%86/">包管理</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/Gradle/">Gradle</category>
+      
+      
+      <comments>https://blog.fenxiangz.com/post/util/gradle/LearnGradle_2_%E5%9F%BA%E6%9C%AC%E7%9A%84%E6%9E%84%E5%BB%BA%E8%84%9A%E6%9C%AC%E4%BB%8B%E7%BB%8D.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Learn Gradle - 1 安装</title>
+      <link>https://blog.fenxiangz.com/post/util/gradle/LearnGradle_1_%E5%AE%89%E8%A3%85.html</link>
+      <guid>https://blog.fenxiangz.com/post/util/gradle/LearnGradle_1_%E5%AE%89%E8%A3%85.html</guid>
+      <pubDate>Wed, 25 Oct 2017 16:00:00 GMT</pubDate>
+      
+      <description>&lt;h2 id=&quot;1、下载Gradle&quot;&gt;&lt;a href=&quot;#1、下载Gradle&quot; class=&quot;headerlink&quot; title=&quot;1、下载Gradle&quot;&gt;&lt;/a&gt;1、下载Gradle&lt;/h2&gt;&lt;p&gt;方式一：&lt;a href=&quot;http://gradle.org/&quot;&gt;http://gradle.org/&lt;/a&gt;  使用首页Download链接直接下载最新版。&lt;/p&gt;
+&lt;p&gt;方式二：&lt;a href=&quot;http://gradle.org/gradle-download/&quot;&gt;http://gradle.org/gradle-download/&lt;/a&gt;  在“PREVIOUS RELEASES”（右侧）下方选择一个版本，然后选择完整版“Complete distribution”或者选择不含源码和文档仅包含程序的版本“Binary only distribution”下载。&lt;/p&gt;
+&lt;p&gt;（这里下载最新版本完整压缩包：gradle-2.5-all.zip）&lt;/p&gt;
+&lt;h2 id=&quot;2、安装&quot;&gt;&lt;a href=&quot;#2、安装&quot; class=&quot;headerlink&quot; title=&quot;2、安装&quot;&gt;&lt;/a&gt;2、安装&lt;/h2&gt;&lt;p&gt;解压缩下载的zip文件：gradle-2.5-all.zip 得到目录 gradle-2.5 ，将文件夹移动到合适的位置，如 F:\gradle-2.5，这个文件包含了所有gradle的内容，包括：&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;执行程序（bin、lib）&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;文档（docs）&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;源码（src）&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;例子（samples）&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;配置环境变量：&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;新增变量名：GRADLE_HOME，变量值：F:\gradle-2.5&lt;br&gt;在已有Path变量的末尾追加字符串 ”;%GRADLE_HOME%\bin;“（引号内的字符串）&lt;/p&gt;</description>
+      
+      
+      <enclosure url="https://blog.fenxiangz.com/images/gradle.png" type="image"/>
+      
+      
+      
+      <category domain="https://blog.fenxiangz.com/categories/Gradle/">Gradle</category>
+      
+      
+      <category domain="https://blog.fenxiangz.com/tags/Java/">Java</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/%E5%8C%85%E7%AE%A1%E7%90%86/">包管理</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/Gradle/">Gradle</category>
+      
+      
+      <comments>https://blog.fenxiangz.com/post/util/gradle/LearnGradle_1_%E5%AE%89%E8%A3%85.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
       <title>IntelliJ 各种快捷键</title>
       <link>https://blog.fenxiangz.com/post/util/2017-10-25_idea_shotcut.html</link>
       <guid>https://blog.fenxiangz.com/post/util/2017-10-25_idea_shotcut.html</guid>
@@ -715,7 +998,7 @@
       
       
       
-      <category domain="https://blog.fenxiangz.com/categories/%E5%B7%A5%E5%85%B7/">工具</category>
+      <category domain="https://blog.fenxiangz.com/categories/IDE/">IDE</category>
       
       
       <category domain="https://blog.fenxiangz.com/tags/Idea/">Idea</category>
@@ -1127,6 +1410,35 @@ public class PipeExa</description>
       
       
       <comments>https://blog.fenxiangz.com/post/java/advance/2017-03-28_java_acknowledge.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>小白科普：Netty有什么用？</title>
+      <link>https://blog.fenxiangz.com/post/java/netty/2019-01-02_%E5%B0%8F%E7%99%BD%E7%A7%91%E6%99%AENetty%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8.html</link>
+      <guid>https://blog.fenxiangz.com/post/java/netty/2019-01-02_%E5%B0%8F%E7%99%BD%E7%A7%91%E6%99%AENetty%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8.html</guid>
+      <pubDate>Sun, 01 Jan 2017 16:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;随着移动互联网的爆发性增长，小明公司的电子商务系统访问量越来越大，由于现有系统是个单体的巨型应用，已经无法满足海量的并发请求，拆分势在必行。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;./2019-01-02_%E5%B0%8F%E7%99%BD%E7%A7%91%E6%99%AE</description>
+        
+      
+      
+      <enclosure url="https://blog.fenxiangz.com/images/java/netty-logo.png" type="image"/>
+      
+      
+      
+      <category domain="https://blog.fenxiangz.com/categories/Netty/">Netty</category>
+      
+      
+      <category domain="https://blog.fenxiangz.com/tags/Java/">Java</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/Netty/">Netty</category>
+      
+      
+      <comments>https://blog.fenxiangz.com/post/java/netty/2019-01-02_%E5%B0%8F%E7%99%BD%E7%A7%91%E6%99%AENetty%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8.html#disqus_thread</comments>
       
     </item>
     

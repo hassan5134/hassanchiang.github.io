@@ -15,17 +15,17 @@
   <!-- if page has tags, then add tags to keyword -->
   
   
-  <meta name="keywords" content=",Java,Spring,Spring Cloud,">
+  <meta name="keywords" content=",分布式,理论,脑裂,">
   <!-- page.description has higher priority -->
   <meta name="description" content="Share everything">
   <link rel="shortcut icon" href="/favico.png">
   <title>
     
-    How to learn Spring Cloud – the practical way | 分享之
+    Zookeeper是如何解决脑裂问题 | 分享之
     
   </title>
 
-  <link rel="canonical" href="/post/java/spring/2020-09-02_How to learn Spring Cloud – the practical way.html">
+  <link rel="canonical" href="/post/distribution/2019-08-13_Zookeeper是如何解决脑裂问题.html">
   
 <link rel="stylesheet" href="/css/reset.css">
 
@@ -117,7 +117,7 @@
                     
                 </li>
                 
-                <li class="gkt-cate-name float-left active">
+                <li class="gkt-cate-name float-left ">
                     <a class="float-left" href="/post/java/spring/2016-10-30_Spring 组合注解&amp;注解继承.html">Spring ▾</a>
                     
                     <ul class="gkt-sub-cate">
@@ -125,20 +125,53 @@
                         <li class="gkt-sub-cate-name "><a class="float-left"
                                 href="/post/java/spring/2016-10-30_Spring 组合注解&amp;注解继承.html">Spring Core</a></li>
                         
-                        <li class="gkt-sub-cate-name active"><a class="float-left"
+                        <li class="gkt-sub-cate-name "><a class="float-left"
                                 href="/post/java/spring/2019-12-28_【译】Spring Boot 从 classpath 加载文件.html">Spring Boot</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/java/spring/2020-09-02_How-to-learn-Spring-Cloud.html">Spring Cloud</a></li>
                         
                     </ul>
                     
                 </li>
                 
                 <li class="gkt-cate-name float-left ">
-                    <a class="float-left" href="/post/util/2017-10-25_idea_shotcut.html">开发工具</a>
+                    <a class="float-left" href="/post/java/netty/2019-01-02_小白科普Netty有什么用.html">Java 框架</a>
                     
                 </li>
                 
                 <li class="gkt-cate-name float-left ">
-                    <a class="float-left" href="/post/java/netty/2019-01-02_小白科普：Netty有什么用？.html">Java 框架</a>
+                    <a class="float-left" href="/post/util/2017-10-25_idea_shotcut.html">开发工具 ▾</a>
+                    
+                    <ul class="gkt-sub-cate">
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/util/2017-10-25_idea_shotcut.html">IDE</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/util/gradle/LearnGradle_1_安装.html">Gradle</a></li>
+                        
+                    </ul>
+                    
+                </li>
+                
+                <li class="gkt-cate-name float-left ">
+                    <a class="float-left" href="/post/design/2019-01-03_Java经典设计模式_1_五大创建型模式.html">设计模式</a>
+                    
+                </li>
+                
+                <li class="gkt-cate-name float-left active">
+                    <a class="float-left" href="/post/distribution/2019-08-12_CAP定理的含义.html">分布式 ▾</a>
+                    
+                    <ul class="gkt-sub-cate">
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/distribution/2019-08-12_CAP定理的含义.html">理论</a></li>
+                        
+                        <li class="gkt-sub-cate-name active"><a class="float-left"
+                                href="/post/distribution/2019-08-13_Zookeeper是如何解决脑裂问题.html">zookeeper</a></li>
+                        
+                    </ul>
                     
                 </li>
                 
@@ -184,117 +217,52 @@
 <div class="float-left post-container box-shadow">
     <div class="u-arrow-wrapper hidden-xs">
         
-        <a class="float-left" href="/post/java/advance/2020-06-28_java_jvm.html"><i class="u-arrow-left"></i></a>
+        <a class="float-left" href="/post/java/advance/2019-07-22_java_stack.html"><i class="u-arrow-left"></i></a>
         
+        
+        <a class="float-right" href="/post/distribution/2019-08-12_CAP定理的含义.html"><i class="u-arrow-right"></i></a>
         
     </div>
     <article class="col-xs-12">
-        <h1> How to learn Spring Cloud – the practical way </h1>
+        <h1> Zookeeper是如何解决脑裂问题 </h1>
         
         
         <div class="hidden-lg hidden-md series_links">
-            <p> <strong> Spring Boot系列文章链接：</strong></p>
+            <p> <strong> zookeeper系列文章链接：</strong></p>
             <ul>
                 
                 <li>
-                    <a href="/post/java/spring/2019-12-28_【译】Spring Boot 从 classpath 加载文件.html">【译】Spring Boot 从 classpath 加载文件</a>
-                    <span class="post-item-date">(Dec 28, 2019)</span>
-                </li>
-                
-                <li>
-                    <a href="/post/java/spring/2020-05-20_Spring Boot 排坑.html">Spring Boot 排坑</a>
-                    <span class="post-item-date">(May 20, 2020)</span>
-                </li>
-                
-                <li>
-                    <a href="/post/java/spring/2020-05-20_请给Sprint Boot多一些内存.html">请给Sprint Boot多一些内存</a>
-                    <span class="post-item-date">(May 20, 2020)</span>
-                </li>
-                
-                <li>
-                    <a href="/post/java/spring/2020-09-02_How to learn Spring Cloud – the practical way.html">How to learn Spring Cloud – the practical way</a>
-                    <span class="post-item-date">(Sep 2, 2020)</span>
+                    <a href="/post/distribution/2019-08-13_Zookeeper是如何解决脑裂问题.html">Zookeeper是如何解决脑裂问题</a>
+                    <span class="post-item-date">(Aug 12, 2019)</span>
                 </li>
                 
             </ul>
         </div>
         
         
-        <p>I have recently spoken at a meetup about <a target="_blank" rel="noopener" href="https://www.e4developer.com/2018/02/20/practical-choreography-with-spring-cloud-presentation/">Practical Choreography with Spring Cloud Stream</a>. It was a great event where I was asked many questions after the talk. One question got me thinking: <em>“What book about Spring Cloud do you recommend?” *which as it turns out boils down to *“How do you learn Spring Cloud?”.</em> I heard that question posed a few times before in different ways. Here, I will give you my answer on what I think is the best way of learning Spring Cloud.</p>
-<p>With Spring Cloud being probably the hottest framework on JVM for integrating microservices, the interest in it is growing. Most people interested in the microservices are already familiar with Spring Boot. If you haven’t heard of it before, check out my <a target="_blank" rel="noopener" href="https://www.e4developer.com/2018/01/16/microservices-toolbox-spring-boot/">Spring Boot introduction</a> blog post, and definitely see the <a target="_blank" rel="noopener" href="https://projects.spring.io/spring-boot/">official site</a>– it has some very good <em>Getting Started Guides</em>.</p>
-<p>With that out of the way, let’s look at learning Spring Cloud!</p>
-<h3 id="Understand-the-Scope"><a href="#Understand-the-Scope" class="headerlink" title="Understand the Scope"></a>Understand the Scope</h3><p>The first thing to do when trying to learn something so big and diverse is understanding the scope. Learning Spring Cloud can mean many things. First of all, the Spring Cloud currently contains:</p>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>这是分布式系统中一个很实际的问题，书上说的不是很详细，整理总结一下。</p>
+<h1 id="1、脑裂和假死"><a href="#1、脑裂和假死" class="headerlink" title="1、脑裂和假死"></a>1、脑裂和假死</h1><h2 id="1-1-脑裂"><a href="#1-1-脑裂" class="headerlink" title="1.1 脑裂"></a>1.1 脑裂</h2><p>官方定义：当一个集群的不同部分在同一时间都认为自己是活动的时候，我们就可以将这个现象称为脑裂症状。通俗的说，就是比如当你的 cluster 里面有两个结点，它们都知道在这个 cluster 里需要选举出一个 master。那么当它们两之间的通信完全没有问题的时候，就会达成共识，选出其中一个作为 master。但是如果它们之间的通信出了问题，那么两个结点都会觉得现在没有 master，所以每个都把自己选举成 master。于是 cluster 里面就会有两个 master。举例：</p>
+<p><img src="2019-08-13_Zookeeper%E6%98%AF%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%E8%84%91%E8%A3%82%E9%97%AE%E9%A2%98/1.png"></p>
+<p>UserA和UserB分别将自己的信息注册在RouterA和RouterB中。RouterA和RouterB使用数据同步（2PC），来同步信息。那么当UserA想要向UserB发送一个消息的时候，需要现在RouterA中查询出UserA到UserB的消息路由路径，然后再交付给相应的路径进行路由。</p>
+<p>当脑裂发生的时候，相当RouterA和RouterB直接的联系丢失了，RouterA认为整个系统中只有它一个Router，RouterB也是这样认为的。那么相当于RouterA中没有UserB的信息，RouterB中没有UserA的信息了，此时UserA再发送消息给UserB的时候，RouterA会认为UserB已经离线了，然后将该信息进行离线持久化，这样整个网络的路由是不是就乱掉了。</p>
+<p>对于Zookeeper来说有一个很重要的问题，就是到底是根据一个什么样的情况来判断一个节点死亡down掉了。 在分布式系统中这些都是有监控者来判断的，但是监控者也很难判定其他的节点的状态，唯一一个可靠的途径就是心跳，Zookeeper也是使用心跳来判断客户端是否仍然活着，但是使用心跳机制来判断节点的存活状态也带来了假死问题。</p>
+<h2 id="1-2-假死"><a href="#1-2-假死" class="headerlink" title="1.2 假死"></a>1.2 假死</h2><p>ZooKeeper每个节点都尝试注册一个象征master的临时节点，其他没有注册成功的则成为slaver，并且通过watch机制监控着master所创建的临时节点，Zookeeper通过内部心跳机制来确定master的状态，一旦master出现意外Zookeeper能很快获悉并且通知其他的slaver，其他slaver在之后作出相关反应。这样就完成了一个切换。</p>
+<p>这种模式也是比较通用的模式，基本大部分都是这样实现的，但是这里面有个很严重的问题，如果注意不到会导致短暂的时间内系统出现脑裂，因为心跳出现超时可能是master挂了，但是也可能是master，zookeeper之间网络出现了问题，也同样可能导致。这种情况就是假死，master并未死掉，但是与ZooKeeper之间的网络出现问题导致Zookeeper认为其挂掉了然后通知其他节点进行切换，这样slaver中就有一个成为了master，但是原本的master并未死掉，这时候client也获得master切换的消息，但是仍然会有一些延时，zookeeper需要通讯需要一个一个通知，这时候整个系统就很混乱可能有一部分client已经通知到了连接到新的master上去了，有的client仍然连接在老的master上如果同时有两个client需要对master的同一个数据更新并且刚好这两个client此刻分别连接在新老的master上，就会出现很严重问题。</p>
+<h2 id="1-3-总结"><a href="#1-3-总结" class="headerlink" title="1.3 总结"></a>1.3 总结</h2><p>假死：由于心跳超时（网络原因导致的）认为master死了，但其实master还存活着。</p>
+<p>脑裂：由于假死会发起新的master选举，选举出一个新的master，但旧的master网络又通了，导致出现了两个master ，有的客户端连接到老的master 有的客户端链接到新的master。</p>
+<h1 id="2、Zookeeper的解决方案"><a href="#2、Zookeeper的解决方案" class="headerlink" title="2、Zookeeper的解决方案"></a>2、Zookeeper的解决方案</h1><p>要解决Split-Brain的问题，一般有3种方式:</p>
 <ul>
-<li>Spring Cloud Config</li>
-<li>Spring Cloud Netflix</li>
-<li>Spring Cloud Bus</li>
-<li>Spring Cloud for Cloud Foundry</li>
-<li>Spring Cloud Cloud Foundry Service Broker</li>
-<li>Spring Cloud Cluster</li>
-<li>Spring Cloud Consul</li>
-<li>Spring Cloud Security</li>
-<li>Spring Cloud Sleuth</li>
-<li>Spring Cloud Data Flow</li>
-<li>Spring Cloud Stream</li>
-<li>Spring Cloud Stream App Starters</li>
-<li>Spring Cloud Task</li>
-<li>Spring Cloud Task App Starters</li>
-<li>Spring Cloud Zookeeper</li>
-<li>Spring Cloud for Amazon Web Services</li>
-<li>Spring Cloud Connectors</li>
-<li>Spring Cloud Starters</li>
-<li>Spring Cloud CLI</li>
-<li>Spring Cloud Contract</li>
-<li>Spring Cloud Gateway</li>
+<li>Quorums（ˈkwôrəm 法定人数） ：比如3个节点的集群，Quorums = 2, 也就是说集群可以容忍1个节点失效，这时候还能选举出1个lead，集群还可用。比如4个节点的集群，它的Quorums = 3，Quorums要超过3，相当于集群的容忍度还是1，如果2个节点失效，那么整个集群还是无效的</li>
+<li>Redundant communications：冗余通信的方式，集群中采用多种通信方式，防止一种通信方式失效导致集群中的节点无法通信。</li>
+<li>Fencing, 共享资源的方式：比如能看到共享资源就表示在集群中，能够获得共享资源的锁的就是Leader，看不到共享资源的，就不在集群中。</li>
 </ul>
-<p>Wow! This is a lot to take in! Clearly, the number of different projects here means that you can’t learn it by simply going through them one by one with a hope of understanding or mastering Spring Cloud by the end of it.</p>
-<p>So, what is the best strategy for learning such an extensive framework (or a <a target="_blank" rel="noopener" href="https://www.e4developer.com/2018/01/22/spring-cloud-blueprint-for-successful-microservices/">microservice blueprint</a>, as I describe it in another article)? I think the most sensible ways of learning is understanding what you would like to use Spring Cloud for. Setting yourself a learning goal.</p>
-<h3 id="Goal-Oriented-Learning"><a href="#Goal-Oriented-Learning" class="headerlink" title="Goal Oriented Learning"></a>Goal Oriented Learning</h3><p>What kind of learning goals are we talking about here? Let me give you a few ideas:</p>
+<p>ZooKeeper默认采用了Quorums这种方式，即只有集群中超过半数节点投票才能选举出Leader。这样的方式可以确保leader的唯一性,要么选出唯一的一个leader,要么选举失败。在ZooKeeper中Quorums有2个作用：</p>
 <ul>
-<li>Set up communication between microservices based on Spring Cloud Stream</li>
-<li>Build microservices that use configuration provided by Spring Cloud Config</li>
-<li>Build a small microservices system based on Orchestration- what is needed and how to use it</li>
-<li>Test microservices with Spring Cloud Contract</li>
-<li>Use Spring Cloud Data Flow to take data from one place, modify it and store it in Elastic Search</li>
+<li>集群中最少的节点数用来选举Leader保证集群可用：通知客户端数据已经安全保存前集群中最少数量的节点数已经保存了该数据。一旦这些节点保存了该数据，客户端将被通知已经安全保存了，可以继续其他任务。而集群中剩余的节点将会最终也保存了该数据。</li>
+<li>假设某个leader假死，其余的followers选举出了一个新的leader。这时，旧的leader复活并且仍然认为自己是leader，这个时候它向其他followers发出写请求也是会被拒绝的。因为每当新leader产生时，会生成一个epoch，这个epoch是递增的，followers如果确认了新的leader存在，知道其epoch，就会拒绝epoch小于现任leader epoch的所有请求。那有没有follower不知道新的leader存在呢，有可能，但肯定不是大多数，否则新leader无法产生。Zookeeper的写也遵循quorum机制，因此，得不到大多数支持的写是无效的，旧leader即使各种认为自己是leader，依然没有什么作用。</li>
 </ul>
-<p>If you are interested in learning some parts of Spring Cloud, think of an absolutely tiny project and build it! Once you have done it, you know that you understood at least the basics and you validated it by having something working. I will quote Stephen R. Covey here (author of  <em>“The 7 Habits of Highly Effective People”</em>):</p>
-<blockquote>
-<p>“to learn and not to do is really not to learn. To know and not to do is really not to know.”</p>
-</blockquote>
-<p>With topics as complex and broad as Spring Cloud, this quote rings very true!</p>
-<h3 id="Study"><a href="#Study" class="headerlink" title="Study"></a>Study</h3><p>You picked your goal and you want to get started. What resources can help you? I will give you a few ideas here, but remember- the goal is to learn only as much as necessary in order to achieve your goal. Don’t learn much more just yet, as you may end up overwhelmed and move further away from completing your goal. There will be time to learn more in depth. Let’s assume that your goal is <em>Using Spring Cloud Config correctly</em> in your personal project. Here are the resources I recommend:</p>
-<ul>
-<li>Official <a target="_blank" rel="noopener" href="https://cloud.spring.io/spring-cloud-config/#quick-start">Spring Cloud Config Quickstart</a> to get a basic idea</li>
-<li>If you enjoy books and want to learn more Spring Cloud in the future – <a target="_blank" rel="noopener" href="https://www.manning.com/books/spring-microservices-in-action">Spring Microservices in Action</a> is a great reference. Don’t read it all yet! Check out the chapters on Spring Cloud Configuration and read as much as necessary to know what to do.</li>
-<li>If you use Pluralsight, then check out <a target="_blank" rel="noopener" href="https://app.pluralsight.com/library/courses/java-microservices-spring-cloud-developing-services">Java Microservices with Spring Cloud: Developing Services</a> – a very good introduction! Again, start with the chapters on Spring Cloud Config.</li>
-<li>You can google the topic and find articles like <a target="_blank" rel="noopener" href="http://www.baeldung.com/spring-cloud-configuration">Quick Intro to Spring Cloud Configuration</a></li>
-<li>You can even find <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=b2ih5RCuxTM">YouTube videos about Spring Cloud Config</a></li>
-</ul>
-<p>I really want to make a point here. There is a huge amount of resources out there, free or paid of very high quality. You can spend weeks just reviewing them, but this is a mistake. Chose what works for you and get moving towards your goal!</p>
-<h3 id="Do-something-–-achieve-your-goal"><a href="#Do-something-–-achieve-your-goal" class="headerlink" title="Do something – achieve your goal"></a>Do something – achieve your goal</h3><p>Once you identified the resources you need, get on with your goal! If your goal was to learn about Spring Cloud Config- set up the server, get the clients connecting and experiment with it.</p>
-<p>You should have enough information to complete your simple task. If you find that something is not working- great! That shows that you need to revisit the resources and correct your understanding.</p>
-<p>If you completed your goal, but you want to experiment more with the tech- go for it! You have something working and playing with it is much more fun than reading dry tech documentation.</p>
-<p>By playing with the technology you start to notice nuances and develop a deeper understanding. Understanding that will not be easily acquired by reading countless articles, as most things would just fly over your head.</p>
-<h3 id="Study-Again"><a href="#Study-Again" class="headerlink" title="Study Again"></a>Study Again</h3><p>Once you completed your goal and played a little with the tech you should have a much better idea what you are dealing with. Now is the time to go deep! Read all you can around the area that you explored. See what you could have done differently, how it is used and what are the best practices.</p>
-<p>Now, all the reading you will do will make much more sense and will be more memorable. Suddenly dry documentation turns into fascinating discoveries of what you could have done better. And the best of all- if something sounds really great- you have your test-bed to try it.</p>
-<h3 id="Teach"><a href="#Teach" class="headerlink" title="Teach"></a>Teach</h3><p>Teaching others really helps with memorizing and understanding the subject. This is one of the reasons why I am writing this blog. You not only get a chance of sharing your knowledge but also learn yourself by teaching.</p>
-<p>If blogging is not your thing, you can talk to your colleagues or friends about what you have been tinkering with. You may be confronted with questions or perspectives that you did not consider before- great! Another chance to make the learning more complete.</p>
-<p>One thing to remember is- don’t be afraid to teach. Even if what you have just learned seems basic to you- it was not so basic before you started learning it! If you were in this position, then so must be countless others!</p>
-<p>There is a value to the unique way you can explain the subject in your own way. Especially given your practical experience gained from the goal that you achieved.</p>
-<h3 id="Staying-up-to-Date"><a href="#Staying-up-to-Date" class="headerlink" title="Staying up to Date"></a>Staying up to Date</h3><p>Spring Cloud is constantly changing and growing. If your ultimate goal is becoming an expert in this ecosystem, then you need to think about ways of staying up to date.</p>
-<p>One thing that is pretty much a must is working with it. If you are not lucky enough to use it on your day job- make sure that you use it in your spare time. You could be building a personal project making use of the tech or simply tinker with it and try different things. What matters is that you actually get that hands-on experience.</p>
-<p>The second part of staying fresh is knowing whats coming and reading other people experiences. Some of the sources I really enjoy following are:</p>
-<ul>
-<li>The <a target="_blank" rel="noopener" href="https://spring.io/blog">Spring.io</a> blog with a very good newsletter</li>
-<li><a target="_blank" rel="noopener" href="http://www.baeldung.com/">Baeldung</a> – an amazing source of Spring related articles and a weekly newsletter</li>
-<li><a target="_blank" rel="noopener" href="https://www.infoq.com/microservices/">InfoQ Microservices</a> – huge and very active website maintained by multiple authors</li>
-<li>Using Twitter to stay up to date and see what people are reading. I share plenty of articles on that topic with my <a target="_blank" rel="noopener" href="https://twitter.com/bartoszjd">@bartoszjd</a> account.</li>
-</ul>
-<p>These are just some of the sources that I follow. There are countless others. The point is to choose some that you enjoy reading and keep an eye for exciting stuff.</p>
-<h3 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h3><p>Spring Cloud is a huge and fascinating set of tools for building microservices. It can’t be learned as a “single thing”. Using different goals is the best way of approaching this learning.</p>
-<p>The idea presented here can be used for learning any technical concept. I found it extremely beneficial for myself and used it with success. I really recommend checking out SimpleProgrammer’s <a target="_blank" rel="noopener" href="https://simpleprogrammer.com/learning-to-learn/">Learning to learn</a> article which describes very similar idea for learning new technologies or frameworks.</p>
-<p>Happy learning!</p>
-<p>原文：<a target="_blank" rel="noopener" href="https://www.e4developer.com/2018/03/06/how-to-learn-spring-cloud-the-practical-way/">https://www.e4developer.com/2018/03/06/how-to-learn-spring-cloud-the-practical-way/</a></p>
+<h1 id="3、总结"><a href="#3、总结" class="headerlink" title="3、总结"></a>3、总结</h1><p>总结一下就是，通过Quorums机制来防止脑裂和假死，当leader挂掉之后，可以重新选举出新的leader节点使整个集群达成一致；当出现假死现象时，通过epoch大小来拒绝旧的leader发起的请求，在前面也已经讲到过，这个时候，重新恢复通信的老的leader节点会进入恢复模式，与新的leader节点做数据同步，perfect。</p>
+<p>原文: <a target="_blank" rel="noopener" href="https://blog.csdn.net/u013374645/article/details/93140148">https://blog.csdn.net/u013374645/article/details/93140148</a></p>
 
         
 <script src="/js/qrious.min.js"></script>
@@ -306,14 +274,14 @@
             <p>
                 <span>专题: </span>
                 
-                <a href="/series/#Spring Boot">
-                    <code key="Spring Boot" class="post-label">Spring Boot</code>
+                <a href="/series/#zookeeper">
+                    <code key="zookeeper" class="post-label">zookeeper</code>
                 </a>
                 
             </p>
             
             <p>
-                <span>本文发表于 2020-09-02，最后修改于 2020-11-25。</span>
+                <span>本文发表于 2019-08-12，最后修改于 2020-11-26。</span>
             </p>
             <!-- 文章末尾的提示 start -->
             
@@ -325,8 +293,10 @@
         <hr />
         <p name="pagination" style="font-size: 1.2em">
     
-    <a class="float-left" href="/post/java/advance/2020-06-28_java_jvm.html">上一篇 « 深入理解JVM-内存模型（jmm）和GC</a>
+    <a class="float-left" href="/post/java/advance/2019-07-22_java_stack.html">上一篇 « JVM内存结构：堆、栈、方法区</a>
     
+    
+    <a class="float-right" href="/post/distribution/2019-08-12_CAP定理的含义.html">下一篇 » 【转载-阮一峰】CAP 定理的含义</a>
     
 </p>
     </article>
@@ -338,7 +308,7 @@
         <h3>推荐阅读</h3>
         
         <div class="post-preview">
-    <div class="post-img" style="background-image: url('/images/java/io.png')"></div>
+    <div class="post-img" style="background-image: url('/images/java/basic/java_logo.png')"></div>
     <div class="post-info">
         <div class="post-info-center">
             <div class="hidden-xs">
@@ -350,24 +320,24 @@
                     title="Java">Java</a>
                 <span>/</span>
                 
-                <a class="text-gray" href="/tags/#NIO"
-                    title="NIO">NIO</a>
+                <a class="text-gray" href="/tags/#并发编程"
+                    title="并发编程">并发编程</a>
                 <span>/</span>
                 
-                <a class="text-gray" href="/tags/#Buffer"
-                    title="Buffer">Buffer</a>
+                <a class="text-gray" href="/tags/#JUC"
+                    title="JUC">JUC</a>
                 <span>/</span>
                 
                 
             </div>
-            <a href="/post/java/nio/2017-04-22_java_nio_2.html" class="title">
-                Java NIO(2) Buffer
+            <a href="/post/java/advance/2020-05-02_java_juc.html" class="title">
+                JUC 概览
             </a>
             <p class="text-gray">
                 <small>
-                    <span>发表于2017-04-22，</span>
-                    <span class="hidden-xs">全文4747字，</span>
-                    <span>阅读约16分钟</span>
+                    <span>发表于2020-05-02，</span>
+                    <span class="hidden-xs">全文22208字，</span>
+                    <span>阅读约75分钟</span>
                 </small>
             </p>
         </div>
@@ -387,20 +357,24 @@
                     title="Java">Java</a>
                 <span>/</span>
                 
-                <a class="text-gray" href="/tags/#IO"
-                    title="IO">IO</a>
+                <a class="text-gray" href="/tags/#NIO"
+                    title="NIO">NIO</a>
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#Selector"
+                    title="Selector">Selector</a>
                 <span>/</span>
                 
                 
             </div>
-            <a href="/post/java/io/2017-04-17_java_io_3_system_in.html" class="title">
-                Java IO(3)  System.in , System.out,  and System.error
+            <a href="/post/java/nio/2017-04-23_java_nio_3.html" class="title">
+                Java NIO(3) 选择器 Selector
             </a>
             <p class="text-gray">
                 <small>
-                    <span>发表于2017-04-17，</span>
-                    <span class="hidden-xs">全文1250字，</span>
-                    <span>阅读约5分钟</span>
+                    <span>发表于2017-04-23，</span>
+                    <span class="hidden-xs">全文5874字，</span>
+                    <span>阅读约20分钟</span>
                 </small>
             </p>
         </div>
@@ -420,20 +394,28 @@
                     title="Java">Java</a>
                 <span>/</span>
                 
-                <a class="text-gray" href="/tags/#知识体系"
-                    title="知识体系">知识体系</a>
+                <a class="text-gray" href="/tags/#二进制"
+                    title="二进制">二进制</a>
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#反码"
+                    title="反码">反码</a>
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#补码"
+                    title="补码">补码</a>
                 <span>/</span>
                 
                 
             </div>
-            <a href="/post/java/advance/2017-03-28_java_acknowledge.html" class="title">
-                【战略收藏】Java知识体系
+            <a href="/post/java/advance/2017-04-18_java_0xff.html" class="title">
+                为什么要与上0xff（&0xff），有什么意义？
             </a>
             <p class="text-gray">
                 <small>
-                    <span>发表于2017-03-28，</span>
-                    <span class="hidden-xs">全文2603字，</span>
-                    <span>阅读约9分钟</span>
+                    <span>发表于2017-04-18，</span>
+                    <span class="hidden-xs">全文2003字，</span>
+                    <span>阅读约7分钟</span>
                 </small>
             </p>
         </div>
@@ -476,7 +458,7 @@
         rel="1">#JavaIDE (1) </a>
     
     <a class="post-tag-item" href="/tags/#Java" title="Java"
-        rel="43">#Java (43) </a>
+        rel="48">#Java (48) </a>
     
     <a class="post-tag-item" href="/tags/#二进制" title="二进制"
         rel="2">#二进制 (2) </a>
@@ -575,7 +557,7 @@
         rel="1">#注解 (1) </a>
     
     <a class="post-tag-item" href="/tags/#Spring" title="Spring"
-        rel="5">#Spring (5) </a>
+        rel="6">#Spring (6) </a>
     
     <a class="post-tag-item" href="/tags/#文件加载" title="文件加载"
         rel="1">#文件加载 (1) </a>
@@ -630,6 +612,48 @@
     
     <a class="post-tag-item" href="/tags/#算法" title="算法"
         rel="1">#算法 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#创建型模式" title="创建型模式"
+        rel="1">#创建型模式 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#设计模式" title="设计模式"
+        rel="3">#设计模式 (3) </a>
+    
+    <a class="post-tag-item" href="/tags/#分布式" title="分布式"
+        rel="2">#分布式 (2) </a>
+    
+    <a class="post-tag-item" href="/tags/#CAP" title="CAP"
+        rel="1">#CAP (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#理论" title="理论"
+        rel="2">#理论 (2) </a>
+    
+    <a class="post-tag-item" href="/tags/#脑裂" title="脑裂"
+        rel="1">#脑裂 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#单例" title="单例"
+        rel="1">#单例 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#DCL" title="DCL"
+        rel="1">#DCL (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#包管理" title="包管理"
+        rel="3">#包管理 (3) </a>
+    
+    <a class="post-tag-item" href="/tags/#Gradle" title="Gradle"
+        rel="3">#Gradle (3) </a>
+    
+    <a class="post-tag-item" href="/tags/#结构型模式" title="结构型模式"
+        rel="1">#结构型模式 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#行为型模式" title="行为型模式"
+        rel="1">#行为型模式 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Spring Core" title="Spring Core"
+        rel="1">#Spring Core (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#源码分析" title="源码分析"
+        rel="1">#源码分析 (1) </a>
     
 </div>
     </div>
@@ -777,13 +801,13 @@
 <div class="gkt-summary">
     <nav>
         <a href="/" class="col-xs-4">
-            <span class="number">47</span><span>文章</span>
+            <span class="number">57</span><span>文章</span>
         </a>
         <a href="/series" class="col-xs-4 middle">
-            <span class="number">9</span><span>专题</span>
+            <span class="number">14</span><span>专题</span>
         </a>
         <a href="/tags" class="col-xs-4">
-            <span class="number">56</span><span>标签</span>
+            <span class="number">70</span><span>标签</span>
         </a>
     </nav>
 
@@ -792,37 +816,19 @@
         
         
         <section class="gkt-sidebar-content box-shadow">
-            <strong>Spring Boot</strong>
+            <strong>zookeeper</strong>
             <ul>
                 
                 <li>
-                    <a href="/post/java/spring/2019-12-28_【译】Spring Boot 从 classpath 加载文件.html"
-                        class="">【译】Spring Boot 从 classpath 加载文件</a>
-                    
-                </li>
-                
-                <li>
-                    <a href="/post/java/spring/2020-05-20_Spring Boot 排坑.html"
-                        class="">Spring Boot 排坑</a>
-                    
-                </li>
-                
-                <li>
-                    <a href="/post/java/spring/2020-05-20_请给Sprint Boot多一些内存.html"
-                        class="">请给Sprint Boot多一些内存</a>
-                    
-                </li>
-                
-                <li>
-                    <a href="/post/java/spring/2020-09-02_How to learn Spring Cloud – the practical way.html"
-                        class="gkt-sidebar-active">How to learn Spring Cloud – the practical way</a>
+                    <a href="/post/distribution/2019-08-13_Zookeeper是如何解决脑裂问题.html"
+                        class="gkt-sidebar-active">Zookeeper是如何解决脑裂问题</a>
                     
                     <!-- Table of Contents -->
 <div id="sidebar-toc">
   <!-- TOC  -->
   
   
-  
+  <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-nav-text">前言</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#1%E3%80%81%E8%84%91%E8%A3%82%E5%92%8C%E5%81%87%E6%AD%BB"><span class="toc-nav-text">1、脑裂和假死</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#1-1-%E8%84%91%E8%A3%82"><span class="toc-nav-text">1.1 脑裂</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#1-2-%E5%81%87%E6%AD%BB"><span class="toc-nav-text">1.2 假死</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#1-3-%E6%80%BB%E7%BB%93"><span class="toc-nav-text">1.3 总结</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#2%E3%80%81Zookeeper%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-nav-text">2、Zookeeper的解决方案</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#3%E3%80%81%E6%80%BB%E7%BB%93"><span class="toc-nav-text">3、总结</span></a></li></ol>
   
 </div>
 
@@ -873,7 +879,7 @@
             <ul>
                 
                 <li>
-                    <a href="/post/java/spring/2020-09-02_How to learn Spring Cloud – the practical way.html">How to learn Spring Cloud – the practical way</a>
+                    <a href="/post/java/spring/2020-09-02_How-to-learn-Spring-Cloud.html">How to learn Spring Cloud – the practical way</a>
                 </li>
                 
                 <li>
