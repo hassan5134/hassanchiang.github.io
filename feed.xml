@@ -294,6 +294,34 @@
     </item>
     
     <item>
+      <title>八皇后算法解析</title>
+      <link>https://blog.fenxiangz.com/post/algorithm/%E5%85%AB%E7%9A%87%E5%90%8E%E7%AE%97%E6%B3%95%E8%A7%A3%E6%9E%90.html</link>
+      <guid>https://blog.fenxiangz.com/post/algorithm/%E5%85%AB%E7%9A%87%E5%90%8E%E7%AE%97%E6%B3%95%E8%A7%A3%E6%9E%90.html</guid>
+      <pubDate>Tue, 26 Nov 2019 03:29:24 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;今天研究力扣的一道题死活写不出来对应的算法，没办法自己算法基础太差。于是看了下答案，发现使用什么回溯算法，菜鸟表示平时开发期间写的最复杂的程序就是写了两层for循环，已经很牛逼了有木有？这个回溯算法什么鬼？于是乎百度了下，算是了解了回溯算法是什么玩意儿。这里分析一波八皇后算</description>
+        
+      
+      
+      <enclosure url="https://blog.fenxiangz.com/images/idea_logo.png" type="image"/>
+      
+      
+      
+      <category domain="https://blog.fenxiangz.com/categories/%E7%AE%97%E6%B3%95/">算法</category>
+      
+      
+      <category domain="https://blog.fenxiangz.com/tags/%E5%85%AB%E7%9A%87%E5%90%8E/">八皇后</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/%E7%AE%97%E6%B3%95/">算法</category>
+      
+      
+      <comments>https://blog.fenxiangz.com/post/algorithm/%E5%85%AB%E7%9A%87%E5%90%8E%E7%AE%97%E6%B3%95%E8%A7%A3%E6%9E%90.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
       <title>JVM内存结构：堆、栈、方法区</title>
       <link>https://blog.fenxiangz.com/post/java/advance/2019-07-22_java_stack.html</link>
       <guid>https://blog.fenxiangz.com/post/java/advance/2019-07-22_java_stack.html</guid>

@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<!-- Head tag -->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  <meta name="baidu-site-verification" content="" />
+  <meta name="google-site-verification" content="" />
+  <meta name="msvalidate.01" content="" />
+  <meta name="360-site-verification" content="" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- if page has tags, then add tags to keyword -->
+  
+  
+  <meta name="keywords" content=",八皇后,算法,">
+  <!-- page.description has higher priority -->
+  <meta name="description" content="Share everything">
+  <link rel="shortcut icon" href="/favico.png">
+  <title>
+    
+    八皇后算法解析 | 分享之
+    
+  </title>
+
+  <link rel="canonical" href="/post/algorithm/八皇后算法解析.html">
+  
+<link rel="stylesheet" href="/css/reset.css">
+
+  
+<link rel="stylesheet" href="/css/layout.css">
+
+  
+<link rel="stylesheet" href="/css/markdown.css">
+
+  <!-- Pygments Highlight CSS -->
+  
+<link rel="stylesheet" href="/css/highlight.css">
+
+  
+<link rel="stylesheet" href="/css/geektutu.css">
+
+  <!-- global function -->
+  <script>
+    window.globalAddScript = function (url, onload, onerror) {
+      var s = document.createElement('script');
+      s.src = url;
+      onload && (s.onload = onload);
+      onerror && (s.onerror = onerror);
+      document.body.appendChild(s);
+    }
+    window.globalAddCss = function (url) {
+      var s = document.createElement('link');
+      s.rel = 'stylesheet';
+      s.href = url;
+      document.body.appendChild(s);
+    }
+    window.getPosition = function (ele) {
+      var x = 0, y = 0;
+      while (ele) {
+        x += (ele.offsetLeft - ele.scrollLeft + ele.clientLeft);
+        y += (ele.offsetTop - ele.scrollTop + ele.clientTop);
+        ele = ele.offsetParent;
+      }
+      return { x: x, y: y };
+    }
+    window.getDom = function (str) { return document.querySelector(str) }
+  </script>
+  <!-- google ad -->
+  
+<meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/feed.xml" title="分享之" type="application/rss+xml">
+</head>
+
+<body>
+    <header class="gkt-header col-xs-12 padding-0">
+    <div id="gkt-nav" class="gkt-header-container">
+        <a href="/" class="gkt-header-title float-left">
+            <img class="float-left" src="/favico.png" alt="">
+            <span>分享之</span>
+        </a>
+        <nav class="gkt-header-nav text-right">
+            <ul>
+                <li><a class="hidden-xs" href="/feed.xml">订阅</a></li>
+                <li><a href="/series/">专题</a></li>
+                <li><a href="/archives/">归档</a></li>
+                <li><a href="/post/link.html">友链</a></li>
+                <li><a href="/post/about.html">关于</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div id="gkt-cate-nav" class="gkt-header-container hidden-xs">
+        
+        <nav class="gkt-header-nav float-left">
+            <ul>
+                
+                
+                <li class="gkt-cate-name float-left ">
+                    <a class="float-left" href="/post/java/basic/2016-10-25_hashmap_jdk7.html">Java ▾</a>
+                    
+                    <ul class="gkt-sub-cate">
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/java/basic/2016-10-25_hashmap_jdk7.html">Java 基础</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/java/advance/2016-10-25_number.html">Java 进阶</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/java/io/2017-04-15_java_io_1_overview.html">Java IO</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/java/nio/2017-04-21_java_nio_1.html">Java NIO</a></li>
+                        
+                    </ul>
+                    
+                </li>
+                
+                <li class="gkt-cate-name float-left ">
+                    <a class="float-left" href="/post/java/spring/2016-10-30_Spring 组合注解&amp;注解继承.html">Spring ▾</a>
+                    
+                    <ul class="gkt-sub-cate">
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/java/spring/2016-10-30_Spring 组合注解&amp;注解继承.html">Spring Core</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/java/spring/2019-12-28_【译】Spring Boot 从 classpath 加载文件.html">Spring Boot</a></li>
+                        
+                    </ul>
+                    
+                </li>
+                
+                <li class="gkt-cate-name float-left ">
+                    <a class="float-left" href="/post/util/2017-10-25_idea_shotcut.html">开发工具</a>
+                    
+                </li>
+                
+                <li class="gkt-cate-name float-left ">
+                    <a class="float-left" href="/post/java/netty/2019-01-02_小白科普：Netty有什么用？.html">Java 框架</a>
+                    
+                </li>
+                
+                <li class="gkt-cate-name float-left active">
+                    <a class="float-left" href="/post/algorithm/八皇后算法解析.html">算法</a>
+                    
+                </li>
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+<div class="gkt-header-placeholder" style="height: 44px"></div>
+<div class="gkt-header-placeholder hidden-xs" style="height: 44px"></div>
+<script>
+    (function () {
+        window.addEventListener('scroll', function () {
+            if (window.innerWidth < 768) {
+                return;
+            }
+            var nav = document.querySelector('#gkt-nav');
+            var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            scrollTop > 50 && (nav.classList.add('hide'));
+            scrollTop <= 50 && (nav.classList.remove('hide'));
+        });
+        var cateNavs = document.querySelectorAll('#gkt-cate-nav>nav>ul>li');
+        [].slice.call(cateNavs).forEach(function (item) {
+            var sub = item.querySelector('.gkt-sub-cate');
+            if (!sub) return;
+            item.addEventListener('mouseenter', function (e) { sub.style.display = 'block'; }, false);
+            item.addEventListener('mouseleave', function (e) { sub.style.display = 'none'; }, false);
+        })
+    })();
+</script>
+    <!-- Main Content -->
+    <div class="main-container">
+        <!-- Main Content -->
+<main class="col-xs-12 padding-0 markdown-it">
+    <!-- Post Container -->
+    
+    
+    <!-- Post Content -->
+<div class="float-left post-container box-shadow">
+    <div class="u-arrow-wrapper hidden-xs">
+        
+        <a class="float-left" href="/post/java/advance/2019-07-22_java_stack.html"><i class="u-arrow-left"></i></a>
+        
+        
+        <a class="float-right" href="/post/java/spring/2019-12-28_【译】Spring Boot 从 classpath 加载文件.html"><i class="u-arrow-right"></i></a>
+        
+    </div>
+    <article class="col-xs-12">
+        <h1> 八皇后算法解析 </h1>
+        
+        
+        <div class="hidden-lg hidden-md series_links">
+            <p> <strong> 算法系列文章链接：</strong></p>
+            <ul>
+                
+                <li>
+                    <a href="/post/algorithm/八皇后算法解析.html">八皇后算法解析</a>
+                    <span class="post-item-date">(Nov 26, 2019)</span>
+                </li>
+                
+            </ul>
+        </div>
+        
+        
+        <p>今天研究力扣的一道题死活写不出来对应的算法，没办法自己算法基础太差。于是看了下答案，发现使用什么回溯算法，菜鸟表示平时开发期间写的最复杂的程序就是写了两层for循环，已经很牛逼了有木有？这个回溯算法什么鬼？于是乎百度了下，算是了解了回溯算法是什么玩意儿。这里分析一波八皇后算法来加深一下理解。</p>
+<p>八皇后算法描述如下：在8×8格的国际象棋上摆放八个皇后，使其不能互相攻击，即任意两个皇后都不能处于同一行、同一列或同一斜线上，问有多少种摆法！ </p>
+<p><img src="./%E5%85%AB%E7%9A%87%E5%90%8E%E7%AE%97%E6%B3%95%E8%A7%A3%E6%9E%90/1.png"> </p>
+<p>下面来分析一波，假设此时我们想要在黑色方块位置放置一个皇后： </p>
+<p><img src="./%E5%85%AB%E7%9A%87%E5%90%8E%E7%AE%97%E6%B3%95%E8%A7%A3%E6%9E%90/2.png"></p>
+<p>如果一列一列的放置皇后的话，图中黑色位置能放置一个皇后的合法性条件为： </p>
+<p>1、绿色线条经过的方格没有皇后 （不处于同一斜线） </p>
+<p>2、红色线条经过的方格没有皇后 （不处于同一行） </p>
+<p>3、紫色线条经过的方格没有皇后 （不处于同一斜线）<br>也就是说如果以黑色方块位置为参照原点：（0,0）坐标点，紫色和绿色两个线条分别是斜率为1和-1的两个函数，如下图： </p>
+<p>紫色线所代表的函数是：y = -x; </p>
+<p>绿色先所代表的函数是：y=x; </p>
+<p>（横坐标是列，纵坐标为行，注意行从上到下递增） </p>
+<p><img src="./%E5%85%AB%E7%9A%87%E5%90%8E%E7%AE%97%E6%B3%95%E8%A7%A3%E6%9E%90/3.png"></p>
+<p>凡是位于这两条函数线上的位置（点）以及横坐标（说明位于同一行）都不能有皇后。<br>所以假设某一列皇后的位置用行来记录，比如queen[column] = row,意思是第column列的皇后的位置在第row行。 </p>
+<p>同行的逻辑很好判断，那么我们想要在黑色方块位置放置一个皇后，怎么判断前面几列是否在绿色线条和紫色线条上已经有了皇后呢？思路也很简单： </p>
+<p>假设黑色方块的位置为n列，nRow行，假设位于m列的所在的行是否有皇后位于紫色线或者绿色上，那么就符合下面条件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;假设此时即将在n列放置一个皇后,n&gt;m</span><br><span class="line"></span><br><span class="line">]&#x2F;&#x2F;获取m列上皇后所在的行</span><br><span class="line">int mRow &#x3D; queen[m]</span><br><span class="line">int nRow &#x3D; queen[n]；</span><br><span class="line">&#x2F;&#x2F;行的差值</span><br><span class="line">int rowDiff &#x3D; nRow - mRow;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;列的差值</span><br><span class="line">int columnDiff &#x3D; n-m;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>上面代码中 rowDiff的绝对值等于columnDiff的绝对值的话，说明点位于y=x或者y=-x的函数线上： </p>
+<p><img src="./%E5%85%AB%E7%9A%87%E5%90%8E%E7%AE%97%E6%B3%95%E8%A7%A3%E6%9E%90/4.png"></p>
+<p>就说明此时黑色方块的位置是不能放置皇后的，因为在紫色或者绿色线上已经有了皇后。<br>那么用代码来（currentColumn,curreentRow）是否可以放置皇后的方法如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">     &#x2F;**</span><br><span class="line">     * 判断当（currentRow,currentColumn)是否可以放置皇后</span><br><span class="line">     * @param currentColumn </span><br><span class="line">     * @return</span><br><span class="line">     *&#x2F;</span><br><span class="line">    public boolean isLegal(int currentRow,int currentColumn) &#123;</span><br><span class="line">        &#x2F;&#x2F;遍历前面几列</span><br><span class="line">        for(int preColumn&#x3D;0;preColumn&lt;currentColumn;preColumn++) &#123;</span><br><span class="line">                int row &#x3D; queen[preColumn];</span><br><span class="line">                &#x2F;&#x2F;说明在子preColumn的低currentRow已经有了皇后</span><br><span class="line">                if(row&#x3D;&#x3D;currentRow) &#123;</span><br><span class="line">                        return false;</span><br><span class="line">                &#125;</span><br><span class="line">                </span><br><span class="line">            &#x2F;&#x2F;行与行的差值</span><br><span class="line">            int rowDiff&#x3D; Math.abs(row -currentRow);</span><br><span class="line">          </span><br><span class="line">            &#x2F;&#x2F;列于列的差值</span><br><span class="line">            int columnDiff &#x3D;  Math.abs(currentColumn-preColumn);</span><br><span class="line">            &#x2F;&#x2F;说明斜线上有皇后</span><br><span class="line">            if(rowDiff&#x3D;&#x3D;columnDiff )&#123;</span><br><span class="line">                return false;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;&#x2F;&#x2F;end for</span><br><span class="line">        </span><br><span class="line">        &#x2F;&#x2F;说明（currentRow,currentColumn)可以摆放。</span><br><span class="line">        return true;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>因为博主是按照一列一列的方式来进行放置的，所以整体思路就是：在当前列逐步尝试每一行是否可以放置皇后，如果有一个可以放置皇后，就继续查看下一列的每一行是否可以放置皇后。所以代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">int queen[] &#x3D; new int[8];</span><br><span class="line">int count &#x3D; 0;</span><br><span class="line"></span><br><span class="line">private void eightQueen(int currentColumn) &#123;</span><br><span class="line">            &#x2F;&#x2F;这个for循环的目的是尝试讲皇后放在当前列的每一行</span><br><span class="line">            for(int row&#x3D;0;row&lt;8;row++) &#123;</span><br><span class="line">                    &#x2F;&#x2F;判断当前列的row行是否能放置皇后</span><br><span class="line">                    if(isLegal(row,currentColumn)) &#123;</span><br><span class="line">                    &#x2F;&#x2F;放置皇后</span><br><span class="line">                            queen[currentColumn] &#x3D; row;</span><br><span class="line">                            if(currentColumn!&#x3D;7) &#123;</span><br><span class="line">                                    &#x2F;&#x2F;摆放下一列的皇后</span><br><span class="line">                                    eightQueen(currentColumn+1);</span><br><span class="line">                            </span><br><span class="line">                            &#125;else &#123;</span><br><span class="line">                                    &#x2F;&#x2F;递归结束，此时row要++了</span><br><span class="line">                                    count++;</span><br><span class="line">                            &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">            &#125;&#x2F;&#x2F;end for</span><br><span class="line">    &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>需要注意的是当currentColumn==7的时候，说明此时已经完成了一种摆放方法，然后for循环继续执行，去尝试其他摆放方法。 </p>
+<p>测试一波，一共有92种摆放方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String args[]) &#123;</span><br><span class="line">     Queen queen &#x3D; new Queen();</span><br><span class="line">     queen.eightQueen(0);</span><br><span class="line">     System.out.println(&quot;总共有 &quot; +queen.count+ &quot; 摆放方法&quot;);</span><br><span class="line"> &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>所以结合八皇后的实现来看看到底什么是回溯算法，看<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/9258495?fr=aladdin">百度百科解释</a> (rel=undefined)：回溯算法实际上一个类似枚举的搜索尝试过程，主要是&lt;font color#ff00ff&gt;在搜索尝试过程中寻找问题的解，当发现已不满足求解条件时，就“回溯”返回，尝试别的路径。但当探索到某一步时，发现原先选择并不优或达不到目标，就退回一步重新选择，这种走不通就退回再走的技术为回溯法</p>
+<p>比如八皇后算法来说，我们根据约束条件判断某一列的某一行是否可以放置皇后，如果不可以就继续判断&lt;font color #ff00ff&gt;当前列的下一行是否可以放置皇后.如果可以放置皇后，就继续探寻下一列中可以放置皇后的那个位置。完成一次摆放后。再重新挨个尝试下一个可能的摆放方法。</p>
+<p>下面用一个<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/combination-sum/">力扣的题</a> (rel=undefined)再次巩固下回溯算法的应用。该题描述如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">给定一个无重复元素的数组 candidates 和一个目标数 target ，找出 candidates 中所有可以使数字和为 target 的组合。candidates 中的数字可以无限制重复被选取。</span><br><span class="line"></span><br><span class="line">说明：所有数字（包括 target）都是正整数。解集不能包含重复的组合。 </span><br><span class="line">示例 1:输入: candidates &#x3D; [2,3,6,7], target &#x3D; 7,</span><br><span class="line">所求解集为:</span><br><span class="line">[</span><br><span class="line">  [7],</span><br><span class="line">  [2,2,3]</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">示例 2:输入: candidates &#x3D; [2,3,5], target &#x3D; 8,</span><br><span class="line">所求解集为:</span><br><span class="line">[</span><br><span class="line">  [2,2,2,2],</span><br><span class="line">  [2,3,3],</span><br><span class="line">  [3,5]</span><br><span class="line">]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>做该题的重要条件是无重复的数组，那么问题就很好解了。 </p>
+<p>首先对数组从大到小排序。这是解题的关键。 </p>
+<p>然后为了减少不必要的遍历，我们要对原来的数组进行截取：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">List&lt;List&lt;Integer&gt;&gt; res &#x3D; new ArrayList&lt;&gt;();</span><br><span class="line"> &#x2F;&#x2F;重要的要大小排列</span><br><span class="line">Arrays.sort(candidates);</span><br><span class="line">&#x2F;&#x2F;说明原数组中就没有满足target的数</span><br><span class="line">if (candidates[0] &gt; target) &#123;</span><br><span class="line">       return res;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line">List&lt;Integer&gt; newCandidates&#x3D; new ArrayList&lt;Integer&gt;();</span><br><span class="line">int len &#x3D; candidates.length;</span><br><span class="line">&#x2F;&#x2F; 取小于target的数 组成一个临时数组</span><br><span class="line">for (int i &#x3D; 0; i &lt; len; i++) &#123;</span><br><span class="line">        int num &#x3D; candidates[i];</span><br><span class="line">        if (num &gt; target) &#123;</span><br><span class="line">                break;</span><br><span class="line">        &#125;</span><br><span class="line">       newCandidates.add(num);</span><br><span class="line"> &#125; &#x2F;&#x2F; end for</span><br><span class="line"> </span><br></pre></td></tr></table></figure>
+
+<p>通过上面的步骤我们拿到了一个从小到大排列的无重复数组newCandidates，数组中的元素都&lt;=target. </p>
+<p>因为数组从小到大排列，所以我们有如下几种情况，以candidates = [2,3,5], target = 8为例： </p>
+<p>符合条件的子数组满足条件如下 </p>
+<p>1、target循环减去一个数，如果能一直减到到差值等于0，那么这个数组成的数组就是一个解,比如[2,2,2,2]; </p>
+<p>2、target减去一个数，然后形成了一个新的newTarget=target-num[i],让这个newTarget减去下一个数num[i+1],然后执行步骤1，则又是一个解，比如[2,3,3];（其实步骤1是步骤2的一个特例） </p>
+<p>3、target减去一个数，然后形成了一个新的newTarget=target-num[i],让这个newTarget减去下一个数num[i+1]，如果能一直减到到差值等于0说明又是一个解.，比如[3,5]; </p>
+<p>如此得到了一个规律，只要是相减之后得到差值=0,就说明就得到一个解。 </p>
+<p>得到一个新的解之后继续循环数组中的下一个数字，继续执行1,2,3步骤即可。 </p>
+<p>所以完成的解法如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">     public List&lt;List&lt;Integer&gt;&gt; combinationSum(int[] candidates, int target) &#123;</span><br><span class="line">        List&lt;List&lt;Integer&gt;&gt; res &#x3D; new ArrayList&lt;&gt;();</span><br><span class="line">         &#x2F;&#x2F;重要的要大小排列</span><br><span class="line">        Arrays.sort(candidates);</span><br><span class="line">         </span><br><span class="line">                List&lt;Integer&gt; temp &#x3D; new ArrayList&lt;Integer&gt;();</span><br><span class="line"></span><br><span class="line">     </span><br><span class="line">                if (candidates[0] &gt; target) &#123;</span><br><span class="line">                        return res;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">        int len &#x3D; candidates.length;</span><br><span class="line">         </span><br><span class="line">                &#x2F;&#x2F; 取小于target的数 足证一个临时数组</span><br><span class="line">                for (int i &#x3D; 0; i &lt; len; i++) &#123;</span><br><span class="line">                        int num &#x3D; candidates[i];</span><br><span class="line">                        if (num &gt; target) &#123;</span><br><span class="line">                                break;</span><br><span class="line">                        &#125;</span><br><span class="line"></span><br><span class="line">                        temp.add(num);</span><br><span class="line">                &#125; &#x2F;&#x2F; end for</span><br><span class="line">         </span><br><span class="line">         &#x2F;&#x2F;</span><br><span class="line">        find(res, new ArrayList&lt;&gt;(), temp, target, 0);</span><br><span class="line">         </span><br><span class="line">        return res;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    public void find(List&lt;List&lt;Integer&gt;&gt; res, List&lt;Integer&gt; tmp, List&lt;Integer&gt; candidates, int target, int start)&#123;</span><br><span class="line">        &#x2F;&#x2F;target&#x3D;&#x3D;0.找到一个新的解</span><br><span class="line">        if (target &#x3D;&#x3D; 0) &#123;</span><br><span class="line">            res.add(new ArrayList&lt;&gt;(tmp));</span><br><span class="line">        &#125;else if(target&gt;0)&#123;</span><br><span class="line">          for (int i &#x3D; start; i &lt; candidates.size(); i++) &#123;</span><br><span class="line">             int num &#x3D; candidates.get(i);</span><br><span class="line">             if(num&lt;&#x3D;target)&#123;               </span><br><span class="line">                  tmp.add(num);</span><br><span class="line">                  &#x2F;&#x2F;查找新的target</span><br><span class="line">                  int newTarget &#x3D; target-num;</span><br><span class="line">                  find(res, tmp, candidates, newTarget, i);</span><br><span class="line">                  tmp.remove(tmp.size() - 1);</span><br><span class="line">             &#125;</span><br><span class="line">           </span><br><span class="line">           &#125;&#x2F;&#x2F;end for</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>原文：<a target="_blank" rel="noopener" href="https://blog.csdn.net/chunqiuwei/article/details/90113087#commentBox">https://blog.csdn.net/chunqiuwei/article/details/90113087#commentBox</a></p>
+
+        
+<script src="/js/qrious.min.js"></script>
+
+
+        <hr>
+        <div>
+            
+            <p>
+                <span>专题: </span>
+                
+                <a href="/series/#算法">
+                    <code key="算法" class="post-label">算法</code>
+                </a>
+                
+            </p>
+            
+            <p>
+                <span>本文发表于 2019-11-26，最后修改于 2020-11-26。</span>
+            </p>
+            <!-- 文章末尾的提示 start -->
+            
+            
+            
+                
+            <!-- 文章末尾的提示 end -->
+        </div>
+        <hr />
+        <p name="pagination" style="font-size: 1.2em">
+    
+    <a class="float-left" href="/post/java/advance/2019-07-22_java_stack.html">上一篇 « JVM内存结构：堆、栈、方法区</a>
+    
+    
+    <a class="float-right" href="/post/java/spring/2019-12-28_【译】Spring Boot 从 classpath 加载文件.html">下一篇 » 【译】Spring Boot 从 classpath 加载文件</a>
+    
+</p>
+    </article>
+    <!-- 赞赏 -->
+    <!--打赏-->
+
+    <!-- 推荐阅读三篇文章 -->
+    <div class="col-xs-12">
+        <h3>推荐阅读</h3>
+        
+        <div class="post-preview">
+    <div class="post-img" style="background-image: url('/images/java/basic/java_logo.png')"></div>
+    <div class="post-info">
+        <div class="post-info-center">
+            <div class="hidden-xs">
+                
+                
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#Java"
+                    title="Java">Java</a>
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#微服务"
+                    title="微服务">微服务</a>
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#Vert.x"
+                    title="Vert.x">Vert.x</a>
+                <span>/</span>
+                
+                
+            </div>
+            <a href="/post/java/advance/2018-11-05_java_vertx.html" class="title">
+                Vert.x - 从零开始变(micro)大拿
+            </a>
+            <p class="text-gray">
+                <small>
+                    <span>发表于2018-11-05，</span>
+                    <span class="hidden-xs">全文59382字，</span>
+                    <span>阅读约198分钟</span>
+                </small>
+            </p>
+        </div>
+    </div>
+</div>
+        
+        <div class="post-preview">
+    <div class="post-img" style="background-image: url('/images/java/io.png')"></div>
+    <div class="post-info">
+        <div class="post-info-center">
+            <div class="hidden-xs">
+                
+                
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#Java"
+                    title="Java">Java</a>
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#IO"
+                    title="IO">IO</a>
+                <span>/</span>
+                
+                
+            </div>
+            <a href="/post/java/io/2017-04-18_java_io_4_reader.html" class="title">
+                Java IO(4) 替换流，数组，文件或者大的字符串的一种方式
+            </a>
+            <p class="text-gray">
+                <small>
+                    <span>发表于2017-04-18，</span>
+                    <span class="hidden-xs">全文5935字，</span>
+                    <span>阅读约20分钟</span>
+                </small>
+            </p>
+        </div>
+    </div>
+</div>
+        
+        <div class="post-preview">
+    <div class="post-img" style="background-image: url('/images/java/basic/java_logo.png')"></div>
+    <div class="post-info">
+        <div class="post-info-center">
+            <div class="hidden-xs">
+                
+                
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#Java"
+                    title="Java">Java</a>
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#二进制"
+                    title="二进制">二进制</a>
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#反码"
+                    title="反码">反码</a>
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#补码"
+                    title="补码">补码</a>
+                <span>/</span>
+                
+                
+            </div>
+            <a href="/post/java/advance/2017-04-18_java_0xff.html" class="title">
+                为什么要与上0xff（&0xff），有什么意义？
+            </a>
+            <p class="text-gray">
+                <small>
+                    <span>发表于2017-04-18，</span>
+                    <span class="hidden-xs">全文2003字，</span>
+                    <span>阅读约7分钟</span>
+                </small>
+            </p>
+        </div>
+    </div>
+</div>
+        
+    </div>
+    <div class="col-xs-12">
+        <!-- 标签列表 -->
+        <!-- Featured Tags -->
+<style>
+    #featured-tag .post-tag-item {
+        font-size: 12px;
+        line-height: 30px;
+        display: inline-block;
+        height: 30px;
+        margin: 5px 0px;
+        padding: 0 7px;
+        color: #333;
+        border-radius: 15px;
+        background: #f6f6f6;
+    }
+
+    #featured-tag .post-tag-item:hover {
+        color: #337ab7;
+    }
+</style>
+<div id="featured-tag">
+    
+    <a class="post-tag-item" href="/tags/#关于我" title="关于我"
+        rel="1">#关于我 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Hello World" title="Hello World"
+        rel="1">#Hello World (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Idea" title="Idea"
+        rel="1">#Idea (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#JavaIDE" title="JavaIDE"
+        rel="1">#JavaIDE (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Java" title="Java"
+        rel="43">#Java (43) </a>
+    
+    <a class="post-tag-item" href="/tags/#二进制" title="二进制"
+        rel="2">#二进制 (2) </a>
+    
+    <a class="post-tag-item" href="/tags/#内存分配" title="内存分配"
+        rel="1">#内存分配 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#内存泄露" title="内存泄露"
+        rel="1">#内存泄露 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#书籍推荐" title="书籍推荐"
+        rel="1">#书籍推荐 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#知识体系" title="知识体系"
+        rel="1">#知识体系 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#反码" title="反码"
+        rel="1">#反码 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#补码" title="补码"
+        rel="1">#补码 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#内存模型" title="内存模型"
+        rel="1">#内存模型 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#jvm" title="jvm"
+        rel="3">#jvm (3) </a>
+    
+    <a class="post-tag-item" href="/tags/#性能优化" title="性能优化"
+        rel="1">#性能优化 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#HashMap" title="HashMap"
+        rel="1">#HashMap (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Java集合" title="Java集合"
+        rel="1">#Java集合 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#ThreadLocal" title="ThreadLocal"
+        rel="1">#ThreadLocal (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Java线程" title="Java线程"
+        rel="3">#Java线程 (3) </a>
+    
+    <a class="post-tag-item" href="/tags/#异常" title="异常"
+        rel="1">#异常 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Java异常" title="Java异常"
+        rel="1">#Java异常 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#思维导图" title="思维导图"
+        rel="2">#思维导图 (2) </a>
+    
+    <a class="post-tag-item" href="/tags/#垃圾回收" title="垃圾回收"
+        rel="2">#垃圾回收 (2) </a>
+    
+    <a class="post-tag-item" href="/tags/#Java引用" title="Java引用"
+        rel="1">#Java引用 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#IO" title="IO"
+        rel="6">#IO (6) </a>
+    
+    <a class="post-tag-item" href="/tags/#Exception" title="Exception"
+        rel="1">#Exception (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Stream" title="Stream"
+        rel="1">#Stream (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Netty" title="Netty"
+        rel="4">#Netty (4) </a>
+    
+    <a class="post-tag-item" href="/tags/#笔记" title="笔记"
+        rel="1">#笔记 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#NIO" title="NIO"
+        rel="7">#NIO (7) </a>
+    
+    <a class="post-tag-item" href="/tags/#Buffer" title="Buffer"
+        rel="1">#Buffer (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Selector" title="Selector"
+        rel="1">#Selector (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#问题" title="问题"
+        rel="2">#问题 (2) </a>
+    
+    <a class="post-tag-item" href="/tags/#直接内存" title="直接内存"
+        rel="1">#直接内存 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#非直接内存" title="非直接内存"
+        rel="1">#非直接内存 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#堆内存" title="堆内存"
+        rel="1">#堆内存 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#注解" title="注解"
+        rel="1">#注解 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Spring" title="Spring"
+        rel="5">#Spring (5) </a>
+    
+    <a class="post-tag-item" href="/tags/#文件加载" title="文件加载"
+        rel="1">#文件加载 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Spring Boot" title="Spring Boot"
+        rel="3">#Spring Boot (3) </a>
+    
+    <a class="post-tag-item" href="/tags/#Spring Cloud" title="Spring Cloud"
+        rel="1">#Spring Cloud (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#序列化" title="序列化"
+        rel="1">#序列化 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#函数式编程" title="函数式编程"
+        rel="1">#函数式编程 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#lambda" title="lambda"
+        rel="1">#lambda (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#并发编程" title="并发编程"
+        rel="1">#并发编程 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#JUC" title="JUC"
+        rel="1">#JUC (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#lambda表达式" title="lambda表达式"
+        rel="1">#lambda表达式 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#源码" title="源码"
+        rel="1">#源码 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#RPC" title="RPC"
+        rel="1">#RPC (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Reactor" title="Reactor"
+        rel="1">#Reactor (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#NIO模型" title="NIO模型"
+        rel="1">#NIO模型 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#操作系统" title="操作系统"
+        rel="1">#操作系统 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#微服务" title="微服务"
+        rel="1">#微服务 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Vert.x" title="Vert.x"
+        rel="1">#Vert.x (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#八皇后" title="八皇后"
+        rel="1">#八皇后 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#算法" title="算法"
+        rel="1">#算法 (1) </a>
+    
+</div>
+    </div>
+    <!-- 评论 -->
+    
+    <div class="col-xs-12">
+        
+<div class="col-xs-12 padding-0">
+    <div id="gitalk-container">
+        <div class="gt-container text-center" style="margin-top: 50px;">
+            <button class="gt-btn gt-btn-public"><span class="gt-btn-text">去 Github 评论</span></button>
+        </div>
+    </div>
+    <div id="gitalk-related"></div>
+</div>
+
+<link rel="stylesheet" href="/css/gitalk.css">
+
+
+<script src="/js/gitalk.min.js"></script>
+
+<script>
+    window.addEventListener('load', function () {
+        function renderCommentUrl(data) {
+            var url = (data[window.location.pathname] || {}).url
+            url && getDom('#gitalk-container button').addEventListener('click', function (e) { window.open(url)})
+            url || (getDom('#gitalk-container').style.display = 'none')
+        }
+        const gitalk = new Gitalk({
+            clientID: 'a33ab8f0fc90bd0b86d7',
+            clientSecret: 'cfa4b020ca99ef91be8f4bf8180afbe831bf2a75',
+            accessToken: '',
+            repo: 'blogcmt',
+            owner: 'HassanChiang',
+            admin: ['HassanChiang'],
+            id: window.location.pathname,
+            distractionFreeMode: false
+        });
+        fetch("https://api.github.com/user").then(function(resp){
+            gitalk.render('gitalk-container');
+        }).catch(function(e){
+            fetch('/tool/issues.json').then(function (r) { return r.json() }).then(renderCommentUrl).catch(function (e) { })
+        })
+        getDom('#gitalk-container').addEventListener('click', function (e) {
+            e && e.stopPropagation && e.stopPropagation();
+        });
+    })
+</script>
+<script>
+    window.addEventListener('load', function () {
+        function render(comments) {
+            var template = '<a href="${comment.url}?utm_source=gitalk" class="dis-item-url"><h3 class="dis-item-title">${comment.title}</h3>' +
+                '<p class="dis-item-des">${comment.count} 评论 ● ${comment.date}</p>' +
+                '<div class="dis-item-content"><img class="dis-item-img" src="${comment.icon}" alt="icon"><p><b><span class="dis-item-user">${comment.user}</span></b>&nbsp;——&nbsp;${comment.body}</p></div>' +
+                '</a>'
+
+            var wrapper = getDom('#gitalk-related');
+            comments = shuffle(comments);
+            comments.slice(0, 4).forEach(function (c) {
+                var div = document.createElement('div');
+                div.classList.add('dis-item');
+                div.innerHTML = template.replace("${comment.url}", c.url)
+                    .replace("${comment.title}", c.title)
+                    .replace("${comment.count}", c.count)
+                    .replace("${comment.date}", c.date)
+                    .replace("${comment.icon}", c.icon)
+                    .replace("${comment.user}", c.user)
+                    .replace("${comment.body}", c.body)
+                wrapper.appendChild(div)
+            })
+            var p = document.createElement('p')
+            p.innerHTML = '<a target="_blank" rel="noopener" href="https://geektutu.com/post/blog-experience-7.html">Gitalk Plus</a>';
+            p.classList.add('dis-divide');
+            wrapper.appendChild(p);
+            wrapper.classList.add('dis-wrapper')
+        }
+        function shuffle(a) {
+            for (var i = a.length - 1; i > 0; i--) {
+                var j = Math.floor(Math.random() * (i + 1));
+                [a[i], a[j]] = [a[j], a[i]];
+            }
+            return a;
+        }
+        fetch('/tool/comments.json').then(function (r) { return r.json() }).then(render).catch(function (e) { })
+    })
+</script>
+
+    </div>
+    
+</div>
+<aside class="float-left gkt-sidebar hidden-xs hidden-sm">
+    <div style="clear: both"></div>
+    <div class="gkt-sidebar-wrapper">
+        <section class="box-shadow"><style>
+    .gkt-summary {
+        border: 1px solid #DDDDDD;
+        border-radius: 3px;
+        padding: 5px;
+        width: 100%;
+    }
+
+
+    .gkt-summary nav {
+        overflow: hidden;
+    }
+
+    .gkt-summary nav a {
+        display: inline-block;
+        text-align: center;
+        color: #333;
+        font-size: 12px;
+    }
+
+    .gkt-summary nav span {
+        display: block;
+    }
+
+    .gkt-summary nav .middle {
+        border-left: 1px solid #eaecef;
+        border-right: 1px solid #eaecef;
+    }
+
+    .gkt-summary .number {
+        font-weight: bold;
+    }
+
+    .gkt-summary .link-list {
+        margin-top: 5px;
+        margin-bottom: -5px;
+        padding-top: 7px;
+        border-top: 1px dashed #999;
+        display: flex;
+    }
+
+    .gkt-summary .link-list a {
+        flex: 1;
+    }
+
+    .gkt-summary .link-list img {
+        width: 25px;
+        height: 25px;
+    }
+</style>
+
+<div class="gkt-summary">
+    <nav>
+        <a href="/" class="col-xs-4">
+            <span class="number">47</span><span>文章</span>
+        </a>
+        <a href="/series" class="col-xs-4 middle">
+            <span class="number">9</span><span>专题</span>
+        </a>
+        <a href="/tags" class="col-xs-4">
+            <span class="number">56</span><span>标签</span>
+        </a>
+    </nav>
+
+    
+</div></section>
+        
+        
+        <section class="gkt-sidebar-content box-shadow">
+            <strong>算法</strong>
+            <ul>
+                
+                <li>
+                    <a href="/post/algorithm/八皇后算法解析.html"
+                        class="gkt-sidebar-active">八皇后算法解析</a>
+                    
+                    <!-- Table of Contents -->
+<div id="sidebar-toc">
+  <!-- TOC  -->
+  
+  
+</div>
+
+<script>
+  (function () {
+    var h2 = document.querySelectorAll('article h2');
+    var h3 = document.querySelectorAll('article h3');
+    var linkList = document.querySelectorAll('#sidebar-toc a');
+
+    function findLinkElement(name) {
+      for (var i = 0; i < linkList.length; i++) {
+        var items = linkList[i].href.split('#');
+        if (items && items[items.length - 1] === encodeURIComponent(name)) {
+          return i;
+        }
+      }
+      return -1;
+    }
+
+    function activeLink(titleList) {
+      var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+      for (var i = titleList.length - 1; i >= 0; i--) {
+        if (scrollTop - titleList[i].offsetTop > 0) {
+          var index = findLinkElement(titleList[i].id);
+          index != -1 && linkList[index].classList.add('gkt-sidebar-active');
+          break;
+        }
+      }
+    }
+
+    window.addEventListener("scroll", function (e) {
+      [].slice.call(linkList).forEach(function (link) {
+        link.classList.remove('gkt-sidebar-active');
+      })
+      activeLink(h2);
+    })
+  })();
+</script>
+                    
+                </li>
+                
+            </ul>
+        </section>
+        
+        
+        <section class="gkt-sidebar-content box-shadow">
+            <strong>最近的文章</strong>
+            <ul>
+                
+                <li>
+                    <a href="/post/java/spring/2020-09-02_How to learn Spring Cloud – the practical way.html">How to learn Spring Cloud – the practical way</a>
+                </li>
+                
+                <li>
+                    <a href="/post/java/advance/2020-06-28_java_jvm.html">深入理解JVM-内存模型（jmm）和GC</a>
+                </li>
+                
+                <li>
+                    <a href="/post/java/netty/2020-05-26_Netty 知识点思维导图.html">Netty 知识点思维导图</a>
+                </li>
+                
+            </ul>
+        </section>
+        
+    </div>
+</aside>
+
+<script>
+    (function () {
+        function resizeUArrow() {
+            var s = getDom('.u-arrow-wrapper').style
+            var pc = getDom('.post-container')
+            s.left = getPosition(pc).x + 'px';
+            s.width = pc.clientWidth + 'px';
+        }
+        resizeUArrow()
+        window.addEventListener('resize', resizeUArrow);
+    })();
+</script>
+
+    
+
+<script>
+    (function () {
+        var ele = getDom('.gkt-sidebar-content')
+        if(!ele) return;
+        var wrapper = getDom('.gkt-sidebar-wrapper')
+        var last = 0
+        ele.style.maxHeight = ((window.innerHeight || 798) - 200) + 'px'
+        var f = function (e) {
+            var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            var isDown = scrollTop > last;
+            var pos = getPosition(ele).y - scrollTop;
+            var downLimit = 50;
+            var upLimit = -100;
+            // uarrow.style.marginTop = scrollTop + 'px';
+            isDown && pos <= downLimit && wrapper.classList.add("gkt-sidebar-fixed");
+            !isDown && pos > upLimit && wrapper.classList.remove("gkt-sidebar-fixed");
+            last = scrollTop
+        }
+        f()
+        window.addEventListener("scroll", f)
+    })();
+</script>
+
+</main>
+    </div>
+    <style>
+    img#go-top {
+        position: fixed;
+        bottom: 100px;
+        width: 50px;
+        cursor: pointer;
+        z-index: 9999;
+    }
+</style>
+<img id="go-top" src="/icon/top.png" class="hidden-xs" style="display: none" />
+<script>
+    (function () {
+        var goTop = document.getElementById('go-top');
+        var mainContainer = document.querySelector('.main-container');
+        
+        goTop.addEventListener('click', function () {
+            window.scroll(0, 0);
+        }, false);
+        window.addEventListener('scroll', function () {
+            var right = document.body.offsetWidth - mainContainer.getBoundingClientRect().right;
+            var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            goTop.style.right = right + 10 + 'px'
+            scrollTop > 700 && (goTop.style.display = "block");
+            scrollTop <= 700 && (goTop.style.display = "none");
+        });
+    })();
+</script>
+    <style>
+    #geektutu-click-img-container {
+        position: fixed;
+        left: 0;
+        top: 0;
+        text-align: center;
+        width: 100%;
+        display: none;
+        z-index: 9999;
+    }
+
+    #geektutu-click-img-container img {
+        object-fit: contain;
+        background: #eaecef;
+        padding: 15px;
+        border-radius: 10px;
+        height: auto;
+        width: auto;
+        vertical-align: middle;
+    }
+</style>
+
+
+<div id="geektutu-click-img-container">
+    <img src="" alt="Big Image">
+</div>
+
+<script>
+    (function () {
+        var container = document.querySelector('#geektutu-click-img-container')
+        var targetImg = container.querySelector('img')
+        var imgs = document.querySelectorAll('article img');
+        targetImg.addEventListener('click', function (e) {
+            container.style.display = 'none';
+            e && e.stopPropagation && e.stopPropagation();
+        }, false);
+
+        for (var i = 0; i < imgs.length; ++i) {
+            var img = imgs[i];
+            img.addEventListener('click', (function (src, rate) {
+                return function (e) {
+                    e && e.stopPropagation && e.stopPropagation();
+                    if (window.innerWidth < 980) {
+                        return
+                    }
+                    targetImg.style.height = targetImg.style.width = 'auto';
+                    if (window.innerWidth / window.innerHeight > rate) {
+                        targetImg.style.height = (window.innerHeight - 20) + 'px';
+                    } else {
+                        targetImg.style.width = (window.innerWidth - 20) + 'px';
+                    }
+                    container.style.height = window.innerHeight + 'px'
+                    container.style.lineHeight = window.innerHeight + 'px'
+                    container.style.display = 'block';
+                    targetImg.src = src;
+                };
+            }(img.src, img.width / img.height)), false)
+        }
+    })();
+</script>
+    <!-- Footer -->
+    <!-- Footer -->
+<style>
+    footer {
+        width: 100%;
+        line-height: 1.5;
+        padding: 20px;
+    }
+
+    footer a {
+        color: #333;
+        text-decoration: none;
+    }
+
+    .footer-hexo img {
+        height: 20px;
+        margin-bottom: -5px;
+    }
+
+    .footer-hexo a {
+        color: #337ab7;
+    }
+</style>
+<footer class="text-center col-xs-12">
+    <p>
+        <small>© 2020 - Hassan - </small>
+        <small>
+            <a target="_blank" rel="nofollow noopener" href="http://beian.miit.gov.cn/"></a>
+        </small>
+    </p>
+    <p class="footer-hexo">
+        <!-- 但若直接使用或修改主题，请务必保留这段声明 -->
+        <small>Powered by <a target="_blank" href="https://hexo.io">Hexo</a> | Theme
+            <a target="_blank" href="https://geektutu.com">Geektutu</a>
+            <a target="_blank" rel="noopener" href="https://github.com/geektutu/hexo-theme-geektutu">
+                <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAYGBgYHBgcICAcKCwoLCg8ODAwODxYQERAREBYiFRkVFRkVIh4kHhweJB42KiYmKjY+NDI0PkxERExfWl98fKcBBgYGBgcGBwgIBwoLCgsKDw4MDA4PFhAREBEQFiIVGRUVGRUiHiQeHB4kHjYqJiYqNj40MjQ+TERETF9aX3x8p//CABEIACIAUAMBIgACEQEDEQH/xAAcAAABBAMBAAAAAAAAAAAAAAAAAQQFBwIDBgj/2gAIAQEAAAAA9KrHSgAYL5/z6zZGuJd12uugbhq3uKtmuRtix20IS7lTLAfAAAn/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/9oACAECEAAAAAAB/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/aAAgBAxAAAAAAAf/EADEQAAICAQIEBQEGBwAAAAAAAAECAwQFAAYREhORBxQhUlQxQVFic5KxJDJCYYGC0f/aAAgBAQABPwCFHnjWUzuvN6hV4cANSRLGjO9yRVUcSzMoA7jVXJYe5N0a2dhmk9kc0bN2GvLN8mbuNeWb5M3ca8s3yZu415Y/Jm7jXlm+TN3H/NeVPyZu40vOk3TZywK8wJ+v3EHVM/wsI/Dq2lrxN3Nnca16eti8chSAIoMbzByhMwP14kHVfwIiSaF5c96J6kwwCOTnHsYk8uvCrdmQy1TI4rJuz3cZLyGR/wCd4+YoOf8AEpUjXitubLYPG4paFsUxcuiGe7yc5gTW3LW44szXmobsi3Dhmic2+Z4+vCVH9CpraPiQ+QvbgTJrPFBWd5YpWrmNIIEXiRO32Pqt4p7cnfHk18lFBdmEVW1LVdIZGOrniTt6plrWKaO69yCykDRxwF+LMAewB0Txtr+Sf31VI8tEPw62fZt7N3Humtbpzz13ucX6CGSWMSuzpLyD1eNgeUka3PuvHbaxq3biTMHfkiSNCS78CwU+3Xg7Vu3MhuTcU6cq3Zemn3Eh2dv8Lzcut+29x1atKbHYqLJUhLwyNMwiZ3j9yDWOxUOV3tgb+3No5LDx1pi9+aeIwRlNY6bc+Jv+IFGrhLxtXJZ7VKcw81diiAAEn0JOrkWZyNfbEr0tz27UGQgkuGzXdIIvyowq99bRxk9ffO/L81SZBPZgEEroQroIxxMZOgeNsfkn99QypHGqO4Vl9CDrN4LDZkwyzyyQ2IgRHZrzGCZVP1XnQglT9oOtw4LC7iqV6uRkZoYpxKFSQpzFRw4EjVRMfSrQ1qqwxQxKFjjTgFUD7BoWYR6iVe+mtxt9Zwf9teaj4AdccPu5tedX5A/VrzUR+sy/q1CwksF19VEfDj/cnQRW+qg66cfsXtrpx+xe2unH7F7a6cfsXtrpx+xe2unH7F7a6cfsXtoxx+xe2gAAOA1//8QAFBEBAAAAAAAAAAAAAAAAAAAAMP/aAAgBAgEBPwB//8QAFBEBAAAAAAAAAAAAAAAAAAAAMP/aAAgBAwEBPwB//9k="
+                    alt="Github Star">
+            </a>
+        </small>
+    </p>
+    
+    <p>
+        <small>
+            <span id="busuanzi_container_site_pv">👁<span id="busuanzi_value_site_pv"></span></span> &nbsp;
+            <span id="busuanzi_container_page_pv">📚<span id="busuanzi_value_page_pv"></span></span>
+        </small>
+    </p>
+    
+    
+
+</footer>
+
+
+<script>
+    window.addEventListener('load', function () {
+        globalAddScript('//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js');
+    })
+</script>
+
+<!-- Baidu Tongji -->
+
+
+
+
+
+    <script>
+        // 非本站网址，新开tab页签
+        (function () {
+            var stopBubble = function (e) {
+                e && e.stopPropagation && e.stopPropagation();
+            }
+            var links = document.querySelectorAll('a');
+            [].slice.call(links).forEach(function (item) {
+                if (item.href && item.href.indexOf(window.location.host) === -1) {
+                    item.target = '_blank'
+                }
+                // 阻止冒泡，不触发彩蛋。
+                item.addEventListener('click', stopBubble, false);
+            });
+            var article = document.querySelector('article');
+            article && article.addEventListener('click', stopBubble, false)
+        })();
+    </script>
+    
+<script>
+    (function (window, document, undefined) {
+        var hearts = [];
+        var keywords = ["点个赞", "留个言", "赞赏一下", "分享之", "blog.fenxiangz.com"];
+        function randomInt(max) {
+            return Math.floor(Math.random() * Math.floor(max));
+        }
+        window.addEventListener('click', createWord)
+
+        function createWord(e) {
+            var d = document.createElement("span");
+            d.style.position = 'fixed';
+            d.style.zIndex = 9999;
+            d.style.color = 'rgb(' + [randomInt(255), randomInt(255), randomInt(255)].join(',') + ')';
+            d.innerHTML = keywords[randomInt(keywords.length)];
+            d.onselectstart = function () { return false; }
+
+            hearts.push({ el: d, x: e.clientX - 5, y: e.clientY - 5, alpha: 1, scale: 1 });
+            document.body.appendChild(d);
+        }
+        (function gameloop() {
+            for (var i = 0; i < hearts.length; i++) {
+                heart = hearts[i];
+                if (heart.alpha <= 0) {
+                    document.body.removeChild(heart.el);
+                    hearts.splice(i, 1);
+                    continue;
+                }
+                heart.y -= heart.alpha < 0.5 ? 2 : 1;
+                heart.scale += 0.002;
+                heart.alpha -= 0.013;
+                heart.el.style.transform = 'scale(' + heart.scale + ')';
+                heart.el.style.left = heart.x + 'px';
+                heart.el.style.top = heart.y + 'px';
+            }
+            setTimeout(gameloop, 10)
+        })();
+    })(window, document);
+</script>
+
+</body>
+
+</html>
