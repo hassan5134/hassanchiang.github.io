@@ -253,7 +253,7 @@ main {
  *   Header    *
  ***************/
 .gkt-header {
-    background-color: #21527d;
+    background-color: #1c1c1c;
     position: fixed;
     top: 0;
     z-index: 9999;
@@ -331,7 +331,7 @@ main {
 }
 
 .gkt-sub-cate-name.active>a {
-    background-color: #21527d;
+    background-color: #1c1c1c;
 }
 
 .gkt-sub-cate-name {

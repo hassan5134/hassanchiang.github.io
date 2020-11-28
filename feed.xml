@@ -855,6 +855,353 @@
     </item>
     
     <item>
+      <title>IO - 同步，异步，阻塞，非阻塞</title>
+      <link>https://blog.fenxiangz.com/post/linux/2017-12-02_IO-%E5%90%8C%E6%AD%A5%EF%BC%8C%E5%BC%82%E6%AD%A5%EF%BC%8C%E9%98%BB%E5%A1%9E%EF%BC%8C%E9%9D%9E%E9%98%BB%E5%A1%9E.html</link>
+      <guid>https://blog.fenxiangz.com/post/linux/2017-12-02_IO-%E5%90%8C%E6%AD%A5%EF%BC%8C%E5%BC%82%E6%AD%A5%EF%BC%8C%E9%98%BB%E5%A1%9E%EF%BC%8C%E9%9D%9E%E9%98%BB%E5%A1%9E.html</guid>
+      <pubDate>Fri, 01 Dec 2017 16:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;同步（synchronous） IO和异步（asynchronous） IO，阻塞（blocking） IO和非阻塞（non-blocking）IO分别是什么，到底有什么区别？这个问题其实不同的人给出的答案都可能不同，比如wiki，就认为asynchronous IO和no</description>
+        
+      
+      
+      <enclosure url="https://blog.fenxiangz.com/images/linux.png" type="image"/>
+      
+      
+      
+      <category domain="https://blog.fenxiangz.com/categories/Linux/">Linux</category>
+      
+      
+      <category domain="https://blog.fenxiangz.com/tags/IO/">IO</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/%E5%90%8C%E6%AD%A5/">同步</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/%E5%BC%82%E6%AD%A5/">异步</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/%E9%98%BB%E5%A1%9E/">阻塞</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/%E9%9D%9E%E9%98%BB%E5%A1%9E/">非阻塞</category>
+      
+      
+      <comments>https://blog.fenxiangz.com/post/linux/2017-12-02_IO-%E5%90%8C%E6%AD%A5%EF%BC%8C%E5%BC%82%E6%AD%A5%EF%BC%8C%E9%98%BB%E5%A1%9E%EF%BC%8C%E9%9D%9E%E9%98%BB%E5%A1%9E.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>super + d 显示桌面快捷键</title>
+      <link>https://blog.fenxiangz.com/post/linux/2017-12-01_super+d%E6%98%BE%E7%A4%BA%E6%A1%8C%E9%9D%A2%E5%BF%AB%E6%8D%B7%E9%94%AE.html</link>
+      <guid>https://blog.fenxiangz.com/post/linux/2017-12-01_super+d%E6%98%BE%E7%A4%BA%E6%A1%8C%E9%9D%A2%E5%BF%AB%E6%8D%B7%E9%94%AE.html</guid>
+      <pubDate>Thu, 30 Nov 2017 16:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;如果某个 Linux 发行版没有super + d 显示桌面快捷键，可以自己配置一下&lt;/p&gt;
+&lt;p&gt;命令： wmctrl -k on &lt;/p&gt;
+&lt;p&gt;通常在 system - setting - keyboard  的 Custom 标签下进行设置&lt;/p&gt;
+&lt;p&gt;wmctr</description>
+        
+      
+      
+      <enclosure url="https://blog.fenxiangz.com/images/linux.png" type="image"/>
+      
+      
+      
+      <category domain="https://blog.fenxiangz.com/categories/Linux/">Linux</category>
+      
+      
+      <category domain="https://blog.fenxiangz.com/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/">快捷键</category>
+      
+      
+      <comments>https://blog.fenxiangz.com/post/linux/2017-12-01_super+d%E6%98%BE%E7%A4%BA%E6%A1%8C%E9%9D%A2%E5%BF%AB%E6%8D%B7%E9%94%AE.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>解决 Linux 下 chrome 无法播放 flash 问题</title>
+      <link>https://blog.fenxiangz.com/post/linux/2017-11-30_%E8%A7%A3%E5%86%B3Linux%E4%B8%8BChrome%E6%97%A0%E6%B3%95%E6%92%AD%E6%94%BEflash%E9%97%AE%E9%A2%98.html</link>
+      <guid>https://blog.fenxiangz.com/post/linux/2017-11-30_%E8%A7%A3%E5%86%B3Linux%E4%B8%8BChrome%E6%97%A0%E6%B3%95%E6%92%AD%E6%94%BEflash%E9%97%AE%E9%A2%98.html</guid>
+      <pubDate>Wed, 29 Nov 2017 16:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;chrome 54 以上版本没有自带 flash，在播放 flash 视频时 chrome 会下载 swf 文件。如果在 chrome://plugins 启用了 flash 插件，则会显示 flash out of date。&lt;/p&gt;
+&lt;p&gt;需要让 chrome 安装 f</description>
+        
+      
+      
+      <enclosure url="https://blog.fenxiangz.com/images/linux.png" type="image"/>
+      
+      
+      
+      <category domain="https://blog.fenxiangz.com/categories/Linux/">Linux</category>
+      
+      
+      <category domain="https://blog.fenxiangz.com/tags/deb/">deb</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/chrome/">chrome</category>
+      
+      
+      <comments>https://blog.fenxiangz.com/post/linux/2017-11-30_%E8%A7%A3%E5%86%B3Linux%E4%B8%8BChrome%E6%97%A0%E6%B3%95%E6%92%AD%E6%94%BEflash%E9%97%AE%E9%A2%98.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>安装 .deb 包被中断问题</title>
+      <link>https://blog.fenxiangz.com/post/linux/2017-11-29_%E5%AE%89%E8%A3%85deb%E5%8C%85%E8%A2%AB%E4%B8%AD%E6%96%AD%E9%97%AE%E9%A2%98.html</link>
+      <guid>https://blog.fenxiangz.com/post/linux/2017-11-29_%E5%AE%89%E8%A3%85deb%E5%8C%85%E8%A2%AB%E4%B8%AD%E6%96%AD%E9%97%AE%E9%A2%98.html</guid>
+      <pubDate>Tue, 28 Nov 2017 16:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;安装 .deb 包被中断，导致重启也不能再次进行安装，报错：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;only one software management tool is allowed to run restarting is not work&lt;/p&gt;
+&lt;/block</description>
+        
+      
+      
+      <enclosure url="https://blog.fenxiangz.com/images/linux.png" type="image"/>
+      
+      
+      
+      <category domain="https://blog.fenxiangz.com/categories/Linux/">Linux</category>
+      
+      
+      <category domain="https://blog.fenxiangz.com/tags/deb/">deb</category>
+      
+      
+      <comments>https://blog.fenxiangz.com/post/linux/2017-11-29_%E5%AE%89%E8%A3%85deb%E5%8C%85%E8%A2%AB%E4%B8%AD%E6%96%AD%E9%97%AE%E9%A2%98.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Unix目录结构的来历</title>
+      <link>https://blog.fenxiangz.com/post/linux/2017-11-28_Unix%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84%E7%9A%84%E6%9D%A5%E5%8E%86.html</link>
+      <guid>https://blog.fenxiangz.com/post/linux/2017-11-28_Unix%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84%E7%9A%84%E6%9D%A5%E5%8E%86.html</guid>
+      <pubDate>Mon, 27 Nov 2017 16:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;原文出处： &lt;a href=&quot;http://www.ruanyifeng.com/blog/2012/02/a_history_of_unix_directory_structure.html&quot;&gt;阮一峰（ @ruanyf ）&lt;/a&gt;   &lt;/p&gt;
+&lt;p&gt;Unix（包含Lin</description>
+        
+      
+      
+      <enclosure url="https://blog.fenxiangz.com/images/linux.png" type="image"/>
+      
+      
+      
+      <category domain="https://blog.fenxiangz.com/categories/Linux/">Linux</category>
+      
+      
+      <category domain="https://blog.fenxiangz.com/tags/%E7%9B%AE%E5%BD%95/">目录</category>
+      
+      
+      <comments>https://blog.fenxiangz.com/post/linux/2017-11-28_Unix%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84%E7%9A%84%E6%9D%A5%E5%8E%86.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>面向报文（UDP）和面向字节流（TCP）的区别</title>
+      <link>https://blog.fenxiangz.com/post/network/2017-11-24_%E9%9D%A2%E5%90%91%E6%8A%A5%E6%96%87%EF%BC%88UDP%EF%BC%89%E5%92%8C%E9%9D%A2%E5%90%91%E5%AD%97%E8%8A%82%E6%B5%81%EF%BC%88TCP%EF%BC%89%E7%9A%84%E5%8C%BA%E5%88%AB.html</link>
+      <guid>https://blog.fenxiangz.com/post/network/2017-11-24_%E9%9D%A2%E5%90%91%E6%8A%A5%E6%96%87%EF%BC%88UDP%EF%BC%89%E5%92%8C%E9%9D%A2%E5%90%91%E5%AD%97%E8%8A%82%E6%B5%81%EF%BC%88TCP%EF%BC%89%E7%9A%84%E5%8C%BA%E5%88%AB.html</guid>
+      <pubDate>Sat, 25 Nov 2017 16:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;面向报文的传输方式是应用层交给 UDP 多长的报文，UDP 就照样发送，即一次发送一个报文。因此，应用程序必须选择合适大小的报文。若报文太长，则 IP 层需要分片，降低效率。若太短，会是 IP 太小。UDP 对应用层交下来的报文，既不合并，也不拆分，而是保留这些报文的边界。</description>
+        
+      
+      
+      <enclosure url="https://blog.fenxiangz.com/images/computer-networking.png" type="image"/>
+      
+      
+      
+      <category domain="https://blog.fenxiangz.com/categories/TCP-IP/">TCP/IP</category>
+      
+      
+      <category domain="https://blog.fenxiangz.com/tags/TCP/">TCP</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/UDP/">UDP</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/">网络协议</category>
+      
+      
+      <comments>https://blog.fenxiangz.com/post/network/2017-11-24_%E9%9D%A2%E5%90%91%E6%8A%A5%E6%96%87%EF%BC%88UDP%EF%BC%89%E5%92%8C%E9%9D%A2%E5%90%91%E5%AD%97%E8%8A%82%E6%B5%81%EF%BC%88TCP%EF%BC%89%E7%9A%84%E5%8C%BA%E5%88%AB.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>一张图说明 CDN 网络的原理</title>
+      <link>https://blog.fenxiangz.com/post/network/2017-11-25_%E4%B8%80%E5%BC%A0%E5%9B%BE%E8%AF%B4%E6%98%8ECDN%E7%BD%91%E7%BB%9C%E7%9A%84%E5%8E%9F%E7%90%86.html</link>
+      <guid>https://blog.fenxiangz.com/post/network/2017-11-25_%E4%B8%80%E5%BC%A0%E5%9B%BE%E8%AF%B4%E6%98%8ECDN%E7%BD%91%E7%BB%9C%E7%9A%84%E5%8E%9F%E7%90%86.html</guid>
+      <pubDate>Sat, 25 Nov 2017 16:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;&lt;img src=&quot;./2017-11-25_%E4%B8%80%E5%BC%A0%E5%9B%BE%E8%AF%B4%E6%98%8ECDN%E7%BD%91%E7%BB%9C%E7%9A%84%E5%8E%9F%E7%90%86/1.png&quot;&gt; &lt;/p&gt;
+&lt;p&gt;CDN用</description>
+        
+      
+      
+      <enclosure url="https://blog.fenxiangz.com/images/computer-networking.png" type="image"/>
+      
+      
+      
+      <category domain="https://blog.fenxiangz.com/categories/CDN/">CDN</category>
+      
+      
+      <category domain="https://blog.fenxiangz.com/tags/CDN/">CDN</category>
+      
+      
+      <comments>https://blog.fenxiangz.com/post/network/2017-11-25_%E4%B8%80%E5%BC%A0%E5%9B%BE%E8%AF%B4%E6%98%8ECDN%E7%BD%91%E7%BB%9C%E7%9A%84%E5%8E%9F%E7%90%86.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>深入剖析 Socket 实现</title>
+      <link>https://blog.fenxiangz.com/post/network/2017-11-26_%E6%B7%B1%E5%85%A5%E5%89%96%E6%9E%90Socket%E5%AE%9E%E7%8E%B0.html</link>
+      <guid>https://blog.fenxiangz.com/post/network/2017-11-26_%E6%B7%B1%E5%85%A5%E5%89%96%E6%9E%90Socket%E5%AE%9E%E7%8E%B0.html</guid>
+      <pubDate>Sat, 25 Nov 2017 16:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;在我们平时的开发中用到的最多的是 HTTP 协议，而 HTTP 协议本身是一种应用层协议，属于文本协议；并且这种协议也基本上满足了应用的大部分需求。HTTP 协议当初的设计并没有想到它应用的是如此的广泛，所以设计的时候考虑的比较简单实用，也许也就是这种简单实用才这么广泛；但</description>
+        
+      
+      
+      <enclosure url="https://blog.fenxiangz.com/images/computer-networking.png" type="image"/>
+      
+      
+      
+      <category domain="https://blog.fenxiangz.com/categories/Socket/">Socket</category>
+      
+      
+      <category domain="https://blog.fenxiangz.com/tags/Socket/">Socket</category>
+      
+      
+      <comments>https://blog.fenxiangz.com/post/network/2017-11-26_%E6%B7%B1%E5%85%A5%E5%89%96%E6%9E%90Socket%E5%AE%9E%E7%8E%B0.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>搬瓦工 VPN 安装脚本</title>
+      <link>https://blog.fenxiangz.com/post/network/2017-11-27_%E6%90%AC%E7%93%A6%E5%B7%A5VPN%E5%AE%89%E8%A3%85%E8%84%9A%E6%9C%AC.html</link>
+      <guid>https://blog.fenxiangz.com/post/network/2017-11-27_%E6%90%AC%E7%93%A6%E5%B7%A5VPN%E5%AE%89%E8%A3%85%E8%84%9A%E6%9C%AC.html</guid>
+      <pubDate>Sat, 25 Nov 2017 16:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class</description>
+        
+      
+      
+      <enclosure url="https://blog.fenxiangz.com/images/computer-networking.png" type="image"/>
+      
+      
+      
+      <category domain="https://blog.fenxiangz.com/categories/%E5%85%B6%E4%BB%96/">其他</category>
+      
+      
+      <category domain="https://blog.fenxiangz.com/tags/vpn/">vpn</category>
+      
+      
+      <comments>https://blog.fenxiangz.com/post/network/2017-11-27_%E6%90%AC%E7%93%A6%E5%B7%A5VPN%E5%AE%89%E8%A3%85%E8%84%9A%E6%9C%AC.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Heidi SQL 通过 SSH 隧道链接 MySQL</title>
+      <link>https://blog.fenxiangz.com/post/network/2017-11-28_HeidiSQL%E9%80%9A%E8%BF%87SSH%E9%9A%A7%E9%81%93%E9%93%BE%E6%8E%A5mysql.html</link>
+      <guid>https://blog.fenxiangz.com/post/network/2017-11-28_HeidiSQL%E9%80%9A%E8%BF%87SSH%E9%9A%A7%E9%81%93%E9%93%BE%E6%8E%A5mysql.html</guid>
+      <pubDate>Sat, 25 Nov 2017 16:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;Heidi SQL 通过 SSH 隧道链接mysql，适用于 mysql 数据库本地机器不可达，只能通过 SSH 隧道的情况。&lt;/p&gt;
+&lt;p&gt;步骤：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1. 选：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;./2017-11-28_He</description>
+        
+      
+      
+      <enclosure url="https://blog.fenxiangz.com/images/computer-networking.png" type="image"/>
+      
+      
+      
+      <category domain="https://blog.fenxiangz.com/categories/%E5%85%B6%E4%BB%96/">其他</category>
+      
+      
+      <category domain="https://blog.fenxiangz.com/tags/ssh/">ssh</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/Heidi/">Heidi</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/MySQL/">MySQL</category>
+      
+      
+      <comments>https://blog.fenxiangz.com/post/network/2017-11-28_HeidiSQL%E9%80%9A%E8%BF%87SSH%E9%9A%A7%E9%81%93%E9%93%BE%E6%8E%A5mysql.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Docker Get Started</title>
+      <link>https://blog.fenxiangz.com/post/docker/2017-11-25_Docker_Get_Started.html</link>
+      <guid>https://blog.fenxiangz.com/post/docker/2017-11-25_Docker_Get_Started.html</guid>
+      <pubDate>Fri, 24 Nov 2017 16:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;&lt;strong&gt;环境&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Vmware11 安装 Centos 7 系统，版本如下。&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span cla</description>
+        
+      
+      
+      <enclosure url="https://blog.fenxiangz.com/images/docker.png" type="image"/>
+      
+      
+      
+      <category domain="https://blog.fenxiangz.com/categories/Docker/">Docker</category>
+      
+      
+      <category domain="https://blog.fenxiangz.com/tags/Docker/">Docker</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/%E5%85%A5%E9%97%A8/">入门</category>
+      
+      
+      <comments>https://blog.fenxiangz.com/post/docker/2017-11-25_Docker_Get_Started.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>update-alternatives 命令</title>
+      <link>https://blog.fenxiangz.com/post/linux/2017-11-27_update-alternatives_%E5%91%BD%E4%BB%A4.html</link>
+      <guid>https://blog.fenxiangz.com/post/linux/2017-11-27_update-alternatives_%E5%91%BD%E4%BB%A4.html</guid>
+      <pubDate>Fri, 24 Nov 2017 16:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;update-alternatives 是符号链接管理工具。用于分组管理命令的链接和优先级。&lt;/p&gt;
+&lt;p&gt;update-alternatives 以链接组进行管理，每一个链接组（link group）都有两种不同的模式：自动模式和手动模式，任一给定时刻一个组都是而且只能是</description>
+        
+      
+      
+      <enclosure url="https://blog.fenxiangz.com/images/linux.png" type="image"/>
+      
+      
+      
+      <category domain="https://blog.fenxiangz.com/categories/Linux/">Linux</category>
+      
+      
+      <category domain="https://blog.fenxiangz.com/tags/%E7%AC%A6%E5%8F%B7%E9%93%BE%E6%8E%A5/">符号链接</category>
+      
+      
+      <comments>https://blog.fenxiangz.com/post/linux/2017-11-27_update-alternatives_%E5%91%BD%E4%BB%A4.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
       <title>Java8 lambda表达式10个示例</title>
       <link>https://blog.fenxiangz.com/post/java/basic/2017-11-10_java-lambda.html</link>
       <guid>https://blog.fenxiangz.com/post/java/basic/2017-11-10_java-lambda.html</guid>
