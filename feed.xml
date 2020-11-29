@@ -15,8 +15,323 @@
     <atom:link href="https://blog.fenxiangz.com/feed.xml" rel="self" type="application/rss+xml"/>
     
     <description>Share everything</description>
-    <pubDate>Thu, 26 Nov 2020 15:56:59 GMT</pubDate>
+    <pubDate>Sun, 29 Nov 2020 10:26:25 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>猴子管理法则</title>
+      <link>https://blog.fenxiangz.com/post/%E5%85%B6%E4%BB%96/2020-11-28_%E7%8C%B4%E5%AD%90%E7%AE%A1%E7%90%86%E6%B3%95%E5%88%99.html</link>
+      <guid>https://blog.fenxiangz.com/post/%E5%85%B6%E4%BB%96/2020-11-28_%E7%8C%B4%E5%AD%90%E7%AE%A1%E7%90%86%E6%B3%95%E5%88%99.html</guid>
+      <pubDate>Fri, 27 Nov 2020 16:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;很多管理者往往遇到这样的情况，当你听完下属员工的工作汇报后发现事情并没有得到彻底解决，而原本计划好今天要做的工作也因此耽误了不少时间。&lt;/p&gt;
+&lt;p&gt;猴子管理法则的目的在于帮助经理人确定由适当人选在适当的时间，用正确的方法做正确的事。&lt;/p&gt;
+&lt;p&gt;身为经理人要能够让员工去</description>
+        
+      
+      
+      
+      
+      <category domain="https://blog.fenxiangz.com/categories/%E5%85%B6%E4%BB%96-%E7%AE%A1%E7%90%86/">其他/管理</category>
+      
+      
+      <category domain="https://blog.fenxiangz.com/tags/%E7%AE%A1%E7%90%86/">管理</category>
+      
+      
+      <comments>https://blog.fenxiangz.com/post/%E5%85%B6%E4%BB%96/2020-11-28_%E7%8C%B4%E5%AD%90%E7%AE%A1%E7%90%86%E6%B3%95%E5%88%99.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>『认知升级』是比其他一切都更加重要的思维模型转变</title>
+      <link>https://blog.fenxiangz.com/post/%E5%85%B6%E4%BB%96/2020-11-27_%E3%80%8E%E8%AE%A4%E7%9F%A5%E5%8D%87%E7%BA%A7%E3%80%8F%E6%98%AF%E6%AF%94%E5%85%B6%E4%BB%96%E4%B8%80%E5%88%87%E9%83%BD%E6%9B%B4%E5%8A%A0%E9%87%8D%E8%A6%81%E7%9A%84%E6%80%9D%E7%BB%B4%E6%A8%A1%E5%9E%8B%E8%BD%AC%E5%8F%98.html</link>
+      <guid>https://blog.fenxiangz.com/post/%E5%85%B6%E4%BB%96/2020-11-27_%E3%80%8E%E8%AE%A4%E7%9F%A5%E5%8D%87%E7%BA%A7%E3%80%8F%E6%98%AF%E6%AF%94%E5%85%B6%E4%BB%96%E4%B8%80%E5%88%87%E9%83%BD%E6%9B%B4%E5%8A%A0%E9%87%8D%E8%A6%81%E7%9A%84%E6%80%9D%E7%BB%B4%E6%A8%A1%E5%9E%8B%E8%BD%AC%E5%8F%98.html</guid>
+      <pubDate>Thu, 26 Nov 2020 16:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;我们在过去的时光中，谈了很多关于技术、关于生活、关于工作、关于学习的话题，这次我们来谈谈关于『认知升级』这个话题。&lt;/p&gt;
+&lt;p&gt;实际上，&lt;strong&gt;『认知升级』相对来说是个比较抽象的概念，它与掌握一门技术相比不是那么容易看到&lt;/strong&gt;。因为技术的进步和成长是任</description>
+        
+      
+      
+      
+      
+      <category domain="https://blog.fenxiangz.com/categories/%E5%85%B6%E4%BB%96-%E7%AE%A1%E7%90%86/">其他/管理</category>
+      
+      
+      <category domain="https://blog.fenxiangz.com/tags/%E7%AE%A1%E7%90%86/">管理</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/%E8%AE%A4%E7%9F%A5/">认知</category>
+      
+      
+      <comments>https://blog.fenxiangz.com/post/%E5%85%B6%E4%BB%96/2020-11-27_%E3%80%8E%E8%AE%A4%E7%9F%A5%E5%8D%87%E7%BA%A7%E3%80%8F%E6%98%AF%E6%AF%94%E5%85%B6%E4%BB%96%E4%B8%80%E5%88%87%E9%83%BD%E6%9B%B4%E5%8A%A0%E9%87%8D%E8%A6%81%E7%9A%84%E6%80%9D%E7%BB%B4%E6%A8%A1%E5%9E%8B%E8%BD%AC%E5%8F%98.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Jira 修改 Path 路径后的用户管理问题</title>
+      <link>https://blog.fenxiangz.com/post/%E5%85%B6%E4%BB%96/2020-11-26_Jira%E4%BF%AE%E6%94%B9Path%E8%B7%AF%E5%BE%84%E5%90%8E%E7%9A%84%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86%E9%97%AE%E9%A2%98.html</link>
+      <guid>https://blog.fenxiangz.com/post/%E5%85%B6%E4%BB%96/2020-11-26_Jira%E4%BF%AE%E6%94%B9Path%E8%B7%AF%E5%BE%84%E5%90%8E%E7%9A%84%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86%E9%97%AE%E9%A2%98.html</guid>
+      <pubDate>Wed, 25 Nov 2020 16:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;Confluence 同步 Jira 的几个相关配置&lt;/p&gt;
+&lt;h2 id=&quot;1-仅使用外部用户管理&quot;&gt;&lt;a href=&quot;#1-仅使用外部用户管理&quot; class=&quot;headerlink&quot; title=&quot;1. 仅使用外部用户管理&quot;&gt;&lt;/a&gt;1. 仅使用外部用户管理&lt;/h2&gt;&lt;</description>
+        
+      
+      
+      
+      
+      <category domain="https://blog.fenxiangz.com/categories/%E5%85%B6%E4%BB%96-Jira/">其他/Jira</category>
+      
+      
+      <category domain="https://blog.fenxiangz.com/tags/Jira/">Jira</category>
+      
+      
+      <comments>https://blog.fenxiangz.com/post/%E5%85%B6%E4%BB%96/2020-11-26_Jira%E4%BF%AE%E6%94%B9Path%E8%B7%AF%E5%BE%84%E5%90%8E%E7%9A%84%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86%E9%97%AE%E9%A2%98.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>开发资源导航</title>
+      <link>https://blog.fenxiangz.com/post/util/2020-11-26_%E5%BC%80%E5%8F%91%E8%B5%84%E6%BA%90%E6%95%B4%E7%90%86.html</link>
+      <guid>https://blog.fenxiangz.com/post/util/2020-11-26_%E5%BC%80%E5%8F%91%E8%B5%84%E6%BA%90%E6%95%B4%E7%90%86.html</guid>
+      <pubDate>Wed, 25 Nov 2020 16:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h2 id=&quot;Javascript&quot;&gt;&lt;a href=&quot;#Javascript&quot; class=&quot;headerlink&quot; title=&quot;Javascript&quot;&gt;&lt;/a&gt;Javascript&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://jqfundamentals.c</description>
+        
+      
+      
+      
+      
+      <category domain="https://blog.fenxiangz.com/categories/%E8%B5%84%E6%BA%90%E5%AF%BC%E8%88%AA/">资源导航</category>
+      
+      
+      <category domain="https://blog.fenxiangz.com/tags/%E5%B7%A5%E5%85%B7/">工具</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/Wiki/">Wiki</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/%E6%95%B4%E7%90%86/">整理</category>
+      
+      
+      <comments>https://blog.fenxiangz.com/post/util/2020-11-26_%E5%BC%80%E5%8F%91%E8%B5%84%E6%BA%90%E6%95%B4%E7%90%86.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>V2ray 配置</title>
+      <link>https://blog.fenxiangz.com/post/%E5%85%B6%E4%BB%96/2020-10-25_V2ray%E9%85%8D%E7%BD%AE.html</link>
+      <guid>https://blog.fenxiangz.com/post/%E5%85%B6%E4%BB%96/2020-10-25_V2ray%E9%85%8D%E7%BD%AE.html</guid>
+      <pubDate>Sat, 24 Oct 2020 16:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h1 id=&quot;Mac&quot;&gt;&lt;a href=&quot;#Mac&quot; class=&quot;headerlink&quot; title=&quot;Mac&quot;&gt;&lt;/a&gt;Mac&lt;/h1&gt;&lt;p&gt;下载软件：&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/yanue/V2rayU/releases/dow</description>
+        
+      
+      
+      
+      
+      <category domain="https://blog.fenxiangz.com/categories/%E5%85%B6%E4%BB%96-V2ray/">其他/V2ray</category>
+      
+      
+      <category domain="https://blog.fenxiangz.com/tags/V2ray/">V2ray</category>
+      
+      
+      <comments>https://blog.fenxiangz.com/post/%E5%85%B6%E4%BB%96/2020-10-25_V2ray%E9%85%8D%E7%BD%AE.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>MySQL什么时候会使用内部临时表?</title>
+      <link>https://blog.fenxiangz.com/post/dateabase/mysql/2020-09-13_MySQL%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E4%BC%9A%E4%BD%BF%E7%94%A8%E5%86%85%E9%83%A8%E4%B8%B4%E6%97%B6%E8%A1%A8.html</link>
+      <guid>https://blog.fenxiangz.com/post/dateabase/mysql/2020-09-13_MySQL%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E4%BC%9A%E4%BD%BF%E7%94%A8%E5%86%85%E9%83%A8%E4%B8%B4%E6%97%B6%E8%A1%A8.html</guid>
+      <pubDate>Sat, 12 Sep 2020 16:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;1.union执行过程&lt;/p&gt;
+&lt;p&gt;首先我们创建一个表t1&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;create table t1(id int primary key, a int, b int, index(a));
+delimiter ;;
+create procedure </description>
+        
+      
+      
+      <enclosure url="https://blog.fenxiangz.com/images/MySQL.png" type="image"/>
+      
+      
+      
+      <category domain="https://blog.fenxiangz.com/categories/MySQL/">MySQL</category>
+      
+      
+      <category domain="https://blog.fenxiangz.com/tags/MySQL/">MySQL</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/%E4%B8%B4%E6%97%B6%E8%A1%A8/">临时表</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/%E4%BC%98%E5%8C%96/">优化</category>
+      
+      
+      <comments>https://blog.fenxiangz.com/post/dateabase/mysql/2020-09-13_MySQL%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E4%BC%9A%E4%BD%BF%E7%94%A8%E5%86%85%E9%83%A8%E4%B8%B4%E6%97%B6%E8%A1%A8.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>MySQL 中的 Character Set 与 Collation</title>
+      <link>https://blog.fenxiangz.com/post/dateabase/mysql/2020-09-12_MySQL%E4%B8%AD%E7%9A%84Character_Set%E4%B8%8ECollation.html</link>
+      <guid>https://blog.fenxiangz.com/post/dateabase/mysql/2020-09-12_MySQL%E4%B8%AD%E7%9A%84Character_Set%E4%B8%8ECollation.html</guid>
+      <pubDate>Fri, 11 Sep 2020 16:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h2 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h2&gt;&lt;p&gt;MySQL 应该算是目前最流行的数据库之一，经常建库建表的同学应该对 Character Set 和 Collation 这两个词不陌生。&lt;</description>
+        
+      
+      
+      <enclosure url="https://blog.fenxiangz.com/images/MySQL.png" type="image"/>
+      
+      
+      
+      <category domain="https://blog.fenxiangz.com/categories/MySQL/">MySQL</category>
+      
+      
+      <category domain="https://blog.fenxiangz.com/tags/MySQL/">MySQL</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/%E5%AD%97%E7%AC%A6%E9%9B%86/">字符集</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/Collation/">Collation</category>
+      
+      
+      <comments>https://blog.fenxiangz.com/post/dateabase/mysql/2020-09-12_MySQL%E4%B8%AD%E7%9A%84Character_Set%E4%B8%8ECollation.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>高性能 MySQL 阅读笔记 (2)</title>
+      <link>https://blog.fenxiangz.com/post/dateabase/mysql/2020-09-11_%E9%AB%98%E6%80%A7%E8%83%BDMySQL%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0(2).html</link>
+      <guid>https://blog.fenxiangz.com/post/dateabase/mysql/2020-09-11_%E9%AB%98%E6%80%A7%E8%83%BDMySQL%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0(2).html</guid>
+      <pubDate>Thu, 10 Sep 2020 16:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h2 id=&quot;Scheme与数据类型优化&quot;&gt;&lt;a href=&quot;#Scheme与数据类型优化&quot; class=&quot;headerlink&quot; title=&quot;Scheme与数据类型优化&quot;&gt;&lt;/a&gt;Scheme与数据类型优化&lt;/h2&gt;&lt;h3 id=&quot;选择合适的类型&quot;&gt;&lt;a href=&quot;#选择</description>
+        
+      
+      
+      <enclosure url="https://blog.fenxiangz.com/images/MySQL.png" type="image"/>
+      
+      
+      
+      <category domain="https://blog.fenxiangz.com/categories/MySQL/">MySQL</category>
+      
+      
+      <category domain="https://blog.fenxiangz.com/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">性能优化</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/MySQL/">MySQL</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/">阅读笔记</category>
+      
+      
+      <comments>https://blog.fenxiangz.com/post/dateabase/mysql/2020-09-11_%E9%AB%98%E6%80%A7%E8%83%BDMySQL%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0(2).html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>高性能 MySQL - MySQL慢查询日志总结</title>
+      <link>https://blog.fenxiangz.com/post/dateabase/mysql/2020-09-10_%E9%AB%98%E6%80%A7%E8%83%BDMySQL_MySQL%E6%85%A2%E6%9F%A5%E8%AF%A2%E6%97%A5%E5%BF%97%E6%80%BB%E7%BB%93.html</link>
+      <guid>https://blog.fenxiangz.com/post/dateabase/mysql/2020-09-10_%E9%AB%98%E6%80%A7%E8%83%BDMySQL_MySQL%E6%85%A2%E6%9F%A5%E8%AF%A2%E6%97%A5%E5%BF%97%E6%80%BB%E7%BB%93.html</guid>
+      <pubDate>Wed, 09 Sep 2020 16:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;原文：&lt;a href=&quot;https://www.cnblogs.com/kerrycode/p/5593204.html&quot;&gt;https://www.cnblogs.com/kerrycode/p/5593204.html&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;慢查询日志概念&quot;&gt;&lt;</description>
+        
+      
+      
+      <enclosure url="https://blog.fenxiangz.com/images/MySQL.png" type="image"/>
+      
+      
+      
+      <category domain="https://blog.fenxiangz.com/categories/MySQL/">MySQL</category>
+      
+      
+      <category domain="https://blog.fenxiangz.com/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">性能优化</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/MySQL/">MySQL</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/%E6%85%A2%E6%9F%A5/">慢查</category>
+      
+      
+      <comments>https://blog.fenxiangz.com/post/dateabase/mysql/2020-09-10_%E9%AB%98%E6%80%A7%E8%83%BDMySQL_MySQL%E6%85%A2%E6%9F%A5%E8%AF%A2%E6%97%A5%E5%BF%97%E6%80%BB%E7%BB%93.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>高性能 MySQL 阅读笔记 (1)</title>
+      <link>https://blog.fenxiangz.com/post/dateabase/mysql/2020-09-09_%E9%AB%98%E6%80%A7%E8%83%BDMySQL%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0(1).html</link>
+      <guid>https://blog.fenxiangz.com/post/dateabase/mysql/2020-09-09_%E9%AB%98%E6%80%A7%E8%83%BDMySQL%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0(1).html</guid>
+      <pubDate>Tue, 08 Sep 2020 16:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h1 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h1&gt;&lt;h3 id=&quot;什么是性能？&quot;&gt;&lt;a href=&quot;#什么是性能？&quot; class=&quot;headerlink&quot; title=&quot;什么是性能？&quot;&gt;&lt;/a&gt;什</description>
+        
+      
+      
+      <enclosure url="https://blog.fenxiangz.com/images/MySQL.png" type="image"/>
+      
+      
+      
+      <category domain="https://blog.fenxiangz.com/categories/MySQL/">MySQL</category>
+      
+      
+      <category domain="https://blog.fenxiangz.com/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">性能优化</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/MySQL/">MySQL</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/">阅读笔记</category>
+      
+      
+      <comments>https://blog.fenxiangz.com/post/dateabase/mysql/2020-09-09_%E9%AB%98%E6%80%A7%E8%83%BDMySQL%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0(1).html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>MSSQL · 最佳实践 ·  SQL Server备份策略</title>
+      <link>https://blog.fenxiangz.com/post/dateabase/MSSQL/2020-09-08_MSSQL%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5_SQL_Server%E5%A4%87%E4%BB%BD%E7%AD%96%E7%95%A5.html</link>
+      <guid>https://blog.fenxiangz.com/post/dateabase/MSSQL/2020-09-08_MSSQL%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5_SQL_Server%E5%A4%87%E4%BB%BD%E7%AD%96%E7%95%A5.html</guid>
+      <pubDate>Mon, 07 Sep 2020 16:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h1 id=&quot;摘要&quot;&gt;&lt;a href=&quot;#摘要&quot; class=&quot;headerlink&quot; title=&quot;摘要&quot;&gt;&lt;/a&gt;摘要&lt;/h1&gt;&lt;p&gt;在上一期月报中我们分享了SQL Server三种常见的备份技术及工作方式，本期月报将分享如何充分利用三者的优点来制定SQL Server数据</description>
+        
+      
+      
+      <enclosure url="https://blog.fenxiangz.com/images/MSSQL.png" type="image"/>
+      
+      
+      
+      <category domain="https://blog.fenxiangz.com/categories/MSSQL/">MSSQL</category>
+      
+      
+      <category domain="https://blog.fenxiangz.com/tags/%E5%A4%87%E4%BB%BD/">备份</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/MSSQL/">MSSQL</category>
+      
+      
+      <comments>https://blog.fenxiangz.com/post/dateabase/MSSQL/2020-09-08_MSSQL%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5_SQL_Server%E5%A4%87%E4%BB%BD%E7%AD%96%E7%95%A5.html#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>How to learn Spring Cloud – the practical way</title>
@@ -76,6 +391,32 @@
       
       
       <comments>https://blog.fenxiangz.com/post/java/advance/2020-06-28_java_jvm.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>字符集知识点</title>
+      <link>https://blog.fenxiangz.com/post/java/advance/2020-06-29_%E5%AD%97%E7%AC%A6%E9%9B%86%E7%9F%A5%E8%AF%86%E7%82%B9.html</link>
+      <guid>https://blog.fenxiangz.com/post/java/advance/2020-06-29_%E5%AD%97%E7%AC%A6%E9%9B%86%E7%9F%A5%E8%AF%86%E7%82%B9.html</guid>
+      <pubDate>Sat, 27 Jun 2020 16:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h3 id=&quot;获取系统支持的字符集&quot;&gt;&lt;a href=&quot;#获取系统支持的字符集&quot; class=&quot;headerlink&quot; title=&quot;获取系统支持的字符集&quot;&gt;&lt;/a&gt;&lt;strong&gt;获取系统支持的字符集&lt;/strong&gt;&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;Charset.avail</description>
+        
+      
+      
+      <enclosure url="https://blog.fenxiangz.com/images/java/basic/java_logo.png" type="image"/>
+      
+      
+      
+      <category domain="https://blog.fenxiangz.com/categories/Java-%E8%BF%9B%E9%98%B6/">Java 进阶</category>
+      
+      
+      <category domain="https://blog.fenxiangz.com/tags/%E5%AD%97%E7%AC%A6%E9%9B%86/">字符集</category>
+      
+      
+      <comments>https://blog.fenxiangz.com/post/java/advance/2020-06-29_%E5%AD%97%E7%AC%A6%E9%9B%86%E7%9F%A5%E8%AF%86%E7%82%B9.html#disqus_thread</comments>
       
     </item>
     
@@ -325,6 +666,36 @@
     </item>
     
     <item>
+      <title>使用 Tampermonkey 在【弹琴吧】非会员扒谱技巧</title>
+      <link>https://blog.fenxiangz.com/post/%E5%85%B6%E4%BB%96/2020-01-29_%E5%BC%B9%E7%90%B4%E5%90%A7%E9%9D%9E%E4%BC%9A%E5%91%98%E6%89%92%E8%B0%B1%E6%8A%80%E5%B7%A7.html</link>
+      <guid>https://blog.fenxiangz.com/post/%E5%85%B6%E4%BB%96/2020-01-29_%E5%BC%B9%E7%90%B4%E5%90%A7%E9%9D%9E%E4%BC%9A%E5%91%98%E6%89%92%E8%B0%B1%E6%8A%80%E5%B7%A7.html</guid>
+      <pubDate>Tue, 28 Jan 2020 16:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;分享一个最近发现的技巧，我在一个吉他谱网站找谱子，发现要会员权限，需要付费。&lt;/p&gt;
+&lt;p&gt;这样：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;./2020-01-29_%E5%BC%B9%E7%90%B4%E5%90%A7%E9%9D%9E%E4%BC%9A%E5%91%98%E6</description>
+        
+      
+      
+      
+      
+      <category domain="https://blog.fenxiangz.com/categories/%E5%85%B6%E4%BB%96-Tampermonkey/">其他/Tampermonkey</category>
+      
+      
+      <category domain="https://blog.fenxiangz.com/tags/Tampermonkey/">Tampermonkey</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/%E5%BC%B9%E7%90%B4%E5%90%A7/">弹琴吧</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/%E5%90%89%E4%BB%96/">吉他</category>
+      
+      
+      <comments>https://blog.fenxiangz.com/post/%E5%85%B6%E4%BB%96/2020-01-29_%E5%BC%B9%E7%90%B4%E5%90%A7%E9%9D%9E%E4%BC%9A%E5%91%98%E6%89%92%E8%B0%B1%E6%8A%80%E5%B7%A7.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
       <title>【译】Spring Boot 从 classpath 加载文件</title>
       <link>https://blog.fenxiangz.com/post/java/spring/2019-12-28_%E3%80%90%E8%AF%91%E3%80%91Spring%20Boot%20%E4%BB%8E%20classpath%20%E5%8A%A0%E8%BD%BD%E6%96%87%E4%BB%B6.html</link>
       <guid>https://blog.fenxiangz.com/post/java/spring/2019-12-28_%E3%80%90%E8%AF%91%E3%80%91Spring%20Boot%20%E4%BB%8E%20classpath%20%E5%8A%A0%E8%BD%BD%E6%96%87%E4%BB%B6.html</guid>
@@ -381,6 +752,35 @@
       
       
       <comments>https://blog.fenxiangz.com/post/algorithm/%E5%85%AB%E7%9A%87%E5%90%8E%E7%AE%97%E6%B3%95%E8%A7%A3%E6%9E%90.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>APK反编译总结</title>
+      <link>https://blog.fenxiangz.com/post/frontend/2019-11-26_APK%E5%8F%8D%E7%BC%96%E8%AF%91%E6%80%BB%E7%BB%93.html</link>
+      <guid>https://blog.fenxiangz.com/post/frontend/2019-11-26_APK%E5%8F%8D%E7%BC%96%E8%AF%91%E6%80%BB%E7%BB%93.html</guid>
+      <pubDate>Mon, 25 Nov 2019 16:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h3 id=&quot;1-准备环境&quot;&gt;&lt;a href=&quot;#1-准备环境&quot; class=&quot;headerlink&quot; title=&quot;1.准备环境&quot;&gt;&lt;/a&gt;1.准备环境&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;win7&lt;br&gt;android-sdk_r24.0.2-windows.zip&lt;b</description>
+        
+      
+      
+      
+      
+      <category domain="https://blog.fenxiangz.com/categories/Android/">Android</category>
+      
+      
+      <category domain="https://blog.fenxiangz.com/tags/Android/">Android</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/apk/">apk</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/%E5%8F%8D%E7%BC%96%E8%AF%91/">反编译</category>
+      
+      
+      <comments>https://blog.fenxiangz.com/post/frontend/2019-11-26_APK%E5%8F%8D%E7%BC%96%E8%AF%91%E6%80%BB%E7%BB%93.html#disqus_thread</comments>
       
     </item>
     
@@ -978,6 +1378,66 @@
     </item>
     
     <item>
+      <title>MySQL的InnoDB的幻读问题</title>
+      <link>https://blog.fenxiangz.com/post/dateabase/mysql/2018-12-17_MySQL%E7%9A%84InnoDB%E7%9A%84%E5%B9%BB%E8%AF%BB%E9%97%AE%E9%A2%98.html</link>
+      <guid>https://blog.fenxiangz.com/post/dateabase/mysql/2018-12-17_MySQL%E7%9A%84InnoDB%E7%9A%84%E5%B9%BB%E8%AF%BB%E9%97%AE%E9%A2%98.html</guid>
+      <pubDate>Sun, 16 Dec 2018 16:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;&lt;a href=&quot;http://dev.mysql.com/doc/refman/5.0/en/set-transaction.html&quot;&gt;MySQL InnoDB事务的隔离级别&lt;/a&gt;有四级，默认是“可重复读”（REPEATABLE READ）。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li</description>
+        
+      
+      
+      <enclosure url="https://blog.fenxiangz.com/images/MySQL.png" type="image"/>
+      
+      
+      
+      <category domain="https://blog.fenxiangz.com/categories/MySQL/">MySQL</category>
+      
+      
+      <category domain="https://blog.fenxiangz.com/tags/MySQL/">MySQL</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/ACID/">ACID</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/%E5%B9%BB%E8%AF%BB/">幻读</category>
+      
+      
+      <comments>https://blog.fenxiangz.com/post/dateabase/mysql/2018-12-17_MySQL%E7%9A%84InnoDB%E7%9A%84%E5%B9%BB%E8%AF%BB%E9%97%AE%E9%A2%98.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Mysql 分库分表简要记录</title>
+      <link>https://blog.fenxiangz.com/post/dateabase/mysql/2018-12-16_MySQL%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8%E7%AE%80%E8%A6%81%E8%AE%B0%E5%BD%95.html</link>
+      <guid>https://blog.fenxiangz.com/post/dateabase/mysql/2018-12-16_MySQL%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8%E7%AE%80%E8%A6%81%E8%AE%B0%E5%BD%95.html</guid>
+      <pubDate>Sat, 15 Dec 2018 16:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h3 id=&quot;维度：&quot;&gt;&lt;a href=&quot;#维度：&quot; class=&quot;headerlink&quot; title=&quot;维度：&quot;&gt;&lt;/a&gt;维度：&lt;/h3&gt;&lt;h4 id=&quot;用户：id取模&quot;&gt;&lt;a href=&quot;#用户：id取模&quot; class=&quot;headerlink&quot; title=&quot;用户：id取模</description>
+        
+      
+      
+      <enclosure url="https://blog.fenxiangz.com/images/MySQL.png" type="image"/>
+      
+      
+      
+      <category domain="https://blog.fenxiangz.com/categories/MySQL/">MySQL</category>
+      
+      
+      <category domain="https://blog.fenxiangz.com/tags/MySQL/">MySQL</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/SQL%E4%BC%98%E5%8C%96/">SQL优化</category>
+      
+      
+      <comments>https://blog.fenxiangz.com/post/dateabase/mysql/2018-12-16_MySQL%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8%E7%AE%80%E8%A6%81%E8%AE%B0%E5%BD%95.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
       <title>URL 和 URI 的区别</title>
       <link>https://blog.fenxiangz.com/post/network/2018-12-15_URL%E5%92%8CURI%E7%9A%84%E5%8C%BA%E5%88%AB.html</link>
       <guid>https://blog.fenxiangz.com/post/network/2018-12-15_URL%E5%92%8CURI%E7%9A%84%E5%8C%BA%E5%88%AB.html</guid>
@@ -1003,6 +1463,35 @@
       
       
       <comments>https://blog.fenxiangz.com/post/network/2018-12-15_URL%E5%92%8CURI%E7%9A%84%E5%8C%BA%E5%88%AB.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Mysql 优化概要</title>
+      <link>https://blog.fenxiangz.com/post/dateabase/mysql/2018-12-15_MySQL%E4%BC%98%E5%8C%96%E6%A6%82%E8%A6%81.html</link>
+      <guid>https://blog.fenxiangz.com/post/dateabase/mysql/2018-12-15_MySQL%E4%BC%98%E5%8C%96%E6%A6%82%E8%A6%81.html</guid>
+      <pubDate>Fri, 14 Dec 2018 16:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h3 id=&quot;索引优化配置&quot;&gt;&lt;a href=&quot;#索引优化配置&quot; class=&quot;headerlink&quot; title=&quot;索引优化配置&quot;&gt;&lt;/a&gt;索引优化配置&lt;/h3&gt;&lt;p&gt;记录没有使用索引的查询日志配置：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;mysql&amp;gt; show variabl</description>
+        
+      
+      
+      <enclosure url="https://blog.fenxiangz.com/images/MySQL.png" type="image"/>
+      
+      
+      
+      <category domain="https://blog.fenxiangz.com/categories/MySQL/">MySQL</category>
+      
+      
+      <category domain="https://blog.fenxiangz.com/tags/MySQL/">MySQL</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/SQL%E4%BC%98%E5%8C%96/">SQL优化</category>
+      
+      
+      <comments>https://blog.fenxiangz.com/post/dateabase/mysql/2018-12-15_MySQL%E4%BC%98%E5%8C%96%E6%A6%82%E8%A6%81.html#disqus_thread</comments>
       
     </item>
     
@@ -1063,6 +1552,68 @@ sudo dpkg --remove --force-remove-reinstreq &amp;lt;packagename&amp;g</descripti
       
       
       <comments>https://blog.fenxiangz.com/post/java/advance/2018-11-05_java_vertx.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>技术面试要了解的算法和数据结构知识</title>
+      <link>https://blog.fenxiangz.com/post/interview/2018-10-26_%E6%8A%80%E6%9C%AF%E9%9D%A2%E8%AF%95%E8%A6%81%E4%BA%86%E8%A7%A3%E7%9A%84%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9F%A5%E8%AF%86.html</link>
+      <guid>https://blog.fenxiangz.com/post/interview/2018-10-26_%E6%8A%80%E6%9C%AF%E9%9D%A2%E8%AF%95%E8%A6%81%E4%BA%86%E8%A7%A3%E7%9A%84%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9F%A5%E8%AF%86.html</guid>
+      <pubDate>Thu, 25 Oct 2018 16:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h4 id=&quot;在线练习&quot;&gt;&lt;a href=&quot;#在线练习&quot; class=&quot;headerlink&quot; title=&quot;在线练习&quot;&gt;&lt;/a&gt;在线练习&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;  &lt;a href=&quot;https://leetcode.com/&quot;&gt;LeetCode&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;</description>
+        
+      
+      
+      <enclosure url="https://blog.fenxiangz.com/images/java/basic/java_logo.png" type="image"/>
+      
+      
+      
+      <category domain="https://blog.fenxiangz.com/categories/Java-%E9%9D%A2%E8%AF%95/">Java 面试</category>
+      
+      
+      <category domain="https://blog.fenxiangz.com/tags/Java/">Java</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/%E7%AE%97%E6%B3%95/">算法</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/%E9%9D%A2%E8%AF%95/">面试</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</category>
+      
+      
+      <comments>https://blog.fenxiangz.com/post/interview/2018-10-26_%E6%8A%80%E6%9C%AF%E9%9D%A2%E8%AF%95%E8%A6%81%E4%BA%86%E8%A7%A3%E7%9A%84%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9F%A5%E8%AF%86.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Java面试整理</title>
+      <link>https://blog.fenxiangz.com/post/interview/2018-10-25_Java%E9%9D%A2%E8%AF%95%E6%95%B4%E7%90%86.html</link>
+      <guid>https://blog.fenxiangz.com/post/interview/2018-10-25_Java%E9%9D%A2%E8%AF%95%E6%95%B4%E7%90%86.html</guid>
+      <pubDate>Wed, 24 Oct 2018 16:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h3 id=&quot;1-谈谈你对-springmvc-的理解&quot;&gt;&lt;a href=&quot;#1-谈谈你对-springmvc-的理解&quot; class=&quot;headerlink&quot; title=&quot;1.谈谈你对 springmvc 的理解&quot;&gt;&lt;/a&gt;1.谈谈你对 springmvc 的理解&lt;/h3&gt;&lt;</description>
+        
+      
+      
+      <enclosure url="https://blog.fenxiangz.com/images/java/basic/java_logo.png" type="image"/>
+      
+      
+      
+      <category domain="https://blog.fenxiangz.com/categories/Java-%E9%9D%A2%E8%AF%95/">Java 面试</category>
+      
+      
+      <category domain="https://blog.fenxiangz.com/tags/Java/">Java</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/%E9%9D%A2%E8%AF%95/">面试</category>
+      
+      
+      <comments>https://blog.fenxiangz.com/post/interview/2018-10-25_Java%E9%9D%A2%E8%AF%95%E6%95%B4%E7%90%86.html#disqus_thread</comments>
       
     </item>
     
@@ -1270,6 +1821,34 @@ sudo dpkg --remove --force-remove-reinstreq &amp;lt;packagename&amp;g</descripti
       
       
       <comments>https://blog.fenxiangz.com/post/linux/2017-12-10_%E6%B5%85%E6%9E%90Linux%E4%B8%AD%E7%9A%84%E9%9B%B6%E6%8B%B7%E8%B4%9D%E6%8A%80%E6%9C%AF.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>SVN 自动删除 “被手动删除” 的文件</title>
+      <link>https://blog.fenxiangz.com/post/util/svn/2017-12-10_SVN%E8%87%AA%E5%8A%A8%E5%88%A0%E9%99%A4%E2%80%9C%E8%A2%AB%E6%89%8B%E5%8A%A8%E5%88%A0%E9%99%A4%E2%80%9D%E7%9A%84%E6%96%87%E4%BB%B6.html</link>
+      <guid>https://blog.fenxiangz.com/post/util/svn/2017-12-10_SVN%E8%87%AA%E5%8A%A8%E5%88%A0%E9%99%A4%E2%80%9C%E8%A2%AB%E6%89%8B%E5%8A%A8%E5%88%A0%E9%99%A4%E2%80%9D%E7%9A%84%E6%96%87%E4%BB%B6.html</guid>
+      <pubDate>Sat, 09 Dec 2017 16:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;删除SVN存储库工作副本中的文件时，应该在命令行上执行：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;svn rm [filename]&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;但是，如果您不这样做(例如通过gui删除，或者只执行“rm”而不执行“svn”)，那么svn就会感到困惑，并将一个“!</description>
+        
+      
+      
+      <enclosure url="https://blog.fenxiangz.com/images/grafana.png" type="image"/>
+      
+      
+      
+      <category domain="https://blog.fenxiangz.com/categories/SVN/">SVN</category>
+      
+      
+      <category domain="https://blog.fenxiangz.com/tags/SVN/">SVN</category>
+      
+      
+      <comments>https://blog.fenxiangz.com/post/util/svn/2017-12-10_SVN%E8%87%AA%E5%8A%A8%E5%88%A0%E9%99%A4%E2%80%9C%E8%A2%AB%E6%89%8B%E5%8A%A8%E5%88%A0%E9%99%A4%E2%80%9D%E7%9A%84%E6%96%87%E4%BB%B6.html#disqus_thread</comments>
       
     </item>
     

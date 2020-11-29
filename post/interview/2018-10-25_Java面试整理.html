@@ -1,0 +1,1517 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<!-- Head tag -->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  <meta name="baidu-site-verification" content="" />
+  <meta name="google-site-verification" content="" />
+  <meta name="msvalidate.01" content="" />
+  <meta name="360-site-verification" content="" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- if page has tags, then add tags to keyword -->
+  
+  
+  <meta name="keywords" content=",Java,面试,">
+  <!-- page.description has higher priority -->
+  <meta name="description" content="Share everything">
+  <link rel="shortcut icon" href="/favico.png">
+  <title>
+    
+    Java面试整理 | 分享之
+    
+  </title>
+
+  <link rel="canonical" href="/post/interview/2018-10-25_Java面试整理.html">
+  
+<link rel="stylesheet" href="/css/reset.css">
+
+  
+<link rel="stylesheet" href="/css/layout.css">
+
+  
+<link rel="stylesheet" href="/css/markdown.css">
+
+  <!-- Pygments Highlight CSS -->
+  
+<link rel="stylesheet" href="/css/highlight.css">
+
+  
+<link rel="stylesheet" href="/css/geektutu.css">
+
+  <!-- global function -->
+  <script>
+    window.globalAddScript = function (url, onload, onerror) {
+      var s = document.createElement('script');
+      s.src = url;
+      onload && (s.onload = onload);
+      onerror && (s.onerror = onerror);
+      document.body.appendChild(s);
+    }
+    window.globalAddCss = function (url) {
+      var s = document.createElement('link');
+      s.rel = 'stylesheet';
+      s.href = url;
+      document.body.appendChild(s);
+    }
+    window.getPosition = function (ele) {
+      var x = 0, y = 0;
+      while (ele) {
+        x += (ele.offsetLeft - ele.scrollLeft + ele.clientLeft);
+        y += (ele.offsetTop - ele.scrollTop + ele.clientTop);
+        ele = ele.offsetParent;
+      }
+      return { x: x, y: y };
+    }
+    window.getDom = function (str) { return document.querySelector(str) }
+  </script>
+  <!-- google ad -->
+  
+<meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/feed.xml" title="分享之" type="application/rss+xml">
+</head>
+
+<body>
+    <header class="gkt-header col-xs-12 padding-0">
+    <div id="gkt-nav" class="gkt-header-container">
+        <a href="/" class="gkt-header-title float-left">
+            <img class="float-left" src="/favico.png" alt="">
+            <span>分享之</span>
+        </a>
+        <nav class="gkt-header-nav text-right">
+            <ul>
+                <li><a class="hidden-xs" href="/feed.xml">订阅</a></li>
+                <li><a href="/series/">专题</a></li>
+                <li><a href="/archives/">归档</a></li>
+                <li><a href="/post/link.html">友链</a></li>
+                <li><a href="/post/about.html">关于</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div id="gkt-cate-nav" class="gkt-header-container hidden-xs">
+        
+        <nav class="gkt-header-nav float-left">
+            <ul>
+                
+                
+                <li class="gkt-cate-name float-left active">
+                    <a class="float-left" href="/post/java/basic/2016-10-25_hashmap_jdk7.html">Java ▾</a>
+                    
+                    <ul class="gkt-sub-cate">
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/java/basic/2016-10-25_hashmap_jdk7.html">Java 基础</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/java/advance/2016-10-25_number.html">Java 进阶</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/java/io/2017-04-15_java_io_1_overview.html">Java IO</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/java/nio/2017-04-21_java_nio_1.html">Java NIO</a></li>
+                        
+                        <li class="gkt-sub-cate-name active"><a class="float-left"
+                                href="/post/interview/2018-10-25_Java面试整理.html">Java 面试</a></li>
+                        
+                    </ul>
+                    
+                </li>
+                
+                <li class="gkt-cate-name float-left ">
+                    <a class="float-left" href="/post/java/spring/2016-10-30_Spring 组合注解&amp;注解继承.html">Spring ▾</a>
+                    
+                    <ul class="gkt-sub-cate">
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/java/spring/2016-10-30_Spring 组合注解&amp;注解继承.html">Spring Core</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/java/spring/2019-12-28_【译】Spring Boot 从 classpath 加载文件.html">Spring Boot</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/java/spring/2020-09-02_How-to-learn-Spring-Cloud.html">Spring Cloud</a></li>
+                        
+                    </ul>
+                    
+                </li>
+                
+                <li class="gkt-cate-name float-left ">
+                    <a class="float-left" href="/post/java/netty/2019-01-02_小白科普Netty有什么用.html">Java 框架</a>
+                    
+                </li>
+                
+                <li class="gkt-cate-name float-left ">
+                    <a class="float-left" href="/post/util/ide/2017-10-25_idea_shotcut.html">工具 ▾</a>
+                    
+                    <ul class="gkt-sub-cate">
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/util/ide/2017-10-25_idea_shotcut.html">IDE</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/util/gradle/LearnGradle_1_安装.html">Gradle</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/docker/2017-11-25_Docker_Get_Started.html">Docker</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/util/monitor/2017-12-10_从零开始搭建Prometheus自动监控报警系统.html">监控</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/util/svn/2017-12-10_SVN自动删除“被手动删除”的文件.html">SVN</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/util/2020-11-26_开发资源整理.html">资源导航</a></li>
+                        
+                    </ul>
+                    
+                </li>
+                
+                <li class="gkt-cate-name float-left ">
+                    <a class="float-left" href="/post/linux/2017-11-27_update-alternatives_命令.html">Linux ▾</a>
+                    
+                    <ul class="gkt-sub-cate">
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/linux/2017-11-27_update-alternatives_命令.html">其他</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/linux/2017-11-26_IO-同步，异步，阻塞，非阻塞.html">IO</a></li>
+                        
+                    </ul>
+                    
+                </li>
+                
+                <li class="gkt-cate-name float-left ">
+                    <a class="float-left" href="/post/network/2017-11-24_面向报文（UDP）和面向字节流（TCP）的区别.html">计算机网络 ▾</a>
+                    
+                    <ul class="gkt-sub-cate">
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/network/2017-11-24_面向报文（UDP）和面向字节流（TCP）的区别.html">TCP/IP</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/network/2017-11-25_一张图说明CDN网络的原理.html">网络/其他</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/network/2018-12-15_URL和URI的区别.html">网络/术语</a></li>
+                        
+                    </ul>
+                    
+                </li>
+                
+                <li class="gkt-cate-name float-left ">
+                    <a class="float-left" href="/post/dateabase/mysql/2018-12-15_MySQL优化概要.html">数据库 ▾</a>
+                    
+                    <ul class="gkt-sub-cate">
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/dateabase/mysql/2018-12-15_MySQL优化概要.html">MySQL</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/dateabase/MSSQL/2020-09-08_MSSQL最佳实践_SQL_Server备份策略.html">MSSQL</a></li>
+                        
+                    </ul>
+                    
+                </li>
+                
+                <li class="gkt-cate-name float-left ">
+                    <a class="float-left" href="/post/design/2019-01-03_Java经典设计模式_1_五大创建型模式.html">设计模式</a>
+                    
+                </li>
+                
+                <li class="gkt-cate-name float-left ">
+                    <a class="float-left" href="/post/distribution/2019-08-13_Zookeeper是如何解决脑裂问题.html">分布式 ▾</a>
+                    
+                    <ul class="gkt-sub-cate">
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/distribution/2019-08-13_Zookeeper是如何解决脑裂问题.html">zookeeper</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/distribution/2019-08-12_CAP定理的含义.html">概念</a></li>
+                        
+                    </ul>
+                    
+                </li>
+                
+                <li class="gkt-cate-name float-left ">
+                    <a class="float-left" href="/post/frontend/vue/2017-10-26_vue自定义组件中的v-model简单解释.html">前端 ▾</a>
+                    
+                    <ul class="gkt-sub-cate">
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/frontend/vue/2017-10-26_vue自定义组件中的v-model简单解释.html">VUE</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/frontend/2016-10-26_深入理解jQuery插件开发.html">jQuery</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/frontend/2019-10-26_小程序多端框架全面测评.html">跨平台</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/frontend/2019-11-26_APK反编译总结.html">Android</a></li>
+                        
+                    </ul>
+                    
+                </li>
+                
+                <li class="gkt-cate-name float-left ">
+                    <a class="float-left" href="/post/algorithm/八皇后算法解析.html">算法</a>
+                    
+                </li>
+                
+                <li class="gkt-cate-name float-left ">
+                    <a class="float-left" href="/post/其他/2020-01-29_弹琴吧非会员扒谱技巧.html">其他 ▾</a>
+                    
+                    <ul class="gkt-sub-cate">
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/其他/2020-01-29_弹琴吧非会员扒谱技巧.html">其他/Tampermonkey</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/其他/2020-10-25_V2ray配置.html">其他/V2ray</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/其他/2020-11-26_Jira修改Path路径后的用户管理问题.html">其他/Jira</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/其他/2020-11-27_『认知升级』是比其他一切都更加重要的思维模型转变.html">其他/管理</a></li>
+                        
+                    </ul>
+                    
+                </li>
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+<div class="gkt-header-placeholder" style="height: 44px"></div>
+<div class="gkt-header-placeholder hidden-xs" style="height: 44px"></div>
+<script>
+    (function () {
+        window.addEventListener('scroll', function () {
+            if (window.innerWidth < 768) {
+                return;
+            }
+            var nav = document.querySelector('#gkt-nav');
+            var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            scrollTop > 50 && (nav.classList.add('hide'));
+            scrollTop <= 50 && (nav.classList.remove('hide'));
+        });
+        var cateNavs = document.querySelectorAll('#gkt-cate-nav>nav>ul>li');
+        [].slice.call(cateNavs).forEach(function (item) {
+            var sub = item.querySelector('.gkt-sub-cate');
+            if (!sub) return;
+            item.addEventListener('mouseenter', function (e) { sub.style.display = 'block'; }, false);
+            item.addEventListener('mouseleave', function (e) { sub.style.display = 'none'; }, false);
+        })
+    })();
+</script>
+    <!-- Main Content -->
+    <div class="main-container">
+        <!-- Main Content -->
+<main class="col-xs-12 padding-0 markdown-it">
+    <!-- Post Container -->
+    
+    
+    <!-- Post Content -->
+<div class="float-left post-container box-shadow">
+    <div class="u-arrow-wrapper hidden-xs">
+        
+        <a class="float-left" href="/post/linux/2017-12-16_Linux两个文件求交集、并集、差集.html"><i class="u-arrow-left"></i></a>
+        
+        
+        <a class="float-right" href="/post/interview/2018-10-26_技术面试要了解的算法和数据结构知识.html"><i class="u-arrow-right"></i></a>
+        
+    </div>
+    <article class="col-xs-12">
+        <h1> Java面试整理 </h1>
+        
+        
+        <div class="hidden-lg hidden-md series_links">
+            <p> <strong> Java 面试系列文章链接：</strong></p>
+            <ul>
+                
+                <li>
+                    <a href="/post/interview/2018-10-25_Java面试整理.html">Java面试整理</a>
+                    <span class="post-item-date">(Oct 25, 2018)</span>
+                </li>
+                
+                <li>
+                    <a href="/post/interview/2018-10-26_技术面试要了解的算法和数据结构知识.html">技术面试要了解的算法和数据结构知识</a>
+                    <span class="post-item-date">(Oct 26, 2018)</span>
+                </li>
+                
+            </ul>
+        </div>
+        
+        
+        <h3 id="1-谈谈你对-springmvc-的理解"><a href="#1-谈谈你对-springmvc-的理解" class="headerlink" title="1.谈谈你对 springmvc 的理解"></a>1.谈谈你对 springmvc 的理解</h3><p>第一印象，以为问的 spring，但是别人问的好像是 springmvc</p>
+<p>ps: spring mvc 类似于 struts 的一个 MVC 开框架，其实都是属于 spring，spring mvc需要有 spring 的架包作为支撑才能跑起来，所以 spingMVC 只是 sping 中一个小功能，小模块而已。</p>
+<p>继续谈 spring：</p>
+<p>Spring 的两大核心 AOP 与 IOC，可以单独用于任何应用，包括与 Struts 等 MVC 框架与Hibernate 等 ORM 框架的集成。</p>
+<p>Spring 的核心是 Bean 工厂(Bean Factory)，用以构造我们所需要的(Model)。<br>在此基础之上，Spring 提供了 AOP（Aspect-Oriented Programming, 面向层面的编程）的实现，用它来提供非管理环境下申明方式的事务、安全等服务；</p>
+<p>对 Bean 工厂的扩展 ApplicationContext 更加方便我们实现 J2EE 的应用；</p>
+<p>DAO/ORM 的实现方便我们进行数据库的开发；</p>
+<p>Web MVC 和 Spring Web 提供了 Java Web 应用的框架或与其他流行的 Web<br>框架进行集成。</p>
+<p>那么 AOP 和 IOC 又是什么呢？</p>
+<p>IOC 控制反转，简单的理解就是将类的创建和依赖关系写在配置文件里，由配置文件注入，实现了松耦合。</p>
+<p>形象的说明：所谓依赖，从程序的角度看，就是比如 A 要调用 B 的方法，那么 A 就依赖于B，反正 A 要用到 B，则 A 依赖于 B。所谓倒置，你必须理解如果不倒置，会怎么着，因为A 必须要有 B，才可以调用 B，如果不倒置，意思就是 A 主动获取 B 的实例：B b = new B()，这就是最简单的获取 B 实例的方法（当然还有各种设计模式可以帮助你去获得 B 的实例，比如工厂、Locator 等等），然后你就可以调用 b 对象了。</p>
+<p>所以，不依赖倒置(控制反转)，意味着 A 要主动获取 B，才能使用 B；</p>
+<p>AOP 面向切面，简单理解：就是将安全，事务等于程序逻辑相对独立的功能抽取出来，利用 spring 的配置文件将这些功能插进去，实现了按照方面编程，提高了复用性。</p>
+<p>形象的说明：面向切面编程的目标就是分离关注点。什么是关注点呢？就是你要做的事，就是关注点。</p>
+<p>从 Spring 的角度看，AOP 最大的用途就在于提供了事务管理的能力。事务管理就是一个关注点，你的正事就是去访问数据库，而你不想管事务（太烦），所以，Spring 在你访问数据库之前，自动帮你开启事务，当你访问数据库结束之后，自动帮你提交/回滚事务！</p>
+<h3 id="2-关于-springmvc-和-structs-的对比"><a href="#2-关于-springmvc-和-structs-的对比" class="headerlink" title="2.关于 springmvc 和 structs 的对比"></a>2.关于 springmvc 和 structs 的对比</h3><p>很常见的问题，个人理解，从两方面来说：</p>
+<p>a&gt; 设计思想上： spring 可以理解为一个 servlet 的扩展，而 structs 则更符合面向对象思想，它是一个过滤器 filter.</p>
+<p>b&gt; 实现机制上：springmvc 的拦截是方法级别的拦截，一个方法对应一个 URL 以及一个request 和 response 对象，所以 URL 参数对于方法是独享的，而 structs 则是类级别的拦截，那么每一次请求的 URL 都会实例化这个 action 类，而类属性被所有方法共享，所以一个 action 共享一个 request 和 response 对象，参数的传递是通过 get/set 来实现。</p>
+<p>c&gt; 对 于 ajax 的支持 ： springmvc 对 于 ajax 的支持更加简单 ，只需一个注解<br>@ResponseBody ，然后直接返回响应文本即可，而 structs 则需要 out 流输出。</p>
+<h3 id="3-对于常见的-POST-请求乱码，该如何处理？"><a href="#3-对于常见的-POST-请求乱码，该如何处理？" class="headerlink" title="3.对于常见的 POST 请求乱码，该如何处理？"></a>3.对于常见的 POST 请求乱码，该如何处理？</h3><p>常用的有三种方式：<br>a&gt; 在 web.xml 中加入 encoding 来过滤 URL<br>b&gt; 修改 Tomcat 的配置文件，添加编码，使服务器的编码和工程的编码一致<br>c&gt; 对方法参数进行 String 编码</p>
+<h3 id="4-mybatis-的生命周期是怎么样的？"><a href="#4-mybatis-的生命周期是怎么样的？" class="headerlink" title="4.mybatis 的生命周期是怎么样的？"></a>4.mybatis 的生命周期是怎么样的？</h3><p>a&gt; 创建 SqlSessionFactory<br>b&gt;通过 SqlSessionFactory 创建 SqlSession<br>c&gt;通过 sqlsession 执行数据库操作<br>d&gt;调用 session.commit()提交事务<br>e&gt;调用 session.close()关闭会话</p>
+<h3 id="5-mybatis-的配置文件有哪些内容？"><a href="#5-mybatis-的配置文件有哪些内容？" class="headerlink" title="5.mybatis 的配置文件有哪些内容？"></a>5.mybatis 的配置文件有哪些内容？</h3><p>properties（属性）<br>settings（配置）<br>typeAliases（类型别名）<br>typeHandlers（类型处理器）<br>objectFactory（对象工厂）<br>plugins（插件）<br>environments（环境集合属性对象）<br>environment（环境子属性对象）<br>transactionManager（事务管理）<br>dataSource（数据源）<br>mappers（映射器）</p>
+<h3 id="6-使用-mybatis-的-mapper-接口调用时有"><a href="#6-使用-mybatis-的-mapper-接口调用时有" class="headerlink" title="6.使用 mybatis 的 mapper 接口调用时有"></a>6.使用 mybatis 的 mapper 接口调用时有</h3><p>哪些要求?<br>a&gt; Mapper 接口方法名和 mapper.xml 中定义的每个 sql 的 id 相同<br>b&gt; Mapper 接口方法的输入参数类型和 mapper.xml 中定义的每个 sql 的<br>parameterType 的类型相同<br>c&gt; Mapper 接口方法的输出参数类型和mapper.xml 中定义的每个sql 的 resultType的类型相同<br>d&gt; Mapper.xml 文件中的 namespace 即是 mapper 接口的类路径。</p>
+<h3 id="7-mybatis-和-hibernate-的不同"><a href="#7-mybatis-和-hibernate-的不同" class="headerlink" title="7.mybatis 和 hibernate 的不同"></a>7.mybatis 和 hibernate 的不同</h3><p>a&gt; Mybatis 和 hibernate 不同，它不完全是一个 ORM 框架，因为 MyBatis 需要程序员自己编写 Sql 语句，不过 mybatis 可以通过 XML 或注解方式灵活配置要运行的 sql 语句，并将 java 对象和 sql 语句映射生成最终执行的 sql，最后将 sql 执行的结果再映射生成 java 对象。<br>b&gt; mybatis 相对于 hibernate 很灵活，体现在 sql 语句的可控性，但是这就对不同数据库的适应就要写复杂的配置文件。</p>
+<h3 id="8-mybatis-的缓存？"><a href="#8-mybatis-的缓存？" class="headerlink" title="8.mybatis 的缓存？"></a>8.mybatis 的缓存？</h3><p>a&gt; Mybatis 首先去缓存中查询结果集，如果没有则查询数据库，如果有则从缓存取出返回结果集就不走数据库。Mybatis 内部存储缓存使用一个 HashMap， key 为 hashCode + sqlId + Sql 语句。value 为从查询出来映射生成的 java 对象<br>b&gt; Mybatis 的二级缓存即查询缓存，它的作用域是一个 mapper 的namespace，即在同一个 namespace 中查询 sql 可以从缓存中获取数据。二级缓存是可以跨 SqlSession的。</p>
+<h3 id="9-为什么使用-hibernate，好处是什么？"><a href="#9-为什么使用-hibernate，好处是什么？" class="headerlink" title="9.为什么使用 hibernate，好处是什么？"></a>9.为什么使用 hibernate，好处是什么？</h3><p>a&gt; 对 JDBC 访问数据库的代码做了封装，大大简化了数据访问层繁琐的重复性代码。<br>b&gt; hibernate 的性能非常好，因为它是个轻量级框架。映射的灵活性很出色。它支持各种关系数据库，从一对一到多对多的各种复杂关系。</p>
+<h3 id="10-什么是-hibernate-的延迟加载？"><a href="#10-什么是-hibernate-的延迟加载？" class="headerlink" title="10. 什么是 hibernate 的延迟加载？"></a>10. 什么是 hibernate 的延迟加载？</h3><p>延迟加载机制是为了避免一些无谓的性能开销而提出来的，所谓延迟加载就是当在真正需要数据的时候，才真正执行数据加载操作。在 Hibernate 中提供了对实体对象的延迟加载以及对集合的延迟加载，另外在 Hibernate3 中还提供了对属性的延迟加载。</p>
+<h3 id="11-怎么优化-hibernate？"><a href="#11-怎么优化-hibernate？" class="headerlink" title="11. 怎么优化 hibernate？"></a>11. 怎么优化 hibernate？</h3><p>a&gt; 使用双向一对多关联，不使用单向一对多<br>b&gt; 灵活使用单向一对多关联<br>c&gt; 一对多集合使用 Bag,多对多集合使用 Set<br>d&gt; 表字段要少，表关联可以使用二级缓存</p>
+<h3 id="12-hibernate-中-save-和-saveorupdate？"><a href="#12-hibernate-中-save-和-saveorupdate？" class="headerlink" title="12. hibernate 中 save 和 saveorupdate？"></a>12. hibernate 中 save 和 saveorupdate？</h3><p>save() 方法很显然是执行保存操作的，如果是对一个新的刚 new 出来的对象进行保存，自然要使用这个方法了，数据库中没有这个对象。<br>update() 如果是对一个已经存在的托管对象进行更新那么肯定是要使用update() 方法了，数据中有这个对象。<br>saveOrUpdate() 这个方法是更新或者插入，有主键就执行更新，如果没有主键就执行插入。<br>在 Hibernate 中 saveOrUpdate()方法在执行的时候，先会去 session 中去找存不存在指定的字段，如果存在直接 update，否则 save，这个时候问题就发生了</p>
+<h3 id="13-缓存技术？"><a href="#13-缓存技术？" class="headerlink" title="13. 缓存技术？"></a>13. 缓存技术？</h3><p>可做缓存的技术，Ehcache, Linkedhashmap, Memcached, Redis，视需求而定。<br>其中，LinkedHashMap 和 Ehcache 都是单机缓存技术，即只能在一个应用内实现缓存，不能实现多台机器使用相同的缓存区域（分布式缓存），LinkedHashMap 的底层是用 HashMap 实现的，特点元素的排序是按链表方式排序，按写入或输出的顺序排序，最后一次写入或读取的元素放到最后。JDK 自带 Memcached、Redis 都可以适用于分布式缓存，需要独立部署，使多台机器可以使用同一个缓存服务器，实现集群的缓存共享，其中 redis 支持的数据类型更多，使用更方便，最重要的是：Memcached 的数据只能存在内存中，重启后即消失，而 Redis 可以持久化，因此 Redis 可以作为一个 NoSql 数据库使用。</p>
+<h3 id="14-什么是反射机制？"><a href="#14-什么是反射机制？" class="headerlink" title="14. 什么是反射机制？"></a>14. 什么是反射机制？</h3><p>场景：一个大型的软件，不可能一次就把 它设计的很完美，当这个程序编译后，发布了，当发现需要更新某些功能时，我们不可能要用户把以前的卸载，再重新安装新的版本，假如这样的话，这个软件肯定 是没有多少人用的。采用静态的话，需要把整个程序重新编译一次才可以实现功能的更新，而采用反射机制的话，它就可以不用卸载，只需要在运行时才动态的创建和编译，就可以实现该功能。<br>反射的优点当然是体现在它的动态性上面，能运行时确定类型，绑定对象。动态编译最大限度发挥了 java 的灵活性，体现了多态的应用，降低类之间的藕合性。 一句话，反射机制的优点就是可以实现动态创建对象和编译，缺点就是会消耗一些资源。</p>
+<h3 id="15-hashtable-和-hashmap-的区别？"><a href="#15-hashtable-和-hashmap-的区别？" class="headerlink" title="15. hashtable 和 hashmap 的区别？"></a>15. hashtable 和 hashmap 的区别？</h3><p>Hashtable 继承自 Dictionary 类，而 HashMap 是 Java1.2 引进的 Map interface 的一个实现。从 map 接口实现来看，HashMap 是 Hashtable 的轻量级实现（非线程安全的实现），HashMap 允许将 null 作为一个 entry 的 key 或者 value，而 Hashtable 不允许。由于是轻量级实现，hash 算法是一致的，不存在谁的效率高谁的效率低。</p>
+<h3 id="16-接口和抽象类的区别？"><a href="#16-接口和抽象类的区别？" class="headerlink" title="16. 接口和抽象类的区别？"></a>16. 接口和抽象类的区别？</h3><p>从两个方面来回答：</p>
+<p>a&gt; 语法层面：<br>接口只能存在 public abstract 方法，而抽象类可以提供成员方法的具体实现。<br>接口的成员变量是 public static final 类型的，而抽象类是没有限制的。<br>接口不可以保护静态代码块以及静态方法，而抽象类是可以的。<br>接口是可以多实现的，抽象类只能单继承。</p>
+<p>b&gt; 设计层面：<br>抽象类是对一种事物的抽象，即对类抽象，而接口是对行为的抽象。抽象类是对整个类整体进行抽象，包括属性、行为，但是接口却是对类局部（行为）进行抽象。<br>设计层面不同，抽象类作为很多子类的父类，它是一种模板式设计。而接口是一种行为规范，它是一种辐射式设计。什么是模板式设计？最简单例子，大家都用过 ppt 里面的模板。</p>
+<h3 id="17-线程安全和不安全是什么意思？"><a href="#17-线程安全和不安全是什么意思？" class="headerlink" title="17. 线程安全和不安全是什么意思？"></a>17. 线程安全和不安全是什么意思？</h3><p>线程安全就是多线程访问时，采用了加锁机制，当一个线程访问该类的某个数据时，进行保护，其他线程不能进行访问直到该线程读取完，其他线程才可使用。不会出现数据不一致或者数据污染。<br>线程不安全就是不提供数据访问保护，有可能出现多个线程先后更改数据<br>造成所得到的数据是脏数据。</p>
+<h3 id="18-怎么实现线程？"><a href="#18-怎么实现线程？" class="headerlink" title="18. 怎么实现线程？"></a>18. 怎么实现线程？</h3><p>在语法上有两种，但是他们其实是一种方式， Thread 类的实例就是一个线程但是它需要调用 Runnable 接口来执行，由于线程类本身就是调用的 Runnable 接口所以你可以继承Thread 类或者直接调用 Runnable 接口来重写 run()方法实现线程。</p>
+<h3 id="19-Thread-类中的-start-和-run-方法有什么区别"><a href="#19-Thread-类中的-start-和-run-方法有什么区别" class="headerlink" title="19. Thread 类中的 start() 和 run() 方法有什么区别?"></a>19. Thread 类中的 start() 和 run() 方法有什么区别?</h3><p>当你调用 run()方法的时候，只会是在原来的线程中调用，没有新的线程启动，start()方法才会启动新线程。</p>
+<h3 id="20-ThreadLocal-是什么？"><a href="#20-ThreadLocal-是什么？" class="headerlink" title="20. ThreadLocal 是什么？"></a>20. ThreadLocal 是什么？</h3><p>ThreadLocal 并不是一个 Thread，而是 Thread 的局部变量，当使用 ThreadLocal 维护变量时，ThreadLocal 为每个使用该变量的线程提供独立的变量副本，所以每一个线程都可以独立地改变自己的副本，而不会影响其它线程所对应的副本。</p>
+<h3 id="21-ThreadLocal-和线程同步相比的优势？"><a href="#21-ThreadLocal-和线程同步相比的优势？" class="headerlink" title="21. ThreadLocal 和线程同步相比的优势？"></a>21. ThreadLocal 和线程同步相比的优势？</h3><p>ThreadLocal 和线程同步机制都是为了解决多线程中相同变量的访问冲突问题。</p>
+<p>在同步机制中，通过对象的锁机制保证同一时间只有一个线程访问变量。这时该变量是多个线程共享的，使用同步机制要求程序慎密地分析什么时候对变量进行读写，什么时候需要锁定某个对象，什么时候释放对象锁等繁杂的问题，程序设计和编写难度相对较大。</p>
+<p>而 ThreadLocal 则从另一个角度来解决多线程的并发访问。ThreadLocal 会为每一个线程提供一个独立的变量副本，从而隔离了多个线程对数据的访问冲突。因为每一个线程都拥有自己的变量副本，从而也就没有必要对该变量进行同步了。ThreadLocal 提供了线程安全的共享对象，在编写多线程代码时，可以把不安全的变量封装进 ThreadLocal。</p>
+<p>简单来说：对于多线程资源共享的问题，同步机制采用了“以时间换空间”的方式，而ThreadLocal 采用了“以空间换时间”的方式。前者仅提供一份变量，让不同的线程排队访问，而后者为每一个线程都提供了一份变量，因此可以同时访问而互不影响。</p>
+<h3 id="22-谈谈你业务中的分布式？"><a href="#22-谈谈你业务中的分布式？" class="headerlink" title="22. 谈谈你业务中的分布式？"></a>22. 谈谈你业务中的分布式？</h3><p>这个问题，从场景来回答，为什么需要分布式？<br>随着互联网的发展，传统单工程项目的很多性能瓶颈越发凸显，性能瓶颈可以有几个方面。<br>a&gt; 应用服务层：随着用户量的增加，并发量增加，单项目难以承受如此大的并发请求导致的性能瓶颈。<br>b&gt; 底层数据库层：随着业务的发展，数据库压力越来越大，导致的性能瓶颈。</p>
+<p>针对上面两点，我觉得可以从两方面解决。</p>
+<h4 id="应用服务层的解决方案有几种："><a href="#应用服务层的解决方案有几种：" class="headerlink" title="应用服务层的解决方案有几种："></a>应用服务层的解决方案有几种：</h4><p>应用系统集群：应用系统集群最简单的就是服务器集群，比如：tomcat 集群。应用系统集群的时候，比较凸显的问题是 session 共享，session 共享我们一是可以通过服务器插件来解决。另外一种也可以通过 redis 等中间件实现。</p>
+<p>服务化拆分：服务化拆分，是目前非常火热的一种方式。现在都在提微服务话。通过对传统项目进行服务化拆分，达到服务独立解耦，单服务又可以横向扩容。服务化拆分遇到的经典问题就是分布式事务问题。目前，比较常用的分布式事务解决方案有几种：消息最终一致性、TCC 补偿型事务、尽最大能力通知。</p>
+<h4 id="底层数据库层："><a href="#底层数据库层：" class="headerlink" title="底层数据库层："></a>底层数据库层：</h4><p>如果系统的性能压力出现在数据库，那我们就可以读写分离、分库分表等方案进行解决。</p>
+<h3 id="23-怎么解决-session-共享的问题？"><a href="#23-怎么解决-session-共享的问题？" class="headerlink" title="23. 怎么解决 session 共享的问题？"></a>23. 怎么解决 session 共享的问题？</h3><p>其实，我也没处理过，查找了一些资料：<br>a&gt; 客户端 cookie 加密。（一般用于内网中企业级的系统中，要求用户浏览器端的 cookie不能禁用，禁用的话，该方案会失效）。<br>b&gt; 集群中，各个应用服务器提供了 session 复制的功能，tomcat 和 jboss 都实现了这样的功能。特点：性能随着服务器增加急剧下降，容易引起广播风暴；session 数据需要序列化，影响性能。<br>c&gt; session 的持久化，使用数据库或者 redis 来保存 session。就算服务器宕机也没事儿，数据库中的 session 照样存在。特点：每次请求 session 都要读写数据库，会带来性能开销。使用内存数据库，会提高性能，但是宕机会丢失数据(像支付宝的宕机，有同城灾备、异地灾备)。<br>d&gt; 用共享存储来保存 session。和数据库类似，就算宕机了也没有事儿。其实就是专门搞一台服务器，全部对 session 落地。特点：频繁的进行序列化和反序列化会影响性能。</p>
+<p>From:  <a target="_blank" rel="noopener" href="https://hacpai.com/article/1492737273763">https://hacpai.com/article/1492737273763</a></p>
+
+        
+<script src="/js/qrious.min.js"></script>
+
+
+        <hr>
+        <div>
+            
+            <p>
+                <span>专题: </span>
+                
+                <a href="/series/#Java 面试">
+                    <code key="Java 面试" class="post-label">Java 面试</code>
+                </a>
+                
+            </p>
+            
+            <p>
+                <span>本文发表于 2018-10-25，最后修改于 2020-11-29。</span>
+            </p>
+            <!-- 文章末尾的提示 start -->
+            
+            
+            
+                
+            <!-- 文章末尾的提示 end -->
+        </div>
+        <hr />
+        <p name="pagination" style="font-size: 1.2em">
+    
+    <a class="float-left" href="/post/linux/2017-12-16_Linux两个文件求交集、并集、差集.html">上一篇 « Linux 两个文件求交集、并集、差集</a>
+    
+    
+    <a class="float-right" href="/post/interview/2018-10-26_技术面试要了解的算法和数据结构知识.html">下一篇 » 技术面试要了解的算法和数据结构知识</a>
+    
+</p>
+    </article>
+    <!-- 赞赏 -->
+    <!--打赏-->
+
+    <!-- 推荐阅读三篇文章 -->
+    <div class="col-xs-12">
+        <h3>推荐阅读</h3>
+        
+        <div class="post-preview">
+    <div class="post-img" style="background-image: url('/images/MySQL.png')"></div>
+    <div class="post-info">
+        <div class="post-info-center">
+            <div class="hidden-xs">
+                
+                
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#性能优化"
+                    title="性能优化">性能优化</a>
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#MySQL"
+                    title="MySQL">MySQL</a>
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#慢查"
+                    title="慢查">慢查</a>
+                <span>/</span>
+                
+                
+            </div>
+            <a href="/post/dateabase/mysql/2020-09-10_高性能MySQL_MySQL慢查询日志总结.html" class="title">
+                高性能 MySQL - MySQL慢查询日志总结
+            </a>
+            <p class="text-gray">
+                <small>
+                    <span>发表于2020-09-10，</span>
+                    <span class="hidden-xs">全文14139字，</span>
+                    <span>阅读约48分钟</span>
+                </small>
+            </p>
+        </div>
+    </div>
+</div>
+        
+        <div class="post-preview">
+    <div class="post-img" style="background-image: url('/images/java/basic/java_logo.png')"></div>
+    <div class="post-info">
+        <div class="post-info-center">
+            <div class="hidden-xs">
+                
+                
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#字符集"
+                    title="字符集">字符集</a>
+                <span>/</span>
+                
+                
+            </div>
+            <a href="/post/java/advance/2020-06-29_字符集知识点.html" class="title">
+                字符集知识点
+            </a>
+            <p class="text-gray">
+                <small>
+                    <span>发表于2020-06-28，</span>
+                    <span class="hidden-xs">全文1056字，</span>
+                    <span>阅读约4分钟</span>
+                </small>
+            </p>
+        </div>
+    </div>
+</div>
+        
+        <div class="post-preview">
+    <div class="post-img" style="background-image: url('/images/computer-networking.png')"></div>
+    <div class="post-info">
+        <div class="post-info-center">
+            <div class="hidden-xs">
+                
+                
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#TCP"
+                    title="TCP">TCP</a>
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#UDP"
+                    title="UDP">UDP</a>
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#网络协议"
+                    title="网络协议">网络协议</a>
+                <span>/</span>
+                
+                
+            </div>
+            <a href="/post/network/2017-11-24_面向报文（UDP）和面向字节流（TCP）的区别.html" class="title">
+                面向报文（UDP）和面向字节流（TCP）的区别
+            </a>
+            <p class="text-gray">
+                <small>
+                    <span>发表于2017-11-26，</span>
+                    <span class="hidden-xs">全文2078字，</span>
+                    <span>阅读约7分钟</span>
+                </small>
+            </p>
+        </div>
+    </div>
+</div>
+        
+    </div>
+    <div class="col-xs-12">
+        <!-- 标签列表 -->
+        <!-- Featured Tags -->
+<style>
+    #featured-tag .post-tag-item {
+        font-size: 12px;
+        line-height: 30px;
+        display: inline-block;
+        height: 30px;
+        margin: 5px 0px;
+        padding: 0 7px;
+        color: #333;
+        border-radius: 15px;
+        background: #f6f6f6;
+    }
+
+    #featured-tag .post-tag-item:hover {
+        color: #337ab7;
+    }
+</style>
+<div id="featured-tag">
+    
+    <a class="post-tag-item" href="/tags/#关于我" title="关于我"
+        rel="1">#关于我 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Hello World" title="Hello World"
+        rel="1">#Hello World (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Idea" title="Idea"
+        rel="1">#Idea (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#JavaIDE" title="JavaIDE"
+        rel="1">#JavaIDE (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Java" title="Java"
+        rel="50">#Java (50) </a>
+    
+    <a class="post-tag-item" href="/tags/#二进制" title="二进制"
+        rel="2">#二进制 (2) </a>
+    
+    <a class="post-tag-item" href="/tags/#内存分配" title="内存分配"
+        rel="1">#内存分配 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#内存泄露" title="内存泄露"
+        rel="1">#内存泄露 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#书籍推荐" title="书籍推荐"
+        rel="1">#书籍推荐 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#知识体系" title="知识体系"
+        rel="1">#知识体系 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#反码" title="反码"
+        rel="1">#反码 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#补码" title="补码"
+        rel="1">#补码 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#内存模型" title="内存模型"
+        rel="1">#内存模型 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#jvm" title="jvm"
+        rel="3">#jvm (3) </a>
+    
+    <a class="post-tag-item" href="/tags/#性能优化" title="性能优化"
+        rel="4">#性能优化 (4) </a>
+    
+    <a class="post-tag-item" href="/tags/#HashMap" title="HashMap"
+        rel="1">#HashMap (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Java集合" title="Java集合"
+        rel="1">#Java集合 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#ThreadLocal" title="ThreadLocal"
+        rel="1">#ThreadLocal (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Java线程" title="Java线程"
+        rel="3">#Java线程 (3) </a>
+    
+    <a class="post-tag-item" href="/tags/#异常" title="异常"
+        rel="1">#异常 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Java异常" title="Java异常"
+        rel="1">#Java异常 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#思维导图" title="思维导图"
+        rel="2">#思维导图 (2) </a>
+    
+    <a class="post-tag-item" href="/tags/#垃圾回收" title="垃圾回收"
+        rel="2">#垃圾回收 (2) </a>
+    
+    <a class="post-tag-item" href="/tags/#Java引用" title="Java引用"
+        rel="1">#Java引用 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#IO" title="IO"
+        rel="11">#IO (11) </a>
+    
+    <a class="post-tag-item" href="/tags/#Exception" title="Exception"
+        rel="1">#Exception (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Stream" title="Stream"
+        rel="1">#Stream (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Netty" title="Netty"
+        rel="4">#Netty (4) </a>
+    
+    <a class="post-tag-item" href="/tags/#笔记" title="笔记"
+        rel="1">#笔记 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#NIO" title="NIO"
+        rel="7">#NIO (7) </a>
+    
+    <a class="post-tag-item" href="/tags/#Buffer" title="Buffer"
+        rel="1">#Buffer (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Selector" title="Selector"
+        rel="1">#Selector (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#问题" title="问题"
+        rel="2">#问题 (2) </a>
+    
+    <a class="post-tag-item" href="/tags/#直接内存" title="直接内存"
+        rel="1">#直接内存 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#非直接内存" title="非直接内存"
+        rel="1">#非直接内存 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#堆内存" title="堆内存"
+        rel="1">#堆内存 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#注解" title="注解"
+        rel="1">#注解 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Spring" title="Spring"
+        rel="6">#Spring (6) </a>
+    
+    <a class="post-tag-item" href="/tags/#文件加载" title="文件加载"
+        rel="1">#文件加载 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Spring Boot" title="Spring Boot"
+        rel="3">#Spring Boot (3) </a>
+    
+    <a class="post-tag-item" href="/tags/#Spring Cloud" title="Spring Cloud"
+        rel="1">#Spring Cloud (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#序列化" title="序列化"
+        rel="1">#序列化 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#函数式编程" title="函数式编程"
+        rel="1">#函数式编程 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#lambda" title="lambda"
+        rel="1">#lambda (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#并发编程" title="并发编程"
+        rel="1">#并发编程 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#JUC" title="JUC"
+        rel="1">#JUC (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#lambda表达式" title="lambda表达式"
+        rel="1">#lambda表达式 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#源码" title="源码"
+        rel="1">#源码 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#RPC" title="RPC"
+        rel="1">#RPC (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Reactor" title="Reactor"
+        rel="1">#Reactor (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#NIO模型" title="NIO模型"
+        rel="1">#NIO模型 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#操作系统" title="操作系统"
+        rel="1">#操作系统 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#微服务" title="微服务"
+        rel="1">#微服务 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Vert.x" title="Vert.x"
+        rel="1">#Vert.x (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#八皇后" title="八皇后"
+        rel="1">#八皇后 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#算法" title="算法"
+        rel="2">#算法 (2) </a>
+    
+    <a class="post-tag-item" href="/tags/#创建型模式" title="创建型模式"
+        rel="1">#创建型模式 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#设计模式" title="设计模式"
+        rel="3">#设计模式 (3) </a>
+    
+    <a class="post-tag-item" href="/tags/#分布式" title="分布式"
+        rel="3">#分布式 (3) </a>
+    
+    <a class="post-tag-item" href="/tags/#CAP" title="CAP"
+        rel="1">#CAP (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#理论" title="理论"
+        rel="1">#理论 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#脑裂" title="脑裂"
+        rel="1">#脑裂 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#单例" title="单例"
+        rel="1">#单例 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#DCL" title="DCL"
+        rel="1">#DCL (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#包管理" title="包管理"
+        rel="4">#包管理 (4) </a>
+    
+    <a class="post-tag-item" href="/tags/#Gradle" title="Gradle"
+        rel="3">#Gradle (3) </a>
+    
+    <a class="post-tag-item" href="/tags/#结构型模式" title="结构型模式"
+        rel="1">#结构型模式 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#行为型模式" title="行为型模式"
+        rel="1">#行为型模式 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Spring Core" title="Spring Core"
+        rel="1">#Spring Core (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#源码分析" title="源码分析"
+        rel="1">#源码分析 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Docker" title="Docker"
+        rel="2">#Docker (2) </a>
+    
+    <a class="post-tag-item" href="/tags/#入门" title="入门"
+        rel="2">#入门 (2) </a>
+    
+    <a class="post-tag-item" href="/tags/#符号链接" title="符号链接"
+        rel="1">#符号链接 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#目录" title="目录"
+        rel="1">#目录 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#deb" title="deb"
+        rel="2">#deb (2) </a>
+    
+    <a class="post-tag-item" href="/tags/#chrome" title="chrome"
+        rel="1">#chrome (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#快捷键" title="快捷键"
+        rel="1">#快捷键 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#同步" title="同步"
+        rel="1">#同步 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#异步" title="异步"
+        rel="1">#异步 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#阻塞" title="阻塞"
+        rel="1">#阻塞 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#非阻塞" title="非阻塞"
+        rel="1">#非阻塞 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#TCP" title="TCP"
+        rel="3">#TCP (3) </a>
+    
+    <a class="post-tag-item" href="/tags/#UDP" title="UDP"
+        rel="2">#UDP (2) </a>
+    
+    <a class="post-tag-item" href="/tags/#网络协议" title="网络协议"
+        rel="1">#网络协议 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#CDN" title="CDN"
+        rel="1">#CDN (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Socket" title="Socket"
+        rel="1">#Socket (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#vpn" title="vpn"
+        rel="1">#vpn (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#ssh" title="ssh"
+        rel="1">#ssh (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Heidi" title="Heidi"
+        rel="1">#Heidi (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#MySQL" title="MySQL"
+        rel="9">#MySQL (9) </a>
+    
+    <a class="post-tag-item" href="/tags/#术语" title="术语"
+        rel="1">#术语 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#学习笔记" title="学习笔记"
+        rel="1">#学习笔记 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#JavaScript" title="JavaScript"
+        rel="4">#JavaScript (4) </a>
+    
+    <a class="post-tag-item" href="/tags/#chameleon" title="chameleon"
+        rel="2">#chameleon (2) </a>
+    
+    <a class="post-tag-item" href="/tags/#跨平台" title="跨平台"
+        rel="2">#跨平台 (2) </a>
+    
+    <a class="post-tag-item" href="/tags/#小程序" title="小程序"
+        rel="2">#小程序 (2) </a>
+    
+    <a class="post-tag-item" href="/tags/#bbr" title="bbr"
+        rel="1">#bbr (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#协议" title="协议"
+        rel="3">#协议 (3) </a>
+    
+    <a class="post-tag-item" href="/tags/#XXNET" title="XXNET"
+        rel="1">#XXNET (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#磁盘管理" title="磁盘管理"
+        rel="1">#磁盘管理 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#挂载" title="挂载"
+        rel="1">#挂载 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#网络" title="网络"
+        rel="2">#网络 (2) </a>
+    
+    <a class="post-tag-item" href="/tags/#模型" title="模型"
+        rel="2">#模型 (2) </a>
+    
+    <a class="post-tag-item" href="/tags/#MMAP" title="MMAP"
+        rel="1">#MMAP (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#内存映射" title="内存映射"
+        rel="1">#内存映射 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#内存" title="内存"
+        rel="1">#内存 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#零拷贝" title="零拷贝"
+        rel="1">#零拷贝 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#输入法" title="输入法"
+        rel="1">#输入法 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#命令" title="命令"
+        rel="1">#命令 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#集合运算" title="集合运算"
+        rel="1">#集合运算 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Ubuntu" title="Ubuntu"
+        rel="1">#Ubuntu (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#网络术语" title="网络术语"
+        rel="3">#网络术语 (3) </a>
+    
+    <a class="post-tag-item" href="/tags/#概念" title="概念"
+        rel="4">#概念 (4) </a>
+    
+    <a class="post-tag-item" href="/tags/#URL" title="URL"
+        rel="1">#URL (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#URI" title="URI"
+        rel="1">#URI (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Vue" title="Vue"
+        rel="2">#Vue (2) </a>
+    
+    <a class="post-tag-item" href="/tags/#监控" title="监控"
+        rel="1">#监控 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#报警" title="报警"
+        rel="1">#报警 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Prometheus" title="Prometheus"
+        rel="1">#Prometheus (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#云原生" title="云原生"
+        rel="1">#云原生 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Cloud" title="Cloud"
+        rel="1">#Cloud (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#面试" title="面试"
+        rel="3">#面试 (3) </a>
+    
+    <a class="post-tag-item" href="/tags/#Android" title="Android"
+        rel="1">#Android (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#apk" title="apk"
+        rel="1">#apk (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#反编译" title="反编译"
+        rel="1">#反编译 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#数据结构" title="数据结构"
+        rel="1">#数据结构 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Tampermonkey" title="Tampermonkey"
+        rel="1">#Tampermonkey (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#弹琴吧" title="弹琴吧"
+        rel="1">#弹琴吧 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#吉他" title="吉他"
+        rel="1">#吉他 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#V2ray" title="V2ray"
+        rel="1">#V2ray (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Jira" title="Jira"
+        rel="1">#Jira (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#管理" title="管理"
+        rel="2">#管理 (2) </a>
+    
+    <a class="post-tag-item" href="/tags/#认知" title="认知"
+        rel="1">#认知 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#备份" title="备份"
+        rel="1">#备份 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#MSSQL" title="MSSQL"
+        rel="1">#MSSQL (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#SQL优化" title="SQL优化"
+        rel="2">#SQL优化 (2) </a>
+    
+    <a class="post-tag-item" href="/tags/#ACID" title="ACID"
+        rel="1">#ACID (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#幻读" title="幻读"
+        rel="1">#幻读 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#阅读笔记" title="阅读笔记"
+        rel="2">#阅读笔记 (2) </a>
+    
+    <a class="post-tag-item" href="/tags/#字符集" title="字符集"
+        rel="2">#字符集 (2) </a>
+    
+    <a class="post-tag-item" href="/tags/#Collation" title="Collation"
+        rel="1">#Collation (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#临时表" title="临时表"
+        rel="1">#临时表 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#优化" title="优化"
+        rel="1">#优化 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#SVN" title="SVN"
+        rel="1">#SVN (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#慢查" title="慢查"
+        rel="1">#慢查 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#工具" title="工具"
+        rel="1">#工具 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Wiki" title="Wiki"
+        rel="1">#Wiki (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#整理" title="整理"
+        rel="1">#整理 (1) </a>
+    
+</div>
+    </div>
+    <!-- 评论 -->
+    
+    <div class="col-xs-12">
+        
+<div class="col-xs-12 padding-0">
+    <div id="gitalk-container">
+        <div class="gt-container text-center" style="margin-top: 50px;">
+            <button class="gt-btn gt-btn-public"><span class="gt-btn-text">去 Github 评论</span></button>
+        </div>
+    </div>
+    <div id="gitalk-related"></div>
+</div>
+
+<link rel="stylesheet" href="/css/gitalk.css">
+
+
+<script src="/js/gitalk.min.js"></script>
+
+<script>
+    window.addEventListener('load', function () {
+        function renderCommentUrl(data) {
+            var url = (data[window.location.pathname] || {}).url
+            url && getDom('#gitalk-container button').addEventListener('click', function (e) { window.open(url)})
+            url || (getDom('#gitalk-container').style.display = 'none')
+        }
+        const gitalk = new Gitalk({
+            clientID: 'a33ab8f0fc90bd0b86d7',
+            clientSecret: 'cfa4b020ca99ef91be8f4bf8180afbe831bf2a75',
+            accessToken: '',
+            repo: 'blogcmt',
+            owner: 'HassanChiang',
+            admin: ['HassanChiang'],
+            id: window.location.pathname,
+            distractionFreeMode: false
+        });
+        fetch("https://api.github.com/user").then(function(resp){
+            gitalk.render('gitalk-container');
+        }).catch(function(e){
+            fetch('/tool/issues.json').then(function (r) { return r.json() }).then(renderCommentUrl).catch(function (e) { })
+        })
+        getDom('#gitalk-container').addEventListener('click', function (e) {
+            e && e.stopPropagation && e.stopPropagation();
+        });
+    })
+</script>
+<script>
+    window.addEventListener('load', function () {
+        function render(comments) {
+            var template = '<a href="${comment.url}?utm_source=gitalk" class="dis-item-url"><h3 class="dis-item-title">${comment.title}</h3>' +
+                '<p class="dis-item-des">${comment.count} 评论 ● ${comment.date}</p>' +
+                '<div class="dis-item-content"><img class="dis-item-img" src="${comment.icon}" alt="icon"><p><b><span class="dis-item-user">${comment.user}</span></b>&nbsp;——&nbsp;${comment.body}</p></div>' +
+                '</a>'
+
+            var wrapper = getDom('#gitalk-related');
+            comments = shuffle(comments);
+            comments.slice(0, 4).forEach(function (c) {
+                var div = document.createElement('div');
+                div.classList.add('dis-item');
+                div.innerHTML = template.replace("${comment.url}", c.url)
+                    .replace("${comment.title}", c.title)
+                    .replace("${comment.count}", c.count)
+                    .replace("${comment.date}", c.date)
+                    .replace("${comment.icon}", c.icon)
+                    .replace("${comment.user}", c.user)
+                    .replace("${comment.body}", c.body)
+                wrapper.appendChild(div)
+            })
+            var p = document.createElement('p')
+            p.innerHTML = '<a target="_blank" rel="noopener" href="https://geektutu.com/post/blog-experience-7.html">Gitalk Plus</a>';
+            p.classList.add('dis-divide');
+            wrapper.appendChild(p);
+            wrapper.classList.add('dis-wrapper')
+        }
+        function shuffle(a) {
+            for (var i = a.length - 1; i > 0; i--) {
+                var j = Math.floor(Math.random() * (i + 1));
+                [a[i], a[j]] = [a[j], a[i]];
+            }
+            return a;
+        }
+        fetch('/tool/comments.json').then(function (r) { return r.json() }).then(render).catch(function (e) { })
+    })
+</script>
+
+    </div>
+    
+</div>
+<aside class="float-left gkt-sidebar hidden-xs hidden-sm">
+    <div style="clear: both"></div>
+    <div class="gkt-sidebar-wrapper">
+        <section class="box-shadow"><style>
+    .gkt-summary {
+        border: 1px solid #DDDDDD;
+        border-radius: 3px;
+        padding: 5px;
+        width: 100%;
+    }
+
+
+    .gkt-summary nav {
+        overflow: hidden;
+    }
+
+    .gkt-summary nav a {
+        display: inline-block;
+        text-align: center;
+        color: #333;
+        font-size: 12px;
+    }
+
+    .gkt-summary nav span {
+        display: block;
+    }
+
+    .gkt-summary nav .middle {
+        border-left: 1px solid #eaecef;
+        border-right: 1px solid #eaecef;
+    }
+
+    .gkt-summary .number {
+        font-weight: bold;
+    }
+
+    .gkt-summary .link-list {
+        margin-top: 5px;
+        margin-bottom: -5px;
+        padding-top: 7px;
+        border-top: 1px dashed #999;
+        display: flex;
+    }
+
+    .gkt-summary .link-list a {
+        flex: 1;
+    }
+
+    .gkt-summary .link-list img {
+        width: 25px;
+        height: 25px;
+    }
+</style>
+
+<div class="gkt-summary">
+    <nav>
+        <a href="/" class="col-xs-4">
+            <span class="number">112</span><span>文章</span>
+        </a>
+        <a href="/series" class="col-xs-4 middle">
+            <span class="number">34</span><span>专题</span>
+        </a>
+        <a href="/tags" class="col-xs-4">
+            <span class="number">148</span><span>标签</span>
+        </a>
+    </nav>
+
+    
+</div></section>
+        
+        
+        <section class="gkt-sidebar-content box-shadow">
+            <strong>Java 面试</strong>
+            <ul>
+                
+                <li>
+                    <a href="/post/interview/2018-10-25_Java面试整理.html"
+                        class="gkt-sidebar-active">Java面试整理</a>
+                    
+                    <!-- Table of Contents -->
+<div id="sidebar-toc">
+  <!-- TOC  -->
+  
+  
+  
+  
+</div>
+
+<script>
+  (function () {
+    var h2 = document.querySelectorAll('article h2');
+    var h3 = document.querySelectorAll('article h3');
+    var linkList = document.querySelectorAll('#sidebar-toc a');
+
+    function findLinkElement(name) {
+      for (var i = 0; i < linkList.length; i++) {
+        var items = linkList[i].href.split('#');
+        if (items && items[items.length - 1] === encodeURIComponent(name)) {
+          return i;
+        }
+      }
+      return -1;
+    }
+
+    function activeLink(titleList) {
+      var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+      for (var i = titleList.length - 1; i >= 0; i--) {
+        if (scrollTop - titleList[i].offsetTop > 0) {
+          var index = findLinkElement(titleList[i].id);
+          index != -1 && linkList[index].classList.add('gkt-sidebar-active');
+          break;
+        }
+      }
+    }
+
+    window.addEventListener("scroll", function (e) {
+      [].slice.call(linkList).forEach(function (link) {
+        link.classList.remove('gkt-sidebar-active');
+      })
+      activeLink(h2);
+    })
+  })();
+</script>
+                    
+                </li>
+                
+                <li>
+                    <a href="/post/interview/2018-10-26_技术面试要了解的算法和数据结构知识.html"
+                        class="">技术面试要了解的算法和数据结构知识</a>
+                    
+                </li>
+                
+            </ul>
+        </section>
+        
+        
+        <section class="gkt-sidebar-content box-shadow">
+            <strong>最近的文章</strong>
+            <ul>
+                
+                <li>
+                    <a href="/post/其他/2020-11-28_猴子管理法则.html">猴子管理法则</a>
+                </li>
+                
+                <li>
+                    <a href="/post/其他/2020-11-27_『认知升级』是比其他一切都更加重要的思维模型转变.html">『认知升级』是比其他一切都更加重要的思维模型转变</a>
+                </li>
+                
+                <li>
+                    <a href="/post/util/2020-11-26_开发资源整理.html">开发资源导航</a>
+                </li>
+                
+            </ul>
+        </section>
+        
+    </div>
+</aside>
+
+<script>
+    (function () {
+        function resizeUArrow() {
+            var s = getDom('.u-arrow-wrapper').style
+            var pc = getDom('.post-container')
+            s.left = getPosition(pc).x + 'px';
+            s.width = pc.clientWidth + 'px';
+        }
+        resizeUArrow()
+        window.addEventListener('resize', resizeUArrow);
+    })();
+</script>
+
+    
+
+<script>
+    (function () {
+        var ele = getDom('.gkt-sidebar-content')
+        if(!ele) return;
+        var wrapper = getDom('.gkt-sidebar-wrapper')
+        var last = 0
+        ele.style.maxHeight = ((window.innerHeight || 798) - 200) + 'px'
+        var f = function (e) {
+            var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            var isDown = scrollTop > last;
+            var pos = getPosition(ele).y - scrollTop;
+            var downLimit = 50;
+            var upLimit = -100;
+            // uarrow.style.marginTop = scrollTop + 'px';
+            isDown && pos <= downLimit && wrapper.classList.add("gkt-sidebar-fixed");
+            !isDown && pos > upLimit && wrapper.classList.remove("gkt-sidebar-fixed");
+            last = scrollTop
+        }
+        f()
+        window.addEventListener("scroll", f)
+    })();
+</script>
+
+</main>
+    </div>
+    <style>
+    img#go-top {
+        position: fixed;
+        bottom: 100px;
+        width: 50px;
+        cursor: pointer;
+        z-index: 9999;
+    }
+</style>
+<img id="go-top" src="/icon/top.png" class="hidden-xs" style="display: none" />
+<script>
+    (function () {
+        var goTop = document.getElementById('go-top');
+        var mainContainer = document.querySelector('.main-container');
+        
+        goTop.addEventListener('click', function () {
+            window.scroll(0, 0);
+        }, false);
+        window.addEventListener('scroll', function () {
+            var right = document.body.offsetWidth - mainContainer.getBoundingClientRect().right;
+            var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            goTop.style.right = right + 10 + 'px'
+            scrollTop > 700 && (goTop.style.display = "block");
+            scrollTop <= 700 && (goTop.style.display = "none");
+        });
+    })();
+</script>
+    <style>
+    #geektutu-click-img-container {
+        position: fixed;
+        left: 0;
+        top: 0;
+        text-align: center;
+        width: 100%;
+        display: none;
+        z-index: 9999;
+    }
+
+    #geektutu-click-img-container img {
+        object-fit: contain;
+        background: #eaecef;
+        padding: 15px;
+        border-radius: 10px;
+        height: auto;
+        width: auto;
+        vertical-align: middle;
+    }
+</style>
+
+
+<div id="geektutu-click-img-container">
+    <img src="" alt="Big Image">
+</div>
+
+<script>
+    (function () {
+        var container = document.querySelector('#geektutu-click-img-container')
+        var targetImg = container.querySelector('img')
+        var imgs = document.querySelectorAll('article img');
+        targetImg.addEventListener('click', function (e) {
+            container.style.display = 'none';
+            e && e.stopPropagation && e.stopPropagation();
+        }, false);
+
+        for (var i = 0; i < imgs.length; ++i) {
+            var img = imgs[i];
+            img.addEventListener('click', (function (src, rate) {
+                return function (e) {
+                    e && e.stopPropagation && e.stopPropagation();
+                    if (window.innerWidth < 980) {
+                        return
+                    }
+                    targetImg.style.height = targetImg.style.width = 'auto';
+                    if (window.innerWidth / window.innerHeight > rate) {
+                        targetImg.style.height = (window.innerHeight - 20) + 'px';
+                    } else {
+                        targetImg.style.width = (window.innerWidth - 20) + 'px';
+                    }
+                    container.style.height = window.innerHeight + 'px'
+                    container.style.lineHeight = window.innerHeight + 'px'
+                    container.style.display = 'block';
+                    targetImg.src = src;
+                };
+            }(img.src, img.width / img.height)), false)
+        }
+    })();
+</script>
+    <!-- Footer -->
+    <!-- Footer -->
+<style>
+    footer {
+        width: 100%;
+        line-height: 1.5;
+        padding: 20px;
+    }
+
+    footer a {
+        color: #333;
+        text-decoration: none;
+    }
+
+    .footer-hexo img {
+        height: 20px;
+        margin-bottom: -5px;
+    }
+
+    .footer-hexo a {
+        color: #337ab7;
+    }
+</style>
+<footer class="text-center col-xs-12">
+    <p>
+        <small>© 2020 - Hassan - </small>
+        <small>
+            <a target="_blank" rel="nofollow noopener" href="http://beian.miit.gov.cn/"></a>
+        </small>
+    </p>
+    <p class="footer-hexo">
+        <!-- 但若直接使用或修改主题，请务必保留这段声明 -->
+        <small>Powered by <a target="_blank" href="https://hexo.io">Hexo</a> | Theme
+            <a target="_blank" href="https://geektutu.com">Geektutu</a>
+            <a target="_blank" rel="noopener" href="https://github.com/geektutu/hexo-theme-geektutu">
+                <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAYGBgYHBgcICAcKCwoLCg8ODAwODxYQERAREBYiFRkVFRkVIh4kHhweJB42KiYmKjY+NDI0PkxERExfWl98fKcBBgYGBgcGBwgIBwoLCgsKDw4MDA4PFhAREBEQFiIVGRUVGRUiHiQeHB4kHjYqJiYqNj40MjQ+TERETF9aX3x8p//CABEIACIAUAMBIgACEQEDEQH/xAAcAAABBAMBAAAAAAAAAAAAAAAAAQQFBwIDBgj/2gAIAQEAAAAA9KrHSgAYL5/z6zZGuJd12uugbhq3uKtmuRtix20IS7lTLAfAAAn/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/9oACAECEAAAAAAB/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/aAAgBAxAAAAAAAf/EADEQAAICAQIEBQEGBwAAAAAAAAECAwQFAAYREhORBxQhUlQxQVFic5KxJDJCYYGC0f/aAAgBAQABPwCFHnjWUzuvN6hV4cANSRLGjO9yRVUcSzMoA7jVXJYe5N0a2dhmk9kc0bN2GvLN8mbuNeWb5M3ca8s3yZu415Y/Jm7jXlm+TN3H/NeVPyZu40vOk3TZywK8wJ+v3EHVM/wsI/Dq2lrxN3Nnca16eti8chSAIoMbzByhMwP14kHVfwIiSaF5c96J6kwwCOTnHsYk8uvCrdmQy1TI4rJuz3cZLyGR/wCd4+YoOf8AEpUjXitubLYPG4paFsUxcuiGe7yc5gTW3LW44szXmobsi3Dhmic2+Z4+vCVH9CpraPiQ+QvbgTJrPFBWd5YpWrmNIIEXiRO32Pqt4p7cnfHk18lFBdmEVW1LVdIZGOrniTt6plrWKaO69yCykDRxwF+LMAewB0Txtr+Sf31VI8tEPw62fZt7N3Humtbpzz13ucX6CGSWMSuzpLyD1eNgeUka3PuvHbaxq3biTMHfkiSNCS78CwU+3Xg7Vu3MhuTcU6cq3Zemn3Eh2dv8Lzcut+29x1atKbHYqLJUhLwyNMwiZ3j9yDWOxUOV3tgb+3No5LDx1pi9+aeIwRlNY6bc+Jv+IFGrhLxtXJZ7VKcw81diiAAEn0JOrkWZyNfbEr0tz27UGQgkuGzXdIIvyowq99bRxk9ffO/L81SZBPZgEEroQroIxxMZOgeNsfkn99QypHGqO4Vl9CDrN4LDZkwyzyyQ2IgRHZrzGCZVP1XnQglT9oOtw4LC7iqV6uRkZoYpxKFSQpzFRw4EjVRMfSrQ1qqwxQxKFjjTgFUD7BoWYR6iVe+mtxt9Zwf9teaj4AdccPu5tedX5A/VrzUR+sy/q1CwksF19VEfDj/cnQRW+qg66cfsXtrpx+xe2unH7F7a6cfsXtrpx+xe2unH7F7a6cfsXtoxx+xe2gAAOA1//8QAFBEBAAAAAAAAAAAAAAAAAAAAMP/aAAgBAgEBPwB//8QAFBEBAAAAAAAAAAAAAAAAAAAAMP/aAAgBAwEBPwB//9k="
+                    alt="Github Star">
+            </a>
+        </small>
+    </p>
+    
+    <p>
+        <small>
+            <span id="busuanzi_container_site_pv">👁<span id="busuanzi_value_site_pv"></span></span> &nbsp;
+            <span id="busuanzi_container_page_pv">📚<span id="busuanzi_value_page_pv"></span></span>
+        </small>
+    </p>
+    
+    
+
+</footer>
+
+
+<script>
+    window.addEventListener('load', function () {
+        globalAddScript('//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js');
+    })
+</script>
+
+<!-- Baidu Tongji -->
+
+
+
+
+
+    <script>
+        // 非本站网址，新开tab页签
+        (function () {
+            var stopBubble = function (e) {
+                e && e.stopPropagation && e.stopPropagation();
+            }
+            var links = document.querySelectorAll('a');
+            [].slice.call(links).forEach(function (item) {
+                if (item.href && item.href.indexOf(window.location.host) === -1) {
+                    item.target = '_blank'
+                }
+                // 阻止冒泡，不触发彩蛋。
+                item.addEventListener('click', stopBubble, false);
+            });
+            var article = document.querySelector('article');
+            article && article.addEventListener('click', stopBubble, false)
+        })();
+    </script>
+    
+<script>
+    (function (window, document, undefined) {
+        var hearts = [];
+        var keywords = ["点个赞", "留个言", "赞赏一下", "分享之", "blog.fenxiangz.com"];
+        function randomInt(max) {
+            return Math.floor(Math.random() * Math.floor(max));
+        }
+        window.addEventListener('click', createWord)
+
+        function createWord(e) {
+            var d = document.createElement("span");
+            d.style.position = 'fixed';
+            d.style.zIndex = 9999;
+            d.style.color = 'rgb(' + [randomInt(255), randomInt(255), randomInt(255)].join(',') + ')';
+            d.innerHTML = keywords[randomInt(keywords.length)];
+            d.onselectstart = function () { return false; }
+
+            hearts.push({ el: d, x: e.clientX - 5, y: e.clientY - 5, alpha: 1, scale: 1 });
+            document.body.appendChild(d);
+        }
+        (function gameloop() {
+            for (var i = 0; i < hearts.length; i++) {
+                heart = hearts[i];
+                if (heart.alpha <= 0) {
+                    document.body.removeChild(heart.el);
+                    hearts.splice(i, 1);
+                    continue;
+                }
+                heart.y -= heart.alpha < 0.5 ? 2 : 1;
+                heart.scale += 0.002;
+                heart.alpha -= 0.013;
+                heart.el.style.transform = 'scale(' + heart.scale + ')';
+                heart.el.style.left = heart.x + 'px';
+                heart.el.style.top = heart.y + 'px';
+            }
+            setTimeout(gameloop, 10)
+        })();
+    })(window, document);
+</script>
+
+</body>
+
+</html>

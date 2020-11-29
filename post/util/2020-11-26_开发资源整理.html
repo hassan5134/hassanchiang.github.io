@@ -1,0 +1,1834 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<!-- Head tag -->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  <meta name="baidu-site-verification" content="" />
+  <meta name="google-site-verification" content="" />
+  <meta name="msvalidate.01" content="" />
+  <meta name="360-site-verification" content="" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- if page has tags, then add tags to keyword -->
+  
+  
+  <meta name="keywords" content=",工具,Wiki,整理,">
+  <!-- page.description has higher priority -->
+  <meta name="description" content="Share everything">
+  <link rel="shortcut icon" href="/favico.png">
+  <title>
+    
+    开发资源导航 | 分享之
+    
+  </title>
+
+  <link rel="canonical" href="/post/util/2020-11-26_开发资源整理.html">
+  
+<link rel="stylesheet" href="/css/reset.css">
+
+  
+<link rel="stylesheet" href="/css/layout.css">
+
+  
+<link rel="stylesheet" href="/css/markdown.css">
+
+  <!-- Pygments Highlight CSS -->
+  
+<link rel="stylesheet" href="/css/highlight.css">
+
+  
+<link rel="stylesheet" href="/css/geektutu.css">
+
+  <!-- global function -->
+  <script>
+    window.globalAddScript = function (url, onload, onerror) {
+      var s = document.createElement('script');
+      s.src = url;
+      onload && (s.onload = onload);
+      onerror && (s.onerror = onerror);
+      document.body.appendChild(s);
+    }
+    window.globalAddCss = function (url) {
+      var s = document.createElement('link');
+      s.rel = 'stylesheet';
+      s.href = url;
+      document.body.appendChild(s);
+    }
+    window.getPosition = function (ele) {
+      var x = 0, y = 0;
+      while (ele) {
+        x += (ele.offsetLeft - ele.scrollLeft + ele.clientLeft);
+        y += (ele.offsetTop - ele.scrollTop + ele.clientTop);
+        ele = ele.offsetParent;
+      }
+      return { x: x, y: y };
+    }
+    window.getDom = function (str) { return document.querySelector(str) }
+  </script>
+  <!-- google ad -->
+  
+<meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/feed.xml" title="分享之" type="application/rss+xml">
+</head>
+
+<body>
+    <header class="gkt-header col-xs-12 padding-0">
+    <div id="gkt-nav" class="gkt-header-container">
+        <a href="/" class="gkt-header-title float-left">
+            <img class="float-left" src="/favico.png" alt="">
+            <span>分享之</span>
+        </a>
+        <nav class="gkt-header-nav text-right">
+            <ul>
+                <li><a class="hidden-xs" href="/feed.xml">订阅</a></li>
+                <li><a href="/series/">专题</a></li>
+                <li><a href="/archives/">归档</a></li>
+                <li><a href="/post/link.html">友链</a></li>
+                <li><a href="/post/about.html">关于</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div id="gkt-cate-nav" class="gkt-header-container hidden-xs">
+        
+        <nav class="gkt-header-nav float-left">
+            <ul>
+                
+                
+                <li class="gkt-cate-name float-left ">
+                    <a class="float-left" href="/post/java/basic/2016-10-25_hashmap_jdk7.html">Java ▾</a>
+                    
+                    <ul class="gkt-sub-cate">
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/java/basic/2016-10-25_hashmap_jdk7.html">Java 基础</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/java/advance/2016-10-25_number.html">Java 进阶</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/java/io/2017-04-15_java_io_1_overview.html">Java IO</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/java/nio/2017-04-21_java_nio_1.html">Java NIO</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/interview/2018-10-25_Java面试整理.html">Java 面试</a></li>
+                        
+                    </ul>
+                    
+                </li>
+                
+                <li class="gkt-cate-name float-left ">
+                    <a class="float-left" href="/post/java/spring/2016-10-30_Spring 组合注解&amp;注解继承.html">Spring ▾</a>
+                    
+                    <ul class="gkt-sub-cate">
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/java/spring/2016-10-30_Spring 组合注解&amp;注解继承.html">Spring Core</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/java/spring/2019-12-28_【译】Spring Boot 从 classpath 加载文件.html">Spring Boot</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/java/spring/2020-09-02_How-to-learn-Spring-Cloud.html">Spring Cloud</a></li>
+                        
+                    </ul>
+                    
+                </li>
+                
+                <li class="gkt-cate-name float-left ">
+                    <a class="float-left" href="/post/java/netty/2019-01-02_小白科普Netty有什么用.html">Java 框架</a>
+                    
+                </li>
+                
+                <li class="gkt-cate-name float-left active">
+                    <a class="float-left" href="/post/util/ide/2017-10-25_idea_shotcut.html">工具 ▾</a>
+                    
+                    <ul class="gkt-sub-cate">
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/util/ide/2017-10-25_idea_shotcut.html">IDE</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/util/gradle/LearnGradle_1_安装.html">Gradle</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/docker/2017-11-25_Docker_Get_Started.html">Docker</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/util/monitor/2017-12-10_从零开始搭建Prometheus自动监控报警系统.html">监控</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/util/svn/2017-12-10_SVN自动删除“被手动删除”的文件.html">SVN</a></li>
+                        
+                        <li class="gkt-sub-cate-name active"><a class="float-left"
+                                href="/post/util/2020-11-26_开发资源整理.html">资源导航</a></li>
+                        
+                    </ul>
+                    
+                </li>
+                
+                <li class="gkt-cate-name float-left ">
+                    <a class="float-left" href="/post/linux/2017-11-27_update-alternatives_命令.html">Linux ▾</a>
+                    
+                    <ul class="gkt-sub-cate">
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/linux/2017-11-27_update-alternatives_命令.html">其他</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/linux/2017-11-26_IO-同步，异步，阻塞，非阻塞.html">IO</a></li>
+                        
+                    </ul>
+                    
+                </li>
+                
+                <li class="gkt-cate-name float-left ">
+                    <a class="float-left" href="/post/network/2017-11-24_面向报文（UDP）和面向字节流（TCP）的区别.html">计算机网络 ▾</a>
+                    
+                    <ul class="gkt-sub-cate">
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/network/2017-11-24_面向报文（UDP）和面向字节流（TCP）的区别.html">TCP/IP</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/network/2017-11-25_一张图说明CDN网络的原理.html">网络/其他</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/network/2018-12-15_URL和URI的区别.html">网络/术语</a></li>
+                        
+                    </ul>
+                    
+                </li>
+                
+                <li class="gkt-cate-name float-left ">
+                    <a class="float-left" href="/post/dateabase/mysql/2018-12-15_MySQL优化概要.html">数据库 ▾</a>
+                    
+                    <ul class="gkt-sub-cate">
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/dateabase/mysql/2018-12-15_MySQL优化概要.html">MySQL</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/dateabase/MSSQL/2020-09-08_MSSQL最佳实践_SQL_Server备份策略.html">MSSQL</a></li>
+                        
+                    </ul>
+                    
+                </li>
+                
+                <li class="gkt-cate-name float-left ">
+                    <a class="float-left" href="/post/design/2019-01-03_Java经典设计模式_1_五大创建型模式.html">设计模式</a>
+                    
+                </li>
+                
+                <li class="gkt-cate-name float-left ">
+                    <a class="float-left" href="/post/distribution/2019-08-13_Zookeeper是如何解决脑裂问题.html">分布式 ▾</a>
+                    
+                    <ul class="gkt-sub-cate">
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/distribution/2019-08-13_Zookeeper是如何解决脑裂问题.html">zookeeper</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/distribution/2019-08-12_CAP定理的含义.html">概念</a></li>
+                        
+                    </ul>
+                    
+                </li>
+                
+                <li class="gkt-cate-name float-left ">
+                    <a class="float-left" href="/post/frontend/vue/2017-10-26_vue自定义组件中的v-model简单解释.html">前端 ▾</a>
+                    
+                    <ul class="gkt-sub-cate">
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/frontend/vue/2017-10-26_vue自定义组件中的v-model简单解释.html">VUE</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/frontend/2016-10-26_深入理解jQuery插件开发.html">jQuery</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/frontend/2019-10-26_小程序多端框架全面测评.html">跨平台</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/frontend/2019-11-26_APK反编译总结.html">Android</a></li>
+                        
+                    </ul>
+                    
+                </li>
+                
+                <li class="gkt-cate-name float-left ">
+                    <a class="float-left" href="/post/algorithm/八皇后算法解析.html">算法</a>
+                    
+                </li>
+                
+                <li class="gkt-cate-name float-left ">
+                    <a class="float-left" href="/post/其他/2020-01-29_弹琴吧非会员扒谱技巧.html">其他 ▾</a>
+                    
+                    <ul class="gkt-sub-cate">
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/其他/2020-01-29_弹琴吧非会员扒谱技巧.html">其他/Tampermonkey</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/其他/2020-10-25_V2ray配置.html">其他/V2ray</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/其他/2020-11-26_Jira修改Path路径后的用户管理问题.html">其他/Jira</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/其他/2020-11-27_『认知升级』是比其他一切都更加重要的思维模型转变.html">其他/管理</a></li>
+                        
+                    </ul>
+                    
+                </li>
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+<div class="gkt-header-placeholder" style="height: 44px"></div>
+<div class="gkt-header-placeholder hidden-xs" style="height: 44px"></div>
+<script>
+    (function () {
+        window.addEventListener('scroll', function () {
+            if (window.innerWidth < 768) {
+                return;
+            }
+            var nav = document.querySelector('#gkt-nav');
+            var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            scrollTop > 50 && (nav.classList.add('hide'));
+            scrollTop <= 50 && (nav.classList.remove('hide'));
+        });
+        var cateNavs = document.querySelectorAll('#gkt-cate-nav>nav>ul>li');
+        [].slice.call(cateNavs).forEach(function (item) {
+            var sub = item.querySelector('.gkt-sub-cate');
+            if (!sub) return;
+            item.addEventListener('mouseenter', function (e) { sub.style.display = 'block'; }, false);
+            item.addEventListener('mouseleave', function (e) { sub.style.display = 'none'; }, false);
+        })
+    })();
+</script>
+    <!-- Main Content -->
+    <div class="main-container">
+        <!-- Main Content -->
+<main class="col-xs-12 padding-0 markdown-it">
+    <!-- Post Container -->
+    
+    
+    <!-- Post Content -->
+<div class="float-left post-container box-shadow">
+    <div class="u-arrow-wrapper hidden-xs">
+        
+        <a class="float-left" href="/post/其他/2020-10-25_V2ray配置.html"><i class="u-arrow-left"></i></a>
+        
+        
+        <a class="float-right" href="/post/其他/2020-11-26_Jira修改Path路径后的用户管理问题.html"><i class="u-arrow-right"></i></a>
+        
+    </div>
+    <article class="col-xs-12">
+        <h1> 开发资源导航 </h1>
+        
+        
+        <div class="hidden-lg hidden-md series_links">
+            <p> <strong> 资源导航系列文章链接：</strong></p>
+            <ul>
+                
+                <li>
+                    <a href="/post/util/2020-11-26_开发资源整理.html">开发资源导航</a>
+                    <span class="post-item-date">(Nov 26, 2020)</span>
+                </li>
+                
+            </ul>
+        </div>
+        
+        
+        <h2 id="Javascript"><a href="#Javascript" class="headerlink" title="Javascript"></a>Javascript</h2><ul>
+<li><a target="_blank" rel="noopener" href="http://jqfundamentals.com/book/index.html">jQuery Fundamentals</a>  - jQuery 入门教程。</li>
+<li><a target="_blank" rel="noopener" href="http://www.cn-cuckoo.com/deconstructed/index.html">JavaScript库 代码解构</a>  - 将JavaScript流行框架源代码条分缕析展现出来</li>
+<li><a target="_blank" rel="noopener" href="http://www.cnblogs.com/TomXu/archive/2011/12/15/2288411.html">深入理解Javascript系列</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.cnblogs.com/TomXu/archive/2011/12/15/2288411.html">Script的defer和async的区别</a></li>
+<li><a target="_blank" rel="noopener" href="http://coolshell.cn/articles/6441.html">Javascript面向对象基础</a> </li>
+<li><a target="_blank" rel="noopener" href="http://github.com/addyosmani/backbone-fundamentals">Backbone.js基础</a> </li>
+<li><a target="_blank" rel="noopener" href="http://unixpapa.com/js/key.html">JavaScript Madness: Keyboard Events</a> </li>
+<li><a target="_blank" rel="noopener" href="http://dailyjs.com/tags.html#frameworks">Let’s Make Frameworks</a> </li>
+<li>国内公司JS框架：<a target="_blank" rel="noopener" href="http://kissyui.com/">Kissy - Taobao</a>  | <a target="_blank" rel="noopener" href="http://arale.alipay.net/">Arale - Alipay</a>  | <a target="_blank" rel="noopener" href="http://tangram.baidu.com/">Tangram - Baidu</a> </li>
+<li><a target="_blank" rel="noopener" href="http://js1k.com/">JS1K, 1k Javascript contest</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.json.org/">JSON Home Page</a> </li>
+<li><a target="_blank" rel="noopener" href="http://code.google.com/p/molokoloco-coding-project/wiki/JavascriptBase">NB JS Wiki(CSS、PHP、jQuery、Linux)</a> </li>
+<li><a target="_blank" rel="noopener" href="http://birdshome.cnblogs.com/archive/2006/05/28/IE_MemoryLeak.html">理解并解决IE的内存泄漏方式</a> <a target="_blank" rel="noopener" href="http://birdshome.cnblogs.com/archive/2006/06/01/ClosureReferences.html">2</a> <a target="_blank" rel="noopener" href="http://birdshome.cnblogs.com/archive/2006/06/17/Cross_Page_Leaks.html">3</a> <a target="_blank" rel="noopener" href="http://birdshome.cnblogs.com/archive/2006/06/30/Pseudo_Leaks.html">4</a> </li>
+<li><a target="_blank" rel="noopener" href="http://msdn.microsoft.com/en-us/library/bb250448.aspx">Understanding and Solving Internet Explorer Leak Patterns</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.cnblogs.com/rubylouvre/archive/2010/01/05/1639541.html">Javscript Bind函数</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.addyosmani.com/resources/essentialjsdesignpatterns/book/">Javscript设计模式</a> </li>
+</ul>
+<h4 id="JSON工具："><a href="#JSON工具：" class="headerlink" title="JSON工具："></a>JSON工具：</h4><ul>
+<li><a target="_blank" rel="noopener" href="http://www.jsonlint.com/">JSONLint</a>  - The JSON Validator</li>
+<li><a target="_blank" rel="noopener" href="http://undefined.org/python/#simplejson">SimpleJSON</a>  - Python Stuff</li>
+<li><a target="_blank" rel="noopener" href="http://jsonformatter.curiousconcept.com/">JSON Formatter (&amp; Validator!)</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.raboof.com/Projects/TidyJson/">Tidy JSON - JSON Pretty Printer/Colorer</a>  - C#(.NET)</li>
+<li><a target="_blank" rel="noopener" href="http://www.cerny-online.com/cerny.js/demos/json-pretty-printing">Cerny.js - JSON Pretty Printing Demo</a> </li>
+<li><a target="_blank" rel="noopener" href="http://github.com/nicksieger/jsonpretty">jsonpretty(ruby)</a> </li>
+</ul>
+<h4 id="Vim-Json："><a href="#Vim-Json：" class="headerlink" title="Vim Json："></a>Vim Json：</h4><ul>
+<li><a target="_blank" rel="noopener" href="http://lumberjaph.net/perl/2009/02/17/tidify-a-json-in-vim.html">tidify a json in Vim</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.vim.org/scripts/script.php?script_id=1945">JSON.vim</a>  - syntax</li>
+<li><a target="_blank" rel="noopener" href="http://visibletrap.blogspot.com/2010/05/vim-how-to-format-and-syntax-highlight.html">VIM - How to format and syntax highlight JSON file</a> </li>
+<li><a target="_blank" rel="noopener" href="http://bradmontgomery.blogspot.com/2010/01/add-json-syntax-highlighting-in-vim-on.html">Add JSON syntax highlighting in Vim on OS X</a> </li>
+</ul>
+<h4 id="JSONP："><a href="#JSONP：" class="headerlink" title="JSONP："></a>JSONP：</h4><ul>
+<li><a target="_blank" rel="noopener" href="http://www.ibm.com/developerworks/cn/web/wa-aj-jsonp1/index.html">使用 JSONP 实现跨域通信，第 1 部分: 结合 JSONP 和 jQuery 快速构建强大的 mashup</a> <a target="_blank" rel="noopener" href="http://www.ibm.com/developerworks/cn/web/wa-aj-jsonp2/index.html">第 2 部分: 使用 JSONP、jQuery 和 Yahoo! 查询语言构建 mashup</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.cn-cuckoo.com/2008/09/13/the-origin-of-jsonp-262.html">JSONP的起源</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.ibm.com/developerworks/cn/xml/x-mashups.html">Mashups：Web 应用程序新成员</a> </li>
+</ul>
+<h4 id="Javascript闭包："><a href="#Javascript闭包：" class="headerlink" title="Javascript闭包："></a>Javascript闭包：</h4><ul>
+<li><a target="_blank" rel="noopener" href="http://zh.wikipedia.org/zh-cn/%E9%97%AD%E5%8C%85_(%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6)">闭包 (计算机科学)</a> </li>
+<li><a target="_blank" rel="noopener" href="http://jibbering.com/faq/notes/closures/">Javascript Closures</a> </li>
+<li><a target="_blank" rel="noopener" href="http://roshanca.com/?p=153">什么是闭包</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.jibbering.com/faq/faq_notes/closures.html">Javascript Closures</a> <a target="_blank" rel="noopener" href="http://www.cn-cuckoo.com/2007/08/01/understand-javascript-closures-72.html">中文</a> <a target="_blank" rel="noopener" href="http://www.aspxhome.com/examples/javascript/program/483628/javascriptclosures.html">2</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2009/08/learning_javascript_closures.html">学习Javascript闭包（Closure）</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.mikkolee.com/81">作用域链 词法作用域 与 闭包（一）</a> <a target="_blank" rel="noopener" href="http://www.mikkolee.com/84">（二）</a> </li>
+</ul>
+<h4 id="Javascript工具："><a href="#Javascript工具：" class="headerlink" title="Javascript工具："></a>Javascript工具：</h4><ul>
+<li><a target="_blank" rel="noopener" href="http://www.jslint.com/">JSLint</a> </li>
+<li><a target="_blank" rel="noopener" href="http://javascriptlint.com/">JavaScript Lint</a> </li>
+<li><a target="_blank" rel="noopener" href="http://github.com/rainux/jslint.vim">Fork of hallettj/jslint.vim</a> </li>
+<li><a target="_blank" rel="noopener" href="http://varnow.org/?p=174">Google Closure Compiler压缩优化规则初探</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.phpblog.cn/archives/242">使用Google 的Closure Compiler来压缩javascript</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.cnblogs.com/JeffreyZhao/archive/2009/12/09/ikvm-google-closure-compiler.html">在项目中使用Google Closure Compiler</a> </li>
+<li><a target="_blank" rel="noopener" href="http://hikejun.com/blog/?p=476&amp;cpage=1">Mac下用Closure compiler</a> </li>
+<li><a target="_blank" rel="noopener" href="http://ued.sohu.com/article/611">JS 库浅析之 Google Closure</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.pushiming.com/blog/2010/12/advanced-optimization-in-closure-compiler-and-more/">Closure Compiler 高级模式及更多思考</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.slideshare.net/lifesinger/closure-compiler-vs-yuicompressor">Closure Compiler vs YUICompressor</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.minifyjs.com/">Minify JS</a> </li>
+<li><a target="_blank" rel="noopener" href="http://docs.jquery.com/QUnit">QUnit</a> <a target="_blank" rel="noopener" href="http://github.com/jquery/qunit">@github</a> </li>
+</ul>
+<ul>
+<li>JsBeautify：<a target="_blank" rel="noopener" href="http://jsbeautifier.org/">Online Javascript jsbeautifier</a> <a target="_blank" rel="noopener" href="http://github.com/einars/js-beautify">github</a> , <a target="_blank" rel="noopener" href="http://www.vim.org/scripts/script.php?script_id=2727">vimscript</a> </li>
+</ul>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://code.google.com/p/jsbeautifier/">js beautifier</a>  - plugin for Chrome</li>
+</ul>
+<h4 id="NodeJS："><a href="#NodeJS：" class="headerlink" title="NodeJS："></a>NodeJS：</h4><ul>
+<li><a target="_blank" rel="noopener" href="http://nodejs.org/">nodeJS</a>  - 服务器端 JavaScript 编程</li>
+<li><a target="_blank" rel="noopener" href="http://simonwillison.net/2009/Nov/23/node/">Node.js is genuinely exciting</a> </li>
+<li><a target="_blank" rel="noopener" href="http://blog.csdn.net/fuadam/archive/2010/03/15/5380178.aspx">在cygwin环境下编译node.js</a> </li>
+<li><a target="_blank" rel="noopener" href="http://github.com/ry/node_chat">node char</a>  - 用 nodeJS 写的聊天室</li>
+<li><a target="_blank" rel="noopener" href="https://no.de/">Joyent Node</a>  | <a target="_blank" rel="noopener" href="http://mattn.no.de/">mattn.no.de</a> </li>
+</ul>
+<h2 id="HTML-amp-CSS"><a href="#HTML-amp-CSS" class="headerlink" title="HTML &amp; CSS"></a>HTML &amp; CSS</h2><ul>
+<li><a target="_blank" rel="noopener" href="http://wiki.hotoo.me/CSS-Hacks.html">CSS Hacks &amp; Expression</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.digitalmediaminute.com/reference/entity/">XHTML Character Entity Reference HTML实体字符引用</a> </li>
+<li><a target="_blank" rel="noopener" href="http://blog.bingo929.com/css-frameworks-15.html">精选15个国外CSS框架</a> </li>
+<li><a target="_blank" rel="noopener" href="http://nicolasgallagher.com/pure-css-speech-bubbles/demo/">Pure Css Speech Bubbles</a> </li>
+</ul>
+<h4 id="CSS栅格系统-Grid-System-："><a href="#CSS栅格系统-Grid-System-：" class="headerlink" title="CSS栅格系统(Grid System)："></a>CSS栅格系统(Grid System)：</h4><ul>
+<li><a target="_blank" rel="noopener" href="http://1kbgrid.com/">The 1Kb CSS Grid</a>  - 拖放各个阈值并直接下载自动生成的CSS。</li>
+<li><a target="_blank" rel="noopener" href="http://www.spry-soft.com/grids/">Variable Grid System</a>  - 可直接修改各个阈值并预览效果。</li>
+<li><a target="_blank" rel="noopener" href="http://grid.mindplay.dk/">Grid Designer</a> </li>
+<li><a target="_blank" rel="noopener" href="http://builder.yaml.de/">YAML Builder</a>  - A tool for visual development of YAML based CSS layouts. </li>
+<li><a target="_blank" rel="noopener" href="http://960.gs/">960 Grid System</a> <a target="_blank" rel="noopener" href="http://github.com/nathansmith/960-Grid-System">960-Grid-System@github</a> </li>
+<li><a target="_blank" rel="noopener" href="http://ued.taobao.com/blog/2008/09/17/grid_systems/">网页的栅格系统设计</a>  - 青云</li>
+<li><a target="_blank" rel="noopener" href="http://www.gracecode.com/archives/2363/">我的栅格系统</a>  - 明城</li>
+<li><a target="_blank" rel="noopener" href="http://www.markboulton.co.uk/journal/comments/five-simple-steps-to-designing-grid-systems-part-1">Five simple steps to designing grid systems</a> <a target="_blank" rel="noopener" href="http://www.markboulton.co.uk/journal/comments/five-simple-steps-to-designing-grid-systems-part-2">2</a> <a target="_blank" rel="noopener" href="http://www.markboulton.co.uk/journal/comments/five-simple-steps-to-designing-grid-systems-part-3">3</a> <a target="_blank" rel="noopener" href="http://www.markboulton.co.uk/journal/comments/five-simple-steps-to-designing-grid-systems-part-4">4</a> <a target="_blank" rel="noopener" href="http://www.markboulton.co.uk/journal/comments/five-simple-steps-to-designing-grid-systems-part-5">5</a> </li>
+</ul>
+<h4 id="CSS疑难杂症："><a href="#CSS疑难杂症：" class="headerlink" title="CSS疑难杂症："></a>CSS疑难杂症：</h4><ul>
+<li><a target="_blank" rel="noopener" href="http://www.smallni.com/haslayout-block-formatting-contexts/">HasLayout和BFC(Block Formatting Contexts)的区别完整对比</a> </li>
+<li><a target="_blank" rel="noopener" href="http://rebuildpattern.com/node/44">Block Formatting Contexts的特性</a> </li>
+<li><a target="_blank" rel="noopener" href="http://haslayout.net/">hasLayout.net</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.satzansatz.de/cssd/onhavinglayout.html">On having layout</a> <a target="_blank" rel="noopener" href="http://www.blueidea.com/tech/site/2006/3698.asp">中文版</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.positioniseverything.net/explorer/expandingboxbug.html">Internet Explorer 6 and the Expanding Box Problem</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.qianduan.net/universal-to-remove-floating-style.html">万能清除浮动样式</a> </li>
+<li><a target="_blank" rel="noopener" href="http://ued.taobao.com/blog/2010/08/04/css-border%E4%BD%BF%E7%94%A8%E5%B0%8F%E5%88%86%E4%BA%AB/">CSS Border使用小分享</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.cnblogs.com/eazon/archive/2008/07/04/1235268.html">表格樣式集錦</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.zhangxinxu.com/wordpress/?p=56">复选框单选框与文字对齐问题的研究与解决</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.blueidea.com/tech/web/2008/6313.asp">连续字符自动换行的解决方案</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.cnblogs.com/yizuierguo/archive/2010/08/04/1792287.html">三谈Iframe自适应高度</a>  | <a target="_blank" rel="noopener" href="http://www.cnblogs.com/MaxIE/archive/2008/08/13/1266597.html">再谈iframe自适应高度</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.qianduan.net/cross-browser-inline-block.html">跨浏览器的inline-block</a> <a target="_blank" rel="noopener" href="http://blog.mozilla.com/webdev/2009/02/20/cross-browser-inline-block/">en</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.planabc.net/2007/03/11/display_inline-block/">display:inline-block的深入理解</a> </li>
+</ul>
+<h2 id="HTML5-amp-CSS3"><a href="#HTML5-amp-CSS3" class="headerlink" title="HTML5 &amp; CSS3"></a>HTML5 &amp; CSS3</h2><ul>
+<li><a target="_blank" rel="noopener" href="http://diveintohtml5.info/">Dive Into HTML5</a> </li>
+<li><a target="_blank" rel="noopener" href="http://blog.bingo929.com/google-enjoy-html5-drag-drop-filereaderenren.html">HTML5训练营</a> </li>
+<li><a target="_blank" rel="noopener" href="http://blog.bingo929.com/html5-websockets.html">HTML5 WebSockets</a> </li>
+<li><a target="_blank" rel="noopener" href="http://blog.bingo929.com/html5-ie-enabling-script.html">IE支持HTML5</a> </li>
+<li><a target="_blank" rel="noopener" href="http://blog.bingo929.com/power-of-html5-css3-div-css.html">感受HTML5&amp;CSS3</a> </li>
+<li>用JavaScript玩转计算机图形学：<a target="_blank" rel="noopener" href="http://www.cnblogs.com/miloyip/archive/2010/03/29/1698953.html">(一)光线追踪入门</a> <a target="_blank" rel="noopener" href="http://www.cnblogs.com/miloyip/archive/2010/04/02/1702768.html">(二)基本光源</a> </li>
+</ul>
+<h4 id="Canvas："><a href="#Canvas：" class="headerlink" title="Canvas："></a>Canvas：</h4><ul>
+<li><a target="_blank" rel="noopener" href="http://zh.wikipedia.org/wiki/Canvas_%28HTML%E5%85%83%E7%B4%A0%29">Canvas (HTML元素)</a> </li>
+<li><a target="_blank" rel="noopener" href="http://billmill.org/static/canvastutorial/index.html">Canvas Tutorial</a> </li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/cn/Canvas_tutorial">Canvas 教程</a> <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en/Canvas_tutorial">en</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#the-canvas-element">The canvas element</a> </li>
+<li><a target="_blank" rel="noopener" href="http://blog.bingo929.com/html-5-canvas-the-basics-html5.html">HTML5 Canvas</a> </li>
+</ul>
+<h4 id="Canvas使用教程："><a href="#Canvas使用教程：" class="headerlink" title="Canvas使用教程："></a>Canvas使用教程：</h4><ul>
+<li><a target="_blank" rel="noopener" href="http://jiachen.blogbus.com/logs/29567413.html">开题</a> </li>
+<li><a target="_blank" rel="noopener" href="http://jiachen.blogbus.com/logs/29569584.html">基本语法</a> </li>
+<li><a target="_blank" rel="noopener" href="http://jiachen.blogbus.com/logs/29596111.html">图形绘制</a> </li>
+<li><a target="_blank" rel="noopener" href="http://jiachen.blogbus.com/logs/32827552.html">图片应用</a> </li>
+</ul>
+<h4 id="Canvas-Games："><a href="#Canvas-Games：" class="headerlink" title="Canvas Games："></a>Canvas Games：</h4><ul>
+<li><a target="_blank" rel="noopener" href="http://henrikfalck.com/unrealsoccer/">Unreal Soccer</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.benjoffe.com/code/demos/canvascape/">Canvascape</a> </li>
+<li><a target="_blank" rel="noopener" href="http://dave-webster.com/projects/index.php?page=incs/plasma_demo1">Plasma demo using the HTML Canvas element</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.student.kuleuven.be/~m0216922/CG/plasma.html">Lodes Computer Graphics Tutorial</a> </li>
+<li><a target="_blank" rel="noopener" href="http://alteredqualia.com/cubeout/">CubeOut</a>  - 3D 俄罗斯方块</li>
+<li><a target="_blank" rel="noopener" href="http://canvasrider.com/tracks/all">自行车越野</a> </li>
+<li><a target="_blank" rel="noopener" href="http://box2d-js.sourceforge.net/index2.html">Box2DJS</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.effectgames.com/demos/canvascycle/?sound=1">Canvas Cycles</a> </li>
+<li><a target="_blank" rel="noopener" href="http://agent8ball.com/">Agent 8 Ball</a>  - 台球</li>
+</ul>
+<h4 id="工具："><a href="#工具：" class="headerlink" title="工具："></a>工具：</h4><ul>
+<li><a target="_blank" rel="noopener" href="http://www.css3generator.com/">CSS3 Generator</a> </li>
+<li><a target="_blank" rel="noopener" href="http://gradients.glrzad.com/">CSS3 Gradient Generator</a> </li>
+<li><a target="_blank" rel="noopener" href="http://css-tricks.com/examples/ButtonMaker/">CSS3 Button Maker</a> </li>
+<li><a target="_blank" rel="noopener" href="http://css3please.com/">CSS3 Please!</a>  - The Cross-Browser CSS3 Rule Generator</li>
+</ul>
+<h4 id="Framework："><a href="#Framework：" class="headerlink" title="Framework："></a>Framework：</h4><ul>
+<li><a target="_blank" rel="noopener" href="http://www.jgraph.com/mxgraph.html">mxGraph - the AJAX diagramming soluting</a> </li>
+<li><a target="_blank" rel="noopener" href="http://code.google.com/p/svgweb/">Scalable Vector Graphics Web Browser using Flash</a> </li>
+<li><a target="_blank" rel="noopener" href="http://code.google.com/p/explorercanvas/">HTML5 Canvas for Internet Explorer</a> </li>
+<li><a target="_blank" rel="noopener" href="http://code.google.com/p/svg2vml/">Library that provides support for SVG and VML with an SVG style interface</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.walterzorn.com/jsgraphics/jsgraphics_e.htm">DHTML: Draw Line, Ellipse, Oval, Circle, Polyline, Plygon, Triangle, with JavaScript</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.cnblogs.com/webgis8/articles/1529588.html">翻译Browser Drawing一篇:Canvas/SVG/VML Drawing Roundup</a> </li>
+<li><a target="_blank" rel="noopener" href="http://github.com/mrdoob/three.js">Three.js</a> </li>
+<li><a target="_blank" rel="noopener" href="http://raphaeljs.com/">Rapha?l</a>  - 非常棒的跨平台 JavaScript 图形库 | <a target="_blank" rel="noopener" href="http://github.com/DmitryBaranovskiy/raphael">raphael@github</a>  | <a target="_blank" rel="noopener" href="http://dmitry.baranovskiy.com/">blog</a> </li>
+<li><a target="_blank" rel="noopener" href="http://code.google.com/p/uupaa-js-spinoff/">uupaa.js spin-off projects</a> </li>
+</ul>
+<h4 id="Demo："><a href="#Demo：" class="headerlink" title="Demo："></a>Demo：</h4><ul>
+<li><a target="_blank" rel="noopener" href="http://www.alexbuga.com/v9/">Alex Buga Livingroom</a> </li>
+<li><a target="_blank" rel="noopener" href="http://guciek.net/test/burn">burn-canvas-test</a>  - 画图</li>
+<li><a target="_blank" rel="noopener" href="http://webdesignledger.com/inspiration/10-html5-demos-to-make-you-forget-about-flash">10 HTML5 Demos to Make You Forget About Flash</a> <a target="_blank" rel="noopener" href="http://designlol.net/archives/1418">cn</a> </li>
+<li><a target="_blank" rel="noopener" href="http://muro.deviantart.com/">deviantART Muro</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.phoboslab.org/biolab/">Biolab Disaster</a>  - Game</li>
+<li><a target="_blank" rel="noopener" href="http://labs.codecomputerlove.com/FlashVsHtml5/">乒乓球游戏：左边用Flash，右边用HTML5</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.20thingsilearned.com/">20 Things I Learned About Browsers and the Web</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.subcide.com/experiments/fail-whale/">Pure CSS Twitter ‘Fail Whale’</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.optimum7.com/css3-man/animation.html">CSS3-Man</a> </li>
+<li><a target="_blank" rel="noopener" href="http://knb.im/css3/">A啦多梦告诉你浏览器对 CSS3 的支持程度</a> </li>
+</ul>
+<h2 id="前端相关"><a href="#前端相关" class="headerlink" title="前端相关"></a>前端相关</h2><ul>
+<li><a target="_blank" rel="noopener" href="http://www.w3.org/">World Wide Web Consortium</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.webstandards.org/">The Web Standards Project</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.w3schools.com/">W3Schools Online Web Tutorials</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.google.com/support/webmasters/bin/answer.py?hl=cn&amp;answer=40132">HTTP 状态代码</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.floatfly.cn/default/web-error-info.html">网页错误代码详解</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.w3school.com.cn/">w3school - 在线教程</a> </li>
+<li><a target="_blank" rel="noopener" href="http://zh.wikipedia.org/zh-cn/REST">REST介绍</a> </li>
+<li><a target="_blank" rel="noopener" href="http://aliceui.com/category/solutions/">浏览器兼容解决方案</a> (AliceUI) | <a target="_blank" rel="noopener" href="http://aliceui.com/w3c-docs/">W3C 标准文档</a> (AliceUI)</li>
+<li>Microformats：<a target="_blank" rel="noopener" href="http://microformats.org/wiki/Main_Page">Microformats</a>  | <a target="_blank" rel="noopener" href="http://www.blueidea.com/tech/web/2009/6471.asp">什么是微格式及经典实例演示</a>  | <a target="_blank" rel="noopener" href="http://zh.wikipedia.org/zh/%E5%BE%AE%E6%A0%BC%E5%BC%8F">微格式 - Wikipedia</a> <a target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/Microformat">en</a>  | <a target="_blank" rel="noopener" href="http://suda.co.uk/projects/microformats/cheatsheet/">Microformats Cheat Sheat</a>  | <a target="_blank" rel="noopener" href="http://www.ued163.com/?p=470">微格式全功略Hcard、 hCalendar、hReview、XFN 轻松掌握</a>  | <a target="_blank" rel="noopener" href="http://tommyfan.com/blog/skill/microformats_hcard/">微格式 Microformats ? hCard</a>  | <a target="_blank" rel="noopener" href="http://www.mijia.org/blog/?p=152">使用微格式来丰富网站语义：简介</a>  | <a target="_blank" rel="noopener" href="http://www.ablognotlimited.com/articles/getting-semantic-with-microformats-introduction/">Getting Semantic With Microformats, Introduction</a> </li>
+</ul>
+<h2 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h2><ul>
+<li><a target="_blank" rel="noopener" href="http://woodpecker.org.cn/abyteofpython_cn/chinese/">简明Python教程</a> </li>
+<li><a target="_blank" rel="noopener" href="http://woodpecker.org.cn/diveintopython/">Dive Into Python中文版</a> </li>
+<li><a target="_blank" rel="noopener" href="http://woodpecker.org.cn/diveintopython3/">Dive Into Python3中文版</a> </li>
+<li><a target="_blank" rel="noopener" href="http://wiki.woodpecker.org.cn/moin/">啄木鸟社区Wiki</a> </li>
+<li><a target="_blank" rel="noopener" href="http://wiki.woodpecker.org.cn/moin/PyAbsolutelyZipManual">Python绝对简明手册</a> </li>
+</ul>
+<h2 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h2><ul>
+<li><a target="_blank" rel="noopener" href="http://deerchao.net/tutorials/regex/regex.htm">正则表达式30分钟入门教程</a> <a target="_blank" rel="noopener" href="http://help.locoy.com/Document/Learn_Regex_For_30_Minutes.htm">2</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.regexlab.com/zh/">正则表达式工作室</a>  | <a target="_blank" rel="noopener" href="http://www.regexlab.com/zh/regref.htm">揭开正则表达式的神秘面纱</a>  | <a target="_blank" rel="noopener" href="http://www.regexlab.com/zh/regtopic.htm">正则表达式话题</a> |  <a target="_blank" rel="noopener" href="http://www.regexlab.com/zh/deelx/introidx.htm">DEELX 正则引擎性能与特点</a> </li>
+<li><a target="_blank" rel="noopener" href="http://blog.chinaunix.net/u3/112728/showart_2207101.html">各种工具之正则表达式语法比较</a> <a target="_blank" rel="noopener" href="http://hi.baidu.com/libk/blog/item/b5eb710e6c636dc37acbe107.html">2</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.phpx.com/man/Regular_Expression/">Regular_Expression 入门</a> </li>
+<li><a target="_blank" rel="noopener" href="http://java.sun.com/docs/books/tutorial/essential/regex/">Lesson: Regular Expressions(Java)</a> </li>
+<li><a target="_blank" rel="noopener" href="http://docs.python.org/library/re.html">Regular expression operations(Python)</a> </li>
+<li><a target="_blank" rel="noopener" href="http://zh.wikipedia.org/wiki/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F">正则表达式 - 维基百科</a> </li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Global_Objects/RegExp#Special_characters_in_regular_expressions">RegExp - Mozilla</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.ibm.com/developerworks/cn/linux/l-lpic1-v3-103-7/?ca=drs-tp4608">学习 Linux，101: 使用正则表达式搜索文本文件</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.ibm.com/developerworks/cn/java/wa-regexp/index.html">构建用于正则表达式的抽象 Java API</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.greenend.org.uk/rjk/2002/06/regexp.html">Regexp Syntax Summary</a> </li>
+<li><a target="_blank" rel="noopener" href="http://blog.stevenlevithan.com/archives/javascript-regex-and-unicode">JavaScript, Regex, and Unicode</a> </li>
+<li><a target="_blank" rel="noopener" href="http://blog.csdn.net/myan/archive/2007/03/03/1520033.aspx">《理解正则表达式（程序员第3期文章）》</a> </li>
+<li><a target="_blank" rel="noopener" href="http://tech.idv2.com/2006/05/08/parse-regex-with-dfa/">利用有限自动机分析正则表达式</a> </li>
+<li><a target="_blank" rel="noopener" href="http://book.51cto.com/art/200902/111541.htm">《Linux系统最佳实践工具：命令行技术》</a> </li>
+<li><a target="_blank" rel="noopener" href="http://iregex.org/links">我爱正则表达式</a> </li>
+<li><a target="_blank" rel="noopener" href="http://regex.me/">正则表达式论坛</a> </li>
+<li>正则表达式工具：<a target="_blank" rel="noopener" href="http://regexpal.com/">Regexpal (online)</a> <a target="_blank" rel="noopener" href="http://www.microidc.com/usr/tools/regexpal/index.html">2</a>  | <a target="_blank" rel="noopener" href="http://gskinner.com/RegExr/">RegExr</a>  | <a target="_blank" rel="noopener" href="http://www.regexbuddy.com/">RegexBuddy</a>  | <a target="_blank" rel="noopener" href="http://www.ultrapico.com/Expresso.htm">Expresso (free, open-source)</a>  | <a target="_blank" rel="noopener" href="http://www.regexlab.com/zh/mtracer/">Match Tracer</a>  | <a target="_blank" rel="noopener" href="http://www.gethifi.com/tools/regex">HiFi Regex Tester</a>  | <a target="_blank" rel="noopener" href="http://www.redfernplace.com/software-projects/regex-builder/">RegEx Builder</a> </li>
+</ul>
+<h2 id="开发相关"><a href="#开发相关" class="headerlink" title="开发相关"></a>开发相关</h2><ul>
+<li><p><a target="_blank" rel="noopener" href="http://markdown.tw/">MarkDown语法</a> </p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://114.xixik.com/character/">HTML转义</a> </p>
+</li>
+<li><p>OAuth</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://oauth.net/">OAuth</a> </p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://www.rollingcode.org/blog/f/oauth-core-1.0-final-cn.html">OAuth核心</a> </p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://code.google.com/apis/accounts/docs/OAuth.html">OAtuh for Web Application</a> </p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/mattn/vim-oauth">Vim-oauth</a> </p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/mattn/webapi-vim">webapi-vim</a><br>&amp; OAuth在线测试：<a target="_blank" rel="noopener" href="http://term.ie/oauth/example/index.php">服务端</a>  | <a target="_blank" rel="noopener" href="http://term.ie/oauth/example/client.php">客户端</a> </p>
+</li>
+<li><p>国内开源镜像站：<a target="_blank" rel="noopener" href="http://mirrors.sohu.com/">Sohu.com</a>  | <a target="_blank" rel="noopener" href="http://mirrors.163.com/">163.com</a> </p>
+</li>
+<li><p>在线IDE：<a target="_blank" rel="noopener" href="http://www.coderun.com/ide/">CodeRun</a>  | <a target="_blank" rel="noopener" href="http://jsfiddle.net/">jsFiddle</a>  | <a target="_blank" rel="noopener" href="http://jsbin.com/">JS Bin</a>  | <a target="_blank" rel="noopener" href="http://code.wanz.im/">小可<Little Code /></a> </p>
+</li>
+<li><p>优良的文本处理工具：SED &amp; AWK</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://sed.sourceforge.net/">sed.sf.net</a>  | <a target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/AWK">AWK @wikipedia</a> <a target="_blank" rel="noopener" href="http://zh.wikipedia.org/wiki/AWK">中文</a> </p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://gnuwin32.sourceforge.net/packages/gawk.htm">Gawk for Windows</a>  | <a target="_blank" rel="noopener" href="http://gnuwin32.sourceforge.net/packages/sed.htm">Sed for Windows</a> </p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://blog.chinaunix.net/u/13392/showart.php?id=133128">sed-非交互式文本编辑器(L.E.McMahon 著,中文翻译)</a> <a target="_blank" rel="noopener" href="http://cm.bell-labs.com/7thEdMan/vol2/sed">En</a>  | <a target="_blank" rel="noopener" href="http://blog.chinaunix.net/u/13392/showart.php?id=134410">awk-模式扫描与处理语言(Aho,Kernighan,Weinberger著,中文翻译)(第二版)</a> <a target="_blank" rel="noopener" href="http://cm.bell-labs.com/7thEdMan/vol2/awk">En</a> </p>
+</li>
+<li><p>详解注明的AWK oneliner：<a target="_blank" rel="noopener" href="http://roylez.heroku.com/2010/04/11/awk-oneliner-translation-1.html">一：空行、行号和计算</a>  | <a target="_blank" rel="noopener" href="http://roylez.heroku.com/2010/04/28/awk-oneliner-translation-2.html">二：文本替换</a>  | <a target="_blank" rel="noopener" href="http://roylez.heroku.com/2010/05/15/awk-oneliner-translation-3.html">三：选择性输出特定行</a>  | <a target="_blank" rel="noopener" href="http://roylez.heroku.com/2010/07/29/awk-oneliner-translation-4.html">四：定义字符串和数组</a> </p>
+</li>
+<li><p>详解AWK oneliner原文：<a target="_blank" rel="noopener" href="http://www.catonmat.net/blog/awk-one-liners-explained-part-one/">Famous Awk One-Liners Explained</a>  | <a target="_blank" rel="noopener" href="http://www.catonmat.net/blog/update-on-famous-awk-one-liners-explained">Update on Famous Awk One-Liners Explained: String and Array Creation</a> </p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://panweizeng.com/archives/522">sed和awk的简单使用 - 潘魏增</a> </p>
+</li>
+<li><p>参考书籍：<a target="_blank" rel="noopener" href="http://cm.bell-labs.com/cm/cs/awkbook/">The AWK Programming Language</a>  | <a target="_blank" rel="noopener" href="http://oreilly.com/catalog/9780596000707/">Effective awk Programming, Third Edition</a>  | <a target="_blank" rel="noopener" href="http://oreilly.com/catalog/9781565922259">sed &amp; awk, Second Edition</a>  | <a target="_blank" rel="noopener" href="http://oreilly.com/catalog/9780596003524">sed and awk Pocket Reference, Second Edition</a> </p>
+</li>
+</ul>
+<h4 id="函数式编程："><a href="#函数式编程：" class="headerlink" title="函数式编程："></a>函数式编程：</h4><ul>
+<li><p><a target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/Functional_programming">@wikipedia</a> <a target="_blank" rel="noopener" href="http://zh.wikipedia.org/zh-cn/%E5%87%BD%E6%95%B8%E7%A8%8B%E5%BC%8F%E8%AA%9E%E8%A8%80">中文</a> </p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://www.aqee.net/2010/03/08/a-brief-history-of-object-functional-programming/">对象-函数式编程简史</a> <a target="_blank" rel="noopener" href="http://news.csdn.net/a/20100311/217407.html">2</a> </p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://www.ibm.com/developerworks/cn/web/wa-javascript.html">用函数式编程技术编写优美的 JavaScript</a> </p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://blog.zhaojie.me/tag/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/">函数式编程</a>  - 老赵</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://chenzhongke.com/wi/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B">函数式编程</a>  - czk wiki</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://wfp.group.javaeye.com/">函数式编程の道</a> </p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://blog.csdn.net/xuejx/archive/2009/08/12/4440105.aspx">哪种语言将统治多核时代 再看函数式语言特性</a> </p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://www.canonical.org/~kragen/tao-of-programming.html">The Tao Of Programming</a> ,<a target="_blank" rel="noopener" href="http://osiris.urbanna.net/tao.html">2</a> ,<a target="_blank" rel="noopener" href="http://livecn.huasing.org/tao_of_programming.htm">《编程之道》</a>  文言文版 by Livecn，<a target="_blank" rel="noopener" href="http://202.118.74.32/doc/Science/Computer/TaoOfProg.pdf">2</a>  白话文版 by 小赵</p>
+</li>
+<li><p>代码高亮：<a target="_blank" rel="noopener" href="http://mihai.bazon.net/projects/javascript-syntax-highlighting-engine">DlHightLight代码高亮组件</a>  | <a target="_blank" rel="noopener" href="http://code.google.com/p/google-code-prettify/">Google Code Prettify</a> </p>
+</li>
+</ul>
+<h2 id="版本控制"><a href="#版本控制" class="headerlink" title="版本控制"></a>版本控制</h2><ul>
+<li><a target="_blank" rel="noopener" href="http://blog.csdn.net/vagrxie/archive/2009/09/23/4582457.aspx">版本控制系统（RCS）的选择与比较</a> </li>
+<li><a target="_blank" rel="noopener" href="http://blog.csdn.net/tony1130/archive/2008/10/25/3137494.aspx">拥抱Mercurial—选择分布式版本控制工具</a> </li>
+<li><a target="_blank" rel="noopener" href="http://blog.csdn.net/meteor1113/archive/2009/07/16/4350408.aspx">几个分布式vcs比较</a> </li>
+<li><a target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/Comparison_of_revision_control_software">Comparison of revision control software</a> <h4 id="代码片段管理："><a href="#代码片段管理：" class="headerlink" title="代码片段管理："></a>代码片段管理：</h4></li>
+<li><a target="_blank" rel="noopener" href="http://gist.github.com/">gist@github</a> </li>
+<li><a target="_blank" rel="noopener" href="http://notepad.cc/">notepad.cc</a> </li>
+<li><a target="_blank" rel="noopener" href="http://snipt.org/">Snipt.org</a> </li>
+<li><a target="_blank" rel="noopener" href="http://paste.ubuntu.org.cn/">Ubuntu Paste</a> </li>
+<li><a target="_blank" rel="noopener" href="http://pastebin.com/">Pastebin</a> </li>
+<li><a target="_blank" rel="noopener" href="http://paste.pocoo.org/">Lodge It!</a> </li>
+</ul>
+<h4 id="SVN相关："><a href="#SVN相关：" class="headerlink" title="SVN相关："></a>SVN相关：</h4><ul>
+<li><a target="_blank" rel="noopener" href="http://svnbook.red-bean.com/">Subversion 与版本控制</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.iusesvn.com/subversion/tortoisesvn_doc/1.4/">TortoiseSVN 中文帮助手册(v1.4.1)</a> <a target="_blank" rel="noopener" href="http://tortoisesvn.net/docs/release/TortoiseSVN_zh_CN/index.html">v1.6.8</a> </li>
+<li><a target="_blank" rel="noopener" href="http://tortoisesvn.tigris.org/">Tigris.org</a>  - for Windows. </li>
+<li><a target="_blank" rel="noopener" href="http://www.subversion.org.cn/">Subversive中文站</a> </li>
+<li><a target="_blank" rel="noopener" href="http://subclipse.tigris.org/">Subclipse</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.eclipse.org/subversive/">Subversive</a> </li>
+<li><a target="_blank" rel="noopener" href="http://rabbitvcs.org/">RabbitVCS</a>  - for Linux. </li>
+<li><a target="_blank" rel="noopener" href="http://xuming.net/2010/04/rabbitvcs.html">Ubuntu下最好用的SVN客户端</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.open.collab.net/scdocs/ddUsingSVN_command-line.html.zh-cn">SVN 命令行</a> </li>
+</ul>
+<h4 id="Mercurial相关："><a href="#Mercurial相关：" class="headerlink" title="Mercurial相关："></a>Mercurial相关：</h4><ul>
+<li><a target="_blank" rel="noopener" href="http://mercurial.selenic.com/">Mercurial</a>  | <a target="_blank" rel="noopener" href="http://mercurial.selenic.com/wiki/ChineseTutorial">Mercurial 使用教程</a> </li>
+<li><a target="_blank" rel="noopener" href="http://hginit.com/">Hg Init: a Mercurial tutorial</a> </li>
+<li><a target="_blank" rel="noopener" href="http://hgbook.red-bean.com/">Mercurial: The Definitive Guide</a> <a target="_blank" rel="noopener" href="http://hgbook.red-bean.com/read/">read</a> </li>
+<li><a target="_blank" rel="noopener" href="http://leeiio.me/googlecode-converting-svn-to-hg/">在Google Code上用 Mercurial 取代 Subversion 管理你的项目</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.cn-cuckoo.com/2010/03/20/distributed-version-control-is-here-to-stay-baby-1436.html">乔尔谈软件终结篇：分布式版本控制系统的时代到来了</a>  - 讲到了分布式版本控制的精髓：管理变更，而不是管理版本。</li>
+<li><a target="_blank" rel="noopener" href="http://stevelosh.com/blog/2010/08/a-git-users-guide-to-mercurial-queues/">A Git User’s Guide to Mercurial Queues</a> </li>
+</ul>
+<ul>
+<li>Mercurial托管服务：<a target="_blank" rel="noopener" href="http://bitbucket.org/">Mercurial hosting - bitbucket.org</a>  | <a target="_blank" rel="noopener" href="http://www.fogcreek.com/kiln/">KilnHg</a> </li>
+</ul>
+<h4 id="Git相关："><a href="#Git相关：" class="headerlink" title="Git相关："></a>Git相关：</h4><ul>
+<li><a target="_blank" rel="noopener" href="http://git-scm.com/">Git</a>  - the Fast Version Control System. </li>
+<li><a target="_blank" rel="noopener" href="http://www-cs-students.stanford.edu/~blynn/gitmagic/intl/zh_cn/index.html">Stanford出品的Git Magic教程</a> </li>
+<li>最详细Git介绍：<a target="_blank" rel="noopener" href="http://progit.org/">Pro Git</a>  (<a target="_blank" rel="noopener" href="http://progit.org/book/">book</a> , <a target="_blank" rel="noopener" href="http://progit.org/book/zh/">中文版</a> )</li>
+<li><a target="_blank" rel="noopener" href="http://help.github.com/">Git官方帮助文档</a> </li>
+<li>简明教程：<a target="_blank" rel="noopener" href="http://blog.csdn.net/chinalinuxzend/archive/2008/11/14/3292896.aspx">git 之五分钟教程</a>  | <a target="_blank" rel="noopener" href="http://wangcong.org/blog/?p=283">进一步学习 Git</a>  | <a target="_blank" rel="noopener" href="http://www.ibm.com/developerworks/cn/linux/l-git/">使用 Git 管理源代码</a>  | <a target="_blank" rel="noopener" href="http://www.elias.cn/Develop/GitMini">分布式版本控制工具Git简明笔记</a>  | <a target="_blank" rel="noopener" href="http://labs.chinamobile.com/mblog/225_2822">译文:GIT日常命令20来条</a> </li>
+<li><a target="_blank" rel="noopener" href="http://blog.leezhong.com/translate/2010/10/30/a-successful-git-branch.html">Git开发管理之道</a> </li>
+<li>Git讨论：<a target="_blank" rel="noopener" href="http://zh-cn.whygitisbetterthanx.com/">Why Git is Better than X</a>  | <a target="_blank" rel="noopener" href="http://www.ibm.com/developerworks/cn/web/wa-git/">Git 改变了分布式 Web 开发规则</a>  | <a target="_blank" rel="noopener" href="http://www.joomlagate.com/article/joomla-review/why-subversion-will-be-replaced-by-git-for-version-control/">为什么说 Git 将取代 SVN 做软件版本控制？</a> </li>
+<li><a target="_blank" rel="noopener" href="http://rubynroll.javaeye.com/blog/203133">SVN+GIT=鱼与熊掌兼得</a> </li>
+<li>面向 Subversion 用户的 Git：<a target="_blank" rel="noopener" href="http://www.ibm.com/developerworks/cn/linux/l-git-subversion-1/">一: 入门指南</a>  | <a target="_blank" rel="noopener" href="http://www.ibm.com/developerworks/cn/linux/l-git-subversion-2/">面向 Subversion 用户的 Git，第 2 部分: 实施控制</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.jeffkit.info/2010/12/885/">Git的推广心得</a>  | <a target="_blank" rel="noopener" href="http://www.jeffkit.info/2010/12/860/">你为神马不用git-flow呢?</a>  | <a target="_blank" rel="noopener" href="http://www.jeffkit.info/2010/12/842/">开始实践git-flow</a> </li>
+<li><a target="_blank" rel="noopener" href="http://github.com/">github</a>  | <a target="_blank" rel="noopener" href="http://jekyllrb.com/">jekyll</a>  | <a target="_blank" rel="noopener" href="https://github.com/mojombo/jekyll">codes</a>  | <a target="_blank" rel="noopener" href="https://github.com/mojombo/mojombo.github.com">demos</a>  | <a target="_blank" rel="noopener" href="https://github.com/blog/272-github-pages">GitHub Pages</a>  | <a target="_blank" rel="noopener" href="http://blog.envylabs.com/2009/08/publishing-a-blog-with-github-pages-and-jekyll/">Publishing a Blog with GitHub Pages and Jekyll</a> </li>
+</ul>
+<h2 id="系统相关"><a href="#系统相关" class="headerlink" title="系统相关"></a>系统相关</h2><ul>
+<li><a target="_blank" rel="noopener" href="http://xbeta.info/win-run.htm">用win+r启动程序和文档</a> </li>
+<li><a target="_blank" rel="noopener" href="http://lamp.linux.gov.cn/Linux/LFS-6.2/index.html">Linux彻底定制指南(Linux From Scratch)</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.douban.com/group/topic/14530790/">服务器和架构方面的一些文章</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.cnblogs.com/stephen-liu74/archive/2011/12/20/2285454.html">Linux Shell常用技巧(目录)</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.cnblogs.com/stephen-liu74/archive/2012/01/04/2285640.html">Linux Shell高级技巧(目录)</a> </li>
+<li><a target="_blank" rel="noopener" href="http://wiki.ubuntu.org.cn/%E6%96%B0%E6%89%8B%E5%85%A5%E9%97%A8%E6%8C%87%E5%BC%95">Ubuntu新手入门指引</a>  | <a target="_blank" rel="noopener" href="http://wiki.ubuntu.org.cn/Ubuntu%E6%A1%8C%E9%9D%A2%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97">Ubuntu桌面入门指南</a> </li>
+<li>终端(Terminal)：<a target="_blank" rel="noopener" href="http://www.zsh.org/">zsh</a>  | <a target="_blank" rel="noopener" href="http://zsh.sourceforge.net/">zsh.sf.net</a>  | <a target="_blank" rel="noopener" href="http://linuxtoy.org/archives/zsh.html">终极Shell——Zsh</a>  | <a target="_blank" rel="noopener" href="http://sofish.de/1685">把 Mac 上的 bash 换成 zsh</a>  | <a target="_blank" rel="noopener" href="http://leeiio.me/bash-to-zsh-for-mac/">zsh – 给你的Mac不同体验的Terminal！</a>  | <a target="_blank" rel="noopener" href="https://github.com/robbyrussell/oh-my-zsh">oh-my-zsh@github</a> </li>
+<li>网络监控：<a target="_blank" rel="noopener" href="http://www.fiddler2.com/fiddler2/">Fiddler 2</a>  | <a target="_blank" rel="noopener" href="http://www.httpwatch.com/">HttpWatch</a>  | <a target="_blank" rel="noopener" href="http://www.charlesproxy.com/">Charles</a> </li>
+</ul>
+<h4 id="远程控制："><a href="#远程控制：" class="headerlink" title="远程控制："></a>远程控制：</h4><ul>
+<li>SSH技巧详解：<a target="_blank" rel="noopener" href="http://matt.might.net/articles/ssh-hacks/">SSH: More than secure shell</a> </li>
+<li>SSH：<a target="_blank" rel="noopener" href="http://fuse.sourceforge.net/sshfs.html">SSH Filesystem</a>  | <a target="_blank" rel="noopener" href="http://wowubuntu.com/sshfs.html">在 Ubuntu 上使用 sshfs 映射远程 ssh 文件系统为本地磁盘</a>  | <a target="_blank" rel="noopener" href="http://code.google.com/p/macfuse/">MacFUSE</a>  | <a target="_blank" rel="noopener" href="http://www.macupdate.com/app/mac/23721/sshfs-for-mac-os-x">sshfs for Mac OS X</a> </li>
+<li>SecureCRT：<a target="_blank" rel="noopener" href="http://www.vandyke.com/products/securecrt/index.html">SecureCRT</a>  | <a target="_blank" rel="noopener" href="http://www.cnblogs.com/ztf2008/archive/2009/09/11/1564979.html">SecureCRT 常用命令</a> </li>
+<li>PuTTY：<a target="_blank" rel="noopener" href="http://www.putty.org/">PuTTY</a>  | <a target="_blank" rel="noopener" href="http://code.google.com/p/puttycn/">PuTTY 中文版</a>  | <a target="_blank" rel="noopener" href="http://www.chiark.greenend.org.uk/~sgtatham/putty/">PuTTY: A Free Telnet/SSH Client</a>  | <a target="_blank" rel="noopener" href="http://chaifeng.com/blog/2007/06/putty_200611.html">PuTTY 中文教程</a>  | <a target="_blank" rel="noopener" href="https://docs.google.com/View?docid=ajbgz6fp3pjh_2dwwwwt">@google docs</a>  | <a target="_blank" rel="noopener" href="http://blog.csdn.net/niuniuchou/archive/2010/03/16/5387250.aspx">转</a>  | <a target="_blank" rel="noopener" href="http://zh.wikipedia.org/wiki/PuTTY">@wikipedia</a> </li>
+<li>cURL：<a target="_blank" rel="noopener" href="http://curl.haxx.se/">cURL and libcurl</a>  | <a target="_blank" rel="noopener" href="http://curl.haxx.se/docs/">docs</a>  | <a target="_blank" rel="noopener" href="http://php.net/manual/en/book.curl.php">PHP: cURL - Manual</a>  | <a target="_blank" rel="noopener" href="http://www.vimer.cn/2010/03/libcurl%E7%9A%84%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%80%EF%BC%89.html">libcurl的使用总结（一）</a>  | <a target="_blank" rel="noopener" href="http://www.vimer.cn/2010/03/libcurl%E7%9A%84%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93%EF%BC%88%E4%BA%8C%EF%BC%89.html">libcurl的使用总结（二）</a> </li>
+<li>rsync：<a target="_blank" rel="noopener" href="http://rsync.samba.org/">rsync</a>  | <a target="_blank" rel="noopener" href="http://zh.wikipedia.org/zh-cn/Rsync">zh@wikipedia</a>  | <a target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/Rsync">en@wikipedia</a>  | <a target="_blank" rel="noopener" href="http://everythinglinux.org/rsync/">A Tutorial on Using</a>  | <a target="_blank" rel="noopener" href="http://www.itefix.no/i2/node/10650">cwrsync - Rsync for Windows</a>  | <a target="_blank" rel="noopener" href="http://wowubuntu.com/rsync.html">如何用 Rsync 来备份 Linux 文件</a>  | <a target="_blank" rel="noopener" href="http://www.dbanotes.net/techmemo/aix_rsync.html">AIX 上配置 rsync 简记</a>  | <a target="_blank" rel="noopener" href="http://www.dbanotes.net/techmemo/rsync_cwrsync_backup_dreamhost_to_windows.html">用 Rsync(cwRsync)备份 Dreamhost 到 Windows 上</a>  | <a target="_blank" rel="noopener" href="http://www.dbanotes.net/techmemo/rsync_openssh.html">Rsync 与 OpenSSH 结合运用进行文件同步</a> </li>
+</ul>
+<h4 id="Email相关："><a href="#Email相关：" class="headerlink" title="Email相关："></a>Email相关：</h4><ul>
+<li><a target="_blank" rel="noopener" href="http://htmlemailboilerplate.com/">HTML Email Boilerplate - Email模板</a> </li>
+<li><a target="_blank" rel="noopener" href="http://blog.miniasp.com/post/2008/02/06/How-to-send-Email-with-embedded-picture-image.aspx">如何發送內嵌圖片的 E-mail ( Inline Attachment )</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.tzwhx.com/newOperate/html/1/11/112/18550.html">发送内嵌图片邮件的正确方法</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.oschina.net/bbs/thread/8428">使用 Commons-Email 在邮件内容中直接嵌入图片</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.iteedu.com/webtech/j2ee/springdiary/93.php">内嵌图片或附档</a> </li>
+<li><a target="_blank" rel="noopener" href="http://inlinestyler.torchboxapps.com/">HTML email inline styler</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.ajaxapp.com/2009/03/01/css-to-inline-styles-converter/">CSS to inline styles converter</a> </li>
+</ul>
+<h2 id="设计相关"><a href="#设计相关" class="headerlink" title="设计相关"></a>设计相关</h2><h4 id="图片、图标-Icons-："><a href="#图片、图标-Icons-：" class="headerlink" title="图片、图标(Icons)："></a>图片、图标(Icons)：</h4><ul>
+<li><a target="_blank" rel="noopener" href="http://speckyboy.com/2011/12/12/top-50-web-development-design-and-application-icon-sets-from-2011/">2011年50个最佳图标设计集合</a> </li>
+<li><a target="_blank" rel="noopener" href="http://findicons.com/">FindIcons图标搜索引擎</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.iconarchive.com/">Icon Archive</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.iconspedia.com/">PNG icons &amp; Icons Picks Download</a> </li>
+<li><a target="_blank" rel="noopener" href="http://dryicons.com/">DryIcons - Free Icons and Vector Graphics</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.iconeasy.com/">Icon Easy</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.tutorial9.net/">Tutorial9 | Photoshop Tutorials, Photography Tuts, and Resources</a> </li>
+<li><a target="_blank" rel="noopener" href="http://thedesignmag.com/16-sketchy-hand-drawn-icon-sets.html">16 Sketchy Hand Drawn Icon Sets</a> </li>
+<li><a target="_blank" rel="noopener" href="http://people.freedesktop.org/~jimmac/icons/">Gnome Icon Theme</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.dutchicon.com/">dutch icon?</a> </li>
+<li><a target="_blank" rel="noopener" href="http://openiconlibrary.sourceforge.net/">开源图标库</a> </li>
+<li>PhotoShop：<a target="_blank" rel="noopener" href="http://www.blueidea.com/tech/graph/2003/672.asp">PhotoShop通道白解</a>  | <a target="_blank" rel="noopener" href="http://zhidao.baidu.com/question/293029002.html">PhotoShop CS5序列号</a> </li>
+</ul>
+<h4 id="字体："><a href="#字体：" class="headerlink" title="字体："></a>字体：</h4><ul>
+<li><a target="_blank" rel="noopener" href="http://zh.wikipedia.org/wiki/%E8%A1%AC%E7%BA%BF%E4%BD%93">什么是衬线体</a> </li>
+<li><a target="_blank" rel="noopener" href="http://wenq.org/">文泉驿</a>  - 开源字体。开彼源兮，斯流永继。</li>
+<li><a target="_blank" rel="noopener" href="http://www.cnbeta.com/articles/102609.htm">让代码更美:10大编程字体</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.typeisbeautiful.com/">Type is Beautiful</a>  - 字体排版</li>
+<li><a target="_blank" rel="noopener" href="http://code.google.com/webfonts">Google Font Directory</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.network-science.de/ascii/">ASCII Generator</a> </li>
+<li>假文填充：<a target="_blank" rel="noopener" href="http://zh.wikipedia.org/zh-cn/Lorem_ipsum">Lorem ipsum</a>  | <a target="_blank" rel="noopener" href="http://more.handlino.com/">中文假文MoreText.js</a> <a target="_blank" rel="noopener" href="http://github.com/c9s/more.vim">MoreText的Vim插件</a>  | <a target="_blank" rel="noopener" href="http://www.richyli.com/tool/loremipsum/">亂數假文產生器 Chinese Lorem Ipsum</a> </li>
+</ul>
+<h4 id="表格："><a href="#表格：" class="headerlink" title="表格："></a>表格：</h4><ul>
+<li><a target="_blank" rel="noopener" href="http://article.yeeyan.org/view/155461/108136">15个优秀的表格设计技巧</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.askthecssguy.com/2007/08/creating_a_table_with_dynamica.html">Creating a table with dynamically highlighted columns like Crazy Eggs pricing table</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.junchenwu.com/2007/02/redesign_a_simple_table.html">越减越妙：简单表格的再设计</a> </li>
+<li><a target="_blank" rel="noopener" href="http://blog.bingo929.com/15-jquery-plugins-for-better-table-manipulation.html/comment-page-1">15款提高表格操作的jQuery插件</a> </li>
+</ul>
+<h4 id="资源："><a href="#资源：" class="headerlink" title="资源："></a>资源：</h4><ul>
+<li><a target="_blank" rel="noopener" href="http://dribbble.com/">Dribble：著名设计师聚合网站</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.zcool.com.cn/">站酷：交流设计、分享快乐</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.quanjing.com/">全景：创意图片库</a> </li>
+<li><a target="_blank" rel="noopener" href="http://designlol.net/">Designlol：全球设计精享</a> </li>
+<li><a target="_blank" rel="noopener" href="http://cn.designboom.com/">Designboom</a> </li>
+<li>配色方案：<a target="_blank" rel="noopener" href="http://www.colorschemer.com/">Color Schemer</a>  | <a target="_blank" rel="noopener" href="http://kuler.adobe.com/">kuler</a>  | <a target="_blank" rel="noopener" href="http://color.aurlien.net/">Piknik Color Picker</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.qianduan.net/80-more-absolutely-beautiful-dual-screen-wallpaper.html">80多个绝对漂亮的双屏壁纸</a> </li>
+</ul>
+<h2 id="VIM"><a href="#VIM" class="headerlink" title="VIM"></a>VIM</h2><ul>
+<li><a target="_blank" rel="noopener" href="http://blog.longwin.com.tw/2009/03/choose-vim-color-scheme-2009/">配置挑选Vim颜色(Color Scheme)</a> </li>
+<li><a target="_blank" rel="noopener" href="http://scmbob.org/vim_fdm.html">VIM折叠简介</a> </li>
+<li><a target="_blank" rel="noopener" href="http://freewind.me/blog/20110912/102.html">FuzzyFinder快速查找文件</a> </li>
+</ul>
+<p>转自：<a target="_blank" rel="noopener" href="https://www.luxiaolei.com/wiki">https://www.luxiaolei.com/wiki</a></p>
+
+        
+<script src="/js/qrious.min.js"></script>
+
+
+        <hr>
+        <div>
+            
+            <p>
+                <span>专题: </span>
+                
+                <a href="/series/#资源导航">
+                    <code key="资源导航" class="post-label">资源导航</code>
+                </a>
+                
+            </p>
+            
+            <p>
+                <span>本文发表于 2020-11-26，最后修改于 2020-11-29。</span>
+            </p>
+            <!-- 文章末尾的提示 start -->
+            
+            
+            
+                
+            <!-- 文章末尾的提示 end -->
+        </div>
+        <hr />
+        <p name="pagination" style="font-size: 1.2em">
+    
+    <a class="float-left" href="/post/其他/2020-10-25_V2ray配置.html">上一篇 « V2ray 配置</a>
+    
+    
+    <a class="float-right" href="/post/其他/2020-11-26_Jira修改Path路径后的用户管理问题.html">下一篇 » Jira 修改 Path 路径后的用户管理问题</a>
+    
+</p>
+    </article>
+    <!-- 赞赏 -->
+    <!--打赏-->
+
+    <!-- 推荐阅读三篇文章 -->
+    <div class="col-xs-12">
+        <h3>推荐阅读</h3>
+        
+        <div class="post-preview">
+    <div class="post-img" style="background-image: url('/images/idea_logo.png')"></div>
+    <div class="post-info">
+        <div class="post-info-center">
+            <div class="hidden-xs">
+                
+                
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#设计模式"
+                    title="设计模式">设计模式</a>
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#行为型模式"
+                    title="行为型模式">行为型模式</a>
+                <span>/</span>
+                
+                
+            </div>
+            <a href="/post/design/2019-01-05_Java经典设计模式_3_十一种行为型模式.html" class="title">
+                Java 经典设计模式（3）：十一种行为型模式
+            </a>
+            <p class="text-gray">
+                <small>
+                    <span>发表于2019-01-05，</span>
+                    <span class="hidden-xs">全文22410字，</span>
+                    <span>阅读约75分钟</span>
+                </small>
+            </p>
+        </div>
+    </div>
+</div>
+        
+        <div class="post-preview">
+    <div class="post-img" style="background-image: url('/images/java/basic/java_logo.png')"></div>
+    <div class="post-info">
+        <div class="post-info-center">
+            <div class="hidden-xs">
+                
+                
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#Java"
+                    title="Java">Java</a>
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#面试"
+                    title="面试">面试</a>
+                <span>/</span>
+                
+                
+            </div>
+            <a href="/post/interview/2018-10-25_Java面试整理.html" class="title">
+                Java面试整理
+            </a>
+            <p class="text-gray">
+                <small>
+                    <span>发表于2018-10-25，</span>
+                    <span class="hidden-xs">全文7209字，</span>
+                    <span>阅读约25分钟</span>
+                </small>
+            </p>
+        </div>
+    </div>
+</div>
+        
+        <div class="post-preview">
+    <div class="post-img" style="background-image: url('/images/java/io.png')"></div>
+    <div class="post-info">
+        <div class="post-info-center">
+            <div class="hidden-xs">
+                
+                
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#Java"
+                    title="Java">Java</a>
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#NIO"
+                    title="NIO">NIO</a>
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#Selector"
+                    title="Selector">Selector</a>
+                <span>/</span>
+                
+                
+            </div>
+            <a href="/post/java/nio/2017-04-23_java_nio_3.html" class="title">
+                Java NIO(3) 选择器 Selector
+            </a>
+            <p class="text-gray">
+                <small>
+                    <span>发表于2017-04-23，</span>
+                    <span class="hidden-xs">全文5874字，</span>
+                    <span>阅读约20分钟</span>
+                </small>
+            </p>
+        </div>
+    </div>
+</div>
+        
+    </div>
+    <div class="col-xs-12">
+        <!-- 标签列表 -->
+        <!-- Featured Tags -->
+<style>
+    #featured-tag .post-tag-item {
+        font-size: 12px;
+        line-height: 30px;
+        display: inline-block;
+        height: 30px;
+        margin: 5px 0px;
+        padding: 0 7px;
+        color: #333;
+        border-radius: 15px;
+        background: #f6f6f6;
+    }
+
+    #featured-tag .post-tag-item:hover {
+        color: #337ab7;
+    }
+</style>
+<div id="featured-tag">
+    
+    <a class="post-tag-item" href="/tags/#关于我" title="关于我"
+        rel="1">#关于我 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Hello World" title="Hello World"
+        rel="1">#Hello World (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Idea" title="Idea"
+        rel="1">#Idea (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#JavaIDE" title="JavaIDE"
+        rel="1">#JavaIDE (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Java" title="Java"
+        rel="50">#Java (50) </a>
+    
+    <a class="post-tag-item" href="/tags/#二进制" title="二进制"
+        rel="2">#二进制 (2) </a>
+    
+    <a class="post-tag-item" href="/tags/#内存分配" title="内存分配"
+        rel="1">#内存分配 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#内存泄露" title="内存泄露"
+        rel="1">#内存泄露 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#书籍推荐" title="书籍推荐"
+        rel="1">#书籍推荐 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#知识体系" title="知识体系"
+        rel="1">#知识体系 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#反码" title="反码"
+        rel="1">#反码 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#补码" title="补码"
+        rel="1">#补码 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#内存模型" title="内存模型"
+        rel="1">#内存模型 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#jvm" title="jvm"
+        rel="3">#jvm (3) </a>
+    
+    <a class="post-tag-item" href="/tags/#性能优化" title="性能优化"
+        rel="4">#性能优化 (4) </a>
+    
+    <a class="post-tag-item" href="/tags/#HashMap" title="HashMap"
+        rel="1">#HashMap (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Java集合" title="Java集合"
+        rel="1">#Java集合 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#ThreadLocal" title="ThreadLocal"
+        rel="1">#ThreadLocal (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Java线程" title="Java线程"
+        rel="3">#Java线程 (3) </a>
+    
+    <a class="post-tag-item" href="/tags/#异常" title="异常"
+        rel="1">#异常 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Java异常" title="Java异常"
+        rel="1">#Java异常 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#思维导图" title="思维导图"
+        rel="2">#思维导图 (2) </a>
+    
+    <a class="post-tag-item" href="/tags/#垃圾回收" title="垃圾回收"
+        rel="2">#垃圾回收 (2) </a>
+    
+    <a class="post-tag-item" href="/tags/#Java引用" title="Java引用"
+        rel="1">#Java引用 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#IO" title="IO"
+        rel="11">#IO (11) </a>
+    
+    <a class="post-tag-item" href="/tags/#Exception" title="Exception"
+        rel="1">#Exception (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Stream" title="Stream"
+        rel="1">#Stream (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Netty" title="Netty"
+        rel="4">#Netty (4) </a>
+    
+    <a class="post-tag-item" href="/tags/#笔记" title="笔记"
+        rel="1">#笔记 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#NIO" title="NIO"
+        rel="7">#NIO (7) </a>
+    
+    <a class="post-tag-item" href="/tags/#Buffer" title="Buffer"
+        rel="1">#Buffer (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Selector" title="Selector"
+        rel="1">#Selector (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#问题" title="问题"
+        rel="2">#问题 (2) </a>
+    
+    <a class="post-tag-item" href="/tags/#直接内存" title="直接内存"
+        rel="1">#直接内存 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#非直接内存" title="非直接内存"
+        rel="1">#非直接内存 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#堆内存" title="堆内存"
+        rel="1">#堆内存 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#注解" title="注解"
+        rel="1">#注解 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Spring" title="Spring"
+        rel="6">#Spring (6) </a>
+    
+    <a class="post-tag-item" href="/tags/#文件加载" title="文件加载"
+        rel="1">#文件加载 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Spring Boot" title="Spring Boot"
+        rel="3">#Spring Boot (3) </a>
+    
+    <a class="post-tag-item" href="/tags/#Spring Cloud" title="Spring Cloud"
+        rel="1">#Spring Cloud (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#序列化" title="序列化"
+        rel="1">#序列化 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#函数式编程" title="函数式编程"
+        rel="1">#函数式编程 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#lambda" title="lambda"
+        rel="1">#lambda (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#并发编程" title="并发编程"
+        rel="1">#并发编程 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#JUC" title="JUC"
+        rel="1">#JUC (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#lambda表达式" title="lambda表达式"
+        rel="1">#lambda表达式 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#源码" title="源码"
+        rel="1">#源码 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#RPC" title="RPC"
+        rel="1">#RPC (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Reactor" title="Reactor"
+        rel="1">#Reactor (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#NIO模型" title="NIO模型"
+        rel="1">#NIO模型 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#操作系统" title="操作系统"
+        rel="1">#操作系统 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#微服务" title="微服务"
+        rel="1">#微服务 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Vert.x" title="Vert.x"
+        rel="1">#Vert.x (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#八皇后" title="八皇后"
+        rel="1">#八皇后 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#算法" title="算法"
+        rel="2">#算法 (2) </a>
+    
+    <a class="post-tag-item" href="/tags/#创建型模式" title="创建型模式"
+        rel="1">#创建型模式 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#设计模式" title="设计模式"
+        rel="3">#设计模式 (3) </a>
+    
+    <a class="post-tag-item" href="/tags/#分布式" title="分布式"
+        rel="3">#分布式 (3) </a>
+    
+    <a class="post-tag-item" href="/tags/#CAP" title="CAP"
+        rel="1">#CAP (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#理论" title="理论"
+        rel="1">#理论 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#脑裂" title="脑裂"
+        rel="1">#脑裂 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#单例" title="单例"
+        rel="1">#单例 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#DCL" title="DCL"
+        rel="1">#DCL (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#包管理" title="包管理"
+        rel="4">#包管理 (4) </a>
+    
+    <a class="post-tag-item" href="/tags/#Gradle" title="Gradle"
+        rel="3">#Gradle (3) </a>
+    
+    <a class="post-tag-item" href="/tags/#结构型模式" title="结构型模式"
+        rel="1">#结构型模式 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#行为型模式" title="行为型模式"
+        rel="1">#行为型模式 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Spring Core" title="Spring Core"
+        rel="1">#Spring Core (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#源码分析" title="源码分析"
+        rel="1">#源码分析 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Docker" title="Docker"
+        rel="2">#Docker (2) </a>
+    
+    <a class="post-tag-item" href="/tags/#入门" title="入门"
+        rel="2">#入门 (2) </a>
+    
+    <a class="post-tag-item" href="/tags/#符号链接" title="符号链接"
+        rel="1">#符号链接 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#目录" title="目录"
+        rel="1">#目录 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#deb" title="deb"
+        rel="2">#deb (2) </a>
+    
+    <a class="post-tag-item" href="/tags/#chrome" title="chrome"
+        rel="1">#chrome (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#快捷键" title="快捷键"
+        rel="1">#快捷键 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#同步" title="同步"
+        rel="1">#同步 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#异步" title="异步"
+        rel="1">#异步 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#阻塞" title="阻塞"
+        rel="1">#阻塞 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#非阻塞" title="非阻塞"
+        rel="1">#非阻塞 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#TCP" title="TCP"
+        rel="3">#TCP (3) </a>
+    
+    <a class="post-tag-item" href="/tags/#UDP" title="UDP"
+        rel="2">#UDP (2) </a>
+    
+    <a class="post-tag-item" href="/tags/#网络协议" title="网络协议"
+        rel="1">#网络协议 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#CDN" title="CDN"
+        rel="1">#CDN (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Socket" title="Socket"
+        rel="1">#Socket (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#vpn" title="vpn"
+        rel="1">#vpn (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#ssh" title="ssh"
+        rel="1">#ssh (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Heidi" title="Heidi"
+        rel="1">#Heidi (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#MySQL" title="MySQL"
+        rel="9">#MySQL (9) </a>
+    
+    <a class="post-tag-item" href="/tags/#术语" title="术语"
+        rel="1">#术语 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#学习笔记" title="学习笔记"
+        rel="1">#学习笔记 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#JavaScript" title="JavaScript"
+        rel="4">#JavaScript (4) </a>
+    
+    <a class="post-tag-item" href="/tags/#chameleon" title="chameleon"
+        rel="2">#chameleon (2) </a>
+    
+    <a class="post-tag-item" href="/tags/#跨平台" title="跨平台"
+        rel="2">#跨平台 (2) </a>
+    
+    <a class="post-tag-item" href="/tags/#小程序" title="小程序"
+        rel="2">#小程序 (2) </a>
+    
+    <a class="post-tag-item" href="/tags/#bbr" title="bbr"
+        rel="1">#bbr (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#协议" title="协议"
+        rel="3">#协议 (3) </a>
+    
+    <a class="post-tag-item" href="/tags/#XXNET" title="XXNET"
+        rel="1">#XXNET (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#磁盘管理" title="磁盘管理"
+        rel="1">#磁盘管理 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#挂载" title="挂载"
+        rel="1">#挂载 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#网络" title="网络"
+        rel="2">#网络 (2) </a>
+    
+    <a class="post-tag-item" href="/tags/#模型" title="模型"
+        rel="2">#模型 (2) </a>
+    
+    <a class="post-tag-item" href="/tags/#MMAP" title="MMAP"
+        rel="1">#MMAP (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#内存映射" title="内存映射"
+        rel="1">#内存映射 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#内存" title="内存"
+        rel="1">#内存 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#零拷贝" title="零拷贝"
+        rel="1">#零拷贝 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#输入法" title="输入法"
+        rel="1">#输入法 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#命令" title="命令"
+        rel="1">#命令 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#集合运算" title="集合运算"
+        rel="1">#集合运算 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Ubuntu" title="Ubuntu"
+        rel="1">#Ubuntu (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#网络术语" title="网络术语"
+        rel="3">#网络术语 (3) </a>
+    
+    <a class="post-tag-item" href="/tags/#概念" title="概念"
+        rel="4">#概念 (4) </a>
+    
+    <a class="post-tag-item" href="/tags/#URL" title="URL"
+        rel="1">#URL (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#URI" title="URI"
+        rel="1">#URI (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Vue" title="Vue"
+        rel="2">#Vue (2) </a>
+    
+    <a class="post-tag-item" href="/tags/#监控" title="监控"
+        rel="1">#监控 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#报警" title="报警"
+        rel="1">#报警 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Prometheus" title="Prometheus"
+        rel="1">#Prometheus (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#云原生" title="云原生"
+        rel="1">#云原生 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Cloud" title="Cloud"
+        rel="1">#Cloud (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#面试" title="面试"
+        rel="3">#面试 (3) </a>
+    
+    <a class="post-tag-item" href="/tags/#Android" title="Android"
+        rel="1">#Android (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#apk" title="apk"
+        rel="1">#apk (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#反编译" title="反编译"
+        rel="1">#反编译 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#数据结构" title="数据结构"
+        rel="1">#数据结构 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Tampermonkey" title="Tampermonkey"
+        rel="1">#Tampermonkey (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#弹琴吧" title="弹琴吧"
+        rel="1">#弹琴吧 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#吉他" title="吉他"
+        rel="1">#吉他 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#V2ray" title="V2ray"
+        rel="1">#V2ray (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Jira" title="Jira"
+        rel="1">#Jira (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#管理" title="管理"
+        rel="2">#管理 (2) </a>
+    
+    <a class="post-tag-item" href="/tags/#认知" title="认知"
+        rel="1">#认知 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#备份" title="备份"
+        rel="1">#备份 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#MSSQL" title="MSSQL"
+        rel="1">#MSSQL (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#SQL优化" title="SQL优化"
+        rel="2">#SQL优化 (2) </a>
+    
+    <a class="post-tag-item" href="/tags/#ACID" title="ACID"
+        rel="1">#ACID (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#幻读" title="幻读"
+        rel="1">#幻读 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#阅读笔记" title="阅读笔记"
+        rel="2">#阅读笔记 (2) </a>
+    
+    <a class="post-tag-item" href="/tags/#字符集" title="字符集"
+        rel="2">#字符集 (2) </a>
+    
+    <a class="post-tag-item" href="/tags/#Collation" title="Collation"
+        rel="1">#Collation (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#临时表" title="临时表"
+        rel="1">#临时表 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#优化" title="优化"
+        rel="1">#优化 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#SVN" title="SVN"
+        rel="1">#SVN (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#慢查" title="慢查"
+        rel="1">#慢查 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#工具" title="工具"
+        rel="1">#工具 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Wiki" title="Wiki"
+        rel="1">#Wiki (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#整理" title="整理"
+        rel="1">#整理 (1) </a>
+    
+</div>
+    </div>
+    <!-- 评论 -->
+    
+    <div class="col-xs-12">
+        
+<div class="col-xs-12 padding-0">
+    <div id="gitalk-container">
+        <div class="gt-container text-center" style="margin-top: 50px;">
+            <button class="gt-btn gt-btn-public"><span class="gt-btn-text">去 Github 评论</span></button>
+        </div>
+    </div>
+    <div id="gitalk-related"></div>
+</div>
+
+<link rel="stylesheet" href="/css/gitalk.css">
+
+
+<script src="/js/gitalk.min.js"></script>
+
+<script>
+    window.addEventListener('load', function () {
+        function renderCommentUrl(data) {
+            var url = (data[window.location.pathname] || {}).url
+            url && getDom('#gitalk-container button').addEventListener('click', function (e) { window.open(url)})
+            url || (getDom('#gitalk-container').style.display = 'none')
+        }
+        const gitalk = new Gitalk({
+            clientID: 'a33ab8f0fc90bd0b86d7',
+            clientSecret: 'cfa4b020ca99ef91be8f4bf8180afbe831bf2a75',
+            accessToken: '',
+            repo: 'blogcmt',
+            owner: 'HassanChiang',
+            admin: ['HassanChiang'],
+            id: window.location.pathname,
+            distractionFreeMode: false
+        });
+        fetch("https://api.github.com/user").then(function(resp){
+            gitalk.render('gitalk-container');
+        }).catch(function(e){
+            fetch('/tool/issues.json').then(function (r) { return r.json() }).then(renderCommentUrl).catch(function (e) { })
+        })
+        getDom('#gitalk-container').addEventListener('click', function (e) {
+            e && e.stopPropagation && e.stopPropagation();
+        });
+    })
+</script>
+<script>
+    window.addEventListener('load', function () {
+        function render(comments) {
+            var template = '<a href="${comment.url}?utm_source=gitalk" class="dis-item-url"><h3 class="dis-item-title">${comment.title}</h3>' +
+                '<p class="dis-item-des">${comment.count} 评论 ● ${comment.date}</p>' +
+                '<div class="dis-item-content"><img class="dis-item-img" src="${comment.icon}" alt="icon"><p><b><span class="dis-item-user">${comment.user}</span></b>&nbsp;——&nbsp;${comment.body}</p></div>' +
+                '</a>'
+
+            var wrapper = getDom('#gitalk-related');
+            comments = shuffle(comments);
+            comments.slice(0, 4).forEach(function (c) {
+                var div = document.createElement('div');
+                div.classList.add('dis-item');
+                div.innerHTML = template.replace("${comment.url}", c.url)
+                    .replace("${comment.title}", c.title)
+                    .replace("${comment.count}", c.count)
+                    .replace("${comment.date}", c.date)
+                    .replace("${comment.icon}", c.icon)
+                    .replace("${comment.user}", c.user)
+                    .replace("${comment.body}", c.body)
+                wrapper.appendChild(div)
+            })
+            var p = document.createElement('p')
+            p.innerHTML = '<a target="_blank" rel="noopener" href="https://geektutu.com/post/blog-experience-7.html">Gitalk Plus</a>';
+            p.classList.add('dis-divide');
+            wrapper.appendChild(p);
+            wrapper.classList.add('dis-wrapper')
+        }
+        function shuffle(a) {
+            for (var i = a.length - 1; i > 0; i--) {
+                var j = Math.floor(Math.random() * (i + 1));
+                [a[i], a[j]] = [a[j], a[i]];
+            }
+            return a;
+        }
+        fetch('/tool/comments.json').then(function (r) { return r.json() }).then(render).catch(function (e) { })
+    })
+</script>
+
+    </div>
+    
+</div>
+<aside class="float-left gkt-sidebar hidden-xs hidden-sm">
+    <div style="clear: both"></div>
+    <div class="gkt-sidebar-wrapper">
+        <section class="box-shadow"><style>
+    .gkt-summary {
+        border: 1px solid #DDDDDD;
+        border-radius: 3px;
+        padding: 5px;
+        width: 100%;
+    }
+
+
+    .gkt-summary nav {
+        overflow: hidden;
+    }
+
+    .gkt-summary nav a {
+        display: inline-block;
+        text-align: center;
+        color: #333;
+        font-size: 12px;
+    }
+
+    .gkt-summary nav span {
+        display: block;
+    }
+
+    .gkt-summary nav .middle {
+        border-left: 1px solid #eaecef;
+        border-right: 1px solid #eaecef;
+    }
+
+    .gkt-summary .number {
+        font-weight: bold;
+    }
+
+    .gkt-summary .link-list {
+        margin-top: 5px;
+        margin-bottom: -5px;
+        padding-top: 7px;
+        border-top: 1px dashed #999;
+        display: flex;
+    }
+
+    .gkt-summary .link-list a {
+        flex: 1;
+    }
+
+    .gkt-summary .link-list img {
+        width: 25px;
+        height: 25px;
+    }
+</style>
+
+<div class="gkt-summary">
+    <nav>
+        <a href="/" class="col-xs-4">
+            <span class="number">112</span><span>文章</span>
+        </a>
+        <a href="/series" class="col-xs-4 middle">
+            <span class="number">34</span><span>专题</span>
+        </a>
+        <a href="/tags" class="col-xs-4">
+            <span class="number">148</span><span>标签</span>
+        </a>
+    </nav>
+
+    
+</div></section>
+        
+        
+        <section class="gkt-sidebar-content box-shadow">
+            <strong>资源导航</strong>
+            <ul>
+                
+                <li>
+                    <a href="/post/util/2020-11-26_开发资源整理.html"
+                        class="gkt-sidebar-active">开发资源导航</a>
+                    
+                    <!-- Table of Contents -->
+<div id="sidebar-toc">
+  <!-- TOC  -->
+  
+  
+  <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Javascript"><span class="toc-nav-text">Javascript</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#HTML-amp-CSS"><span class="toc-nav-text">HTML &amp; CSS</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#HTML5-amp-CSS3"><span class="toc-nav-text">HTML5 &amp; CSS3</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%89%8D%E7%AB%AF%E7%9B%B8%E5%85%B3"><span class="toc-nav-text">前端相关</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Python"><span class="toc-nav-text">Python</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-nav-text">正则表达式</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%BC%80%E5%8F%91%E7%9B%B8%E5%85%B3"><span class="toc-nav-text">开发相关</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6"><span class="toc-nav-text">版本控制</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E7%B3%BB%E7%BB%9F%E7%9B%B8%E5%85%B3"><span class="toc-nav-text">系统相关</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E8%AE%BE%E8%AE%A1%E7%9B%B8%E5%85%B3"><span class="toc-nav-text">设计相关</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#VIM"><span class="toc-nav-text">VIM</span></a></li></ol>
+  
+</div>
+
+<script>
+  (function () {
+    var h2 = document.querySelectorAll('article h2');
+    var h3 = document.querySelectorAll('article h3');
+    var linkList = document.querySelectorAll('#sidebar-toc a');
+
+    function findLinkElement(name) {
+      for (var i = 0; i < linkList.length; i++) {
+        var items = linkList[i].href.split('#');
+        if (items && items[items.length - 1] === encodeURIComponent(name)) {
+          return i;
+        }
+      }
+      return -1;
+    }
+
+    function activeLink(titleList) {
+      var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+      for (var i = titleList.length - 1; i >= 0; i--) {
+        if (scrollTop - titleList[i].offsetTop > 0) {
+          var index = findLinkElement(titleList[i].id);
+          index != -1 && linkList[index].classList.add('gkt-sidebar-active');
+          break;
+        }
+      }
+    }
+
+    window.addEventListener("scroll", function (e) {
+      [].slice.call(linkList).forEach(function (link) {
+        link.classList.remove('gkt-sidebar-active');
+      })
+      activeLink(h2);
+    })
+  })();
+</script>
+                    
+                </li>
+                
+            </ul>
+        </section>
+        
+        
+        <section class="gkt-sidebar-content box-shadow">
+            <strong>最近的文章</strong>
+            <ul>
+                
+                <li>
+                    <a href="/post/其他/2020-11-28_猴子管理法则.html">猴子管理法则</a>
+                </li>
+                
+                <li>
+                    <a href="/post/其他/2020-11-27_『认知升级』是比其他一切都更加重要的思维模型转变.html">『认知升级』是比其他一切都更加重要的思维模型转变</a>
+                </li>
+                
+                <li>
+                    <a href="/post/util/2020-11-26_开发资源整理.html">开发资源导航</a>
+                </li>
+                
+            </ul>
+        </section>
+        
+    </div>
+</aside>
+
+<script>
+    (function () {
+        function resizeUArrow() {
+            var s = getDom('.u-arrow-wrapper').style
+            var pc = getDom('.post-container')
+            s.left = getPosition(pc).x + 'px';
+            s.width = pc.clientWidth + 'px';
+        }
+        resizeUArrow()
+        window.addEventListener('resize', resizeUArrow);
+    })();
+</script>
+
+    
+
+<script>
+    (function () {
+        var ele = getDom('.gkt-sidebar-content')
+        if(!ele) return;
+        var wrapper = getDom('.gkt-sidebar-wrapper')
+        var last = 0
+        ele.style.maxHeight = ((window.innerHeight || 798) - 200) + 'px'
+        var f = function (e) {
+            var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            var isDown = scrollTop > last;
+            var pos = getPosition(ele).y - scrollTop;
+            var downLimit = 50;
+            var upLimit = -100;
+            // uarrow.style.marginTop = scrollTop + 'px';
+            isDown && pos <= downLimit && wrapper.classList.add("gkt-sidebar-fixed");
+            !isDown && pos > upLimit && wrapper.classList.remove("gkt-sidebar-fixed");
+            last = scrollTop
+        }
+        f()
+        window.addEventListener("scroll", f)
+    })();
+</script>
+
+</main>
+    </div>
+    <style>
+    img#go-top {
+        position: fixed;
+        bottom: 100px;
+        width: 50px;
+        cursor: pointer;
+        z-index: 9999;
+    }
+</style>
+<img id="go-top" src="/icon/top.png" class="hidden-xs" style="display: none" />
+<script>
+    (function () {
+        var goTop = document.getElementById('go-top');
+        var mainContainer = document.querySelector('.main-container');
+        
+        goTop.addEventListener('click', function () {
+            window.scroll(0, 0);
+        }, false);
+        window.addEventListener('scroll', function () {
+            var right = document.body.offsetWidth - mainContainer.getBoundingClientRect().right;
+            var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            goTop.style.right = right + 10 + 'px'
+            scrollTop > 700 && (goTop.style.display = "block");
+            scrollTop <= 700 && (goTop.style.display = "none");
+        });
+    })();
+</script>
+    <style>
+    #geektutu-click-img-container {
+        position: fixed;
+        left: 0;
+        top: 0;
+        text-align: center;
+        width: 100%;
+        display: none;
+        z-index: 9999;
+    }
+
+    #geektutu-click-img-container img {
+        object-fit: contain;
+        background: #eaecef;
+        padding: 15px;
+        border-radius: 10px;
+        height: auto;
+        width: auto;
+        vertical-align: middle;
+    }
+</style>
+
+
+<div id="geektutu-click-img-container">
+    <img src="" alt="Big Image">
+</div>
+
+<script>
+    (function () {
+        var container = document.querySelector('#geektutu-click-img-container')
+        var targetImg = container.querySelector('img')
+        var imgs = document.querySelectorAll('article img');
+        targetImg.addEventListener('click', function (e) {
+            container.style.display = 'none';
+            e && e.stopPropagation && e.stopPropagation();
+        }, false);
+
+        for (var i = 0; i < imgs.length; ++i) {
+            var img = imgs[i];
+            img.addEventListener('click', (function (src, rate) {
+                return function (e) {
+                    e && e.stopPropagation && e.stopPropagation();
+                    if (window.innerWidth < 980) {
+                        return
+                    }
+                    targetImg.style.height = targetImg.style.width = 'auto';
+                    if (window.innerWidth / window.innerHeight > rate) {
+                        targetImg.style.height = (window.innerHeight - 20) + 'px';
+                    } else {
+                        targetImg.style.width = (window.innerWidth - 20) + 'px';
+                    }
+                    container.style.height = window.innerHeight + 'px'
+                    container.style.lineHeight = window.innerHeight + 'px'
+                    container.style.display = 'block';
+                    targetImg.src = src;
+                };
+            }(img.src, img.width / img.height)), false)
+        }
+    })();
+</script>
+    <!-- Footer -->
+    <!-- Footer -->
+<style>
+    footer {
+        width: 100%;
+        line-height: 1.5;
+        padding: 20px;
+    }
+
+    footer a {
+        color: #333;
+        text-decoration: none;
+    }
+
+    .footer-hexo img {
+        height: 20px;
+        margin-bottom: -5px;
+    }
+
+    .footer-hexo a {
+        color: #337ab7;
+    }
+</style>
+<footer class="text-center col-xs-12">
+    <p>
+        <small>© 2020 - Hassan - </small>
+        <small>
+            <a target="_blank" rel="nofollow noopener" href="http://beian.miit.gov.cn/"></a>
+        </small>
+    </p>
+    <p class="footer-hexo">
+        <!-- 但若直接使用或修改主题，请务必保留这段声明 -->
+        <small>Powered by <a target="_blank" href="https://hexo.io">Hexo</a> | Theme
+            <a target="_blank" href="https://geektutu.com">Geektutu</a>
+            <a target="_blank" rel="noopener" href="https://github.com/geektutu/hexo-theme-geektutu">
+                <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAYGBgYHBgcICAcKCwoLCg8ODAwODxYQERAREBYiFRkVFRkVIh4kHhweJB42KiYmKjY+NDI0PkxERExfWl98fKcBBgYGBgcGBwgIBwoLCgsKDw4MDA4PFhAREBEQFiIVGRUVGRUiHiQeHB4kHjYqJiYqNj40MjQ+TERETF9aX3x8p//CABEIACIAUAMBIgACEQEDEQH/xAAcAAABBAMBAAAAAAAAAAAAAAAAAQQFBwIDBgj/2gAIAQEAAAAA9KrHSgAYL5/z6zZGuJd12uugbhq3uKtmuRtix20IS7lTLAfAAAn/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/9oACAECEAAAAAAB/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/aAAgBAxAAAAAAAf/EADEQAAICAQIEBQEGBwAAAAAAAAECAwQFAAYREhORBxQhUlQxQVFic5KxJDJCYYGC0f/aAAgBAQABPwCFHnjWUzuvN6hV4cANSRLGjO9yRVUcSzMoA7jVXJYe5N0a2dhmk9kc0bN2GvLN8mbuNeWb5M3ca8s3yZu415Y/Jm7jXlm+TN3H/NeVPyZu40vOk3TZywK8wJ+v3EHVM/wsI/Dq2lrxN3Nnca16eti8chSAIoMbzByhMwP14kHVfwIiSaF5c96J6kwwCOTnHsYk8uvCrdmQy1TI4rJuz3cZLyGR/wCd4+YoOf8AEpUjXitubLYPG4paFsUxcuiGe7yc5gTW3LW44szXmobsi3Dhmic2+Z4+vCVH9CpraPiQ+QvbgTJrPFBWd5YpWrmNIIEXiRO32Pqt4p7cnfHk18lFBdmEVW1LVdIZGOrniTt6plrWKaO69yCykDRxwF+LMAewB0Txtr+Sf31VI8tEPw62fZt7N3Humtbpzz13ucX6CGSWMSuzpLyD1eNgeUka3PuvHbaxq3biTMHfkiSNCS78CwU+3Xg7Vu3MhuTcU6cq3Zemn3Eh2dv8Lzcut+29x1atKbHYqLJUhLwyNMwiZ3j9yDWOxUOV3tgb+3No5LDx1pi9+aeIwRlNY6bc+Jv+IFGrhLxtXJZ7VKcw81diiAAEn0JOrkWZyNfbEr0tz27UGQgkuGzXdIIvyowq99bRxk9ffO/L81SZBPZgEEroQroIxxMZOgeNsfkn99QypHGqO4Vl9CDrN4LDZkwyzyyQ2IgRHZrzGCZVP1XnQglT9oOtw4LC7iqV6uRkZoYpxKFSQpzFRw4EjVRMfSrQ1qqwxQxKFjjTgFUD7BoWYR6iVe+mtxt9Zwf9teaj4AdccPu5tedX5A/VrzUR+sy/q1CwksF19VEfDj/cnQRW+qg66cfsXtrpx+xe2unH7F7a6cfsXtrpx+xe2unH7F7a6cfsXtoxx+xe2gAAOA1//8QAFBEBAAAAAAAAAAAAAAAAAAAAMP/aAAgBAgEBPwB//8QAFBEBAAAAAAAAAAAAAAAAAAAAMP/aAAgBAwEBPwB//9k="
+                    alt="Github Star">
+            </a>
+        </small>
+    </p>
+    
+    <p>
+        <small>
+            <span id="busuanzi_container_site_pv">👁<span id="busuanzi_value_site_pv"></span></span> &nbsp;
+            <span id="busuanzi_container_page_pv">📚<span id="busuanzi_value_page_pv"></span></span>
+        </small>
+    </p>
+    
+    
+
+</footer>
+
+
+<script>
+    window.addEventListener('load', function () {
+        globalAddScript('//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js');
+    })
+</script>
+
+<!-- Baidu Tongji -->
+
+
+
+
+
+    <script>
+        // 非本站网址，新开tab页签
+        (function () {
+            var stopBubble = function (e) {
+                e && e.stopPropagation && e.stopPropagation();
+            }
+            var links = document.querySelectorAll('a');
+            [].slice.call(links).forEach(function (item) {
+                if (item.href && item.href.indexOf(window.location.host) === -1) {
+                    item.target = '_blank'
+                }
+                // 阻止冒泡，不触发彩蛋。
+                item.addEventListener('click', stopBubble, false);
+            });
+            var article = document.querySelector('article');
+            article && article.addEventListener('click', stopBubble, false)
+        })();
+    </script>
+    
+<script>
+    (function (window, document, undefined) {
+        var hearts = [];
+        var keywords = ["点个赞", "留个言", "赞赏一下", "分享之", "blog.fenxiangz.com"];
+        function randomInt(max) {
+            return Math.floor(Math.random() * Math.floor(max));
+        }
+        window.addEventListener('click', createWord)
+
+        function createWord(e) {
+            var d = document.createElement("span");
+            d.style.position = 'fixed';
+            d.style.zIndex = 9999;
+            d.style.color = 'rgb(' + [randomInt(255), randomInt(255), randomInt(255)].join(',') + ')';
+            d.innerHTML = keywords[randomInt(keywords.length)];
+            d.onselectstart = function () { return false; }
+
+            hearts.push({ el: d, x: e.clientX - 5, y: e.clientY - 5, alpha: 1, scale: 1 });
+            document.body.appendChild(d);
+        }
+        (function gameloop() {
+            for (var i = 0; i < hearts.length; i++) {
+                heart = hearts[i];
+                if (heart.alpha <= 0) {
+                    document.body.removeChild(heart.el);
+                    hearts.splice(i, 1);
+                    continue;
+                }
+                heart.y -= heart.alpha < 0.5 ? 2 : 1;
+                heart.scale += 0.002;
+                heart.alpha -= 0.013;
+                heart.el.style.transform = 'scale(' + heart.scale + ')';
+                heart.el.style.left = heart.x + 'px';
+                heart.el.style.top = heart.y + 'px';
+            }
+            setTimeout(gameloop, 10)
+        })();
+    })(window, document);
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,1842 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<!-- Head tag -->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  <meta name="baidu-site-verification" content="" />
+  <meta name="google-site-verification" content="" />
+  <meta name="msvalidate.01" content="" />
+  <meta name="360-site-verification" content="" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- if page has tags, then add tags to keyword -->
+  
+  
+  <meta name="keywords" content=",MySQL,SQL优化,">
+  <!-- page.description has higher priority -->
+  <meta name="description" content="Share everything">
+  <link rel="shortcut icon" href="/favico.png">
+  <title>
+    
+    Mysql 优化概要 | 分享之
+    
+  </title>
+
+  <link rel="canonical" href="/post/dateabase/mysql/2018-12-15_MySQL优化概要.html">
+  
+<link rel="stylesheet" href="/css/reset.css">
+
+  
+<link rel="stylesheet" href="/css/layout.css">
+
+  
+<link rel="stylesheet" href="/css/markdown.css">
+
+  <!-- Pygments Highlight CSS -->
+  
+<link rel="stylesheet" href="/css/highlight.css">
+
+  
+<link rel="stylesheet" href="/css/geektutu.css">
+
+  <!-- global function -->
+  <script>
+    window.globalAddScript = function (url, onload, onerror) {
+      var s = document.createElement('script');
+      s.src = url;
+      onload && (s.onload = onload);
+      onerror && (s.onerror = onerror);
+      document.body.appendChild(s);
+    }
+    window.globalAddCss = function (url) {
+      var s = document.createElement('link');
+      s.rel = 'stylesheet';
+      s.href = url;
+      document.body.appendChild(s);
+    }
+    window.getPosition = function (ele) {
+      var x = 0, y = 0;
+      while (ele) {
+        x += (ele.offsetLeft - ele.scrollLeft + ele.clientLeft);
+        y += (ele.offsetTop - ele.scrollTop + ele.clientTop);
+        ele = ele.offsetParent;
+      }
+      return { x: x, y: y };
+    }
+    window.getDom = function (str) { return document.querySelector(str) }
+  </script>
+  <!-- google ad -->
+  
+<meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/feed.xml" title="分享之" type="application/rss+xml">
+</head>
+
+<body>
+    <header class="gkt-header col-xs-12 padding-0">
+    <div id="gkt-nav" class="gkt-header-container">
+        <a href="/" class="gkt-header-title float-left">
+            <img class="float-left" src="/favico.png" alt="">
+            <span>分享之</span>
+        </a>
+        <nav class="gkt-header-nav text-right">
+            <ul>
+                <li><a class="hidden-xs" href="/feed.xml">订阅</a></li>
+                <li><a href="/series/">专题</a></li>
+                <li><a href="/archives/">归档</a></li>
+                <li><a href="/post/link.html">友链</a></li>
+                <li><a href="/post/about.html">关于</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div id="gkt-cate-nav" class="gkt-header-container hidden-xs">
+        
+        <nav class="gkt-header-nav float-left">
+            <ul>
+                
+                
+                <li class="gkt-cate-name float-left ">
+                    <a class="float-left" href="/post/java/basic/2016-10-25_hashmap_jdk7.html">Java ▾</a>
+                    
+                    <ul class="gkt-sub-cate">
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/java/basic/2016-10-25_hashmap_jdk7.html">Java 基础</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/java/advance/2016-10-25_number.html">Java 进阶</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/java/io/2017-04-15_java_io_1_overview.html">Java IO</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/java/nio/2017-04-21_java_nio_1.html">Java NIO</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/interview/2018-10-25_Java面试整理.html">Java 面试</a></li>
+                        
+                    </ul>
+                    
+                </li>
+                
+                <li class="gkt-cate-name float-left ">
+                    <a class="float-left" href="/post/java/spring/2016-10-30_Spring 组合注解&amp;注解继承.html">Spring ▾</a>
+                    
+                    <ul class="gkt-sub-cate">
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/java/spring/2016-10-30_Spring 组合注解&amp;注解继承.html">Spring Core</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/java/spring/2019-12-28_【译】Spring Boot 从 classpath 加载文件.html">Spring Boot</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/java/spring/2020-09-02_How-to-learn-Spring-Cloud.html">Spring Cloud</a></li>
+                        
+                    </ul>
+                    
+                </li>
+                
+                <li class="gkt-cate-name float-left ">
+                    <a class="float-left" href="/post/java/netty/2019-01-02_小白科普Netty有什么用.html">Java 框架</a>
+                    
+                </li>
+                
+                <li class="gkt-cate-name float-left ">
+                    <a class="float-left" href="/post/util/ide/2017-10-25_idea_shotcut.html">工具 ▾</a>
+                    
+                    <ul class="gkt-sub-cate">
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/util/ide/2017-10-25_idea_shotcut.html">IDE</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/util/gradle/LearnGradle_1_安装.html">Gradle</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/docker/2017-11-25_Docker_Get_Started.html">Docker</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/util/monitor/2017-12-10_从零开始搭建Prometheus自动监控报警系统.html">监控</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/util/svn/2017-12-10_SVN自动删除“被手动删除”的文件.html">SVN</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/util/2020-11-26_开发资源整理.html">资源导航</a></li>
+                        
+                    </ul>
+                    
+                </li>
+                
+                <li class="gkt-cate-name float-left ">
+                    <a class="float-left" href="/post/linux/2017-11-27_update-alternatives_命令.html">Linux ▾</a>
+                    
+                    <ul class="gkt-sub-cate">
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/linux/2017-11-27_update-alternatives_命令.html">其他</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/linux/2017-11-26_IO-同步，异步，阻塞，非阻塞.html">IO</a></li>
+                        
+                    </ul>
+                    
+                </li>
+                
+                <li class="gkt-cate-name float-left ">
+                    <a class="float-left" href="/post/network/2017-11-24_面向报文（UDP）和面向字节流（TCP）的区别.html">计算机网络 ▾</a>
+                    
+                    <ul class="gkt-sub-cate">
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/network/2017-11-24_面向报文（UDP）和面向字节流（TCP）的区别.html">TCP/IP</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/network/2017-11-25_一张图说明CDN网络的原理.html">网络/其他</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/network/2018-12-15_URL和URI的区别.html">网络/术语</a></li>
+                        
+                    </ul>
+                    
+                </li>
+                
+                <li class="gkt-cate-name float-left active">
+                    <a class="float-left" href="/post/dateabase/mysql/2018-12-15_MySQL优化概要.html">数据库 ▾</a>
+                    
+                    <ul class="gkt-sub-cate">
+                        
+                        <li class="gkt-sub-cate-name active"><a class="float-left"
+                                href="/post/dateabase/mysql/2018-12-15_MySQL优化概要.html">MySQL</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/dateabase/MSSQL/2020-09-08_MSSQL最佳实践_SQL_Server备份策略.html">MSSQL</a></li>
+                        
+                    </ul>
+                    
+                </li>
+                
+                <li class="gkt-cate-name float-left ">
+                    <a class="float-left" href="/post/design/2019-01-03_Java经典设计模式_1_五大创建型模式.html">设计模式</a>
+                    
+                </li>
+                
+                <li class="gkt-cate-name float-left ">
+                    <a class="float-left" href="/post/distribution/2019-08-13_Zookeeper是如何解决脑裂问题.html">分布式 ▾</a>
+                    
+                    <ul class="gkt-sub-cate">
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/distribution/2019-08-13_Zookeeper是如何解决脑裂问题.html">zookeeper</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/distribution/2019-08-12_CAP定理的含义.html">概念</a></li>
+                        
+                    </ul>
+                    
+                </li>
+                
+                <li class="gkt-cate-name float-left ">
+                    <a class="float-left" href="/post/frontend/vue/2017-10-26_vue自定义组件中的v-model简单解释.html">前端 ▾</a>
+                    
+                    <ul class="gkt-sub-cate">
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/frontend/vue/2017-10-26_vue自定义组件中的v-model简单解释.html">VUE</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/frontend/2016-10-26_深入理解jQuery插件开发.html">jQuery</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/frontend/2019-10-26_小程序多端框架全面测评.html">跨平台</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/frontend/2019-11-26_APK反编译总结.html">Android</a></li>
+                        
+                    </ul>
+                    
+                </li>
+                
+                <li class="gkt-cate-name float-left ">
+                    <a class="float-left" href="/post/algorithm/八皇后算法解析.html">算法</a>
+                    
+                </li>
+                
+                <li class="gkt-cate-name float-left ">
+                    <a class="float-left" href="/post/其他/2020-01-29_弹琴吧非会员扒谱技巧.html">其他 ▾</a>
+                    
+                    <ul class="gkt-sub-cate">
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/其他/2020-01-29_弹琴吧非会员扒谱技巧.html">其他/Tampermonkey</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/其他/2020-10-25_V2ray配置.html">其他/V2ray</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/其他/2020-11-26_Jira修改Path路径后的用户管理问题.html">其他/Jira</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/其他/2020-11-27_『认知升级』是比其他一切都更加重要的思维模型转变.html">其他/管理</a></li>
+                        
+                    </ul>
+                    
+                </li>
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+<div class="gkt-header-placeholder" style="height: 44px"></div>
+<div class="gkt-header-placeholder hidden-xs" style="height: 44px"></div>
+<script>
+    (function () {
+        window.addEventListener('scroll', function () {
+            if (window.innerWidth < 768) {
+                return;
+            }
+            var nav = document.querySelector('#gkt-nav');
+            var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            scrollTop > 50 && (nav.classList.add('hide'));
+            scrollTop <= 50 && (nav.classList.remove('hide'));
+        });
+        var cateNavs = document.querySelectorAll('#gkt-cate-nav>nav>ul>li');
+        [].slice.call(cateNavs).forEach(function (item) {
+            var sub = item.querySelector('.gkt-sub-cate');
+            if (!sub) return;
+            item.addEventListener('mouseenter', function (e) { sub.style.display = 'block'; }, false);
+            item.addEventListener('mouseleave', function (e) { sub.style.display = 'none'; }, false);
+        })
+    })();
+</script>
+    <!-- Main Content -->
+    <div class="main-container">
+        <!-- Main Content -->
+<main class="col-xs-12 padding-0 markdown-it">
+    <!-- Post Container -->
+    
+    
+    <!-- Post Content -->
+<div class="float-left post-container box-shadow">
+    <div class="u-arrow-wrapper hidden-xs">
+        
+        <a class="float-left" href="/post/linux/2018-11-17_Ubuntu包错误或不一致时的清理方式.html"><i class="u-arrow-left"></i></a>
+        
+        
+        <a class="float-right" href="/post/network/2018-12-15_URL和URI的区别.html"><i class="u-arrow-right"></i></a>
+        
+    </div>
+    <article class="col-xs-12">
+        <h1> Mysql 优化概要 </h1>
+        
+        
+        <div class="hidden-lg hidden-md series_links">
+            <p> <strong> MySQL系列文章链接：</strong></p>
+            <ul>
+                
+                <li>
+                    <a href="/post/dateabase/mysql/2018-12-15_MySQL优化概要.html">Mysql 优化概要</a>
+                    <span class="post-item-date">(Dec 15, 2018)</span>
+                </li>
+                
+                <li>
+                    <a href="/post/dateabase/mysql/2018-12-16_MySQL分库分表简要记录.html">Mysql 分库分表简要记录</a>
+                    <span class="post-item-date">(Dec 16, 2018)</span>
+                </li>
+                
+                <li>
+                    <a href="/post/dateabase/mysql/2018-12-17_MySQL的InnoDB的幻读问题.html">MySQL的InnoDB的幻读问题</a>
+                    <span class="post-item-date">(Dec 17, 2018)</span>
+                </li>
+                
+                <li>
+                    <a href="/post/dateabase/mysql/2020-09-09_高性能MySQL阅读笔记(1).html">高性能 MySQL 阅读笔记 (1)</a>
+                    <span class="post-item-date">(Sep 9, 2020)</span>
+                </li>
+                
+                <li>
+                    <a href="/post/dateabase/mysql/2020-09-10_高性能MySQL_MySQL慢查询日志总结.html">高性能 MySQL - MySQL慢查询日志总结</a>
+                    <span class="post-item-date">(Sep 10, 2020)</span>
+                </li>
+                
+                <li>
+                    <a href="/post/dateabase/mysql/2020-09-11_高性能MySQL阅读笔记(2).html">高性能 MySQL 阅读笔记 (2)</a>
+                    <span class="post-item-date">(Sep 11, 2020)</span>
+                </li>
+                
+                <li>
+                    <a href="/post/dateabase/mysql/2020-09-12_MySQL中的Character_Set与Collation.html">MySQL 中的 Character Set 与 Collation</a>
+                    <span class="post-item-date">(Sep 12, 2020)</span>
+                </li>
+                
+                <li>
+                    <a href="/post/dateabase/mysql/2020-09-13_MySQL什么时候会使用内部临时表.html">MySQL什么时候会使用内部临时表?</a>
+                    <span class="post-item-date">(Sep 13, 2020)</span>
+                </li>
+                
+            </ul>
+        </div>
+        
+        
+        <h3 id="索引优化配置"><a href="#索引优化配置" class="headerlink" title="索引优化配置"></a>索引优化配置</h3><p>记录没有使用索引的查询日志配置：</p>
+<pre><code>mysql&gt; show variables like &#39;%log_que%&#39;;
++-------------------------------+-------+
+| Variable_name                 | Value |
++-------------------------------+-------+
+| log_queries_not_using_indexes | OFF   |
++-------------------------------+-------+
+1 row in set (0.01 sec)
+
+mysql&gt; set global log_queries_not_using_indexes=ON;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql&gt; show variables like &#39;%log_que%&#39;;
++-------------------------------+-------+
+| Variable_name                 | Value |
++-------------------------------+-------+
+| log_queries_not_using_indexes | ON    |
++-------------------------------+-------+
+1 row in set (0.01 sec)</code></pre>
+<p>开启慢查日志配置：</p>
+<pre><code>mysql&gt; show variables like &#39;%slow_query%&#39;;
++---------------------+--------------------------------+
+| Variable_name       | Value                          |
++---------------------+--------------------------------+
+| slow_query_log      | OFF                            |
+| slow_query_log_file | /var/lib/mysql/mysql-slow.log |
++---------------------+--------------------------------+
+2 rows in set (0.01 sec)
+
+mysql&gt; set global slow_query_log=ON;
+Query OK, 0 rows affected (0.04 sec)
+
+mysql&gt; show variables like &#39;%slow_query%&#39;;
++---------------------+--------------------------------+
+| Variable_name       | Value                          |
++---------------------+--------------------------------+
+| slow_query_log      | ON                             |
+| slow_query_log_file | /var/lib/mysql/mysql-slow.log |
++---------------------+--------------------------------+
+2 rows in set (0.01 sec)</code></pre>
+<p>多久算慢查询？设置慢查询时间配置：</p>
+<p>全局：</p>
+<pre><code>mysql&gt;  SHOW GLOBAL VARIABLES LIKE &quot;long_query_time&quot;;
++-----------------+-----------+
+| Variable_name   | Value     |
++-----------------+-----------+
+| long_query_time | 11.000000 |
++-----------------+-----------+
+1 row in set (0.01 sec)
+
+mysql&gt;  set global long_query_time=1;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql&gt;  SHOW GLOBAL VARIABLES LIKE &quot;long_query_time&quot;;
++-----------------+----------+
+| Variable_name   | Value    |
++-----------------+----------+
+| long_query_time | 1.000000 |
++-----------------+----------+
+1 row in set (0.00 sec)</code></pre>
+<p>会话：</p>
+<pre><code>mysql&gt; SHOW SESSION VARIABLES LIKE &quot;long_query_time&quot;;
++-----------------+----------+
+| Variable_name   | Value    |
++-----------------+----------+
+| long_query_time | 2.000000 |
++-----------------+----------+
+1 row in set (0.01 sec)
+
+mysql&gt; SET @@SESSION.long_query_time = 1;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql&gt; SHOW SESSION VARIABLES LIKE &quot;long_query_time&quot;;
++-----------------+----------+
+| Variable_name   | Value    |
++-----------------+----------+
+| long_query_time | 1.000000 |
++-----------------+----------+
+1 row in set (0.00 sec)</code></pre>
+<p>慢查日志分析工具：mysqldumpslow、pt-query-digest</p>
+<p>通过慢查询日志发现有问题的SQL：</p>
+<ol>
+<li>查询次数多且每次查询占用时间长的SQL；<br> （pt-query-digest 分析的前几个查询）</li>
+<li>IO大的SQL；<br> （pt-query-digest 分析中的 Rows examine项）</li>
+<li>未命中索引的SQL。<br> （pt-query-digest 分析中的 Rows examine 和 Rows Send 的对比， 扫描大于发送行，说明索引命中率低）</li>
+</ol>
+<h3 id="执行计划分析"><a href="#执行计划分析" class="headerlink" title="执行计划分析"></a>执行计划分析</h3><p>EXPLAIN 用来查看MySQL执行一个SQL语句的执行计划。语法：</p>
+<pre><code>&#123;EXPLAIN | DESCRIBE | DESC&#125;
+    tbl_name [col_name | wild]
+&#123;EXPLAIN | DESCRIBE | DESC&#125;
+    [explain_type]
+    &#123;explainable_stmt | FOR CONNECTION connection_id&#125;
+explain_type: &#123;
+    EXTENDED
+  | PARTITIONS
+  | FORMAT = format_name
+&#125;
+format_name: &#123;
+    TRADITIONAL
+  | JSON
+&#125;
+explainable_stmt: &#123;
+    SELECT statement
+  | DELETE statement
+  | INSERT statement
+  | REPLACE statement
+  | UPDATE statement
+&#125;</code></pre>
+<p><a href="http://blog.fenxiangz.com/mysql/mysql-explain/">http://blog.fenxiangz.com/mysql/mysql-explain/</a></p>
+<hr>
+<h3 id="下文转载"><a href="#下文转载" class="headerlink" title="下文转载"></a>下文转载</h3><p>说起MySQL的查询优化，相信大家收藏了一堆奇淫技巧：不能使用<code>SELECT *</code>、不使用NULL字段、合理创建索引、为字段选择合适的数据类型….. 你是否真的理解这些优化技巧？是否理解其背后的工作原理？在实际场景下性能真有提升吗？我想未必。因而理解这些优化建议背后的原理就尤为重要，希望本文能让你重新审视这些优化建议，并在实际业务场景下合理的运用。</p>
+<h3 id="MySQL逻辑架构"><a href="#MySQL逻辑架构" class="headerlink" title="MySQL逻辑架构"></a>MySQL逻辑架构</h3><p>如果能在头脑中构建一幅MySQL各组件之间如何协同工作的架构图，有助于深入理解MySQL服务器。下图展示了MySQL的逻辑架构图。</p>
+<p><img src="./2018-12-15_MySQL%E4%BC%98%E5%8C%96%E6%A6%82%E8%A6%81/1.webp"><br>-&gt;MySQL逻辑架构，来自：高性能MySQL&lt;-</p>
+<p>MySQL逻辑架构整体分为三层，最上层为客户端层，并非MySQL所独有，诸如：连接处理、授权认证、安全等功能均在这一层处理。</p>
+<p>MySQL大多数核心服务均在中间这一层，包括查询解析、分析、优化、缓存、内置函数(比如：时间、数学、加密等函数)。所有的跨存储引擎的功能也在这一层实现：存储过程、触发器、视图等。</p>
+<p>最下层为存储引擎，其负责MySQL中的数据存储和提取。和Linux下的文件系统类似，每种存储引擎都有其优势和劣势。中间的服务层通过API与存储引擎通信，这些API接口屏蔽了不同存储引擎间的差异。</p>
+<h3 id="MySQL查询过程"><a href="#MySQL查询过程" class="headerlink" title="MySQL查询过程"></a>MySQL查询过程</h3><p>我们总是希望MySQL能够获得更高的查询性能，最好的办法是弄清楚MySQL是如何优化和执行查询的。一旦理解了这一点，就会发现：<strong>很多的查询优化工作实际上就是遵循一些原则让MySQL的优化器能够按照预想的合理方式运行而已。</strong></p>
+<p>当向MySQL发送一个请求的时候，MySQL到底做了些什么呢？</p>
+<p><img src="./2018-12-15_MySQL%E4%BC%98%E5%8C%96%E6%A6%82%E8%A6%81/2.webp"><br>-&gt;MySQL查询过程&lt;-</p>
+<h4 id="客户端-服务端通信协议"><a href="#客户端-服务端通信协议" class="headerlink" title="客户端/服务端通信协议"></a>客户端/服务端通信协议</h4><p>MySQL客户端/服务端通信协议是“半双工”的：在任一时刻，要么是服务器向客户端发送数据，要么是客户端向服务器发送数据，这两个动作不能同时发生。一旦一端开始发送消息，另一端要接收完整个消息才能响应它，所以我们无法也无须将一个消息切成小块独立发送，也没有办法进行流量控制。</p>
+<p>客户端用一个单独的数据包将查询请求发送给服务器，所以当查询语句很长的时候，需要设置<code>max_allowed_packet</code>参数。但是需要注意的是，如果查询实在是太大，服务端会拒绝接收更多数据并抛出异常。</p>
+<p>与之相反的是，服务器响应给用户的数据通常会很多，由多个数据包组成。但是当服务器响应客户端请求时，客户端必须完整的接收整个返回结果，而不能简单的只取前面几条结果，然后让服务器停止发送。因而在实际开发中，尽量保持查询简单且只返回必需的数据，减小通信间数据包的大小和数量是一个非常好的习惯，这也是查询中尽量避免使用<code>SELECT *</code>以及加上<code>LIMIT</code>限制的原因之一。</p>
+<h4 id="查询缓存"><a href="#查询缓存" class="headerlink" title="查询缓存"></a>查询缓存</h4><p>在解析一个查询语句前，如果查询缓存是打开的，那么MySQL会检查这个查询语句是否命中查询缓存中的数据。如果当前查询恰好命中查询缓存，在检查一次用户权限后直接返回缓存中的结果。这种情况下，查询不会被解析，也不会生成执行计划，更不会执行。</p>
+<p>MySQL将缓存存放在一个引用表（不要理解成<code>table</code>，可以认为是类似于<code>HashMap</code>的数据结构），通过一个哈希值索引，这个哈希值通过查询本身、当前要查询的数据库、客户端协议版本号等一些可能影响结果的信息计算得来。所以两个查询在任何字符上的不同（例如：空格、注释），都会导致缓存不会命中。</p>
+<p>如果查询中包含任何用户自定义函数、存储函数、用户变量、临时表、mysql库中的系统表，其查询结果<br>都不会被缓存。比如函数<code>NOW()</code>或者<code>CURRENT_DATE()</code>会因为不同的查询时间，返回不同的查询结果，再比如包含<code>CURRENT_USER</code>或者<code>CONNECION_ID()</code>的查询语句会因为不同的用户而返回不同的结果，将这样的查询结果缓存起来没有任何的意义。</p>
+<p>既然是缓存，就会失效，那查询缓存何时失效呢？MySQL的查询缓存系统会跟踪查询中涉及的每个表，如果这些表（数据或结构）发生变化，那么和这张表相关的所有缓存数据都将失效。正因为如此，在任何的写操作时，MySQL必须将对应表的所有缓存都设置为失效。如果查询缓存非常大或者碎片很多，这个操作就可能带来很大的系统消耗，甚至导致系统僵死一会儿。而且查询缓存对系统的额外消耗也不仅仅在写操作，读操作也不例外：</p>
+<ol>
+<li> 任何的查询语句在开始之前都必须经过检查，即使这条SQL语句永远不会命中缓存</li>
+<li> 如果查询结果可以被缓存，那么执行完成后，会将结果存入缓存，也会带来额外的系统消耗</li>
+</ol>
+<p>基于此，我们要知道并不是什么情况下查询缓存都会提高系统性能，缓存和失效都会带来额外消耗，只有当缓存带来的资源节约大于其本身消耗的资源时，才会给系统带来性能提升。但要如何评估打开缓存是否能够带来性能提升是一件非常困难的事情，也不在本文讨论的范畴内。如果系统确实存在一些性能问题，可以尝试打开查询缓存，并在数据库设计上做一些优化，比如：</p>
+<ol>
+<li> 用多个小表代替一个大表，注意不要过度设计</li>
+<li> 批量插入代替循环单条插入</li>
+<li> 合理控制缓存空间大小，一般来说其大小设置为几十兆比较合适</li>
+<li> 可以通过<code>SQL_CACHE</code>和<code>SQL_NO_CACHE</code>来控制某个查询语句是否需要进行缓存</li>
+</ol>
+<p>最后的忠告是不要轻易打开查询缓存，特别是写密集型应用。如果你实在是忍不住，可以将<code>query_cache_type</code>设置为<code>DEMAND</code>，这时只有加入<code>SQL_CACHE</code>的查询才会走缓存，其他查询则不会，这样可以非常自由地控制哪些查询需要被缓存。</p>
+<p>当然查询缓存系统本身是非常复杂的，这里讨论的也只是很小的一部分，其他更深入的话题，比如：缓存是如何使用内存的？如何控制内存的碎片化？事务对查询缓存有何影响等等，读者可以自行阅读相关资料，这里权当抛砖引玉吧。</p>
+<h4 id="语法解析和预处理"><a href="#语法解析和预处理" class="headerlink" title="语法解析和预处理"></a>语法解析和预处理</h4><p>MySQL通过关键字将SQL语句进行解析，并生成一颗对应的解析树。这个过程解析器主要通过语法规则来验证和解析。比如SQL中是否使用了错误的关键字或者关键字的顺序是否正确等等。预处理则会根据MySQL规则进一步检查解析树是否合法。比如检查要查询的数据表和数据列是否存在等等。</p>
+<h4 id="查询优化"><a href="#查询优化" class="headerlink" title="查询优化"></a>查询优化</h4><p>经过前面的步骤生成的语法树被认为是合法的了，并且由优化器将其转化成查询计划。多数情况下，一条查询可以有很多种执行方式，最后都返回相应的结果。优化器的作用就是找到这其中最好的执行计划。</p>
+<p>MySQL使用基于成本的优化器，它尝试预测一个查询使用某种执行计划时的成本，并选择其中成本最小的一个。在MySQL可以通过查询当前会话的<code>last_query_cost</code>的值来得到其计算当前查询的成本。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; select * from t_message limit 10;</span><br><span class="line">...省略结果集</span><br><span class="line"></span><br><span class="line">mysql&gt; show status like &#39;last_query_cost&#39;;</span><br><span class="line">+-----------------+-------------+</span><br><span class="line">| Variable_name   | Value       |</span><br><span class="line">+-----------------+-------------+</span><br><span class="line">| Last_query_cost | 6391.799000 |</span><br><span class="line">+-----------------+-------------+</span><br></pre></td></tr></table></figure>
+
+<p>示例中的结果表示优化器认为大概需要做6391个数据页的随机查找才能完成上面的查询。这个结果是根据一些列的统计信息计算得来的，这些统计信息包括：每张表或者索引的页面个数、索引的基数、索引和数据行的长度、索引的分布情况等等。</p>
+<p>有非常多的原因会导致MySQL选择错误的执行计划，比如统计信息不准确、不会考虑不受其控制的操作成本（用户自定义函数、存储过程）、MySQL认为的最优跟我们想的不一样（我们希望执行时间尽可能短，但MySQL值选择它认为成本小的，但成本小并不意味着执行时间短）等等。</p>
+<p>MySQL的查询优化器是一个非常复杂的部件，它使用了非常多的优化策略来生成一个最优的执行计划：</p>
+<ul>
+<li>  重新定义表的关联顺序（多张表关联查询时，并不一定按照SQL中指定的顺序进行，但有一些技巧可以指定关联顺序）</li>
+<li>  优化<code>MIN()</code>和<code>MAX()</code>函数（找某列的最小值，如果该列有索引，只需要查找B+Tree索引最左端，反之则可以找到最大值，具体原理见下文）</li>
+<li>  提前终止查询（比如：使用Limit时，查找到满足数量的结果集后会立即终止查询）</li>
+<li>  优化排序（在老版本MySQL会使用两次传输排序，即先读取行指针和需要排序的字段在内存中对其排序，然后再根据排序结果去读取数据行，而新版本采用的是单次传输排序，也就是一次读取所有的数据行，然后根据给定的列排序。对于I/O密集型应用，效率会高很多）</li>
+</ul>
+<p>随着MySQL的不断发展，优化器使用的优化策略也在不断的进化，这里仅仅介绍几个非常常用且容易理解的优化策略，其他的优化策略，大家自行查阅吧。</p>
+<h4 id="查询执行引擎"><a href="#查询执行引擎" class="headerlink" title="查询执行引擎"></a>查询执行引擎</h4><p>在完成解析和优化阶段以后，MySQL会生成对应的执行计划，查询执行引擎根据执行计划给出的指令逐步执行得出结果。整个执行过程的大部分操作均是通过调用存储引擎实现的接口来完成，这些接口被称为<code>handler API</code>。查询过程中的每一张表由一个<code>handler</code>实例表示。实际上，MySQL在查询优化阶段就为每一张表创建了一个<code>handler</code>实例，优化器可以根据这些实例的接口来获取表的相关信息，包括表的所有列名、索引统计信息等。存储引擎接口提供了非常丰富的功能，但其底层仅有几十个接口，这些接口像搭积木一样完成了一次查询的大部分操作。</p>
+<h4 id="返回结果给客户端"><a href="#返回结果给客户端" class="headerlink" title="返回结果给客户端"></a>返回结果给客户端</h4><p>查询执行的最后一个阶段就是将结果返回给客户端。即使查询不到数据，MySQL仍然会返回这个查询的相关信息，比如改查询影响到的行数以及执行时间等等。</p>
+<p>如果查询缓存被打开且这个查询可以被缓存，MySQL也会将结果存放到缓存中。</p>
+<p>结果集返回客户端是一个增量且逐步返回的过程。有可能MySQL在生成第一条结果时，就开始向客户端逐步返回结果集了。这样服务端就无须存储太多结果而消耗过多内存，也可以让客户端第一时间获得返回结果。需要注意的是，结果集中的每一行都会以一个满足①中所描述的通信协议的数据包发送，再通过TCP协议进行传输，在传输过程中，可能对MySQL的数据包进行缓存然后批量发送。</p>
+<p>回头总结一下MySQL整个查询执行过程，总的来说分为6个步骤：</p>
+<ol>
+<li> 客户端向MySQL服务器发送一条查询请求</li>
+<li> 服务器首先检查查询缓存，如果命中缓存，则立刻返回存储在缓存中的结果。否则进入下一阶段</li>
+<li> 服务器进行SQL解析、预处理、再由优化器生成对应的执行计划</li>
+<li> MySQL根据执行计划，调用存储引擎的API来执行查询</li>
+<li> 将结果返回给客户端，同时缓存查询结果</li>
+</ol>
+<h3 id="性能优化建议"><a href="#性能优化建议" class="headerlink" title="性能优化建议"></a>性能优化建议</h3><p>看了这么多，你可能会期待给出一些优化手段，是的，下面会从3个不同方面给出一些优化建议。但请等等，还有一句忠告要先送给你：<strong>不要听信你看到的关于优化的“绝对真理”，包括本文所讨论的内容，而应该是在实际的业务场景下通过测试来验证你关于执行计划以及响应时间的假设</strong>。</p>
+<h4 id="Scheme设计与数据类型优化"><a href="#Scheme设计与数据类型优化" class="headerlink" title="Scheme设计与数据类型优化"></a>Scheme设计与数据类型优化</h4><p>选择数据类型只要遵循<strong>小而简单</strong>的原则就好，越小的数据类型通常会更快，占用更少的磁盘、内存，处理时需要的CPU周期也更少。越简单的数据类型在计算时需要更少的CPU周期，比如，整型就比字符操作代价低，因而会使用整型来存储ip地址，使用<code>DATETIME</code>来存储时间，而不是使用字符串。</p>
+<p>这里总结几个可能容易理解错误的技巧：</p>
+<ol>
+<li> 通常来说把可为<code>NULL</code>的列改为<code>NOT NULL</code>不会对性能提升有多少帮助，只是如果计划在列上创建索引，就应该将该列设置为<code>NOT NULL</code>。</li>
+<li> 对整数类型指定宽度，比如<code>INT(11)</code>，没有任何卵用。<code>INT</code>使用32位（4个字节）存储空间，那么它的表示范围已经确定，所以<code>INT(1)</code>和<code>INT(20)</code>对于存储和计算是相同的。</li>
+<li> <code>UNSIGNED</code>表示不允许负值，大致可以使正数的上限提高一倍。比如<code>TINYINT</code>存储范围是-128 ~ 127，而<code>UNSIGNED TINYINT</code>存储的范围却是0 - 255。</li>
+<li> 通常来讲，没有太大的必要使用<code>DECIMAL</code>数据类型。即使是在需要存储财务数据时，仍然可以使用<code>BIGINT</code>。比如需要精确到万分之一，那么可以将数据乘以一百万然后使用<code>BIGINT</code>存储。这样可以避免浮点数计算不准确和<code>DECIMAL</code>精确计算代价高的问题。</li>
+<li> <code>TIMESTAMP</code>使用4个字节存储空间，<code>DATETIME</code>使用8个字节存储空间。因而，<code>TIMESTAMP</code>只能表示1970 - 2038年，比<code>DATETIME</code>表示的范围小得多，而且<code>TIMESTAMP</code>的值因时区不同而不同。</li>
+<li> 大多数情况下没有使用枚举类型的必要，其中一个缺点是枚举的字符串列表是固定的，添加和删除字符串（枚举选项）必须使用<code>ALTER TABLE</code>（如果只只是在列表末尾追加元素，不需要重建表）。</li>
+<li> schema的列不要太多。原因是存储引擎的API工作时需要在服务器层和存储引擎层之间通过行缓冲格式拷贝数据，然后在服务器层将缓冲内容解码成各个列，这个转换过程的代价是非常高的。如果列太多而实际使用的列又很少的话，有可能会导致CPU占用过高。</li>
+<li> 大表<code>ALTER TABLE</code>非常耗时，MySQL执行大部分修改表结果操作的方法是用新的结构创建一个张空表，从旧表中查出所有的数据插入新表，然后再删除旧表。尤其当内存不足而表又很大，而且还有很大索引的情况下，耗时更久。当然有一些奇淫技巧可以解决这个问题，有兴趣可自行查阅。</li>
+</ol>
+<h4 id="创建高性能索引"><a href="#创建高性能索引" class="headerlink" title="创建高性能索引"></a>创建高性能索引</h4><p>索引是提高MySQL查询性能的一个重要途径，但过多的索引可能会导致过高的磁盘使用率以及过高的内存占用，从而影响应用程序的整体性能。应当尽量避免事后才想起添加索引，因为事后可能需要监控大量的SQL才能定位到问题所在，而且添加索引的时间肯定是远大于初始添加索引所需要的时间，可见索引的添加也是非常有技术含量的。</p>
+<p>接下来将向你展示一系列创建高性能索引的策略，以及每条策略其背后的工作原理。但在此之前，先了解与索引相关的一些算法和数据结构，将有助于更好的理解后文的内容。</p>
+<h5 id="索引相关的数据结构和算法"><a href="#索引相关的数据结构和算法" class="headerlink" title="索引相关的数据结构和算法"></a>索引相关的数据结构和算法</h5><p>通常我们所说的索引是指<code>B-Tree</code>索引，它是目前关系型数据库中查找数据最为常用和有效的索引，大多数存储引擎都支持这种索引。使用<code>B-Tree</code>这个术语，是因为MySQL在<code>CREATE TABLE</code>或其它语句中使用了这个关键字，但实际上不同的存储引擎可能使用不同的数据结构，比如InnoDB就是使用的<code>B+Tree</code>。</p>
+<p><code>B+Tree</code>中的B是指<code>balance</code>，意为平衡。需要注意的是，B+树索引并不能找到一个给定键值的具体行，它找到的只是被查找数据行所在的页，接着数据库会把页读入到内存，再在内存中进行查找，最后得到要查找的数据。</p>
+<p>在介绍<code>B+Tree</code>前，先了解一下二叉查找树，它是一种经典的数据结构，其左子树的值总是小于根的值，右子树的值总是大于根的值，如下图①。如果要在这课树中查找值为5的记录，其大致流程：先找到根，其值为6，大于5，所以查找左子树，找到3，而5大于3，接着找3的右子树，总共找了3次。同样的方法，如果查找值为8的记录，也需要查找3次。所以二叉查找树的平均查找次数为(3 + 3 + 3 + 2 + 2 + 1) / 6 = 2.3次，而顺序查找的话，查找值为2的记录，仅需要1次，但查找值为8的记录则需要6次，所以顺序查找的平均查找次数为：(1 + 2 + 3 + 4 + 5 + 6) / 6 = 3.3次，因为大多数情况下二叉查找树的平均查找速度比顺序查找要快。</p>
+<p><img src="./2018-12-15_MySQL%E4%BC%98%E5%8C%96%E6%A6%82%E8%A6%81/3.webp"><br>-&gt;二叉查找树和平衡二叉树&lt;-</p>
+<p>由于二叉查找树可以任意构造，同样的值，可以构造出如图②的二叉查找树，显然这棵二叉树的查询效率和顺序查找差不多。若想二叉查找数的查询性能最高，需要这棵二叉查找树是平衡的，也即平衡二叉树（AVL树）。</p>
+<p>平衡二叉树首先需要符合二叉查找树的定义，其次必须满足任何节点的两个子树的高度差不能大于1。显然图②不满足平衡二叉树的定义，而图①是一课平衡二叉树。平衡二叉树的查找性能是比较高的（性能最好的是最优二叉树），查询性能越好，维护的成本就越大。比如图①的平衡二叉树，当用户需要插入一个新的值9的节点时，就需要做出如下变动。<br><img src="./2018-12-15_MySQL%E4%BC%98%E5%8C%96%E6%A6%82%E8%A6%81/4.webp"><br>-&gt;平衡二叉树旋转&lt;-</p>
+<p>通过一次左旋操作就将插入后的树重新变为平衡二叉树是最简单的情况了，实际应用场景中可能需要旋转多次。至此我们可以考虑一个问题，平衡二叉树的查找效率还不错，实现也非常简单，相应的维护成本还能接受，为什么MySQL索引不直接使用平衡二叉树？</p>
+<p>随着数据库中数据的增加，索引本身大小随之增加，不可能全部存储在内存中，因此索引往往以索引文件的形式存储的磁盘上。这样的话，索引查找过程中就要产生磁盘I/O消耗，相对于内存存取，I/O存取的消耗要高几个数量级。可以想象一下一棵几百万节点的二叉树的深度是多少？如果将这么大深度的一颗二叉树放磁盘上，每读取一个节点，需要一次磁盘的I/O读取，整个查找的耗时显然是不能够接受的。那么如何减少查找过程中的I/O存取次数？</p>
+<p>一种行之有效的解决方法是减少树的深度，将二叉树变为m叉树（多路搜索树），而<code>B+Tree</code>就是一种多路搜索树。理解<code>B+Tree</code>时，只需要理解其最重要的两个特征即可：第一，所有的关键字（可以理解为数据）都存储在叶子节点（<code>Leaf Page</code>），非叶子节点（<code>Index Page</code>）并不存储真正的数据，所有记录节点都是按键值大小顺序存放在同一层叶子节点上。其次，所有的叶子节点由指针连接。如下图为高度为2的简化了的<code>B+Tree</code>。</p>
+<p><img src="./2018-12-15_MySQL%E4%BC%98%E5%8C%96%E6%A6%82%E8%A6%81/5.webp"><br>-&gt;简化B+Tree&lt;-</p>
+<p>怎么理解这两个特征？MySQL将每个节点的大小设置为一个页的整数倍（原因下文会介绍），也就是在节点空间大小一定的情况下，每个节点可以存储更多的内结点，这样每个结点能索引的范围更大更精确。所有的叶子节点使用指针链接的好处是可以进行区间访问，比如上图中，如果查找大于20而小于30的记录，只需要找到节点20，就可以遍历指针依次找到25、30。如果没有链接指针的话，就无法进行区间查找。这也是MySQL使用<code>B+Tree</code>作为索引存储结构的重要原因。</p>
+<p>MySQL为何将节点大小设置为页的整数倍，这就需要理解磁盘的存储原理。磁盘本身存取就比主存慢很多，在加上机械运动损耗（特别是普通的机械硬盘），磁盘的存取速度往往是主存的几百万分之一，为了尽量减少磁盘I/O，磁盘往往不是严格按需读取，而是每次都会预读，即使只需要一个字节，磁盘也会从这个位置开始，顺序向后读取一定长度的数据放入内存，预读的长度一般为页的整数倍。</p>
+<blockquote>
+<p>页是计算机管理存储器的逻辑块，硬件及OS往往将主存和磁盘存储区分割为连续的大小相等的块，每个存储块称为一页（许多OS中，页的大小通常为4K）。主存和磁盘以页为单位交换数据。当程序要读取的数据不在主存中时，会触发一个缺页异常，此时系统会向磁盘发出读盘信号，磁盘会找到数据的起始位置并向后连续读取一页或几页载入内存中，然后异常返回，程序继续运行。</p>
+</blockquote>
+<p>MySQL巧妙利用了磁盘预读原理，将一个节点的大小设为等于一个页，这样每个节点只需要一次I/O就可以完全载入。为了达到这个目的，每次新建节点时，直接申请一个页的空间，这样就保证一个节点物理上也存储在一个页里，加之计算机存储分配都是按页对齐的，就实现了读取一个节点只需一次I/O。假设<code>B+Tree</code>的高度为h，一次检索最多需要<code>h-1</code>I/O（根节点常驻内存），复杂度$O(h) = O(\log_{M}N)$。实际应用场景中，M通常较大，常常超过100，因此树的高度一般都比较小，通常不超过3。</p>
+<p>最后简单了解下<code>B+Tree</code>节点的操作，在整体上对索引的维护有一个大概的了解，虽然索引可以大大提高查询效率，但维护索引仍要花费很大的代价，因此合理的创建索引也就尤为重要。</p>
+<p>仍以上面的树为例，我们假设每个节点只能存储4个内节点。首先要插入第一个节点28，如下图所示。</p>
+<p><img src="./2018-12-15_MySQL%E4%BC%98%E5%8C%96%E6%A6%82%E8%A6%81/6.webp"><br>-&gt;leaf page和index page都没有满&lt;-</p>
+<p>接着插入下一个节点70，在Index Page中查询后得知应该插入到50 - 70之间的叶子节点，但叶子节点已满，这时候就需要进行也分裂的操作，当前的叶子节点起点为50，所以根据中间值来拆分叶子节点，如下图所示。</p>
+<p><img src="./2018-12-15_MySQL%E4%BC%98%E5%8C%96%E6%A6%82%E8%A6%81/7.webp"><br>-&gt;Leaf Page拆分&lt;-</p>
+<p>最后插入一个节点95，这时候Index Page和Leaf Page都满了，就需要做两次拆分，如下图所示。<br><img src="./2018-12-15_MySQL%E4%BC%98%E5%8C%96%E6%A6%82%E8%A6%81/8.webp"><br>-&gt; Leaf Page与Index Page拆分 &lt;-</p>
+<p>拆分后最终形成了这样一颗树。<br><img src="./2018-12-15_MySQL%E4%BC%98%E5%8C%96%E6%A6%82%E8%A6%81/9.webp"><br>-&gt;最终树&lt;-</p>
+<p><code>B+Tree</code>为了保持平衡，对于新插入的值需要做大量的拆分页操作，而页的拆分需要I/O操作，为了尽可能的减少页的拆分操作，<code>B+Tree</code>也提供了类似于平衡二叉树的旋转功能。当Leaf Page已满但其左右兄弟节点没有满的情况下，<code>B+Tree</code>并不急于去做拆分操作，而是将记录移到当前所在页的兄弟节点上。通常情况下，左兄弟会被先检查用来做旋转操作。就比如上面第二个示例，当插入70的时候，并不会去做页拆分，而是左旋操作。</p>
+<p><img src="./2018-12-15_MySQL%E4%BC%98%E5%8C%96%E6%A6%82%E8%A6%81/10.webp"><br>-&gt;左旋操作&lt;-</p>
+<p>通过旋转操作可以最大限度的减少页分裂，从而减少索引维护过程中的磁盘的I/O操作，也提高索引维护效率。需要注意的是，删除节点跟插入节点类型，仍然需要旋转和拆分操作，这里就不再说明。</p>
+<h5 id="高性能策略"><a href="#高性能策略" class="headerlink" title="高性能策略"></a>高性能策略</h5><p>通过上文，相信你对<code>B+Tree</code>的数据结构已经有了大致的了解，但MySQL中索引是如何组织数据的存储呢？以一个简单的示例来说明，假如有如下数据表：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE People(</span><br><span class="line">    last_name varchar(50) not null,</span><br><span class="line">    first_name varchar(50) not null,</span><br><span class="line">    dob date not null,</span><br><span class="line">    gender enum(&#96;m&#96;,&#96;f&#96;) not null,</span><br><span class="line">    key(last_name,first_name,dob)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p>对于表中每一行数据，索引中包含了last_name、first_name、dob列的值，下图展示了索引是如何组织数据存储的。</p>
+<p><img src="./2018-12-15_MySQL%E4%BC%98%E5%8C%96%E6%A6%82%E8%A6%81/11.webp"><br>-&gt;索引如何组织数据存储，来自：高性能MySQL&lt;-</p>
+<p>可以看到，索引首先根据第一个字段来排列顺序，当名字相同时，则根据第三个字段，即出生日期来排序，正是因为这个原因，才有了索引的“最左原则”。</p>
+<h6 id="1、MySQL不会使用索引的情况：非独立的列"><a href="#1、MySQL不会使用索引的情况：非独立的列" class="headerlink" title="1、MySQL不会使用索引的情况：非独立的列"></a>1、MySQL不会使用索引的情况：非独立的列</h6><p>“独立的列”是指索引列不能是表达式的一部分，也不能是函数的参数。比如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from where id + 1 &#x3D; 5</span><br></pre></td></tr></table></figure>
+
+<p>我们很容易看出其等价于 id = 4，但是MySQL无法自动解析这个表达式，使用函数是同样的道理。</p>
+<h6 id="2、前缀索引"><a href="#2、前缀索引" class="headerlink" title="2、前缀索引"></a>2、前缀索引</h6><p>如果列很长，通常可以索引开始的部分字符，这样可以有效节约索引空间，从而提高索引效率。</p>
+<h6 id="3、多列索引和索引顺序"><a href="#3、多列索引和索引顺序" class="headerlink" title="3、多列索引和索引顺序"></a>3、多列索引和索引顺序</h6><p>在多数情况下，在多个列上建立独立的索引并不能提高查询性能。理由非常简单，MySQL不知道选择哪个索引的查询效率更好，所以在老版本，比如MySQL5.0之前就会随便选择一个列的索引，而新的版本会采用合并索引的策略。举个简单的例子，在一张电影演员表中，在actor_id和film_id两个列上都建立了独立的索引，然后有如下查询：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select film_id,actor_id from film_actor where actor_id &#x3D; 1 or film_id &#x3D; 1</span><br></pre></td></tr></table></figure>
+
+<p>老版本的MySQL会随机选择一个索引，但新版本做如下的优化：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">select film_id,actor_id from film_actor where actor_id &#x3D; 1  </span><br><span class="line">union all </span><br><span class="line">select film_id,actor_id from film_actor where film_id &#x3D; 1 and actor_id &lt;&gt; 1</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>  当出现多个索引做相交操作时（多个AND条件），通常来说一个包含所有相关列的索引要优于多个独立索引。</li>
+<li>  当出现多个索引做联合操作时（多个OR条件），对结果集的合并、排序等操作需要耗费大量的CPU和内存资源，特别是当其中的某些索引的选择性不高，需要返回合并大量数据时，查询成本更高。所以这种情况下还不如走全表扫描。</li>
+</ul>
+<p>因此<code>explain</code>时如果发现有索引合并（Extra字段出现<code>Using union</code>），应该好好检查一下查询和表结构是不是已经是最优的，如果查询和表都没有问题，那只能说明索引建的非常糟糕，应当慎重考虑索引是否合适，有可能一个包含所有相关列的多列索引更适合。</p>
+<p>前面我们提到过索引如何组织数据存储的，从图中可以看到多列索引时，索引的顺序对于查询是至关重要的，很明显应该把选择性更高的字段放到索引的前面，这样通过第一个字段就可以过滤掉大多数不符合条件的数据。</p>
+<blockquote>
+<p><strong>索引选择性</strong>是指不重复的索引值和数据表的总记录数的比值，选择性越高查询效率越高，因为选择性越高的索引可以让MySQL在查询时过滤掉更多的行。唯一索引的选择性是1，这时最好的索引选择性，性能也是最好的。</p>
+</blockquote>
+<p>理解索引选择性的概念后，就不难确定哪个字段的选择性较高了，查一下就知道了，比如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM payment where staff_id &#x3D; 2 and customer_id &#x3D; 584</span><br></pre></td></tr></table></figure>
+
+<p>是应该创建<code>(staff_id,customer_id)</code>的索引还是应该颠倒一下顺序？执行下面的查询，哪个字段的选择性更接近1就把哪个字段索引前面就好。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">select count(distinct staff_id)&#x2F;count(*) as staff_id_selectivity,</span><br><span class="line">       count(distinct customer_id)&#x2F;count(*) as customer_id_selectivity,</span><br><span class="line">       count(*) from payment</span><br></pre></td></tr></table></figure>
+
+<p>多数情况下使用这个原则没有任何问题，但仍然注意你的数据中是否存在一些特殊情况。举个简单的例子，比如要查询某个用户组下有过交易的用户信息：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select user_id from trade where user_group_id &#x3D; 1 and trade_amount &gt; 0</span><br></pre></td></tr></table></figure>
+
+<p>MySQL为这个查询选择了索引<code>(user_group_id,trade_amount)</code>，如果不考虑特殊情况，这看起来没有任何问题，但实际情况是这张表的大多数数据都是从老系统中迁移过来的，由于新老系统的数据不兼容，所以就给老系统迁移过来的数据赋予了一个默认的用户组。这种情况下，通过索引扫描的行数跟全表扫描基本没什么区别，索引也就起不到任何作用。</p>
+<p>推广开来说，经验法则和推论在多数情况下是有用的，可以指导我们开发和设计，但实际情况往往会更复杂，实际业务场景下的某些特殊情况可能会摧毁你的整个设计。</p>
+<h6 id="4、避免多个范围条件"><a href="#4、避免多个范围条件" class="headerlink" title="4、避免多个范围条件"></a>4、避免多个范围条件</h6><p>实际开发中，我们会经常使用多个范围条件，比如想查询某个时间段内登录过的用户：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select user.* from user where login_time &gt; &#39;2017-04-01&#39; and age between 18 and 30;</span><br></pre></td></tr></table></figure>
+
+<p>这个查询有一个问题：它有两个范围条件，login_time列和age列，MySQL可以使用login_time列的索引或者age列的索引，但无法同时使用它们。</p>
+<h6 id="5、覆盖索引"><a href="#5、覆盖索引" class="headerlink" title="5、覆盖索引"></a>5、覆盖索引</h6><p>如果一个索引包含或者说覆盖所有需要查询的字段的值，那么就没有必要再回表查询，这就称为覆盖索引。覆盖索引是非常有用的工具，可以极大的提高性能，因为查询只需要扫描索引会带来许多好处：</p>
+<ul>
+<li>  索引条目远小于数据行大小，如果只读取索引，极大减少数据访问量</li>
+<li>  索引是有按照列值顺序存储的，对于I/O密集型的范围查询要比随机从磁盘读取每一行数据的IO要少的多</li>
+</ul>
+<h6 id="6、使用索引扫描来排序"><a href="#6、使用索引扫描来排序" class="headerlink" title="6、使用索引扫描来排序"></a>6、使用索引扫描来排序</h6><p>MySQL有两种方式可以生产有序的结果集，其一是对结果集进行排序的操作，其二是按照索引顺序扫描得出的结果自然是有序的。如果explain的结果中<code>type</code>列的值为<code>index</code>表示使用了索引扫描来做排序。</p>
+<p>扫描索引本身很快，因为只需要从一条索引记录移动到相邻的下一条记录。但如果索引本身不能覆盖所有需要查询的列，那么就不得不每扫描一条索引记录就回表查询一次对应的行。这个读取操作基本上是随机I/O，因此按照索引顺序读取数据的速度通常要比顺序地全表扫描要慢。</p>
+<p>在设计索引时，如果一个索引既能够满足排序，有满足查询，是最好的。</p>
+<p>只有当索引的列顺序和<code>ORDER BY</code>子句的顺序完全一致，并且所有列的排序方向也一样时，才能够使用索引来对结果做排序。如果查询需要关联多张表，则只有<code>ORDER BY</code>子句引用的字段全部为第一张表时，才能使用索引做排序。<code>ORDER BY</code>子句和查询的限制是一样的，都要满足最左前缀的要求（有一种情况例外，就是最左的列被指定为常数，下面是一个简单的示例），其他情况下都需要执行排序操作，而无法利用索引排序。</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 最左列为常数，索引：(date,staff_id,customer_id)</span><br><span class="line">select  staff_id,customer_id from demo where date &#x3D; &#39;2015-06-01&#39; order by staff_id,customer_id</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h6 id="7、冗余和重复索引"><a href="#7、冗余和重复索引" class="headerlink" title="7、冗余和重复索引"></a>7、冗余和重复索引</h6><p>冗余索引是指在相同的列上按照相同的顺序创建的相同类型的索引，应当尽量避免这种索引，发现后立即删除。比如有一个索引<code>(A,B)</code>，再创建索引<code>(A)</code>就是冗余索引。冗余索引经常发生在为表添加新索引时，比如有人新建了索引<code>(A,B)</code>，但这个索引不是扩展已有的索引<code>(A)</code>。</p>
+<p>大多数情况下都应该尽量扩展已有的索引而不是创建新索引。但有极少情况下出现性能方面的考虑需要冗余索引，比如扩展已有索引而导致其变得过大，从而影响到其他使用该索引的查询。</p>
+<h6 id="8、删除长期未使用的索引"><a href="#8、删除长期未使用的索引" class="headerlink" title="8、删除长期未使用的索引"></a>8、删除长期未使用的索引</h6><p>定期删除一些长时间未使用过的索引是一个非常好的习惯。</p>
+<p>关于索引这个话题打算就此打住，最后要说一句，索引并不总是最好的工具，只有当索引帮助提高查询速度带来的好处大于其带来的额外工作时，索引才是有效的。对于非常小的表，简单的全表扫描更高效。对于中到大型的表，索引就非常有效。对于超大型的表，建立和维护索引的代价随之增长，这时候其他技术也许更有效，比如分区表。最后的最后，**<code>explain</code>后再提测是一种美德**。</p>
+<h4 id="特定类型查询优化"><a href="#特定类型查询优化" class="headerlink" title="特定类型查询优化"></a>特定类型查询优化</h4><h5 id="优化COUNT-查询"><a href="#优化COUNT-查询" class="headerlink" title="优化COUNT()查询"></a>优化COUNT()查询</h5><p><code>COUNT()</code>可能是被大家误解最多的函数了，它有两种不同的作用，其一是统计某个列值的数量，其二是统计行数。统计列值时，要求列值是非空的，它不会统计NULL。如果确认括号中的表达式不可能为空时，实际上就是在统计行数。最简单的就是当使用<code>COUNT(*)</code>时，并不是我们所想象的那样扩展成所有的列，实际上，它会忽略所有的列而直接统计所有的行数。</p>
+<p>我们最常见的误解也就在这儿，在括号内指定了一列却希望统计结果是行数，而且还常常误以为前者的性能会更好。但实际并非这样，如果要统计行数，直接使用<code>COUNT(*)</code>，意义清晰，且性能更好。</p>
+<p>有时候某些业务场景并不需要完全精确的<code>COUNT</code>值，可以用近似值来代替，EXPLAIN出来的行数就是一个不错的近似值，而且执行EXPLAIN并不需要真正地去执行查询，所以成本非常低。通常来说，执行<code>COUNT()</code>都需要扫描大量的行才能获取到精确的数据，因此很难优化，MySQL层面还能做得也就只有覆盖索引了。如果不还能解决问题，只有从架构层面解决了，比如添加汇总表，或者使用redis这样的外部缓存系统。</p>
+<h5 id="优化关联查询"><a href="#优化关联查询" class="headerlink" title="优化关联查询"></a>优化关联查询</h5><p>在大数据场景下，表与表之间通过一个冗余字段来关联，要比直接使用<code>JOIN</code>有更好的性能。如果确实需要使用关联查询的情况下，需要特别注意的是：</p>
+<ul>
+<li>  确保<code>ON</code>和<code>USING</code>字句中的列上有索引。在创建索引的时候就要考虑到关联的顺序。当表A和表B用列c关联的时候，如果优化器关联的顺序是A、B，那么就不需要在A表的对应列上创建索引。没有用到的索引会带来额外的负担，一般来说，除非有其他理由，只需要在关联顺序中的第二张表的相应列上创建索引（具体原因下文分析）。</li>
+<li>  确保任何的<code>GROUP BY</code>和<code>ORDER BY</code>中的表达式只涉及到一个表中的列，这样MySQL才有可能使用索引来优化。</li>
+</ul>
+<p>要理解优化关联查询的第一个技巧，就需要理解MySQL是如何执行关联查询的。当前MySQL关联执行的策略非常简单，它对任何的关联都执行<strong>嵌套循环关联</strong>操作，即先在一个表中循环取出单条数据，然后在嵌套循环到下一个表中寻找匹配的行，依次下去，直到找到所有表中匹配的行为为止。然后根据各个表匹配的行，返回查询中需要的各个列。</p>
+<p>太抽象了？以上面的示例来说明，比如有这样的一个查询：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT A.xx,B.yy </span><br><span class="line">FROM A INNER JOIN B USING(c)</span><br><span class="line">WHERE A.xx IN (5,6)</span><br></pre></td></tr></table></figure>
+
+<p>假设MySQL按照查询中的关联顺序A、B来进行关联操作，那么可以用下面的伪代码表示MySQL如何完成这个查询：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">outer_iterator &#x3D; SELECT A.xx,A.c FROM A WHERE A.xx IN (5,6);</span><br><span class="line">outer_row &#x3D; outer_iterator.next;</span><br><span class="line">while(outer_row) &#123;</span><br><span class="line">    inner_iterator &#x3D; SELECT B.yy FROM B WHERE B.c &#x3D; outer_row.c;</span><br><span class="line">    inner_row &#x3D; inner_iterator.next;</span><br><span class="line">    while(inner_row) &#123;</span><br><span class="line">        output[inner_row.yy,outer_row.xx];</span><br><span class="line">        inner_row &#x3D; inner_iterator.next;</span><br><span class="line">    &#125;</span><br><span class="line">    outer_row &#x3D; outer_iterator.next;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>可以看到，最外层的查询是根据<code>A.xx</code>列来查询的，<code>A.c</code>上如果有索引的话，整个关联查询也不会使用。再看内层的查询，很明显<code>B.c</code>上如果有索引的话，能够加速查询，因此只需要在关联顺序中的第二张表的相应列上创建索引即可。</p>
+<h5 id="优化LIMIT分页"><a href="#优化LIMIT分页" class="headerlink" title="优化LIMIT分页"></a>优化LIMIT分页</h5><p>当需要分页操作时，通常会使用<code>LIMIT</code>加上偏移量的办法实现，同时加上合适的<code>ORDER BY</code>字句。如果有对应的索引，通常效率会不错，否则，MySQL需要做大量的文件排序操作。</p>
+<p>一个常见的问题是当偏移量非常大的时候，比如：<code>LIMIT 10000 20</code>这样的查询，MySQL需要查询10020条记录然后只返回20条记录，前面的10000条都将被抛弃，这样的代价非常高。</p>
+<p>优化这种查询一个最简单的办法就是尽可能的使用覆盖索引扫描，而不是查询所有的列。然后根据需要做一次关联查询再返回所有的列。对于偏移量很大时，这样做的效率会提升非常大。考虑下面的查询：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT film_id,description FROM film ORDER BY title LIMIT 50,5;</span><br></pre></td></tr></table></figure>
+
+<p>如果这张表非常大，那么这个查询最好改成下面的样子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT film.film_id,film.description</span><br><span class="line">FROM film INNER JOIN (</span><br><span class="line">    SELECT film_id FROM film ORDER BY title LIMIT 50,5</span><br><span class="line">) AS tmp USING(film_id);</span><br></pre></td></tr></table></figure>
+
+<p>这里的延迟关联将大大提升查询效率，让MySQL扫描尽可能少的页面，获取需要访问的记录后在根据关联列回原表查询所需要的列。</p>
+<p>有时候如果可以使用书签记录上次取数据的位置，那么下次就可以直接从该书签记录的位置开始扫描，这样就可以避免使用<code>OFFSET</code>，比如下面的查询：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT id FROM t LIMIT 10000, 10;</span><br><span class="line">改为：</span><br><span class="line">SELECT id FROM t WHERE id &gt; 10000 LIMIT 10;</span><br></pre></td></tr></table></figure>
+
+<p>其他优化的办法还包括使用预先计算的汇总表，或者关联到一个冗余表，冗余表中只包含主键列和需要做排序的列。</p>
+<h5 id="优化UNION"><a href="#优化UNION" class="headerlink" title="优化UNION"></a>优化UNION</h5><p>MySQL处理<code>UNION</code>的策略是先创建临时表，然后再把各个查询结果插入到临时表中，最后再来做查询。因此很多优化策略在<code>UNION</code>查询中都没有办法很好的时候。经常需要手动将<code>WHERE</code>、<code>LIMIT</code>、<code>ORDER BY</code>等字句“下推”到各个子查询中，以便优化器可以充分利用这些条件先优化。</p>
+<p>除非确实需要服务器去重，否则就一定要使用<code>UNION ALL</code>，如果没有<code>ALL</code>关键字，MySQL会给临时表加上<code>DISTINCT</code>选项，这会导致整个临时表的数据做唯一性检查，这样做的代价非常高。当然即使使用ALL关键字，MySQL总是将结果放入临时表，然后再读出，再返回给客户端。虽然很多时候没有这个必要，比如有时候可以直接把每个子查询的结果返回给客户端。</p>
+<h4 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h4><p>理解查询是如何执行以及时间都消耗在哪些地方，再加上一些优化过程的知识，可以帮助大家更好的理解MySQL，理解常见优化技巧背后的原理。希望本文中的原理、示例能够帮助大家更好的将理论和实践联系起来，更多的将理论知识运用到实践中。</p>
+<p>其他也没啥说的了，给大家留两个思考题吧，可以在脑袋里想想答案，这也是大家经常挂在嘴边的，但很少有人会思考为什么？</p>
+<ol>
+<li><p> 有非常多的程序员在分享时都会抛出这样一个观点：尽可能不要使用存储过程，存储过程非常不容易维护，也会增加使用成本，应该把业务逻辑放到客户端。既然客户端都能干这些事，那为什么还要存储过程？</p>
+</li>
+<li><p> <code>JOIN</code>本身也挺方便的，直接查询就好了，为什么还需要视图呢？</p>
+</li>
+</ol>
+<h4 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h4><p>[1] 姜承尧 著；MySQL技术内幕-InnoDB存储引擎；机械工业出版社，2013<br>[2] Baron Scbwartz 等著；宁海元 周振兴等译；高性能MySQL（第三版）; 电子工业出版社， 2013<br>[3] <a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000004690721">由 B-/B+树看 MySQL索引结构</a></p>
+<p>原文：<a target="_blank" rel="noopener" href="http://www.jianshu.com/p/d7665192aaaf">http://www.jianshu.com/p/d7665192aaaf</a></p>
+
+        
+<script src="/js/qrious.min.js"></script>
+
+
+        <hr>
+        <div>
+            
+            <p>
+                <span>专题: </span>
+                
+                <a href="/series/#MySQL">
+                    <code key="MySQL" class="post-label">MySQL</code>
+                </a>
+                
+            </p>
+            
+            <p>
+                <span>本文发表于 2018-12-15，最后修改于 2020-11-29。</span>
+            </p>
+            <!-- 文章末尾的提示 start -->
+            
+            
+            
+                
+            <!-- 文章末尾的提示 end -->
+        </div>
+        <hr />
+        <p name="pagination" style="font-size: 1.2em">
+    
+    <a class="float-left" href="/post/linux/2018-11-17_Ubuntu包错误或不一致时的清理方式.html">上一篇 « Ubuntu 包错误或不一致时的清理方式</a>
+    
+    
+    <a class="float-right" href="/post/network/2018-12-15_URL和URI的区别.html">下一篇 » URL 和 URI 的区别</a>
+    
+</p>
+    </article>
+    <!-- 赞赏 -->
+    <!--打赏-->
+
+    <!-- 推荐阅读三篇文章 -->
+    <div class="col-xs-12">
+        <h3>推荐阅读</h3>
+        
+        <div class="post-preview">
+    <div class="post-img" style="background-image: url('/')"></div>
+    <div class="post-info">
+        <div class="post-info-center">
+            <div class="hidden-xs">
+                
+                
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#管理"
+                    title="管理">管理</a>
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#认知"
+                    title="认知">认知</a>
+                <span>/</span>
+                
+                
+            </div>
+            <a href="/post/其他/2020-11-27_『认知升级』是比其他一切都更加重要的思维模型转变.html" class="title">
+                『认知升级』是比其他一切都更加重要的思维模型转变
+            </a>
+            <p class="text-gray">
+                <small>
+                    <span>发表于2020-11-27，</span>
+                    <span class="hidden-xs">全文3278字，</span>
+                    <span>阅读约11分钟</span>
+                </small>
+            </p>
+        </div>
+    </div>
+</div>
+        
+        <div class="post-preview">
+    <div class="post-img" style="background-image: url('/images/computer-networking.png')"></div>
+    <div class="post-info">
+        <div class="post-info-center">
+            <div class="hidden-xs">
+                
+                
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#ssh"
+                    title="ssh">ssh</a>
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#Heidi"
+                    title="Heidi">Heidi</a>
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#MySQL"
+                    title="MySQL">MySQL</a>
+                <span>/</span>
+                
+                
+            </div>
+            <a href="/post/network/2017-11-28_HeidiSQL通过SSH隧道链接mysql.html" class="title">
+                Heidi SQL 通过 SSH 隧道链接 MySQL
+            </a>
+            <p class="text-gray">
+                <small>
+                    <span>发表于2017-11-26，</span>
+                    <span class="hidden-xs">全文402字，</span>
+                    <span>阅读约2分钟</span>
+                </small>
+            </p>
+        </div>
+    </div>
+</div>
+        
+        <div class="post-preview">
+    <div class="post-img" style="background-image: url('/images/java/io.png')"></div>
+    <div class="post-info">
+        <div class="post-info-center">
+            <div class="hidden-xs">
+                
+                
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#Java"
+                    title="Java">Java</a>
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#IO"
+                    title="IO">IO</a>
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#Exception"
+                    title="Exception">Exception</a>
+                <span>/</span>
+                
+                
+            </div>
+            <a href="/post/java/io/2017-04-19_java_io_5_exception.html" class="title">
+                Java IO(5) 异常处理
+            </a>
+            <p class="text-gray">
+                <small>
+                    <span>发表于2017-04-19，</span>
+                    <span class="hidden-xs">全文5840字，</span>
+                    <span>阅读约20分钟</span>
+                </small>
+            </p>
+        </div>
+    </div>
+</div>
+        
+    </div>
+    <div class="col-xs-12">
+        <!-- 标签列表 -->
+        <!-- Featured Tags -->
+<style>
+    #featured-tag .post-tag-item {
+        font-size: 12px;
+        line-height: 30px;
+        display: inline-block;
+        height: 30px;
+        margin: 5px 0px;
+        padding: 0 7px;
+        color: #333;
+        border-radius: 15px;
+        background: #f6f6f6;
+    }
+
+    #featured-tag .post-tag-item:hover {
+        color: #337ab7;
+    }
+</style>
+<div id="featured-tag">
+    
+    <a class="post-tag-item" href="/tags/#关于我" title="关于我"
+        rel="1">#关于我 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Hello World" title="Hello World"
+        rel="1">#Hello World (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Idea" title="Idea"
+        rel="1">#Idea (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#JavaIDE" title="JavaIDE"
+        rel="1">#JavaIDE (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Java" title="Java"
+        rel="50">#Java (50) </a>
+    
+    <a class="post-tag-item" href="/tags/#二进制" title="二进制"
+        rel="2">#二进制 (2) </a>
+    
+    <a class="post-tag-item" href="/tags/#内存分配" title="内存分配"
+        rel="1">#内存分配 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#内存泄露" title="内存泄露"
+        rel="1">#内存泄露 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#书籍推荐" title="书籍推荐"
+        rel="1">#书籍推荐 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#知识体系" title="知识体系"
+        rel="1">#知识体系 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#反码" title="反码"
+        rel="1">#反码 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#补码" title="补码"
+        rel="1">#补码 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#内存模型" title="内存模型"
+        rel="1">#内存模型 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#jvm" title="jvm"
+        rel="3">#jvm (3) </a>
+    
+    <a class="post-tag-item" href="/tags/#性能优化" title="性能优化"
+        rel="4">#性能优化 (4) </a>
+    
+    <a class="post-tag-item" href="/tags/#HashMap" title="HashMap"
+        rel="1">#HashMap (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Java集合" title="Java集合"
+        rel="1">#Java集合 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#ThreadLocal" title="ThreadLocal"
+        rel="1">#ThreadLocal (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Java线程" title="Java线程"
+        rel="3">#Java线程 (3) </a>
+    
+    <a class="post-tag-item" href="/tags/#异常" title="异常"
+        rel="1">#异常 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Java异常" title="Java异常"
+        rel="1">#Java异常 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#思维导图" title="思维导图"
+        rel="2">#思维导图 (2) </a>
+    
+    <a class="post-tag-item" href="/tags/#垃圾回收" title="垃圾回收"
+        rel="2">#垃圾回收 (2) </a>
+    
+    <a class="post-tag-item" href="/tags/#Java引用" title="Java引用"
+        rel="1">#Java引用 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#IO" title="IO"
+        rel="11">#IO (11) </a>
+    
+    <a class="post-tag-item" href="/tags/#Exception" title="Exception"
+        rel="1">#Exception (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Stream" title="Stream"
+        rel="1">#Stream (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Netty" title="Netty"
+        rel="4">#Netty (4) </a>
+    
+    <a class="post-tag-item" href="/tags/#笔记" title="笔记"
+        rel="1">#笔记 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#NIO" title="NIO"
+        rel="7">#NIO (7) </a>
+    
+    <a class="post-tag-item" href="/tags/#Buffer" title="Buffer"
+        rel="1">#Buffer (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Selector" title="Selector"
+        rel="1">#Selector (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#问题" title="问题"
+        rel="2">#问题 (2) </a>
+    
+    <a class="post-tag-item" href="/tags/#直接内存" title="直接内存"
+        rel="1">#直接内存 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#非直接内存" title="非直接内存"
+        rel="1">#非直接内存 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#堆内存" title="堆内存"
+        rel="1">#堆内存 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#注解" title="注解"
+        rel="1">#注解 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Spring" title="Spring"
+        rel="6">#Spring (6) </a>
+    
+    <a class="post-tag-item" href="/tags/#文件加载" title="文件加载"
+        rel="1">#文件加载 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Spring Boot" title="Spring Boot"
+        rel="3">#Spring Boot (3) </a>
+    
+    <a class="post-tag-item" href="/tags/#Spring Cloud" title="Spring Cloud"
+        rel="1">#Spring Cloud (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#序列化" title="序列化"
+        rel="1">#序列化 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#函数式编程" title="函数式编程"
+        rel="1">#函数式编程 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#lambda" title="lambda"
+        rel="1">#lambda (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#并发编程" title="并发编程"
+        rel="1">#并发编程 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#JUC" title="JUC"
+        rel="1">#JUC (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#lambda表达式" title="lambda表达式"
+        rel="1">#lambda表达式 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#源码" title="源码"
+        rel="1">#源码 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#RPC" title="RPC"
+        rel="1">#RPC (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Reactor" title="Reactor"
+        rel="1">#Reactor (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#NIO模型" title="NIO模型"
+        rel="1">#NIO模型 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#操作系统" title="操作系统"
+        rel="1">#操作系统 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#微服务" title="微服务"
+        rel="1">#微服务 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Vert.x" title="Vert.x"
+        rel="1">#Vert.x (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#八皇后" title="八皇后"
+        rel="1">#八皇后 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#算法" title="算法"
+        rel="2">#算法 (2) </a>
+    
+    <a class="post-tag-item" href="/tags/#创建型模式" title="创建型模式"
+        rel="1">#创建型模式 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#设计模式" title="设计模式"
+        rel="3">#设计模式 (3) </a>
+    
+    <a class="post-tag-item" href="/tags/#分布式" title="分布式"
+        rel="3">#分布式 (3) </a>
+    
+    <a class="post-tag-item" href="/tags/#CAP" title="CAP"
+        rel="1">#CAP (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#理论" title="理论"
+        rel="1">#理论 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#脑裂" title="脑裂"
+        rel="1">#脑裂 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#单例" title="单例"
+        rel="1">#单例 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#DCL" title="DCL"
+        rel="1">#DCL (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#包管理" title="包管理"
+        rel="4">#包管理 (4) </a>
+    
+    <a class="post-tag-item" href="/tags/#Gradle" title="Gradle"
+        rel="3">#Gradle (3) </a>
+    
+    <a class="post-tag-item" href="/tags/#结构型模式" title="结构型模式"
+        rel="1">#结构型模式 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#行为型模式" title="行为型模式"
+        rel="1">#行为型模式 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Spring Core" title="Spring Core"
+        rel="1">#Spring Core (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#源码分析" title="源码分析"
+        rel="1">#源码分析 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Docker" title="Docker"
+        rel="2">#Docker (2) </a>
+    
+    <a class="post-tag-item" href="/tags/#入门" title="入门"
+        rel="2">#入门 (2) </a>
+    
+    <a class="post-tag-item" href="/tags/#符号链接" title="符号链接"
+        rel="1">#符号链接 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#目录" title="目录"
+        rel="1">#目录 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#deb" title="deb"
+        rel="2">#deb (2) </a>
+    
+    <a class="post-tag-item" href="/tags/#chrome" title="chrome"
+        rel="1">#chrome (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#快捷键" title="快捷键"
+        rel="1">#快捷键 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#同步" title="同步"
+        rel="1">#同步 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#异步" title="异步"
+        rel="1">#异步 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#阻塞" title="阻塞"
+        rel="1">#阻塞 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#非阻塞" title="非阻塞"
+        rel="1">#非阻塞 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#TCP" title="TCP"
+        rel="3">#TCP (3) </a>
+    
+    <a class="post-tag-item" href="/tags/#UDP" title="UDP"
+        rel="2">#UDP (2) </a>
+    
+    <a class="post-tag-item" href="/tags/#网络协议" title="网络协议"
+        rel="1">#网络协议 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#CDN" title="CDN"
+        rel="1">#CDN (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Socket" title="Socket"
+        rel="1">#Socket (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#vpn" title="vpn"
+        rel="1">#vpn (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#ssh" title="ssh"
+        rel="1">#ssh (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Heidi" title="Heidi"
+        rel="1">#Heidi (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#MySQL" title="MySQL"
+        rel="9">#MySQL (9) </a>
+    
+    <a class="post-tag-item" href="/tags/#术语" title="术语"
+        rel="1">#术语 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#学习笔记" title="学习笔记"
+        rel="1">#学习笔记 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#JavaScript" title="JavaScript"
+        rel="4">#JavaScript (4) </a>
+    
+    <a class="post-tag-item" href="/tags/#chameleon" title="chameleon"
+        rel="2">#chameleon (2) </a>
+    
+    <a class="post-tag-item" href="/tags/#跨平台" title="跨平台"
+        rel="2">#跨平台 (2) </a>
+    
+    <a class="post-tag-item" href="/tags/#小程序" title="小程序"
+        rel="2">#小程序 (2) </a>
+    
+    <a class="post-tag-item" href="/tags/#bbr" title="bbr"
+        rel="1">#bbr (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#协议" title="协议"
+        rel="3">#协议 (3) </a>
+    
+    <a class="post-tag-item" href="/tags/#XXNET" title="XXNET"
+        rel="1">#XXNET (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#磁盘管理" title="磁盘管理"
+        rel="1">#磁盘管理 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#挂载" title="挂载"
+        rel="1">#挂载 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#网络" title="网络"
+        rel="2">#网络 (2) </a>
+    
+    <a class="post-tag-item" href="/tags/#模型" title="模型"
+        rel="2">#模型 (2) </a>
+    
+    <a class="post-tag-item" href="/tags/#MMAP" title="MMAP"
+        rel="1">#MMAP (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#内存映射" title="内存映射"
+        rel="1">#内存映射 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#内存" title="内存"
+        rel="1">#内存 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#零拷贝" title="零拷贝"
+        rel="1">#零拷贝 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#输入法" title="输入法"
+        rel="1">#输入法 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#命令" title="命令"
+        rel="1">#命令 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#集合运算" title="集合运算"
+        rel="1">#集合运算 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Ubuntu" title="Ubuntu"
+        rel="1">#Ubuntu (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#网络术语" title="网络术语"
+        rel="3">#网络术语 (3) </a>
+    
+    <a class="post-tag-item" href="/tags/#概念" title="概念"
+        rel="4">#概念 (4) </a>
+    
+    <a class="post-tag-item" href="/tags/#URL" title="URL"
+        rel="1">#URL (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#URI" title="URI"
+        rel="1">#URI (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Vue" title="Vue"
+        rel="2">#Vue (2) </a>
+    
+    <a class="post-tag-item" href="/tags/#监控" title="监控"
+        rel="1">#监控 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#报警" title="报警"
+        rel="1">#报警 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Prometheus" title="Prometheus"
+        rel="1">#Prometheus (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#云原生" title="云原生"
+        rel="1">#云原生 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Cloud" title="Cloud"
+        rel="1">#Cloud (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#面试" title="面试"
+        rel="3">#面试 (3) </a>
+    
+    <a class="post-tag-item" href="/tags/#Android" title="Android"
+        rel="1">#Android (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#apk" title="apk"
+        rel="1">#apk (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#反编译" title="反编译"
+        rel="1">#反编译 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#数据结构" title="数据结构"
+        rel="1">#数据结构 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Tampermonkey" title="Tampermonkey"
+        rel="1">#Tampermonkey (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#弹琴吧" title="弹琴吧"
+        rel="1">#弹琴吧 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#吉他" title="吉他"
+        rel="1">#吉他 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#V2ray" title="V2ray"
+        rel="1">#V2ray (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Jira" title="Jira"
+        rel="1">#Jira (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#管理" title="管理"
+        rel="2">#管理 (2) </a>
+    
+    <a class="post-tag-item" href="/tags/#认知" title="认知"
+        rel="1">#认知 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#备份" title="备份"
+        rel="1">#备份 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#MSSQL" title="MSSQL"
+        rel="1">#MSSQL (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#SQL优化" title="SQL优化"
+        rel="2">#SQL优化 (2) </a>
+    
+    <a class="post-tag-item" href="/tags/#ACID" title="ACID"
+        rel="1">#ACID (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#幻读" title="幻读"
+        rel="1">#幻读 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#阅读笔记" title="阅读笔记"
+        rel="2">#阅读笔记 (2) </a>
+    
+    <a class="post-tag-item" href="/tags/#字符集" title="字符集"
+        rel="2">#字符集 (2) </a>
+    
+    <a class="post-tag-item" href="/tags/#Collation" title="Collation"
+        rel="1">#Collation (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#临时表" title="临时表"
+        rel="1">#临时表 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#优化" title="优化"
+        rel="1">#优化 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#SVN" title="SVN"
+        rel="1">#SVN (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#慢查" title="慢查"
+        rel="1">#慢查 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#工具" title="工具"
+        rel="1">#工具 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Wiki" title="Wiki"
+        rel="1">#Wiki (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#整理" title="整理"
+        rel="1">#整理 (1) </a>
+    
+</div>
+    </div>
+    <!-- 评论 -->
+    
+    <div class="col-xs-12">
+        
+<div class="col-xs-12 padding-0">
+    <div id="gitalk-container">
+        <div class="gt-container text-center" style="margin-top: 50px;">
+            <button class="gt-btn gt-btn-public"><span class="gt-btn-text">去 Github 评论</span></button>
+        </div>
+    </div>
+    <div id="gitalk-related"></div>
+</div>
+
+<link rel="stylesheet" href="/css/gitalk.css">
+
+
+<script src="/js/gitalk.min.js"></script>
+
+<script>
+    window.addEventListener('load', function () {
+        function renderCommentUrl(data) {
+            var url = (data[window.location.pathname] || {}).url
+            url && getDom('#gitalk-container button').addEventListener('click', function (e) { window.open(url)})
+            url || (getDom('#gitalk-container').style.display = 'none')
+        }
+        const gitalk = new Gitalk({
+            clientID: 'a33ab8f0fc90bd0b86d7',
+            clientSecret: 'cfa4b020ca99ef91be8f4bf8180afbe831bf2a75',
+            accessToken: '',
+            repo: 'blogcmt',
+            owner: 'HassanChiang',
+            admin: ['HassanChiang'],
+            id: window.location.pathname,
+            distractionFreeMode: false
+        });
+        fetch("https://api.github.com/user").then(function(resp){
+            gitalk.render('gitalk-container');
+        }).catch(function(e){
+            fetch('/tool/issues.json').then(function (r) { return r.json() }).then(renderCommentUrl).catch(function (e) { })
+        })
+        getDom('#gitalk-container').addEventListener('click', function (e) {
+            e && e.stopPropagation && e.stopPropagation();
+        });
+    })
+</script>
+<script>
+    window.addEventListener('load', function () {
+        function render(comments) {
+            var template = '<a href="${comment.url}?utm_source=gitalk" class="dis-item-url"><h3 class="dis-item-title">${comment.title}</h3>' +
+                '<p class="dis-item-des">${comment.count} 评论 ● ${comment.date}</p>' +
+                '<div class="dis-item-content"><img class="dis-item-img" src="${comment.icon}" alt="icon"><p><b><span class="dis-item-user">${comment.user}</span></b>&nbsp;——&nbsp;${comment.body}</p></div>' +
+                '</a>'
+
+            var wrapper = getDom('#gitalk-related');
+            comments = shuffle(comments);
+            comments.slice(0, 4).forEach(function (c) {
+                var div = document.createElement('div');
+                div.classList.add('dis-item');
+                div.innerHTML = template.replace("${comment.url}", c.url)
+                    .replace("${comment.title}", c.title)
+                    .replace("${comment.count}", c.count)
+                    .replace("${comment.date}", c.date)
+                    .replace("${comment.icon}", c.icon)
+                    .replace("${comment.user}", c.user)
+                    .replace("${comment.body}", c.body)
+                wrapper.appendChild(div)
+            })
+            var p = document.createElement('p')
+            p.innerHTML = '<a target="_blank" rel="noopener" href="https://geektutu.com/post/blog-experience-7.html">Gitalk Plus</a>';
+            p.classList.add('dis-divide');
+            wrapper.appendChild(p);
+            wrapper.classList.add('dis-wrapper')
+        }
+        function shuffle(a) {
+            for (var i = a.length - 1; i > 0; i--) {
+                var j = Math.floor(Math.random() * (i + 1));
+                [a[i], a[j]] = [a[j], a[i]];
+            }
+            return a;
+        }
+        fetch('/tool/comments.json').then(function (r) { return r.json() }).then(render).catch(function (e) { })
+    })
+</script>
+
+    </div>
+    
+</div>
+<aside class="float-left gkt-sidebar hidden-xs hidden-sm">
+    <div style="clear: both"></div>
+    <div class="gkt-sidebar-wrapper">
+        <section class="box-shadow"><style>
+    .gkt-summary {
+        border: 1px solid #DDDDDD;
+        border-radius: 3px;
+        padding: 5px;
+        width: 100%;
+    }
+
+
+    .gkt-summary nav {
+        overflow: hidden;
+    }
+
+    .gkt-summary nav a {
+        display: inline-block;
+        text-align: center;
+        color: #333;
+        font-size: 12px;
+    }
+
+    .gkt-summary nav span {
+        display: block;
+    }
+
+    .gkt-summary nav .middle {
+        border-left: 1px solid #eaecef;
+        border-right: 1px solid #eaecef;
+    }
+
+    .gkt-summary .number {
+        font-weight: bold;
+    }
+
+    .gkt-summary .link-list {
+        margin-top: 5px;
+        margin-bottom: -5px;
+        padding-top: 7px;
+        border-top: 1px dashed #999;
+        display: flex;
+    }
+
+    .gkt-summary .link-list a {
+        flex: 1;
+    }
+
+    .gkt-summary .link-list img {
+        width: 25px;
+        height: 25px;
+    }
+</style>
+
+<div class="gkt-summary">
+    <nav>
+        <a href="/" class="col-xs-4">
+            <span class="number">112</span><span>文章</span>
+        </a>
+        <a href="/series" class="col-xs-4 middle">
+            <span class="number">34</span><span>专题</span>
+        </a>
+        <a href="/tags" class="col-xs-4">
+            <span class="number">148</span><span>标签</span>
+        </a>
+    </nav>
+
+    
+</div></section>
+        
+        
+        <section class="gkt-sidebar-content box-shadow">
+            <strong>MySQL</strong>
+            <ul>
+                
+                <li>
+                    <a href="/post/dateabase/mysql/2018-12-15_MySQL优化概要.html"
+                        class="gkt-sidebar-active">Mysql 优化概要</a>
+                    
+                    <!-- Table of Contents -->
+<div id="sidebar-toc">
+  <!-- TOC  -->
+  
+  
+  
+  
+</div>
+
+<script>
+  (function () {
+    var h2 = document.querySelectorAll('article h2');
+    var h3 = document.querySelectorAll('article h3');
+    var linkList = document.querySelectorAll('#sidebar-toc a');
+
+    function findLinkElement(name) {
+      for (var i = 0; i < linkList.length; i++) {
+        var items = linkList[i].href.split('#');
+        if (items && items[items.length - 1] === encodeURIComponent(name)) {
+          return i;
+        }
+      }
+      return -1;
+    }
+
+    function activeLink(titleList) {
+      var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+      for (var i = titleList.length - 1; i >= 0; i--) {
+        if (scrollTop - titleList[i].offsetTop > 0) {
+          var index = findLinkElement(titleList[i].id);
+          index != -1 && linkList[index].classList.add('gkt-sidebar-active');
+          break;
+        }
+      }
+    }
+
+    window.addEventListener("scroll", function (e) {
+      [].slice.call(linkList).forEach(function (link) {
+        link.classList.remove('gkt-sidebar-active');
+      })
+      activeLink(h2);
+    })
+  })();
+</script>
+                    
+                </li>
+                
+                <li>
+                    <a href="/post/dateabase/mysql/2018-12-16_MySQL分库分表简要记录.html"
+                        class="">Mysql 分库分表简要记录</a>
+                    
+                </li>
+                
+                <li>
+                    <a href="/post/dateabase/mysql/2018-12-17_MySQL的InnoDB的幻读问题.html"
+                        class="">MySQL的InnoDB的幻读问题</a>
+                    
+                </li>
+                
+                <li>
+                    <a href="/post/dateabase/mysql/2020-09-09_高性能MySQL阅读笔记(1).html"
+                        class="">高性能 MySQL 阅读笔记 (1)</a>
+                    
+                </li>
+                
+                <li>
+                    <a href="/post/dateabase/mysql/2020-09-10_高性能MySQL_MySQL慢查询日志总结.html"
+                        class="">MySQL慢查询日志总结</a>
+                    
+                </li>
+                
+                <li>
+                    <a href="/post/dateabase/mysql/2020-09-11_高性能MySQL阅读笔记(2).html"
+                        class="">高性能 MySQL 阅读笔记 (2)</a>
+                    
+                </li>
+                
+                <li>
+                    <a href="/post/dateabase/mysql/2020-09-12_MySQL中的Character_Set与Collation.html"
+                        class="">MySQL 中的 Character Set 与 Collation</a>
+                    
+                </li>
+                
+                <li>
+                    <a href="/post/dateabase/mysql/2020-09-13_MySQL什么时候会使用内部临时表.html"
+                        class="">MySQL什么时候会使用内部临时表?</a>
+                    
+                </li>
+                
+            </ul>
+        </section>
+        
+        
+        <section class="gkt-sidebar-content box-shadow">
+            <strong>最近的文章</strong>
+            <ul>
+                
+                <li>
+                    <a href="/post/其他/2020-11-28_猴子管理法则.html">猴子管理法则</a>
+                </li>
+                
+                <li>
+                    <a href="/post/其他/2020-11-27_『认知升级』是比其他一切都更加重要的思维模型转变.html">『认知升级』是比其他一切都更加重要的思维模型转变</a>
+                </li>
+                
+                <li>
+                    <a href="/post/util/2020-11-26_开发资源整理.html">开发资源导航</a>
+                </li>
+                
+            </ul>
+        </section>
+        
+    </div>
+</aside>
+
+<script>
+    (function () {
+        function resizeUArrow() {
+            var s = getDom('.u-arrow-wrapper').style
+            var pc = getDom('.post-container')
+            s.left = getPosition(pc).x + 'px';
+            s.width = pc.clientWidth + 'px';
+        }
+        resizeUArrow()
+        window.addEventListener('resize', resizeUArrow);
+    })();
+</script>
+
+    
+
+<script>
+    (function () {
+        var ele = getDom('.gkt-sidebar-content')
+        if(!ele) return;
+        var wrapper = getDom('.gkt-sidebar-wrapper')
+        var last = 0
+        ele.style.maxHeight = ((window.innerHeight || 798) - 200) + 'px'
+        var f = function (e) {
+            var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            var isDown = scrollTop > last;
+            var pos = getPosition(ele).y - scrollTop;
+            var downLimit = 50;
+            var upLimit = -100;
+            // uarrow.style.marginTop = scrollTop + 'px';
+            isDown && pos <= downLimit && wrapper.classList.add("gkt-sidebar-fixed");
+            !isDown && pos > upLimit && wrapper.classList.remove("gkt-sidebar-fixed");
+            last = scrollTop
+        }
+        f()
+        window.addEventListener("scroll", f)
+    })();
+</script>
+
+</main>
+    </div>
+    <style>
+    img#go-top {
+        position: fixed;
+        bottom: 100px;
+        width: 50px;
+        cursor: pointer;
+        z-index: 9999;
+    }
+</style>
+<img id="go-top" src="/icon/top.png" class="hidden-xs" style="display: none" />
+<script>
+    (function () {
+        var goTop = document.getElementById('go-top');
+        var mainContainer = document.querySelector('.main-container');
+        
+        goTop.addEventListener('click', function () {
+            window.scroll(0, 0);
+        }, false);
+        window.addEventListener('scroll', function () {
+            var right = document.body.offsetWidth - mainContainer.getBoundingClientRect().right;
+            var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            goTop.style.right = right + 10 + 'px'
+            scrollTop > 700 && (goTop.style.display = "block");
+            scrollTop <= 700 && (goTop.style.display = "none");
+        });
+    })();
+</script>
+    <style>
+    #geektutu-click-img-container {
+        position: fixed;
+        left: 0;
+        top: 0;
+        text-align: center;
+        width: 100%;
+        display: none;
+        z-index: 9999;
+    }
+
+    #geektutu-click-img-container img {
+        object-fit: contain;
+        background: #eaecef;
+        padding: 15px;
+        border-radius: 10px;
+        height: auto;
+        width: auto;
+        vertical-align: middle;
+    }
+</style>
+
+
+<div id="geektutu-click-img-container">
+    <img src="" alt="Big Image">
+</div>
+
+<script>
+    (function () {
+        var container = document.querySelector('#geektutu-click-img-container')
+        var targetImg = container.querySelector('img')
+        var imgs = document.querySelectorAll('article img');
+        targetImg.addEventListener('click', function (e) {
+            container.style.display = 'none';
+            e && e.stopPropagation && e.stopPropagation();
+        }, false);
+
+        for (var i = 0; i < imgs.length; ++i) {
+            var img = imgs[i];
+            img.addEventListener('click', (function (src, rate) {
+                return function (e) {
+                    e && e.stopPropagation && e.stopPropagation();
+                    if (window.innerWidth < 980) {
+                        return
+                    }
+                    targetImg.style.height = targetImg.style.width = 'auto';
+                    if (window.innerWidth / window.innerHeight > rate) {
+                        targetImg.style.height = (window.innerHeight - 20) + 'px';
+                    } else {
+                        targetImg.style.width = (window.innerWidth - 20) + 'px';
+                    }
+                    container.style.height = window.innerHeight + 'px'
+                    container.style.lineHeight = window.innerHeight + 'px'
+                    container.style.display = 'block';
+                    targetImg.src = src;
+                };
+            }(img.src, img.width / img.height)), false)
+        }
+    })();
+</script>
+    <!-- Footer -->
+    <!-- Footer -->
+<style>
+    footer {
+        width: 100%;
+        line-height: 1.5;
+        padding: 20px;
+    }
+
+    footer a {
+        color: #333;
+        text-decoration: none;
+    }
+
+    .footer-hexo img {
+        height: 20px;
+        margin-bottom: -5px;
+    }
+
+    .footer-hexo a {
+        color: #337ab7;
+    }
+</style>
+<footer class="text-center col-xs-12">
+    <p>
+        <small>© 2020 - Hassan - </small>
+        <small>
+            <a target="_blank" rel="nofollow noopener" href="http://beian.miit.gov.cn/"></a>
+        </small>
+    </p>
+    <p class="footer-hexo">
+        <!-- 但若直接使用或修改主题，请务必保留这段声明 -->
+        <small>Powered by <a target="_blank" href="https://hexo.io">Hexo</a> | Theme
+            <a target="_blank" href="https://geektutu.com">Geektutu</a>
+            <a target="_blank" rel="noopener" href="https://github.com/geektutu/hexo-theme-geektutu">
+                <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAYGBgYHBgcICAcKCwoLCg8ODAwODxYQERAREBYiFRkVFRkVIh4kHhweJB42KiYmKjY+NDI0PkxERExfWl98fKcBBgYGBgcGBwgIBwoLCgsKDw4MDA4PFhAREBEQFiIVGRUVGRUiHiQeHB4kHjYqJiYqNj40MjQ+TERETF9aX3x8p//CABEIACIAUAMBIgACEQEDEQH/xAAcAAABBAMBAAAAAAAAAAAAAAAAAQQFBwIDBgj/2gAIAQEAAAAA9KrHSgAYL5/z6zZGuJd12uugbhq3uKtmuRtix20IS7lTLAfAAAn/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/9oACAECEAAAAAAB/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/aAAgBAxAAAAAAAf/EADEQAAICAQIEBQEGBwAAAAAAAAECAwQFAAYREhORBxQhUlQxQVFic5KxJDJCYYGC0f/aAAgBAQABPwCFHnjWUzuvN6hV4cANSRLGjO9yRVUcSzMoA7jVXJYe5N0a2dhmk9kc0bN2GvLN8mbuNeWb5M3ca8s3yZu415Y/Jm7jXlm+TN3H/NeVPyZu40vOk3TZywK8wJ+v3EHVM/wsI/Dq2lrxN3Nnca16eti8chSAIoMbzByhMwP14kHVfwIiSaF5c96J6kwwCOTnHsYk8uvCrdmQy1TI4rJuz3cZLyGR/wCd4+YoOf8AEpUjXitubLYPG4paFsUxcuiGe7yc5gTW3LW44szXmobsi3Dhmic2+Z4+vCVH9CpraPiQ+QvbgTJrPFBWd5YpWrmNIIEXiRO32Pqt4p7cnfHk18lFBdmEVW1LVdIZGOrniTt6plrWKaO69yCykDRxwF+LMAewB0Txtr+Sf31VI8tEPw62fZt7N3Humtbpzz13ucX6CGSWMSuzpLyD1eNgeUka3PuvHbaxq3biTMHfkiSNCS78CwU+3Xg7Vu3MhuTcU6cq3Zemn3Eh2dv8Lzcut+29x1atKbHYqLJUhLwyNMwiZ3j9yDWOxUOV3tgb+3No5LDx1pi9+aeIwRlNY6bc+Jv+IFGrhLxtXJZ7VKcw81diiAAEn0JOrkWZyNfbEr0tz27UGQgkuGzXdIIvyowq99bRxk9ffO/L81SZBPZgEEroQroIxxMZOgeNsfkn99QypHGqO4Vl9CDrN4LDZkwyzyyQ2IgRHZrzGCZVP1XnQglT9oOtw4LC7iqV6uRkZoYpxKFSQpzFRw4EjVRMfSrQ1qqwxQxKFjjTgFUD7BoWYR6iVe+mtxt9Zwf9teaj4AdccPu5tedX5A/VrzUR+sy/q1CwksF19VEfDj/cnQRW+qg66cfsXtrpx+xe2unH7F7a6cfsXtrpx+xe2unH7F7a6cfsXtoxx+xe2gAAOA1//8QAFBEBAAAAAAAAAAAAAAAAAAAAMP/aAAgBAgEBPwB//8QAFBEBAAAAAAAAAAAAAAAAAAAAMP/aAAgBAwEBPwB//9k="
+                    alt="Github Star">
+            </a>
+        </small>
+    </p>
+    
+    <p>
+        <small>
+            <span id="busuanzi_container_site_pv">👁<span id="busuanzi_value_site_pv"></span></span> &nbsp;
+            <span id="busuanzi_container_page_pv">📚<span id="busuanzi_value_page_pv"></span></span>
+        </small>
+    </p>
+    
+    
+
+</footer>
+
+
+<script>
+    window.addEventListener('load', function () {
+        globalAddScript('//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js');
+    })
+</script>
+
+<!-- Baidu Tongji -->
+
+
+
+
+
+    <script>
+        // 非本站网址，新开tab页签
+        (function () {
+            var stopBubble = function (e) {
+                e && e.stopPropagation && e.stopPropagation();
+            }
+            var links = document.querySelectorAll('a');
+            [].slice.call(links).forEach(function (item) {
+                if (item.href && item.href.indexOf(window.location.host) === -1) {
+                    item.target = '_blank'
+                }
+                // 阻止冒泡，不触发彩蛋。
+                item.addEventListener('click', stopBubble, false);
+            });
+            var article = document.querySelector('article');
+            article && article.addEventListener('click', stopBubble, false)
+        })();
+    </script>
+    
+<script>
+    (function (window, document, undefined) {
+        var hearts = [];
+        var keywords = ["点个赞", "留个言", "赞赏一下", "分享之", "blog.fenxiangz.com"];
+        function randomInt(max) {
+            return Math.floor(Math.random() * Math.floor(max));
+        }
+        window.addEventListener('click', createWord)
+
+        function createWord(e) {
+            var d = document.createElement("span");
+            d.style.position = 'fixed';
+            d.style.zIndex = 9999;
+            d.style.color = 'rgb(' + [randomInt(255), randomInt(255), randomInt(255)].join(',') + ')';
+            d.innerHTML = keywords[randomInt(keywords.length)];
+            d.onselectstart = function () { return false; }
+
+            hearts.push({ el: d, x: e.clientX - 5, y: e.clientY - 5, alpha: 1, scale: 1 });
+            document.body.appendChild(d);
+        }
+        (function gameloop() {
+            for (var i = 0; i < hearts.length; i++) {
+                heart = hearts[i];
+                if (heart.alpha <= 0) {
+                    document.body.removeChild(heart.el);
+                    hearts.splice(i, 1);
+                    continue;
+                }
+                heart.y -= heart.alpha < 0.5 ? 2 : 1;
+                heart.scale += 0.002;
+                heart.alpha -= 0.013;
+                heart.el.style.transform = 'scale(' + heart.scale + ')';
+                heart.el.style.left = heart.x + 'px';
+                heart.el.style.top = heart.y + 'px';
+            }
+            setTimeout(gameloop, 10)
+        })();
+    })(window, document);
+</script>
+
+</body>
+
+</html>

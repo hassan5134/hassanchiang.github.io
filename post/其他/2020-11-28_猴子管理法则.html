@@ -1,0 +1,1506 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<!-- Head tag -->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  <meta name="baidu-site-verification" content="" />
+  <meta name="google-site-verification" content="" />
+  <meta name="msvalidate.01" content="" />
+  <meta name="360-site-verification" content="" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- if page has tags, then add tags to keyword -->
+  
+  
+  <meta name="keywords" content=",管理,">
+  <!-- page.description has higher priority -->
+  <meta name="description" content="Share everything">
+  <link rel="shortcut icon" href="/favico.png">
+  <title>
+    
+    猴子管理法则 | 分享之
+    
+  </title>
+
+  <link rel="canonical" href="/post/其他/2020-11-28_猴子管理法则.html">
+  
+<link rel="stylesheet" href="/css/reset.css">
+
+  
+<link rel="stylesheet" href="/css/layout.css">
+
+  
+<link rel="stylesheet" href="/css/markdown.css">
+
+  <!-- Pygments Highlight CSS -->
+  
+<link rel="stylesheet" href="/css/highlight.css">
+
+  
+<link rel="stylesheet" href="/css/geektutu.css">
+
+  <!-- global function -->
+  <script>
+    window.globalAddScript = function (url, onload, onerror) {
+      var s = document.createElement('script');
+      s.src = url;
+      onload && (s.onload = onload);
+      onerror && (s.onerror = onerror);
+      document.body.appendChild(s);
+    }
+    window.globalAddCss = function (url) {
+      var s = document.createElement('link');
+      s.rel = 'stylesheet';
+      s.href = url;
+      document.body.appendChild(s);
+    }
+    window.getPosition = function (ele) {
+      var x = 0, y = 0;
+      while (ele) {
+        x += (ele.offsetLeft - ele.scrollLeft + ele.clientLeft);
+        y += (ele.offsetTop - ele.scrollTop + ele.clientTop);
+        ele = ele.offsetParent;
+      }
+      return { x: x, y: y };
+    }
+    window.getDom = function (str) { return document.querySelector(str) }
+  </script>
+  <!-- google ad -->
+  
+<meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/feed.xml" title="分享之" type="application/rss+xml">
+</head>
+
+<body>
+    <header class="gkt-header col-xs-12 padding-0">
+    <div id="gkt-nav" class="gkt-header-container">
+        <a href="/" class="gkt-header-title float-left">
+            <img class="float-left" src="/favico.png" alt="">
+            <span>分享之</span>
+        </a>
+        <nav class="gkt-header-nav text-right">
+            <ul>
+                <li><a class="hidden-xs" href="/feed.xml">订阅</a></li>
+                <li><a href="/series/">专题</a></li>
+                <li><a href="/archives/">归档</a></li>
+                <li><a href="/post/link.html">友链</a></li>
+                <li><a href="/post/about.html">关于</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div id="gkt-cate-nav" class="gkt-header-container hidden-xs">
+        
+        <nav class="gkt-header-nav float-left">
+            <ul>
+                
+                
+                <li class="gkt-cate-name float-left ">
+                    <a class="float-left" href="/post/java/basic/2016-10-25_hashmap_jdk7.html">Java ▾</a>
+                    
+                    <ul class="gkt-sub-cate">
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/java/basic/2016-10-25_hashmap_jdk7.html">Java 基础</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/java/advance/2016-10-25_number.html">Java 进阶</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/java/io/2017-04-15_java_io_1_overview.html">Java IO</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/java/nio/2017-04-21_java_nio_1.html">Java NIO</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/interview/2018-10-25_Java面试整理.html">Java 面试</a></li>
+                        
+                    </ul>
+                    
+                </li>
+                
+                <li class="gkt-cate-name float-left ">
+                    <a class="float-left" href="/post/java/spring/2016-10-30_Spring 组合注解&amp;注解继承.html">Spring ▾</a>
+                    
+                    <ul class="gkt-sub-cate">
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/java/spring/2016-10-30_Spring 组合注解&amp;注解继承.html">Spring Core</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/java/spring/2019-12-28_【译】Spring Boot 从 classpath 加载文件.html">Spring Boot</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/java/spring/2020-09-02_How-to-learn-Spring-Cloud.html">Spring Cloud</a></li>
+                        
+                    </ul>
+                    
+                </li>
+                
+                <li class="gkt-cate-name float-left ">
+                    <a class="float-left" href="/post/java/netty/2019-01-02_小白科普Netty有什么用.html">Java 框架</a>
+                    
+                </li>
+                
+                <li class="gkt-cate-name float-left ">
+                    <a class="float-left" href="/post/util/ide/2017-10-25_idea_shotcut.html">工具 ▾</a>
+                    
+                    <ul class="gkt-sub-cate">
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/util/ide/2017-10-25_idea_shotcut.html">IDE</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/util/gradle/LearnGradle_1_安装.html">Gradle</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/docker/2017-11-25_Docker_Get_Started.html">Docker</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/util/monitor/2017-12-10_从零开始搭建Prometheus自动监控报警系统.html">监控</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/util/svn/2017-12-10_SVN自动删除“被手动删除”的文件.html">SVN</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/util/2020-11-26_开发资源整理.html">资源导航</a></li>
+                        
+                    </ul>
+                    
+                </li>
+                
+                <li class="gkt-cate-name float-left ">
+                    <a class="float-left" href="/post/linux/2017-11-27_update-alternatives_命令.html">Linux ▾</a>
+                    
+                    <ul class="gkt-sub-cate">
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/linux/2017-11-27_update-alternatives_命令.html">其他</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/linux/2017-11-26_IO-同步，异步，阻塞，非阻塞.html">IO</a></li>
+                        
+                    </ul>
+                    
+                </li>
+                
+                <li class="gkt-cate-name float-left ">
+                    <a class="float-left" href="/post/network/2017-11-24_面向报文（UDP）和面向字节流（TCP）的区别.html">计算机网络 ▾</a>
+                    
+                    <ul class="gkt-sub-cate">
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/network/2017-11-24_面向报文（UDP）和面向字节流（TCP）的区别.html">TCP/IP</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/network/2017-11-25_一张图说明CDN网络的原理.html">网络/其他</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/network/2018-12-15_URL和URI的区别.html">网络/术语</a></li>
+                        
+                    </ul>
+                    
+                </li>
+                
+                <li class="gkt-cate-name float-left ">
+                    <a class="float-left" href="/post/dateabase/mysql/2018-12-15_MySQL优化概要.html">数据库 ▾</a>
+                    
+                    <ul class="gkt-sub-cate">
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/dateabase/mysql/2018-12-15_MySQL优化概要.html">MySQL</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/dateabase/MSSQL/2020-09-08_MSSQL最佳实践_SQL_Server备份策略.html">MSSQL</a></li>
+                        
+                    </ul>
+                    
+                </li>
+                
+                <li class="gkt-cate-name float-left ">
+                    <a class="float-left" href="/post/design/2019-01-03_Java经典设计模式_1_五大创建型模式.html">设计模式</a>
+                    
+                </li>
+                
+                <li class="gkt-cate-name float-left ">
+                    <a class="float-left" href="/post/distribution/2019-08-13_Zookeeper是如何解决脑裂问题.html">分布式 ▾</a>
+                    
+                    <ul class="gkt-sub-cate">
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/distribution/2019-08-13_Zookeeper是如何解决脑裂问题.html">zookeeper</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/distribution/2019-08-12_CAP定理的含义.html">概念</a></li>
+                        
+                    </ul>
+                    
+                </li>
+                
+                <li class="gkt-cate-name float-left ">
+                    <a class="float-left" href="/post/frontend/vue/2017-10-26_vue自定义组件中的v-model简单解释.html">前端 ▾</a>
+                    
+                    <ul class="gkt-sub-cate">
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/frontend/vue/2017-10-26_vue自定义组件中的v-model简单解释.html">VUE</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/frontend/2016-10-26_深入理解jQuery插件开发.html">jQuery</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/frontend/2019-10-26_小程序多端框架全面测评.html">跨平台</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/frontend/2019-11-26_APK反编译总结.html">Android</a></li>
+                        
+                    </ul>
+                    
+                </li>
+                
+                <li class="gkt-cate-name float-left ">
+                    <a class="float-left" href="/post/algorithm/八皇后算法解析.html">算法</a>
+                    
+                </li>
+                
+                <li class="gkt-cate-name float-left active">
+                    <a class="float-left" href="/post/其他/2020-01-29_弹琴吧非会员扒谱技巧.html">其他 ▾</a>
+                    
+                    <ul class="gkt-sub-cate">
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/其他/2020-01-29_弹琴吧非会员扒谱技巧.html">其他/Tampermonkey</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/其他/2020-10-25_V2ray配置.html">其他/V2ray</a></li>
+                        
+                        <li class="gkt-sub-cate-name "><a class="float-left"
+                                href="/post/其他/2020-11-26_Jira修改Path路径后的用户管理问题.html">其他/Jira</a></li>
+                        
+                        <li class="gkt-sub-cate-name active"><a class="float-left"
+                                href="/post/其他/2020-11-27_『认知升级』是比其他一切都更加重要的思维模型转变.html">其他/管理</a></li>
+                        
+                    </ul>
+                    
+                </li>
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+<div class="gkt-header-placeholder" style="height: 44px"></div>
+<div class="gkt-header-placeholder hidden-xs" style="height: 44px"></div>
+<script>
+    (function () {
+        window.addEventListener('scroll', function () {
+            if (window.innerWidth < 768) {
+                return;
+            }
+            var nav = document.querySelector('#gkt-nav');
+            var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            scrollTop > 50 && (nav.classList.add('hide'));
+            scrollTop <= 50 && (nav.classList.remove('hide'));
+        });
+        var cateNavs = document.querySelectorAll('#gkt-cate-nav>nav>ul>li');
+        [].slice.call(cateNavs).forEach(function (item) {
+            var sub = item.querySelector('.gkt-sub-cate');
+            if (!sub) return;
+            item.addEventListener('mouseenter', function (e) { sub.style.display = 'block'; }, false);
+            item.addEventListener('mouseleave', function (e) { sub.style.display = 'none'; }, false);
+        })
+    })();
+</script>
+    <!-- Main Content -->
+    <div class="main-container">
+        <!-- Main Content -->
+<main class="col-xs-12 padding-0 markdown-it">
+    <!-- Post Container -->
+    
+    
+    <!-- Post Content -->
+<div class="float-left post-container box-shadow">
+    <div class="u-arrow-wrapper hidden-xs">
+        
+        <a class="float-left" href="/post/其他/2020-11-27_『认知升级』是比其他一切都更加重要的思维模型转变.html"><i class="u-arrow-left"></i></a>
+        
+        
+    </div>
+    <article class="col-xs-12">
+        <h1> 猴子管理法则 </h1>
+        
+        
+        <div class="hidden-lg hidden-md series_links">
+            <p> <strong> 其他/管理系列文章链接：</strong></p>
+            <ul>
+                
+                <li>
+                    <a href="/post/其他/2020-11-27_『认知升级』是比其他一切都更加重要的思维模型转变.html">『认知升级』是比其他一切都更加重要的思维模型转变</a>
+                    <span class="post-item-date">(Nov 27, 2020)</span>
+                </li>
+                
+                <li>
+                    <a href="/post/其他/2020-11-28_猴子管理法则.html">猴子管理法则</a>
+                    <span class="post-item-date">(Nov 28, 2020)</span>
+                </li>
+                
+            </ul>
+        </div>
+        
+        
+        <p>很多管理者往往遇到这样的情况，当你听完下属员工的工作汇报后发现事情并没有得到彻底解决，而原本计划好今天要做的工作也因此耽误了不少时间。</p>
+<p>猴子管理法则的目的在于帮助经理人确定由适当人选在适当的时间，用正确的方法做正确的事。</p>
+<p>身为经理人要能够让员工去抚养自己的“猴子”，你也有足够的时间去做规划、协调、创新等重要工作。</p>
+<h3 id="责任是一只猴子"><a href="#责任是一只猴子" class="headerlink" title="责任是一只猴子"></a><strong>责任是一只猴子</strong></h3><p>这其中的关键在于，本来该下属员工自行完成的工作，因为逃避责任的缘故， 交由上司处理。</p>
+<p>每个下属都有自己的猴子，如果都交由上司管理，显然，管理者自己的时间将变得十分不够用。</p>
+<p>当你一旦接收部属所该看养的猴子，他们就会以为是你自己要这些猴子的， 因此，你收的愈多，他们给的就愈多。</p>
+<p>于是你饱受堆积如山、永远处理不完的问题所困扰，甚至没有时间照顾自己的猴子，努力将一些不该摆在第一位的事情做得更有效率，平白让自己的成效打了折扣。</p>
+<p>经理人应该将时间投资在最重要的管理层面上，而不是养一大堆别人的猴子。</p>
+<p>当然，这个法则只能运用在有生存价值的猴子身上，不该存活的猴子，就狠心把他杀了吧！</p>
+<h3 id="“猴子”-问题"><a href="#“猴子”-问题" class="headerlink" title="“猴子”=问题"></a><strong>“猴子”=问题</strong></h3><p>你是问题处理高手吗？假如你的下属崇拜你，你或许会相当高兴。但那以后， 他几乎每件事都向你请示，你会觉得如何呢？你是否会感觉自己的时间不够用了，并因此开始检查自己的管理是不是出了什么问题呢？</p>
+<p>有一天，你的一位下属在办公室的走廊与你不期而遇，下属停下脚步问：“老板，有一个问题，我一直想向你请示该怎么办。”</p>
+<p>此时，下属的身上有一只需要照顾的 “猴子”，接下来他如此这般将问题汇报了一番。尽管你有要事在身，但还是不太好意思让急切地想把事情办好的下属失望。</p>
+<p>你非常认真地听着……慢慢地，“猴子”的一只脚已悄悄搭在你的肩膀上。你一直在认真倾听，并不时点头，几分钟后，你对他说这是一个非常不错的问题，很想先听听他的意见，并问：“你觉得该怎么办？”</p>
+<p>“老板，我就是因为想不出办法，才不得不向你求援的呀。”</p>
+<p>“不会吧，你一定能找到更好的方法。”你看了看手表，“这样吧，我现在正好有急事，明天下午四点后我有空，到时你拿几个解决方案来我们一起讨论。”</p>
+<p>告别前，你没有忘记补充一句：“你不是刚刚受过‘头脑风暴’训练吗？实在想不出，找几个搭档来一次‘头脑风暴’，明天我等你们的答案。”</p>
+<p>“猴子”悄悄收回了搭在你身上的那只脚，继续留在此下属的肩膀上。</p>
+<p>第二天，下属如约前来。从脸上表情看得出，他似乎胸有成竹：“老板，按照你的指点，我们已有了 5个觉得还可以的方案，只是不知道哪一个更好，现在就是请你拍板了。”</p>
+<p>即使你一眼就已看出哪一个更好，也不要急着帮他作出决定。不然，他以后对你会有依赖，或者万一事情没办好，他一定会说：“老板，这不能怪我，我都是按照你的意见去办的。”</p>
+<h3 id="关于作决定，记住以下准则"><a href="#关于作决定，记住以下准则" class="headerlink" title="关于作决定，记住以下准则"></a><strong>关于作决定，记住以下准则</strong></h3><p>1、该下属做决定的事，一定要让他们自己学着做决定；</p>
+<p>2、做决定意味着为自己的决定负责任。不想做决定，常常是潜意识里他不想承担责任；</p>
+<p>3、下属不思考问题、不习惯做决定的根源一般有两个：<br>其一是有“托付思想”，依赖上司或别人，这样的下属不堪大用；<br>其二是上司习惯代替下属做决定或喜欢享受别人听命于自己的成就感，这样的上司以及他所带领的团队难以胜任复杂的任务；</p>
+<p>4、让下属自己想办法，做决定，就是训练下属独立思考问题的能力和勇于承担责任的行事风格。</p>
+<p>对话还在继续。你兴奋地说：“太棒了，这么多好方案。你认为，相比较而言哪一个方案更好？”<br>“我觉得 A 方案更好一些。”<br>“这的确是一个不错的方案，不过你有没有考虑过万一出现这种情况，该怎么办？”<br>“噢，有道理，看来用 E 方案更好。”<br>“这方案真的也很好，可是，你有没有想过……” “我明白，应该选择 B 方案。”<br>“非常好，我的想法跟你一样，我看就按你的意见去办吧。”</p>
+<p>凭你的经验，其实你早就知道应该选择 B 方案，你不直接告诉他的目的是想借此又多赢得一次训练部属的机会。</p>
+<p>训练是一个虽慢反快的过程，训练的“慢”是为了将来更快。你这样做的好处不言而喻：</p>
+<ul>
+<li>1、打断下属负面的“依赖”神经链。</li>
+<li>2、训练了下属分析问题、全面思考问题的能力。</li>
+<li>3、让下属产生信心与成就感。他会觉得自己居然也有解决复杂问题的能力。越来越有能力的下属能越来越胜任更重要的任务。</li>
+<li>4、激发下属的行动力。</li>
+<li>5、你将因此不必照看下属的“猴子”而腾出更多的精力去照看自己的“猴子”。</li>
+</ul>
+<h3 id="管理艺术的-5个严格规则"><a href="#管理艺术的-5个严格规则" class="headerlink" title="管理艺术的 5个严格规则"></a><strong>管理艺术的 5个严格规则</strong></h3><p>规则一：“猴子”要么被喂养，要么被杀死。<br>否则，他们会饿死，而经理则要将大量宝贵时间浪费在尸体解剖或试图使他们复活上。</p>
+<p>规则二：“猴子”的数量必须被控制在经理有时间喂养的最大数额以下。下属会尽量找时间喂养猴子，但不应比这更多。饲养一只正常状况的猴子时间不应超过 5～15 分钟。</p>
+<p>规则三：“猴子”只能在约定的时间喂养。</p>
+<p>经理无须四处寻找饥饿的“猴子”，抓到一只喂一只。</p>
+<p>规则四：“猴子”应面对面或通过电话进行喂养，而不要通过邮件。文档处理可能会增加喂养程序，但不能取代喂养。</p>
+<p>规则五：应确定每只“猴子”下次的喂养时间。<br>这可以在任何时间由双方修改并达成一致，但不要模糊不清。否则，“猴子”或者会饿死或者最终回到经理的背上。</p>
+<h3 id="“猴子管理”理论的启示"><a href="#“猴子管理”理论的启示" class="headerlink" title="“猴子管理”理论的启示"></a><strong>“猴子管理”理论的启示</strong></h3><p>1、每一个人都应该照看自己的“猴子”；</p>
+<p>2、不要麻烦别人照看自己的“猴子”；</p>
+<p>3、组织中，每一个人都应该明白自己应该照看哪些“猴子”以及如何照看好它们；</p>
+<p>4、不要试图把自己的“猴子”托付给别人照顾。这里的别人可能是上司、下属、别的部门的同事，也可能是公司、社会乃至上天、命运等；</p>
+<p>5、不要出现没有人照看的“猴子”，也不要出现有两个以上“主人”的“猴子”；</p>
+<p>6、作为上司不仅应明确让下属知道他应该照看好哪些“猴子”，更需要训练下属如何照看好他们的“猴子”。</p>
+<p>7、“猴子管理”并不适用于所有管理。比如说我们在创业初期时，就需要创业者或创业团队背负所有的“猴子”。并主动的帮助其他人背负“猴子”，否则创业不会成功。</p>
+<p>8、“猴子管理”会使人变得自私，类似于各人自扫门前雪，会使团队失去活力。正常的团队应该是抢着“猴子”背负，而不是千方百计的防止别人的“猴子”窜上自己的肩膀。</p>
+
+        
+<script src="/js/qrious.min.js"></script>
+
+
+        <hr>
+        <div>
+            
+            <p>
+                <span>专题: </span>
+                
+                <a href="/series/#其他/管理">
+                    <code key="其他/管理" class="post-label">其他/管理</code>
+                </a>
+                
+            </p>
+            
+            <p>
+                <span>本文发表于 2020-11-28，最后修改于 2020-11-29。</span>
+            </p>
+            <!-- 文章末尾的提示 start -->
+            
+            
+            
+                
+            <!-- 文章末尾的提示 end -->
+        </div>
+        <hr />
+        <p name="pagination" style="font-size: 1.2em">
+    
+    <a class="float-left" href="/post/其他/2020-11-27_『认知升级』是比其他一切都更加重要的思维模型转变.html">上一篇 « 『认知升级』是比其他一切都更加重要的思维模型转变</a>
+    
+    
+</p>
+    </article>
+    <!-- 赞赏 -->
+    <!--打赏-->
+
+    <!-- 推荐阅读三篇文章 -->
+    <div class="col-xs-12">
+        <h3>推荐阅读</h3>
+        
+        <div class="post-preview">
+    <div class="post-img" style="background-image: url('/images/java/basic/java_logo.png')"></div>
+    <div class="post-info">
+        <div class="post-info-center">
+            <div class="hidden-xs">
+                
+                
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#Java"
+                    title="Java">Java</a>
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#jvm"
+                    title="jvm">jvm</a>
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#操作系统"
+                    title="操作系统">操作系统</a>
+                <span>/</span>
+                
+                
+            </div>
+            <a href="/post/java/advance/2019-03-06_java_os.html" class="title">
+                Java 和操作系统交互细节
+            </a>
+            <p class="text-gray">
+                <small>
+                    <span>发表于2019-03-06，</span>
+                    <span class="hidden-xs">全文21253字，</span>
+                    <span>阅读约71分钟</span>
+                </small>
+            </p>
+        </div>
+    </div>
+</div>
+        
+        <div class="post-preview">
+    <div class="post-img" style="background-image: url('/images/linux.png')"></div>
+    <div class="post-info">
+        <div class="post-info-center">
+            <div class="hidden-xs">
+                
+                
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#命令"
+                    title="命令">命令</a>
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#集合运算"
+                    title="集合运算">集合运算</a>
+                <span>/</span>
+                
+                
+            </div>
+            <a href="/post/linux/2017-12-16_Linux两个文件求交集、并集、差集.html" class="title">
+                Linux 两个文件求交集、并集、差集
+            </a>
+            <p class="text-gray">
+                <small>
+                    <span>发表于2017-12-16，</span>
+                    <span class="hidden-xs">全文824字，</span>
+                    <span>阅读约3分钟</span>
+                </small>
+            </p>
+        </div>
+    </div>
+</div>
+        
+        <div class="post-preview">
+    <div class="post-img" style="background-image: url('/images/linux.png')"></div>
+    <div class="post-info">
+        <div class="post-info-center">
+            <div class="hidden-xs">
+                
+                
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#快捷键"
+                    title="快捷键">快捷键</a>
+                <span>/</span>
+                
+                
+            </div>
+            <a href="/post/linux/2017-12-01_super+d显示桌面快捷键.html" class="title">
+                super + d 显示桌面快捷键
+            </a>
+            <p class="text-gray">
+                <small>
+                    <span>发表于2017-12-01，</span>
+                    <span class="hidden-xs">全文278字，</span>
+                    <span>阅读约1分钟</span>
+                </small>
+            </p>
+        </div>
+    </div>
+</div>
+        
+    </div>
+    <div class="col-xs-12">
+        <!-- 标签列表 -->
+        <!-- Featured Tags -->
+<style>
+    #featured-tag .post-tag-item {
+        font-size: 12px;
+        line-height: 30px;
+        display: inline-block;
+        height: 30px;
+        margin: 5px 0px;
+        padding: 0 7px;
+        color: #333;
+        border-radius: 15px;
+        background: #f6f6f6;
+    }
+
+    #featured-tag .post-tag-item:hover {
+        color: #337ab7;
+    }
+</style>
+<div id="featured-tag">
+    
+    <a class="post-tag-item" href="/tags/#关于我" title="关于我"
+        rel="1">#关于我 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Hello World" title="Hello World"
+        rel="1">#Hello World (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Idea" title="Idea"
+        rel="1">#Idea (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#JavaIDE" title="JavaIDE"
+        rel="1">#JavaIDE (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Java" title="Java"
+        rel="50">#Java (50) </a>
+    
+    <a class="post-tag-item" href="/tags/#二进制" title="二进制"
+        rel="2">#二进制 (2) </a>
+    
+    <a class="post-tag-item" href="/tags/#内存分配" title="内存分配"
+        rel="1">#内存分配 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#内存泄露" title="内存泄露"
+        rel="1">#内存泄露 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#书籍推荐" title="书籍推荐"
+        rel="1">#书籍推荐 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#知识体系" title="知识体系"
+        rel="1">#知识体系 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#反码" title="反码"
+        rel="1">#反码 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#补码" title="补码"
+        rel="1">#补码 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#内存模型" title="内存模型"
+        rel="1">#内存模型 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#jvm" title="jvm"
+        rel="3">#jvm (3) </a>
+    
+    <a class="post-tag-item" href="/tags/#性能优化" title="性能优化"
+        rel="4">#性能优化 (4) </a>
+    
+    <a class="post-tag-item" href="/tags/#HashMap" title="HashMap"
+        rel="1">#HashMap (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Java集合" title="Java集合"
+        rel="1">#Java集合 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#ThreadLocal" title="ThreadLocal"
+        rel="1">#ThreadLocal (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Java线程" title="Java线程"
+        rel="3">#Java线程 (3) </a>
+    
+    <a class="post-tag-item" href="/tags/#异常" title="异常"
+        rel="1">#异常 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Java异常" title="Java异常"
+        rel="1">#Java异常 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#思维导图" title="思维导图"
+        rel="2">#思维导图 (2) </a>
+    
+    <a class="post-tag-item" href="/tags/#垃圾回收" title="垃圾回收"
+        rel="2">#垃圾回收 (2) </a>
+    
+    <a class="post-tag-item" href="/tags/#Java引用" title="Java引用"
+        rel="1">#Java引用 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#IO" title="IO"
+        rel="11">#IO (11) </a>
+    
+    <a class="post-tag-item" href="/tags/#Exception" title="Exception"
+        rel="1">#Exception (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Stream" title="Stream"
+        rel="1">#Stream (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Netty" title="Netty"
+        rel="4">#Netty (4) </a>
+    
+    <a class="post-tag-item" href="/tags/#笔记" title="笔记"
+        rel="1">#笔记 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#NIO" title="NIO"
+        rel="7">#NIO (7) </a>
+    
+    <a class="post-tag-item" href="/tags/#Buffer" title="Buffer"
+        rel="1">#Buffer (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Selector" title="Selector"
+        rel="1">#Selector (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#问题" title="问题"
+        rel="2">#问题 (2) </a>
+    
+    <a class="post-tag-item" href="/tags/#直接内存" title="直接内存"
+        rel="1">#直接内存 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#非直接内存" title="非直接内存"
+        rel="1">#非直接内存 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#堆内存" title="堆内存"
+        rel="1">#堆内存 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#注解" title="注解"
+        rel="1">#注解 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Spring" title="Spring"
+        rel="6">#Spring (6) </a>
+    
+    <a class="post-tag-item" href="/tags/#文件加载" title="文件加载"
+        rel="1">#文件加载 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Spring Boot" title="Spring Boot"
+        rel="3">#Spring Boot (3) </a>
+    
+    <a class="post-tag-item" href="/tags/#Spring Cloud" title="Spring Cloud"
+        rel="1">#Spring Cloud (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#序列化" title="序列化"
+        rel="1">#序列化 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#函数式编程" title="函数式编程"
+        rel="1">#函数式编程 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#lambda" title="lambda"
+        rel="1">#lambda (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#并发编程" title="并发编程"
+        rel="1">#并发编程 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#JUC" title="JUC"
+        rel="1">#JUC (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#lambda表达式" title="lambda表达式"
+        rel="1">#lambda表达式 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#源码" title="源码"
+        rel="1">#源码 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#RPC" title="RPC"
+        rel="1">#RPC (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Reactor" title="Reactor"
+        rel="1">#Reactor (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#NIO模型" title="NIO模型"
+        rel="1">#NIO模型 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#操作系统" title="操作系统"
+        rel="1">#操作系统 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#微服务" title="微服务"
+        rel="1">#微服务 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Vert.x" title="Vert.x"
+        rel="1">#Vert.x (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#八皇后" title="八皇后"
+        rel="1">#八皇后 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#算法" title="算法"
+        rel="2">#算法 (2) </a>
+    
+    <a class="post-tag-item" href="/tags/#创建型模式" title="创建型模式"
+        rel="1">#创建型模式 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#设计模式" title="设计模式"
+        rel="3">#设计模式 (3) </a>
+    
+    <a class="post-tag-item" href="/tags/#分布式" title="分布式"
+        rel="3">#分布式 (3) </a>
+    
+    <a class="post-tag-item" href="/tags/#CAP" title="CAP"
+        rel="1">#CAP (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#理论" title="理论"
+        rel="1">#理论 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#脑裂" title="脑裂"
+        rel="1">#脑裂 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#单例" title="单例"
+        rel="1">#单例 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#DCL" title="DCL"
+        rel="1">#DCL (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#包管理" title="包管理"
+        rel="4">#包管理 (4) </a>
+    
+    <a class="post-tag-item" href="/tags/#Gradle" title="Gradle"
+        rel="3">#Gradle (3) </a>
+    
+    <a class="post-tag-item" href="/tags/#结构型模式" title="结构型模式"
+        rel="1">#结构型模式 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#行为型模式" title="行为型模式"
+        rel="1">#行为型模式 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Spring Core" title="Spring Core"
+        rel="1">#Spring Core (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#源码分析" title="源码分析"
+        rel="1">#源码分析 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Docker" title="Docker"
+        rel="2">#Docker (2) </a>
+    
+    <a class="post-tag-item" href="/tags/#入门" title="入门"
+        rel="2">#入门 (2) </a>
+    
+    <a class="post-tag-item" href="/tags/#符号链接" title="符号链接"
+        rel="1">#符号链接 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#目录" title="目录"
+        rel="1">#目录 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#deb" title="deb"
+        rel="2">#deb (2) </a>
+    
+    <a class="post-tag-item" href="/tags/#chrome" title="chrome"
+        rel="1">#chrome (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#快捷键" title="快捷键"
+        rel="1">#快捷键 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#同步" title="同步"
+        rel="1">#同步 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#异步" title="异步"
+        rel="1">#异步 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#阻塞" title="阻塞"
+        rel="1">#阻塞 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#非阻塞" title="非阻塞"
+        rel="1">#非阻塞 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#TCP" title="TCP"
+        rel="3">#TCP (3) </a>
+    
+    <a class="post-tag-item" href="/tags/#UDP" title="UDP"
+        rel="2">#UDP (2) </a>
+    
+    <a class="post-tag-item" href="/tags/#网络协议" title="网络协议"
+        rel="1">#网络协议 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#CDN" title="CDN"
+        rel="1">#CDN (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Socket" title="Socket"
+        rel="1">#Socket (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#vpn" title="vpn"
+        rel="1">#vpn (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#ssh" title="ssh"
+        rel="1">#ssh (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Heidi" title="Heidi"
+        rel="1">#Heidi (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#MySQL" title="MySQL"
+        rel="9">#MySQL (9) </a>
+    
+    <a class="post-tag-item" href="/tags/#术语" title="术语"
+        rel="1">#术语 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#学习笔记" title="学习笔记"
+        rel="1">#学习笔记 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#JavaScript" title="JavaScript"
+        rel="4">#JavaScript (4) </a>
+    
+    <a class="post-tag-item" href="/tags/#chameleon" title="chameleon"
+        rel="2">#chameleon (2) </a>
+    
+    <a class="post-tag-item" href="/tags/#跨平台" title="跨平台"
+        rel="2">#跨平台 (2) </a>
+    
+    <a class="post-tag-item" href="/tags/#小程序" title="小程序"
+        rel="2">#小程序 (2) </a>
+    
+    <a class="post-tag-item" href="/tags/#bbr" title="bbr"
+        rel="1">#bbr (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#协议" title="协议"
+        rel="3">#协议 (3) </a>
+    
+    <a class="post-tag-item" href="/tags/#XXNET" title="XXNET"
+        rel="1">#XXNET (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#磁盘管理" title="磁盘管理"
+        rel="1">#磁盘管理 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#挂载" title="挂载"
+        rel="1">#挂载 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#网络" title="网络"
+        rel="2">#网络 (2) </a>
+    
+    <a class="post-tag-item" href="/tags/#模型" title="模型"
+        rel="2">#模型 (2) </a>
+    
+    <a class="post-tag-item" href="/tags/#MMAP" title="MMAP"
+        rel="1">#MMAP (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#内存映射" title="内存映射"
+        rel="1">#内存映射 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#内存" title="内存"
+        rel="1">#内存 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#零拷贝" title="零拷贝"
+        rel="1">#零拷贝 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#输入法" title="输入法"
+        rel="1">#输入法 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#命令" title="命令"
+        rel="1">#命令 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#集合运算" title="集合运算"
+        rel="1">#集合运算 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Ubuntu" title="Ubuntu"
+        rel="1">#Ubuntu (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#网络术语" title="网络术语"
+        rel="3">#网络术语 (3) </a>
+    
+    <a class="post-tag-item" href="/tags/#概念" title="概念"
+        rel="4">#概念 (4) </a>
+    
+    <a class="post-tag-item" href="/tags/#URL" title="URL"
+        rel="1">#URL (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#URI" title="URI"
+        rel="1">#URI (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Vue" title="Vue"
+        rel="2">#Vue (2) </a>
+    
+    <a class="post-tag-item" href="/tags/#监控" title="监控"
+        rel="1">#监控 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#报警" title="报警"
+        rel="1">#报警 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Prometheus" title="Prometheus"
+        rel="1">#Prometheus (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#云原生" title="云原生"
+        rel="1">#云原生 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Cloud" title="Cloud"
+        rel="1">#Cloud (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#面试" title="面试"
+        rel="3">#面试 (3) </a>
+    
+    <a class="post-tag-item" href="/tags/#Android" title="Android"
+        rel="1">#Android (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#apk" title="apk"
+        rel="1">#apk (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#反编译" title="反编译"
+        rel="1">#反编译 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#数据结构" title="数据结构"
+        rel="1">#数据结构 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Tampermonkey" title="Tampermonkey"
+        rel="1">#Tampermonkey (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#弹琴吧" title="弹琴吧"
+        rel="1">#弹琴吧 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#吉他" title="吉他"
+        rel="1">#吉他 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#V2ray" title="V2ray"
+        rel="1">#V2ray (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Jira" title="Jira"
+        rel="1">#Jira (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#管理" title="管理"
+        rel="2">#管理 (2) </a>
+    
+    <a class="post-tag-item" href="/tags/#认知" title="认知"
+        rel="1">#认知 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#备份" title="备份"
+        rel="1">#备份 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#MSSQL" title="MSSQL"
+        rel="1">#MSSQL (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#SQL优化" title="SQL优化"
+        rel="2">#SQL优化 (2) </a>
+    
+    <a class="post-tag-item" href="/tags/#ACID" title="ACID"
+        rel="1">#ACID (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#幻读" title="幻读"
+        rel="1">#幻读 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#阅读笔记" title="阅读笔记"
+        rel="2">#阅读笔记 (2) </a>
+    
+    <a class="post-tag-item" href="/tags/#字符集" title="字符集"
+        rel="2">#字符集 (2) </a>
+    
+    <a class="post-tag-item" href="/tags/#Collation" title="Collation"
+        rel="1">#Collation (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#临时表" title="临时表"
+        rel="1">#临时表 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#优化" title="优化"
+        rel="1">#优化 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#SVN" title="SVN"
+        rel="1">#SVN (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#慢查" title="慢查"
+        rel="1">#慢查 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#工具" title="工具"
+        rel="1">#工具 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Wiki" title="Wiki"
+        rel="1">#Wiki (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#整理" title="整理"
+        rel="1">#整理 (1) </a>
+    
+</div>
+    </div>
+    <!-- 评论 -->
+    
+    <div class="col-xs-12">
+        
+<div class="col-xs-12 padding-0">
+    <div id="gitalk-container">
+        <div class="gt-container text-center" style="margin-top: 50px;">
+            <button class="gt-btn gt-btn-public"><span class="gt-btn-text">去 Github 评论</span></button>
+        </div>
+    </div>
+    <div id="gitalk-related"></div>
+</div>
+
+<link rel="stylesheet" href="/css/gitalk.css">
+
+
+<script src="/js/gitalk.min.js"></script>
+
+<script>
+    window.addEventListener('load', function () {
+        function renderCommentUrl(data) {
+            var url = (data[window.location.pathname] || {}).url
+            url && getDom('#gitalk-container button').addEventListener('click', function (e) { window.open(url)})
+            url || (getDom('#gitalk-container').style.display = 'none')
+        }
+        const gitalk = new Gitalk({
+            clientID: 'a33ab8f0fc90bd0b86d7',
+            clientSecret: 'cfa4b020ca99ef91be8f4bf8180afbe831bf2a75',
+            accessToken: '',
+            repo: 'blogcmt',
+            owner: 'HassanChiang',
+            admin: ['HassanChiang'],
+            id: window.location.pathname,
+            distractionFreeMode: false
+        });
+        fetch("https://api.github.com/user").then(function(resp){
+            gitalk.render('gitalk-container');
+        }).catch(function(e){
+            fetch('/tool/issues.json').then(function (r) { return r.json() }).then(renderCommentUrl).catch(function (e) { })
+        })
+        getDom('#gitalk-container').addEventListener('click', function (e) {
+            e && e.stopPropagation && e.stopPropagation();
+        });
+    })
+</script>
+<script>
+    window.addEventListener('load', function () {
+        function render(comments) {
+            var template = '<a href="${comment.url}?utm_source=gitalk" class="dis-item-url"><h3 class="dis-item-title">${comment.title}</h3>' +
+                '<p class="dis-item-des">${comment.count} 评论 ● ${comment.date}</p>' +
+                '<div class="dis-item-content"><img class="dis-item-img" src="${comment.icon}" alt="icon"><p><b><span class="dis-item-user">${comment.user}</span></b>&nbsp;——&nbsp;${comment.body}</p></div>' +
+                '</a>'
+
+            var wrapper = getDom('#gitalk-related');
+            comments = shuffle(comments);
+            comments.slice(0, 4).forEach(function (c) {
+                var div = document.createElement('div');
+                div.classList.add('dis-item');
+                div.innerHTML = template.replace("${comment.url}", c.url)
+                    .replace("${comment.title}", c.title)
+                    .replace("${comment.count}", c.count)
+                    .replace("${comment.date}", c.date)
+                    .replace("${comment.icon}", c.icon)
+                    .replace("${comment.user}", c.user)
+                    .replace("${comment.body}", c.body)
+                wrapper.appendChild(div)
+            })
+            var p = document.createElement('p')
+            p.innerHTML = '<a target="_blank" rel="noopener" href="https://geektutu.com/post/blog-experience-7.html">Gitalk Plus</a>';
+            p.classList.add('dis-divide');
+            wrapper.appendChild(p);
+            wrapper.classList.add('dis-wrapper')
+        }
+        function shuffle(a) {
+            for (var i = a.length - 1; i > 0; i--) {
+                var j = Math.floor(Math.random() * (i + 1));
+                [a[i], a[j]] = [a[j], a[i]];
+            }
+            return a;
+        }
+        fetch('/tool/comments.json').then(function (r) { return r.json() }).then(render).catch(function (e) { })
+    })
+</script>
+
+    </div>
+    
+</div>
+<aside class="float-left gkt-sidebar hidden-xs hidden-sm">
+    <div style="clear: both"></div>
+    <div class="gkt-sidebar-wrapper">
+        <section class="box-shadow"><style>
+    .gkt-summary {
+        border: 1px solid #DDDDDD;
+        border-radius: 3px;
+        padding: 5px;
+        width: 100%;
+    }
+
+
+    .gkt-summary nav {
+        overflow: hidden;
+    }
+
+    .gkt-summary nav a {
+        display: inline-block;
+        text-align: center;
+        color: #333;
+        font-size: 12px;
+    }
+
+    .gkt-summary nav span {
+        display: block;
+    }
+
+    .gkt-summary nav .middle {
+        border-left: 1px solid #eaecef;
+        border-right: 1px solid #eaecef;
+    }
+
+    .gkt-summary .number {
+        font-weight: bold;
+    }
+
+    .gkt-summary .link-list {
+        margin-top: 5px;
+        margin-bottom: -5px;
+        padding-top: 7px;
+        border-top: 1px dashed #999;
+        display: flex;
+    }
+
+    .gkt-summary .link-list a {
+        flex: 1;
+    }
+
+    .gkt-summary .link-list img {
+        width: 25px;
+        height: 25px;
+    }
+</style>
+
+<div class="gkt-summary">
+    <nav>
+        <a href="/" class="col-xs-4">
+            <span class="number">112</span><span>文章</span>
+        </a>
+        <a href="/series" class="col-xs-4 middle">
+            <span class="number">34</span><span>专题</span>
+        </a>
+        <a href="/tags" class="col-xs-4">
+            <span class="number">148</span><span>标签</span>
+        </a>
+    </nav>
+
+    
+</div></section>
+        
+        
+        <section class="gkt-sidebar-content box-shadow">
+            <strong>其他/管理</strong>
+            <ul>
+                
+                <li>
+                    <a href="/post/其他/2020-11-27_『认知升级』是比其他一切都更加重要的思维模型转变.html"
+                        class="">『认知升级』是比其他一切都更加重要的思维模型转变</a>
+                    
+                </li>
+                
+                <li>
+                    <a href="/post/其他/2020-11-28_猴子管理法则.html"
+                        class="gkt-sidebar-active">猴子管理法则</a>
+                    
+                    <!-- Table of Contents -->
+<div id="sidebar-toc">
+  <!-- TOC  -->
+  
+  
+  
+  
+</div>
+
+<script>
+  (function () {
+    var h2 = document.querySelectorAll('article h2');
+    var h3 = document.querySelectorAll('article h3');
+    var linkList = document.querySelectorAll('#sidebar-toc a');
+
+    function findLinkElement(name) {
+      for (var i = 0; i < linkList.length; i++) {
+        var items = linkList[i].href.split('#');
+        if (items && items[items.length - 1] === encodeURIComponent(name)) {
+          return i;
+        }
+      }
+      return -1;
+    }
+
+    function activeLink(titleList) {
+      var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+      for (var i = titleList.length - 1; i >= 0; i--) {
+        if (scrollTop - titleList[i].offsetTop > 0) {
+          var index = findLinkElement(titleList[i].id);
+          index != -1 && linkList[index].classList.add('gkt-sidebar-active');
+          break;
+        }
+      }
+    }
+
+    window.addEventListener("scroll", function (e) {
+      [].slice.call(linkList).forEach(function (link) {
+        link.classList.remove('gkt-sidebar-active');
+      })
+      activeLink(h2);
+    })
+  })();
+</script>
+                    
+                </li>
+                
+            </ul>
+        </section>
+        
+        
+        <section class="gkt-sidebar-content box-shadow">
+            <strong>最近的文章</strong>
+            <ul>
+                
+                <li>
+                    <a href="/post/其他/2020-11-28_猴子管理法则.html">猴子管理法则</a>
+                </li>
+                
+                <li>
+                    <a href="/post/其他/2020-11-27_『认知升级』是比其他一切都更加重要的思维模型转变.html">『认知升级』是比其他一切都更加重要的思维模型转变</a>
+                </li>
+                
+                <li>
+                    <a href="/post/util/2020-11-26_开发资源整理.html">开发资源导航</a>
+                </li>
+                
+            </ul>
+        </section>
+        
+    </div>
+</aside>
+
+<script>
+    (function () {
+        function resizeUArrow() {
+            var s = getDom('.u-arrow-wrapper').style
+            var pc = getDom('.post-container')
+            s.left = getPosition(pc).x + 'px';
+            s.width = pc.clientWidth + 'px';
+        }
+        resizeUArrow()
+        window.addEventListener('resize', resizeUArrow);
+    })();
+</script>
+
+    
+
+<script>
+    (function () {
+        var ele = getDom('.gkt-sidebar-content')
+        if(!ele) return;
+        var wrapper = getDom('.gkt-sidebar-wrapper')
+        var last = 0
+        ele.style.maxHeight = ((window.innerHeight || 798) - 200) + 'px'
+        var f = function (e) {
+            var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            var isDown = scrollTop > last;
+            var pos = getPosition(ele).y - scrollTop;
+            var downLimit = 50;
+            var upLimit = -100;
+            // uarrow.style.marginTop = scrollTop + 'px';
+            isDown && pos <= downLimit && wrapper.classList.add("gkt-sidebar-fixed");
+            !isDown && pos > upLimit && wrapper.classList.remove("gkt-sidebar-fixed");
+            last = scrollTop
+        }
+        f()
+        window.addEventListener("scroll", f)
+    })();
+</script>
+
+</main>
+    </div>
+    <style>
+    img#go-top {
+        position: fixed;
+        bottom: 100px;
+        width: 50px;
+        cursor: pointer;
+        z-index: 9999;
+    }
+</style>
+<img id="go-top" src="/icon/top.png" class="hidden-xs" style="display: none" />
+<script>
+    (function () {
+        var goTop = document.getElementById('go-top');
+        var mainContainer = document.querySelector('.main-container');
+        
+        goTop.addEventListener('click', function () {
+            window.scroll(0, 0);
+        }, false);
+        window.addEventListener('scroll', function () {
+            var right = document.body.offsetWidth - mainContainer.getBoundingClientRect().right;
+            var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            goTop.style.right = right + 10 + 'px'
+            scrollTop > 700 && (goTop.style.display = "block");
+            scrollTop <= 700 && (goTop.style.display = "none");
+        });
+    })();
+</script>
+    <style>
+    #geektutu-click-img-container {
+        position: fixed;
+        left: 0;
+        top: 0;
+        text-align: center;
+        width: 100%;
+        display: none;
+        z-index: 9999;
+    }
+
+    #geektutu-click-img-container img {
+        object-fit: contain;
+        background: #eaecef;
+        padding: 15px;
+        border-radius: 10px;
+        height: auto;
+        width: auto;
+        vertical-align: middle;
+    }
+</style>
+
+
+<div id="geektutu-click-img-container">
+    <img src="" alt="Big Image">
+</div>
+
+<script>
+    (function () {
+        var container = document.querySelector('#geektutu-click-img-container')
+        var targetImg = container.querySelector('img')
+        var imgs = document.querySelectorAll('article img');
+        targetImg.addEventListener('click', function (e) {
+            container.style.display = 'none';
+            e && e.stopPropagation && e.stopPropagation();
+        }, false);
+
+        for (var i = 0; i < imgs.length; ++i) {
+            var img = imgs[i];
+            img.addEventListener('click', (function (src, rate) {
+                return function (e) {
+                    e && e.stopPropagation && e.stopPropagation();
+                    if (window.innerWidth < 980) {
+                        return
+                    }
+                    targetImg.style.height = targetImg.style.width = 'auto';
+                    if (window.innerWidth / window.innerHeight > rate) {
+                        targetImg.style.height = (window.innerHeight - 20) + 'px';
+                    } else {
+                        targetImg.style.width = (window.innerWidth - 20) + 'px';
+                    }
+                    container.style.height = window.innerHeight + 'px'
+                    container.style.lineHeight = window.innerHeight + 'px'
+                    container.style.display = 'block';
+                    targetImg.src = src;
+                };
+            }(img.src, img.width / img.height)), false)
+        }
+    })();
+</script>
+    <!-- Footer -->
+    <!-- Footer -->
+<style>
+    footer {
+        width: 100%;
+        line-height: 1.5;
+        padding: 20px;
+    }
+
+    footer a {
+        color: #333;
+        text-decoration: none;
+    }
+
+    .footer-hexo img {
+        height: 20px;
+        margin-bottom: -5px;
+    }
+
+    .footer-hexo a {
+        color: #337ab7;
+    }
+</style>
+<footer class="text-center col-xs-12">
+    <p>
+        <small>© 2020 - Hassan - </small>
+        <small>
+            <a target="_blank" rel="nofollow noopener" href="http://beian.miit.gov.cn/"></a>
+        </small>
+    </p>
+    <p class="footer-hexo">
+        <!-- 但若直接使用或修改主题，请务必保留这段声明 -->
+        <small>Powered by <a target="_blank" href="https://hexo.io">Hexo</a> | Theme
+            <a target="_blank" href="https://geektutu.com">Geektutu</a>
+            <a target="_blank" rel="noopener" href="https://github.com/geektutu/hexo-theme-geektutu">
+                <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAYGBgYHBgcICAcKCwoLCg8ODAwODxYQERAREBYiFRkVFRkVIh4kHhweJB42KiYmKjY+NDI0PkxERExfWl98fKcBBgYGBgcGBwgIBwoLCgsKDw4MDA4PFhAREBEQFiIVGRUVGRUiHiQeHB4kHjYqJiYqNj40MjQ+TERETF9aX3x8p//CABEIACIAUAMBIgACEQEDEQH/xAAcAAABBAMBAAAAAAAAAAAAAAAAAQQFBwIDBgj/2gAIAQEAAAAA9KrHSgAYL5/z6zZGuJd12uugbhq3uKtmuRtix20IS7lTLAfAAAn/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/9oACAECEAAAAAAB/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/aAAgBAxAAAAAAAf/EADEQAAICAQIEBQEGBwAAAAAAAAECAwQFAAYREhORBxQhUlQxQVFic5KxJDJCYYGC0f/aAAgBAQABPwCFHnjWUzuvN6hV4cANSRLGjO9yRVUcSzMoA7jVXJYe5N0a2dhmk9kc0bN2GvLN8mbuNeWb5M3ca8s3yZu415Y/Jm7jXlm+TN3H/NeVPyZu40vOk3TZywK8wJ+v3EHVM/wsI/Dq2lrxN3Nnca16eti8chSAIoMbzByhMwP14kHVfwIiSaF5c96J6kwwCOTnHsYk8uvCrdmQy1TI4rJuz3cZLyGR/wCd4+YoOf8AEpUjXitubLYPG4paFsUxcuiGe7yc5gTW3LW44szXmobsi3Dhmic2+Z4+vCVH9CpraPiQ+QvbgTJrPFBWd5YpWrmNIIEXiRO32Pqt4p7cnfHk18lFBdmEVW1LVdIZGOrniTt6plrWKaO69yCykDRxwF+LMAewB0Txtr+Sf31VI8tEPw62fZt7N3Humtbpzz13ucX6CGSWMSuzpLyD1eNgeUka3PuvHbaxq3biTMHfkiSNCS78CwU+3Xg7Vu3MhuTcU6cq3Zemn3Eh2dv8Lzcut+29x1atKbHYqLJUhLwyNMwiZ3j9yDWOxUOV3tgb+3No5LDx1pi9+aeIwRlNY6bc+Jv+IFGrhLxtXJZ7VKcw81diiAAEn0JOrkWZyNfbEr0tz27UGQgkuGzXdIIvyowq99bRxk9ffO/L81SZBPZgEEroQroIxxMZOgeNsfkn99QypHGqO4Vl9CDrN4LDZkwyzyyQ2IgRHZrzGCZVP1XnQglT9oOtw4LC7iqV6uRkZoYpxKFSQpzFRw4EjVRMfSrQ1qqwxQxKFjjTgFUD7BoWYR6iVe+mtxt9Zwf9teaj4AdccPu5tedX5A/VrzUR+sy/q1CwksF19VEfDj/cnQRW+qg66cfsXtrpx+xe2unH7F7a6cfsXtrpx+xe2unH7F7a6cfsXtoxx+xe2gAAOA1//8QAFBEBAAAAAAAAAAAAAAAAAAAAMP/aAAgBAgEBPwB//8QAFBEBAAAAAAAAAAAAAAAAAAAAMP/aAAgBAwEBPwB//9k="
+                    alt="Github Star">
+            </a>
+        </small>
+    </p>
+    
+    <p>
+        <small>
+            <span id="busuanzi_container_site_pv">👁<span id="busuanzi_value_site_pv"></span></span> &nbsp;
+            <span id="busuanzi_container_page_pv">📚<span id="busuanzi_value_page_pv"></span></span>
+        </small>
+    </p>
+    
+    
+
+</footer>
+
+
+<script>
+    window.addEventListener('load', function () {
+        globalAddScript('//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js');
+    })
+</script>
+
+<!-- Baidu Tongji -->
+
+
+
+
+
+    <script>
+        // 非本站网址，新开tab页签
+        (function () {
+            var stopBubble = function (e) {
+                e && e.stopPropagation && e.stopPropagation();
+            }
+            var links = document.querySelectorAll('a');
+            [].slice.call(links).forEach(function (item) {
+                if (item.href && item.href.indexOf(window.location.host) === -1) {
+                    item.target = '_blank'
+                }
+                // 阻止冒泡，不触发彩蛋。
+                item.addEventListener('click', stopBubble, false);
+            });
+            var article = document.querySelector('article');
+            article && article.addEventListener('click', stopBubble, false)
+        })();
+    </script>
+    
+<script>
+    (function (window, document, undefined) {
+        var hearts = [];
+        var keywords = ["点个赞", "留个言", "赞赏一下", "分享之", "blog.fenxiangz.com"];
+        function randomInt(max) {
+            return Math.floor(Math.random() * Math.floor(max));
+        }
+        window.addEventListener('click', createWord)
+
+        function createWord(e) {
+            var d = document.createElement("span");
+            d.style.position = 'fixed';
+            d.style.zIndex = 9999;
+            d.style.color = 'rgb(' + [randomInt(255), randomInt(255), randomInt(255)].join(',') + ')';
+            d.innerHTML = keywords[randomInt(keywords.length)];
+            d.onselectstart = function () { return false; }
+
+            hearts.push({ el: d, x: e.clientX - 5, y: e.clientY - 5, alpha: 1, scale: 1 });
+            document.body.appendChild(d);
+        }
+        (function gameloop() {
+            for (var i = 0; i < hearts.length; i++) {
+                heart = hearts[i];
+                if (heart.alpha <= 0) {
+                    document.body.removeChild(heart.el);
+                    hearts.splice(i, 1);
+                    continue;
+                }
+                heart.y -= heart.alpha < 0.5 ? 2 : 1;
+                heart.scale += 0.002;
+                heart.alpha -= 0.013;
+                heart.el.style.transform = 'scale(' + heart.scale + ')';
+                heart.el.style.left = heart.x + 'px';
+                heart.el.style.top = heart.y + 'px';
+            }
+            setTimeout(gameloop, 10)
+        })();
+    })(window, document);
+</script>
+
+</body>
+
+</html>
