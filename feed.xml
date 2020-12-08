@@ -15,8 +15,36 @@
     <atom:link href="https://blog.fenxiangz.com/feed.xml" rel="self" type="application/rss+xml"/>
     
     <description>Share everything</description>
-    <pubDate>Sun, 29 Nov 2020 10:26:25 GMT</pubDate>
+    <pubDate>Tue, 08 Dec 2020 07:56:35 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Redis存储优化</title>
+      <link>https://blog.fenxiangz.com/post/dateabase/Redis/2020_12_08_Redis%E6%B8%85%E7%90%86%E6%96%B9%E6%B3%95.html</link>
+      <guid>https://blog.fenxiangz.com/post/dateabase/Redis/2020_12_08_Redis%E6%B8%85%E7%90%86%E6%96%B9%E6%B3%95.html</guid>
+      <pubDate>Mon, 07 Dec 2020 16:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h2 id=&quot;bigkeys-扫描&quot;&gt;&lt;a href=&quot;#bigkeys-扫描&quot; class=&quot;headerlink&quot; title=&quot;bigkeys 扫描&quot;&gt;&lt;/a&gt;bigkeys 扫描&lt;/h2&gt;&lt;p&gt;&lt;code&gt;/redis-cli -h  localhost  -p 637</description>
+        
+      
+      
+      <enclosure url="https://blog.fenxiangz.com/images/Redis.png" type="image"/>
+      
+      
+      
+      <category domain="https://blog.fenxiangz.com/categories/Redis/">Redis</category>
+      
+      
+      <category domain="https://blog.fenxiangz.com/tags/%E4%BC%98%E5%8C%96/">优化</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/Redis/">Redis</category>
+      
+      
+      <comments>https://blog.fenxiangz.com/post/dateabase/Redis/2020_12_08_Redis%E6%B8%85%E7%90%86%E6%96%B9%E6%B3%95.html#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>猴子管理法则</title>
