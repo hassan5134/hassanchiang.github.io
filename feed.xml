@@ -1727,9 +1727,9 @@ sudo dpkg --remove --force-remove-reinstreq &amp;lt;packagename&amp;g</descripti
       <category domain="https://blog.fenxiangz.com/categories/TCP-IP/">TCP/IP</category>
       
       
-      <category domain="https://blog.fenxiangz.com/tags/%E5%8D%8F%E8%AE%AE/">协议</category>
-      
       <category domain="https://blog.fenxiangz.com/tags/%E9%9D%A2%E8%AF%95/">面试</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/%E5%8D%8F%E8%AE%AE/">协议</category>
       
       <category domain="https://blog.fenxiangz.com/tags/TCP/">TCP</category>
       
@@ -2571,9 +2571,9 @@ sudo dpkg --remove --force-remove-reinstreq &amp;lt;packagename&amp;g</descripti
       <category domain="https://blog.fenxiangz.com/categories/Gradle/">Gradle</category>
       
       
-      <category domain="https://blog.fenxiangz.com/tags/%E5%8C%85%E7%AE%A1%E7%90%86/">包管理</category>
-      
       <category domain="https://blog.fenxiangz.com/tags/Java/">Java</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/%E5%8C%85%E7%AE%A1%E7%90%86/">包管理</category>
       
       <category domain="https://blog.fenxiangz.com/tags/Gradle/">Gradle</category>
       
@@ -2606,9 +2606,9 @@ sudo dpkg --remove --force-remove-reinstreq &amp;lt;packagename&amp;g</descripti
       <category domain="https://blog.fenxiangz.com/categories/Gradle/">Gradle</category>
       
       
-      <category domain="https://blog.fenxiangz.com/tags/%E5%8C%85%E7%AE%A1%E7%90%86/">包管理</category>
-      
       <category domain="https://blog.fenxiangz.com/tags/Java/">Java</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/%E5%8C%85%E7%AE%A1%E7%90%86/">包管理</category>
       
       <category domain="https://blog.fenxiangz.com/tags/Gradle/">Gradle</category>
       
@@ -2639,9 +2639,9 @@ sudo dpkg --remove --force-remove-reinstreq &amp;lt;packagename&amp;g</descripti
       <category domain="https://blog.fenxiangz.com/categories/Gradle/">Gradle</category>
       
       
-      <category domain="https://blog.fenxiangz.com/tags/%E5%8C%85%E7%AE%A1%E7%90%86/">包管理</category>
-      
       <category domain="https://blog.fenxiangz.com/tags/Java/">Java</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/%E5%8C%85%E7%AE%A1%E7%90%86/">包管理</category>
       
       <category domain="https://blog.fenxiangz.com/tags/Gradle/">Gradle</category>
       
@@ -2823,9 +2823,9 @@ sudo dpkg --remove --force-remove-reinstreq &amp;lt;packagename&amp;g</descripti
       <category domain="https://blog.fenxiangz.com/categories/Java-IO/">Java IO</category>
       
       
-      <category domain="https://blog.fenxiangz.com/tags/IO/">IO</category>
-      
       <category domain="https://blog.fenxiangz.com/tags/Java/">Java</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/IO/">IO</category>
       
       <category domain="https://blog.fenxiangz.com/tags/Stream/">Stream</category>
       
@@ -2858,9 +2858,9 @@ try &amp;#123;
       <category domain="https://blog.fenxiangz.com/categories/Java-IO/">Java IO</category>
       
       
-      <category domain="https://blog.fenxiangz.com/tags/IO/">IO</category>
-      
       <category domain="https://blog.fenxiangz.com/tags/Java/">Java</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/IO/">IO</category>
       
       <category domain="https://blog.fenxiangz.com/tags/Exception/">Exception</category>
       
@@ -2901,34 +2901,6 @@ try &amp;#123;
     </item>
     
     <item>
-      <title>Java IO(4) 替换流，数组，文件或者大的字符串的一种方式</title>
-      <link>https://blog.fenxiangz.com/post/java/io/2017-04-18_java_io_4_reader.html</link>
-      <guid>https://blog.fenxiangz.com/post/java/io/2017-04-18_java_io_4_reader.html</guid>
-      <pubDate>Mon, 17 Apr 2017 16:00:00 GMT</pubDate>
-      
-        
-        
-      <description>&lt;p&gt;传统的字符替换，我们通常会想到使用 String.replace()，但是这个有些问题。&lt;br&gt;String.replace()每次替换，都会产生新的字符串，替换5次就产生5个新的字符串。这样空间复杂度就是 O(N*M)。N是字符串大小，M是替换的次数。这种情况下，如果是替</description>
-        
-      
-      
-      <enclosure url="https://blog.fenxiangz.com/images/java/io.png" type="image"/>
-      
-      
-      
-      <category domain="https://blog.fenxiangz.com/categories/Java-IO/">Java IO</category>
-      
-      
-      <category domain="https://blog.fenxiangz.com/tags/IO/">IO</category>
-      
-      <category domain="https://blog.fenxiangz.com/tags/Java/">Java</category>
-      
-      
-      <comments>https://blog.fenxiangz.com/post/java/io/2017-04-18_java_io_4_reader.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
       <title>为什么要与上0xff（&amp;0xff），有什么意义？</title>
       <link>https://blog.fenxiangz.com/post/java/advance/2017-04-18_java_0xff.html</link>
       <guid>https://blog.fenxiangz.com/post/java/advance/2017-04-18_java_0xff.html</guid>
@@ -2963,6 +2935,34 @@ try &amp;#123;
     </item>
     
     <item>
+      <title>Java IO(4) 替换流，数组，文件或者大的字符串的一种方式</title>
+      <link>https://blog.fenxiangz.com/post/java/io/2017-04-18_java_io_4_reader.html</link>
+      <guid>https://blog.fenxiangz.com/post/java/io/2017-04-18_java_io_4_reader.html</guid>
+      <pubDate>Mon, 17 Apr 2017 16:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;传统的字符替换，我们通常会想到使用 String.replace()，但是这个有些问题。&lt;br&gt;String.replace()每次替换，都会产生新的字符串，替换5次就产生5个新的字符串。这样空间复杂度就是 O(N*M)。N是字符串大小，M是替换的次数。这种情况下，如果是替</description>
+        
+      
+      
+      <enclosure url="https://blog.fenxiangz.com/images/java/io.png" type="image"/>
+      
+      
+      
+      <category domain="https://blog.fenxiangz.com/categories/Java-IO/">Java IO</category>
+      
+      
+      <category domain="https://blog.fenxiangz.com/tags/Java/">Java</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/IO/">IO</category>
+      
+      
+      <comments>https://blog.fenxiangz.com/post/java/io/2017-04-18_java_io_4_reader.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
       <title>Java IO(3)  System.in , System.out,  and System.error</title>
       <link>https://blog.fenxiangz.com/post/java/io/2017-04-17_java_io_3_system_in.html</link>
       <guid>https://blog.fenxiangz.com/post/java/io/2017-04-17_java_io_3_system_in.html</guid>
@@ -2983,9 +2983,9 @@ public final static PrintStream o</description>
       <category domain="https://blog.fenxiangz.com/categories/Java-IO/">Java IO</category>
       
       
-      <category domain="https://blog.fenxiangz.com/tags/IO/">IO</category>
-      
       <category domain="https://blog.fenxiangz.com/tags/Java/">Java</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/IO/">IO</category>
       
       
       <comments>https://blog.fenxiangz.com/post/java/io/2017-04-17_java_io_3_system_in.html#disqus_thread</comments>
@@ -3016,9 +3016,9 @@ public class PipeExa</description>
       <category domain="https://blog.fenxiangz.com/categories/Java-IO/">Java IO</category>
       
       
-      <category domain="https://blog.fenxiangz.com/tags/IO/">IO</category>
-      
       <category domain="https://blog.fenxiangz.com/tags/Java/">Java</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/IO/">IO</category>
       
       
       <comments>https://blog.fenxiangz.com/post/java/io/2017-04-16_java_io_2_pipeline.html#disqus_thread</comments>
@@ -3045,9 +3045,9 @@ public class PipeExa</description>
       <category domain="https://blog.fenxiangz.com/categories/Java-IO/">Java IO</category>
       
       
-      <category domain="https://blog.fenxiangz.com/tags/IO/">IO</category>
-      
       <category domain="https://blog.fenxiangz.com/tags/Java/">Java</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/IO/">IO</category>
       
       
       <comments>https://blog.fenxiangz.com/post/java/io/2017-04-15_java_io_1_overview.html#disqus_thread</comments>
