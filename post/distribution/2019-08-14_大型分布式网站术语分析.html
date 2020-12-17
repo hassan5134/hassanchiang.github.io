@@ -506,7 +506,7 @@
         <h3>推荐阅读</h3>
         
         <div class="post-preview">
-    <div class="post-img" style="background-image: url('/images/java/basic/java_logo.png')"></div>
+    <div class="post-img" style="background-image: url('/images/java/spring-framework.png')"></div>
     <div class="post-info">
         <div class="post-info-center">
             <div class="hidden-xs">
@@ -518,24 +518,57 @@
                     title="Java">Java</a>
                 <span>/</span>
                 
-                <a class="text-gray" href="/tags/#jvm"
-                    title="jvm">jvm</a>
+                <a class="text-gray" href="/tags/#Spring"
+                    title="Spring">Spring</a>
                 <span>/</span>
                 
-                <a class="text-gray" href="/tags/#操作系统"
-                    title="操作系统">操作系统</a>
+                <a class="text-gray" href="/tags/#Spring Boot"
+                    title="Spring Boot">Spring Boot</a>
                 <span>/</span>
                 
                 
             </div>
-            <a href="/post/java/advance/2019-03-06_java_os.html" class="title">
-                Java 和操作系统交互细节
+            <a href="/post/java/spring/2020-05-20_SpringBoot排坑.html" class="title">
+                Spring Boot 排坑
             </a>
             <p class="text-gray">
                 <small>
-                    <span>发表于2019-03-05，</span>
-                    <span class="hidden-xs">全文21253字，</span>
-                    <span>阅读约71分钟</span>
+                    <span>发表于2020-05-19，</span>
+                    <span class="hidden-xs">全文561字，</span>
+                    <span>阅读约2分钟</span>
+                </small>
+            </p>
+        </div>
+    </div>
+</div>
+        
+        <div class="post-preview">
+    <div class="post-img" style="background-image: url('/images/vue.png')"></div>
+    <div class="post-info">
+        <div class="post-info-center">
+            <div class="hidden-xs">
+                
+                
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#JavaScript"
+                    title="JavaScript">JavaScript</a>
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#Vue"
+                    title="Vue">Vue</a>
+                <span>/</span>
+                
+                
+            </div>
+            <a href="/post/frontend/vue/2017-10-26_vue自定义组件中的v-model简单解释.html" class="title">
+                vue自定义组件中的v-model简单解释（vue单页面组件传值）
+            </a>
+            <p class="text-gray">
+                <small>
+                    <span>发表于2019-10-24，</span>
+                    <span class="hidden-xs">全文2222字，</span>
+                    <span>阅读约8分钟</span>
                 </small>
             </p>
         </div>
@@ -555,57 +588,24 @@
                     title="Java">Java</a>
                 <span>/</span>
                 
-                <a class="text-gray" href="/tags/#IO"
-                    title="IO">IO</a>
+                <a class="text-gray" href="/tags/#NIO"
+                    title="NIO">NIO</a>
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#问题"
+                    title="问题">问题</a>
                 <span>/</span>
                 
                 
             </div>
-            <a href="/post/java/io/2017-04-15_java_io_1_overview.html" class="title">
-                Java IO(1) Overview
+            <a href="/post/java/nio/2019-04-07_java_nio_使用注意点.html" class="title">
+                NIO 各种使用注意点
             </a>
             <p class="text-gray">
                 <small>
-                    <span>发表于2017-04-14，</span>
-                    <span class="hidden-xs">全文384字，</span>
-                    <span>阅读约2分钟</span>
-                </small>
-            </p>
-        </div>
-    </div>
-</div>
-        
-        <div class="post-preview">
-    <div class="post-img" style="background-image: url('/images/java/basic/java_logo.png')"></div>
-    <div class="post-info">
-        <div class="post-info-center">
-            <div class="hidden-xs">
-                
-                
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#Java"
-                    title="Java">Java</a>
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#异常"
-                    title="异常">异常</a>
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#Java异常"
-                    title="Java异常">Java异常</a>
-                <span>/</span>
-                
-                
-            </div>
-            <a href="/post/java/basic/2016-11-18_try_with_resources.html" class="title">
-                Java7 里 try-with-resources 分析
-            </a>
-            <p class="text-gray">
-                <small>
-                    <span>发表于2016-11-27，</span>
-                    <span class="hidden-xs">全文4247字，</span>
-                    <span>阅读约15分钟</span>
+                    <span>发表于2019-04-06，</span>
+                    <span class="hidden-xs">全文6184字，</span>
+                    <span>阅读约21分钟</span>
                 </small>
             </p>
         </div>
@@ -1094,86 +1094,6 @@
     
     <div class="col-xs-12">
         
-<div class="col-xs-12 padding-0">
-    <div id="gitalk-container">
-        <div class="gt-container text-center" style="margin-top: 50px;">
-            <button class="gt-btn gt-btn-public"><span class="gt-btn-text">去 Github 评论</span></button>
-        </div>
-    </div>
-    <div id="gitalk-related"></div>
-</div>
-
-<link rel="stylesheet" href="/css/gitalk.css">
-
-
-<script src="/js/gitalk.min.js"></script>
-
-<script>
-    window.addEventListener('load', function () {
-        function renderCommentUrl(data) {
-            var url = (data[window.location.pathname] || {}).url
-            url && getDom('#gitalk-container button').addEventListener('click', function (e) { window.open(url)})
-            url || (getDom('#gitalk-container').style.display = 'none')
-        }
-        const gitalk = new Gitalk({
-            clientID: 'a3450400e2e20bba8764',
-            clientSecret: 'd1e0d498d2cd4c567e033d0e6f1a67e859b7ba6f',
-            accessToken: '',
-            repo: 'blogcmt',
-            owner: 'HassanChiang',
-            admin: ['HassanChiang'],
-            id: window.location.pathname,
-            distractionFreeMode: false
-        });
-        fetch("https://api.github.com/user").then(function(resp){
-            gitalk.render('gitalk-container');
-        }).catch(function(e){
-            fetch('/tool/issues.json').then(function (r) { return r.json() }).then(renderCommentUrl).catch(function (e) { })
-        })
-        getDom('#gitalk-container').addEventListener('click', function (e) {
-            e && e.stopPropagation && e.stopPropagation();
-        });
-    })
-</script>
-<script>
-    window.addEventListener('load', function () {
-        function render(comments) {
-            var template = '<a href="${comment.url}?utm_source=gitalk" class="dis-item-url"><h3 class="dis-item-title">${comment.title}</h3>' +
-                '<p class="dis-item-des">${comment.count} 评论 ● ${comment.date}</p>' +
-                '<div class="dis-item-content"><img class="dis-item-img" src="${comment.icon}" alt="icon"><p><b><span class="dis-item-user">${comment.user}</span></b>&nbsp;——&nbsp;${comment.body}</p></div>' +
-                '</a>'
-
-            var wrapper = getDom('#gitalk-related');
-            comments = shuffle(comments);
-            comments.slice(0, 4).forEach(function (c) {
-                var div = document.createElement('div');
-                div.classList.add('dis-item');
-                div.innerHTML = template.replace("${comment.url}", c.url)
-                    .replace("${comment.title}", c.title)
-                    .replace("${comment.count}", c.count)
-                    .replace("${comment.date}", c.date)
-                    .replace("${comment.icon}", c.icon)
-                    .replace("${comment.user}", c.user)
-                    .replace("${comment.body}", c.body)
-                wrapper.appendChild(div)
-            })
-            var p = document.createElement('p')
-            p.innerHTML = '<a target="_blank" rel="noopener" href="https://geektutu.com/post/blog-experience-7.html">Gitalk Plus</a>';
-            p.classList.add('dis-divide');
-            wrapper.appendChild(p);
-            wrapper.classList.add('dis-wrapper')
-        }
-        function shuffle(a) {
-            for (var i = a.length - 1; i > 0; i--) {
-                var j = Math.floor(Math.random() * (i + 1));
-                [a[i], a[j]] = [a[j], a[i]];
-            }
-            return a;
-        }
-        fetch('/tool/comments.json').then(function (r) { return r.json() }).then(render).catch(function (e) { })
-    })
-</script>
-
     </div>
     
 </div>

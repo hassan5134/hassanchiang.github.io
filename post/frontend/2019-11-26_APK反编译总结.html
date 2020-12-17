@@ -434,7 +434,7 @@ signapk.rar        ---- 修改smali或者资源文件，重新打包签名，***
         <h3>推荐阅读</h3>
         
         <div class="post-preview">
-    <div class="post-img" style="background-image: url('/images/grafana.png')"></div>
+    <div class="post-img" style="background-image: url('/images/java/basic/java_logo.png')"></div>
     <div class="post-info">
         <div class="post-info-center">
             <div class="hidden-xs">
@@ -442,20 +442,24 @@ signapk.rar        ---- 修改smali或者资源文件，重新打包签名，***
                 
                 <span>/</span>
                 
-                <a class="text-gray" href="/tags/#SVN"
-                    title="SVN">SVN</a>
+                <a class="text-gray" href="/tags/#Java"
+                    title="Java">Java</a>
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#性能优化"
+                    title="性能优化">性能优化</a>
                 <span>/</span>
                 
                 
             </div>
-            <a href="/post/util/svn/2017-12-10_SVN自动删除“被手动删除”的文件.html" class="title">
-                SVN 自动删除 “被手动删除” 的文件
+            <a href="/post/java/advance/2020-04-25_java_optimize.html" class="title">
+                接口性能优化思路
             </a>
             <p class="text-gray">
                 <small>
-                    <span>发表于2017-12-09，</span>
-                    <span class="hidden-xs">全文571字，</span>
-                    <span>阅读约2分钟</span>
+                    <span>发表于2020-04-24，</span>
+                    <span class="hidden-xs">全文299字，</span>
+                    <span>阅读约1分钟</span>
                 </small>
             </p>
         </div>
@@ -475,20 +479,24 @@ signapk.rar        ---- 修改smali或者资源文件，重新打包签名，***
                     title="Java">Java</a>
                 <span>/</span>
                 
-                <a class="text-gray" href="/tags/#知识体系"
-                    title="知识体系">知识体系</a>
+                <a class="text-gray" href="/tags/#内存模型"
+                    title="内存模型">内存模型</a>
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#jvm"
+                    title="jvm">jvm</a>
                 <span>/</span>
                 
                 
             </div>
-            <a href="/post/java/advance/2017-03-28_java_acknowledge.html" class="title">
-                【战略收藏】Java知识体系
+            <a href="/post/java/advance/2019-07-22_java_stack.html" class="title">
+                JVM内存结构：堆、栈、方法区
             </a>
             <p class="text-gray">
                 <small>
-                    <span>发表于2017-03-27，</span>
-                    <span class="hidden-xs">全文2603字，</span>
-                    <span>阅读约9分钟</span>
+                    <span>发表于2019-07-21，</span>
+                    <span class="hidden-xs">全文4013字，</span>
+                    <span>阅读约14分钟</span>
                 </small>
             </p>
         </div>
@@ -496,7 +504,7 @@ signapk.rar        ---- 修改smali或者资源文件，重新打包签名，***
 </div>
         
         <div class="post-preview">
-    <div class="post-img" style="background-image: url('/images/java/spring-framework.png')"></div>
+    <div class="post-img" style="background-image: url('/images/java/basic/java_logo.png')"></div>
     <div class="post-info">
         <div class="post-info-center">
             <div class="hidden-xs">
@@ -508,24 +516,24 @@ signapk.rar        ---- 修改smali或者资源文件，重新打包签名，***
                     title="Java">Java</a>
                 <span>/</span>
                 
-                <a class="text-gray" href="/tags/#注解"
-                    title="注解">注解</a>
+                <a class="text-gray" href="/tags/#异常"
+                    title="异常">异常</a>
                 <span>/</span>
                 
-                <a class="text-gray" href="/tags/#Spring"
-                    title="Spring">Spring</a>
+                <a class="text-gray" href="/tags/#Java异常"
+                    title="Java异常">Java异常</a>
                 <span>/</span>
                 
                 
             </div>
-            <a href="/post/java/spring/2016-10-30_Spring 组合注解&注解继承.html" class="title">
-                Spring 组合注解&注解继承
+            <a href="/post/java/basic/2016-11-18_try_with_resources.html" class="title">
+                Java7 里 try-with-resources 分析
             </a>
             <p class="text-gray">
                 <small>
-                    <span>发表于2016-10-29，</span>
-                    <span class="hidden-xs">全文2012字，</span>
-                    <span>阅读约7分钟</span>
+                    <span>发表于2016-11-27，</span>
+                    <span class="hidden-xs">全文4247字，</span>
+                    <span>阅读约15分钟</span>
                 </small>
             </p>
         </div>
@@ -1014,86 +1022,6 @@ signapk.rar        ---- 修改smali或者资源文件，重新打包签名，***
     
     <div class="col-xs-12">
         
-<div class="col-xs-12 padding-0">
-    <div id="gitalk-container">
-        <div class="gt-container text-center" style="margin-top: 50px;">
-            <button class="gt-btn gt-btn-public"><span class="gt-btn-text">去 Github 评论</span></button>
-        </div>
-    </div>
-    <div id="gitalk-related"></div>
-</div>
-
-<link rel="stylesheet" href="/css/gitalk.css">
-
-
-<script src="/js/gitalk.min.js"></script>
-
-<script>
-    window.addEventListener('load', function () {
-        function renderCommentUrl(data) {
-            var url = (data[window.location.pathname] || {}).url
-            url && getDom('#gitalk-container button').addEventListener('click', function (e) { window.open(url)})
-            url || (getDom('#gitalk-container').style.display = 'none')
-        }
-        const gitalk = new Gitalk({
-            clientID: 'a3450400e2e20bba8764',
-            clientSecret: 'd1e0d498d2cd4c567e033d0e6f1a67e859b7ba6f',
-            accessToken: '',
-            repo: 'blogcmt',
-            owner: 'HassanChiang',
-            admin: ['HassanChiang'],
-            id: window.location.pathname,
-            distractionFreeMode: false
-        });
-        fetch("https://api.github.com/user").then(function(resp){
-            gitalk.render('gitalk-container');
-        }).catch(function(e){
-            fetch('/tool/issues.json').then(function (r) { return r.json() }).then(renderCommentUrl).catch(function (e) { })
-        })
-        getDom('#gitalk-container').addEventListener('click', function (e) {
-            e && e.stopPropagation && e.stopPropagation();
-        });
-    })
-</script>
-<script>
-    window.addEventListener('load', function () {
-        function render(comments) {
-            var template = '<a href="${comment.url}?utm_source=gitalk" class="dis-item-url"><h3 class="dis-item-title">${comment.title}</h3>' +
-                '<p class="dis-item-des">${comment.count} 评论 ● ${comment.date}</p>' +
-                '<div class="dis-item-content"><img class="dis-item-img" src="${comment.icon}" alt="icon"><p><b><span class="dis-item-user">${comment.user}</span></b>&nbsp;——&nbsp;${comment.body}</p></div>' +
-                '</a>'
-
-            var wrapper = getDom('#gitalk-related');
-            comments = shuffle(comments);
-            comments.slice(0, 4).forEach(function (c) {
-                var div = document.createElement('div');
-                div.classList.add('dis-item');
-                div.innerHTML = template.replace("${comment.url}", c.url)
-                    .replace("${comment.title}", c.title)
-                    .replace("${comment.count}", c.count)
-                    .replace("${comment.date}", c.date)
-                    .replace("${comment.icon}", c.icon)
-                    .replace("${comment.user}", c.user)
-                    .replace("${comment.body}", c.body)
-                wrapper.appendChild(div)
-            })
-            var p = document.createElement('p')
-            p.innerHTML = '<a target="_blank" rel="noopener" href="https://geektutu.com/post/blog-experience-7.html">Gitalk Plus</a>';
-            p.classList.add('dis-divide');
-            wrapper.appendChild(p);
-            wrapper.classList.add('dis-wrapper')
-        }
-        function shuffle(a) {
-            for (var i = a.length - 1; i > 0; i--) {
-                var j = Math.floor(Math.random() * (i + 1));
-                [a[i], a[j]] = [a[j], a[i]];
-            }
-            return a;
-        }
-        fetch('/tool/comments.json').then(function (r) { return r.json() }).then(render).catch(function (e) { })
-    })
-</script>
-
     </div>
     
 </div>

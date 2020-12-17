@@ -501,7 +501,7 @@
         <h3>推荐阅读</h3>
         
         <div class="post-preview">
-    <div class="post-img" style="background-image: url('/')"></div>
+    <div class="post-img" style="background-image: url('/images/java/basic/java_logo.png')"></div>
     <div class="post-info">
         <div class="post-info-center">
             <div class="hidden-xs">
@@ -509,20 +509,20 @@
                 
                 <span>/</span>
                 
-                <a class="text-gray" href="/tags/#管理"
-                    title="管理">管理</a>
+                <a class="text-gray" href="/tags/#字符集"
+                    title="字符集">字符集</a>
                 <span>/</span>
                 
                 
             </div>
-            <a href="/post/其他/2020-11-28_猴子管理法则.html" class="title">
-                猴子管理法则
+            <a href="/post/java/advance/2020-06-29_字符集知识点.html" class="title">
+                字符集知识点
             </a>
             <p class="text-gray">
                 <small>
-                    <span>发表于2020-11-27，</span>
-                    <span class="hidden-xs">全文2709字，</span>
-                    <span>阅读约10分钟</span>
+                    <span>发表于2020-06-27，</span>
+                    <span class="hidden-xs">全文1056字，</span>
+                    <span>阅读约4分钟</span>
                 </small>
             </p>
         </div>
@@ -530,7 +530,7 @@
 </div>
         
         <div class="post-preview">
-    <div class="post-img" style="background-image: url('/')"></div>
+    <div class="post-img" style="background-image: url('/images/java/basic/java_logo.png')"></div>
     <div class="post-info">
         <div class="post-info-center">
             <div class="hidden-xs">
@@ -538,24 +538,24 @@
                 
                 <span>/</span>
                 
-                <a class="text-gray" href="/tags/#管理"
-                    title="管理">管理</a>
+                <a class="text-gray" href="/tags/#Java"
+                    title="Java">Java</a>
                 <span>/</span>
                 
-                <a class="text-gray" href="/tags/#认知"
-                    title="认知">认知</a>
+                <a class="text-gray" href="/tags/#面试"
+                    title="面试">面试</a>
                 <span>/</span>
                 
                 
             </div>
-            <a href="/post/其他/2020-11-27_『认知升级』是比其他一切都更加重要的思维模型转变.html" class="title">
-                『认知升级』是比其他一切都更加重要的思维模型转变
+            <a href="/post/interview/2018-10-25_Java面试整理.html" class="title">
+                Java面试整理
             </a>
             <p class="text-gray">
                 <small>
-                    <span>发表于2020-11-26，</span>
-                    <span class="hidden-xs">全文3278字，</span>
-                    <span>阅读约11分钟</span>
+                    <span>发表于2018-10-24，</span>
+                    <span class="hidden-xs">全文7209字，</span>
+                    <span>阅读约25分钟</span>
                 </small>
             </p>
         </div>
@@ -571,24 +571,24 @@
                 
                 <span>/</span>
                 
-                <a class="text-gray" href="/tags/#磁盘管理"
-                    title="磁盘管理">磁盘管理</a>
+                <a class="text-gray" href="/tags/#云原生"
+                    title="云原生">云原生</a>
                 <span>/</span>
                 
-                <a class="text-gray" href="/tags/#挂载"
-                    title="挂载">挂载</a>
+                <a class="text-gray" href="/tags/#Cloud"
+                    title="Cloud">Cloud</a>
                 <span>/</span>
                 
                 
             </div>
-            <a href="/post/linux/2017-12-06_重命名磁盘挂载分区卷标(磁盘名).html" class="title">
-                重命名磁盘挂载分区卷标(磁盘名)
+            <a href="/post/linux/2017-12-11_未来已来：云原生Cloud_Native.html" class="title">
+                未来已来：云原生 Cloud Native
             </a>
             <p class="text-gray">
                 <small>
-                    <span>发表于2017-12-05，</span>
-                    <span class="hidden-xs">全文2147字，</span>
-                    <span>阅读约8分钟</span>
+                    <span>发表于2017-12-10，</span>
+                    <span class="hidden-xs">全文9095字，</span>
+                    <span>阅读约31分钟</span>
                 </small>
             </p>
         </div>
@@ -1077,86 +1077,6 @@
     
     <div class="col-xs-12">
         
-<div class="col-xs-12 padding-0">
-    <div id="gitalk-container">
-        <div class="gt-container text-center" style="margin-top: 50px;">
-            <button class="gt-btn gt-btn-public"><span class="gt-btn-text">去 Github 评论</span></button>
-        </div>
-    </div>
-    <div id="gitalk-related"></div>
-</div>
-
-<link rel="stylesheet" href="/css/gitalk.css">
-
-
-<script src="/js/gitalk.min.js"></script>
-
-<script>
-    window.addEventListener('load', function () {
-        function renderCommentUrl(data) {
-            var url = (data[window.location.pathname] || {}).url
-            url && getDom('#gitalk-container button').addEventListener('click', function (e) { window.open(url)})
-            url || (getDom('#gitalk-container').style.display = 'none')
-        }
-        const gitalk = new Gitalk({
-            clientID: 'a3450400e2e20bba8764',
-            clientSecret: 'd1e0d498d2cd4c567e033d0e6f1a67e859b7ba6f',
-            accessToken: '',
-            repo: 'blogcmt',
-            owner: 'HassanChiang',
-            admin: ['HassanChiang'],
-            id: window.location.pathname,
-            distractionFreeMode: false
-        });
-        fetch("https://api.github.com/user").then(function(resp){
-            gitalk.render('gitalk-container');
-        }).catch(function(e){
-            fetch('/tool/issues.json').then(function (r) { return r.json() }).then(renderCommentUrl).catch(function (e) { })
-        })
-        getDom('#gitalk-container').addEventListener('click', function (e) {
-            e && e.stopPropagation && e.stopPropagation();
-        });
-    })
-</script>
-<script>
-    window.addEventListener('load', function () {
-        function render(comments) {
-            var template = '<a href="${comment.url}?utm_source=gitalk" class="dis-item-url"><h3 class="dis-item-title">${comment.title}</h3>' +
-                '<p class="dis-item-des">${comment.count} 评论 ● ${comment.date}</p>' +
-                '<div class="dis-item-content"><img class="dis-item-img" src="${comment.icon}" alt="icon"><p><b><span class="dis-item-user">${comment.user}</span></b>&nbsp;——&nbsp;${comment.body}</p></div>' +
-                '</a>'
-
-            var wrapper = getDom('#gitalk-related');
-            comments = shuffle(comments);
-            comments.slice(0, 4).forEach(function (c) {
-                var div = document.createElement('div');
-                div.classList.add('dis-item');
-                div.innerHTML = template.replace("${comment.url}", c.url)
-                    .replace("${comment.title}", c.title)
-                    .replace("${comment.count}", c.count)
-                    .replace("${comment.date}", c.date)
-                    .replace("${comment.icon}", c.icon)
-                    .replace("${comment.user}", c.user)
-                    .replace("${comment.body}", c.body)
-                wrapper.appendChild(div)
-            })
-            var p = document.createElement('p')
-            p.innerHTML = '<a target="_blank" rel="noopener" href="https://geektutu.com/post/blog-experience-7.html">Gitalk Plus</a>';
-            p.classList.add('dis-divide');
-            wrapper.appendChild(p);
-            wrapper.classList.add('dis-wrapper')
-        }
-        function shuffle(a) {
-            for (var i = a.length - 1; i > 0; i--) {
-                var j = Math.floor(Math.random() * (i + 1));
-                [a[i], a[j]] = [a[j], a[i]];
-            }
-            return a;
-        }
-        fetch('/tool/comments.json').then(function (r) { return r.json() }).then(render).catch(function (e) { })
-    })
-</script>
-
     </div>
     
 </div>

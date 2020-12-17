@@ -453,7 +453,7 @@
         <h3>推荐阅读</h3>
         
         <div class="post-preview">
-    <div class="post-img" style="background-image: url('/images/idea_logo.png')"></div>
+    <div class="post-img" style="background-image: url('/')"></div>
     <div class="post-info">
         <div class="post-info-center">
             <div class="hidden-xs">
@@ -461,24 +461,20 @@
                 
                 <span>/</span>
                 
-                <a class="text-gray" href="/tags/#设计模式"
-                    title="设计模式">设计模式</a>
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#结构型模式"
-                    title="结构型模式">结构型模式</a>
+                <a class="text-gray" href="/tags/#Jira"
+                    title="Jira">Jira</a>
                 <span>/</span>
                 
                 
             </div>
-            <a href="/post/design/2019-01-04_Java经典设计模式_2_七大结构型模式.html" class="title">
-                Java经典设计模式（2）：七大结构型模式
+            <a href="/post/其他/2020-11-26_Jira修改Path路径后的用户管理问题.html" class="title">
+                Jira 修改 Path 路径后的用户管理问题
             </a>
             <p class="text-gray">
                 <small>
-                    <span>发表于2019-01-03，</span>
-                    <span class="hidden-xs">全文16776字，</span>
-                    <span>阅读约56分钟</span>
+                    <span>发表于2020-11-25，</span>
+                    <span class="hidden-xs">全文449字，</span>
+                    <span>阅读约2分钟</span>
                 </small>
             </p>
         </div>
@@ -494,20 +490,24 @@
                 
                 <span>/</span>
                 
-                <a class="text-gray" href="/tags/#输入法"
-                    title="输入法">输入法</a>
+                <a class="text-gray" href="/tags/#Ubuntu"
+                    title="Ubuntu">Ubuntu</a>
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#包管理"
+                    title="包管理">包管理</a>
                 <span>/</span>
                 
                 
             </div>
-            <a href="/post/linux/2017-12-12_Ubuntu20.04LTS安装搜狗输入法.html" class="title">
-                Ubuntu 20.04 LTS 安装搜狗输入法
+            <a href="/post/linux/2018-11-17_Ubuntu包错误或不一致时的清理方式.html" class="title">
+                Ubuntu 包错误或不一致时的清理方式
             </a>
             <p class="text-gray">
                 <small>
-                    <span>发表于2017-12-11，</span>
-                    <span class="hidden-xs">全文2531字，</span>
-                    <span>阅读约9分钟</span>
+                    <span>发表于2018-11-16，</span>
+                    <span class="hidden-xs">全文767字，</span>
+                    <span>阅读约3分钟</span>
                 </small>
             </p>
         </div>
@@ -515,7 +515,7 @@
 </div>
         
         <div class="post-preview">
-    <div class="post-img" style="background-image: url('/images/docker.png')"></div>
+    <div class="post-img" style="background-image: url('/images/java/basic/java_logo.png')"></div>
     <div class="post-info">
         <div class="post-info-center">
             <div class="hidden-xs">
@@ -523,24 +523,24 @@
                 
                 <span>/</span>
                 
-                <a class="text-gray" href="/tags/#Docker"
-                    title="Docker">Docker</a>
+                <a class="text-gray" href="/tags/#Java"
+                    title="Java">Java</a>
                 <span>/</span>
                 
-                <a class="text-gray" href="/tags/#入门"
-                    title="入门">入门</a>
+                <a class="text-gray" href="/tags/#知识体系"
+                    title="知识体系">知识体系</a>
                 <span>/</span>
                 
                 
             </div>
-            <a href="/post/docker/2017-11-25_Docker_Get_Started.html" class="title">
-                Docker Get Started
+            <a href="/post/java/advance/2017-03-28_java_acknowledge.html" class="title">
+                【战略收藏】Java知识体系
             </a>
             <p class="text-gray">
                 <small>
-                    <span>发表于2017-11-24，</span>
-                    <span class="hidden-xs">全文5867字，</span>
-                    <span>阅读约20分钟</span>
+                    <span>发表于2017-03-27，</span>
+                    <span class="hidden-xs">全文2603字，</span>
+                    <span>阅读约9分钟</span>
                 </small>
             </p>
         </div>
@@ -1029,86 +1029,6 @@
     
     <div class="col-xs-12">
         
-<div class="col-xs-12 padding-0">
-    <div id="gitalk-container">
-        <div class="gt-container text-center" style="margin-top: 50px;">
-            <button class="gt-btn gt-btn-public"><span class="gt-btn-text">去 Github 评论</span></button>
-        </div>
-    </div>
-    <div id="gitalk-related"></div>
-</div>
-
-<link rel="stylesheet" href="/css/gitalk.css">
-
-
-<script src="/js/gitalk.min.js"></script>
-
-<script>
-    window.addEventListener('load', function () {
-        function renderCommentUrl(data) {
-            var url = (data[window.location.pathname] || {}).url
-            url && getDom('#gitalk-container button').addEventListener('click', function (e) { window.open(url)})
-            url || (getDom('#gitalk-container').style.display = 'none')
-        }
-        const gitalk = new Gitalk({
-            clientID: 'a3450400e2e20bba8764',
-            clientSecret: 'd1e0d498d2cd4c567e033d0e6f1a67e859b7ba6f',
-            accessToken: '',
-            repo: 'blogcmt',
-            owner: 'HassanChiang',
-            admin: ['HassanChiang'],
-            id: window.location.pathname,
-            distractionFreeMode: false
-        });
-        fetch("https://api.github.com/user").then(function(resp){
-            gitalk.render('gitalk-container');
-        }).catch(function(e){
-            fetch('/tool/issues.json').then(function (r) { return r.json() }).then(renderCommentUrl).catch(function (e) { })
-        })
-        getDom('#gitalk-container').addEventListener('click', function (e) {
-            e && e.stopPropagation && e.stopPropagation();
-        });
-    })
-</script>
-<script>
-    window.addEventListener('load', function () {
-        function render(comments) {
-            var template = '<a href="${comment.url}?utm_source=gitalk" class="dis-item-url"><h3 class="dis-item-title">${comment.title}</h3>' +
-                '<p class="dis-item-des">${comment.count} 评论 ● ${comment.date}</p>' +
-                '<div class="dis-item-content"><img class="dis-item-img" src="${comment.icon}" alt="icon"><p><b><span class="dis-item-user">${comment.user}</span></b>&nbsp;——&nbsp;${comment.body}</p></div>' +
-                '</a>'
-
-            var wrapper = getDom('#gitalk-related');
-            comments = shuffle(comments);
-            comments.slice(0, 4).forEach(function (c) {
-                var div = document.createElement('div');
-                div.classList.add('dis-item');
-                div.innerHTML = template.replace("${comment.url}", c.url)
-                    .replace("${comment.title}", c.title)
-                    .replace("${comment.count}", c.count)
-                    .replace("${comment.date}", c.date)
-                    .replace("${comment.icon}", c.icon)
-                    .replace("${comment.user}", c.user)
-                    .replace("${comment.body}", c.body)
-                wrapper.appendChild(div)
-            })
-            var p = document.createElement('p')
-            p.innerHTML = '<a target="_blank" rel="noopener" href="https://geektutu.com/post/blog-experience-7.html">Gitalk Plus</a>';
-            p.classList.add('dis-divide');
-            wrapper.appendChild(p);
-            wrapper.classList.add('dis-wrapper')
-        }
-        function shuffle(a) {
-            for (var i = a.length - 1; i > 0; i--) {
-                var j = Math.floor(Math.random() * (i + 1));
-                [a[i], a[j]] = [a[j], a[i]];
-            }
-            return a;
-        }
-        fetch('/tool/comments.json').then(function (r) { return r.json() }).then(render).catch(function (e) { })
-    })
-</script>
-
     </div>
     
 </div>

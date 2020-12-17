@@ -410,7 +410,7 @@
         <h3>推荐阅读</h3>
         
         <div class="post-preview">
-    <div class="post-img" style="background-image: url('/images/MSSQL.png')"></div>
+    <div class="post-img" style="background-image: url('/')"></div>
     <div class="post-info">
         <div class="post-info-center">
             <div class="hidden-xs">
@@ -418,24 +418,20 @@
                 
                 <span>/</span>
                 
-                <a class="text-gray" href="/tags/#备份"
-                    title="备份">备份</a>
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#MSSQL"
-                    title="MSSQL">MSSQL</a>
+                <a class="text-gray" href="/tags/#管理"
+                    title="管理">管理</a>
                 <span>/</span>
                 
                 
             </div>
-            <a href="/post/dateabase/MSSQL/2020-09-08_MSSQL最佳实践_SQL_Server备份策略.html" class="title">
-                MSSQL · 最佳实践 ·  SQL Server备份策略
+            <a href="/post/其他/2020-11-28_猴子管理法则.html" class="title">
+                猴子管理法则
             </a>
             <p class="text-gray">
                 <small>
-                    <span>发表于2020-09-07，</span>
-                    <span class="hidden-xs">全文10926字，</span>
-                    <span>阅读约37分钟</span>
+                    <span>发表于2020-11-27，</span>
+                    <span class="hidden-xs">全文2709字，</span>
+                    <span>阅读约10分钟</span>
                 </small>
             </p>
         </div>
@@ -443,7 +439,7 @@
 </div>
         
         <div class="post-preview">
-    <div class="post-img" style="background-image: url('/images/java/io.png')"></div>
+    <div class="post-img" style="background-image: url('/images/distribution.png')"></div>
     <div class="post-info">
         <div class="post-info-center">
             <div class="hidden-xs">
@@ -451,28 +447,28 @@
                 
                 <span>/</span>
                 
-                <a class="text-gray" href="/tags/#Java"
-                    title="Java">Java</a>
+                <a class="text-gray" href="/tags/#分布式"
+                    title="分布式">分布式</a>
                 <span>/</span>
                 
-                <a class="text-gray" href="/tags/#NIO"
-                    title="NIO">NIO</a>
+                <a class="text-gray" href="/tags/#CAP"
+                    title="CAP">CAP</a>
                 <span>/</span>
                 
-                <a class="text-gray" href="/tags/#Selector"
-                    title="Selector">Selector</a>
+                <a class="text-gray" href="/tags/#概念"
+                    title="概念">概念</a>
                 <span>/</span>
                 
                 
             </div>
-            <a href="/post/java/nio/2017-04-23_java_nio_3.html" class="title">
-                Java NIO(3) 选择器 Selector
+            <a href="/post/distribution/2019-08-12_CAP定理的含义.html" class="title">
+                【转载-阮一峰】CAP 定理的含义
             </a>
             <p class="text-gray">
                 <small>
-                    <span>发表于2017-04-22，</span>
-                    <span class="hidden-xs">全文5874字，</span>
-                    <span>阅读约20分钟</span>
+                    <span>发表于2019-08-11，</span>
+                    <span class="hidden-xs">全文2074字，</span>
+                    <span>阅读约7分钟</span>
                 </small>
             </p>
         </div>
@@ -492,20 +488,24 @@
                     title="Java">Java</a>
                 <span>/</span>
                 
-                <a class="text-gray" href="/tags/#书籍推荐"
-                    title="书籍推荐">书籍推荐</a>
+                <a class="text-gray" href="/tags/#内存模型"
+                    title="内存模型">内存模型</a>
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#jvm"
+                    title="jvm">jvm</a>
                 <span>/</span>
                 
                 
             </div>
-            <a href="/post/java/advance/2016-12-09_java_books.html" class="title">
-                Java书籍推荐
+            <a href="/post/java/advance/2019-07-22_java_stack.html" class="title">
+                JVM内存结构：堆、栈、方法区
             </a>
             <p class="text-gray">
                 <small>
-                    <span>发表于2016-12-08，</span>
-                    <span class="hidden-xs">全文429字，</span>
-                    <span>阅读约2分钟</span>
+                    <span>发表于2019-07-21，</span>
+                    <span class="hidden-xs">全文4013字，</span>
+                    <span>阅读约14分钟</span>
                 </small>
             </p>
         </div>
@@ -994,86 +994,6 @@
     
     <div class="col-xs-12">
         
-<div class="col-xs-12 padding-0">
-    <div id="gitalk-container">
-        <div class="gt-container text-center" style="margin-top: 50px;">
-            <button class="gt-btn gt-btn-public"><span class="gt-btn-text">去 Github 评论</span></button>
-        </div>
-    </div>
-    <div id="gitalk-related"></div>
-</div>
-
-<link rel="stylesheet" href="/css/gitalk.css">
-
-
-<script src="/js/gitalk.min.js"></script>
-
-<script>
-    window.addEventListener('load', function () {
-        function renderCommentUrl(data) {
-            var url = (data[window.location.pathname] || {}).url
-            url && getDom('#gitalk-container button').addEventListener('click', function (e) { window.open(url)})
-            url || (getDom('#gitalk-container').style.display = 'none')
-        }
-        const gitalk = new Gitalk({
-            clientID: 'a3450400e2e20bba8764',
-            clientSecret: 'd1e0d498d2cd4c567e033d0e6f1a67e859b7ba6f',
-            accessToken: '',
-            repo: 'blogcmt',
-            owner: 'HassanChiang',
-            admin: ['HassanChiang'],
-            id: window.location.pathname,
-            distractionFreeMode: false
-        });
-        fetch("https://api.github.com/user").then(function(resp){
-            gitalk.render('gitalk-container');
-        }).catch(function(e){
-            fetch('/tool/issues.json').then(function (r) { return r.json() }).then(renderCommentUrl).catch(function (e) { })
-        })
-        getDom('#gitalk-container').addEventListener('click', function (e) {
-            e && e.stopPropagation && e.stopPropagation();
-        });
-    })
-</script>
-<script>
-    window.addEventListener('load', function () {
-        function render(comments) {
-            var template = '<a href="${comment.url}?utm_source=gitalk" class="dis-item-url"><h3 class="dis-item-title">${comment.title}</h3>' +
-                '<p class="dis-item-des">${comment.count} 评论 ● ${comment.date}</p>' +
-                '<div class="dis-item-content"><img class="dis-item-img" src="${comment.icon}" alt="icon"><p><b><span class="dis-item-user">${comment.user}</span></b>&nbsp;——&nbsp;${comment.body}</p></div>' +
-                '</a>'
-
-            var wrapper = getDom('#gitalk-related');
-            comments = shuffle(comments);
-            comments.slice(0, 4).forEach(function (c) {
-                var div = document.createElement('div');
-                div.classList.add('dis-item');
-                div.innerHTML = template.replace("${comment.url}", c.url)
-                    .replace("${comment.title}", c.title)
-                    .replace("${comment.count}", c.count)
-                    .replace("${comment.date}", c.date)
-                    .replace("${comment.icon}", c.icon)
-                    .replace("${comment.user}", c.user)
-                    .replace("${comment.body}", c.body)
-                wrapper.appendChild(div)
-            })
-            var p = document.createElement('p')
-            p.innerHTML = '<a target="_blank" rel="noopener" href="https://geektutu.com/post/blog-experience-7.html">Gitalk Plus</a>';
-            p.classList.add('dis-divide');
-            wrapper.appendChild(p);
-            wrapper.classList.add('dis-wrapper')
-        }
-        function shuffle(a) {
-            for (var i = a.length - 1; i > 0; i--) {
-                var j = Math.floor(Math.random() * (i + 1));
-                [a[i], a[j]] = [a[j], a[i]];
-            }
-            return a;
-        }
-        fetch('/tool/comments.json').then(function (r) { return r.json() }).then(render).catch(function (e) { })
-    })
-</script>
-
     </div>
     
 </div>
