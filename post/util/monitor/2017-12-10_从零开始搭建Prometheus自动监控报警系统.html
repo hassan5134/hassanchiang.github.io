@@ -325,10 +325,10 @@
 <div class="float-left post-container box-shadow">
     <div class="u-arrow-wrapper hidden-xs">
         
-        <a class="float-left" href="/post/linux/2017-12-08_两种高性能IO设计模式Reactor和Proactor.html"><i class="u-arrow-left"></i></a>
+        <a class="float-left" href="/post/linux/2017-12-09_Linux内存映射mmap原理分析.html"><i class="u-arrow-left"></i></a>
         
         
-        <a class="float-right" href="/post/linux/2017-12-09_Linux内存映射mmap原理分析.html"><i class="u-arrow-right"></i></a>
+        <a class="float-right" href="/post/util/svn/2017-12-10_SVN自动删除“被手动删除”的文件.html"><i class="u-arrow-right"></i></a>
         
     </div>
     <article class="col-xs-12">
@@ -341,14 +341,14 @@
                 
                 <li>
                     <a href="/post/util/monitor/2017-12-10_从零开始搭建Prometheus自动监控报警系统.html">从零开始搭建Prometheus自动监控报警系统（企业级）</a>
-                    <span class="post-item-date">(Dec 8, 2017)</span>
+                    <span class="post-item-date">(Dec 9, 2017)</span>
                 </li>
                 
             </ul>
         </div>
         
         
-        <h1 id="从零开始搭建Prometheus自动监控报警系统（企业级）"><a href="#从零开始搭建Prometheus自动监控报警系统（企业级）" class="headerlink" title="从零开始搭建Prometheus自动监控报警系统（企业级）"></a>从零开始搭建Prometheus自动监控报警系统（企业级）</h1><h2 id="什么是Prometheus"><a href="#什么是Prometheus" class="headerlink" title="什么是Prometheus?"></a>什么是Prometheus?</h2><p>Prometheus是由SoundCloud开发的开源监控报警系统和时序列数据库(TSDB)。Prometheus使用Go语言开发，是Google BorgMon监控系统的开源版本。 </p>
+        <h2 id="什么是Prometheus"><a href="#什么是Prometheus" class="headerlink" title="什么是Prometheus?"></a>什么是Prometheus?</h2><p>Prometheus是由SoundCloud开发的开源监控报警系统和时序列数据库(TSDB)。Prometheus使用Go语言开发，是Google BorgMon监控系统的开源版本。 </p>
 <p>2016年由Google发起Linux基金会旗下的原生云基金会(Cloud Native Computing Foundation), 将Prometheus纳入其下第二大开源项目。 </p>
 <p>Prometheus目前在开源社区相当活跃。 </p>
 <p>Prometheus和Heapster(Heapster是K8S的一个子项目，用于获取集群的性能数据。)相比功能更完善、更全面。Prometheus性能也足够支撑上万台规模的集群。</p>
@@ -519,7 +519,7 @@
             </p>
             
             <p>
-                <span>本文发表于 2017-12-08，最后修改于 2020-11-28。</span>
+                <span>本文发表于 2017-12-09，最后修改于 2020-12-17。</span>
             </p>
             <!-- 文章末尾的提示 start -->
             
@@ -531,10 +531,10 @@
         <hr />
         <p name="pagination" style="font-size: 1.2em">
     
-    <a class="float-left" href="/post/linux/2017-12-08_两种高性能IO设计模式Reactor和Proactor.html">上一篇 « 两种高性能 I/O 设计模式 Reactor 和 Proactor</a>
+    <a class="float-left" href="/post/linux/2017-12-09_Linux内存映射mmap原理分析.html">上一篇 « Linux内存映射mmap原理分析</a>
     
     
-    <a class="float-right" href="/post/linux/2017-12-09_Linux内存映射mmap原理分析.html">下一篇 » Linux内存映射mmap原理分析</a>
+    <a class="float-right" href="/post/util/svn/2017-12-10_SVN自动删除“被手动删除”的文件.html">下一篇 » SVN 自动删除 “被手动删除” 的文件</a>
     
 </p>
     </article>
@@ -546,7 +546,36 @@
         <h3>推荐阅读</h3>
         
         <div class="post-preview">
-    <div class="post-img" style="background-image: url('/images/java/basic/java_logo.png')"></div>
+    <div class="post-img" style="background-image: url('/images/linux.png')"></div>
+    <div class="post-info">
+        <div class="post-info-center">
+            <div class="hidden-xs">
+                
+                
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#快捷键"
+                    title="快捷键">快捷键</a>
+                <span>/</span>
+                
+                
+            </div>
+            <a href="/post/linux/2017-12-01_super+d显示桌面快捷键.html" class="title">
+                super + d 显示桌面快捷键
+            </a>
+            <p class="text-gray">
+                <small>
+                    <span>发表于2017-11-30，</span>
+                    <span class="hidden-xs">全文278字，</span>
+                    <span>阅读约1分钟</span>
+                </small>
+            </p>
+        </div>
+    </div>
+</div>
+        
+        <div class="post-preview">
+    <div class="post-img" style="background-image: url('/images/gradle.png')"></div>
     <div class="post-info">
         <div class="post-info-center">
             <div class="hidden-xs">
@@ -558,20 +587,24 @@
                     title="Java">Java</a>
                 <span>/</span>
                 
-                <a class="text-gray" href="/tags/#性能优化"
-                    title="性能优化">性能优化</a>
+                <a class="text-gray" href="/tags/#包管理"
+                    title="包管理">包管理</a>
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#Gradle"
+                    title="Gradle">Gradle</a>
                 <span>/</span>
                 
                 
             </div>
-            <a href="/post/java/advance/2020-04-25_java_optimize.html" class="title">
-                接口性能优化思路
+            <a href="/post/util/gradle/LearnGradle_3_Java快速入门.html" class="title">
+                Learn Gradle - 3 Java 快速入门
             </a>
             <p class="text-gray">
                 <small>
-                    <span>发表于2020-04-24，</span>
-                    <span class="hidden-xs">全文299字，</span>
-                    <span>阅读约1分钟</span>
+                    <span>发表于2017-10-27，</span>
+                    <span class="hidden-xs">全文7627字，</span>
+                    <span>阅读约26分钟</span>
                 </small>
             </p>
         </div>
@@ -591,65 +624,20 @@
                     title="Java">Java</a>
                 <span>/</span>
                 
-                <a class="text-gray" href="/tags/#NIO"
-                    title="NIO">NIO</a>
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#直接内存"
-                    title="直接内存">直接内存</a>
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#非直接内存"
-                    title="非直接内存">非直接内存</a>
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#堆内存"
-                    title="堆内存">堆内存</a>
+                <a class="text-gray" href="/tags/#IO"
+                    title="IO">IO</a>
                 <span>/</span>
                 
                 
             </div>
-            <a href="/post/java/nio/2019-07-22_java_nio_Java直接内存与非直接内存性能测试.html" class="title">
-                Java直接内存与非直接内存性能测试
+            <a href="/post/java/io/2017-04-16_java_io_2_pipeline.html" class="title">
+                Java IO(2) 管道流
             </a>
             <p class="text-gray">
                 <small>
-                    <span>发表于2019-07-21，</span>
-                    <span class="hidden-xs">全文3256字，</span>
-                    <span>阅读约11分钟</span>
-                </small>
-            </p>
-        </div>
-    </div>
-</div>
-        
-        <div class="post-preview">
-    <div class="post-img" style="background-image: url('/images/java/basic/java_logo.png')"></div>
-    <div class="post-info">
-        <div class="post-info-center">
-            <div class="hidden-xs">
-                
-                
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#Java"
-                    title="Java">Java</a>
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#lambda表达式"
-                    title="lambda表达式">lambda表达式</a>
-                <span>/</span>
-                
-                
-            </div>
-            <a href="/post/java/basic/2017-11-10_java-lambda.html" class="title">
-                Java8 lambda表达式10个示例
-            </a>
-            <p class="text-gray">
-                <small>
-                    <span>发表于2017-11-10，</span>
-                    <span class="hidden-xs">全文14494字，</span>
-                    <span>阅读约49分钟</span>
+                    <span>发表于2017-04-15，</span>
+                    <span class="hidden-xs">全文2232字，</span>
+                    <span>阅读约8分钟</span>
                 </small>
             </p>
         </div>
@@ -1225,7 +1213,7 @@
   <!-- TOC  -->
   
   
-  <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BAPrometheus%E8%87%AA%E5%8A%A8%E7%9B%91%E6%8E%A7%E6%8A%A5%E8%AD%A6%E7%B3%BB%E7%BB%9F%EF%BC%88%E4%BC%81%E4%B8%9A%E7%BA%A7%EF%BC%89"><span class="toc-nav-text">从零开始搭建Prometheus自动监控报警系统（企业级）</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFPrometheus"><span class="toc-nav-text">什么是Prometheus?</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Prometheus%E7%9A%84%E7%89%B9%E7%82%B9"><span class="toc-nav-text">Prometheus的特点</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%9E%B6%E6%9E%84%E5%9B%BE"><span class="toc-nav-text">架构图</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86"><span class="toc-nav-text">基本原理</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%9C%8D%E5%8A%A1%E8%BF%87%E7%A8%8B"><span class="toc-nav-text">服务过程</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%89%E5%A4%A7%E5%A5%97%E4%BB%B6"><span class="toc-nav-text">三大套件</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%9C%AC%E9%A3%9E%E7%8C%AA%E6%95%99%E7%A8%8B%E5%86%85%E5%AE%B9%E7%AE%80%E4%BB%8B"><span class="toc-nav-text">本飞猪教程内容简介</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%AE%89%E8%A3%85%E5%87%86%E5%A4%87"><span class="toc-nav-text">安装准备</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#%E4%B8%80-%E5%AE%89%E8%A3%85Prometheus-Server"><span class="toc-nav-text">一.安装Prometheus Server</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#%E4%BA%8C-%E5%AE%89%E8%A3%85%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%8F%90%E4%BE%9Bmetrics%E6%8E%A5%E5%8F%A3"><span class="toc-nav-text">二.安装客户端提供metrics接口</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#1-%E9%80%9A%E8%BF%87golang%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%8F%90%E4%BE%9Bmetrics"><span class="toc-nav-text">1.通过golang客户端提供metrics</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#2-%E9%80%9A%E8%BF%87node-exporter%E6%8F%90%E4%BE%9Bmetrics"><span class="toc-nav-text">2.通过node exporter提供metrics</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#%E4%B8%89-%E5%AE%89%E8%A3%85pushgateway"><span class="toc-nav-text">三.安装pushgateway</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#%E5%9B%9B-%E5%AE%89%E8%A3%85Grafana%E5%B1%95%E7%A4%BA"><span class="toc-nav-text">四.安装Grafana展示</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#%E4%BA%94-%E5%AE%89%E8%A3%85AlterManager"><span class="toc-nav-text">五.安装AlterManager</span></a></li></ol>
+  <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFPrometheus"><span class="toc-nav-text">什么是Prometheus?</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Prometheus%E7%9A%84%E7%89%B9%E7%82%B9"><span class="toc-nav-text">Prometheus的特点</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%9E%B6%E6%9E%84%E5%9B%BE"><span class="toc-nav-text">架构图</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86"><span class="toc-nav-text">基本原理</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%9C%8D%E5%8A%A1%E8%BF%87%E7%A8%8B"><span class="toc-nav-text">服务过程</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%89%E5%A4%A7%E5%A5%97%E4%BB%B6"><span class="toc-nav-text">三大套件</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%9C%AC%E9%A3%9E%E7%8C%AA%E6%95%99%E7%A8%8B%E5%86%85%E5%AE%B9%E7%AE%80%E4%BB%8B"><span class="toc-nav-text">本飞猪教程内容简介</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%AE%89%E8%A3%85%E5%87%86%E5%A4%87"><span class="toc-nav-text">安装准备</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#%E4%B8%80-%E5%AE%89%E8%A3%85Prometheus-Server"><span class="toc-nav-text">一.安装Prometheus Server</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#%E4%BA%8C-%E5%AE%89%E8%A3%85%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%8F%90%E4%BE%9Bmetrics%E6%8E%A5%E5%8F%A3"><span class="toc-nav-text">二.安装客户端提供metrics接口</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#1-%E9%80%9A%E8%BF%87golang%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%8F%90%E4%BE%9Bmetrics"><span class="toc-nav-text">1.通过golang客户端提供metrics</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#2-%E9%80%9A%E8%BF%87node-exporter%E6%8F%90%E4%BE%9Bmetrics"><span class="toc-nav-text">2.通过node exporter提供metrics</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#%E4%B8%89-%E5%AE%89%E8%A3%85pushgateway"><span class="toc-nav-text">三.安装pushgateway</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#%E5%9B%9B-%E5%AE%89%E8%A3%85Grafana%E5%B1%95%E7%A4%BA"><span class="toc-nav-text">四.安装Grafana展示</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#%E4%BA%94-%E5%AE%89%E8%A3%85AlterManager"><span class="toc-nav-text">五.安装AlterManager</span></a>
   
 </div>
 
