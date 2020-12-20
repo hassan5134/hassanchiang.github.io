@@ -1347,13 +1347,12 @@ create procedure </description>
       <title>从源码的角度再学「Thread」</title>
       <link>https://blog.fenxiangz.com/post/java/basic/2019-01-21_java_thread_source.html</link>
       <guid>https://blog.fenxiangz.com/post/java/basic/2019-01-21_java_thread_source.html</guid>
-      <pubDate>Mon, 21 Jan 2019 01:46:24 GMT</pubDate>
+      <pubDate>Mon, 21 Jan 2019 09:46:24 GMT</pubDate>
       
         
         
-      <description>&lt;p&gt;原创： zhangshaolin &lt;strong&gt;张少林同学&lt;/strong&gt;&lt;br&gt;微信号: zhangshaolin_tonxue&lt;/p&gt;
-&lt;p&gt;功能介绍 分享&lt;/p&gt;
-&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title</description>
+      <description>&lt;p&gt;{: id=”20201220214147-35pfy1i”}&lt;/p&gt;
+&lt;p&gt;原创： zhangshaolin &lt;strong&gt;张少林同学&lt;/strong&gt;&lt;br&gt;微信号: zhangshaolin_tonxue&lt;br&gt;{: id=”20201220214147-b5wm1</description>
         
       
       
@@ -1615,26 +1614,20 @@ sudo dpkg --remove --force-remove-reinstreq &amp;lt;packagename&amp;g</descripti
       <title>Vert.x - 从零开始变(micro)大拿</title>
       <link>https://blog.fenxiangz.com/post/java/advance/2018-11-05_java_vertx.html</link>
       <guid>https://blog.fenxiangz.com/post/java/advance/2018-11-05_java_vertx.html</guid>
-      <pubDate>Sun, 04 Nov 2018 16:00:00 GMT</pubDate>
+      <pubDate>Mon, 05 Nov 2018 00:00:00 GMT</pubDate>
       
         
         
-      <description>&lt;p&gt;Clement Escoffier, Julien Viet, 沈勇 译Version 0.6,Dec, 23th, 2017 原文：&lt;a href=&quot;http://escoffier.me/vertx-hol/&quot;&gt;http://escoffier.me/vertx-hol</description>
+      <description>&lt;p&gt;{: id=”20201220214147-w5coawk”}&lt;/p&gt;
+&lt;p&gt;tags:&lt;br&gt;{: id=”20201220214147-d4z5b0e”}&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;{: id=”20201220214147-3cwlrkc”}微服务&lt;/li&gt;
+&lt;li&gt;</description>
         
       
       
-      <enclosure url="https://blog.fenxiangz.com/images/java/basic/java_logo.png" type="image"/>
       
       
-      
-      <category domain="https://blog.fenxiangz.com/categories/Java-%E8%BF%9B%E9%98%B6/">Java 进阶</category>
-      
-      
-      <category domain="https://blog.fenxiangz.com/tags/Java/">Java</category>
-      
-      <category domain="https://blog.fenxiangz.com/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务</category>
-      
-      <category domain="https://blog.fenxiangz.com/tags/Vert-x/">Vert.x</category>
       
       
       <comments>https://blog.fenxiangz.com/post/java/advance/2018-11-05_java_vertx.html#disqus_thread</comments>
@@ -2553,11 +2546,12 @@ sudo dpkg --remove --force-remove-reinstreq &amp;lt;packagename&amp;g</descripti
       <title>Java8 lambda表达式10个示例</title>
       <link>https://blog.fenxiangz.com/post/java/basic/2017-11-10_java-lambda.html</link>
       <guid>https://blog.fenxiangz.com/post/java/basic/2017-11-10_java-lambda.html</guid>
-      <pubDate>Fri, 10 Nov 2017 07:51:24 GMT</pubDate>
+      <pubDate>Fri, 10 Nov 2017 15:51:24 GMT</pubDate>
       
         
         
-      <description>&lt;p&gt;Java 8 刚于几周前发布，日期是2014年3月18日，这次开创性的发布在Java社区引发了不少讨论，并让大家感到激动。特性之一便是随同发布的lambda表达式，它将允许我们将行为传到函数里。在Java 8之前，如果想将行为传入函数，仅有的选择就是匿名类，需要6行代码。而</description>
+      <description>&lt;p&gt;{: id=”20201220214147-6ftwg5c”}&lt;/p&gt;
+&lt;p&gt;Java 8 刚于几周前发布，日期是2014年3月18日，这次开创性的发布在Java社区引发了不少讨论，并让大家感到激动。特性之一便是随同发布的lambda表达式，它将允许我们将行为传到函数里。在</description>
         
       
       
@@ -2711,11 +2705,12 @@ sudo dpkg --remove --force-remove-reinstreq &amp;lt;packagename&amp;g</descripti
       <title>Java 引用</title>
       <link>https://blog.fenxiangz.com/post/java/basic/2017-07-14_java_reference.html</link>
       <guid>https://blog.fenxiangz.com/post/java/basic/2017-07-14_java_reference.html</guid>
-      <pubDate>Fri, 14 Jul 2017 03:51:24 GMT</pubDate>
+      <pubDate>Fri, 14 Jul 2017 11:51:24 GMT</pubDate>
       
         
         
-      <description>&lt;p&gt;在JDK 1.2以前的版本中，若一个对象不被任何变量引用，那么程序就无法再使用这个对象。也就是说，只有对象处于可触及（reachable）状态，程序才能使用它。从JDK 1.2版本开始，把对象的引用分为4种级别，从而使程序能更加灵活地控制对象的生命周期。这4种级别由高到低依</description>
+      <description>&lt;p&gt;{: id=”20201220214147-bxhib32”}&lt;/p&gt;
+&lt;p&gt;在JDK 1.2以前的版本中，若一个对象不被任何变量引用，那么程序就无法再使用这个对象。也就是说，只有对象处于可触及（reachable）状态，程序才能使用它。从JDK 1.2版本开始，把对象的引</description>
         
       
       
@@ -2898,12 +2893,13 @@ try &amp;#123;
       <title>Java Thread 线程知识整理（思维导图）</title>
       <link>https://blog.fenxiangz.com/post/java/basic/2017-04-18_java_thread_mind.html</link>
       <guid>https://blog.fenxiangz.com/post/java/basic/2017-04-18_java_thread_mind.html</guid>
-      <pubDate>Tue, 18 Apr 2017 02:51:24 GMT</pubDate>
+      <pubDate>Tue, 18 Apr 2017 10:51:24 GMT</pubDate>
       
         
         
-      <description>&lt;p&gt;整理一份Java Thread的思维导图，持续更新中…&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://blog.fenxiangz.com/mind/?url=examples/JavaThread.mymind&quot;&gt;https://blog.fenxiangz.com/m</description>
+      <description>&lt;p&gt;{: id=”20201220214147-88em5ng”}&lt;/p&gt;
+&lt;p&gt;整理一份Java Thread的思维导图，持续更新中…&lt;br&gt;{: id=”20201220214147-hhc1gss”}&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://blog.fenxia</description>
         
       
       
@@ -3382,7 +3378,14 @@ public class PipeExa</description>
       <title>关于我</title>
       <link>https://blog.fenxiangz.com/post/about.html</link>
       <guid>https://blog.fenxiangz.com/post/about.html</guid>
-      <pubDate>Fri, 02 Nov 2012 18:00:00 GMT</pubDate>
+      <pubDate>Sat, 03 Nov 2012 02:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;{: id=”20201220214147-cnrowyk”}&lt;/p&gt;
+&lt;p&gt;{: id=”20201220214147-um7fstg” type=”doc”}&lt;/p&gt;
+</description>
+        
       
       
       
@@ -3399,7 +3402,14 @@ public class PipeExa</description>
       <title>友情链接</title>
       <link>https://blog.fenxiangz.com/post/link.html</link>
       <guid>https://blog.fenxiangz.com/post/link.html</guid>
-      <pubDate>Fri, 02 Nov 2012 17:00:00 GMT</pubDate>
+      <pubDate>Sat, 03 Nov 2012 01:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;{: id=”20201220214147-gh5mh5u”}&lt;/p&gt;
+&lt;p&gt;{: id=”20201220214147-bgeja6x” type=”doc”}&lt;/p&gt;
+</description>
+        
       
       
       
@@ -3414,11 +3424,12 @@ public class PipeExa</description>
       <title>Hello World</title>
       <link>https://blog.fenxiangz.com/post/hello-world.html</link>
       <guid>https://blog.fenxiangz.com/post/hello-world.html</guid>
-      <pubDate>Fri, 02 Nov 2012 16:00:00 GMT</pubDate>
+      <pubDate>Sat, 03 Nov 2012 00:00:00 GMT</pubDate>
       
         
         
-      <description>&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for</description>
+      <description>&lt;p&gt;{: id=”20201220214147-ppjxbqs”}&lt;/p&gt;
+&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https</description>
         
       
       

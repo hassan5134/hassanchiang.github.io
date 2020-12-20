@@ -378,236 +378,130 @@
         </div>
         
         
-        <p>Java 8 刚于几周前发布，日期是2014年3月18日，这次开创性的发布在Java社区引发了不少讨论，并让大家感到激动。特性之一便是随同发布的lambda表达式，它将允许我们将行为传到函数里。在Java 8之前，如果想将行为传入函数，仅有的选择就是匿名类，需要6行代码。而定义行为最重要的那行代码，却混在中间不够突出。Lambda表达式取代了匿名类，取消了模板，允许用函数式风格编写代码。这样有时可读性更好，表达更清晰。在Java生态系统中，函数式表达与对面向对象的全面支持是个激动人心的进步。将进一步促进并行第三方库的发展，充分利用多核CPU。尽管业界需要时间来消化Java 8，但我认为任何严谨的Java开发者都不应忽视此次Java发布的核心特性，即lambda表达式、函数式接口、流API、默认方法和新的Date以及Time API。作为开发人员，我发现学习和掌握lambda表达式的最佳方法就是勇于尝试，尽可能多练习lambda表达式例子。鉴于受Java 8发布的影响最大的是Java集合框架（Java Collections framework），所以最好练习流API和lambda表达式，用于对列表（Lists）和集合（Collections）数据进行提取、过滤和排序。我一直在进行关于Java 8的写作，过去也曾分享过一些资源来帮助大家<a target="_blank" rel="noopener" href="http://javarevisited.blogspot.jp/2013/11/java-8-tutorials-resources-and-examples-lambda-expression-stream-api-functional-interfaces.html">掌握Java 8</a>。本文分享在代码中最有用的10个lambda表达式的使用方法，这些例子都短小精悍，将帮助你快速学会lambda表达式。</p>
-<h2 id="Java-8-lambda表达式示例"><a href="#Java-8-lambda表达式示例" class="headerlink" title="Java 8 lambda表达式示例"></a>Java 8 lambda表达式示例</h2><p>我个人对Java 8发布非常激动，尤其是lambda表达式和流API。越来越多的了解它们，我能写出更干净的代码。虽然一开始并不是这样。第一次看到用lambda表达式写出来的Java代码时，我对这种神秘的语法感到非常失望，认为它们把Java搞得不可读，但我错了。花了一天时间做了一些lambda表达式和流API示例的练习后，我开心的看到了更清晰的Java代码。这有点像学习<a target="_blank" rel="noopener" href="http://javarevisited.blogspot.sg/2011/09/generics-java-example-tutorial.html">泛型</a>，第一次见的时候我很讨厌它。我甚至继续使用老版Java 1.4来处理集合，直到有一天，朋友跟我介绍了使用泛型的好处（才意识到它的好处）。所以基本立场就是，不要畏惧lambda表达式以及方法引用的神秘语法，做几次练习，从集合类中提取、过滤数据之后，你就会喜欢上它。下面让我们开启学习Java 8 lambda表达式的学习之旅吧，首先从简单例子开始。</p>
-<h3 id="例1、用lambda表达式实现Runnable"><a href="#例1、用lambda表达式实现Runnable" class="headerlink" title="例1、用lambda表达式实现Runnable"></a>例1、用lambda表达式实现Runnable</h3><p>我开始使用Java 8时，首先做的就是使用lambda表达式替换匿名类，而实现Runnable接口是匿名类的最好示例。看一下Java 8之前的runnable实现方法，需要4行代码，而使用lambda表达式只需要一行代码。我们在这里做了什么呢？那就是用() -&gt; {}代码块替代了整个<a target="_blank" rel="noopener" href="http://javarevisited.blogspot.sg/2012/12/inner-class-and-nested-static-class-in-java-difference.html">匿名类</a>。</p>
-<pre><code>// Java 8之前：
-new Thread(new Runnable() &#123;
-        @Override
-        public void run() &#123;
-        System.out.println(&quot;Before Java8, too much code for too little to do&quot;);
-        &#125;
-&#125;).start();
-
-
-//Java 8方式：
-new Thread( () -&gt; System.out.println(&quot;In Java8, Lambda expression rocks !!&quot;) ).start();</code></pre>
-<p>输出：</p>
-<pre><code>too much code, for too little to do
-Lambda expression rocks !!</code></pre>
-<p>这个例子向我们展示了Java 8 lambda表达式的语法。你可以使用lambda写出如下代码：</p>
-<pre><code>(params) -&gt; expression
-(params) -&gt; statement
-(params) -&gt; &#123; statements &#125;</code></pre>
-<p>例如，如果你的方法不对参数进行修改、重写，只是在控制台打印点东西的话，那么可以这样写：</p>
-<pre><code>() -&gt; System.out.println(&quot;Hello Lambda Expressions&quot;);</code></pre>
-<p>如果你的方法接收两个参数，那么可以写成如下这样：</p>
-<pre><code>(int even, int odd) -&gt; even + odd</code></pre>
-<p>顺便提一句，通常都会把lambda表达式内部变量的名字起得短一些。这样能使代码更简短，放在同一行。所以，在上述代码中，变量名选用a、b或者x、y会比even、odd要好。</p>
-<h3 id="例2、使用Java-8-lambda表达式进行事件处理"><a href="#例2、使用Java-8-lambda表达式进行事件处理" class="headerlink" title="例2、使用Java 8 lambda表达式进行事件处理"></a>例2、使用Java 8 lambda表达式进行事件处理</h3><p>如果你用过Swing API编程，你就会记得怎样写事件监听代码。这又是一个旧版本简单匿名类的经典用例，但现在可以不这样了。你可以用lambda表达式写出更好的事件监听代码，如下所示：</p>
-<pre><code>// Java 8之前：
-JButton show =  new JButton(&quot;Show&quot;);
-show.addActionListener(new ActionListener() &#123;
-        @Override
-        public void actionPerformed(ActionEvent e) &#123;
-        System.out.println(&quot;Event handling without lambda expression is boring&quot;);
-        &#125;
-&#125;);
-
-
-// Java 8方式：
-show.addActionListener((e) -&gt; &#123;
-        System.out.println(&quot;Light, Camera, Action !! Lambda expressions Rocks&quot;);
-&#125;);</code></pre>
-<p>Java开发者经常使用匿名类的另一个地方是为 Collections.sort() 定制 <a target="_blank" rel="noopener" href="http://javarevisited.blogspot.sg/2014/01/java-comparator-example-for-custom.html">Comparator</a>。在Java 8中，你可以用更可读的lambda表达式换掉丑陋的匿名类。我把这个留做练习，应该不难，可以按照我在使用lambda表达式实现 <a target="_blank" rel="noopener" href="http://javarevisited.blogspot.sg/2012/01/difference-thread-vs-runnable-interface.html">Runnable</a> 和 ActionListener 的过程中的套路来做。</p>
-<h3 id="例3、使用lambda表达式对列表进行迭代"><a href="#例3、使用lambda表达式对列表进行迭代" class="headerlink" title="例3、使用lambda表达式对列表进行迭代"></a>例3、使用lambda表达式对列表进行迭代</h3><p>如果你使过几年Java，你就知道针对集合类，最常见的操作就是进行迭代，并将业务逻辑应用于各个元素，例如处理订单、交易和事件的列表。由于Java是命令式语言，Java 8之前的所有循环代码都是顺序的，即可以对其元素进行并行化处理。如果你想做并行过滤，就需要自己写代码，这并不是那么容易。通过引入lambda表达式和默认方法，将做什么和怎么做的问题分开了，这意味着Java集合现在知道怎样做迭代，并可以在API层面对集合元素进行并行处理。下面的例子里，我将介绍如何在<a target="_blank" rel="noopener" href="http://javarevisited.blogspot.sg/2012/03/how-to-loop-arraylist-in-java-code.html">使用</a><a target="_blank" rel="noopener" href="http://javarevisited.blogspot.sg/2012/03/how-to-loop-arraylist-in-java-code.html">lambda</a>或不使用lambda表达式的情况下迭代列表。你可以看到列表现在有了一个 forEach()  方法，它可以迭代所有对象，并将你的lambda代码应用在其中。</p>
-<pre><code>// Java 8之前：
-List features = Arrays.asList(&quot;Lambdas&quot;, &quot;Default Method&quot;, &quot;Stream API&quot;, &quot;Date and Time API&quot;);
-for (String feature : features) &#123;
-        System.out.println(feature);
-&#125;
-
-
-// Java 8之后：
-List features = Arrays.asList(&quot;Lambdas&quot;, &quot;Default Method&quot;, &quot;Stream API&quot;, &quot;Date and Time API&quot;);
-features.forEach(n -&gt; System.out.println(n));
-
-// 使用Java 8的方法引用更方便，方法引用由::双冒号操作符标示，
-// 看起来像C++的作用域解析运算符
-features.forEach(System.out::println);</code></pre>
-<p>输出：</p>
-<pre><code>Lambdas
-Default Method
-Stream API
-Date and Time API</code></pre>
-<p><a target="_blank" rel="noopener" href="http://javarevisited.blogspot.sg/2012/10/jstl-foreach-tag-example-in-jsp-looping.html">列表循环</a>的最后一个例子展示了如何在Java 8中使用方法引用（method reference）。你可以看到C++里面的双冒号、范围解析操作符现在在Java 8中用来表示方法引用。</p>
-<h3 id="例4、使用lambda表达式和函数式接口Predicate"><a href="#例4、使用lambda表达式和函数式接口Predicate" class="headerlink" title="例4、使用lambda表达式和函数式接口Predicate"></a>例4、使用lambda表达式和函数式接口Predicate</h3><p>除了在语言层面支持函数式编程风格，Java 8也添加了一个包，叫做 java.util.function。它包含了很多类，用来支持Java的函数式编程。其中一个便是Predicate，使用 java.util.function.Predicate 函数式接口以及lambda表达式，可以向API方法添加逻辑，用更少的代码支持更多的动态行为。下面是Java 8 Predicate 的例子，展示了过滤集合数据的多种常用方法。Predicate接口非常适用于做过滤。</p>
-<pre><code>public static void main(args[])&#123;
-        List languages = Arrays.asList(&quot;Java&quot;, &quot;Scala&quot;, &quot;C++&quot;, &quot;Haskell&quot;, &quot;Lisp&quot;);
-
-        System.out.println(&quot;Languages which starts with J :&quot;);
-        filter(languages, (str)-&gt;str.startsWith(&quot;J&quot;));
-
-        System.out.println(&quot;Languages which ends with a &quot;);
-        filter(languages, (str)-&gt;str.endsWith(&quot;a&quot;));
-
-        System.out.println(&quot;Print all languages :&quot;);
-        filter(languages, (str)-&gt;true);
-
-        System.out.println(&quot;Print no language : &quot;);
-        filter(languages, (str)-&gt;false);
-
-        System.out.println(&quot;Print language whose length greater than 4:&quot;);
-        filter(languages, (str)-&gt;str.length() &gt; 4);
-&#125;
-
-public static void filter(List names, Predicate condition) &#123;
-        for(String name: names)  &#123;
-                if(condition.test(name)) &#123;
-                        System.out.println(name + &quot; &quot;);
-                &#125;
-        &#125;
-&#125;</code></pre>
-<p>输出：</p>
-<pre><code>Languages which starts with J :
-Java
-Languages which ends with a
-Java
-Scala
-Print all languages :
-Java
-Scala
-C++
-Haskell
-Lisp
-Print no language :
-Print language whose length greater than 4:
-Scala
-Haskell</code></pre>
-<p> 更好的办法</p>
-<pre><code>public static void filter(List names, Predicate condition) &#123;
-        names.stream().filter((name) -&gt; (condition.test(name))).forEach((name) -&gt; &#123;
-                System.out.println(name + &quot; &quot;);
-        &#125;);
-&#125;</code></pre>
-<p>可以看到，Stream API的过滤方法也接受一个Predicate，这意味着可以将我们定制的 filter() 方法替换成写在里面的内联代码，这就是lambda表达式的魔力。另外，Predicate接口也允许进行多重条件的测试，下个例子将要讲到。</p>
-<h3 id="例5、如何在lambda表达式中加入Predicate"><a href="#例5、如何在lambda表达式中加入Predicate" class="headerlink" title="例5、如何在lambda表达式中加入Predicate"></a>例5、如何在lambda表达式中加入Predicate</h3><p>上个例子说到，java.util.function.Predicate 允许将两个或更多的 Predicate 合成一个。它提供类似于逻辑操作符AND和OR的方法，名字叫做and()、or()和xor()，用于将传入 filter() 方法的条件合并起来。例如，要得到所有以J开始，长度为四个字母的语言，可以定义两个独立的 Predicate 示例分别表示每一个条件，然后用 Predicate.and() 方法将它们合并起来，如下所示：</p>
-<pre><code>// 甚至可以用and()、or()和xor()逻辑函数来合并Predicate，
-// 例如要找到所有以J开始，长度为四个字母的名字，你可以合并两个Predicate并传入
-Predicate&lt;String&gt; startsWithJ = (n) -&gt; n.startsWith(&quot;J&quot;);
-Predicate&lt;String&gt; fourLetterLong = (n) -&gt; n.length() == 4;
-names.stream()
-        .filter(startsWithJ.and(fourLetterLong))
-        .forEach((n) -&gt; System.out.print(&quot;nName, which starts with &#39;J&#39; and four letter long is : &quot; + n));</code></pre>
-<p>类似地，也可以使用 or() 和 xor() 方法。本例着重介绍了如下要点：可按需要将 Predicate 作为单独条件然后将其合并起来使用。简而言之，你可以以传统Java命令方式使用 Predicate 接口，也可以充分利用lambda表达式达到事半功倍的效果。</p>
-<h3 id="例6、Java-8中使用lambda表达式的Map和Reduce示例"><a href="#例6、Java-8中使用lambda表达式的Map和Reduce示例" class="headerlink" title="例6、Java 8中使用lambda表达式的Map和Reduce示例"></a>例6、Java 8中使用lambda表达式的Map和Reduce示例</h3><p>本例介绍最广为人知的函数式编程概念map。它允许你将对象进行转换。例如在本例中，我们将 costBeforeTax 列表的每个元素转换成为税后的值。我们将 x -&gt; x*x lambda表达式传到 map() 方法，后者将其应用到流中的每一个元素。然后用 forEach() 将列表元素打印出来。使用流API的收集器类，可以得到所有含税的开销。有 toList() 这样的方法将 map 或任何其他操作的结果合并起来。由于收集器在流上做终端操作，因此之后便不能重用流了。你甚至可以用流API的 reduce() 方法将所有数字合成一个，下一个例子将会讲到。</p>
-<pre><code>// 不使用lambda表达式为每个订单加上12%的税
-List costBeforeTax = Arrays.asList(100, 200, 300, 400, 500);
-for (Integer cost : costBeforeTax) &#123;
-        double price = cost + .12*cost;
-        System.out.println(price);
-&#125;
-
-// 使用lambda表达式
-List costBeforeTax = Arrays.asList(100, 200, 300, 400, 500);
-costBeforeTax.stream().map((cost) -&gt; cost + .12*cost).forEach(System.out::println);</code></pre>
-<p>输出：</p>
-<pre><code>112.0
-224.0
-336.0
-448.0
-560.0
-112.0
-224.0
-336.0
-448.0
-560.0</code></pre>
-<h4 id="例6-2、Java-8中使用lambda表达式的Map和Reduce示例"><a href="#例6-2、Java-8中使用lambda表达式的Map和Reduce示例" class="headerlink" title="例6.2、Java 8中使用lambda表达式的Map和Reduce示例"></a>例6.2、Java 8中使用lambda表达式的Map和Reduce示例</h4><p>在上个例子中，可以看到map将集合类（例如列表）元素进行转换的。还有一个 reduce() 函数可以将所有值合并成一个。Map和Reduce操作是函数式编程的核心操作，因为其功能，reduce 又被称为折叠操作。另外，reduce 并不是一个新的操作，你有可能已经在使用它。SQL中类似 sum()、avg() 或者 count() 的聚集函数，实际上就是 reduce 操作，因为它们接收多个值并返回一个值。流API定义的 reduceh() 函数可以接受lambda表达式，并对所有值进行合并。IntStream这样的类有类似 average()、count()、sum() 的内建方法来做 reduce 操作，也有mapToLong()、mapToDouble() 方法来做转换。这并不会限制你，你可以用内建方法，也可以自己定义。在这个Java 8的Map Reduce示例里，我们首先对所有价格应用 12% 的VAT，然后用 reduce() 方法计算总和。</p>
-<pre><code>// 为每个订单加上12%的税
-// 老方法：
-List costBeforeTax = Arrays.asList(100, 200, 300, 400, 500);
-double total = 0;
-for (Integer cost : costBeforeTax) &#123;
-        double price = cost + .12*cost;
-        total = total + price;
-&#125;
-System.out.println(&quot;Total : &quot; + total);
-
-// 新方法：
-List costBeforeTax = Arrays.asList(100, 200, 300, 400, 500);
-double bill = costBeforeTax.stream().map((cost) -&gt; cost + .12*cost).reduce((sum, cost) -&gt; sum + cost).get();
-System.out.println(&quot;Total : &quot; + bill);</code></pre>
-<p>输出：</p>
-<pre><code>Total : 1680.0
-Total : 1680.0</code></pre>
-<h3 id="例7、通过过滤创建一个String列表"><a href="#例7、通过过滤创建一个String列表" class="headerlink" title="例7、通过过滤创建一个String列表"></a>例7、通过过滤创建一个String列表</h3><p>过滤是Java开发者在大规模集合上的一个常用操作，而现在使用lambda表达式和流API过滤大规模数据集合是惊人的简单。流提供了一个 filter() 方法，接受一个 Predicate 对象，即可以传入一个lambda表达式作为过滤逻辑。下面的例子是用lambda表达式过滤Java集合，将帮助理解。</p>
-<pre><code>// 创建一个字符串列表，每个字符串长度大于2
-List&lt;String&gt; filtered = strList.stream().filter(x -&gt; x.length()&gt; 2).collect(Collectors.toList());
-System.out.printf(&quot;Original List : %s, filtered list : %s %n&quot;, strList, filtered);</code></pre>
-<p>输出：</p>
-<pre><code>Original List : [abc, , bcd, , defg, jk], filtered list : [abc, bcd, defg]</code></pre>
-<p>另外，关于 filter() 方法有个常见误解。在现实生活中，做过滤的时候，通常会丢弃部分，但使用filter()方法则是获得一个新的列表，且其每个元素符合过滤原则。</p>
-<h3 id="例8、对列表的每个元素应用函数"><a href="#例8、对列表的每个元素应用函数" class="headerlink" title="例8、对列表的每个元素应用函数"></a>例8、对列表的每个元素应用函数</h3><p>我们通常需要对列表的每个元素使用某个函数，例如逐一乘以某个数、除以某个数或者做其它操作。这些操作都很适合用 map() 方法，可以将转换逻辑以lambda表达式的形式放在 map() 方法里，就可以对集合的各个元素进行转换了，如下所示。</p>
-<pre><code>// 将字符串换成大写并用逗号链接起来
-List&lt;String&gt; G7 = Arrays.asList(&quot;USA&quot;, &quot;Japan&quot;, &quot;France&quot;, &quot;Germany&quot;, &quot;Italy&quot;, &quot;U.K.&quot;,&quot;Canada&quot;);
-String G7Countries = G7.stream().map(x -&gt; x.toUpperCase()).collect(Collectors.joining(&quot;, &quot;));
-System.out.println(G7Countries);</code></pre>
-<p>输出：</p>
-<pre><code>USA, JAPAN, FRANCE, GERMANY, ITALY, U.K., CANADA</code></pre>
-<h3 id="例9、复制不同的值，创建一个子列表"><a href="#例9、复制不同的值，创建一个子列表" class="headerlink" title="例9、复制不同的值，创建一个子列表"></a>例9、复制不同的值，创建一个子列表</h3><p>本例展示了如何利用流的 distinct() 方法来对集合进行去重。</p>
-<pre><code>// 用所有不同的数字创建一个正方形列表
-List&lt;Integer&gt; numbers = Arrays.asList(9, 10, 3, 4, 7, 3, 4);
-List&lt;Integer&gt; distinct = numbers.stream().map( i -&gt; i*i).distinct().collect(Collectors.toList());
-System.out.printf(&quot;Original List : %s,  Square Without duplicates : %s %n&quot;, numbers, distinct);</code></pre>
-<p>输出：</p>
-<pre><code>Original List : [9, 10, 3, 4, 7, 3, 4],  Square Without duplicates : [81, 100, 9, 16, 49]</code></pre>
-<h3 id="例10、计算集合元素的最大值、最小值、总和以及平均值"><a href="#例10、计算集合元素的最大值、最小值、总和以及平均值" class="headerlink" title="例10、计算集合元素的最大值、最小值、总和以及平均值"></a>例10、计算集合元素的最大值、最小值、总和以及平均值</h3><p>IntStream、LongStream 和 DoubleStream 等流的类中，有个非常有用的方法叫做 summaryStatistics() 。可以返回 IntSummaryStatistics、LongSummaryStatistics 或者 DoubleSummaryStatistic s，描述流中元素的各种摘要数据。在本例中，我们用这个方法来计算列表的最大值和最小值。它也有 getSum() 和 getAverage() 方法来获得列表的所有元素的总和及平均值。</p>
-<pre><code>//获取数字的个数、最小值、最大值、总和以及平均值
-List&lt;Integer&gt; primes = Arrays.asList(2, 3, 5, 7, 11, 13, 17, 19, 23, 29);
-IntSummaryStatistics stats = primes.stream().mapToInt((x) -&gt; x).summaryStatistics();
-System.out.println(&quot;Highest prime number in List : &quot; + stats.getMax());
-System.out.println(&quot;Lowest prime number in List : &quot; + stats.getMin());
-System.out.println(&quot;Sum of all prime numbers : &quot; + stats.getSum());
-System.out.println(&quot;Average of all prime numbers : &quot; + stats.getAverage());</code></pre>
-<p>输出：</p>
-<pre><code>Highest prime number in List : 29
-Lowest prime number in List : 2
-Sum of all prime numbers : 129
-Average of all prime numbers : 12.9</code></pre>
-<h3 id="Lambda表达式-vs-匿名类"><a href="#Lambda表达式-vs-匿名类" class="headerlink" title="Lambda表达式 vs 匿名类"></a>Lambda表达式 vs 匿名类</h3><p>既然lambda表达式即将正式取代Java代码中的匿名内部类，那么有必要对二者做一个比较分析。一个关键的不同点就是关键字 this。匿名类的 this 关键字指向匿名类，而lambda表达式的 this 关键字指向包围lambda表达式的类。另一个不同点是二者的编译方式。Java编译器将lambda表达式编译成类的私有方法。使用了Java 7的 invokedynamic 字节码指令来动态绑定这个方法。</p>
-<h3 id="Java-8-Lambda表达式要点"><a href="#Java-8-Lambda表达式要点" class="headerlink" title="Java 8 Lambda表达式要点"></a>Java 8 Lambda表达式要点</h3><h4 id="10个Java-lambda表达式、流API示例"><a href="#10个Java-lambda表达式、流API示例" class="headerlink" title="10个Java lambda表达式、流API示例"></a>10个Java lambda表达式、流API示例</h4><p>到目前为止我们看到了Java 8的10个lambda表达式，这对于新手来说是个合适的任务量，你可能需要亲自运行示例程序以便掌握。试着修改要求创建自己的例子，达到快速学习的目的。我还想建议大家使用Netbeans IDE来练习lambda表达式，它对Java 8支持良好。当把代码转换成函数式的时候，Netbeans会及时给你提示。只需跟着Netbeans的提示，就能很容易地把匿名类转换成lambda表达式。此外，如果你喜欢阅读，那么记得看一下Java 8的lambdas，实用函数式编程这本书（<a target="_blank" rel="noopener" href="http://www.amazon.com/Java-Lambdas-Pragmatic-Functional-Programming/dp/B00OVMRHPO/ref=sr_1_3?ie=UTF8&qid=1438567374&sr=8-3&keywords=Java+8+Lambdas,+pragmatic+functional+programming">Java 8 Lambdas, pragmatic functional programming</a>），作者是Richard Warburton，或者也可以看看Manning的Java 8实战（<a target="_blank" rel="noopener" href="http://www.amazon.com/Java-Action-Lambdas-functional-style-programming/dp/1617291994/ref=sr_1_1?ie=UTF8&qid=1438567348&sr=8-1&keywords=Java+8+in+Action">Java 8 in Action</a>），这本书虽然还没出版，但我猜线上有第一章的免费pdf。不过，在你开始忙其它事情之前，先回顾一下Java 8的lambda表达式、默认方法和函数式接口的重点知识。</p>
-<p>1）lambda表达式仅能放入如下代码：预定义使用了 @Functional 注释的函数式接口，自带一个抽象函数的方法，或者SAM（Single Abstract Method 单个抽象方法）类型。这些称为lambda表达式的目标类型，可以用作返回类型，或lambda目标代码的参数。例如，若一个方法接收Runnable、Comparable或者 Callable 接口，都有单个抽象方法，可以传入lambda表达式。类似的，如果一个方法接受声明于 java.util.function 包内的接口，例如 Predicate、Function、Consumer 或 Supplier，那么可以向其传lambda表达式。</p>
-<p>2）lambda表达式内可以使用方法引用，仅当该方法不修改lambda表达式提供的参数。本例中的lambda表达式可以换为方法引用，因为这仅是一个参数相同的简单方法调用。</p>
-<pre><code>list.forEach(n -&gt; System.out.println(n)); 
-list.forEach(System.out::println);  // 使用方法引用</code></pre>
-<p>然而，若对参数有任何修改，则不能使用方法引用，而需键入完整地lambda表达式，如下所示：</p>
-<pre><code>list.forEach((String s) -&gt; System.out.println(&quot;*&quot; + s + &quot;*&quot;));</code></pre>
-<p>事实上，可以省略这里的lambda参数的类型声明，编译器可以从列表的类属性推测出来。</p>
-<p>3）lambda内部可以使用静态、非静态和局部变量，这称为lambda内的变量捕获。</p>
-<p>4）Lambda表达式在Java中又称为闭包或匿名函数，所以如果有同事把它叫闭包的时候，不用惊讶。</p>
-<p>5）Lambda方法在编译器内部被翻译成私有方法，并派发 invokedynamic 字节码指令来进行调用。可以使用JDK中的 javap 工具来反编译class文件。使用 javap -p 或 javap -c -v 命令来看一看lambda表达式生成的字节码。大致应该长这样：</p>
-<pre><code>private static java.lang.Object lambda$0(java.lang.String);</code></pre>
-<p>6）lambda表达式有个限制，那就是只能引用 final 或 final 局部变量，这就是说不能在lambda内部修改定义在域外的变量。</p>
-<pre><code>List&lt;Integer&gt; primes = Arrays.asList(new Integer[]&#123;2, 3,5,7&#125;);
-int factor = 2;
-primes.forEach(element -&gt; &#123; factor++; &#125;);
-
-
-Compile time error : &quot;local variables referenced from a lambda expression must be final or effectively final&quot;</code></pre>
-<p>另外，只是访问它而不作修改是可以的，如下所示：</p>
-<pre><code>List&lt;Integer&gt; primes = Arrays.asList(new Integer[]&#123;2, 3,5,7&#125;);
-int factor = 2;
-primes.forEach(element -&gt; &#123; System.out.println(factor*element); &#125;);</code></pre>
-<p>输出：</p>
-<pre><code>4
-6
-10
-14</code></pre>
-<p>因此，它看起来更像不可变闭包，类似于Python。</p>
-<p>以上就是Java 8的lambda表达式的全部10个例子。此次修改将成为Java史上最大的一次，将深远影响未来Java开发者使用集合框架的方式。我想规模最相似的一次修改就是Java 5的发布了，它带来了很多优点，提升了代码质量，例如：泛型、枚举、自动装箱（Autoboxing）、静态导入、并发API和变量参数。上述特性使得Java代码更加清晰，我想lambda表达式也将进一步改进它。我在期待着开发并行第三方库，这可以使高性能应用变得更容易写。</p>
-<p>更多阅读：<a target="_blank" rel="noopener" href="http://javarevisited.blogspot.com/2014/02/10-example-of-lambda-expressions-in-java8.html#ixzz3gCMp6Vhc">http://javarevisited.blogspot.com/2014/02/10-example-of-lambda-expressions-in-java8.html#ixzz3gCMp6Vhc</a></p>
-<p>原文链接： <a target="_blank" rel="noopener" href="http://javarevisited.blogspot.sg/2014/02/10-example-of-lambda-expressions-in-java8.html">javarevisited</a> 翻译： <a target="_blank" rel="noopener" href="http://www.importnew.com/">ImportNew.com</a> - <a target="_blank" rel="noopener" href="http://www.importnew.com/author/lemeilleur">lemeilleur</a><br>译文链接： <a target="_blank" rel="noopener" href="http://www.importnew.com/16436.html">http://www.importnew.com/16436.html</a></p>
-<p>[ <strong>转载请保留原文出处、译者和译文链接。</strong>]</p>
+        <p>{: id=”20201220214147-6ftwg5c”}</p>
+<p>Java 8 刚于几周前发布，日期是2014年3月18日，这次开创性的发布在Java社区引发了不少讨论，并让大家感到激动。特性之一便是随同发布的lambda表达式，它将允许我们将行为传到函数里。在Java 8之前，如果想将行为传入函数，仅有的选择就是匿名类，需要6行代码。而定义行为最重要的那行代码，却混在中间不够突出。Lambda表达式取代了匿名类，取消了模板，允许用函数式风格编写代码。这样有时可读性更好，表达更清晰。在Java生态系统中，函数式表达与对面向对象的全面支持是个激动人心的进步。将进一步促进并行第三方库的发展，充分利用多核CPU。尽管业界需要时间来消化Java 8，但我认为任何严谨的Java开发者都不应忽视此次Java发布的核心特性，即lambda表达式、函数式接口、流API、默认方法和新的Date以及Time API。作为开发人员，我发现学习和掌握lambda表达式的最佳方法就是勇于尝试，尽可能多练习lambda表达式例子。鉴于受Java 8发布的影响最大的是Java集合框架（Java Collections framework），所以最好练习流API和lambda表达式，用于对列表（Lists）和集合（Collections）数据进行提取、过滤和排序。我一直在进行关于Java 8的写作，过去也曾分享过一些资源来帮助大家<a target="_blank" rel="noopener" href="http://javarevisited.blogspot.jp/2013/11/java-8-tutorials-resources-and-examples-lambda-expression-stream-api-functional-interfaces.html">掌握Java 8</a>。本文分享在代码中最有用的10个lambda表达式的使用方法，这些例子都短小精悍，将帮助你快速学会lambda表达式。<br>{: id=”20201220214147-6k9zbc5”}</p>
+<h2 id="Java-8-lambda表达式示例"><a href="#Java-8-lambda表达式示例" class="headerlink" title="Java 8 lambda表达式示例"></a>Java 8 lambda表达式示例</h2><p>{: id=”20201220214147-tf6x75y”}</p>
+<p>我个人对Java 8发布非常激动，尤其是lambda表达式和流API。越来越多的了解它们，我能写出更干净的代码。虽然一开始并不是这样。第一次看到用lambda表达式写出来的Java代码时，我对这种神秘的语法感到非常失望，认为它们把Java搞得不可读，但我错了。花了一天时间做了一些lambda表达式和流API示例的练习后，我开心的看到了更清晰的Java代码。这有点像学习<a target="_blank" rel="noopener" href="http://javarevisited.blogspot.sg/2011/09/generics-java-example-tutorial.html">泛型</a>，第一次见的时候我很讨厌它。我甚至继续使用老版Java 1.4来处理集合，直到有一天，朋友跟我介绍了使用泛型的好处（才意识到它的好处）。所以基本立场就是，不要畏惧lambda表达式以及方法引用的神秘语法，做几次练习，从集合类中提取、过滤数据之后，你就会喜欢上它。下面让我们开启学习Java 8 lambda表达式的学习之旅吧，首先从简单例子开始。<br>{: id=”20201220214147-m3cqpqj”}</p>
+<h3 id="例1、用lambda表达式实现Runnable"><a href="#例1、用lambda表达式实现Runnable" class="headerlink" title="例1、用lambda表达式实现Runnable"></a>例1、用lambda表达式实现Runnable</h3><p>{: id=”20201220214147-cxs0j25”}</p>
+<p>我开始使用Java 8时，首先做的就是使用lambda表达式替换匿名类，而实现Runnable接口是匿名类的最好示例。看一下Java 8之前的runnable实现方法，需要4行代码，而使用lambda表达式只需要一行代码。我们在这里做了什么呢？那就是用() -&gt; {}代码块替代了整个<a target="_blank" rel="noopener" href="http://javarevisited.blogspot.sg/2012/12/inner-class-and-nested-static-class-in-java-difference.html">匿名类</a>。<br>{: id=”20201220214147-56jgsow”}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; Java 8之前：</span><br><span class="line">new Thread(new Runnable() &#123;</span><br><span class="line">        @Override</span><br><span class="line">        public void run() &#123;</span><br><span class="line">        System.out.println(&quot;Before Java8, too much code for too little to do&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">&#125;).start();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;Java 8方式：</span><br><span class="line">new Thread( () -&gt; System.out.println(&quot;In Java8, Lambda expression rocks !!&quot;) ).start();</span><br></pre></td></tr></table></figure>
+<p>{: id=”20201220214147-1m1688a”}</p>
+<p>输出：<br>{: id=”20201220214147-jp3f3va”}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">too much code, for too little to do</span><br><span class="line">Lambda expression rocks !!</span><br></pre></td></tr></table></figure>
+<p>{: id=”20201220214147-w62vcli”}</p>
+<p>这个例子向我们展示了Java 8 lambda表达式的语法。你可以使用lambda写出如下代码：<br>{: id=”20201220214147-bbtw2cb”}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(params) -&gt; expression</span><br><span class="line">(params) -&gt; statement</span><br><span class="line">(params) -&gt; &#123; statements &#125;</span><br></pre></td></tr></table></figure>
+<p>{: id=”20201220214147-0yo414k”}</p>
+<p>例如，如果你的方法不对参数进行修改、重写，只是在控制台打印点东西的话，那么可以这样写：<br>{: id=”20201220214147-emgx8mx”}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">() -&gt; System.out.println(&quot;Hello Lambda Expressions&quot;);</span><br></pre></td></tr></table></figure>
+<p>{: id=”20201220214147-t3bh1pj”}</p>
+<p>如果你的方法接收两个参数，那么可以写成如下这样：<br>{: id=”20201220214147-6flnq51”}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(int even, int odd) -&gt; even + odd</span><br></pre></td></tr></table></figure>
+<p>{: id=”20201220214147-crog1z7”}</p>
+<p>顺便提一句，通常都会把lambda表达式内部变量的名字起得短一些。这样能使代码更简短，放在同一行。所以，在上述代码中，变量名选用a、b或者x、y会比even、odd要好。<br>{: id=”20201220214147-mo89b9z”}</p>
+<h3 id="例2、使用Java-8-lambda表达式进行事件处理"><a href="#例2、使用Java-8-lambda表达式进行事件处理" class="headerlink" title="例2、使用Java 8 lambda表达式进行事件处理"></a>例2、使用Java 8 lambda表达式进行事件处理</h3><p>{: id=”20201220214147-3jwzr99”}</p>
+<p>如果你用过Swing API编程，你就会记得怎样写事件监听代码。这又是一个旧版本简单匿名类的经典用例，但现在可以不这样了。你可以用lambda表达式写出更好的事件监听代码，如下所示：<br>{: id=”20201220214147-1hedaa3”}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; Java 8之前：</span><br><span class="line">JButton show &#x3D;  new JButton(&quot;Show&quot;);</span><br><span class="line">show.addActionListener(new ActionListener() &#123;</span><br><span class="line">        @Override</span><br><span class="line">        public void actionPerformed(ActionEvent e) &#123;</span><br><span class="line">        System.out.println(&quot;Event handling without lambda expression is boring&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; Java 8方式：</span><br><span class="line">show.addActionListener((e) -&gt; &#123;</span><br><span class="line">        System.out.println(&quot;Light, Camera, Action !! Lambda expressions Rocks&quot;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>{: id=”20201220214147-cw0ybcq”}</p>
+<p>Java开发者经常使用匿名类的另一个地方是为 Collections.sort() 定制 <a target="_blank" rel="noopener" href="http://javarevisited.blogspot.sg/2014/01/java-comparator-example-for-custom.html">Comparator</a>。在Java 8中，你可以用更可读的lambda表达式换掉丑陋的匿名类。我把这个留做练习，应该不难，可以按照我在使用lambda表达式实现 <a target="_blank" rel="noopener" href="http://javarevisited.blogspot.sg/2012/01/difference-thread-vs-runnable-interface.html">Runnable</a> 和 ActionListener 的过程中的套路来做。<br>{: id=”20201220214147-59pmkz9”}</p>
+<h3 id="例3、使用lambda表达式对列表进行迭代"><a href="#例3、使用lambda表达式对列表进行迭代" class="headerlink" title="例3、使用lambda表达式对列表进行迭代"></a>例3、使用lambda表达式对列表进行迭代</h3><p>{: id=”20201220214147-vkhcaku”}</p>
+<p>如果你使过几年Java，你就知道针对集合类，最常见的操作就是进行迭代，并将业务逻辑应用于各个元素，例如处理订单、交易和事件的列表。由于Java是命令式语言，Java 8之前的所有循环代码都是顺序的，即可以对其元素进行并行化处理。如果你想做并行过滤，就需要自己写代码，这并不是那么容易。通过引入lambda表达式和默认方法，将做什么和怎么做的问题分开了，这意味着Java集合现在知道怎样做迭代，并可以在API层面对集合元素进行并行处理。下面的例子里，我将介绍如何在<a target="_blank" rel="noopener" href="http://javarevisited.blogspot.sg/2012/03/how-to-loop-arraylist-in-java-code.html">使用</a><a target="_blank" rel="noopener" href="http://javarevisited.blogspot.sg/2012/03/how-to-loop-arraylist-in-java-code.html">lambda</a>或不使用lambda表达式的情况下迭代列表。你可以看到列表现在有了一个 forEach()  方法，它可以迭代所有对象，并将你的lambda代码应用在其中。<br>{: id=”20201220214147-cp8z8vp”}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; Java 8之前：</span><br><span class="line">List features &#x3D; Arrays.asList(&quot;Lambdas&quot;, &quot;Default Method&quot;, &quot;Stream API&quot;, &quot;Date and Time API&quot;);</span><br><span class="line">for (String feature : features) &#123;</span><br><span class="line">        System.out.println(feature);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; Java 8之后：</span><br><span class="line">List features &#x3D; Arrays.asList(&quot;Lambdas&quot;, &quot;Default Method&quot;, &quot;Stream API&quot;, &quot;Date and Time API&quot;);</span><br><span class="line">features.forEach(n -&gt; System.out.println(n));</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 使用Java 8的方法引用更方便，方法引用由::双冒号操作符标示，</span><br><span class="line">&#x2F;&#x2F; 看起来像C++的作用域解析运算符</span><br><span class="line">features.forEach(System.out::println);</span><br></pre></td></tr></table></figure>
+<p>{: id=”20201220214147-fas60sb”}</p>
+<p>输出：<br>{: id=”20201220214147-rux63kx”}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Lambdas</span><br><span class="line">Default Method</span><br><span class="line">Stream API</span><br><span class="line">Date and Time API</span><br></pre></td></tr></table></figure>
+<p>{: id=”20201220214147-v24x8k4”}</p>
+<p><a target="_blank" rel="noopener" href="http://javarevisited.blogspot.sg/2012/10/jstl-foreach-tag-example-in-jsp-looping.html">列表循环</a>的最后一个例子展示了如何在Java 8中使用方法引用（method reference）。你可以看到C++里面的双冒号、范围解析操作符现在在Java 8中用来表示方法引用。<br>{: id=”20201220214147-1m841eb”}</p>
+<h3 id="例4、使用lambda表达式和函数式接口Predicate"><a href="#例4、使用lambda表达式和函数式接口Predicate" class="headerlink" title="例4、使用lambda表达式和函数式接口Predicate"></a>例4、使用lambda表达式和函数式接口Predicate</h3><p>{: id=”20201220214147-cf3u2pi”}</p>
+<p>除了在语言层面支持函数式编程风格，Java 8也添加了一个包，叫做 java.util.function。它包含了很多类，用来支持Java的函数式编程。其中一个便是Predicate，使用 java.util.function.Predicate 函数式接口以及lambda表达式，可以向API方法添加逻辑，用更少的代码支持更多的动态行为。下面是Java 8 Predicate 的例子，展示了过滤集合数据的多种常用方法。Predicate接口非常适用于做过滤。<br>{: id=”20201220214147-in5k3is”}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">public static void main(args[])&#123;</span><br><span class="line">        List languages &#x3D; Arrays.asList(&quot;Java&quot;, &quot;Scala&quot;, &quot;C++&quot;, &quot;Haskell&quot;, &quot;Lisp&quot;);</span><br><span class="line"></span><br><span class="line">        System.out.println(&quot;Languages which starts with J :&quot;);</span><br><span class="line">        filter(languages, (str)-&gt;str.startsWith(&quot;J&quot;));</span><br><span class="line"></span><br><span class="line">        System.out.println(&quot;Languages which ends with a &quot;);</span><br><span class="line">        filter(languages, (str)-&gt;str.endsWith(&quot;a&quot;));</span><br><span class="line"></span><br><span class="line">        System.out.println(&quot;Print all languages :&quot;);</span><br><span class="line">        filter(languages, (str)-&gt;true);</span><br><span class="line"></span><br><span class="line">        System.out.println(&quot;Print no language : &quot;);</span><br><span class="line">        filter(languages, (str)-&gt;false);</span><br><span class="line"></span><br><span class="line">        System.out.println(&quot;Print language whose length greater than 4:&quot;);</span><br><span class="line">        filter(languages, (str)-&gt;str.length() &gt; 4);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public static void filter(List names, Predicate condition) &#123;</span><br><span class="line">        for(String name: names)  &#123;</span><br><span class="line">                if(condition.test(name)) &#123;</span><br><span class="line">                        System.out.println(name + &quot; &quot;);</span><br><span class="line">                &#125;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>{: id=”20201220214147-jx3jsvb”}</p>
+<p>输出：<br>{: id=”20201220214147-gyy838u”}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Languages which starts with J :</span><br><span class="line">Java</span><br><span class="line">Languages which ends with a</span><br><span class="line">Java</span><br><span class="line">Scala</span><br><span class="line">Print all languages :</span><br><span class="line">Java</span><br><span class="line">Scala</span><br><span class="line">C++</span><br><span class="line">Haskell</span><br><span class="line">Lisp</span><br><span class="line">Print no language :</span><br><span class="line">Print language whose length greater than 4:</span><br><span class="line">Scala</span><br><span class="line">Haskell</span><br></pre></td></tr></table></figure>
+<p>{: id=”20201220214147-baeg8op”}</p>
+<p>更好的办法<br>{: id=”20201220214147-im4dthp”}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public static void filter(List names, Predicate condition) &#123;</span><br><span class="line">        names.stream().filter((name) -&gt; (condition.test(name))).forEach((name) -&gt; &#123;</span><br><span class="line">                System.out.println(name + &quot; &quot;);</span><br><span class="line">        &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>{: id=”20201220214147-ezi5gjt”}</p>
+<p>可以看到，Stream API的过滤方法也接受一个Predicate，这意味着可以将我们定制的 filter() 方法替换成写在里面的内联代码，这就是lambda表达式的魔力。另外，Predicate接口也允许进行多重条件的测试，下个例子将要讲到。<br>{: id=”20201220214147-4cuydrc”}</p>
+<h3 id="例5、如何在lambda表达式中加入Predicate"><a href="#例5、如何在lambda表达式中加入Predicate" class="headerlink" title="例5、如何在lambda表达式中加入Predicate"></a>例5、如何在lambda表达式中加入Predicate</h3><p>{: id=”20201220214147-jxsibs5”}</p>
+<p>上个例子说到，java.util.function.Predicate 允许将两个或更多的 Predicate 合成一个。它提供类似于逻辑操作符AND和OR的方法，名字叫做and()、or()和xor()，用于将传入 filter() 方法的条件合并起来。例如，要得到所有以J开始，长度为四个字母的语言，可以定义两个独立的 Predicate 示例分别表示每一个条件，然后用 Predicate.and() 方法将它们合并起来，如下所示：<br>{: id=”20201220214147-gm1379t”}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 甚至可以用and()、or()和xor()逻辑函数来合并Predicate，</span><br><span class="line">&#x2F;&#x2F; 例如要找到所有以J开始，长度为四个字母的名字，你可以合并两个Predicate并传入</span><br><span class="line">Predicate&lt;String&gt; startsWithJ &#x3D; (n) -&gt; n.startsWith(&quot;J&quot;);</span><br><span class="line">Predicate&lt;String&gt; fourLetterLong &#x3D; (n) -&gt; n.length() &#x3D;&#x3D; 4;</span><br><span class="line">names.stream()</span><br><span class="line">        .filter(startsWithJ.and(fourLetterLong))</span><br><span class="line">        .forEach((n) -&gt; System.out.print(&quot;nName, which starts with &#39;J&#39; and four letter long is : &quot; + n));</span><br></pre></td></tr></table></figure>
+<p>{: id=”20201220214147-ob9l6ia”}</p>
+<p>类似地，也可以使用 or() 和 xor() 方法。本例着重介绍了如下要点：可按需要将 Predicate 作为单独条件然后将其合并起来使用。简而言之，你可以以传统Java命令方式使用 Predicate 接口，也可以充分利用lambda表达式达到事半功倍的效果。<br>{: id=”20201220214147-k6yvzwu”}</p>
+<h3 id="例6、Java-8中使用lambda表达式的Map和Reduce示例"><a href="#例6、Java-8中使用lambda表达式的Map和Reduce示例" class="headerlink" title="例6、Java 8中使用lambda表达式的Map和Reduce示例"></a>例6、Java 8中使用lambda表达式的Map和Reduce示例</h3><p>{: id=”20201220214147-gepknr5”}</p>
+<p>本例介绍最广为人知的函数式编程概念map。它允许你将对象进行转换。例如在本例中，我们将 costBeforeTax 列表的每个元素转换成为税后的值。我们将 x -&gt; x*x lambda表达式传到 map() 方法，后者将其应用到流中的每一个元素。然后用 forEach() 将列表元素打印出来。使用流API的收集器类，可以得到所有含税的开销。有 toList() 这样的方法将 map 或任何其他操作的结果合并起来。由于收集器在流上做终端操作，因此之后便不能重用流了。你甚至可以用流API的 reduce() 方法将所有数字合成一个，下一个例子将会讲到。<br>{: id=”20201220214147-dd6dbn0”}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 不使用lambda表达式为每个订单加上12%的税</span><br><span class="line">List costBeforeTax &#x3D; Arrays.asList(100, 200, 300, 400, 500);</span><br><span class="line">for (Integer cost : costBeforeTax) &#123;</span><br><span class="line">        double price &#x3D; cost + .12*cost;</span><br><span class="line">        System.out.println(price);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 使用lambda表达式</span><br><span class="line">List costBeforeTax &#x3D; Arrays.asList(100, 200, 300, 400, 500);</span><br><span class="line">costBeforeTax.stream().map((cost) -&gt; cost + .12*cost).forEach(System.out::println);</span><br></pre></td></tr></table></figure>
+<p>{: id=”20201220214147-esq83d6”}</p>
+<p>输出：<br>{: id=”20201220214147-bl04lcp”}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">112.0</span><br><span class="line">224.0</span><br><span class="line">336.0</span><br><span class="line">448.0</span><br><span class="line">560.0</span><br><span class="line">112.0</span><br><span class="line">224.0</span><br><span class="line">336.0</span><br><span class="line">448.0</span><br><span class="line">560.0</span><br></pre></td></tr></table></figure>
+<p>{: id=”20201220214147-i8ix0tr”}</p>
+<h4 id="例6-2、Java-8中使用lambda表达式的Map和Reduce示例"><a href="#例6-2、Java-8中使用lambda表达式的Map和Reduce示例" class="headerlink" title="例6.2、Java 8中使用lambda表达式的Map和Reduce示例"></a>例6.2、Java 8中使用lambda表达式的Map和Reduce示例</h4><p>{: id=”20201220214147-yy4zfo7”}</p>
+<p>在上个例子中，可以看到map将集合类（例如列表）元素进行转换的。还有一个 reduce() 函数可以将所有值合并成一个。Map和Reduce操作是函数式编程的核心操作，因为其功能，reduce 又被称为折叠操作。另外，reduce 并不是一个新的操作，你有可能已经在使用它。SQL中类似 sum()、avg() 或者 count() 的聚集函数，实际上就是 reduce 操作，因为它们接收多个值并返回一个值。流API定义的 reduceh() 函数可以接受lambda表达式，并对所有值进行合并。IntStream这样的类有类似 average()、count()、sum() 的内建方法来做 reduce 操作，也有mapToLong()、mapToDouble() 方法来做转换。这并不会限制你，你可以用内建方法，也可以自己定义。在这个Java 8的Map Reduce示例里，我们首先对所有价格应用 12% 的VAT，然后用 reduce() 方法计算总和。<br>{: id=”20201220214147-aljbxoo”}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 为每个订单加上12%的税</span><br><span class="line">&#x2F;&#x2F; 老方法：</span><br><span class="line">List costBeforeTax &#x3D; Arrays.asList(100, 200, 300, 400, 500);</span><br><span class="line">double total &#x3D; 0;</span><br><span class="line">for (Integer cost : costBeforeTax) &#123;</span><br><span class="line">        double price &#x3D; cost + .12*cost;</span><br><span class="line">        total &#x3D; total + price;</span><br><span class="line">&#125;</span><br><span class="line">System.out.println(&quot;Total : &quot; + total);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 新方法：</span><br><span class="line">List costBeforeTax &#x3D; Arrays.asList(100, 200, 300, 400, 500);</span><br><span class="line">double bill &#x3D; costBeforeTax.stream().map((cost) -&gt; cost + .12*cost).reduce((sum, cost) -&gt; sum + cost).get();</span><br><span class="line">System.out.println(&quot;Total : &quot; + bill);</span><br></pre></td></tr></table></figure>
+<p>{: id=”20201220214147-v1b9b2l”}</p>
+<p>输出：<br>{: id=”20201220214147-2b2ojys”}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Total : 1680.0</span><br><span class="line">Total : 1680.0</span><br></pre></td></tr></table></figure>
+<p>{: id=”20201220214147-gvy75bi”}</p>
+<h3 id="例7、通过过滤创建一个String列表"><a href="#例7、通过过滤创建一个String列表" class="headerlink" title="例7、通过过滤创建一个String列表"></a>例7、通过过滤创建一个String列表</h3><p>{: id=”20201220214147-fcazbp4”}</p>
+<p>过滤是Java开发者在大规模集合上的一个常用操作，而现在使用lambda表达式和流API过滤大规模数据集合是惊人的简单。流提供了一个 filter() 方法，接受一个 Predicate 对象，即可以传入一个lambda表达式作为过滤逻辑。下面的例子是用lambda表达式过滤Java集合，将帮助理解。<br>{: id=”20201220214147-tebgg1d”}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 创建一个字符串列表，每个字符串长度大于2</span><br><span class="line">List&lt;String&gt; filtered &#x3D; strList.stream().filter(x -&gt; x.length()&gt; 2).collect(Collectors.toList());</span><br><span class="line">System.out.printf(&quot;Original List : %s, filtered list : %s %n&quot;, strList, filtered);</span><br></pre></td></tr></table></figure>
+<p>{: id=”20201220214147-l1g74c0”}</p>
+<p>输出：<br>{: id=”20201220214147-gk3594e”}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Original List : [abc, , bcd, , defg, jk], filtered list : [abc, bcd, defg]</span><br></pre></td></tr></table></figure>
+<p>{: id=”20201220214147-50rz91m”}</p>
+<p>另外，关于 filter() 方法有个常见误解。在现实生活中，做过滤的时候，通常会丢弃部分，但使用filter()方法则是获得一个新的列表，且其每个元素符合过滤原则。<br>{: id=”20201220214147-aaxnwow”}</p>
+<h3 id="例8、对列表的每个元素应用函数"><a href="#例8、对列表的每个元素应用函数" class="headerlink" title="例8、对列表的每个元素应用函数"></a>例8、对列表的每个元素应用函数</h3><p>{: id=”20201220214147-pkbddjc”}</p>
+<p>我们通常需要对列表的每个元素使用某个函数，例如逐一乘以某个数、除以某个数或者做其它操作。这些操作都很适合用 map() 方法，可以将转换逻辑以lambda表达式的形式放在 map() 方法里，就可以对集合的各个元素进行转换了，如下所示。<br>{: id=”20201220214147-x5pf7t4”}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 将字符串换成大写并用逗号链接起来</span><br><span class="line">List&lt;String&gt; G7 &#x3D; Arrays.asList(&quot;USA&quot;, &quot;Japan&quot;, &quot;France&quot;, &quot;Germany&quot;, &quot;Italy&quot;, &quot;U.K.&quot;,&quot;Canada&quot;);</span><br><span class="line">String G7Countries &#x3D; G7.stream().map(x -&gt; x.toUpperCase()).collect(Collectors.joining(&quot;, &quot;));</span><br><span class="line">System.out.println(G7Countries);</span><br></pre></td></tr></table></figure>
+<p>{: id=”20201220214147-jfzyamk”}</p>
+<p>输出：<br>{: id=”20201220214147-7fp5geh”}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">USA, JAPAN, FRANCE, GERMANY, ITALY, U.K., CANADA</span><br></pre></td></tr></table></figure>
+<p>{: id=”20201220214147-kzagk1z”}</p>
+<h3 id="例9、复制不同的值，创建一个子列表"><a href="#例9、复制不同的值，创建一个子列表" class="headerlink" title="例9、复制不同的值，创建一个子列表"></a>例9、复制不同的值，创建一个子列表</h3><p>{: id=”20201220214147-xqa5zld”}</p>
+<p>本例展示了如何利用流的 distinct() 方法来对集合进行去重。<br>{: id=”20201220214147-exeb03t”}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 用所有不同的数字创建一个正方形列表</span><br><span class="line">List&lt;Integer&gt; numbers &#x3D; Arrays.asList(9, 10, 3, 4, 7, 3, 4);</span><br><span class="line">List&lt;Integer&gt; distinct &#x3D; numbers.stream().map( i -&gt; i*i).distinct().collect(Collectors.toList());</span><br><span class="line">System.out.printf(&quot;Original List : %s,  Square Without duplicates : %s %n&quot;, numbers, distinct);</span><br></pre></td></tr></table></figure>
+<p>{: id=”20201220214147-pkssf1z”}</p>
+<p>输出：<br>{: id=”20201220214147-010ogn3”}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Original List : [9, 10, 3, 4, 7, 3, 4],  Square Without duplicates : [81, 100, 9, 16, 49]</span><br></pre></td></tr></table></figure>
+<p>{: id=”20201220214147-nux3560”}</p>
+<h3 id="例10、计算集合元素的最大值、最小值、总和以及平均值"><a href="#例10、计算集合元素的最大值、最小值、总和以及平均值" class="headerlink" title="例10、计算集合元素的最大值、最小值、总和以及平均值"></a>例10、计算集合元素的最大值、最小值、总和以及平均值</h3><p>{: id=”20201220214147-yk4p2d2”}</p>
+<p>IntStream、LongStream 和 DoubleStream 等流的类中，有个非常有用的方法叫做 summaryStatistics() 。可以返回 IntSummaryStatistics、LongSummaryStatistics 或者 DoubleSummaryStatistic s，描述流中元素的各种摘要数据。在本例中，我们用这个方法来计算列表的最大值和最小值。它也有 getSum() 和 getAverage() 方法来获得列表的所有元素的总和及平均值。<br>{: id=”20201220214147-efiu5s1”}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;获取数字的个数、最小值、最大值、总和以及平均值</span><br><span class="line">List&lt;Integer&gt; primes &#x3D; Arrays.asList(2, 3, 5, 7, 11, 13, 17, 19, 23, 29);</span><br><span class="line">IntSummaryStatistics stats &#x3D; primes.stream().mapToInt((x) -&gt; x).summaryStatistics();</span><br><span class="line">System.out.println(&quot;Highest prime number in List : &quot; + stats.getMax());</span><br><span class="line">System.out.println(&quot;Lowest prime number in List : &quot; + stats.getMin());</span><br><span class="line">System.out.println(&quot;Sum of all prime numbers : &quot; + stats.getSum());</span><br><span class="line">System.out.println(&quot;Average of all prime numbers : &quot; + stats.getAverage());</span><br></pre></td></tr></table></figure>
+<p>{: id=”20201220214147-c1oxi62”}</p>
+<p>输出：<br>{: id=”20201220214147-ws5x2v8”}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Highest prime number in List : 29</span><br><span class="line">Lowest prime number in List : 2</span><br><span class="line">Sum of all prime numbers : 129</span><br><span class="line">Average of all prime numbers : 12.9</span><br></pre></td></tr></table></figure>
+<p>{: id=”20201220214147-evo8vks”}</p>
+<h3 id="Lambda表达式-vs-匿名类"><a href="#Lambda表达式-vs-匿名类" class="headerlink" title="Lambda表达式 vs 匿名类"></a>Lambda表达式 vs 匿名类</h3><p>{: id=”20201220214147-7xlor0j”}</p>
+<p>既然lambda表达式即将正式取代Java代码中的匿名内部类，那么有必要对二者做一个比较分析。一个关键的不同点就是关键字 this。匿名类的 this 关键字指向匿名类，而lambda表达式的 this 关键字指向包围lambda表达式的类。另一个不同点是二者的编译方式。Java编译器将lambda表达式编译成类的私有方法。使用了Java 7的 invokedynamic 字节码指令来动态绑定这个方法。<br>{: id=”20201220214147-60s6t9r”}</p>
+<h3 id="Java-8-Lambda表达式要点"><a href="#Java-8-Lambda表达式要点" class="headerlink" title="Java 8 Lambda表达式要点"></a>Java 8 Lambda表达式要点</h3><p>{: id=”20201220214147-fwyz3hq”}</p>
+<h4 id="10个Java-lambda表达式、流API示例"><a href="#10个Java-lambda表达式、流API示例" class="headerlink" title="10个Java lambda表达式、流API示例"></a>10个Java lambda表达式、流API示例</h4><p>{: id=”20201220214147-b4gvtg3”}</p>
+<p>到目前为止我们看到了Java 8的10个lambda表达式，这对于新手来说是个合适的任务量，你可能需要亲自运行示例程序以便掌握。试着修改要求创建自己的例子，达到快速学习的目的。我还想建议大家使用Netbeans IDE来练习lambda表达式，它对Java 8支持良好。当把代码转换成函数式的时候，Netbeans会及时给你提示。只需跟着Netbeans的提示，就能很容易地把匿名类转换成lambda表达式。此外，如果你喜欢阅读，那么记得看一下Java 8的lambdas，实用函数式编程这本书（<a target="_blank" rel="noopener" href="http://www.amazon.com/Java-Lambdas-Pragmatic-Functional-Programming/dp/B00OVMRHPO/ref=sr_1_3?ie=UTF8&qid=1438567374&sr=8-3&keywords=Java+8+Lambdas,+pragmatic+functional+programming">Java 8 Lambdas, pragmatic functional programming</a>），作者是Richard Warburton，或者也可以看看Manning的Java 8实战（<a target="_blank" rel="noopener" href="http://www.amazon.com/Java-Action-Lambdas-functional-style-programming/dp/1617291994/ref=sr_1_1?ie=UTF8&qid=1438567348&sr=8-1&keywords=Java+8+in+Action">Java 8 in Action</a>），这本书虽然还没出版，但我猜线上有第一章的免费pdf。不过，在你开始忙其它事情之前，先回顾一下Java 8的lambda表达式、默认方法和函数式接口的重点知识。<br>{: id=”20201220214147-68clf34”}</p>
+<ol>
+<li>{: id=”20201220214147-etwq65c”}lambda表达式仅能放入如下代码：预定义使用了 @Functional 注释的函数式接口，自带一个抽象函数的方法，或者SAM（Single Abstract Method 单个抽象方法）类型。这些称为lambda表达式的目标类型，可以用作返回类型，或lambda目标代码的参数。例如，若一个方法接收Runnable、Comparable或者 Callable 接口，都有单个抽象方法，可以传入lambda表达式。类似的，如果一个方法接受声明于 java.util.function 包内的接口，例如 Predicate、Function、Consumer 或 Supplier，那么可以向其传lambda表达式。<br>{: id=”20201220214147-d5mwp2s”}</li>
+<li>{: id=”20201220214147-ngaoqqz”}lambda表达式内可以使用方法引用，仅当该方法不修改lambda表达式提供的参数。本例中的lambda表达式可以换为方法引用，因为这仅是一个参数相同的简单方法调用。<br>{: id=”20201220214147-xdq29nw”}<br>list.forEach(n -&gt; System.out.println(n));<br>list.forEach(System.out::println);  // 使用方法引用<br>{: id=”20201220214147-v37quge”}<br>{: id=”20201220214147-1e4c7g1”}</li>
+</ol>
+<p>然而，若对参数有任何修改，则不能使用方法引用，而需键入完整地lambda表达式，如下所示：<br>{: id=”20201220214147-ccvwmzo”}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">list.forEach((String s) -&gt; System.out.println(&quot;*&quot; + s + &quot;*&quot;));</span><br></pre></td></tr></table></figure>
+<p>{: id=”20201220214147-b54kkou”}</p>
+<p>事实上，可以省略这里的lambda参数的类型声明，编译器可以从列表的类属性推测出来。<br>{: id=”20201220214147-1dj0rgx”}</p>
+<ol start="3">
+<li>{: id=”20201220214147-fkha5qq”}lambda内部可以使用静态、非静态和局部变量，这称为lambda内的变量捕获。<br>{: id=”20201220214147-keptgcm”}</li>
+<li>{: id=”20201220214147-5czgi84”}Lambda表达式在Java中又称为闭包或匿名函数，所以如果有同事把它叫闭包的时候，不用惊讶。<br>{: id=”20201220214147-zzxbe1u”}</li>
+<li>{: id=”20201220214147-8jdycki”}Lambda方法在编译器内部被翻译成私有方法，并派发 invokedynamic 字节码指令来进行调用。可以使用JDK中的 javap 工具来反编译class文件。使用 javap -p 或 javap -c -v 命令来看一看lambda表达式生成的字节码。大致应该长这样：<br>{: id=”20201220214147-y5di85a”}<br>private static java.lang.Object lambda$0(java.lang.String);<br>{: id=”20201220214147-igjmj7i”}</li>
+<li>{: id=”20201220214147-360s5xz”}lambda表达式有个限制，那就是只能引用 final 或 final 局部变量，这就是说不能在lambda内部修改定义在域外的变量。<br>{: id=”20201220214147-0gvhyv9”}<br>List<Integer> primes = Arrays.asList(new Integer[]{2, 3,5,7});<br>int factor = 2;<br>primes.forEach(element -&gt; { factor++; });<br>{: id=”20201220214147-hxard87”}<br>Compile time error : “local variables referenced from a lambda expression must be final or effectively final”<br>{: id=”20201220214147-7ayg8gh”}<br>{: id=”20201220214147-gkdchyd”}</li>
+</ol>
+<p>另外，只是访问它而不作修改是可以的，如下所示：<br>{: id=”20201220214147-rg19jn2”}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">List&lt;Integer&gt; primes &#x3D; Arrays.asList(new Integer[]&#123;2, 3,5,7&#125;);</span><br><span class="line">int factor &#x3D; 2;</span><br><span class="line">primes.forEach(element -&gt; &#123; System.out.println(factor*element); &#125;);</span><br></pre></td></tr></table></figure>
+<p>{: id=”20201220214147-qhyoh5m”}</p>
+<p>输出：<br>{: id=”20201220214147-z9iru5b”}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">4</span><br><span class="line">6</span><br><span class="line">10</span><br><span class="line">14</span><br></pre></td></tr></table></figure>
+<p>{: id=”20201220214147-4uoim4m”}</p>
+<p>因此，它看起来更像不可变闭包，类似于Python。<br>{: id=”20201220214147-gl6rpzz”}</p>
+<p>以上就是Java 8的lambda表达式的全部10个例子。此次修改将成为Java史上最大的一次，将深远影响未来Java开发者使用集合框架的方式。我想规模最相似的一次修改就是Java 5的发布了，它带来了很多优点，提升了代码质量，例如：泛型、枚举、自动装箱（Autoboxing）、静态导入、并发API和变量参数。上述特性使得Java代码更加清晰，我想lambda表达式也将进一步改进它。我在期待着开发并行第三方库，这可以使高性能应用变得更容易写。<br>{: id=”20201220214147-1y9363w”}</p>
+<p>更多阅读：<a target="_blank" rel="noopener" href="http://javarevisited.blogspot.com/2014/02/10-example-of-lambda-expressions-in-java8.html#ixzz3gCMp6Vhc">http://javarevisited.blogspot.com/2014/02/10-example-of-lambda-expressions-in-java8.html#ixzz3gCMp6Vhc</a><br>{: id=”20201220214147-en8tdfy”}</p>
+<p>原文链接： <a target="_blank" rel="noopener" href="http://javarevisited.blogspot.sg/2014/02/10-example-of-lambda-expressions-in-java8.html">javarevisited</a> 翻译： <a target="_blank" rel="noopener" href="http://www.importnew.com/">ImportNew.com</a> - <a target="_blank" rel="noopener" href="http://www.importnew.com/author/lemeilleur">lemeilleur</a><br>译文链接： <a target="_blank" rel="noopener" href="http://www.importnew.com/16436.html">http://www.importnew.com/16436.html</a><br>{: id=”20201220214147-mae2uz9”}</p>
+<p>[ <strong>转载请保留原文出处、译者和译文链接。</strong>]<br>{: id=”20201220214147-kam515q”}</p>
+<p>{: id=”20201220214147-8ozqv3m” type=”doc”}</p>
 
         
 <script src="/js/qrious.min.js"></script>
@@ -626,7 +520,7 @@ primes.forEach(element -&gt; &#123; System.out.println(factor*element); &#125;);
             </p>
             
             <p>
-                <span>本文发表于 2017-11-10，最后修改于 2020-11-24。</span>
+                <span>本文发表于 2017-11-10，最后修改于 2020-12-20。</span>
             </p>
             <!-- 文章末尾的提示 start -->
             
@@ -653,7 +547,7 @@ primes.forEach(element -&gt; &#123; System.out.println(factor*element); &#125;);
         <h3>推荐阅读</h3>
         
         <div class="post-preview">
-    <div class="post-img" style="background-image: url('/images/java/netty-logo.png')"></div>
+    <div class="post-img" style="background-image: url('/images/java/io.png')"></div>
     <div class="post-info">
         <div class="post-info-center">
             <div class="hidden-xs">
@@ -665,24 +559,32 @@ primes.forEach(element -&gt; &#123; System.out.println(factor*element); &#125;);
                     title="Java">Java</a>
                 <span>/</span>
                 
-                <a class="text-gray" href="/tags/#Netty"
-                    title="Netty">Netty</a>
+                <a class="text-gray" href="/tags/#NIO"
+                    title="NIO">NIO</a>
                 <span>/</span>
                 
-                <a class="text-gray" href="/tags/#笔记"
-                    title="笔记">笔记</a>
+                <a class="text-gray" href="/tags/#直接内存"
+                    title="直接内存">直接内存</a>
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#非直接内存"
+                    title="非直接内存">非直接内存</a>
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#堆内存"
+                    title="堆内存">堆内存</a>
                 <span>/</span>
                 
                 
             </div>
-            <a href="/post/java/netty/2020-05-24_Netty 笔记汇总.html" class="title">
-                Netty 笔记汇总
+            <a href="/post/java/nio/2019-07-22_java_nio_Java直接内存与非直接内存性能测试.html" class="title">
+                Java直接内存与非直接内存性能测试
             </a>
             <p class="text-gray">
                 <small>
-                    <span>发表于2020-05-23，</span>
-                    <span class="hidden-xs">全文1227字，</span>
-                    <span>阅读约5分钟</span>
+                    <span>发表于2019-07-21，</span>
+                    <span class="hidden-xs">全文3256字，</span>
+                    <span>阅读约11分钟</span>
                 </small>
             </p>
         </div>
@@ -690,7 +592,7 @@ primes.forEach(element -&gt; &#123; System.out.println(factor*element); &#125;);
 </div>
         
         <div class="post-preview">
-    <div class="post-img" style="background-image: url('/images/grafana.png')"></div>
+    <div class="post-img" style="background-image: url('/images/computer-networking.png')"></div>
     <div class="post-info">
         <div class="post-info-center">
             <div class="hidden-xs">
@@ -698,19 +600,27 @@ primes.forEach(element -&gt; &#123; System.out.println(factor*element); &#125;);
                 
                 <span>/</span>
                 
-                <a class="text-gray" href="/tags/#SVN"
-                    title="SVN">SVN</a>
+                <a class="text-gray" href="/tags/#协议"
+                    title="协议">协议</a>
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#TCP"
+                    title="TCP">TCP</a>
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#UDP"
+                    title="UDP">UDP</a>
                 <span>/</span>
                 
                 
             </div>
-            <a href="/post/util/svn/2017-12-10_SVN自动删除“被手动删除”的文件.html" class="title">
-                SVN 自动删除 “被手动删除” 的文件
+            <a href="/post/network/2017-12-05_为什么TCP和UDP的端口号可以重复.html" class="title">
+                2017-12-05_为什么tcp/udp的端口号可以重复.md
             </a>
             <p class="text-gray">
                 <small>
-                    <span>发表于2017-12-09，</span>
-                    <span class="hidden-xs">全文571字，</span>
+                    <span>发表于2017-12-04，</span>
+                    <span class="hidden-xs">全文314字，</span>
                     <span>阅读约2分钟</span>
                 </small>
             </p>
@@ -731,24 +641,20 @@ primes.forEach(element -&gt; &#123; System.out.println(factor*element); &#125;);
                     title="Java">Java</a>
                 <span>/</span>
                 
-                <a class="text-gray" href="/tags/#异常"
-                    title="异常">异常</a>
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#Java异常"
-                    title="Java异常">Java异常</a>
+                <a class="text-gray" href="/tags/#书籍推荐"
+                    title="书籍推荐">书籍推荐</a>
                 <span>/</span>
                 
                 
             </div>
-            <a href="/post/java/basic/2016-11-18_try_with_resources.html" class="title">
-                Java7 里 try-with-resources 分析
+            <a href="/post/java/advance/2016-12-09_java_books.html" class="title">
+                Java书籍推荐
             </a>
             <p class="text-gray">
                 <small>
-                    <span>发表于2016-11-27，</span>
-                    <span class="hidden-xs">全文4247字，</span>
-                    <span>阅读约15分钟</span>
+                    <span>发表于2016-12-08，</span>
+                    <span class="hidden-xs">全文429字，</span>
+                    <span>阅读约2分钟</span>
                 </small>
             </p>
         </div>
@@ -845,7 +751,7 @@ primes.forEach(element -&gt; &#123; System.out.println(factor*element); &#125;);
         rel="1">#反编译 (1) </a>
     
     <a class="post-tag-item" href="/tags/#Java" title="Java"
-        rel="50">#Java (50) </a>
+        rel="49">#Java (49) </a>
     
     <a class="post-tag-item" href="/tags/#面试" title="面试"
         rel="3">#面试 (3) </a>
@@ -1219,12 +1125,6 @@ primes.forEach(element -&gt; &#123; System.out.println(factor*element); &#125;);
     <a class="post-tag-item" href="/tags/#操作系统" title="操作系统"
         rel="1">#操作系统 (1) </a>
     
-    <a class="post-tag-item" href="/tags/#微服务" title="微服务"
-        rel="1">#微服务 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Vert.x" title="Vert.x"
-        rel="1">#Vert.x (1) </a>
-    
     <a class="post-tag-item" href="/tags/#Spring Core" title="Spring Core"
         rel="1">#Spring Core (1) </a>
     
@@ -1306,7 +1206,7 @@ primes.forEach(element -&gt; &#123; System.out.println(factor*element); &#125;);
             <span class="number">35</span><span>专题</span>
         </a>
         <a href="/tags" class="col-xs-4">
-            <span class="number">152</span><span>标签</span>
+            <span class="number">150</span><span>标签</span>
         </a>
     </nav>
 

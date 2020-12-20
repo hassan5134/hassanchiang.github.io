@@ -378,574 +378,173 @@
         </div>
         
         
-        <p>原创： zhangshaolin <strong>张少林同学</strong><br>微信号: zhangshaolin_tonxue</p>
-<p>功能介绍 分享</p>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><code>Java</code>中的线程是使用<code>Thread</code>类实现的，<code>Thread</code>在初学<code>Java</code>的时候就学过了，也在实践中用过，不过一直没从源码的角度去看过它的实现，今天从源码的角度出发，再次学习<code>Java Thread</code>，愿此后对<code>Thread</code>的实践更加得心应手。</p>
-<h2 id="从注释开始"><a href="#从注释开始" class="headerlink" title="从注释开始"></a>从注释开始</h2><p>相信阅读过<code>JDK</code>源码的同学都能感受到<code>JDK</code>源码中有非常详尽的注释，阅读某个类的源码应当先看看注释对它的介绍，注释原文就不贴了，以下是我对它的总结：</p>
+        <p>{: id=”20201220214147-35pfy1i”}</p>
+<p>原创： zhangshaolin <strong>张少林同学</strong><br>微信号: zhangshaolin_tonxue<br>{: id=”20201220214147-b5wm1wi”}</p>
+<p>功能介绍 分享<br>{: id=”20201220214147-ldpjgm8”}</p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>{: id=”20201220214147-lnjpnmk”}</p>
+<p><code>Java</code>中的线程是使用<code>Thread</code>类实现的，<code>Thread</code>在初学<code>Java</code>的时候就学过了，也在实践中用过，不过一直没从源码的角度去看过它的实现，今天从源码的角度出发，再次学习<code>Java Thread</code>，愿此后对<code>Thread</code>的实践更加得心应手。<br>{: id=”20201220214147-5wjobqr”}</p>
+<h2 id="从注释开始"><a href="#从注释开始" class="headerlink" title="从注释开始"></a>从注释开始</h2><p>{: id=”20201220214147-i97a62i”}</p>
+<p>相信阅读过<code>JDK</code>源码的同学都能感受到<code>JDK</code>源码中有非常详尽的注释，阅读某个类的源码应当先看看注释对它的介绍，注释原文就不贴了，以下是我对它的总结：<br>{: id=”20201220214147-lsel47v”}</p>
 <ul>
-<li><p>  <code>Thread</code>是程序中执行的线程，<code>Java</code>虚拟机允许应用程序同时允许多个执行线程</p>
-</li>
-<li><p>  每个线程都有优先级的概念，具有较高优先级的线程优先于优先级较低的线程执行</p>
-</li>
-<li><p>  每个线程都可以被设置为守护线程</p>
-</li>
-<li><p>  当在某个线程中运行的代码创建一个新的<code>Thread</code>对象时，新的线程优先级跟创建线程一致</p>
-</li>
-<li><p>  当<code>Java</code>虚拟机启动的时候都会启动一个叫做<code>main</code>的线程，它没有守护线程，<code>main</code>线程会继续执行，直到以下情况发送</p>
-</li>
+<li>{: id=”20201220214147-bzcrgpv”}<code>Thread</code>是程序中执行的线程，<code>Java</code>虚拟机允许应用程序同时允许多个执行线程<br>{: id=”20201220214147-akpfoe0”}</li>
+<li>{: id=”20201220214147-nu5hrog”}每个线程都有优先级的概念，具有较高优先级的线程优先于优先级较低的线程执行<br>{: id=”20201220214147-bvk3b8f”}</li>
+<li>{: id=”20201220214147-ijowpwo”}每个线程都可以被设置为守护线程<br>{: id=”20201220214147-q7qyqk4”}</li>
+<li>{: id=”20201220214147-k81m696”}当在某个线程中运行的代码创建一个新的<code>Thread</code>对象时，新的线程优先级跟创建线程一致<br>{: id=”20201220214147-b9ohmxi”}</li>
+<li>{: id=”20201220214147-j21jn2p”}当<code>Java</code>虚拟机启动的时候都会启动一个叫做<code>main</code>的线程，它没有守护线程，<code>main</code>线程会继续执行，直到以下情况发送<br>{: id=”20201220214147-otqc1te”}</li>
+<li>{: id=”20201220214147-fbdy6gn”}<code>Runtime</code> 类的退出方法<code>exit</code>被调用并且安全管理器允许进行退出操作<br>{: id=”20201220214147-ogvfhzr”}</li>
+<li>{: id=”20201220214147-12dyus7”}所有非守护线程均已死亡，或者<code>run</code>方法执行结束正常返回结果，或者<code>run</code>方法抛出异常<br>{: id=”20201220214147-vjy4lmc”}</li>
+<li>{: id=”20201220214147-5ynh8lu”}创建线程第一种方式：继承<code>Thread</code>类，重写<code>run</code>方法<br>{: id=”20201220214147-pzplndo”}<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"> 1  &#x2F;&#x2F;定义线程类</span><br><span class="line"> 2  class PrimeThread extends Thread &#123;</span><br><span class="line"> 3        long minPrime;</span><br><span class="line"> 4        PrimeThread(long minPrime) &#123;</span><br><span class="line"> 5            this.minPrime &#x3D; minPrime;</span><br><span class="line"> 6        &#125;</span><br><span class="line"> 7        public void run() &#123;</span><br><span class="line"> 8            &#x2F;&#x2F; compute primes larger than minPrime</span><br><span class="line"> 9            &amp;nbsp;.&amp;nbsp;.&amp;nbsp;.</span><br><span class="line">10        &#125;</span><br><span class="line">11    &#125;</span><br><span class="line">12  &#x2F;&#x2F;启动线程</span><br><span class="line">13  PrimeThread p &#x3D; new PrimeThread(143);</span><br><span class="line">14  p.start();</span><br></pre></td></tr></table></figure>
+{: id=”20201220214147-rkplhv6”}</li>
+<li>{: id=”20201220214147-yw5mieq”}创建线程第二种方式：实现<code>Runnable</code>接口，重写<code>run</code>方法，因为<code>Java</code>的单继承限制，通常使用这种方式创建线程更加灵活<br>{: id=”20201220214147-qyivdw1”}<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"> 1  &#x2F;&#x2F;定义线程</span><br><span class="line"> 2   class PrimeRun implements Runnable &#123;</span><br><span class="line"> 3        long minPrime;</span><br><span class="line"> 4        PrimeRun(long minPrime) &#123;</span><br><span class="line"> 5            this.minPrime &#x3D; minPrime;</span><br><span class="line"> 6        &#125;</span><br><span class="line"> 7        public void run() &#123;</span><br><span class="line"> 8            &#x2F;&#x2F; compute primes larger than minPrime</span><br><span class="line"> 9            &amp;nbsp;.&amp;nbsp;.&amp;nbsp;.</span><br><span class="line">10        &#125;</span><br><span class="line">11    &#125;</span><br><span class="line">12  &#x2F;&#x2F;启动线程</span><br><span class="line">13  PrimeRun p &#x3D; new PrimeRun(143);</span><br><span class="line">14  new Thread(p).start();</span><br></pre></td></tr></table></figure>
+{: id=”20201220214147-zcszphp”}</li>
+<li>{: id=”20201220214147-g48kq2i”}创建线程时可以给线程指定名字，如果没有指定，会自动为它生成名字<br>{: id=”20201220214147-fddbrt5”}</li>
+<li>{: id=”20201220214147-7nzjr56”}除非另有说明，否则将<code>null</code>参数传递给<code>Thread</code>类中的构造函数或方法将导致抛出 <code>NullPointerException</code><br>{: id=”20201220214147-hwoidx3”}<br>{: id=”20201220214147-kjk5gla”}</li>
 </ul>
-<ul>
-<li><p>  <code>Runtime</code> 类的退出方法<code>exit</code>被调用并且安全管理器允许进行退出操作</p>
-</li>
-<li><p>  所有非守护线程均已死亡，或者<code>run</code>方法执行结束正常返回结果，或者<code>run</code>方法抛出异常</p>
-</li>
-</ul>
-<ul>
-<li><p>创建线程第一种方式：继承<code>Thread</code>类，重写<code>run</code>方法</p>
-<pre><code>   1  //定义线程类
-   2  class PrimeThread extends Thread &#123;
-   3        long minPrime;
-   4        PrimeThread(long minPrime) &#123;
-   5            this.minPrime = minPrime;
-   6        &#125;
-   7        public void run() &#123;
-   8            // compute primes larger than minPrime
-   9            &amp;nbsp;.&amp;nbsp;.&amp;nbsp;.
-  10        &#125;
-  11    &#125;
-  12  //启动线程
-  13  PrimeThread p = new PrimeThread(143);
-  14  p.start();</code></pre>
-</li>
-<li><p>创建线程第二种方式：实现<code>Runnable</code>接口，重写<code>run</code>方法，因为<code>Java</code>的单继承限制，通常使用这种方式创建线程更加灵活</p>
-<pre><code>   1  //定义线程
-   2   class PrimeRun implements Runnable &#123;
-   3        long minPrime;
-   4        PrimeRun(long minPrime) &#123;
-   5            this.minPrime = minPrime;
-   6        &#125;
-   7        public void run() &#123;
-   8            // compute primes larger than minPrime
-   9            &amp;nbsp;.&amp;nbsp;.&amp;nbsp;.
-  10        &#125;
-  11    &#125;
-  12  //启动线程
-  13  PrimeRun p = new PrimeRun(143);
-  14  new Thread(p).start();</code></pre>
-</li>
-<li><p>  创建线程时可以给线程指定名字，如果没有指定，会自动为它生成名字</p>
-</li>
-<li><p>  除非另有说明，否则将<code>null</code>参数传递给<code>Thread</code>类中的构造函数或方法将导致抛出 <code>NullPointerException</code></p>
-</li>
-</ul>
-<h2 id="Thread-常用属性"><a href="#Thread-常用属性" class="headerlink" title="Thread 常用属性"></a>Thread 常用属性</h2><p>阅读一个<code>Java</code>类，先从它拥有哪些属性入手：</p>
-<pre><code>     1  //线程名称，创建线程时可以指定线程的名称
-     2  private volatile String name;
-     3  
-     4  //线程优先级，可以设置线程的优先级
-     5  private int priority;
-     6  
-     7  //可以配置线程是否为守护线程，默认为false
-     8  private boolean daemon = false;
-     9  
-    10  //最终执行线程任务的`Runnable`
-    11  private Runnable target;
-    12  
-    13  //描述线程组的类
-    14  private ThreadGroup group;
-    15  
-    16  //此线程的上下文ClassLoader
-    17  private ClassLoader contextClassLoader;
-    18  
-    19  //所有初始化线程的数目，用于自动编号匿名线程，当没有指定线程名称时，会自动为其编号
-    20  private static int threadInitNumber;
-    21  
-    22  //此线程请求的堆栈大小，如果创建者没有指定堆栈大小，则为0。, 虚拟机可以用这个数字做任何喜欢的事情。, 一些虚拟机会忽略它。
-    23  private long stackSize;
-    24  
-    25  //线程id
-    26  private long tid;
-    27  
-    28  //用于生成线程ID
-    29  private static long threadSeqNumber;
-    30  
-    31  //线程状态
-    32  private volatile int threadStatus = 0;
-    33  
-    34  //线程可以拥有的最低优先级
-    35  public final static int MIN_PRIORITY = 1;
-    36  
-    37  //分配给线程的默认优先级。
-    38  public final static int NORM_PRIORITY = 5;
-    39  
-    40  //线程可以拥有的最大优先级
-    41  public final static int MAX_PRIORITY = 10;</code></pre>
-<h2 id="Thread-构造方法"><a href="#Thread-构造方法" class="headerlink" title="Thread 构造方法"></a>Thread 构造方法</h2><p>了解了属性之后，看看<code>Thread</code>实例是怎么构造的？先预览下它大致有多少个构造方法：</p>
-<p><img src="/assets/uploads/files/1548122247324-a77dcb75-2e68-4785-81f8-a4b242b67382-image.png" alt="a77dcb75-2e68-4785-81f8-a4b242b67382-image.png"> </p>
-<p>查看每个构造方法内部源码，发现均调用的是名为<code>init</code>的私有方法，再看<code>init</code>方法有两个重载，而其核心方法如下：</p>
-<pre><code> 1   /**
- 2     * Initializes a Thread.
- 3     *
- 4     * @param g                   线程组
- 5     * @param target              最终执行任务的 `run()` 方法的对象
- 6     * @param name                新线程的名称
- 7     * @param stackSize           新线程所需的堆栈大小，或者 0 表示要忽略此参数
- 8     * @param acc                 要继承的AccessControlContext，如果为null，则为 AccessController.getContext()
- 9     * @param inheritThreadLocals 如果为 true，从构造线程继承可继承的线程局部的初始值
-10     */
-11    private void init(ThreadGroup g, Runnable target, String name,
-12                      long stackSize, AccessControlContext acc,
-13                      boolean inheritThreadLocals) &#123;
-14        //线程名称为空，直接抛出空指针异常
-15        if (name == null) &#123;
-16            throw new NullPointerException(&quot;name cannot be null&quot;);
-17        &#125;
-18        //初始化当前线程对象的线程名称
-19        this.name = name;
-20        //获取当前正在执行的线程为父线程
-21        Thread parent = currentThread();
-22        //获取系统安全管理器
-23        SecurityManager security = System.getSecurityManager();
-24        //如果线程组为空
-25        if (g == null) &#123;
-26            //如果安全管理器不为空
-27            if (security != null) &#123;
-28                //获取SecurityManager中的线程组
-29                g = security.getThreadGroup();
-30            &#125;
-31            //如果获取的线程组还是为空
-32            if (g == null) &#123;
-33                //则使用父线程的线程组
-34                g = parent.getThreadGroup();
-35            &#125;
-36        &#125;
-37
-38        //检查安全权限
-39        g.checkAccess();
-40
-41        //使用安全管理器检查是否有权限
-42        if (security != null) &#123;
-43            if (isCCLOverridden(getClass())) &#123;
-44                security.checkPermission(SUBCLASS_IMPLEMENTATION_PERMISSION);
-45            &#125;
-46        &#125;
-47
-48        //线程组中标记未启动的线程数+1，这里方法是同步的，防止出现线程安全问题
-49        g.addUnstarted();
-50
-51        //初始化当前线程对象的线程组
-52        this.group = g;
-53        //初始化当前线程对象的是否守护线程属性，注意到这里初始化时跟父线程一致
-54        this.daemon = parent.isDaemon();
-55        //初始化当前线程对象的线程优先级属性，注意到这里初始化时跟父线程一致
-56        this.priority = parent.getPriority();
-57        //这里初始化类加载器
-58        if (security == null || isCCLOverridden(parent.getClass()))
-59            this.contextClassLoader = parent.getContextClassLoader();
-60        else
-61            this.contextClassLoader = parent.contextClassLoader;
-62        this.inheritedAccessControlContext =
-63                acc != null ? acc : AccessController.getContext();
-64        //初始化当前线程对象的最终执行任务对象
-65        this.target = target;
-66        //这里再对线程的优先级字段进行处理
-67        setPriority(priority);
-68        if (inheritThreadLocals &amp;&amp; parent.inheritableThreadLocals != null)
-69            this.inheritableThreadLocals =
-70                ThreadLocal.createInheritedMap(parent.inheritableThreadLocals);
-71        //初始化当前线程对象的堆栈大小
-72        this.stackSize = stackSize;
-73
-74        //初始化当前线程对象的线程ID，该方法是同步的，内部实际上是threadSeqNumber++
-75        tid = nextThreadID();
-76    &#125;</code></pre>
-<p>另一个重载<code>init</code>私有方法如下，实际上内部调用的是上述<code>init</code>方法：</p>
-<pre><code>1   private void init(ThreadGroup g, Runnable target, String name,
-2                      long stackSize) &#123;
-3        init(g, target, name, stackSize, null, true);
-4   &#125;</code></pre>
-<p>接下来看看所有构造方法：</p>
+<h2 id="Thread-常用属性"><a href="#Thread-常用属性" class="headerlink" title="Thread 常用属性"></a>Thread 常用属性</h2><p>{: id=”20201220214147-b7y0tac”}</p>
+<p>阅读一个<code>Java</code>类，先从它拥有哪些属性入手：<br>{: id=”20201220214147-9xl1tbp”}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"> 1  &#x2F;&#x2F;线程名称，创建线程时可以指定线程的名称</span><br><span class="line"> 2  private volatile String name;</span><br><span class="line"> 3  </span><br><span class="line"> 4  &#x2F;&#x2F;线程优先级，可以设置线程的优先级</span><br><span class="line"> 5  private int priority;</span><br><span class="line"> 6  </span><br><span class="line"> 7  &#x2F;&#x2F;可以配置线程是否为守护线程，默认为false</span><br><span class="line"> 8  private boolean daemon &#x3D; false;</span><br><span class="line"> 9  </span><br><span class="line">10  &#x2F;&#x2F;最终执行线程任务的&#96;Runnable&#96;</span><br><span class="line">11  private Runnable target;</span><br><span class="line">12  </span><br><span class="line">13  &#x2F;&#x2F;描述线程组的类</span><br><span class="line">14  private ThreadGroup group;</span><br><span class="line">15  </span><br><span class="line">16  &#x2F;&#x2F;此线程的上下文ClassLoader</span><br><span class="line">17  private ClassLoader contextClassLoader;</span><br><span class="line">18  </span><br><span class="line">19  &#x2F;&#x2F;所有初始化线程的数目，用于自动编号匿名线程，当没有指定线程名称时，会自动为其编号</span><br><span class="line">20  private static int threadInitNumber;</span><br><span class="line">21  </span><br><span class="line">22  &#x2F;&#x2F;此线程请求的堆栈大小，如果创建者没有指定堆栈大小，则为0。, 虚拟机可以用这个数字做任何喜欢的事情。, 一些虚拟机会忽略它。</span><br><span class="line">23  private long stackSize;</span><br><span class="line">24  </span><br><span class="line">25  &#x2F;&#x2F;线程id</span><br><span class="line">26  private long tid;</span><br><span class="line">27  </span><br><span class="line">28  &#x2F;&#x2F;用于生成线程ID</span><br><span class="line">29  private static long threadSeqNumber;</span><br><span class="line">30  </span><br><span class="line">31  &#x2F;&#x2F;线程状态</span><br><span class="line">32  private volatile int threadStatus &#x3D; 0;</span><br><span class="line">33  </span><br><span class="line">34  &#x2F;&#x2F;线程可以拥有的最低优先级</span><br><span class="line">35  public final static int MIN_PRIORITY &#x3D; 1;</span><br><span class="line">36  </span><br><span class="line">37  &#x2F;&#x2F;分配给线程的默认优先级。</span><br><span class="line">38  public final static int NORM_PRIORITY &#x3D; 5;</span><br><span class="line">39  </span><br><span class="line">40  &#x2F;&#x2F;线程可以拥有的最大优先级</span><br><span class="line">41  public final static int MAX_PRIORITY &#x3D; 10;</span><br></pre></td></tr></table></figure>
+<p>{: id=”20201220214147-i3pvykw”}</p>
+<h2 id="Thread-构造方法"><a href="#Thread-构造方法" class="headerlink" title="Thread 构造方法"></a>Thread 构造方法</h2><p>{: id=”20201220214147-iguo0u8”}</p>
+<p>了解了属性之后，看看<code>Thread</code>实例是怎么构造的？先预览下它大致有多少个构造方法：<br>{: id=”20201220214147-4uisx2l”}</p>
+<p><img src="/assets/uploads/files/1548122247324-a77dcb75-2e68-4785-81f8-a4b242b67382-image.png" alt="a77dcb75-2e68-4785-81f8-a4b242b67382-image.png"><br>{: id=”20201220214147-gvjobev”}</p>
+<p>查看每个构造方法内部源码，发现均调用的是名为<code>init</code>的私有方法，再看<code>init</code>方法有两个重载，而其核心方法如下：<br>{: id=”20201220214147-onyn57a”}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"> 1   &#x2F;**</span><br><span class="line"> 2     * Initializes a Thread.</span><br><span class="line"> 3     *</span><br><span class="line"> 4     * @param g                   线程组</span><br><span class="line"> 5     * @param target              最终执行任务的 &#96;run()&#96; 方法的对象</span><br><span class="line"> 6     * @param name                新线程的名称</span><br><span class="line"> 7     * @param stackSize           新线程所需的堆栈大小，或者 0 表示要忽略此参数</span><br><span class="line"> 8     * @param acc                 要继承的AccessControlContext，如果为null，则为 AccessController.getContext()</span><br><span class="line"> 9     * @param inheritThreadLocals 如果为 true，从构造线程继承可继承的线程局部的初始值</span><br><span class="line">10     *&#x2F;</span><br><span class="line">11    private void init(ThreadGroup g, Runnable target, String name,</span><br><span class="line">12                      long stackSize, AccessControlContext acc,</span><br><span class="line">13                      boolean inheritThreadLocals) &#123;</span><br><span class="line">14        &#x2F;&#x2F;线程名称为空，直接抛出空指针异常</span><br><span class="line">15        if (name &#x3D;&#x3D; null) &#123;</span><br><span class="line">16            throw new NullPointerException(&quot;name cannot be null&quot;);</span><br><span class="line">17        &#125;</span><br><span class="line">18        &#x2F;&#x2F;初始化当前线程对象的线程名称</span><br><span class="line">19        this.name &#x3D; name;</span><br><span class="line">20        &#x2F;&#x2F;获取当前正在执行的线程为父线程</span><br><span class="line">21        Thread parent &#x3D; currentThread();</span><br><span class="line">22        &#x2F;&#x2F;获取系统安全管理器</span><br><span class="line">23        SecurityManager security &#x3D; System.getSecurityManager();</span><br><span class="line">24        &#x2F;&#x2F;如果线程组为空</span><br><span class="line">25        if (g &#x3D;&#x3D; null) &#123;</span><br><span class="line">26            &#x2F;&#x2F;如果安全管理器不为空</span><br><span class="line">27            if (security !&#x3D; null) &#123;</span><br><span class="line">28                &#x2F;&#x2F;获取SecurityManager中的线程组</span><br><span class="line">29                g &#x3D; security.getThreadGroup();</span><br><span class="line">30            &#125;</span><br><span class="line">31            &#x2F;&#x2F;如果获取的线程组还是为空</span><br><span class="line">32            if (g &#x3D;&#x3D; null) &#123;</span><br><span class="line">33                &#x2F;&#x2F;则使用父线程的线程组</span><br><span class="line">34                g &#x3D; parent.getThreadGroup();</span><br><span class="line">35            &#125;</span><br><span class="line">36        &#125;</span><br><span class="line">37</span><br><span class="line">38        &#x2F;&#x2F;检查安全权限</span><br><span class="line">39        g.checkAccess();</span><br><span class="line">40</span><br><span class="line">41        &#x2F;&#x2F;使用安全管理器检查是否有权限</span><br><span class="line">42        if (security !&#x3D; null) &#123;</span><br><span class="line">43            if (isCCLOverridden(getClass())) &#123;</span><br><span class="line">44                security.checkPermission(SUBCLASS_IMPLEMENTATION_PERMISSION);</span><br><span class="line">45            &#125;</span><br><span class="line">46        &#125;</span><br><span class="line">47</span><br><span class="line">48        &#x2F;&#x2F;线程组中标记未启动的线程数+1，这里方法是同步的，防止出现线程安全问题</span><br><span class="line">49        g.addUnstarted();</span><br><span class="line">50</span><br><span class="line">51        &#x2F;&#x2F;初始化当前线程对象的线程组</span><br><span class="line">52        this.group &#x3D; g;</span><br><span class="line">53        &#x2F;&#x2F;初始化当前线程对象的是否守护线程属性，注意到这里初始化时跟父线程一致</span><br><span class="line">54        this.daemon &#x3D; parent.isDaemon();</span><br><span class="line">55        &#x2F;&#x2F;初始化当前线程对象的线程优先级属性，注意到这里初始化时跟父线程一致</span><br><span class="line">56        this.priority &#x3D; parent.getPriority();</span><br><span class="line">57        &#x2F;&#x2F;这里初始化类加载器</span><br><span class="line">58        if (security &#x3D;&#x3D; null || isCCLOverridden(parent.getClass()))</span><br><span class="line">59            this.contextClassLoader &#x3D; parent.getContextClassLoader();</span><br><span class="line">60        else</span><br><span class="line">61            this.contextClassLoader &#x3D; parent.contextClassLoader;</span><br><span class="line">62        this.inheritedAccessControlContext &#x3D;</span><br><span class="line">63                acc !&#x3D; null ? acc : AccessController.getContext();</span><br><span class="line">64        &#x2F;&#x2F;初始化当前线程对象的最终执行任务对象</span><br><span class="line">65        this.target &#x3D; target;</span><br><span class="line">66        &#x2F;&#x2F;这里再对线程的优先级字段进行处理</span><br><span class="line">67        setPriority(priority);</span><br><span class="line">68        if (inheritThreadLocals &amp;&amp; parent.inheritableThreadLocals !&#x3D; null)</span><br><span class="line">69            this.inheritableThreadLocals &#x3D;</span><br><span class="line">70                ThreadLocal.createInheritedMap(parent.inheritableThreadLocals);</span><br><span class="line">71        &#x2F;&#x2F;初始化当前线程对象的堆栈大小</span><br><span class="line">72        this.stackSize &#x3D; stackSize;</span><br><span class="line">73</span><br><span class="line">74        &#x2F;&#x2F;初始化当前线程对象的线程ID，该方法是同步的，内部实际上是threadSeqNumber++</span><br><span class="line">75        tid &#x3D; nextThreadID();</span><br><span class="line">76    &#125;</span><br></pre></td></tr></table></figure>
+<p>{: id=”20201220214147-yhwkmro”}</p>
+<p>另一个重载<code>init</code>私有方法如下，实际上内部调用的是上述<code>init</code>方法：<br>{: id=”20201220214147-ssmeqkf”}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1   private void init(ThreadGroup g, Runnable target, String name,</span><br><span class="line">2                      long stackSize) &#123;</span><br><span class="line">3        init(g, target, name, stackSize, null, true);</span><br><span class="line">4   &#125;</span><br></pre></td></tr></table></figure>
+<p>{: id=”20201220214147-29eajrc”}</p>
+<p>接下来看看所有构造方法：<br>{: id=”20201220214147-q4pi6hb”}</p>
 <ol>
-<li><p>空构造方法</p>
-<pre><code> 1    public Thread() &#123;
- 2        init(null, null, &quot;Thread-&quot; + nextThreadNum(), 0);
- 3    &#125;</code></pre>
-<p> 内部调用的是<code>init</code>第二个重载方法，参数基本都是默认值，线程名称写死为<code>&quot;Thread-&quot; + nextThreadNum()</code>格式，<code>nextThreadNum()</code>为一个同步方法，内部维护一个静态属性表示线程的初始化数量+1：</p>
-<pre><code> 1   private static int threadInitNumber;
- 2    private static synchronized int nextThreadNum() &#123;
- 3        return threadInitNumber++;
- 4    &#125;</code></pre>
-<p> 与第一个构造方法区别在于可以自定义<code>Runnable</code>对象</p>
+<li><p>{: id=”20201220214147-94en0g3”}空构造方法<br>{: id=”20201220214147-829xvw6”}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1    public Thread() &#123;</span><br><span class="line">2        init(null, null, &quot;Thread-&quot; + nextThreadNum(), 0);</span><br><span class="line">3    &#125;</span><br></pre></td></tr></table></figure>
+<p>{: id=”20201220214147-fyc9pqv”}</p>
+<p>内部调用的是<code>init</code>第二个重载方法，参数基本都是默认值，线程名称写死为<code>&quot;Thread-&quot; + nextThreadNum()</code>格式，<code>nextThreadNum()</code>为一个同步方法，内部维护一个静态属性表示线程的初始化数量+1：<br>{: id=”20201220214147-jzopo72”}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1   private static int threadInitNumber;</span><br><span class="line">2    private static synchronized int nextThreadNum() &#123;</span><br><span class="line">3        return threadInitNumber++;</span><br><span class="line">4    &#125;</span><br></pre></td></tr></table></figure>
+<p>{: id=”20201220214147-o7erx1z”}</p>
+<p>与第一个构造方法区别在于可以自定义<code>Runnable</code>对象<br>{: id=”20201220214147-iixjqsi”}</p>
 </li>
-<li><p>自定义执行任务<code>Runnable</code>对象的构造方法</p>
-<pre><code> 1    private static int threadInitNumber;
- 2    private static synchronized int nextThreadNum() &#123;
- 3        return threadInitNumber++;
- 4    &#125;</code></pre>
+<li><p>{: id=”20201220214147-5u5dul3”}自定义执行任务<code>Runnable</code>对象的构造方法<br>{: id=”20201220214147-9ym3z8e”}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1    private static int threadInitNumber;</span><br><span class="line">2    private static synchronized int nextThreadNum() &#123;</span><br><span class="line">3        return threadInitNumber++;</span><br><span class="line">4    &#125;</span><br></pre></td></tr></table></figure>
+<p>{: id=”20201220214147-ojqxn67”}</p>
 </li>
-<li><p>自定义执行任务<code>Runnable</code>对象和<code>AccessControlContext</code>对象的构造方法</p>
-<pre><code> 1 Thread(Runnable target, AccessControlContext acc) &#123;
- 2    init(null, target, &quot;Thread-&quot; + nextThreadNum(), 0, acc, false);
- 3 &#125;</code></pre>
+<li><p>{: id=”20201220214147-pda9mb1”}自定义执行任务<code>Runnable</code>对象和<code>AccessControlContext</code>对象的构造方法<br>{: id=”20201220214147-ianowtw”}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1 Thread(Runnable target, AccessControlContext acc) &#123;</span><br><span class="line">2    init(null, target, &quot;Thread-&quot; + nextThreadNum(), 0, acc, false);</span><br><span class="line">3 &#125;</span><br></pre></td></tr></table></figure>
+<p>{: id=”20201220214147-2d6ciaa”}</p>
 </li>
-<li><p>自定义线程组<code>ThreadGroup</code>和执行任务<code>Runnable</code>对象的构造方法</p>
-<pre><code> 1  public Thread(ThreadGroup group, Runnable target) &#123;
- 2    init(group, target, &quot;Thread-&quot; + nextThreadNum(), 0);
- 3  &#125;</code></pre>
+<li><p>{: id=”20201220214147-ywoitde”}自定义线程组<code>ThreadGroup</code>和执行任务<code>Runnable</code>对象的构造方法<br>{: id=”20201220214147-2sqtoky”}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1  public Thread(ThreadGroup group, Runnable target) &#123;</span><br><span class="line">2    init(group, target, &quot;Thread-&quot; + nextThreadNum(), 0);</span><br><span class="line">3  &#125;</span><br></pre></td></tr></table></figure>
+<p>{: id=”20201220214147-0iaozce”}</p>
 </li>
-<li><p>自定义线程名称<code>name</code>的构造方法</p>
-<pre><code> 1  public Thread(String name) &#123;
- 2    init(null, null, name, 0);
- 3  &#125;</code></pre>
+<li><p>{: id=”20201220214147-hhauzva”}自定义线程名称<code>name</code>的构造方法<br>{: id=”20201220214147-scei78m”}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1  public Thread(String name) &#123;</span><br><span class="line">2    init(null, null, name, 0);</span><br><span class="line">3  &#125;</span><br></pre></td></tr></table></figure>
+<p>{: id=”20201220214147-3f7ot4w”}</p>
 </li>
-<li><p>自定义线程组<code>ThreadGroup</code>和线程名称<code>name</code>的构造方法</p>
-<pre><code> 1  public Thread(String name) &#123;
- 2     init(null, null, name, 0);
- 3  &#125;</code></pre>
+<li><p>{: id=”20201220214147-q22qivj”}自定义线程组<code>ThreadGroup</code>和线程名称<code>name</code>的构造方法<br>{: id=”20201220214147-1uz0h2q”}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1  public Thread(String name) &#123;</span><br><span class="line">2     init(null, null, name, 0);</span><br><span class="line">3  &#125;</span><br></pre></td></tr></table></figure>
+<p>{: id=”20201220214147-8mnsmk0”}</p>
 </li>
-<li><p>自定义执行任务<code>Runnable</code>对象和线程名称<code>name</code>的构造方法</p>
-<pre><code> 1  public Thread(Runnable target, String name) &#123;
- 2     init(null, target, name, 0);
- 3  &#125;</code></pre>
+<li><p>{: id=”20201220214147-t1qzg2r”}自定义执行任务<code>Runnable</code>对象和线程名称<code>name</code>的构造方法<br>{: id=”20201220214147-6tnfm8u”}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1  public Thread(Runnable target, String name) &#123;</span><br><span class="line">2     init(null, target, name, 0);</span><br><span class="line">3  &#125;</span><br></pre></td></tr></table></figure>
+<p>{: id=”20201220214147-w3vn3ek”}</p>
 </li>
-<li><p>自定义线程组<code>ThreadGroup</code>和线程名称<code>name</code>和执行任务<code>Runnable</code>对象的构造方法</p>
-<pre><code> 1  public Thread(ThreadGroup group, Runnable target, String name) &#123;
- 2     init(group, target, name, 0);
- 3  &#125;</code></pre>
+<li><p>{: id=”20201220214147-50mp1zb”}自定义线程组<code>ThreadGroup</code>和线程名称<code>name</code>和执行任务<code>Runnable</code>对象的构造方法<br>{: id=”20201220214147-u4kbc4v”}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1  public Thread(ThreadGroup group, Runnable target, String name) &#123;</span><br><span class="line">2     init(group, target, name, 0);</span><br><span class="line">3  &#125;</span><br></pre></td></tr></table></figure>
+<p>{: id=”20201220214147-kkq9mly”}</p>
 </li>
-<li><p>全部属性都是自定义的构造方法</p>
-<pre><code> 1  public Thread(ThreadGroup group, Runnable target, String name,
- 2                long stackSize) &#123;
- 3     init(group, target, name, stackSize);
- 4  &#125;</code></pre>
+<li><p>{: id=”20201220214147-vgxv9jj”}全部属性都是自定义的构造方法<br>{: id=”20201220214147-yqaz25l”}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1  public Thread(ThreadGroup group, Runnable target, String name,</span><br><span class="line">2                long stackSize) &#123;</span><br><span class="line">3     init(group, target, name, stackSize);</span><br><span class="line">4  &#125;</span><br></pre></td></tr></table></figure>
+<p>{: id=”20201220214147-om0i3qj”}<br>{: id=”20201220214147-ov4v0gy”}</p>
 </li>
 </ol>
-<p><code>Thread</code>提供了非常灵活的重载构造方法，方便开发者自定义各种参数的<code>Thread</code>对象。</p>
-<h2 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h2><p>这里记录一些比较常见的方法吧，对于<code>Thread</code>中存在的一些本地方法，我们暂且不用管它～</p>
-<h4 id="设置线程名称"><a href="#设置线程名称" class="headerlink" title="设置线程名称"></a>设置线程名称</h4><p>设置线程名称，该方法为同步方法，为了防止出现线程安全问题，可以手动调用<code>Thread</code>的实例方法设置名称，也可以在构造<code>Thread</code>时在构造方法中传入线程名称，我们通常都是在构造参数时设置</p>
-<pre><code>     1   public final synchronized void setName(String name) &#123;
-     2       　　//检查安全权限
-     3          checkAccess();
-     4       　　//如果形参为空，抛出空指针异常
-     5          if (name == null) &#123;
-     6              throw new NullPointerException(&quot;name cannot be null&quot;);
-     7          &#125;
-     8        //给当前线程对象设置名称
-     9          this.name = name;
-    10          if (threadStatus != 0) &#123;
-    11              setNativeName(name);
-    12          &#125;
-    13      &#125;</code></pre>
-<h4 id="获取线程名称"><a href="#获取线程名称" class="headerlink" title="获取线程名称"></a>获取线程名称</h4><p>内部直接返回当前线程对象的名称属性</p>
-<pre><code>    1  public final String getName() &#123;
-    2        return name;
-    3    &#125;</code></pre>
-<h4 id="启动线程"><a href="#启动线程" class="headerlink" title="启动线程"></a>启动线程</h4><pre><code>     1  public synchronized void start() &#123;
-     2      //如果不是刚创建的线程，抛出异常
-     3      if (threadStatus != 0)
-     4          throw new IllegalThreadStateException();
-     5
-     6      //通知线程组，当前线程即将启动，线程组当前启动线程数+1，未启动线程数-1
-     7      group.add(this);
-     8
-     9      //启动标识
-    10      boolean started = false;
-    11      try &#123;
-    12          //直接调用本地方法启动线程
-    13          start0();
-    14          //设置启动标识为启动成功
-    15          started = true;
-    16      &#125; finally &#123;
-    17          try &#123;
-    18              //如果启动呢失败
-    19              if (!started) &#123;
-    20                  //线程组内部移除当前启动的线程数量-1，同时启动失败的线程数量+1
-    21                  group.threadStartFailed(this);
-    22              &#125;
-    23          &#125; catch (Throwable ignore) &#123;
-    24              /* do nothing. If start0 threw a Throwable then
-    25                it will be passed up the call stack */
-    26          &#125;
-    27      &#125;
-    28  &#125;</code></pre>
-<p>我们正常的启动线程都是调用<code>Thread</code>的<code>start()</code>方法，然后<code>Java</code>虚拟机内部会去调用<code>Thred</code>的<code>run</code>方法，可以看到<code>Thread</code>类也是实现<code>Runnable</code>接口，重写了<code>run</code>方法的：</p>
-<pre><code>    1 @Override
-    2 public void run() &#123;
-    3     //当前执行任务的Runnable对象不为空，则调用其run方法
-    4     if (target != null) &#123;
-    5         target.run();
-    6     &#125;
-    7 &#125;</code></pre>
-<p><code>Thread</code>的两种使用方式：</p>
+<p><code>Thread</code>提供了非常灵活的重载构造方法，方便开发者自定义各种参数的<code>Thread</code>对象。<br>{: id=”20201220214147-3ojp02w”}</p>
+<h2 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h2><p>{: id=”20201220214147-kb17bg1”}</p>
+<p>这里记录一些比较常见的方法吧，对于<code>Thread</code>中存在的一些本地方法，我们暂且不用管它～<br>{: id=”20201220214147-51xbiv2”}</p>
+<h4 id="设置线程名称"><a href="#设置线程名称" class="headerlink" title="设置线程名称"></a>设置线程名称</h4><p>{: id=”20201220214147-gm8gx4i”}</p>
+<p>设置线程名称，该方法为同步方法，为了防止出现线程安全问题，可以手动调用<code>Thread</code>的实例方法设置名称，也可以在构造<code>Thread</code>时在构造方法中传入线程名称，我们通常都是在构造参数时设置<br>{: id=”20201220214147-3wjwex4”}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"> 1   public final synchronized void setName(String name) &#123;</span><br><span class="line"> 2       　　&#x2F;&#x2F;检查安全权限</span><br><span class="line"> 3          checkAccess();</span><br><span class="line"> 4       　　&#x2F;&#x2F;如果形参为空，抛出空指针异常</span><br><span class="line"> 5          if (name &#x3D;&#x3D; null) &#123;</span><br><span class="line"> 6              throw new NullPointerException(&quot;name cannot be null&quot;);</span><br><span class="line"> 7          &#125;</span><br><span class="line"> 8        &#x2F;&#x2F;给当前线程对象设置名称</span><br><span class="line"> 9          this.name &#x3D; name;</span><br><span class="line">10          if (threadStatus !&#x3D; 0) &#123;</span><br><span class="line">11              setNativeName(name);</span><br><span class="line">12          &#125;</span><br><span class="line">13      &#125;</span><br></pre></td></tr></table></figure>
+<p>{: id=”20201220214147-09npsvg”}</p>
+<h4 id="获取线程名称"><a href="#获取线程名称" class="headerlink" title="获取线程名称"></a>获取线程名称</h4><p>{: id=”20201220214147-wx74bdo”}</p>
+<p>内部直接返回当前线程对象的名称属性<br>{: id=”20201220214147-215ovoz”}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1  public final String getName() &#123;</span><br><span class="line">2        return name;</span><br><span class="line">3    &#125;</span><br></pre></td></tr></table></figure>
+<p>{: id=”20201220214147-3ogp31b”}</p>
+<h4 id="启动线程"><a href="#启动线程" class="headerlink" title="启动线程"></a>启动线程</h4><p>{: id=”20201220214147-8oh8o8k”}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"> 1  public synchronized void start() &#123;</span><br><span class="line"> 2      &#x2F;&#x2F;如果不是刚创建的线程，抛出异常</span><br><span class="line"> 3      if (threadStatus !&#x3D; 0)</span><br><span class="line"> 4          throw new IllegalThreadStateException();</span><br><span class="line"> 5</span><br><span class="line"> 6      &#x2F;&#x2F;通知线程组，当前线程即将启动，线程组当前启动线程数+1，未启动线程数-1</span><br><span class="line"> 7      group.add(this);</span><br><span class="line"> 8</span><br><span class="line"> 9      &#x2F;&#x2F;启动标识</span><br><span class="line">10      boolean started &#x3D; false;</span><br><span class="line">11      try &#123;</span><br><span class="line">12          &#x2F;&#x2F;直接调用本地方法启动线程</span><br><span class="line">13          start0();</span><br><span class="line">14          &#x2F;&#x2F;设置启动标识为启动成功</span><br><span class="line">15          started &#x3D; true;</span><br><span class="line">16      &#125; finally &#123;</span><br><span class="line">17          try &#123;</span><br><span class="line">18              &#x2F;&#x2F;如果启动呢失败</span><br><span class="line">19              if (!started) &#123;</span><br><span class="line">20                  &#x2F;&#x2F;线程组内部移除当前启动的线程数量-1，同时启动失败的线程数量+1</span><br><span class="line">21                  group.threadStartFailed(this);</span><br><span class="line">22              &#125;</span><br><span class="line">23          &#125; catch (Throwable ignore) &#123;</span><br><span class="line">24              &#x2F;* do nothing. If start0 threw a Throwable then</span><br><span class="line">25                it will be passed up the call stack *&#x2F;</span><br><span class="line">26          &#125;</span><br><span class="line">27      &#125;</span><br><span class="line">28  &#125;</span><br></pre></td></tr></table></figure>
+<p>{: id=”20201220214147-dbu2un6”}</p>
+<p>我们正常的启动线程都是调用<code>Thread</code>的<code>start()</code>方法，然后<code>Java</code>虚拟机内部会去调用<code>Thred</code>的<code>run</code>方法，可以看到<code>Thread</code>类也是实现<code>Runnable</code>接口，重写了<code>run</code>方法的：<br>{: id=”20201220214147-ru3l5gl”}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1 @Override</span><br><span class="line">2 public void run() &#123;</span><br><span class="line">3     &#x2F;&#x2F;当前执行任务的Runnable对象不为空，则调用其run方法</span><br><span class="line">4     if (target !&#x3D; null) &#123;</span><br><span class="line">5         target.run();</span><br><span class="line">6     &#125;</span><br><span class="line">7 &#125;</span><br></pre></td></tr></table></figure>
+<p>{: id=”20201220214147-ngtq2hy”}</p>
+<p><code>Thread</code>的两种使用方式：<br>{: id=”20201220214147-kt2jmia”}</p>
 <ul>
-<li><p>  继承<code>Thread</code>类，重写<code>run</code>方法，那么此时是直接执行<code>run</code>方法的逻辑，不会使用<code>target.run();</code></p>
-</li>
-<li><p>  实现<code>Runnable</code>接口，重写<code>run</code>方法，因为<code>Java</code>的单继承限制，通常使用这种方式创建线程更加灵活，这里真正的执行逻辑就会交给自定义<code>Runnable</code>去实现</p>
-</li>
+<li>{: id=”20201220214147-0jbq8xw”}继承<code>Thread</code>类，重写<code>run</code>方法，那么此时是直接执行<code>run</code>方法的逻辑，不会使用<code>target.run();</code><br>{: id=”20201220214147-idffp4h”}</li>
+<li>{: id=”20201220214147-deru4fm”}实现<code>Runnable</code>接口，重写<code>run</code>方法，因为<code>Java</code>的单继承限制，通常使用这种方式创建线程更加灵活，这里真正的执行逻辑就会交给自定义<code>Runnable</code>去实现<br>{: id=”20201220214147-ne7ibmz”}<br>{: id=”20201220214147-lbo5fkl”}</li>
 </ul>
-<h4 id="设置守护线程"><a href="#设置守护线程" class="headerlink" title="设置守护线程"></a>设置守护线程</h4><p>本质操作是设置<code>daemon</code>属性</p>
-<pre><code>     1  public final void setDaemon(boolean on) &#123;
-     2      //检查是否有安全权限
-     3      checkAccess();
-     4      //本地方法，测试此线程是否存活。, 如果一个线程已经启动并且尚未死亡，则该线程处于活动状态
-     5      if (isAlive()) &#123;
-     6          //如果线程先启动后再设置守护线程，将抛出异常
-     7          throw new IllegalThreadStateException();
-     8      &#125;
-     9      //设置当前守护线程属性
-    10      daemon = on;
-    11  &#125;</code></pre>
-<h4 id="判断线程是否为守护线程"><a href="#判断线程是否为守护线程" class="headerlink" title="判断线程是否为守护线程"></a>判断线程是否为守护线程</h4><pre><code>    1 public final boolean isDaemon() &#123;
-    2     //直接返回当前对象的守护线程属性
-    3     return daemon;
-    4 &#125;</code></pre>
-<h4 id="线程状态"><a href="#线程状态" class="headerlink" title="线程状态"></a>线程状态</h4><p>先来个线程状态图：</p>
-<p><img src="./2019-01-21_java_thread_source/java_thread_source_1.png" alt="java_thread_source_1.png"> </p>
-<p>获取线程状态：</p>
-<pre><code>    1 public State getState() &#123;
-    2     //由虚拟机实现，获取当前线程的状态
-    3     return sun.misc.VM.toThreadState(threadStatus);
-    4 &#125;</code></pre>
-<p>线程状态主要由内部枚举类<code>State</code>组成：</p>
-<pre><code>     1  public enum State &#123;
-     2
-     3     NEW,
-     4
-     5
-     6     RUNNABLE,
-     7
-     8
-     9     BLOCKED,
-    10
-    11
-    12     WAITING,
-    13
-    14
-    15     TIMED_WAITING,
-    16
-    17
-    18     TERMINATED;
-    19 &#125;</code></pre>
+<h4 id="设置守护线程"><a href="#设置守护线程" class="headerlink" title="设置守护线程"></a>设置守护线程</h4><p>{: id=”20201220214147-2mh2x45”}</p>
+<p>本质操作是设置<code>daemon</code>属性<br>{: id=”20201220214147-c9toib0”}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"> 1  public final void setDaemon(boolean on) &#123;</span><br><span class="line"> 2      &#x2F;&#x2F;检查是否有安全权限</span><br><span class="line"> 3      checkAccess();</span><br><span class="line"> 4      &#x2F;&#x2F;本地方法，测试此线程是否存活。, 如果一个线程已经启动并且尚未死亡，则该线程处于活动状态</span><br><span class="line"> 5      if (isAlive()) &#123;</span><br><span class="line"> 6          &#x2F;&#x2F;如果线程先启动后再设置守护线程，将抛出异常</span><br><span class="line"> 7          throw new IllegalThreadStateException();</span><br><span class="line"> 8      &#125;</span><br><span class="line"> 9      &#x2F;&#x2F;设置当前守护线程属性</span><br><span class="line">10      daemon &#x3D; on;</span><br><span class="line">11  &#125;</span><br></pre></td></tr></table></figure>
+<p>{: id=”20201220214147-1tbdeto”}</p>
+<h4 id="判断线程是否为守护线程"><a href="#判断线程是否为守护线程" class="headerlink" title="判断线程是否为守护线程"></a>判断线程是否为守护线程</h4><p>{: id=”20201220214147-xe5yfxj”}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1 public final boolean isDaemon() &#123;</span><br><span class="line">2     &#x2F;&#x2F;直接返回当前对象的守护线程属性</span><br><span class="line">3     return daemon;</span><br><span class="line">4 &#125;</span><br></pre></td></tr></table></figure>
+<p>{: id=”20201220214147-b6s25tf”}</p>
+<h4 id="线程状态"><a href="#线程状态" class="headerlink" title="线程状态"></a>线程状态</h4><p>{: id=”20201220214147-rars5jk”}</p>
+<p>先来个线程状态图：<br>{: id=”20201220214147-neu4m4z”}</p>
+<p><img src="./2019-01-21_java_thread_source/java_thread_source_1.png" alt="java_thread_source_1.png"><br>{: id=”20201220214147-z33znva”}</p>
+<p>获取线程状态：<br>{: id=”20201220214147-heequwi”}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1 public State getState() &#123;</span><br><span class="line">2     &#x2F;&#x2F;由虚拟机实现，获取当前线程的状态</span><br><span class="line">3     return sun.misc.VM.toThreadState(threadStatus);</span><br><span class="line">4 &#125;</span><br></pre></td></tr></table></figure>
+<p>{: id=”20201220214147-f1s4pcj”}</p>
+<p>线程状态主要由内部枚举类<code>State</code>组成：<br>{: id=”20201220214147-gbgl2f0”}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"> 1  public enum State &#123;</span><br><span class="line"> 2</span><br><span class="line"> 3     NEW,</span><br><span class="line"> 4</span><br><span class="line"> 5</span><br><span class="line"> 6     RUNNABLE,</span><br><span class="line"> 7</span><br><span class="line"> 8</span><br><span class="line"> 9     BLOCKED,</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12     WAITING,</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15     TIMED_WAITING,</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18     TERMINATED;</span><br><span class="line">19 &#125;</span><br></pre></td></tr></table></figure>
+<p>{: id=”20201220214147-q3iy1nt”}</p>
 <ul>
-<li><p>  NEW：刚刚创建，尚未启动的线程处于此状态</p>
-</li>
-<li><p>  RUNNABLE：在Java虚拟机中执行的线程处于此状态</p>
-</li>
-<li><p>  BLOCKED：被阻塞等待监视器锁的线程处于此状态，比如线程在执行过程中遇到<code>synchronized</code>同步块，就会进入此状态，此时线程暂停执行，直到获得请求的锁</p>
-</li>
-<li><p>  WAITING：无限期等待另一个线程执行特定操作的线程处于此状态</p>
-</li>
+<li>{: id=”20201220214147-hpis15t”}NEW：刚刚创建，尚未启动的线程处于此状态<br>{: id=”20201220214147-oomoz1k”}</li>
+<li>{: id=”20201220214147-zzvnvfj”}RUNNABLE：在Java虚拟机中执行的线程处于此状态<br>{: id=”20201220214147-ds506g4”}</li>
+<li>{: id=”20201220214147-arbfogt”}BLOCKED：被阻塞等待监视器锁的线程处于此状态，比如线程在执行过程中遇到<code>synchronized</code>同步块，就会进入此状态，此时线程暂停执行，直到获得请求的锁<br>{: id=”20201220214147-t2x0fuo”}</li>
+<li>{: id=”20201220214147-zy9mk78”}WAITING：无限期等待另一个线程执行特定操作的线程处于此状态<br>{: id=”20201220214147-cp2c77z”}</li>
+<li>{: id=”20201220214147-2hwfqmc”}通过 wait() 方法等待的线程在等待 notify() 方法<br>{: id=”20201220214147-jbe3rhl”}</li>
+<li>{: id=”20201220214147-j35091b”}通过 join() 方法等待的线程则会等待目标线程的终止<br>{: id=”20201220214147-8m17akq”}</li>
+<li>{: id=”20201220214147-fxrt2wd”}TIMED_WAITING：正在等待另一个线程执行动作，直到指定等待时间的线程处于此状态<br>{: id=”20201220214147-lorketb”}</li>
+<li>{: id=”20201220214147-tt56qct”}通过 wait() 方法，携带超时时间，等待的线程在等待 notify() 方法<br>{: id=”20201220214147-i9lf69i”}</li>
+<li>{: id=”20201220214147-8i8tni4”}通过 join() 方法，携带超时时间，等待的线程则会等待目标线程的终止<br>{: id=”20201220214147-1txvmtr”}</li>
+<li>{: id=”20201220214147-0ol57uy”}TERMINATED：已退出的线程处于此状态，此时线程无法再回到 RUNNABLE 状态<br>{: id=”20201220214147-c953i5m”}<br>{: id=”20201220214147-qhzmfmg”}</li>
 </ul>
+<h4 id="线程休眠"><a href="#线程休眠" class="headerlink" title="线程休眠"></a>线程休眠</h4><p>{: id=”20201220214147-m3uh01s”}</p>
+<p>这是一个静态的本地方法，使当前执行的线程休眠暂停执行 <code>millis</code> 毫秒，当休眠被中断时会抛出<code>InterruptedException</code>中断异常<br>{: id=”20201220214147-xv5w0s1”}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"> 1 &#x2F;**</span><br><span class="line"> 2  * Causes the currently executing thread to sleep (temporarily cease</span><br><span class="line"> 3  * execution) for the specified number of milliseconds, subject to</span><br><span class="line"> 4  * the precision and accuracy of system timers and schedulers. The thread</span><br><span class="line"> 5  * does not lose ownership of any monitors.</span><br><span class="line"> 6  *</span><br><span class="line"> 7  * @param  millis</span><br><span class="line"> 8  *         the length of time to sleep in milliseconds</span><br><span class="line"> 9  *</span><br><span class="line">10  * @throws  IllegalArgumentException</span><br><span class="line">11  *          if the value of &#123;@code millis&#125; is negative</span><br><span class="line">12  *</span><br><span class="line">13  * @throws  InterruptedException</span><br><span class="line">14  *          if any thread has interrupted the current thread. The</span><br><span class="line">15  *          &lt;i&gt;interrupted status&lt;&#x2F;i&gt; of the current thread is</span><br><span class="line">16  *          cleared when this exception is thrown.</span><br><span class="line">17  *&#x2F;</span><br><span class="line">18 public static native void sleep(long millis) throws InterruptedException;</span><br></pre></td></tr></table></figure>
+<p>{: id=”20201220214147-lj0natr”}</p>
+<h4 id="检查线程是否存活"><a href="#检查线程是否存活" class="headerlink" title="检查线程是否存活"></a>检查线程是否存活</h4><p>{: id=”20201220214147-e1c3ry2”}</p>
+<p>本地方法，测试此线程是否存活。 如果一个线程已经启动并且尚未死亡，则该线程处于活动状态。<br>{: id=”20201220214147-80y0svh”}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1  &#x2F;**</span><br><span class="line">2   * Tests if this thread is alive. A thread is alive if it has</span><br><span class="line">3   * been started and has not yet died.</span><br><span class="line">4   *</span><br><span class="line">5   * @return  &lt;code&gt;true&lt;&#x2F;code&gt; if this thread is alive;</span><br><span class="line">6   *          &lt;code&gt;false&lt;&#x2F;code&gt; otherwise.</span><br><span class="line">7   *&#x2F;</span><br><span class="line">8  public final native boolean isAlive();</span><br></pre></td></tr></table></figure>
+<p>{: id=”20201220214147-r7x4l08”}</p>
+<h4 id="线程优先级"><a href="#线程优先级" class="headerlink" title="线程优先级"></a>线程优先级</h4><p>{: id=”20201220214147-i934u9a”}</p>
 <ul>
-<li><p>  通过 wait() 方法等待的线程在等待 notify() 方法</p>
-</li>
-<li><p>  通过 join() 方法等待的线程则会等待目标线程的终止</p>
+<li><p>{: id=”20201220214147-g9pb78m”}设置线程优先级<br>{: id=”20201220214147-2vs54mr”}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"> 1  &#x2F;**</span><br><span class="line"> 2   * Changes the priority of this thread.</span><br><span class="line"> 3   * &lt;p&gt;</span><br><span class="line"> 4   * First the &lt;code&gt;checkAccess&lt;&#x2F;code&gt; method of this thread is called</span><br><span class="line"> 5   * with no arguments. This may result in throwing a</span><br><span class="line"> 6   * &lt;code&gt;SecurityException&lt;&#x2F;code&gt;.</span><br><span class="line"> 7   * &lt;p&gt;</span><br><span class="line"> 8   * Otherwise, the priority of this thread is set to the smaller of</span><br><span class="line"> 9   * the specified &lt;code&gt;newPriority&lt;&#x2F;code&gt; and the maximum permitted</span><br><span class="line">10   * priority of the thread&#39;s thread group.</span><br><span class="line">11   *</span><br><span class="line">12   * @param newPriority priority to set this thread to</span><br><span class="line">13   * @exception  IllegalArgumentException  If the priority is not in the</span><br><span class="line">14   *               range &lt;code&gt;MIN_PRIORITY&lt;&#x2F;code&gt; to</span><br><span class="line">15   *               &lt;code&gt;MAX_PRIORITY&lt;&#x2F;code&gt;.</span><br><span class="line">16   * @exception  SecurityException  if the current thread cannot modify</span><br><span class="line">17   *               this thread.</span><br><span class="line">18   * @see        #getPriority</span><br><span class="line">19   * @see        #checkAccess()</span><br><span class="line">20   * @see        #getThreadGroup()</span><br><span class="line">21   * @see        #MAX_PRIORITY</span><br><span class="line">22   * @see        #MIN_PRIORITY</span><br><span class="line">23   * @see        ThreadGroup#getMaxPriority()</span><br><span class="line">24   *&#x2F;</span><br><span class="line">25  public final void setPriority(int newPriority) &#123;</span><br><span class="line">26      &#x2F;&#x2F;线程组</span><br><span class="line">27      ThreadGroup g;</span><br><span class="line">28      &#x2F;&#x2F;检查安全权限</span><br><span class="line">29      checkAccess();</span><br><span class="line">30      &#x2F;&#x2F;检查优先级形参范围</span><br><span class="line">31      if (newPriority &gt; MAX_PRIORITY || newPriority &lt; MIN_PRIORITY) &#123;</span><br><span class="line">32          throw new IllegalArgumentException();</span><br><span class="line">33      &#125;</span><br><span class="line">34      if((g &#x3D; getThreadGroup()) !&#x3D; null) &#123;</span><br><span class="line">35          &#x2F;&#x2F;如果优先级形参大于线程组最大线程最大优先级</span><br><span class="line">36          if (newPriority &gt; g.getMaxPriority()) &#123;</span><br><span class="line">37              &#x2F;&#x2F;则使用线程组的优先级数据</span><br><span class="line">38              newPriority &#x3D; g.getMaxPriority();</span><br><span class="line">39          &#125;</span><br><span class="line">40          &#x2F;&#x2F;调用本地设置线程优先级方法</span><br><span class="line">41          setPriority0(priority &#x3D; newPriority);</span><br><span class="line">42      &#125;</span><br><span class="line">43  &#125;</span><br></pre></td></tr></table></figure>
+<p>{: id=”20201220214147-yfolep0”}<br>{: id=”20201220214147-up8l405”}</p>
 </li>
 </ul>
+<h4 id="线程中断"><a href="#线程中断" class="headerlink" title="线程中断"></a>线程中断</h4><p>{: id=”20201220214147-3ub4yio”}</p>
+<p>有一个<code>stop()</code>实例方法可以强制终止线程，不过这个方法因为太过于暴力，已经被标记为过时方法，不建议程序员再使用，因为<strong>强制终止线程</strong>会导致数据不一致的问题。<br>{: id=”20201220214147-f8zj7i8”}</p>
+<p>这里关于线程中断的方法涉及三个：<br>{: id=”20201220214147-g6hb1ae”}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1 &#x2F;&#x2F;实例方法，通知线程中断，设置标志位</span><br><span class="line">2 public void interrupt()&#123;&#125;</span><br><span class="line">3 &#x2F;&#x2F;静态方法，检查当前线程的中断状态，同时会清除当前线程的中断标志位状态</span><br><span class="line">4 public static boolean interrupted()&#123;&#125;</span><br><span class="line">5 &#x2F;&#x2F;实例方法，检查当前线程是否被中断，其实是检查中断标志位</span><br><span class="line">6 public boolean isInterrupted()&#123;&#125;</span><br></pre></td></tr></table></figure>
+<p>{: id=”20201220214147-ie77llj”}</p>
+<p><strong>interrupt() 方法解析</strong><br>{: id=”20201220214147-twv3skm”}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"> 1  &#x2F;**</span><br><span class="line"> 2   * Interrupts this thread.</span><br><span class="line"> 3   *</span><br><span class="line"> 4   * &lt;p&gt; Unless the current thread is interrupting itself, which is</span><br><span class="line"> 5   * always permitted, the &#123;@link #checkAccess() checkAccess&#125; method</span><br><span class="line"> 6   * of this thread is invoked, which may cause a &#123;@link</span><br><span class="line"> 7   * SecurityException&#125; to be thrown.</span><br><span class="line"> 8   *</span><br><span class="line"> 9   * &lt;p&gt; If this thread is blocked in an invocation of the &#123;@link</span><br><span class="line">10   * Object#wait() wait()&#125;, &#123;@link Object#wait(long) wait(long)&#125;, or &#123;@link</span><br><span class="line">11   * Object#wait(long, int) wait(long, int)&#125; methods of the &#123;@link Object&#125;</span><br><span class="line">12   * class, or of the &#123;@link #join()&#125;, &#123;@link #join(long)&#125;, &#123;@link</span><br><span class="line">13   * #join(long, int)&#125;, &#123;@link #sleep(long)&#125;, or &#123;@link #sleep(long, int)&#125;,</span><br><span class="line">14   * methods of this class, then its interrupt status will be cleared and it</span><br><span class="line">15   * will receive an &#123;@link InterruptedException&#125;.</span><br><span class="line">16   *</span><br><span class="line">17   * &lt;p&gt; If this thread is blocked in an I&#x2F;O operation upon an &#123;@link</span><br><span class="line">18   * java.nio.channels.InterruptibleChannel InterruptibleChannel&#125;</span><br><span class="line">19   * then the channel will be closed, the thread&#39;s interrupt</span><br><span class="line">20   * status will be set, and the thread will receive a &#123;@link</span><br><span class="line">21   * java.nio.channels.ClosedByInterruptException&#125;.</span><br><span class="line">22   *</span><br><span class="line">23   * &lt;p&gt; If this thread is blocked in a &#123;@link java.nio.channels.Selector&#125;</span><br><span class="line">24   * then the thread&#39;s interrupt status will be set and it will return</span><br><span class="line">25   * immediately from the selection operation, possibly with a non-zero</span><br><span class="line">26   * value, just as if the selector&#39;s &#123;@link</span><br><span class="line">27   * java.nio.channels.Selector#wakeup wakeup&#125; method were invoked.</span><br><span class="line">28   *</span><br><span class="line">29   * &lt;p&gt; If none of the previous conditions hold then this thread&#39;s interrupt</span><br><span class="line">30   * status will be set. &lt;&#x2F;p&gt;</span><br><span class="line">31   *</span><br><span class="line">32   * &lt;p&gt; Interrupting a thread that is not alive need not have any effect.</span><br><span class="line">33   *</span><br><span class="line">34   * @throws  SecurityException</span><br><span class="line">35   *          if the current thread cannot modify this thread</span><br><span class="line">36   *</span><br><span class="line">37   * @revised 6.0</span><br><span class="line">38   * @spec JSR-51</span><br><span class="line">39   *&#x2F;</span><br><span class="line">40  public void interrupt() &#123;</span><br><span class="line">41      &#x2F;&#x2F;检查是否是自身调用</span><br><span class="line">42      if (this !&#x3D; Thread.currentThread())</span><br><span class="line">43          &#x2F;&#x2F;检查安全权限,这可能导致抛出&#123;@link * SecurityException&#125;。</span><br><span class="line">44          checkAccess();</span><br><span class="line">45</span><br><span class="line">46      &#x2F;&#x2F;同步代码块</span><br><span class="line">47      synchronized (blockerLock) &#123;</span><br><span class="line">48          Interruptible b &#x3D; blocker;</span><br><span class="line">49          &#x2F;&#x2F;检查是否是阻塞线程调用</span><br><span class="line">50          if (b !&#x3D; null) &#123;</span><br><span class="line">51              &#x2F;&#x2F;设置线程中断标志位</span><br><span class="line">52              interrupt0(); </span><br><span class="line">53              &#x2F;&#x2F;此时抛出异常，将中断标志位设置为false,此时我们正常会捕获该异常，重新设置中断标志位</span><br><span class="line">54              b.interrupt(this);</span><br><span class="line">55              return;</span><br><span class="line">56          &#125;</span><br><span class="line">57      &#125;</span><br><span class="line">58      &#x2F;&#x2F;如无意外，则正常设置中断标志位</span><br><span class="line">59      interrupt0();</span><br><span class="line">60  &#125;</span><br></pre></td></tr></table></figure>
+<p>{: id=”20201220214147-suo133n”}</p>
 <ul>
-<li>  TIMED_WAITING：正在等待另一个线程执行动作，直到指定等待时间的线程处于此状态</li>
+<li>{: id=”20201220214147-71ec3sp”}线程中断方法不会使线程立即退出，而是给线程发送一个通知，告知目标线程，有人希望你退出啦～<br>{: id=”20201220214147-i37als1”}</li>
+<li>{: id=”20201220214147-opbqgz3”}只能由自身调用，否则可能会抛出 <code>SecurityException</code><br>{: id=”20201220214147-478m89p”}</li>
+<li>{: id=”20201220214147-a7ou9xx”}调用中断方法是由目标线程自己决定是否中断，而如果同时调用了<code>wait</code>,<code>join</code>,<code>sleep</code>等方法，会使当前线程进入阻塞状态，此时有可能发生<code>InterruptedException</code>异常<br>{: id=”20201220214147-i8zgxot”}</li>
+<li>{: id=”20201220214147-j85tb8g”}被阻塞的线程再调用中断方法是不合理的<br>{: id=”20201220214147-txldr6z”}</li>
+<li>{: id=”20201220214147-9fp554i”}中断不活动的线程不会产生任何影响<br>{: id=”20201220214147-fm8ta85”}<br>{: id=”20201220214147-5rhi5vs”}</li>
 </ul>
-<ul>
-<li><p>  通过 wait() 方法，携带超时时间，等待的线程在等待 notify() 方法</p>
-</li>
-<li><p>  通过 join() 方法，携带超时时间，等待的线程则会等待目标线程的终止</p>
-</li>
-</ul>
-<ul>
-<li>  TERMINATED：已退出的线程处于此状态，此时线程无法再回到 RUNNABLE 状态</li>
-</ul>
-<h4 id="线程休眠"><a href="#线程休眠" class="headerlink" title="线程休眠"></a>线程休眠</h4><p>这是一个静态的本地方法，使当前执行的线程休眠暂停执行 <code>millis</code> 毫秒，当休眠被中断时会抛出<code>InterruptedException</code>中断异常</p>
-<pre><code>     1 /**
-     2  * Causes the currently executing thread to sleep (temporarily cease
-     3  * execution) for the specified number of milliseconds, subject to
-     4  * the precision and accuracy of system timers and schedulers. The thread
-     5  * does not lose ownership of any monitors.
-     6  *
-     7  * @param  millis
-     8  *         the length of time to sleep in milliseconds
-     9  *
-    10  * @throws  IllegalArgumentException
-    11  *          if the value of &#123;@code millis&#125; is negative
-    12  *
-    13  * @throws  InterruptedException
-    14  *          if any thread has interrupted the current thread. The
-    15  *          &lt;i&gt;interrupted status&lt;/i&gt; of the current thread is
-    16  *          cleared when this exception is thrown.
-    17  */
-    18 public static native void sleep(long millis) throws InterruptedException;</code></pre>
-<h4 id="检查线程是否存活"><a href="#检查线程是否存活" class="headerlink" title="检查线程是否存活"></a>检查线程是否存活</h4><p>本地方法，测试此线程是否存活。 如果一个线程已经启动并且尚未死亡，则该线程处于活动状态。</p>
-<pre><code>    1  /**
-    2   * Tests if this thread is alive. A thread is alive if it has
-    3   * been started and has not yet died.
-    4   *
-    5   * @return  &lt;code&gt;true&lt;/code&gt; if this thread is alive;
-    6   *          &lt;code&gt;false&lt;/code&gt; otherwise.
-    7   */
-    8  public final native boolean isAlive();</code></pre>
-<h4 id="线程优先级"><a href="#线程优先级" class="headerlink" title="线程优先级"></a>线程优先级</h4><ul>
-<li><p>设置线程优先级</p>
-<pre><code>   1  /**
-   2   * Changes the priority of this thread.
-   3   * &lt;p&gt;
-   4   * First the &lt;code&gt;checkAccess&lt;/code&gt; method of this thread is called
-   5   * with no arguments. This may result in throwing a
-   6   * &lt;code&gt;SecurityException&lt;/code&gt;.
-   7   * &lt;p&gt;
-   8   * Otherwise, the priority of this thread is set to the smaller of
-   9   * the specified &lt;code&gt;newPriority&lt;/code&gt; and the maximum permitted
-  10   * priority of the thread&#39;s thread group.
-  11   *
-  12   * @param newPriority priority to set this thread to
-  13   * @exception  IllegalArgumentException  If the priority is not in the
-  14   *               range &lt;code&gt;MIN_PRIORITY&lt;/code&gt; to
-  15   *               &lt;code&gt;MAX_PRIORITY&lt;/code&gt;.
-  16   * @exception  SecurityException  if the current thread cannot modify
-  17   *               this thread.
-  18   * @see        #getPriority
-  19   * @see        #checkAccess()
-  20   * @see        #getThreadGroup()
-  21   * @see        #MAX_PRIORITY
-  22   * @see        #MIN_PRIORITY
-  23   * @see        ThreadGroup#getMaxPriority()
-  24   */
-  25  public final void setPriority(int newPriority) &#123;
-  26      //线程组
-  27      ThreadGroup g;
-  28      //检查安全权限
-  29      checkAccess();
-  30      //检查优先级形参范围
-  31      if (newPriority &gt; MAX_PRIORITY || newPriority &lt; MIN_PRIORITY) &#123;
-  32          throw new IllegalArgumentException();
-  33      &#125;
-  34      if((g = getThreadGroup()) != null) &#123;
-  35          //如果优先级形参大于线程组最大线程最大优先级
-  36          if (newPriority &gt; g.getMaxPriority()) &#123;
-  37              //则使用线程组的优先级数据
-  38              newPriority = g.getMaxPriority();
-  39          &#125;
-  40          //调用本地设置线程优先级方法
-  41          setPriority0(priority = newPriority);
-  42      &#125;
-  43  &#125;</code></pre>
-</li>
-</ul>
-<h4 id="线程中断"><a href="#线程中断" class="headerlink" title="线程中断"></a>线程中断</h4><p>有一个<code>stop()</code>实例方法可以强制终止线程，不过这个方法因为太过于暴力，已经被标记为过时方法，不建议程序员再使用，因为<strong>强制终止线程</strong>会导致数据不一致的问题。</p>
-<p>这里关于线程中断的方法涉及三个：</p>
-<pre><code>    1 //实例方法，通知线程中断，设置标志位
-    2 public void interrupt()&#123;&#125;
-    3 //静态方法，检查当前线程的中断状态，同时会清除当前线程的中断标志位状态
-    4 public static boolean interrupted()&#123;&#125;
-    5 //实例方法，检查当前线程是否被中断，其实是检查中断标志位
-    6 public boolean isInterrupted()&#123;&#125;</code></pre>
-<p><strong>interrupt() 方法解析</strong></p>
-<pre><code>     1  /**
-     2   * Interrupts this thread.
-     3   *
-     4   * &lt;p&gt; Unless the current thread is interrupting itself, which is
-     5   * always permitted, the &#123;@link #checkAccess() checkAccess&#125; method
-     6   * of this thread is invoked, which may cause a &#123;@link
-     7   * SecurityException&#125; to be thrown.
-     8   *
-     9   * &lt;p&gt; If this thread is blocked in an invocation of the &#123;@link
-    10   * Object#wait() wait()&#125;, &#123;@link Object#wait(long) wait(long)&#125;, or &#123;@link
-    11   * Object#wait(long, int) wait(long, int)&#125; methods of the &#123;@link Object&#125;
-    12   * class, or of the &#123;@link #join()&#125;, &#123;@link #join(long)&#125;, &#123;@link
-    13   * #join(long, int)&#125;, &#123;@link #sleep(long)&#125;, or &#123;@link #sleep(long, int)&#125;,
-    14   * methods of this class, then its interrupt status will be cleared and it
-    15   * will receive an &#123;@link InterruptedException&#125;.
-    16   *
-    17   * &lt;p&gt; If this thread is blocked in an I/O operation upon an &#123;@link
-    18   * java.nio.channels.InterruptibleChannel InterruptibleChannel&#125;
-    19   * then the channel will be closed, the thread&#39;s interrupt
-    20   * status will be set, and the thread will receive a &#123;@link
-    21   * java.nio.channels.ClosedByInterruptException&#125;.
-    22   *
-    23   * &lt;p&gt; If this thread is blocked in a &#123;@link java.nio.channels.Selector&#125;
-    24   * then the thread&#39;s interrupt status will be set and it will return
-    25   * immediately from the selection operation, possibly with a non-zero
-    26   * value, just as if the selector&#39;s &#123;@link
-    27   * java.nio.channels.Selector#wakeup wakeup&#125; method were invoked.
-    28   *
-    29   * &lt;p&gt; If none of the previous conditions hold then this thread&#39;s interrupt
-    30   * status will be set. &lt;/p&gt;
-    31   *
-    32   * &lt;p&gt; Interrupting a thread that is not alive need not have any effect.
-    33   *
-    34   * @throws  SecurityException
-    35   *          if the current thread cannot modify this thread
-    36   *
-    37   * @revised 6.0
-    38   * @spec JSR-51
-    39   */
-    40  public void interrupt() &#123;
-    41      //检查是否是自身调用
-    42      if (this != Thread.currentThread())
-    43          //检查安全权限,这可能导致抛出&#123;@link * SecurityException&#125;。
-    44          checkAccess();
-    45
-    46      //同步代码块
-    47      synchronized (blockerLock) &#123;
-    48          Interruptible b = blocker;
-    49          //检查是否是阻塞线程调用
-    50          if (b != null) &#123;
-    51              //设置线程中断标志位
-    52              interrupt0(); 
-    53              //此时抛出异常，将中断标志位设置为false,此时我们正常会捕获该异常，重新设置中断标志位
-    54              b.interrupt(this);
-    55              return;
-    56          &#125;
-    57      &#125;
-    58      //如无意外，则正常设置中断标志位
-    59      interrupt0();
-    60  &#125;</code></pre>
-<ul>
-<li><p>  线程中断方法不会使线程立即退出，而是给线程发送一个通知，告知目标线程，有人希望你退出啦～</p>
-</li>
-<li><p>  只能由自身调用，否则可能会抛出 <code>SecurityException</code></p>
-</li>
-<li><p>  调用中断方法是由目标线程自己决定是否中断，而如果同时调用了<code>wait</code>,<code>join</code>,<code>sleep</code>等方法，会使当前线程进入阻塞状态，此时有可能发生<code>InterruptedException</code>异常</p>
-</li>
-<li><p>  被阻塞的线程再调用中断方法是不合理的</p>
-</li>
-<li><p>  中断不活动的线程不会产生任何影响</p>
-</li>
-</ul>
-<p>检查线程是否被中断:</p>
-<pre><code>     1  /**
-     2   * Tests whether this thread has been interrupted.  The &lt;i&gt;interrupted
-     3   * status&lt;/i&gt; of the thread is unaffected by this method.
-     4
-     5   测试此线程是否已被中断。, 线程的&lt;i&gt;中断*状态&lt;/ i&gt;不受此方法的影响。
-     6   *
-     7   * &lt;p&gt;A thread interruption ignored because a thread was not alive
-     8   * at the time of the interrupt will be reflected by this method
-     9   * returning false.
-    10   *
-    11   * @return  &lt;code&gt;true&lt;/code&gt; if this thread has been interrupted;
-    12   *          &lt;code&gt;false&lt;/code&gt; otherwise.
-    13   * @see     #interrupted()
-    14   * @revised 6.0
-    15   */
-    16  public boolean isInterrupted() &#123;
-    17      return isInterrupted(false);
-    18  &#125;</code></pre>
-<p>静态方法,会清空当前线程的中断标志位：</p>
-<pre><code>     1   /**
-     2     *测试当前线程是否已被中断。, 此方法清除线程的* &lt;i&gt;中断状态&lt;/ i&gt;。, 换句话说，如果要连续两次调用此方法，则* second调用将返回false（除非当前线程再次被中断，在第一次调用已清除其中断的*状态   之后且在第二次调用已检查之前）, 它）
-     3     *
-     4     * &lt;p&gt;A thread interruption ignored because a thread was not alive
-     5     * at the time of the interrupt will be reflected by this method
-     6     * returning false.
-     7     *
-     8     * @return  &lt;code&gt;true&lt;/code&gt; if the current thread has been interrupted;
-     9     *          &lt;code&gt;false&lt;/code&gt; otherwise.
-    10     * @see #isInterrupted()
-    11     * @revised 6.0
-    12     */
-    13    public static boolean interrupted() &#123;
-    14        return currentThread().isInterrupted(true);
-    15    &#125;</code></pre>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>记录自己阅读<code>Thread</code>类源码的一些思考，不过对于其中用到的很多本地方法只能望而却步，还有一些代码没有看明白，暂且先这样吧，如果有不足之处，请留言告知我，谢谢！后续会在实践中对<code>Thread</code>做出更多总结记录。</p>
+<p>检查线程是否被中断:<br>{: id=”20201220214147-44n7isb”}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"> 1  &#x2F;**</span><br><span class="line"> 2   * Tests whether this thread has been interrupted.  The &lt;i&gt;interrupted</span><br><span class="line"> 3   * status&lt;&#x2F;i&gt; of the thread is unaffected by this method.</span><br><span class="line"> 4</span><br><span class="line"> 5   测试此线程是否已被中断。, 线程的&lt;i&gt;中断*状态&lt;&#x2F; i&gt;不受此方法的影响。</span><br><span class="line"> 6   *</span><br><span class="line"> 7   * &lt;p&gt;A thread interruption ignored because a thread was not alive</span><br><span class="line"> 8   * at the time of the interrupt will be reflected by this method</span><br><span class="line"> 9   * returning false.</span><br><span class="line">10   *</span><br><span class="line">11   * @return  &lt;code&gt;true&lt;&#x2F;code&gt; if this thread has been interrupted;</span><br><span class="line">12   *          &lt;code&gt;false&lt;&#x2F;code&gt; otherwise.</span><br><span class="line">13   * @see     #interrupted()</span><br><span class="line">14   * @revised 6.0</span><br><span class="line">15   *&#x2F;</span><br><span class="line">16  public boolean isInterrupted() &#123;</span><br><span class="line">17      return isInterrupted(false);</span><br><span class="line">18  &#125;</span><br></pre></td></tr></table></figure>
+<p>{: id=”20201220214147-czx5a25”}</p>
+<p>静态方法,会清空当前线程的中断标志位：<br>{: id=”20201220214147-in31cu1”}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"> 1   &#x2F;**</span><br><span class="line"> 2     *测试当前线程是否已被中断。, 此方法清除线程的* &lt;i&gt;中断状态&lt;&#x2F; i&gt;。, 换句话说，如果要连续两次调用此方法，则* second调用将返回false（除非当前线程再次被中断，在第一次调用已清除其中断的*状态   之后且在第二次调用已检查之前）, 它）</span><br><span class="line"> 3     *</span><br><span class="line"> 4     * &lt;p&gt;A thread interruption ignored because a thread was not alive</span><br><span class="line"> 5     * at the time of the interrupt will be reflected by this method</span><br><span class="line"> 6     * returning false.</span><br><span class="line"> 7     *</span><br><span class="line"> 8     * @return  &lt;code&gt;true&lt;&#x2F;code&gt; if the current thread has been interrupted;</span><br><span class="line"> 9     *          &lt;code&gt;false&lt;&#x2F;code&gt; otherwise.</span><br><span class="line">10     * @see #isInterrupted()</span><br><span class="line">11     * @revised 6.0</span><br><span class="line">12     *&#x2F;</span><br><span class="line">13    public static boolean interrupted() &#123;</span><br><span class="line">14        return currentThread().isInterrupted(true);</span><br><span class="line">15    &#125;</span><br></pre></td></tr></table></figure>
+<p>{: id=”20201220214147-cw4k6h0”}</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>{: id=”20201220214147-oq69nhs”}</p>
+<p>记录自己阅读<code>Thread</code>类源码的一些思考，不过对于其中用到的很多本地方法只能望而却步，还有一些代码没有看明白，暂且先这样吧，如果有不足之处，请留言告知我，谢谢！后续会在实践中对<code>Thread</code>做出更多总结记录。<br>{: id=”20201220214147-uzd1irl”}</p>
+<p>{: id=”20201220214147-jzyafuo” type=”doc”}</p>
 
         
 <script src="/js/qrious.min.js"></script>
@@ -964,7 +563,7 @@
             </p>
             
             <p>
-                <span>本文发表于 2019-01-21，最后修改于 2020-11-24。</span>
+                <span>本文发表于 2019-01-21，最后修改于 2020-12-20。</span>
             </p>
             <!-- 文章末尾的提示 start -->
             
@@ -991,7 +590,7 @@
         <h3>推荐阅读</h3>
         
         <div class="post-preview">
-    <div class="post-img" style="background-image: url('/images/java/basic/java_logo.png')"></div>
+    <div class="post-img" style="background-image: url('/images/MySQL.png')"></div>
     <div class="post-info">
         <div class="post-info-center">
             <div class="hidden-xs">
@@ -999,24 +598,28 @@
                 
                 <span>/</span>
                 
-                <a class="text-gray" href="/tags/#Java"
-                    title="Java">Java</a>
+                <a class="text-gray" href="/tags/#MySQL"
+                    title="MySQL">MySQL</a>
                 <span>/</span>
                 
                 <a class="text-gray" href="/tags/#性能优化"
                     title="性能优化">性能优化</a>
                 <span>/</span>
                 
+                <a class="text-gray" href="/tags/#阅读笔记"
+                    title="阅读笔记">阅读笔记</a>
+                <span>/</span>
+                
                 
             </div>
-            <a href="/post/java/advance/2020-04-25_java_optimize.html" class="title">
-                接口性能优化思路
+            <a href="/post/dateabase/mysql/2020-09-11_高性能MySQL阅读笔记(2).html" class="title">
+                高性能 MySQL 阅读笔记 (2)
             </a>
             <p class="text-gray">
                 <small>
-                    <span>发表于2020-04-24，</span>
-                    <span class="hidden-xs">全文299字，</span>
-                    <span>阅读约1分钟</span>
+                    <span>发表于2020-09-10，</span>
+                    <span class="hidden-xs">全文1554字，</span>
+                    <span>阅读约6分钟</span>
                 </small>
             </p>
         </div>
@@ -1050,14 +653,14 @@
                 
                 
             </div>
-            <a href="/post/frontend/2019-10-26_小程序多端框架全面测评.html" class="title">
-                小程序多端框架全面测评：chameleon、Taro、uni-app、mpvue、WePY
+            <a href="/post/frontend/2019-10-27_移动端跨平台方案如何选择.html" class="title">
+                移动端跨平台方案如何选择
             </a>
             <p class="text-gray">
                 <small>
                     <span>发表于2019-10-26，</span>
-                    <span class="hidden-xs">全文6217字，</span>
-                    <span>阅读约21分钟</span>
+                    <span class="hidden-xs">全文860字，</span>
+                    <span>阅读约3分钟</span>
                 </small>
             </p>
         </div>
@@ -1065,7 +668,7 @@
 </div>
         
         <div class="post-preview">
-    <div class="post-img" style="background-image: url('/images/computer-networking.png')"></div>
+    <div class="post-img" style="background-image: url('/images/java/io.png')"></div>
     <div class="post-info">
         <div class="post-info-center">
             <div class="hidden-xs">
@@ -1073,28 +676,28 @@
                 
                 <span>/</span>
                 
-                <a class="text-gray" href="/tags/#ssh"
-                    title="ssh">ssh</a>
+                <a class="text-gray" href="/tags/#Java"
+                    title="Java">Java</a>
                 <span>/</span>
                 
-                <a class="text-gray" href="/tags/#Heidi"
-                    title="Heidi">Heidi</a>
+                <a class="text-gray" href="/tags/#NIO"
+                    title="NIO">NIO</a>
                 <span>/</span>
                 
-                <a class="text-gray" href="/tags/#MySQL"
-                    title="MySQL">MySQL</a>
+                <a class="text-gray" href="/tags/#Selector"
+                    title="Selector">Selector</a>
                 <span>/</span>
                 
                 
             </div>
-            <a href="/post/network/2017-11-28_HeidiSQL通过SSH隧道链接mysql.html" class="title">
-                Heidi SQL 通过 SSH 隧道链接 MySQL
+            <a href="/post/java/nio/2017-04-23_java_nio_3.html" class="title">
+                Java NIO(3) 选择器 Selector
             </a>
             <p class="text-gray">
                 <small>
-                    <span>发表于2017-11-25，</span>
-                    <span class="hidden-xs">全文402字，</span>
-                    <span>阅读约2分钟</span>
+                    <span>发表于2017-04-22，</span>
+                    <span class="hidden-xs">全文5874字，</span>
+                    <span>阅读约20分钟</span>
                 </small>
             </p>
         </div>
@@ -1191,7 +794,7 @@
         rel="1">#反编译 (1) </a>
     
     <a class="post-tag-item" href="/tags/#Java" title="Java"
-        rel="50">#Java (50) </a>
+        rel="49">#Java (49) </a>
     
     <a class="post-tag-item" href="/tags/#面试" title="面试"
         rel="3">#面试 (3) </a>
@@ -1565,12 +1168,6 @@
     <a class="post-tag-item" href="/tags/#操作系统" title="操作系统"
         rel="1">#操作系统 (1) </a>
     
-    <a class="post-tag-item" href="/tags/#微服务" title="微服务"
-        rel="1">#微服务 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Vert.x" title="Vert.x"
-        rel="1">#Vert.x (1) </a>
-    
     <a class="post-tag-item" href="/tags/#Spring Core" title="Spring Core"
         rel="1">#Spring Core (1) </a>
     
@@ -1652,7 +1249,7 @@
             <span class="number">35</span><span>专题</span>
         </a>
         <a href="/tags" class="col-xs-4">
-            <span class="number">152</span><span>标签</span>
+            <span class="number">150</span><span>标签</span>
         </a>
     </nav>
 
