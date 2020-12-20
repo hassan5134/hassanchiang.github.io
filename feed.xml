@@ -15,7 +15,7 @@
     <atom:link href="https://blog.fenxiangz.com/feed.xml" rel="self" type="application/rss+xml"/>
     
     <description>Share everything</description>
-    <pubDate>Sun, 20 Dec 2020 10:11:02 GMT</pubDate>
+    <pubDate>Sun, 20 Dec 2020 16:47:02 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
@@ -46,7 +46,7 @@
       <title>原来 8 张图，就可以搞懂「零拷贝」了</title>
       <link>https://blog.fenxiangz.com/post/linux/2020-12-16_%E5%8E%9F%E6%9D%A58%E5%BC%A0%E5%9B%BE%EF%BC%8C%E5%B0%B1%E5%8F%AF%E4%BB%A5%E6%90%9E%E6%87%82%E3%80%8C%E9%9B%B6%E6%8B%B7%E8%B4%9D%E3%80%8D%E4%BA%86.html</link>
       <guid>https://blog.fenxiangz.com/post/linux/2020-12-16_%E5%8E%9F%E6%9D%A58%E5%BC%A0%E5%9B%BE%EF%BC%8C%E5%B0%B1%E5%8F%AF%E4%BB%A5%E6%90%9E%E6%87%82%E3%80%8C%E9%9B%B6%E6%8B%B7%E8%B4%9D%E3%80%8D%E4%BA%86.html</guid>
-      <pubDate>Tue, 15 Dec 2020 16:00:00 GMT</pubDate>
+      <pubDate>Wed, 16 Dec 2020 00:00:00 GMT</pubDate>
       
         
         
@@ -79,7 +79,7 @@
       <title>Redis存储优化</title>
       <link>https://blog.fenxiangz.com/post/dateabase/Redis/2020_12_08_Redis%E6%B8%85%E7%90%86%E6%96%B9%E6%B3%95.html</link>
       <guid>https://blog.fenxiangz.com/post/dateabase/Redis/2020_12_08_Redis%E6%B8%85%E7%90%86%E6%96%B9%E6%B3%95.html</guid>
-      <pubDate>Mon, 07 Dec 2020 16:00:00 GMT</pubDate>
+      <pubDate>Tue, 08 Dec 2020 00:00:00 GMT</pubDate>
       
         
         
@@ -107,7 +107,7 @@
       <title>猴子管理法则</title>
       <link>https://blog.fenxiangz.com/post/%E5%85%B6%E4%BB%96/2020-11-28_%E7%8C%B4%E5%AD%90%E7%AE%A1%E7%90%86%E6%B3%95%E5%88%99.html</link>
       <guid>https://blog.fenxiangz.com/post/%E5%85%B6%E4%BB%96/2020-11-28_%E7%8C%B4%E5%AD%90%E7%AE%A1%E7%90%86%E6%B3%95%E5%88%99.html</guid>
-      <pubDate>Fri, 27 Nov 2020 16:00:00 GMT</pubDate>
+      <pubDate>Sat, 28 Nov 2020 00:00:00 GMT</pubDate>
       
         
         
@@ -133,7 +133,7 @@
       <title>『认知升级』是比其他一切都更加重要的思维模型转变</title>
       <link>https://blog.fenxiangz.com/post/%E5%85%B6%E4%BB%96/2020-11-27_%E3%80%8E%E8%AE%A4%E7%9F%A5%E5%8D%87%E7%BA%A7%E3%80%8F%E6%98%AF%E6%AF%94%E5%85%B6%E4%BB%96%E4%B8%80%E5%88%87%E9%83%BD%E6%9B%B4%E5%8A%A0%E9%87%8D%E8%A6%81%E7%9A%84%E6%80%9D%E7%BB%B4%E6%A8%A1%E5%9E%8B%E8%BD%AC%E5%8F%98.html</link>
       <guid>https://blog.fenxiangz.com/post/%E5%85%B6%E4%BB%96/2020-11-27_%E3%80%8E%E8%AE%A4%E7%9F%A5%E5%8D%87%E7%BA%A7%E3%80%8F%E6%98%AF%E6%AF%94%E5%85%B6%E4%BB%96%E4%B8%80%E5%88%87%E9%83%BD%E6%9B%B4%E5%8A%A0%E9%87%8D%E8%A6%81%E7%9A%84%E6%80%9D%E7%BB%B4%E6%A8%A1%E5%9E%8B%E8%BD%AC%E5%8F%98.html</guid>
-      <pubDate>Thu, 26 Nov 2020 16:00:00 GMT</pubDate>
+      <pubDate>Fri, 27 Nov 2020 00:00:00 GMT</pubDate>
       
         
         
@@ -160,7 +160,7 @@
       <title>Jira 修改 Path 路径后的用户管理问题</title>
       <link>https://blog.fenxiangz.com/post/%E5%85%B6%E4%BB%96/2020-11-26_Jira%E4%BF%AE%E6%94%B9Path%E8%B7%AF%E5%BE%84%E5%90%8E%E7%9A%84%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86%E9%97%AE%E9%A2%98.html</link>
       <guid>https://blog.fenxiangz.com/post/%E5%85%B6%E4%BB%96/2020-11-26_Jira%E4%BF%AE%E6%94%B9Path%E8%B7%AF%E5%BE%84%E5%90%8E%E7%9A%84%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86%E9%97%AE%E9%A2%98.html</guid>
-      <pubDate>Wed, 25 Nov 2020 16:00:00 GMT</pubDate>
+      <pubDate>Thu, 26 Nov 2020 00:00:00 GMT</pubDate>
       
         
         
@@ -185,7 +185,7 @@
       <title>开发资源导航</title>
       <link>https://blog.fenxiangz.com/post/util/2020-11-26_%E5%BC%80%E5%8F%91%E8%B5%84%E6%BA%90%E6%95%B4%E7%90%86.html</link>
       <guid>https://blog.fenxiangz.com/post/util/2020-11-26_%E5%BC%80%E5%8F%91%E8%B5%84%E6%BA%90%E6%95%B4%E7%90%86.html</guid>
-      <pubDate>Wed, 25 Nov 2020 16:00:00 GMT</pubDate>
+      <pubDate>Thu, 26 Nov 2020 00:00:00 GMT</pubDate>
       
         
         
@@ -214,7 +214,7 @@
       <title>V2ray 配置</title>
       <link>https://blog.fenxiangz.com/post/%E5%85%B6%E4%BB%96/2020-10-25_V2ray%E9%85%8D%E7%BD%AE.html</link>
       <guid>https://blog.fenxiangz.com/post/%E5%85%B6%E4%BB%96/2020-10-25_V2ray%E9%85%8D%E7%BD%AE.html</guid>
-      <pubDate>Sat, 24 Oct 2020 16:00:00 GMT</pubDate>
+      <pubDate>Sun, 25 Oct 2020 00:00:00 GMT</pubDate>
       
         
         
@@ -239,7 +239,7 @@
       <title>MySQL什么时候会使用内部临时表?</title>
       <link>https://blog.fenxiangz.com/post/dateabase/mysql/2020-09-13_MySQL%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E4%BC%9A%E4%BD%BF%E7%94%A8%E5%86%85%E9%83%A8%E4%B8%B4%E6%97%B6%E8%A1%A8.html</link>
       <guid>https://blog.fenxiangz.com/post/dateabase/mysql/2020-09-13_MySQL%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E4%BC%9A%E4%BD%BF%E7%94%A8%E5%86%85%E9%83%A8%E4%B8%B4%E6%97%B6%E8%A1%A8.html</guid>
-      <pubDate>Sat, 12 Sep 2020 16:00:00 GMT</pubDate>
+      <pubDate>Sun, 13 Sep 2020 00:00:00 GMT</pubDate>
       
         
         
@@ -273,7 +273,7 @@ create procedure </description>
       <title>MySQL 中的 Character Set 与 Collation</title>
       <link>https://blog.fenxiangz.com/post/dateabase/mysql/2020-09-12_MySQL%E4%B8%AD%E7%9A%84Character_Set%E4%B8%8ECollation.html</link>
       <guid>https://blog.fenxiangz.com/post/dateabase/mysql/2020-09-12_MySQL%E4%B8%AD%E7%9A%84Character_Set%E4%B8%8ECollation.html</guid>
-      <pubDate>Fri, 11 Sep 2020 16:00:00 GMT</pubDate>
+      <pubDate>Sat, 12 Sep 2020 00:00:00 GMT</pubDate>
       
         
         
@@ -303,7 +303,7 @@ create procedure </description>
       <title>高性能 MySQL 阅读笔记 (2)</title>
       <link>https://blog.fenxiangz.com/post/dateabase/mysql/2020-09-11_%E9%AB%98%E6%80%A7%E8%83%BDMySQL%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0(2).html</link>
       <guid>https://blog.fenxiangz.com/post/dateabase/mysql/2020-09-11_%E9%AB%98%E6%80%A7%E8%83%BDMySQL%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0(2).html</guid>
-      <pubDate>Thu, 10 Sep 2020 16:00:00 GMT</pubDate>
+      <pubDate>Fri, 11 Sep 2020 00:00:00 GMT</pubDate>
       
         
         
@@ -333,7 +333,7 @@ create procedure </description>
       <title>高性能 MySQL - MySQL慢查询日志总结</title>
       <link>https://blog.fenxiangz.com/post/dateabase/mysql/2020-09-10_%E9%AB%98%E6%80%A7%E8%83%BDMySQL_MySQL%E6%85%A2%E6%9F%A5%E8%AF%A2%E6%97%A5%E5%BF%97%E6%80%BB%E7%BB%93.html</link>
       <guid>https://blog.fenxiangz.com/post/dateabase/mysql/2020-09-10_%E9%AB%98%E6%80%A7%E8%83%BDMySQL_MySQL%E6%85%A2%E6%9F%A5%E8%AF%A2%E6%97%A5%E5%BF%97%E6%80%BB%E7%BB%93.html</guid>
-      <pubDate>Wed, 09 Sep 2020 16:00:00 GMT</pubDate>
+      <pubDate>Thu, 10 Sep 2020 00:00:00 GMT</pubDate>
       
         
         
@@ -364,7 +364,7 @@ create procedure </description>
       <title>高性能 MySQL 阅读笔记 (1)</title>
       <link>https://blog.fenxiangz.com/post/dateabase/mysql/2020-09-09_%E9%AB%98%E6%80%A7%E8%83%BDMySQL%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0(1).html</link>
       <guid>https://blog.fenxiangz.com/post/dateabase/mysql/2020-09-09_%E9%AB%98%E6%80%A7%E8%83%BDMySQL%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0(1).html</guid>
-      <pubDate>Tue, 08 Sep 2020 16:00:00 GMT</pubDate>
+      <pubDate>Wed, 09 Sep 2020 00:00:00 GMT</pubDate>
       
         
         
@@ -394,7 +394,7 @@ create procedure </description>
       <title>MSSQL · 最佳实践 ·  SQL Server备份策略</title>
       <link>https://blog.fenxiangz.com/post/dateabase/MSSQL/2020-09-08_MSSQL%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5_SQL_Server%E5%A4%87%E4%BB%BD%E7%AD%96%E7%95%A5.html</link>
       <guid>https://blog.fenxiangz.com/post/dateabase/MSSQL/2020-09-08_MSSQL%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5_SQL_Server%E5%A4%87%E4%BB%BD%E7%AD%96%E7%95%A5.html</guid>
-      <pubDate>Mon, 07 Sep 2020 16:00:00 GMT</pubDate>
+      <pubDate>Tue, 08 Sep 2020 00:00:00 GMT</pubDate>
       
         
         
@@ -422,7 +422,7 @@ create procedure </description>
       <title>How to learn Spring Cloud – the practical way</title>
       <link>https://blog.fenxiangz.com/post/java/spring/2020-09-02_How-to-learn-Spring-Cloud.html</link>
       <guid>https://blog.fenxiangz.com/post/java/spring/2020-09-02_How-to-learn-Spring-Cloud.html</guid>
-      <pubDate>Tue, 01 Sep 2020 16:00:00 GMT</pubDate>
+      <pubDate>Wed, 02 Sep 2020 00:00:00 GMT</pubDate>
       
         
         
@@ -452,7 +452,7 @@ create procedure </description>
       <title>字符集知识点</title>
       <link>https://blog.fenxiangz.com/post/java/advance/2020-06-29_%E5%AD%97%E7%AC%A6%E9%9B%86%E7%9F%A5%E8%AF%86%E7%82%B9.html</link>
       <guid>https://blog.fenxiangz.com/post/java/advance/2020-06-29_%E5%AD%97%E7%AC%A6%E9%9B%86%E7%9F%A5%E8%AF%86%E7%82%B9.html</guid>
-      <pubDate>Sat, 27 Jun 2020 16:00:00 GMT</pubDate>
+      <pubDate>Sun, 28 Jun 2020 00:00:00 GMT</pubDate>
       
         
         
@@ -478,7 +478,7 @@ create procedure </description>
       <title>深入理解JVM-内存模型（jmm）和GC</title>
       <link>https://blog.fenxiangz.com/post/java/advance/2020-06-28_java_jvm.html</link>
       <guid>https://blog.fenxiangz.com/post/java/advance/2020-06-28_java_jvm.html</guid>
-      <pubDate>Sat, 27 Jun 2020 16:00:00 GMT</pubDate>
+      <pubDate>Sun, 28 Jun 2020 00:00:00 GMT</pubDate>
       
         
         
@@ -509,7 +509,7 @@ create procedure </description>
       <title>Netty 知识点思维导图</title>
       <link>https://blog.fenxiangz.com/post/java/netty/2020-05-26_Netty%20%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE.html</link>
       <guid>https://blog.fenxiangz.com/post/java/netty/2020-05-26_Netty%20%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE.html</guid>
-      <pubDate>Mon, 25 May 2020 16:00:00 GMT</pubDate>
+      <pubDate>Tue, 26 May 2020 00:00:00 GMT</pubDate>
       
         
         
@@ -541,7 +541,7 @@ create procedure </description>
       <title>Netty 笔记汇总</title>
       <link>https://blog.fenxiangz.com/post/java/netty/2020-05-24_Netty%20%E7%AC%94%E8%AE%B0%E6%B1%87%E6%80%BB.html</link>
       <guid>https://blog.fenxiangz.com/post/java/netty/2020-05-24_Netty%20%E7%AC%94%E8%AE%B0%E6%B1%87%E6%80%BB.html</guid>
-      <pubDate>Sat, 23 May 2020 16:00:00 GMT</pubDate>
+      <pubDate>Sun, 24 May 2020 00:00:00 GMT</pubDate>
       
         
         
@@ -572,7 +572,7 @@ create procedure </description>
       <title>Java 中单例模式DCL的缺陷及单例的正确写法</title>
       <link>https://blog.fenxiangz.com/post/java/advance/2019-05-21_java%E4%B8%AD%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8FDCL%E7%9A%84%E7%BC%BA%E9%99%B7%E5%8F%8A%E5%8D%95%E4%BE%8B%E7%9A%84%E6%AD%A3%E7%A1%AE%E5%86%99%E6%B3%95.html</link>
       <guid>https://blog.fenxiangz.com/post/java/advance/2019-05-21_java%E4%B8%AD%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8FDCL%E7%9A%84%E7%BC%BA%E9%99%B7%E5%8F%8A%E5%8D%95%E4%BE%8B%E7%9A%84%E6%AD%A3%E7%A1%AE%E5%86%99%E6%B3%95.html</guid>
-      <pubDate>Wed, 20 May 2020 16:00:00 GMT</pubDate>
+      <pubDate>Thu, 21 May 2020 00:00:00 GMT</pubDate>
       
         
         
@@ -603,7 +603,7 @@ create procedure </description>
       <title>Spring Boot 排坑</title>
       <link>https://blog.fenxiangz.com/post/java/spring/2020-05-20_SpringBoot%E6%8E%92%E5%9D%91.html</link>
       <guid>https://blog.fenxiangz.com/post/java/spring/2020-05-20_SpringBoot%E6%8E%92%E5%9D%91.html</guid>
-      <pubDate>Tue, 19 May 2020 16:00:00 GMT</pubDate>
+      <pubDate>Wed, 20 May 2020 00:00:00 GMT</pubDate>
       
         
         
@@ -633,7 +633,7 @@ create procedure </description>
       <title>请给Sprint Boot多一些内存</title>
       <link>https://blog.fenxiangz.com/post/java/spring/2020-05-20_%E8%AF%B7%E7%BB%99SprintBoot%E5%A4%9A%E4%B8%80%E4%BA%9B%E5%86%85%E5%AD%98.html</link>
       <guid>https://blog.fenxiangz.com/post/java/spring/2020-05-20_%E8%AF%B7%E7%BB%99SprintBoot%E5%A4%9A%E4%B8%80%E4%BA%9B%E5%86%85%E5%AD%98.html</guid>
-      <pubDate>Tue, 19 May 2020 16:00:00 GMT</pubDate>
+      <pubDate>Wed, 20 May 2020 00:00:00 GMT</pubDate>
       
         
         
@@ -663,7 +663,7 @@ create procedure </description>
       <title>Spring IOC 容器源码分析</title>
       <link>https://blog.fenxiangz.com/post/java/spring/2020-11-20_SpringIOC%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90.html</link>
       <guid>https://blog.fenxiangz.com/post/java/spring/2020-11-20_SpringIOC%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90.html</guid>
-      <pubDate>Tue, 19 May 2020 16:00:00 GMT</pubDate>
+      <pubDate>Wed, 20 May 2020 00:00:00 GMT</pubDate>
       
         
         
@@ -695,7 +695,7 @@ create procedure </description>
       <title>JUC 概览</title>
       <link>https://blog.fenxiangz.com/post/java/advance/2020-05-02_java_juc.html</link>
       <guid>https://blog.fenxiangz.com/post/java/advance/2020-05-02_java_juc.html</guid>
-      <pubDate>Fri, 01 May 2020 16:00:00 GMT</pubDate>
+      <pubDate>Sat, 02 May 2020 00:00:00 GMT</pubDate>
       
         
         
@@ -726,7 +726,7 @@ create procedure </description>
       <title>接口性能优化思路</title>
       <link>https://blog.fenxiangz.com/post/java/advance/2020-04-25_java_optimize.html</link>
       <guid>https://blog.fenxiangz.com/post/java/advance/2020-04-25_java_optimize.html</guid>
-      <pubDate>Fri, 24 Apr 2020 16:00:00 GMT</pubDate>
+      <pubDate>Sat, 25 Apr 2020 00:00:00 GMT</pubDate>
       
         
         
@@ -754,7 +754,7 @@ create procedure </description>
       <title>使用 Tampermonkey 在【弹琴吧】非会员扒谱技巧</title>
       <link>https://blog.fenxiangz.com/post/%E5%85%B6%E4%BB%96/2020-01-29_%E5%BC%B9%E7%90%B4%E5%90%A7%E9%9D%9E%E4%BC%9A%E5%91%98%E6%89%92%E8%B0%B1%E6%8A%80%E5%B7%A7.html</link>
       <guid>https://blog.fenxiangz.com/post/%E5%85%B6%E4%BB%96/2020-01-29_%E5%BC%B9%E7%90%B4%E5%90%A7%E9%9D%9E%E4%BC%9A%E5%91%98%E6%89%92%E8%B0%B1%E6%8A%80%E5%B7%A7.html</guid>
-      <pubDate>Tue, 28 Jan 2020 16:00:00 GMT</pubDate>
+      <pubDate>Wed, 29 Jan 2020 00:00:00 GMT</pubDate>
       
         
         
@@ -784,7 +784,7 @@ create procedure </description>
       <title>【译】Spring Boot 从 classpath 加载文件</title>
       <link>https://blog.fenxiangz.com/post/java/spring/2019-12-28_%E3%80%90%E8%AF%91%E3%80%91Spring%20Boot%20%E4%BB%8E%20classpath%20%E5%8A%A0%E8%BD%BD%E6%96%87%E4%BB%B6.html</link>
       <guid>https://blog.fenxiangz.com/post/java/spring/2019-12-28_%E3%80%90%E8%AF%91%E3%80%91Spring%20Boot%20%E4%BB%8E%20classpath%20%E5%8A%A0%E8%BD%BD%E6%96%87%E4%BB%B6.html</guid>
-      <pubDate>Fri, 27 Dec 2019 16:00:00 GMT</pubDate>
+      <pubDate>Sat, 28 Dec 2019 00:00:00 GMT</pubDate>
       
         
         
@@ -820,16 +820,20 @@ create procedure </description>
       
         
         
-      <description>&lt;p&gt;{: id=”20201220214147-8n6s9od”}&lt;/p&gt;
-&lt;p&gt;tags:&lt;br&gt;{: id=”20201220214147-k9gj31p”}&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;{: id=”20201220214147-c689aop”}八皇后&lt;/li&gt;
-&lt;li&gt;</description>
+      <description>&lt;p&gt;今天研究力扣的一道题死活写不出来对应的算法，没办法自己算法基础太差。于是看了下答案，发现使用什么回溯算法，菜鸟表示平时开发期间写的最复杂的程序就是写了两层for循环，已经很牛逼了有木有？这个回溯算法什么鬼？于是乎百度了下，算是了解了回溯算法是什么玩意儿。这里分析一波八皇后算</description>
         
       
       
+      <enclosure url="https://blog.fenxiangz.com/images/algorithm.jpg" type="image"/>
       
       
+      
+      <category domain="https://blog.fenxiangz.com/categories/%E7%AE%97%E6%B3%95/">算法</category>
+      
+      
+      <category domain="https://blog.fenxiangz.com/tags/%E5%85%AB%E7%9A%87%E5%90%8E/">八皇后</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/%E7%AE%97%E6%B3%95/">算法</category>
       
       
       <comments>https://blog.fenxiangz.com/post/algorithm/%E5%85%AB%E7%9A%87%E5%90%8E%E7%AE%97%E6%B3%95%E8%A7%A3%E6%9E%90.html#disqus_thread</comments>
@@ -840,7 +844,7 @@ create procedure </description>
       <title>APK反编译总结</title>
       <link>https://blog.fenxiangz.com/post/frontend/2019-11-26_APK%E5%8F%8D%E7%BC%96%E8%AF%91%E6%80%BB%E7%BB%93.html</link>
       <guid>https://blog.fenxiangz.com/post/frontend/2019-11-26_APK%E5%8F%8D%E7%BC%96%E8%AF%91%E6%80%BB%E7%BB%93.html</guid>
-      <pubDate>Mon, 25 Nov 2019 16:00:00 GMT</pubDate>
+      <pubDate>Tue, 26 Nov 2019 00:00:00 GMT</pubDate>
       
         
         
@@ -869,7 +873,7 @@ create procedure </description>
       <title>移动端跨平台方案如何选择</title>
       <link>https://blog.fenxiangz.com/post/frontend/2019-10-27_%E7%A7%BB%E5%8A%A8%E7%AB%AF%E8%B7%A8%E5%B9%B3%E5%8F%B0%E6%96%B9%E6%A1%88%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9.html</link>
       <guid>https://blog.fenxiangz.com/post/frontend/2019-10-27_%E7%A7%BB%E5%8A%A8%E7%AB%AF%E8%B7%A8%E5%B9%B3%E5%8F%B0%E6%96%B9%E6%A1%88%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9.html</guid>
-      <pubDate>Sat, 26 Oct 2019 16:00:00 GMT</pubDate>
+      <pubDate>Sun, 27 Oct 2019 00:00:00 GMT</pubDate>
       
         
         
@@ -934,7 +938,7 @@ create procedure </description>
       <title>vue自定义组件中的v-model简单解释（vue单页面组件传值）</title>
       <link>https://blog.fenxiangz.com/post/frontend/vue/2017-10-26_vue%E8%87%AA%E5%AE%9A%E4%B9%89%E7%BB%84%E4%BB%B6%E4%B8%AD%E7%9A%84v-model%E7%AE%80%E5%8D%95%E8%A7%A3%E9%87%8A.html</link>
       <guid>https://blog.fenxiangz.com/post/frontend/vue/2017-10-26_vue%E8%87%AA%E5%AE%9A%E4%B9%89%E7%BB%84%E4%BB%B6%E4%B8%AD%E7%9A%84v-model%E7%AE%80%E5%8D%95%E8%A7%A3%E9%87%8A.html</guid>
-      <pubDate>Thu, 24 Oct 2019 16:00:00 GMT</pubDate>
+      <pubDate>Fri, 25 Oct 2019 00:00:00 GMT</pubDate>
       
         
         
@@ -963,7 +967,7 @@ create procedure </description>
       <title>vue自定义组件中的v-model简单解释（vue单页面组件传值）</title>
       <link>https://blog.fenxiangz.com/post/frontend/2016-10-26_%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3jQuery%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91.html</link>
       <guid>https://blog.fenxiangz.com/post/frontend/2016-10-26_%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3jQuery%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91.html</guid>
-      <pubDate>Thu, 24 Oct 2019 16:00:00 GMT</pubDate>
+      <pubDate>Fri, 25 Oct 2019 00:00:00 GMT</pubDate>
       
         
         
@@ -991,7 +995,7 @@ create procedure </description>
       <title>大型分布式网站术语分析</title>
       <link>https://blog.fenxiangz.com/post/distribution/2019-08-14_%E5%A4%A7%E5%9E%8B%E5%88%86%E5%B8%83%E5%BC%8F%E7%BD%91%E7%AB%99%E6%9C%AF%E8%AF%AD%E5%88%86%E6%9E%90.html</link>
       <guid>https://blog.fenxiangz.com/post/distribution/2019-08-14_%E5%A4%A7%E5%9E%8B%E5%88%86%E5%B8%83%E5%BC%8F%E7%BD%91%E7%AB%99%E6%9C%AF%E8%AF%AD%E5%88%86%E6%9E%90.html</guid>
-      <pubDate>Mon, 12 Aug 2019 16:00:00 GMT</pubDate>
+      <pubDate>Tue, 13 Aug 2019 00:00:00 GMT</pubDate>
       
         
         
@@ -1023,7 +1027,7 @@ create procedure </description>
       <title>【转载-阮一峰】CAP 定理的含义</title>
       <link>https://blog.fenxiangz.com/post/distribution/2019-08-12_CAP%E5%AE%9A%E7%90%86%E7%9A%84%E5%90%AB%E4%B9%89.html</link>
       <guid>https://blog.fenxiangz.com/post/distribution/2019-08-12_CAP%E5%AE%9A%E7%90%86%E7%9A%84%E5%90%AB%E4%B9%89.html</guid>
-      <pubDate>Sun, 11 Aug 2019 16:00:00 GMT</pubDate>
+      <pubDate>Mon, 12 Aug 2019 00:00:00 GMT</pubDate>
       
         
         
@@ -1055,7 +1059,7 @@ create procedure </description>
       <title>Zookeeper是如何解决脑裂问题</title>
       <link>https://blog.fenxiangz.com/post/distribution/2019-08-13_Zookeeper%E6%98%AF%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%E8%84%91%E8%A3%82%E9%97%AE%E9%A2%98.html</link>
       <guid>https://blog.fenxiangz.com/post/distribution/2019-08-13_Zookeeper%E6%98%AF%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%E8%84%91%E8%A3%82%E9%97%AE%E9%A2%98.html</guid>
-      <pubDate>Sun, 11 Aug 2019 16:00:00 GMT</pubDate>
+      <pubDate>Mon, 12 Aug 2019 00:00:00 GMT</pubDate>
       
         
         
@@ -1086,7 +1090,7 @@ create procedure </description>
       <title>JVM内存结构：堆、栈、方法区</title>
       <link>https://blog.fenxiangz.com/post/java/advance/2019-07-22_java_stack.html</link>
       <guid>https://blog.fenxiangz.com/post/java/advance/2019-07-22_java_stack.html</guid>
-      <pubDate>Sun, 21 Jul 2019 16:00:00 GMT</pubDate>
+      <pubDate>Mon, 22 Jul 2019 00:00:00 GMT</pubDate>
       
         
         
@@ -1118,7 +1122,7 @@ create procedure </description>
       <title>Java直接内存与非直接内存性能测试</title>
       <link>https://blog.fenxiangz.com/post/java/nio/2019-07-22_java_nio_Java%E7%9B%B4%E6%8E%A5%E5%86%85%E5%AD%98%E4%B8%8E%E9%9D%9E%E7%9B%B4%E6%8E%A5%E5%86%85%E5%AD%98%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95.html</link>
       <guid>https://blog.fenxiangz.com/post/java/nio/2019-07-22_java_nio_Java%E7%9B%B4%E6%8E%A5%E5%86%85%E5%AD%98%E4%B8%8E%E9%9D%9E%E7%9B%B4%E6%8E%A5%E5%86%85%E5%AD%98%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95.html</guid>
-      <pubDate>Sun, 21 Jul 2019 16:00:00 GMT</pubDate>
+      <pubDate>Mon, 22 Jul 2019 00:00:00 GMT</pubDate>
       
         
         
@@ -1153,7 +1157,7 @@ create procedure </description>
       <title>Java8新特性学习-函数式编程</title>
       <link>https://blog.fenxiangz.com/post/java/advance/2019-05-04_java_labmda.html</link>
       <guid>https://blog.fenxiangz.com/post/java/advance/2019-05-04_java_labmda.html</guid>
-      <pubDate>Fri, 03 May 2019 16:00:00 GMT</pubDate>
+      <pubDate>Sat, 04 May 2019 00:00:00 GMT</pubDate>
       
         
         
@@ -1184,7 +1188,7 @@ create procedure </description>
       <title>Java NIO客户端主动关闭连接，导致服务器空轮询</title>
       <link>https://blog.fenxiangz.com/post/java/nio/2019-04-07_java_nio_debug.html</link>
       <guid>https://blog.fenxiangz.com/post/java/nio/2019-04-07_java_nio_debug.html</guid>
-      <pubDate>Sat, 06 Apr 2019 16:00:00 GMT</pubDate>
+      <pubDate>Sun, 07 Apr 2019 00:00:00 GMT</pubDate>
       
         
         
@@ -1217,7 +1221,7 @@ create procedure </description>
       <title>NIO 各种使用注意点</title>
       <link>https://blog.fenxiangz.com/post/java/nio/2019-04-07_java_nio_%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F%E7%82%B9.html</link>
       <guid>https://blog.fenxiangz.com/post/java/nio/2019-04-07_java_nio_%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F%E7%82%B9.html</guid>
-      <pubDate>Sat, 06 Apr 2019 16:00:00 GMT</pubDate>
+      <pubDate>Sun, 07 Apr 2019 00:00:00 GMT</pubDate>
       
         
         
@@ -1249,7 +1253,7 @@ create procedure </description>
       <title>基于Netty自己动手实现RPC框架</title>
       <link>https://blog.fenxiangz.com/post/java/netty/2019-03-26_%E5%9F%BA%E4%BA%8ENetty%E8%87%AA%E5%B7%B1%E5%8A%A8%E6%89%8B%E5%AE%9E%E7%8E%B0RPC%E6%A1%86%E6%9E%B6.html</link>
       <guid>https://blog.fenxiangz.com/post/java/netty/2019-03-26_%E5%9F%BA%E4%BA%8ENetty%E8%87%AA%E5%B7%B1%E5%8A%A8%E6%89%8B%E5%AE%9E%E7%8E%B0RPC%E6%A1%86%E6%9E%B6.html</guid>
-      <pubDate>Mon, 25 Mar 2019 16:00:00 GMT</pubDate>
+      <pubDate>Tue, 26 Mar 2019 00:00:00 GMT</pubDate>
       
         
         
@@ -1281,7 +1285,7 @@ create procedure </description>
       <title>Java 和操作系统交互细节</title>
       <link>https://blog.fenxiangz.com/post/java/advance/2019-03-06_java_os.html</link>
       <guid>https://blog.fenxiangz.com/post/java/advance/2019-03-06_java_os.html</guid>
-      <pubDate>Tue, 05 Mar 2019 16:00:00 GMT</pubDate>
+      <pubDate>Wed, 06 Mar 2019 00:00:00 GMT</pubDate>
       
         
         
@@ -1311,7 +1315,7 @@ create procedure </description>
       <title>谈一谈 Java IO 模型</title>
       <link>https://blog.fenxiangz.com/post/java/nio/2019-02-27_java_nio_model.html</link>
       <guid>https://blog.fenxiangz.com/post/java/nio/2019-02-27_java_nio_model.html</guid>
-      <pubDate>Tue, 26 Feb 2019 16:00:00 GMT</pubDate>
+      <pubDate>Wed, 27 Feb 2019 00:00:00 GMT</pubDate>
       
         
         
@@ -1347,8 +1351,9 @@ create procedure </description>
       
         
         
-      <description>&lt;p&gt;{: id=”20201220214147-35pfy1i”}&lt;/p&gt;
-&lt;p&gt;原创： zhangshaolin &lt;strong&gt;张少林同学&lt;/strong&gt;&lt;br&gt;微信号: zhangshaolin_tonxue&lt;br&gt;{: id=”20201220214147-b5wm1</description>
+      <description>&lt;p&gt;原创： zhangshaolin &lt;strong&gt;张少林同学&lt;/strong&gt;&lt;br&gt;微信号: zhangshaolin_tonxue&lt;/p&gt;
+&lt;p&gt;功能介绍 分享&lt;/p&gt;
+&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title</description>
         
       
       
@@ -1374,7 +1379,7 @@ create procedure </description>
       <title>Java 经典设计模式（3）：十一种行为型模式</title>
       <link>https://blog.fenxiangz.com/post/design/2019-01-05_Java%E7%BB%8F%E5%85%B8%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F_3_%E5%8D%81%E4%B8%80%E7%A7%8D%E8%A1%8C%E4%B8%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F.html</link>
       <guid>https://blog.fenxiangz.com/post/design/2019-01-05_Java%E7%BB%8F%E5%85%B8%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F_3_%E5%8D%81%E4%B8%80%E7%A7%8D%E8%A1%8C%E4%B8%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F.html</guid>
-      <pubDate>Fri, 04 Jan 2019 16:00:00 GMT</pubDate>
+      <pubDate>Sat, 05 Jan 2019 00:00:00 GMT</pubDate>
       
       <description>&lt;p&gt;行为型模式细分为如下11种：策略模式、模板方法模式、观察者模式、迭代子模式、责任链模式、命令模式、备忘录模式、状态模式、访问者模式、中介者模式、解释器模式。&lt;br&gt;接下来对11种行为型模式逐个进行介绍。&lt;/p&gt;
 &lt;h3 id=&quot;一、策略模式&quot;&gt;&lt;a href=&quot;#一、策略模式&quot; class=&quot;headerlink&quot; title=&quot;一、策略模式&quot;&gt;&lt;/a&gt;一、策略模式&lt;/h3&gt;&lt;p&gt;策略模式定义了一系列算法，并将每个算法封装起来，使他们可以相互替换，且算法的变化不会影响到使用算法的客户。需要设计一个接口，为一系列实现类提供统一的方法，多个实现类实现该接口，设计一个抽象类（可有可无，属于辅助类，视实际需求是否添加），提供辅助函数。&lt;/p&gt;
@@ -1404,7 +1409,7 @@ create procedure </description>
       <title>Java经典设计模式（2）：七大结构型模式</title>
       <link>https://blog.fenxiangz.com/post/design/2019-01-04_Java%E7%BB%8F%E5%85%B8%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F_2_%E4%B8%83%E5%A4%A7%E7%BB%93%E6%9E%84%E5%9E%8B%E6%A8%A1%E5%BC%8F.html</link>
       <guid>https://blog.fenxiangz.com/post/design/2019-01-04_Java%E7%BB%8F%E5%85%B8%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F_2_%E4%B8%83%E5%A4%A7%E7%BB%93%E6%9E%84%E5%9E%8B%E6%A8%A1%E5%BC%8F.html</guid>
-      <pubDate>Thu, 03 Jan 2019 16:00:00 GMT</pubDate>
+      <pubDate>Fri, 04 Jan 2019 00:00:00 GMT</pubDate>
       
         
         
@@ -1433,7 +1438,7 @@ create procedure </description>
       <title>Java 经典设计模式（1）：五大创建型模式</title>
       <link>https://blog.fenxiangz.com/post/design/2019-01-03_Java%E7%BB%8F%E5%85%B8%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F_1_%E4%BA%94%E5%A4%A7%E5%88%9B%E5%BB%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F.html</link>
       <guid>https://blog.fenxiangz.com/post/design/2019-01-03_Java%E7%BB%8F%E5%85%B8%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F_1_%E4%BA%94%E5%A4%A7%E5%88%9B%E5%BB%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F.html</guid>
-      <pubDate>Wed, 02 Jan 2019 16:00:00 GMT</pubDate>
+      <pubDate>Thu, 03 Jan 2019 00:00:00 GMT</pubDate>
       
         
         
@@ -1462,7 +1467,7 @@ create procedure </description>
       <title>MySQL的InnoDB的幻读问题</title>
       <link>https://blog.fenxiangz.com/post/dateabase/mysql/2018-12-17_MySQL%E7%9A%84InnoDB%E7%9A%84%E5%B9%BB%E8%AF%BB%E9%97%AE%E9%A2%98.html</link>
       <guid>https://blog.fenxiangz.com/post/dateabase/mysql/2018-12-17_MySQL%E7%9A%84InnoDB%E7%9A%84%E5%B9%BB%E8%AF%BB%E9%97%AE%E9%A2%98.html</guid>
-      <pubDate>Sun, 16 Dec 2018 16:00:00 GMT</pubDate>
+      <pubDate>Mon, 17 Dec 2018 00:00:00 GMT</pubDate>
       
         
         
@@ -1494,7 +1499,7 @@ create procedure </description>
       <title>Mysql 分库分表简要记录</title>
       <link>https://blog.fenxiangz.com/post/dateabase/mysql/2018-12-16_MySQL%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8%E7%AE%80%E8%A6%81%E8%AE%B0%E5%BD%95.html</link>
       <guid>https://blog.fenxiangz.com/post/dateabase/mysql/2018-12-16_MySQL%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8%E7%AE%80%E8%A6%81%E8%AE%B0%E5%BD%95.html</guid>
-      <pubDate>Sat, 15 Dec 2018 16:00:00 GMT</pubDate>
+      <pubDate>Sun, 16 Dec 2018 00:00:00 GMT</pubDate>
       
         
         
@@ -1522,7 +1527,7 @@ create procedure </description>
       <title>URL 和 URI 的区别</title>
       <link>https://blog.fenxiangz.com/post/network/2018-12-15_URL%E5%92%8CURI%E7%9A%84%E5%8C%BA%E5%88%AB.html</link>
       <guid>https://blog.fenxiangz.com/post/network/2018-12-15_URL%E5%92%8CURI%E7%9A%84%E5%8C%BA%E5%88%AB.html</guid>
-      <pubDate>Fri, 14 Dec 2018 16:00:00 GMT</pubDate>
+      <pubDate>Sat, 15 Dec 2018 00:00:00 GMT</pubDate>
       
       <description>&lt;p&gt;&lt;img src=&quot;./2018-12-15_URL%E5%92%8CURI%E7%9A%84%E5%8C%BA%E5%88%AB/1.png&quot;&gt; &lt;/p&gt;
 &lt;h3 id=&quot;URI-URL-URN&quot;&gt;&lt;a href=&quot;#URI-URL-URN&quot; class=&quot;headerlink&quot; title=&quot;URI, URL, URN&quot;&gt;&lt;/a&gt;URI, URL, URN&lt;/h3&gt;&lt;p&gt;从上面的那幅图可以看出来，一共有三个不同的概念URI，URL，URN。这讨论这样的问题时，最好的方法就是回到原点啊，这里我们在&lt;a href=&quot;http://tools.ietf.org/html/rfc3986&quot;&gt;RFC 3986: Uniform Resource Identifier (URI): Generic Syntax&lt;/a&gt;里面收集了点资料：&lt;/p&gt;
@@ -1551,7 +1556,7 @@ create procedure </description>
       <title>Mysql 优化概要</title>
       <link>https://blog.fenxiangz.com/post/dateabase/mysql/2018-12-15_MySQL%E4%BC%98%E5%8C%96%E6%A6%82%E8%A6%81.html</link>
       <guid>https://blog.fenxiangz.com/post/dateabase/mysql/2018-12-15_MySQL%E4%BC%98%E5%8C%96%E6%A6%82%E8%A6%81.html</guid>
-      <pubDate>Fri, 14 Dec 2018 16:00:00 GMT</pubDate>
+      <pubDate>Sat, 15 Dec 2018 00:00:00 GMT</pubDate>
       
         
         
@@ -1580,7 +1585,7 @@ create procedure </description>
       <title>Ubuntu 包错误或不一致时的清理方式</title>
       <link>https://blog.fenxiangz.com/post/linux/2018-11-17_Ubuntu%E5%8C%85%E9%94%99%E8%AF%AF%E6%88%96%E4%B8%8D%E4%B8%80%E8%87%B4%E6%97%B6%E7%9A%84%E6%B8%85%E7%90%86%E6%96%B9%E5%BC%8F.html</link>
       <guid>https://blog.fenxiangz.com/post/linux/2018-11-17_Ubuntu%E5%8C%85%E9%94%99%E8%AF%AF%E6%88%96%E4%B8%8D%E4%B8%80%E8%87%B4%E6%97%B6%E7%9A%84%E6%B8%85%E7%90%86%E6%96%B9%E5%BC%8F.html</guid>
-      <pubDate>Fri, 16 Nov 2018 16:00:00 GMT</pubDate>
+      <pubDate>Sat, 17 Nov 2018 00:00:00 GMT</pubDate>
       
         
         
@@ -1614,16 +1619,22 @@ sudo dpkg --remove --force-remove-reinstreq &amp;lt;packagename&amp;g</descripti
       
         
         
-      <description>&lt;p&gt;{: id=”20201220214147-w5coawk”}&lt;/p&gt;
-&lt;p&gt;tags:&lt;br&gt;{: id=”20201220214147-d4z5b0e”}&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;{: id=”20201220214147-3cwlrkc”}微服务&lt;/li&gt;
-&lt;li&gt;</description>
+      <description>&lt;p&gt;Clement Escoffier, Julien Viet, 沈勇 译Version 0.6,Dec, 23th, 2017 原文：&lt;a href=&quot;http://escoffier.me/vertx-hol/&quot;&gt;http://escoffier.me/vertx-hol</description>
         
       
       
+      <enclosure url="https://blog.fenxiangz.com/images/java/basic/java_logo.png" type="image"/>
       
       
+      
+      <category domain="https://blog.fenxiangz.com/categories/Java-%E8%BF%9B%E9%98%B6/">Java 进阶</category>
+      
+      
+      <category domain="https://blog.fenxiangz.com/tags/Java/">Java</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/Vert-x/">Vert.x</category>
       
       
       <comments>https://blog.fenxiangz.com/post/java/advance/2018-11-05_java_vertx.html#disqus_thread</comments>
@@ -1634,7 +1645,7 @@ sudo dpkg --remove --force-remove-reinstreq &amp;lt;packagename&amp;g</descripti
       <title>技术面试要了解的算法和数据结构知识</title>
       <link>https://blog.fenxiangz.com/post/interview/2018-10-26_%E6%8A%80%E6%9C%AF%E9%9D%A2%E8%AF%95%E8%A6%81%E4%BA%86%E8%A7%A3%E7%9A%84%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9F%A5%E8%AF%86.html</link>
       <guid>https://blog.fenxiangz.com/post/interview/2018-10-26_%E6%8A%80%E6%9C%AF%E9%9D%A2%E8%AF%95%E8%A6%81%E4%BA%86%E8%A7%A3%E7%9A%84%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9F%A5%E8%AF%86.html</guid>
-      <pubDate>Thu, 25 Oct 2018 16:00:00 GMT</pubDate>
+      <pubDate>Fri, 26 Oct 2018 00:00:00 GMT</pubDate>
       
         
         
@@ -1668,7 +1679,7 @@ sudo dpkg --remove --force-remove-reinstreq &amp;lt;packagename&amp;g</descripti
       <title>Java面试整理</title>
       <link>https://blog.fenxiangz.com/post/interview/2018-10-25_Java%E9%9D%A2%E8%AF%95%E6%95%B4%E7%90%86.html</link>
       <guid>https://blog.fenxiangz.com/post/interview/2018-10-25_Java%E9%9D%A2%E8%AF%95%E6%95%B4%E7%90%86.html</guid>
-      <pubDate>Wed, 24 Oct 2018 16:00:00 GMT</pubDate>
+      <pubDate>Thu, 25 Oct 2018 00:00:00 GMT</pubDate>
       
         
         
@@ -1696,7 +1707,7 @@ sudo dpkg --remove --force-remove-reinstreq &amp;lt;packagename&amp;g</descripti
       <title>Linux 两个文件求交集、并集、差集</title>
       <link>https://blog.fenxiangz.com/post/linux/2017-12-16_Linux%E4%B8%A4%E4%B8%AA%E6%96%87%E4%BB%B6%E6%B1%82%E4%BA%A4%E9%9B%86%E3%80%81%E5%B9%B6%E9%9B%86%E3%80%81%E5%B7%AE%E9%9B%86.html</link>
       <guid>https://blog.fenxiangz.com/post/linux/2017-12-16_Linux%E4%B8%A4%E4%B8%AA%E6%96%87%E4%BB%B6%E6%B1%82%E4%BA%A4%E9%9B%86%E3%80%81%E5%B9%B6%E9%9B%86%E3%80%81%E5%B7%AE%E9%9B%86.html</guid>
-      <pubDate>Fri, 15 Dec 2017 16:00:00 GMT</pubDate>
+      <pubDate>Sat, 16 Dec 2017 00:00:00 GMT</pubDate>
       
         
         
@@ -1725,7 +1736,7 @@ sudo dpkg --remove --force-remove-reinstreq &amp;lt;packagename&amp;g</descripti
       <title>硬不硬你说了算！近 40 张图解被问千百遍的 TCP 三次握手和四次挥手面试题</title>
       <link>https://blog.fenxiangz.com/post/network/2017-12-15_%E8%BF%9140%E5%BC%A0%E5%9B%BE%E8%A7%A3%E8%A2%AB%E9%97%AE%E5%8D%83%E7%99%BE%E9%81%8D%E7%9A%84TCP.html</link>
       <guid>https://blog.fenxiangz.com/post/network/2017-12-15_%E8%BF%9140%E5%BC%A0%E5%9B%BE%E8%A7%A3%E8%A2%AB%E9%97%AE%E5%8D%83%E7%99%BE%E9%81%8D%E7%9A%84TCP.html</guid>
-      <pubDate>Wed, 13 Dec 2017 16:00:00 GMT</pubDate>
+      <pubDate>Thu, 14 Dec 2017 00:00:00 GMT</pubDate>
       
         
         
@@ -1756,7 +1767,7 @@ sudo dpkg --remove --force-remove-reinstreq &amp;lt;packagename&amp;g</descripti
       <title>帧、报文、报文段、分组、包、数据报的概念区别</title>
       <link>https://blog.fenxiangz.com/post/network/2017-12-13_%E7%BD%91%E7%BB%9C%E4%BC%A0%E8%BE%93%E6%9C%AF%E8%AF%AD%E6%A6%82%E5%BF%B5.html</link>
       <guid>https://blog.fenxiangz.com/post/network/2017-12-13_%E7%BD%91%E7%BB%9C%E4%BC%A0%E8%BE%93%E6%9C%AF%E8%AF%AD%E6%A6%82%E5%BF%B5.html</guid>
-      <pubDate>Tue, 12 Dec 2017 16:00:00 GMT</pubDate>
+      <pubDate>Wed, 13 Dec 2017 00:00:00 GMT</pubDate>
       
         
         
@@ -1786,7 +1797,7 @@ sudo dpkg --remove --force-remove-reinstreq &amp;lt;packagename&amp;g</descripti
       <title>TCP协议中的seq/ack序号是如何变化的？</title>
       <link>https://blog.fenxiangz.com/post/network/2017-12-14_TCP%E5%8D%8F%E8%AE%AE%E4%B8%AD%E7%9A%84seq_ack%E5%BA%8F%E5%8F%B7%E6%98%AF%E5%A6%82%E4%BD%95%E5%8F%98%E5%8C%96%E7%9A%84%EF%BC%9F.html</link>
       <guid>https://blog.fenxiangz.com/post/network/2017-12-14_TCP%E5%8D%8F%E8%AE%AE%E4%B8%AD%E7%9A%84seq_ack%E5%BA%8F%E5%8F%B7%E6%98%AF%E5%A6%82%E4%BD%95%E5%8F%98%E5%8C%96%E7%9A%84%EF%BC%9F.html</guid>
-      <pubDate>Tue, 12 Dec 2017 16:00:00 GMT</pubDate>
+      <pubDate>Wed, 13 Dec 2017 00:00:00 GMT</pubDate>
       
         
         
@@ -1815,7 +1826,7 @@ sudo dpkg --remove --force-remove-reinstreq &amp;lt;packagename&amp;g</descripti
       <title>Ubuntu 20.04 LTS 安装搜狗输入法</title>
       <link>https://blog.fenxiangz.com/post/linux/2017-12-12_Ubuntu20.04LTS%E5%AE%89%E8%A3%85%E6%90%9C%E7%8B%97%E8%BE%93%E5%85%A5%E6%B3%95.html</link>
       <guid>https://blog.fenxiangz.com/post/linux/2017-12-12_Ubuntu20.04LTS%E5%AE%89%E8%A3%85%E6%90%9C%E7%8B%97%E8%BE%93%E5%85%A5%E6%B3%95.html</guid>
-      <pubDate>Mon, 11 Dec 2017 16:00:00 GMT</pubDate>
+      <pubDate>Tue, 12 Dec 2017 00:00:00 GMT</pubDate>
       
         
         
@@ -1842,7 +1853,7 @@ sudo dpkg --remove --force-remove-reinstreq &amp;lt;packagename&amp;g</descripti
       <title>未来已来：云原生 Cloud Native</title>
       <link>https://blog.fenxiangz.com/post/linux/2017-12-11_%E6%9C%AA%E6%9D%A5%E5%B7%B2%E6%9D%A5%EF%BC%9A%E4%BA%91%E5%8E%9F%E7%94%9FCloud_Native.html</link>
       <guid>https://blog.fenxiangz.com/post/linux/2017-12-11_%E6%9C%AA%E6%9D%A5%E5%B7%B2%E6%9D%A5%EF%BC%9A%E4%BA%91%E5%8E%9F%E7%94%9FCloud_Native.html</guid>
-      <pubDate>Sun, 10 Dec 2017 16:00:00 GMT</pubDate>
+      <pubDate>Mon, 11 Dec 2017 00:00:00 GMT</pubDate>
       
         
         
@@ -1872,7 +1883,7 @@ sudo dpkg --remove --force-remove-reinstreq &amp;lt;packagename&amp;g</descripti
       <title>浅析Linux中的零拷贝技术</title>
       <link>https://blog.fenxiangz.com/post/linux/2017-12-10_%E6%B5%85%E6%9E%90Linux%E4%B8%AD%E7%9A%84%E9%9B%B6%E6%8B%B7%E8%B4%9D%E6%8A%80%E6%9C%AF.html</link>
       <guid>https://blog.fenxiangz.com/post/linux/2017-12-10_%E6%B5%85%E6%9E%90Linux%E4%B8%AD%E7%9A%84%E9%9B%B6%E6%8B%B7%E8%B4%9D%E6%8A%80%E6%9C%AF.html</guid>
-      <pubDate>Sat, 09 Dec 2017 16:00:00 GMT</pubDate>
+      <pubDate>Sun, 10 Dec 2017 00:00:00 GMT</pubDate>
       
         
         
@@ -1903,7 +1914,7 @@ sudo dpkg --remove --force-remove-reinstreq &amp;lt;packagename&amp;g</descripti
       <title>SVN 自动删除 “被手动删除” 的文件</title>
       <link>https://blog.fenxiangz.com/post/util/svn/2017-12-10_SVN%E8%87%AA%E5%8A%A8%E5%88%A0%E9%99%A4%E2%80%9C%E8%A2%AB%E6%89%8B%E5%8A%A8%E5%88%A0%E9%99%A4%E2%80%9D%E7%9A%84%E6%96%87%E4%BB%B6.html</link>
       <guid>https://blog.fenxiangz.com/post/util/svn/2017-12-10_SVN%E8%87%AA%E5%8A%A8%E5%88%A0%E9%99%A4%E2%80%9C%E8%A2%AB%E6%89%8B%E5%8A%A8%E5%88%A0%E9%99%A4%E2%80%9D%E7%9A%84%E6%96%87%E4%BB%B6.html</guid>
-      <pubDate>Sat, 09 Dec 2017 16:00:00 GMT</pubDate>
+      <pubDate>Sun, 10 Dec 2017 00:00:00 GMT</pubDate>
       
         
         
@@ -1924,6 +1935,36 @@ sudo dpkg --remove --force-remove-reinstreq &amp;lt;packagename&amp;g</descripti
       
       
       <comments>https://blog.fenxiangz.com/post/util/svn/2017-12-10_SVN%E8%87%AA%E5%8A%A8%E5%88%A0%E9%99%A4%E2%80%9C%E8%A2%AB%E6%89%8B%E5%8A%A8%E5%88%A0%E9%99%A4%E2%80%9D%E7%9A%84%E6%96%87%E4%BB%B6.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Linux内存映射mmap原理分析</title>
+      <link>https://blog.fenxiangz.com/post/linux/2017-12-09_Linux%E5%86%85%E5%AD%98%E6%98%A0%E5%B0%84mmap%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90.html</link>
+      <guid>https://blog.fenxiangz.com/post/linux/2017-12-09_Linux%E5%86%85%E5%AD%98%E6%98%A0%E5%B0%84mmap%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90.html</guid>
+      <pubDate>Sat, 09 Dec 2017 00:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;内存映射，简而言之就是将用户空间的一段内存区域映射到内核空间，映射成功后，用户对这段内存区域的修改可以直接反映到内核空间，同样，内核空间对这段区域的修改也直接反映用户空间。那么对于内核空间&amp;lt;—-&amp;gt;用户空间两者之间需要大量数据传输等操作的话效率是非常高的。 &lt;/p</description>
+        
+      
+      
+      <enclosure url="https://blog.fenxiangz.com/images/linux.png" type="image"/>
+      
+      
+      
+      <category domain="https://blog.fenxiangz.com/categories/IO/">IO</category>
+      
+      
+      <category domain="https://blog.fenxiangz.com/tags/IO/">IO</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/MMAP/">MMAP</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/%E5%86%85%E5%AD%98%E6%98%A0%E5%B0%84/">内存映射</category>
+      
+      
+      <comments>https://blog.fenxiangz.com/post/linux/2017-12-09_Linux%E5%86%85%E5%AD%98%E6%98%A0%E5%B0%84mmap%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90.html#disqus_thread</comments>
       
     </item>
     
@@ -1958,40 +1999,10 @@ sudo dpkg --remove --force-remove-reinstreq &amp;lt;packagename&amp;g</descripti
     </item>
     
     <item>
-      <title>Linux内存映射mmap原理分析</title>
-      <link>https://blog.fenxiangz.com/post/linux/2017-12-09_Linux%E5%86%85%E5%AD%98%E6%98%A0%E5%B0%84mmap%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90.html</link>
-      <guid>https://blog.fenxiangz.com/post/linux/2017-12-09_Linux%E5%86%85%E5%AD%98%E6%98%A0%E5%B0%84mmap%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90.html</guid>
-      <pubDate>Fri, 08 Dec 2017 16:00:00 GMT</pubDate>
-      
-        
-        
-      <description>&lt;p&gt;内存映射，简而言之就是将用户空间的一段内存区域映射到内核空间，映射成功后，用户对这段内存区域的修改可以直接反映到内核空间，同样，内核空间对这段区域的修改也直接反映用户空间。那么对于内核空间&amp;lt;—-&amp;gt;用户空间两者之间需要大量数据传输等操作的话效率是非常高的。 &lt;/p</description>
-        
-      
-      
-      <enclosure url="https://blog.fenxiangz.com/images/linux.png" type="image"/>
-      
-      
-      
-      <category domain="https://blog.fenxiangz.com/categories/IO/">IO</category>
-      
-      
-      <category domain="https://blog.fenxiangz.com/tags/IO/">IO</category>
-      
-      <category domain="https://blog.fenxiangz.com/tags/MMAP/">MMAP</category>
-      
-      <category domain="https://blog.fenxiangz.com/tags/%E5%86%85%E5%AD%98%E6%98%A0%E5%B0%84/">内存映射</category>
-      
-      
-      <comments>https://blog.fenxiangz.com/post/linux/2017-12-09_Linux%E5%86%85%E5%AD%98%E6%98%A0%E5%B0%84mmap%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
       <title>两种高性能 I/O 设计模式 Reactor 和 Proactor</title>
       <link>https://blog.fenxiangz.com/post/linux/2017-12-08_%E4%B8%A4%E7%A7%8D%E9%AB%98%E6%80%A7%E8%83%BDIO%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8FReactor%E5%92%8CProactor.html</link>
       <guid>https://blog.fenxiangz.com/post/linux/2017-12-08_%E4%B8%A4%E7%A7%8D%E9%AB%98%E6%80%A7%E8%83%BDIO%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8FReactor%E5%92%8CProactor.html</guid>
-      <pubDate>Thu, 07 Dec 2017 16:00:00 GMT</pubDate>
+      <pubDate>Fri, 08 Dec 2017 00:00:00 GMT</pubDate>
       
         
         
@@ -2022,7 +2033,7 @@ sudo dpkg --remove --force-remove-reinstreq &amp;lt;packagename&amp;g</descripti
       <title>Unix 网络 IO 模型及 Linux 的 IO 多路复用模型</title>
       <link>https://blog.fenxiangz.com/post/linux/2017-12-07_Unix%E7%BD%91%E7%BB%9CIO%E6%A8%A1%E5%9E%8B%E5%8F%8ALinux%E7%9A%84IO%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8%E6%A8%A1%E5%9E%8B.html</link>
       <guid>https://blog.fenxiangz.com/post/linux/2017-12-07_Unix%E7%BD%91%E7%BB%9CIO%E6%A8%A1%E5%9E%8B%E5%8F%8ALinux%E7%9A%84IO%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8%E6%A8%A1%E5%9E%8B.html</guid>
-      <pubDate>Wed, 06 Dec 2017 16:00:00 GMT</pubDate>
+      <pubDate>Thu, 07 Dec 2017 00:00:00 GMT</pubDate>
       
         
         
@@ -2052,7 +2063,7 @@ sudo dpkg --remove --force-remove-reinstreq &amp;lt;packagename&amp;g</descripti
       <title>重命名磁盘挂载分区卷标(磁盘名)</title>
       <link>https://blog.fenxiangz.com/post/linux/2017-12-06_%E9%87%8D%E5%91%BD%E5%90%8D%E7%A3%81%E7%9B%98%E6%8C%82%E8%BD%BD%E5%88%86%E5%8C%BA%E5%8D%B7%E6%A0%87(%E7%A3%81%E7%9B%98%E5%90%8D).html</link>
       <guid>https://blog.fenxiangz.com/post/linux/2017-12-06_%E9%87%8D%E5%91%BD%E5%90%8D%E7%A3%81%E7%9B%98%E6%8C%82%E8%BD%BD%E5%88%86%E5%8C%BA%E5%8D%B7%E6%A0%87(%E7%A3%81%E7%9B%98%E5%90%8D).html</guid>
-      <pubDate>Tue, 05 Dec 2017 16:00:00 GMT</pubDate>
+      <pubDate>Wed, 06 Dec 2017 00:00:00 GMT</pubDate>
       
         
         
@@ -2081,7 +2092,7 @@ sudo dpkg --remove --force-remove-reinstreq &amp;lt;packagename&amp;g</descripti
       <title>2017-12-05_为什么tcp/udp的端口号可以重复.md</title>
       <link>https://blog.fenxiangz.com/post/network/2017-12-05_%E4%B8%BA%E4%BB%80%E4%B9%88TCP%E5%92%8CUDP%E7%9A%84%E7%AB%AF%E5%8F%A3%E5%8F%B7%E5%8F%AF%E4%BB%A5%E9%87%8D%E5%A4%8D.html</link>
       <guid>https://blog.fenxiangz.com/post/network/2017-12-05_%E4%B8%BA%E4%BB%80%E4%B9%88TCP%E5%92%8CUDP%E7%9A%84%E7%AB%AF%E5%8F%A3%E5%8F%B7%E5%8F%AF%E4%BB%A5%E9%87%8D%E5%A4%8D.html</guid>
-      <pubDate>Mon, 04 Dec 2017 16:00:00 GMT</pubDate>
+      <pubDate>Tue, 05 Dec 2017 00:00:00 GMT</pubDate>
       
         
         
@@ -2111,7 +2122,7 @@ sudo dpkg --remove --force-remove-reinstreq &amp;lt;packagename&amp;g</descripti
       <title>XXNET 挺不错的，记录一下简单的配置教程</title>
       <link>https://blog.fenxiangz.com/post/linux/2017-12-04_XXNET%E6%8C%BA%E4%B8%8D%E9%94%99%E7%9A%84%EF%BC%8C%E8%AE%B0%E5%BD%95%E4%B8%80%E4%B8%8B%E7%AE%80%E5%8D%95%E7%9A%84%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B.html</link>
       <guid>https://blog.fenxiangz.com/post/linux/2017-12-04_XXNET%E6%8C%BA%E4%B8%8D%E9%94%99%E7%9A%84%EF%BC%8C%E8%AE%B0%E5%BD%95%E4%B8%80%E4%B8%8B%E7%AE%80%E5%8D%95%E7%9A%84%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B.html</guid>
-      <pubDate>Sun, 03 Dec 2017 16:00:00 GMT</pubDate>
+      <pubDate>Mon, 04 Dec 2017 00:00:00 GMT</pubDate>
       
         
         
@@ -2137,7 +2148,7 @@ sudo dpkg --remove --force-remove-reinstreq &amp;lt;packagename&amp;g</descripti
       <title>开启bbr协议 一键安装脚本</title>
       <link>https://blog.fenxiangz.com/post/linux/2017-12-03_%E5%BC%80%E5%90%AFbbr%E5%8D%8F%E8%AE%AE%E4%B8%80%E9%94%AE%E5%AE%89%E8%A3%85%E8%84%9A%E6%9C%AC.html</link>
       <guid>https://blog.fenxiangz.com/post/linux/2017-12-03_%E5%BC%80%E5%90%AFbbr%E5%8D%8F%E8%AE%AE%E4%B8%80%E9%94%AE%E5%AE%89%E8%A3%85%E8%84%9A%E6%9C%AC.html</guid>
-      <pubDate>Sat, 02 Dec 2017 16:00:00 GMT</pubDate>
+      <pubDate>Sun, 03 Dec 2017 00:00:00 GMT</pubDate>
       
         
         
@@ -2165,7 +2176,7 @@ sudo dpkg --remove --force-remove-reinstreq &amp;lt;packagename&amp;g</descripti
       <title>super + d 显示桌面快捷键</title>
       <link>https://blog.fenxiangz.com/post/linux/2017-12-01_super+d%E6%98%BE%E7%A4%BA%E6%A1%8C%E9%9D%A2%E5%BF%AB%E6%8D%B7%E9%94%AE.html</link>
       <guid>https://blog.fenxiangz.com/post/linux/2017-12-01_super+d%E6%98%BE%E7%A4%BA%E6%A1%8C%E9%9D%A2%E5%BF%AB%E6%8D%B7%E9%94%AE.html</guid>
-      <pubDate>Thu, 30 Nov 2017 16:00:00 GMT</pubDate>
+      <pubDate>Fri, 01 Dec 2017 00:00:00 GMT</pubDate>
       
         
         
@@ -2194,7 +2205,7 @@ sudo dpkg --remove --force-remove-reinstreq &amp;lt;packagename&amp;g</descripti
       <title>解决 Linux 下 chrome 无法播放 flash 问题</title>
       <link>https://blog.fenxiangz.com/post/linux/2017-11-30_%E8%A7%A3%E5%86%B3Linux%E4%B8%8BChrome%E6%97%A0%E6%B3%95%E6%92%AD%E6%94%BEflash%E9%97%AE%E9%A2%98.html</link>
       <guid>https://blog.fenxiangz.com/post/linux/2017-11-30_%E8%A7%A3%E5%86%B3Linux%E4%B8%8BChrome%E6%97%A0%E6%B3%95%E6%92%AD%E6%94%BEflash%E9%97%AE%E9%A2%98.html</guid>
-      <pubDate>Wed, 29 Nov 2017 16:00:00 GMT</pubDate>
+      <pubDate>Thu, 30 Nov 2017 00:00:00 GMT</pubDate>
       
         
         
@@ -2223,7 +2234,7 @@ sudo dpkg --remove --force-remove-reinstreq &amp;lt;packagename&amp;g</descripti
       <title>安装 .deb 包被中断问题</title>
       <link>https://blog.fenxiangz.com/post/linux/2017-11-29_%E5%AE%89%E8%A3%85deb%E5%8C%85%E8%A2%AB%E4%B8%AD%E6%96%AD%E9%97%AE%E9%A2%98.html</link>
       <guid>https://blog.fenxiangz.com/post/linux/2017-11-29_%E5%AE%89%E8%A3%85deb%E5%8C%85%E8%A2%AB%E4%B8%AD%E6%96%AD%E9%97%AE%E9%A2%98.html</guid>
-      <pubDate>Tue, 28 Nov 2017 16:00:00 GMT</pubDate>
+      <pubDate>Wed, 29 Nov 2017 00:00:00 GMT</pubDate>
       
         
         
@@ -2252,7 +2263,7 @@ sudo dpkg --remove --force-remove-reinstreq &amp;lt;packagename&amp;g</descripti
       <title>Unix目录结构的来历</title>
       <link>https://blog.fenxiangz.com/post/linux/2017-11-28_Unix%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84%E7%9A%84%E6%9D%A5%E5%8E%86.html</link>
       <guid>https://blog.fenxiangz.com/post/linux/2017-11-28_Unix%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84%E7%9A%84%E6%9D%A5%E5%8E%86.html</guid>
-      <pubDate>Mon, 27 Nov 2017 16:00:00 GMT</pubDate>
+      <pubDate>Tue, 28 Nov 2017 00:00:00 GMT</pubDate>
       
         
         
@@ -2279,7 +2290,7 @@ sudo dpkg --remove --force-remove-reinstreq &amp;lt;packagename&amp;g</descripti
       <title>Docker 学习笔记</title>
       <link>https://blog.fenxiangz.com/post/docker/2017-11-26_Docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.html</link>
       <guid>https://blog.fenxiangz.com/post/docker/2017-11-26_Docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.html</guid>
-      <pubDate>Sat, 25 Nov 2017 16:00:00 GMT</pubDate>
+      <pubDate>Sun, 26 Nov 2017 00:00:00 GMT</pubDate>
       
         
         
@@ -2309,7 +2320,7 @@ sudo dpkg --remove --force-remove-reinstreq &amp;lt;packagename&amp;g</descripti
       <title>IO - 同步，异步，阻塞，非阻塞</title>
       <link>https://blog.fenxiangz.com/post/linux/2017-11-26_IO-%E5%90%8C%E6%AD%A5%EF%BC%8C%E5%BC%82%E6%AD%A5%EF%BC%8C%E9%98%BB%E5%A1%9E%EF%BC%8C%E9%9D%9E%E9%98%BB%E5%A1%9E.html</link>
       <guid>https://blog.fenxiangz.com/post/linux/2017-11-26_IO-%E5%90%8C%E6%AD%A5%EF%BC%8C%E5%BC%82%E6%AD%A5%EF%BC%8C%E9%98%BB%E5%A1%9E%EF%BC%8C%E9%9D%9E%E9%98%BB%E5%A1%9E.html</guid>
-      <pubDate>Sat, 25 Nov 2017 16:00:00 GMT</pubDate>
+      <pubDate>Sun, 26 Nov 2017 00:00:00 GMT</pubDate>
       
         
         
@@ -2343,7 +2354,7 @@ sudo dpkg --remove --force-remove-reinstreq &amp;lt;packagename&amp;g</descripti
       <title>面向报文（UDP）和面向字节流（TCP）的区别</title>
       <link>https://blog.fenxiangz.com/post/network/2017-11-24_%E9%9D%A2%E5%90%91%E6%8A%A5%E6%96%87%EF%BC%88UDP%EF%BC%89%E5%92%8C%E9%9D%A2%E5%90%91%E5%AD%97%E8%8A%82%E6%B5%81%EF%BC%88TCP%EF%BC%89%E7%9A%84%E5%8C%BA%E5%88%AB.html</link>
       <guid>https://blog.fenxiangz.com/post/network/2017-11-24_%E9%9D%A2%E5%90%91%E6%8A%A5%E6%96%87%EF%BC%88UDP%EF%BC%89%E5%92%8C%E9%9D%A2%E5%90%91%E5%AD%97%E8%8A%82%E6%B5%81%EF%BC%88TCP%EF%BC%89%E7%9A%84%E5%8C%BA%E5%88%AB.html</guid>
-      <pubDate>Sat, 25 Nov 2017 16:00:00 GMT</pubDate>
+      <pubDate>Sun, 26 Nov 2017 00:00:00 GMT</pubDate>
       
         
         
@@ -2373,7 +2384,7 @@ sudo dpkg --remove --force-remove-reinstreq &amp;lt;packagename&amp;g</descripti
       <title>一张图说明 CDN 网络的原理</title>
       <link>https://blog.fenxiangz.com/post/network/2017-11-25_%E4%B8%80%E5%BC%A0%E5%9B%BE%E8%AF%B4%E6%98%8ECDN%E7%BD%91%E7%BB%9C%E7%9A%84%E5%8E%9F%E7%90%86.html</link>
       <guid>https://blog.fenxiangz.com/post/network/2017-11-25_%E4%B8%80%E5%BC%A0%E5%9B%BE%E8%AF%B4%E6%98%8ECDN%E7%BD%91%E7%BB%9C%E7%9A%84%E5%8E%9F%E7%90%86.html</guid>
-      <pubDate>Sat, 25 Nov 2017 16:00:00 GMT</pubDate>
+      <pubDate>Sun, 26 Nov 2017 00:00:00 GMT</pubDate>
       
         
         
@@ -2400,7 +2411,7 @@ sudo dpkg --remove --force-remove-reinstreq &amp;lt;packagename&amp;g</descripti
       <title>深入剖析 Socket 实现</title>
       <link>https://blog.fenxiangz.com/post/network/2017-11-26_%E6%B7%B1%E5%85%A5%E5%89%96%E6%9E%90Socket%E5%AE%9E%E7%8E%B0.html</link>
       <guid>https://blog.fenxiangz.com/post/network/2017-11-26_%E6%B7%B1%E5%85%A5%E5%89%96%E6%9E%90Socket%E5%AE%9E%E7%8E%B0.html</guid>
-      <pubDate>Sat, 25 Nov 2017 16:00:00 GMT</pubDate>
+      <pubDate>Sun, 26 Nov 2017 00:00:00 GMT</pubDate>
       
         
         
@@ -2426,7 +2437,7 @@ sudo dpkg --remove --force-remove-reinstreq &amp;lt;packagename&amp;g</descripti
       <title>搬瓦工 VPN 安装脚本</title>
       <link>https://blog.fenxiangz.com/post/network/2017-11-27_%E6%90%AC%E7%93%A6%E5%B7%A5VPN%E5%AE%89%E8%A3%85%E8%84%9A%E6%9C%AC.html</link>
       <guid>https://blog.fenxiangz.com/post/network/2017-11-27_%E6%90%AC%E7%93%A6%E5%B7%A5VPN%E5%AE%89%E8%A3%85%E8%84%9A%E6%9C%AC.html</guid>
-      <pubDate>Sat, 25 Nov 2017 16:00:00 GMT</pubDate>
+      <pubDate>Sun, 26 Nov 2017 00:00:00 GMT</pubDate>
       
         
         
@@ -2452,7 +2463,7 @@ sudo dpkg --remove --force-remove-reinstreq &amp;lt;packagename&amp;g</descripti
       <title>Heidi SQL 通过 SSH 隧道链接 MySQL</title>
       <link>https://blog.fenxiangz.com/post/network/2017-11-28_HeidiSQL%E9%80%9A%E8%BF%87SSH%E9%9A%A7%E9%81%93%E9%93%BE%E6%8E%A5mysql.html</link>
       <guid>https://blog.fenxiangz.com/post/network/2017-11-28_HeidiSQL%E9%80%9A%E8%BF%87SSH%E9%9A%A7%E9%81%93%E9%93%BE%E6%8E%A5mysql.html</guid>
-      <pubDate>Sat, 25 Nov 2017 16:00:00 GMT</pubDate>
+      <pubDate>Sun, 26 Nov 2017 00:00:00 GMT</pubDate>
       
         
         
@@ -2485,7 +2496,7 @@ sudo dpkg --remove --force-remove-reinstreq &amp;lt;packagename&amp;g</descripti
       <title>Docker Get Started</title>
       <link>https://blog.fenxiangz.com/post/docker/2017-11-25_Docker_Get_Started.html</link>
       <guid>https://blog.fenxiangz.com/post/docker/2017-11-25_Docker_Get_Started.html</guid>
-      <pubDate>Fri, 24 Nov 2017 16:00:00 GMT</pubDate>
+      <pubDate>Sat, 25 Nov 2017 00:00:00 GMT</pubDate>
       
         
         
@@ -2515,7 +2526,7 @@ sudo dpkg --remove --force-remove-reinstreq &amp;lt;packagename&amp;g</descripti
       <title>update-alternatives 命令</title>
       <link>https://blog.fenxiangz.com/post/linux/2017-11-27_update-alternatives_%E5%91%BD%E4%BB%A4.html</link>
       <guid>https://blog.fenxiangz.com/post/linux/2017-11-27_update-alternatives_%E5%91%BD%E4%BB%A4.html</guid>
-      <pubDate>Fri, 24 Nov 2017 16:00:00 GMT</pubDate>
+      <pubDate>Sat, 25 Nov 2017 00:00:00 GMT</pubDate>
       
         
         
@@ -2546,8 +2557,7 @@ sudo dpkg --remove --force-remove-reinstreq &amp;lt;packagename&amp;g</descripti
       
         
         
-      <description>&lt;p&gt;{: id=”20201220214147-6ftwg5c”}&lt;/p&gt;
-&lt;p&gt;Java 8 刚于几周前发布，日期是2014年3月18日，这次开创性的发布在Java社区引发了不少讨论，并让大家感到激动。特性之一便是随同发布的lambda表达式，它将允许我们将行为传到函数里。在</description>
+      <description>&lt;p&gt;Java 8 刚于几周前发布，日期是2014年3月18日，这次开创性的发布在Java社区引发了不少讨论，并让大家感到激动。特性之一便是随同发布的lambda表达式，它将允许我们将行为传到函数里。在Java 8之前，如果想将行为传入函数，仅有的选择就是匿名类，需要6行代码。而</description>
         
       
       
@@ -2571,7 +2581,7 @@ sudo dpkg --remove --force-remove-reinstreq &amp;lt;packagename&amp;g</descripti
       <title>Learn Gradle - 3 Java 快速入门</title>
       <link>https://blog.fenxiangz.com/post/util/gradle/LearnGradle_3_Java%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8.html</link>
       <guid>https://blog.fenxiangz.com/post/util/gradle/LearnGradle_3_Java%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8.html</guid>
-      <pubDate>Fri, 27 Oct 2017 16:00:00 GMT</pubDate>
+      <pubDate>Sat, 28 Oct 2017 00:00:00 GMT</pubDate>
       
       <description>&lt;p&gt;上一节主要对Gradle的脚本进行了简要的介绍，本节将继续学习Gradle的另外一个特性——插件（plugins）。&lt;/p&gt;
 &lt;h2 id=&quot;1、插件介绍&quot;&gt;&lt;a href=&quot;#1、插件介绍&quot; class=&quot;headerlink&quot; title=&quot;1、插件介绍&quot;&gt;&lt;/a&gt;1、插件介绍&lt;/h2&gt;&lt;p&gt;插件是对Gradle功能的扩展，Gradle有着丰富的插件，你可以在这里搜索相关插件（&lt;a href=&quot;https://plugins.gradle.org/&quot;&gt;传送门&lt;/a&gt;）。本章将简要介绍Gradle的Java插件（Java plugin），这个插件会给你的构建项目添加一些任务，比如编译java类、执行单元测试和将编译的class文件打包成jar文件等。&lt;/p&gt;
@@ -2601,7 +2611,7 @@ sudo dpkg --remove --force-remove-reinstreq &amp;lt;packagename&amp;g</descripti
       <title>Learn Gradle - 2 基本的构建脚本介绍</title>
       <link>https://blog.fenxiangz.com/post/util/gradle/LearnGradle_2_%E5%9F%BA%E6%9C%AC%E7%9A%84%E6%9E%84%E5%BB%BA%E8%84%9A%E6%9C%AC%E4%BB%8B%E7%BB%8D.html</link>
       <guid>https://blog.fenxiangz.com/post/util/gradle/LearnGradle_2_%E5%9F%BA%E6%9C%AC%E7%9A%84%E6%9E%84%E5%BB%BA%E8%84%9A%E6%9C%AC%E4%BB%8B%E7%BB%8D.html</guid>
-      <pubDate>Thu, 26 Oct 2017 16:00:00 GMT</pubDate>
+      <pubDate>Fri, 27 Oct 2017 00:00:00 GMT</pubDate>
       
       <description>&lt;h2 id=&quot;1、项目和任务&quot;&gt;&lt;a href=&quot;#1、项目和任务&quot; class=&quot;headerlink&quot; title=&quot;1、项目和任务&quot;&gt;&lt;/a&gt;1、项目和任务&lt;/h2&gt;&lt;p&gt;Gradle 构建脚本包括两个最基本的概念，就是项目（projects）和任务（tasks）。&lt;/p&gt;
 &lt;p&gt;项目是指我们的构建产物（比如jar包）或实施产物（比如web application等）。&lt;strong&gt;Gradle构建脚本包含一个或多个项目。&lt;/strong&gt;&lt;/p&gt;
@@ -2636,7 +2646,7 @@ sudo dpkg --remove --force-remove-reinstreq &amp;lt;packagename&amp;g</descripti
       <title>Learn Gradle - 1 安装</title>
       <link>https://blog.fenxiangz.com/post/util/gradle/LearnGradle_1_%E5%AE%89%E8%A3%85.html</link>
       <guid>https://blog.fenxiangz.com/post/util/gradle/LearnGradle_1_%E5%AE%89%E8%A3%85.html</guid>
-      <pubDate>Wed, 25 Oct 2017 16:00:00 GMT</pubDate>
+      <pubDate>Thu, 26 Oct 2017 00:00:00 GMT</pubDate>
       
       <description>&lt;h2 id=&quot;1、下载Gradle&quot;&gt;&lt;a href=&quot;#1、下载Gradle&quot; class=&quot;headerlink&quot; title=&quot;1、下载Gradle&quot;&gt;&lt;/a&gt;1、下载Gradle&lt;/h2&gt;&lt;p&gt;方式一：&lt;a href=&quot;http://gradle.org/&quot;&gt;http://gradle.org/&lt;/a&gt;  使用首页Download链接直接下载最新版。&lt;/p&gt;
 &lt;p&gt;方式二：&lt;a href=&quot;http://gradle.org/gradle-download/&quot;&gt;http://gradle.org/gradle-download/&lt;/a&gt;  在“PREVIOUS RELEASES”（右侧）下方选择一个版本，然后选择完整版“Complete distribution”或者选择不含源码和文档仅包含程序的版本“Binary only distribution”下载。&lt;/p&gt;
@@ -2669,7 +2679,7 @@ sudo dpkg --remove --force-remove-reinstreq &amp;lt;packagename&amp;g</descripti
       <title>IntelliJ 各种快捷键</title>
       <link>https://blog.fenxiangz.com/post/util/ide/2017-10-25_idea_shotcut.html</link>
       <guid>https://blog.fenxiangz.com/post/util/ide/2017-10-25_idea_shotcut.html</guid>
-      <pubDate>Wed, 25 Oct 2017 03:29:24 GMT</pubDate>
+      <pubDate>Wed, 25 Oct 2017 11:29:24 GMT</pubDate>
       
         
         
@@ -2705,8 +2715,7 @@ sudo dpkg --remove --force-remove-reinstreq &amp;lt;packagename&amp;g</descripti
       
         
         
-      <description>&lt;p&gt;{: id=”20201220214147-bxhib32”}&lt;/p&gt;
-&lt;p&gt;在JDK 1.2以前的版本中，若一个对象不被任何变量引用，那么程序就无法再使用这个对象。也就是说，只有对象处于可触及（reachable）状态，程序才能使用它。从JDK 1.2版本开始，把对象的引</description>
+      <description>&lt;p&gt;在JDK 1.2以前的版本中，若一个对象不被任何变量引用，那么程序就无法再使用这个对象。也就是说，只有对象处于可触及（reachable）状态，程序才能使用它。从JDK 1.2版本开始，把对象的引用分为4种级别，从而使程序能更加灵活地控制对象的生命周期。这4种级别由高到低依</description>
         
       
       
@@ -2732,7 +2741,7 @@ sudo dpkg --remove --force-remove-reinstreq &amp;lt;packagename&amp;g</descripti
       <title>Java NIO(3) 选择器 Selector</title>
       <link>https://blog.fenxiangz.com/post/java/nio/2017-04-23_java_nio_3.html</link>
       <guid>https://blog.fenxiangz.com/post/java/nio/2017-04-23_java_nio_3.html</guid>
-      <pubDate>Sat, 22 Apr 2017 16:00:00 GMT</pubDate>
+      <pubDate>Sun, 23 Apr 2017 00:00:00 GMT</pubDate>
       
         
         
@@ -2763,7 +2772,7 @@ sudo dpkg --remove --force-remove-reinstreq &amp;lt;packagename&amp;g</descripti
       <title>Java NIO(2) Buffer</title>
       <link>https://blog.fenxiangz.com/post/java/nio/2017-04-22_java_nio_2.html</link>
       <guid>https://blog.fenxiangz.com/post/java/nio/2017-04-22_java_nio_2.html</guid>
-      <pubDate>Fri, 21 Apr 2017 16:00:00 GMT</pubDate>
+      <pubDate>Sat, 22 Apr 2017 00:00:00 GMT</pubDate>
       
         
         
@@ -2794,7 +2803,7 @@ sudo dpkg --remove --force-remove-reinstreq &amp;lt;packagename&amp;g</descripti
       <title>Java NIO (1) 基本概念</title>
       <link>https://blog.fenxiangz.com/post/java/nio/2017-04-21_java_nio_1.html</link>
       <guid>https://blog.fenxiangz.com/post/java/nio/2017-04-21_java_nio_1.html</guid>
-      <pubDate>Thu, 20 Apr 2017 16:00:00 GMT</pubDate>
+      <pubDate>Fri, 21 Apr 2017 00:00:00 GMT</pubDate>
       
         
         
@@ -2823,7 +2832,7 @@ sudo dpkg --remove --force-remove-reinstreq &amp;lt;packagename&amp;g</descripti
       <title>Java IO(6) InputStream和OutputStream</title>
       <link>https://blog.fenxiangz.com/post/java/io/2017-04-20_java_io_6_stream.html</link>
       <guid>https://blog.fenxiangz.com/post/java/io/2017-04-20_java_io_6_stream.html</guid>
-      <pubDate>Wed, 19 Apr 2017 16:00:00 GMT</pubDate>
+      <pubDate>Thu, 20 Apr 2017 00:00:00 GMT</pubDate>
       
         
         
@@ -2854,7 +2863,7 @@ sudo dpkg --remove --force-remove-reinstreq &amp;lt;packagename&amp;g</descripti
       <title>Java IO(5) 异常处理</title>
       <link>https://blog.fenxiangz.com/post/java/io/2017-04-19_java_io_5_exception.html</link>
       <guid>https://blog.fenxiangz.com/post/java/io/2017-04-19_java_io_5_exception.html</guid>
-      <pubDate>Tue, 18 Apr 2017 16:00:00 GMT</pubDate>
+      <pubDate>Wed, 19 Apr 2017 00:00:00 GMT</pubDate>
       
         
         
@@ -2893,9 +2902,8 @@ try &amp;#123;
       
         
         
-      <description>&lt;p&gt;{: id=”20201220214147-88em5ng”}&lt;/p&gt;
-&lt;p&gt;整理一份Java Thread的思维导图，持续更新中…&lt;br&gt;{: id=”20201220214147-hhc1gss”}&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://blog.fenxia</description>
+      <description>&lt;p&gt;整理一份Java Thread的思维导图，持续更新中…&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://blog.fenxiangz.com/mind/?url=examples/JavaThread.mymind&quot;&gt;https://blog.fenxiangz.com/m</description>
         
       
       
@@ -2921,7 +2929,7 @@ try &amp;#123;
       <title>为什么要与上0xff（&amp;0xff），有什么意义？</title>
       <link>https://blog.fenxiangz.com/post/java/advance/2017-04-18_java_0xff.html</link>
       <guid>https://blog.fenxiangz.com/post/java/advance/2017-04-18_java_0xff.html</guid>
-      <pubDate>Mon, 17 Apr 2017 16:00:00 GMT</pubDate>
+      <pubDate>Tue, 18 Apr 2017 00:00:00 GMT</pubDate>
       
         
         
@@ -2955,7 +2963,7 @@ try &amp;#123;
       <title>Java IO(4) 替换流，数组，文件或者大的字符串的一种方式</title>
       <link>https://blog.fenxiangz.com/post/java/io/2017-04-18_java_io_4_reader.html</link>
       <guid>https://blog.fenxiangz.com/post/java/io/2017-04-18_java_io_4_reader.html</guid>
-      <pubDate>Mon, 17 Apr 2017 16:00:00 GMT</pubDate>
+      <pubDate>Tue, 18 Apr 2017 00:00:00 GMT</pubDate>
       
         
         
@@ -2983,7 +2991,7 @@ try &amp;#123;
       <title>Java IO(3)  System.in , System.out,  and System.error</title>
       <link>https://blog.fenxiangz.com/post/java/io/2017-04-17_java_io_3_system_in.html</link>
       <guid>https://blog.fenxiangz.com/post/java/io/2017-04-17_java_io_3_system_in.html</guid>
-      <pubDate>Sun, 16 Apr 2017 16:00:00 GMT</pubDate>
+      <pubDate>Mon, 17 Apr 2017 00:00:00 GMT</pubDate>
       
         
         
@@ -3013,7 +3021,7 @@ public final static PrintStream o</description>
       <title>Java IO(2) 管道流</title>
       <link>https://blog.fenxiangz.com/post/java/io/2017-04-16_java_io_2_pipeline.html</link>
       <guid>https://blog.fenxiangz.com/post/java/io/2017-04-16_java_io_2_pipeline.html</guid>
-      <pubDate>Sat, 15 Apr 2017 16:00:00 GMT</pubDate>
+      <pubDate>Sun, 16 Apr 2017 00:00:00 GMT</pubDate>
       
         
         
@@ -3046,7 +3054,7 @@ public class PipeExa</description>
       <title>Java IO(1) Overview</title>
       <link>https://blog.fenxiangz.com/post/java/io/2017-04-15_java_io_1_overview.html</link>
       <guid>https://blog.fenxiangz.com/post/java/io/2017-04-15_java_io_1_overview.html</guid>
-      <pubDate>Fri, 14 Apr 2017 16:00:00 GMT</pubDate>
+      <pubDate>Sat, 15 Apr 2017 00:00:00 GMT</pubDate>
       
         
         
@@ -3075,7 +3083,7 @@ public class PipeExa</description>
       <title>【战略收藏】Java知识体系</title>
       <link>https://blog.fenxiangz.com/post/java/advance/2017-03-28_java_acknowledge.html</link>
       <guid>https://blog.fenxiangz.com/post/java/advance/2017-03-28_java_acknowledge.html</guid>
-      <pubDate>Mon, 27 Mar 2017 16:00:00 GMT</pubDate>
+      <pubDate>Tue, 28 Mar 2017 00:00:00 GMT</pubDate>
       
         
         
@@ -3104,7 +3112,7 @@ public class PipeExa</description>
       <title>小白科普：Netty有什么用？</title>
       <link>https://blog.fenxiangz.com/post/java/netty/2019-01-02_%E5%B0%8F%E7%99%BD%E7%A7%91%E6%99%AENetty%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8.html</link>
       <guid>https://blog.fenxiangz.com/post/java/netty/2019-01-02_%E5%B0%8F%E7%99%BD%E7%A7%91%E6%99%AENetty%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8.html</guid>
-      <pubDate>Sun, 01 Jan 2017 16:00:00 GMT</pubDate>
+      <pubDate>Mon, 02 Jan 2017 00:00:00 GMT</pubDate>
       
         
         
@@ -3133,7 +3141,7 @@ public class PipeExa</description>
       <title>Java书籍推荐</title>
       <link>https://blog.fenxiangz.com/post/java/advance/2016-12-09_java_books.html</link>
       <guid>https://blog.fenxiangz.com/post/java/advance/2016-12-09_java_books.html</guid>
-      <pubDate>Thu, 08 Dec 2016 16:00:00 GMT</pubDate>
+      <pubDate>Fri, 09 Dec 2016 00:00:00 GMT</pubDate>
       
         
         
@@ -3161,7 +3169,7 @@ public class PipeExa</description>
       <title>Java7 里 try-with-resources 分析</title>
       <link>https://blog.fenxiangz.com/post/java/basic/2016-11-18_try_with_resources.html</link>
       <guid>https://blog.fenxiangz.com/post/java/basic/2016-11-18_try_with_resources.html</guid>
-      <pubDate>Sun, 27 Nov 2016 23:59:24 GMT</pubDate>
+      <pubDate>Mon, 28 Nov 2016 07:59:24 GMT</pubDate>
       
         
         
@@ -3197,16 +3205,20 @@ public class PipeExa</description>
       
         
         
-      <description>&lt;p&gt;{: id=”20201220214147-x6u751t”}&lt;/p&gt;
-&lt;p&gt;tags:&lt;br&gt;{: id=”20201220214147-8hf12qh”}&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;{: id=”20201220214147-rkamcwv”}序列化&lt;/li&gt;
-&lt;li&gt;</description>
+      <description>&lt;h1 id=&quot;0-简介&quot;&gt;&lt;a href=&quot;#0-简介&quot; class=&quot;headerlink&quot; title=&quot;0.简介&quot;&gt;&lt;/a&gt;0.简介&lt;/h1&gt;&lt;p&gt;序列化和反序列化对于现代的程序员来说是一个既熟悉又陌生的概念。说熟悉是因为几乎每个程序员在工作中都直接或间接的使用过它，说陌</description>
         
       
       
+      <enclosure url="https://blog.fenxiangz.com/images/java/basic/java_logo.png" type="image"/>
       
       
+      
+      <category domain="https://blog.fenxiangz.com/categories/Java-%E8%BF%9B%E9%98%B6/">Java 进阶</category>
+      
+      
+      <category domain="https://blog.fenxiangz.com/tags/Java/">Java</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/%E5%BA%8F%E5%88%97%E5%8C%96/">序列化</category>
       
       
       <comments>https://blog.fenxiangz.com/post/java/advance/2016-11-24_java_serializable.html#disqus_thread</comments>
@@ -3217,7 +3229,7 @@ public class PipeExa</description>
       <title>Java 内存分配和泄露</title>
       <link>https://blog.fenxiangz.com/post/java/advance/2016-11-03_java_memory_malloc.html</link>
       <guid>https://blog.fenxiangz.com/post/java/advance/2016-11-03_java_memory_malloc.html</guid>
-      <pubDate>Thu, 03 Nov 2016 05:29:24 GMT</pubDate>
+      <pubDate>Thu, 03 Nov 2016 13:29:24 GMT</pubDate>
       
         
         
@@ -3247,7 +3259,7 @@ public class PipeExa</description>
       <title>Spring 组合注解&amp;注解继承</title>
       <link>https://blog.fenxiangz.com/post/java/spring/2016-10-30_Spring%20%E7%BB%84%E5%90%88%E6%B3%A8%E8%A7%A3&amp;%E6%B3%A8%E8%A7%A3%E7%BB%A7%E6%89%BF.html</link>
       <guid>https://blog.fenxiangz.com/post/java/spring/2016-10-30_Spring%20%E7%BB%84%E5%90%88%E6%B3%A8%E8%A7%A3&amp;%E6%B3%A8%E8%A7%A3%E7%BB%A7%E6%89%BF.html</guid>
-      <pubDate>Sat, 29 Oct 2016 16:00:00 GMT</pubDate>
+      <pubDate>Sun, 30 Oct 2016 00:00:00 GMT</pubDate>
       
         
         
@@ -3284,16 +3296,20 @@ public class PipeExa</description>
       
         
         
-      <description>&lt;p&gt;{: id=”20201220214147-nmx0726”}&lt;/p&gt;
-&lt;p&gt;tags:&lt;br&gt;{: id=”20201220214147-1h1czpe”}&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;{: id=”20201220214147-26d8wza”}二进制&lt;/li&gt;
-&lt;li&gt;</description>
+      <description>&lt;p&gt;这是一个困惑了我几年的问题，它让我对现在的教科书和老师极其不满，从我 N 年前开始摸电脑时，就几乎在每一本 C++ 教科书上都说，8 位有符号的取值范围是 - 128 到 +127，为什么不是 - 127 到 +127 呢，后来的 java，int 的取值范围，再 32 位</description>
         
       
       
+      <enclosure url="https://blog.fenxiangz.com/images/java/basic/java_logo.png" type="image"/>
       
       
+      
+      <category domain="https://blog.fenxiangz.com/categories/Java-%E8%BF%9B%E9%98%B6/">Java 进阶</category>
+      
+      
+      <category domain="https://blog.fenxiangz.com/tags/Java/">Java</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/%E4%BA%8C%E8%BF%9B%E5%88%B6/">二进制</category>
       
       
       <comments>https://blog.fenxiangz.com/post/java/advance/2016-10-25_number.html#disqus_thread</comments>
@@ -3304,7 +3320,7 @@ public class PipeExa</description>
       <title>ThreadLocal 笔记</title>
       <link>https://blog.fenxiangz.com/post/java/basic/2016-10-25_threadlocal.html</link>
       <guid>https://blog.fenxiangz.com/post/java/basic/2016-10-25_threadlocal.html</guid>
-      <pubDate>Tue, 25 Oct 2016 03:29:24 GMT</pubDate>
+      <pubDate>Tue, 25 Oct 2016 11:29:24 GMT</pubDate>
       
         
         
@@ -3335,7 +3351,7 @@ public class PipeExa</description>
       <title>关于 HashMap （JDK 1.7）</title>
       <link>https://blog.fenxiangz.com/post/java/basic/2016-10-25_hashmap_jdk7.html</link>
       <guid>https://blog.fenxiangz.com/post/java/basic/2016-10-25_hashmap_jdk7.html</guid>
-      <pubDate>Mon, 24 Oct 2016 16:00:00 GMT</pubDate>
+      <pubDate>Tue, 25 Oct 2016 00:00:00 GMT</pubDate>
       
         
         
@@ -3368,13 +3384,6 @@ public class PipeExa</description>
       <guid>https://blog.fenxiangz.com/post/about.html</guid>
       <pubDate>Sat, 03 Nov 2012 02:00:00 GMT</pubDate>
       
-        
-        
-      <description>&lt;p&gt;{: id=”20201220214147-cnrowyk”}&lt;/p&gt;
-&lt;p&gt;{: id=”20201220214147-um7fstg” type=”doc”}&lt;/p&gt;
-</description>
-        
-      
       
       
       
@@ -3391,13 +3400,6 @@ public class PipeExa</description>
       <link>https://blog.fenxiangz.com/post/link.html</link>
       <guid>https://blog.fenxiangz.com/post/link.html</guid>
       <pubDate>Sat, 03 Nov 2012 01:00:00 GMT</pubDate>
-      
-        
-        
-      <description>&lt;p&gt;{: id=”20201220214147-gh5mh5u”}&lt;/p&gt;
-&lt;p&gt;{: id=”20201220214147-bgeja6x” type=”doc”}&lt;/p&gt;
-</description>
-        
       
       
       
@@ -3416,8 +3418,7 @@ public class PipeExa</description>
       
         
         
-      <description>&lt;p&gt;{: id=”20201220214147-ppjxbqs”}&lt;/p&gt;
-&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https</description>
+      <description>&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for</description>
         
       
       

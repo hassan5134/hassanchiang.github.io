@@ -15,7 +15,7 @@
   <!-- if page has tags, then add tags to keyword -->
   
   
-  <meta name="keywords" content=",">
+  <meta name="keywords" content=",八皇后,算法,">
   <!-- page.description has higher priority -->
   <meta name="description" content="Share everything">
   <link rel="shortcut icon" href="/favico.png">
@@ -105,7 +105,7 @@
                                 href="/post/java/basic/2016-10-25_hashmap_jdk7.html">Java 基础</a></li>
                         
                         <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/java/advance/2016-11-03_java_memory_malloc.html">Java 进阶</a></li>
+                                href="/post/java/advance/2016-10-25_number.html">Java 进阶</a></li>
                         
                         <li class="gkt-sub-cate-name "><a class="float-left"
                                 href="/post/java/io/2017-04-15_java_io_1_overview.html">Java IO</a></li>
@@ -262,6 +262,11 @@
                     
                 </li>
                 
+                <li class="gkt-cate-name float-left active">
+                    <a class="float-left" href="/post/algorithm/八皇后算法解析.html">算法</a>
+                    
+                </li>
+                
                 <li class="gkt-cate-name float-left ">
                     <a class="float-left" href="/post/其他/2020-01-29_弹琴吧非会员扒谱技巧.html">其他 ▾</a>
                     
@@ -330,80 +335,71 @@
         <h1> 八皇后算法解析 </h1>
         
         
+        <div class="hidden-lg hidden-md series_links">
+            <p> <strong> 算法系列文章链接：</strong></p>
+            <ul>
+                
+                <li>
+                    <a href="/post/algorithm/八皇后算法解析.html">八皇后算法解析</a>
+                    <span class="post-item-date">(Nov 26, 2019)</span>
+                </li>
+                
+            </ul>
+        </div>
         
-        <p>{: id=”20201220214147-8n6s9od”}</p>
-<p>tags:<br>{: id=”20201220214147-k9gj31p”}</p>
-<ul>
-<li>{: id=”20201220214147-c689aop”}八皇后</li>
-<li>{: id=”20201220214147-oq2xwmm”}算法<br>{: id=”20201220214147-6q0izu2”}</li>
-</ul>
-<p>nav:<br>{: id=”20201220214147-6rrhr7f”}</p>
-<ul>
-<li>{: id=”20201220214147-u2fr0wf”}算法<br>{: id=”20201220214147-s3y6mmt”}</li>
-</ul>
-<p>categories:<br>{: id=”20201220214147-2aj92k3”}</p>
-<ul>
-<li>{: id=”20201220214147-7rhprtj”}算法<br>{: id=”20201220214147-idujzz9”}</li>
-</ul>
-<p>image: images/algorithm.jpg<br>{: id=”20201220214147-bf2gvt2”}</p>
-<hr>
-<p>今天研究力扣的一道题死活写不出来对应的算法，没办法自己算法基础太差。于是看了下答案，发现使用什么回溯算法，菜鸟表示平时开发期间写的最复杂的程序就是写了两层for循环，已经很牛逼了有木有？这个回溯算法什么鬼？于是乎百度了下，算是了解了回溯算法是什么玩意儿。这里分析一波八皇后算法来加深一下理解。<br>{: id=”20201220214147-q0k371j”}</p>
-<p>八皇后算法描述如下：在8×8格的国际象棋上摆放八个皇后，使其不能互相攻击，即任意两个皇后都不能处于同一行、同一列或同一斜线上，问有多少种摆法！<br>{: id=”20201220214147-l0cqal6”}</p>
-<p><img src="./%E5%85%AB%E7%9A%87%E5%90%8E%E7%AE%97%E6%B3%95%E8%A7%A3%E6%9E%90/1.png"><br>{: id=”20201220214147-k8bgz3x”}</p>
-<p>下面来分析一波，假设此时我们想要在黑色方块位置放置一个皇后：<br>{: id=”20201220214147-wz2vbj6”}</p>
-<p><img src="./%E5%85%AB%E7%9A%87%E5%90%8E%E7%AE%97%E6%B3%95%E8%A7%A3%E6%9E%90/2.png"><br>{: id=”20201220214147-af4ft52”}</p>
-<p>如果一列一列的放置皇后的话，图中黑色位置能放置一个皇后的合法性条件为：<br>{: id=”20201220214147-1o2lb2c”}</p>
-<ol>
-<li>{: id=”20201220214147-2fm7rmm”}绿色线条经过的方格没有皇后 （不处于同一斜线）</li>
-<li>{: id=”20201220214147-jdvp3rj”}红色线条经过的方格没有皇后 （不处于同一行）</li>
-<li>{: id=”20201220214147-t73zy0i”}紫色线条经过的方格没有皇后 （不处于同一斜线）<br>也就是说如果以黑色方块位置为参照原点：（0,0）坐标点，紫色和绿色两个线条分别是斜率为1和-1的两个函数，如下图：<br>{: id=”20201220214147-i4t15zj”}</li>
-</ol>
-<p>紫色线所代表的函数是：y = -x;<br>{: id=”20201220214147-d778nz0”}</p>
-<p>绿色先所代表的函数是：y=x;<br>{: id=”20201220214147-wgg2xsh”}</p>
-<p>（横坐标是列，纵坐标为行，注意行从上到下递增）<br>{: id=”20201220214147-gmr4k0b”}</p>
-<p><img src="./%E5%85%AB%E7%9A%87%E5%90%8E%E7%AE%97%E6%B3%95%E8%A7%A3%E6%9E%90/3.png"><br>{: id=”20201220214147-3l00f3f”}</p>
-<p>凡是位于这两条函数线上的位置（点）以及横坐标（说明位于同一行）都不能有皇后。<br>所以假设某一列皇后的位置用行来记录，比如queen[column] = row,意思是第column列的皇后的位置在第row行。<br>{: id=”20201220214147-w5eseou”}</p>
-<p>同行的逻辑很好判断，那么我们想要在黑色方块位置放置一个皇后，怎么判断前面几列是否在绿色线条和紫色线条上已经有了皇后呢？思路也很简单：<br>{: id=”20201220214147-7j7g13r”}</p>
-<p>假设黑色方块的位置为n列，nRow行，假设位于m列的所在的行是否有皇后位于紫色线或者绿色上，那么就符合下面条件：<br>{: id=”20201220214147-4iits1n”}</p>
+        
+        <p>今天研究力扣的一道题死活写不出来对应的算法，没办法自己算法基础太差。于是看了下答案，发现使用什么回溯算法，菜鸟表示平时开发期间写的最复杂的程序就是写了两层for循环，已经很牛逼了有木有？这个回溯算法什么鬼？于是乎百度了下，算是了解了回溯算法是什么玩意儿。这里分析一波八皇后算法来加深一下理解。</p>
+<p>八皇后算法描述如下：在8×8格的国际象棋上摆放八个皇后，使其不能互相攻击，即任意两个皇后都不能处于同一行、同一列或同一斜线上，问有多少种摆法！ </p>
+<p><img src="./%E5%85%AB%E7%9A%87%E5%90%8E%E7%AE%97%E6%B3%95%E8%A7%A3%E6%9E%90/1.png"> </p>
+<p>下面来分析一波，假设此时我们想要在黑色方块位置放置一个皇后： </p>
+<p><img src="./%E5%85%AB%E7%9A%87%E5%90%8E%E7%AE%97%E6%B3%95%E8%A7%A3%E6%9E%90/2.png"></p>
+<p>如果一列一列的放置皇后的话，图中黑色位置能放置一个皇后的合法性条件为： </p>
+<p>1、绿色线条经过的方格没有皇后 （不处于同一斜线） </p>
+<p>2、红色线条经过的方格没有皇后 （不处于同一行） </p>
+<p>3、紫色线条经过的方格没有皇后 （不处于同一斜线）<br>也就是说如果以黑色方块位置为参照原点：（0,0）坐标点，紫色和绿色两个线条分别是斜率为1和-1的两个函数，如下图： </p>
+<p>紫色线所代表的函数是：y = -x; </p>
+<p>绿色先所代表的函数是：y=x; </p>
+<p>（横坐标是列，纵坐标为行，注意行从上到下递增） </p>
+<p><img src="./%E5%85%AB%E7%9A%87%E5%90%8E%E7%AE%97%E6%B3%95%E8%A7%A3%E6%9E%90/3.png"></p>
+<p>凡是位于这两条函数线上的位置（点）以及横坐标（说明位于同一行）都不能有皇后。<br>所以假设某一列皇后的位置用行来记录，比如queen[column] = row,意思是第column列的皇后的位置在第row行。 </p>
+<p>同行的逻辑很好判断，那么我们想要在黑色方块位置放置一个皇后，怎么判断前面几列是否在绿色线条和紫色线条上已经有了皇后呢？思路也很简单： </p>
+<p>假设黑色方块的位置为n列，nRow行，假设位于m列的所在的行是否有皇后位于紫色线或者绿色上，那么就符合下面条件：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;假设此时即将在n列放置一个皇后,n&gt;m</span><br><span class="line"></span><br><span class="line">]&#x2F;&#x2F;获取m列上皇后所在的行</span><br><span class="line">int mRow &#x3D; queen[m]</span><br><span class="line">int nRow &#x3D; queen[n]；</span><br><span class="line">&#x2F;&#x2F;行的差值</span><br><span class="line">int rowDiff &#x3D; nRow - mRow;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;列的差值</span><br><span class="line">int columnDiff &#x3D; n-m;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>{: id=”20201220214147-pcnspmf”}</p>
-<p>上面代码中 rowDiff的绝对值等于columnDiff的绝对值的话，说明点位于y=x或者y=-x的函数线上：<br>{: id=”20201220214147-ee1bb0i”}</p>
-<p><img src="./%E5%85%AB%E7%9A%87%E5%90%8E%E7%AE%97%E6%B3%95%E8%A7%A3%E6%9E%90/4.png"><br>{: id=”20201220214147-y2d8fim”}</p>
-<p>就说明此时黑色方块的位置是不能放置皇后的，因为在紫色或者绿色线上已经有了皇后。<br>那么用代码来（currentColumn,curreentRow）是否可以放置皇后的方法如下<br>{: id=”20201220214147-8rpo624”}</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">     &#x2F;**</span><br><span class="line">     * 判断当（currentRow,currentColumn)是否可以放置皇后</span><br><span class="line">     * @param currentColumn </span><br><span class="line">     * @return</span><br><span class="line">     *&#x2F;</span><br><span class="line">    public boolean isLegal(int currentRow,int currentColumn) &#123;</span><br><span class="line">        &#x2F;&#x2F;遍历前面几列</span><br><span class="line">        for(int preColumn&#x3D;0;preColumn&lt;currentColumn;preColumn++) &#123;</span><br><span class="line">                int row &#x3D; queen[preColumn];</span><br><span class="line">                &#x2F;&#x2F;说明在子preColumn的低currentRow已经有了皇后</span><br><span class="line">                if(row&#x3D;&#x3D;currentRow) &#123;</span><br><span class="line">                        return false;</span><br><span class="line">                &#125;</span><br><span class="line">              </span><br><span class="line">            &#x2F;&#x2F;行与行的差值</span><br><span class="line">            int rowDiff&#x3D; Math.abs(row -currentRow);</span><br><span class="line">        </span><br><span class="line">            &#x2F;&#x2F;列于列的差值</span><br><span class="line">            int columnDiff &#x3D;  Math.abs(currentColumn-preColumn);</span><br><span class="line">            &#x2F;&#x2F;说明斜线上有皇后</span><br><span class="line">            if(rowDiff&#x3D;&#x3D;columnDiff )&#123;</span><br><span class="line">                return false;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;&#x2F;&#x2F;end for</span><br><span class="line">      </span><br><span class="line">        &#x2F;&#x2F;说明（currentRow,currentColumn)可以摆放。</span><br><span class="line">        return true;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>{: id=”20201220214147-hd0dij0”}</p>
-<p>因为博主是按照一列一列的方式来进行放置的，所以整体思路就是：在当前列逐步尝试每一行是否可以放置皇后，如果有一个可以放置皇后，就继续查看下一列的每一行是否可以放置皇后。所以代码如下：<br>{: id=”20201220214147-zc9jvkp”}</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">int queen[] &#x3D; new int[8];</span><br><span class="line">int count &#x3D; 0;</span><br><span class="line">  </span><br><span class="line">private void eightQueen(int currentColumn) &#123;</span><br><span class="line">            &#x2F;&#x2F;这个for循环的目的是尝试讲皇后放在当前列的每一行</span><br><span class="line">            for(int row&#x3D;0;row&lt;8;row++) &#123;</span><br><span class="line">                    &#x2F;&#x2F;判断当前列的row行是否能放置皇后</span><br><span class="line">                    if(isLegal(row,currentColumn)) &#123;</span><br><span class="line">                    &#x2F;&#x2F;放置皇后</span><br><span class="line">                            queen[currentColumn] &#x3D; row;</span><br><span class="line">                            if(currentColumn!&#x3D;7) &#123;</span><br><span class="line">                                    &#x2F;&#x2F;摆放下一列的皇后</span><br><span class="line">                                    eightQueen(currentColumn+1);</span><br><span class="line">                          </span><br><span class="line">                            &#125;else &#123;</span><br><span class="line">                                    &#x2F;&#x2F;递归结束，此时row要++了</span><br><span class="line">                                    count++;</span><br><span class="line">                            &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">            &#125;&#x2F;&#x2F;end for</span><br><span class="line">    &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>{: id=”20201220214147-tln110e”}</p>
-<p>需要注意的是当currentColumn==7的时候，说明此时已经完成了一种摆放方法，然后for循环继续执行，去尝试其他摆放方法。<br>{: id=”20201220214147-g74liuf”}</p>
-<p>测试一波，一共有92种摆放方法：<br>{: id=”20201220214147-3psyejv”}</p>
+
+<p>上面代码中 rowDiff的绝对值等于columnDiff的绝对值的话，说明点位于y=x或者y=-x的函数线上： </p>
+<p><img src="./%E5%85%AB%E7%9A%87%E5%90%8E%E7%AE%97%E6%B3%95%E8%A7%A3%E6%9E%90/4.png"></p>
+<p>就说明此时黑色方块的位置是不能放置皇后的，因为在紫色或者绿色线上已经有了皇后。<br>那么用代码来（currentColumn,curreentRow）是否可以放置皇后的方法如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">     &#x2F;**</span><br><span class="line">     * 判断当（currentRow,currentColumn)是否可以放置皇后</span><br><span class="line">     * @param currentColumn </span><br><span class="line">     * @return</span><br><span class="line">     *&#x2F;</span><br><span class="line">    public boolean isLegal(int currentRow,int currentColumn) &#123;</span><br><span class="line">        &#x2F;&#x2F;遍历前面几列</span><br><span class="line">        for(int preColumn&#x3D;0;preColumn&lt;currentColumn;preColumn++) &#123;</span><br><span class="line">                int row &#x3D; queen[preColumn];</span><br><span class="line">                &#x2F;&#x2F;说明在子preColumn的低currentRow已经有了皇后</span><br><span class="line">                if(row&#x3D;&#x3D;currentRow) &#123;</span><br><span class="line">                        return false;</span><br><span class="line">                &#125;</span><br><span class="line">                </span><br><span class="line">            &#x2F;&#x2F;行与行的差值</span><br><span class="line">            int rowDiff&#x3D; Math.abs(row -currentRow);</span><br><span class="line">          </span><br><span class="line">            &#x2F;&#x2F;列于列的差值</span><br><span class="line">            int columnDiff &#x3D;  Math.abs(currentColumn-preColumn);</span><br><span class="line">            &#x2F;&#x2F;说明斜线上有皇后</span><br><span class="line">            if(rowDiff&#x3D;&#x3D;columnDiff )&#123;</span><br><span class="line">                return false;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;&#x2F;&#x2F;end for</span><br><span class="line">        </span><br><span class="line">        &#x2F;&#x2F;说明（currentRow,currentColumn)可以摆放。</span><br><span class="line">        return true;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>因为博主是按照一列一列的方式来进行放置的，所以整体思路就是：在当前列逐步尝试每一行是否可以放置皇后，如果有一个可以放置皇后，就继续查看下一列的每一行是否可以放置皇后。所以代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">int queen[] &#x3D; new int[8];</span><br><span class="line">int count &#x3D; 0;</span><br><span class="line"></span><br><span class="line">private void eightQueen(int currentColumn) &#123;</span><br><span class="line">            &#x2F;&#x2F;这个for循环的目的是尝试讲皇后放在当前列的每一行</span><br><span class="line">            for(int row&#x3D;0;row&lt;8;row++) &#123;</span><br><span class="line">                    &#x2F;&#x2F;判断当前列的row行是否能放置皇后</span><br><span class="line">                    if(isLegal(row,currentColumn)) &#123;</span><br><span class="line">                    &#x2F;&#x2F;放置皇后</span><br><span class="line">                            queen[currentColumn] &#x3D; row;</span><br><span class="line">                            if(currentColumn!&#x3D;7) &#123;</span><br><span class="line">                                    &#x2F;&#x2F;摆放下一列的皇后</span><br><span class="line">                                    eightQueen(currentColumn+1);</span><br><span class="line">                            </span><br><span class="line">                            &#125;else &#123;</span><br><span class="line">                                    &#x2F;&#x2F;递归结束，此时row要++了</span><br><span class="line">                                    count++;</span><br><span class="line">                            &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">            &#125;&#x2F;&#x2F;end for</span><br><span class="line">    &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>需要注意的是当currentColumn==7的时候，说明此时已经完成了一种摆放方法，然后for循环继续执行，去尝试其他摆放方法。 </p>
+<p>测试一波，一共有92种摆放方法：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String args[]) &#123;</span><br><span class="line">     Queen queen &#x3D; new Queen();</span><br><span class="line">     queen.eightQueen(0);</span><br><span class="line">     System.out.println(&quot;总共有 &quot; +queen.count+ &quot; 摆放方法&quot;);</span><br><span class="line"> &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>{: id=”20201220214147-o4pkdp6”}</p>
-<p>所以结合八皇后的实现来看看到底什么是回溯算法，看<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/9258495?fr=aladdin">百度百科解释</a> (rel=undefined)：回溯算法实际上一个类似枚举的搜索尝试过程，主要是&lt;font color#ff00ff&gt;在搜索尝试过程中寻找问题的解，当发现已不满足求解条件时，就“回溯”返回，尝试别的路径。但当探索到某一步时，发现原先选择并不优或达不到目标，就退回一步重新选择，这种走不通就退回再走的技术为回溯法<br>{: id=”20201220214147-aker83b”}</p>
-<p>比如八皇后算法来说，我们根据约束条件判断某一列的某一行是否可以放置皇后，如果不可以就继续判断当前列的下一行是否可以放置皇后.如果可以放置皇后，就继续探寻下一列中可以放置皇后的那个位置。完成一次摆放后。再重新挨个尝试下一个可能的摆放方法。<br>{: id=”20201220214147-ggy2i8g”}</p>
-<p>下面用一个<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/combination-sum/">力扣的题</a> (rel=undefined)再次巩固下回溯算法的应用。该题描述如下：<br>{: id=”20201220214147-7sbfcq6”}</p>
+
+<p>所以结合八皇后的实现来看看到底什么是回溯算法，看<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/9258495?fr=aladdin">百度百科解释</a> (rel=undefined)：回溯算法实际上一个类似枚举的搜索尝试过程，主要是&lt;font color#ff00ff&gt;在搜索尝试过程中寻找问题的解，当发现已不满足求解条件时，就“回溯”返回，尝试别的路径。但当探索到某一步时，发现原先选择并不优或达不到目标，就退回一步重新选择，这种走不通就退回再走的技术为回溯法</p>
+<p>比如八皇后算法来说，我们根据约束条件判断某一列的某一行是否可以放置皇后，如果不可以就继续判断&lt;font color #ff00ff&gt;当前列的下一行是否可以放置皇后.如果可以放置皇后，就继续探寻下一列中可以放置皇后的那个位置。完成一次摆放后。再重新挨个尝试下一个可能的摆放方法。</p>
+<p>下面用一个<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/combination-sum/">力扣的题</a> (rel=undefined)再次巩固下回溯算法的应用。该题描述如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">给定一个无重复元素的数组 candidates 和一个目标数 target ，找出 candidates 中所有可以使数字和为 target 的组合。candidates 中的数字可以无限制重复被选取。</span><br><span class="line"></span><br><span class="line">说明：所有数字（包括 target）都是正整数。解集不能包含重复的组合。 </span><br><span class="line">示例 1:输入: candidates &#x3D; [2,3,6,7], target &#x3D; 7,</span><br><span class="line">所求解集为:</span><br><span class="line">[</span><br><span class="line">  [7],</span><br><span class="line">  [2,2,3]</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">示例 2:输入: candidates &#x3D; [2,3,5], target &#x3D; 8,</span><br><span class="line">所求解集为:</span><br><span class="line">[</span><br><span class="line">  [2,2,2,2],</span><br><span class="line">  [2,3,3],</span><br><span class="line">  [3,5]</span><br><span class="line">]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>{: id=”20201220214147-881ijds”}</p>
-<p>做该题的重要条件是无重复的数组，那么问题就很好解了。<br>{: id=”20201220214147-at9ihwb”}</p>
-<p>首先对数组从大到小排序。这是解题的关键。<br>{: id=”20201220214147-0eggc2p”}</p>
-<p>然后为了减少不必要的遍历，我们要对原来的数组进行截取：<br>{: id=”20201220214147-e69mu3l”}</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">List&lt;List&lt;Integer&gt;&gt; res &#x3D; new ArrayList&lt;&gt;();</span><br><span class="line"> &#x2F;&#x2F;重要的要大小排列</span><br><span class="line">Arrays.sort(candidates);</span><br><span class="line">&#x2F;&#x2F;说明原数组中就没有满足target的数</span><br><span class="line">if (candidates[0] &gt; target) &#123;</span><br><span class="line">       return res;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line">List&lt;Integer&gt; newCandidates&#x3D; new ArrayList&lt;Integer&gt;();</span><br><span class="line">int len &#x3D; candidates.length;</span><br><span class="line">&#x2F;&#x2F; 取小于target的数 组成一个临时数组</span><br><span class="line">for (int i &#x3D; 0; i &lt; len; i++) &#123;</span><br><span class="line">        int num &#x3D; candidates[i];</span><br><span class="line">        if (num &gt; target) &#123;</span><br><span class="line">                break;</span><br><span class="line">        &#125;</span><br><span class="line">       newCandidates.add(num);</span><br><span class="line"> &#125; &#x2F;&#x2F; end for</span><br><span class="line">       </span><br></pre></td></tr></table></figure>
-<p>{: id=”20201220214147-ob23xre”}</p>
-<p>通过上面的步骤我们拿到了一个从小到大排列的无重复数组newCandidates，数组中的元素都&lt;=target.<br>{: id=”20201220214147-yeomezw”}</p>
-<p>因为数组从小到大排列，所以我们有如下几种情况，以candidates = [2,3,5], target = 8为例：<br>{: id=”20201220214147-yok6mlx”}</p>
-<p>符合条件的子数组满足条件如下<br>{: id=”20201220214147-wuaxg0y”}</p>
-<ol>
-<li>{: id=”20201220214147-1j3me35”}target循环减去一个数，如果能一直减到到差值等于0，那么这个数组成的数组就是一个解,比如[2,2,2,2];</li>
-<li>{: id=”20201220214147-0rhgjft”}target减去一个数，然后形成了一个新的newTarget=target-num[i],让这个newTarget减去下一个数num[i+1],然后执行步骤1，则又是一个解，比如[2,3,3];（其实步骤1是步骤2的一个特例）</li>
-<li>{: id=”20201220214147-8ow09bd”}target减去一个数，然后形成了一个新的newTarget=target-num[i],让这个newTarget减去下一个数num[i+1]，如果能一直减到到差值等于0说明又是一个解.，比如[3,5];<br>{: id=”20201220214147-l5udgh3”}</li>
-</ol>
-<p>如此得到了一个规律，只要是相减之后得到差值=0,就说明就得到一个解。<br>{: id=”20201220214147-ksxa15y”}</p>
-<p>得到一个新的解之后继续循环数组中的下一个数字，继续执行1,2,3步骤即可。<br>{: id=”20201220214147-5npsonm”}</p>
-<p>所以完成的解法如下：<br>{: id=”20201220214147-6v85ip4”}</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">     public List&lt;List&lt;Integer&gt;&gt; combinationSum(int[] candidates, int target) &#123;</span><br><span class="line">        List&lt;List&lt;Integer&gt;&gt; res &#x3D; new ArrayList&lt;&gt;();</span><br><span class="line">         &#x2F;&#x2F;重要的要大小排列</span><br><span class="line">        Arrays.sort(candidates);</span><br><span class="line">       </span><br><span class="line">                List&lt;Integer&gt; temp &#x3D; new ArrayList&lt;Integer&gt;();</span><br><span class="line"></span><br><span class="line">   </span><br><span class="line">                if (candidates[0] &gt; target) &#123;</span><br><span class="line">                        return res;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">        int len &#x3D; candidates.length;</span><br><span class="line">       </span><br><span class="line">                &#x2F;&#x2F; 取小于target的数 足证一个临时数组</span><br><span class="line">                for (int i &#x3D; 0; i &lt; len; i++) &#123;</span><br><span class="line">                        int num &#x3D; candidates[i];</span><br><span class="line">                        if (num &gt; target) &#123;</span><br><span class="line">                                break;</span><br><span class="line">                        &#125;</span><br><span class="line"></span><br><span class="line">                        temp.add(num);</span><br><span class="line">                &#125; &#x2F;&#x2F; end for</span><br><span class="line">       </span><br><span class="line">         &#x2F;&#x2F;</span><br><span class="line">        find(res, new ArrayList&lt;&gt;(), temp, target, 0);</span><br><span class="line">       </span><br><span class="line">        return res;</span><br><span class="line">    &#125;</span><br><span class="line">  </span><br><span class="line">    public void find(List&lt;List&lt;Integer&gt;&gt; res, List&lt;Integer&gt; tmp, List&lt;Integer&gt; candidates, int target, int start)&#123;</span><br><span class="line">        &#x2F;&#x2F;target&#x3D;&#x3D;0.找到一个新的解</span><br><span class="line">        if (target &#x3D;&#x3D; 0) &#123;</span><br><span class="line">            res.add(new ArrayList&lt;&gt;(tmp));</span><br><span class="line">        &#125;else if(target&gt;0)&#123;</span><br><span class="line">          for (int i &#x3D; start; i &lt; candidates.size(); i++) &#123;</span><br><span class="line">             int num &#x3D; candidates.get(i);</span><br><span class="line">             if(num&lt;&#x3D;target)&#123;             </span><br><span class="line">                  tmp.add(num);</span><br><span class="line">                  &#x2F;&#x2F;查找新的target</span><br><span class="line">                  int newTarget &#x3D; target-num;</span><br><span class="line">                  find(res, tmp, candidates, newTarget, i);</span><br><span class="line">                  tmp.remove(tmp.size() - 1);</span><br><span class="line">             &#125;</span><br><span class="line">         </span><br><span class="line">           &#125;&#x2F;&#x2F;end for</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>{: id=”20201220214147-63kr6tw”}</p>
-<p>原文：<a target="_blank" rel="noopener" href="https://blog.csdn.net/chunqiuwei/article/details/90113087#commentBox">https://blog.csdn.net/chunqiuwei/article/details/90113087#commentBox</a><br>{: id=”20201220214147-8jchi2k”}</p>
-<p>{: id=”20201220214147-pggp1pi” type=”doc”}</p>
+
+<p>做该题的重要条件是无重复的数组，那么问题就很好解了。 </p>
+<p>首先对数组从大到小排序。这是解题的关键。 </p>
+<p>然后为了减少不必要的遍历，我们要对原来的数组进行截取：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">List&lt;List&lt;Integer&gt;&gt; res &#x3D; new ArrayList&lt;&gt;();</span><br><span class="line"> &#x2F;&#x2F;重要的要大小排列</span><br><span class="line">Arrays.sort(candidates);</span><br><span class="line">&#x2F;&#x2F;说明原数组中就没有满足target的数</span><br><span class="line">if (candidates[0] &gt; target) &#123;</span><br><span class="line">       return res;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line">List&lt;Integer&gt; newCandidates&#x3D; new ArrayList&lt;Integer&gt;();</span><br><span class="line">int len &#x3D; candidates.length;</span><br><span class="line">&#x2F;&#x2F; 取小于target的数 组成一个临时数组</span><br><span class="line">for (int i &#x3D; 0; i &lt; len; i++) &#123;</span><br><span class="line">        int num &#x3D; candidates[i];</span><br><span class="line">        if (num &gt; target) &#123;</span><br><span class="line">                break;</span><br><span class="line">        &#125;</span><br><span class="line">       newCandidates.add(num);</span><br><span class="line"> &#125; &#x2F;&#x2F; end for</span><br><span class="line"> </span><br></pre></td></tr></table></figure>
+
+<p>通过上面的步骤我们拿到了一个从小到大排列的无重复数组newCandidates，数组中的元素都&lt;=target. </p>
+<p>因为数组从小到大排列，所以我们有如下几种情况，以candidates = [2,3,5], target = 8为例： </p>
+<p>符合条件的子数组满足条件如下 </p>
+<p>1、target循环减去一个数，如果能一直减到到差值等于0，那么这个数组成的数组就是一个解,比如[2,2,2,2]; </p>
+<p>2、target减去一个数，然后形成了一个新的newTarget=target-num[i],让这个newTarget减去下一个数num[i+1],然后执行步骤1，则又是一个解，比如[2,3,3];（其实步骤1是步骤2的一个特例） </p>
+<p>3、target减去一个数，然后形成了一个新的newTarget=target-num[i],让这个newTarget减去下一个数num[i+1]，如果能一直减到到差值等于0说明又是一个解.，比如[3,5]; </p>
+<p>如此得到了一个规律，只要是相减之后得到差值=0,就说明就得到一个解。 </p>
+<p>得到一个新的解之后继续循环数组中的下一个数字，继续执行1,2,3步骤即可。 </p>
+<p>所以完成的解法如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">     public List&lt;List&lt;Integer&gt;&gt; combinationSum(int[] candidates, int target) &#123;</span><br><span class="line">        List&lt;List&lt;Integer&gt;&gt; res &#x3D; new ArrayList&lt;&gt;();</span><br><span class="line">         &#x2F;&#x2F;重要的要大小排列</span><br><span class="line">        Arrays.sort(candidates);</span><br><span class="line">         </span><br><span class="line">                List&lt;Integer&gt; temp &#x3D; new ArrayList&lt;Integer&gt;();</span><br><span class="line"></span><br><span class="line">     </span><br><span class="line">                if (candidates[0] &gt; target) &#123;</span><br><span class="line">                        return res;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">        int len &#x3D; candidates.length;</span><br><span class="line">         </span><br><span class="line">                &#x2F;&#x2F; 取小于target的数 足证一个临时数组</span><br><span class="line">                for (int i &#x3D; 0; i &lt; len; i++) &#123;</span><br><span class="line">                        int num &#x3D; candidates[i];</span><br><span class="line">                        if (num &gt; target) &#123;</span><br><span class="line">                                break;</span><br><span class="line">                        &#125;</span><br><span class="line"></span><br><span class="line">                        temp.add(num);</span><br><span class="line">                &#125; &#x2F;&#x2F; end for</span><br><span class="line">         </span><br><span class="line">         &#x2F;&#x2F;</span><br><span class="line">        find(res, new ArrayList&lt;&gt;(), temp, target, 0);</span><br><span class="line">         </span><br><span class="line">        return res;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    public void find(List&lt;List&lt;Integer&gt;&gt; res, List&lt;Integer&gt; tmp, List&lt;Integer&gt; candidates, int target, int start)&#123;</span><br><span class="line">        &#x2F;&#x2F;target&#x3D;&#x3D;0.找到一个新的解</span><br><span class="line">        if (target &#x3D;&#x3D; 0) &#123;</span><br><span class="line">            res.add(new ArrayList&lt;&gt;(tmp));</span><br><span class="line">        &#125;else if(target&gt;0)&#123;</span><br><span class="line">          for (int i &#x3D; start; i &lt; candidates.size(); i++) &#123;</span><br><span class="line">             int num &#x3D; candidates.get(i);</span><br><span class="line">             if(num&lt;&#x3D;target)&#123;               </span><br><span class="line">                  tmp.add(num);</span><br><span class="line">                  &#x2F;&#x2F;查找新的target</span><br><span class="line">                  int newTarget &#x3D; target-num;</span><br><span class="line">                  find(res, tmp, candidates, newTarget, i);</span><br><span class="line">                  tmp.remove(tmp.size() - 1);</span><br><span class="line">             &#125;</span><br><span class="line">           </span><br><span class="line">           &#125;&#x2F;&#x2F;end for</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>原文：<a target="_blank" rel="noopener" href="https://blog.csdn.net/chunqiuwei/article/details/90113087#commentBox">https://blog.csdn.net/chunqiuwei/article/details/90113087#commentBox</a></p>
 
         
 <script src="/js/qrious.min.js"></script>
@@ -411,6 +407,15 @@
 
         <hr>
         <div>
+            
+            <p>
+                <span>专题: </span>
+                
+                <a href="/series/#算法">
+                    <code key="算法" class="post-label">算法</code>
+                </a>
+                
+            </p>
             
             <p>
                 <span>本文发表于 2019-11-26，最后修改于 2020-12-20。</span>
@@ -440,7 +445,7 @@
         <h3>推荐阅读</h3>
         
         <div class="post-preview">
-    <div class="post-img" style="background-image: url('/images/java/basic/java_logo.png')"></div>
+    <div class="post-img" style="background-image: url('/images/linux.png')"></div>
     <div class="post-info">
         <div class="post-info-center">
             <div class="hidden-xs">
@@ -448,20 +453,49 @@
                 
                 <span>/</span>
                 
-                <a class="text-gray" href="/tags/#字符集"
-                    title="字符集">字符集</a>
+                <a class="text-gray" href="/tags/#deb"
+                    title="deb">deb</a>
                 <span>/</span>
                 
                 
             </div>
-            <a href="/post/java/advance/2020-06-29_字符集知识点.html" class="title">
-                字符集知识点
+            <a href="/post/linux/2017-11-29_安装deb包被中断问题.html" class="title">
+                安装 .deb 包被中断问题
             </a>
             <p class="text-gray">
                 <small>
-                    <span>发表于2020-06-27，</span>
-                    <span class="hidden-xs">全文1056字，</span>
-                    <span>阅读约4分钟</span>
+                    <span>发表于2017-11-29，</span>
+                    <span class="hidden-xs">全文480字，</span>
+                    <span>阅读约2分钟</span>
+                </small>
+            </p>
+        </div>
+    </div>
+</div>
+        
+        <div class="post-preview">
+    <div class="post-img" style="background-image: url('/images/computer-networking.png')"></div>
+    <div class="post-info">
+        <div class="post-info-center">
+            <div class="hidden-xs">
+                
+                
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#CDN"
+                    title="CDN">CDN</a>
+                <span>/</span>
+                
+                
+            </div>
+            <a href="/post/network/2017-11-25_一张图说明CDN网络的原理.html" class="title">
+                一张图说明 CDN 网络的原理
+            </a>
+            <p class="text-gray">
+                <small>
+                    <span>发表于2017-11-26，</span>
+                    <span class="hidden-xs">全文1413字，</span>
+                    <span>阅读约5分钟</span>
                 </small>
             </p>
         </div>
@@ -481,42 +515,24 @@
                     title="Java">Java</a>
                 <span>/</span>
                 
-                <a class="text-gray" href="/tags/#lambda表达式"
-                    title="lambda表达式">lambda表达式</a>
+                <a class="text-gray" href="/tags/#ThreadLocal"
+                    title="ThreadLocal">ThreadLocal</a>
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#Java线程"
+                    title="Java线程">Java线程</a>
                 <span>/</span>
                 
                 
             </div>
-            <a href="/post/java/basic/2017-11-10_java-lambda.html" class="title">
-                Java8 lambda表达式10个示例
+            <a href="/post/java/basic/2016-10-25_threadlocal.html" class="title">
+                ThreadLocal 笔记
             </a>
             <p class="text-gray">
                 <small>
-                    <span>发表于2017-11-10，</span>
-                    <span class="hidden-xs">全文17931字，</span>
-                    <span>阅读约60分钟</span>
-                </small>
-            </p>
-        </div>
-    </div>
-</div>
-        
-        <div class="post-preview">
-    <div class="post-img" style="background-image: url('/')"></div>
-    <div class="post-info">
-        <div class="post-info-center">
-            <div class="hidden-xs">
-                
-                
-            </div>
-            <a href="/post/link.html" class="title">
-                友情链接
-            </a>
-            <p class="text-gray">
-                <small>
-                    <span>发表于2012-11-03，</span>
-                    <span class="hidden-xs">全文141字，</span>
-                    <span>阅读约1分钟</span>
+                    <span>发表于2016-10-25，</span>
+                    <span class="hidden-xs">全文3731字，</span>
+                    <span>阅读约13分钟</span>
                 </small>
             </p>
         </div>
@@ -552,8 +568,11 @@
     <a class="post-tag-item" href="/tags/#Hello World" title="Hello World"
         rel="1">#Hello World (1) </a>
     
+    <a class="post-tag-item" href="/tags/#八皇后" title="八皇后"
+        rel="1">#八皇后 (1) </a>
+    
     <a class="post-tag-item" href="/tags/#算法" title="算法"
-        rel="1">#算法 (1) </a>
+        rel="2">#算法 (2) </a>
     
     <a class="post-tag-item" href="/tags/#创建型模式" title="创建型模式"
         rel="1">#创建型模式 (1) </a>
@@ -610,7 +629,7 @@
         rel="1">#反编译 (1) </a>
     
     <a class="post-tag-item" href="/tags/#Java" title="Java"
-        rel="47">#Java (47) </a>
+        rel="50">#Java (50) </a>
     
     <a class="post-tag-item" href="/tags/#面试" title="面试"
         rel="3">#面试 (3) </a>
@@ -793,7 +812,7 @@
         rel="2">#Vue (2) </a>
     
     <a class="post-tag-item" href="/tags/#二进制" title="二进制"
-        rel="1">#二进制 (1) </a>
+        rel="2">#二进制 (2) </a>
     
     <a class="post-tag-item" href="/tags/#内存分配" title="内存分配"
         rel="1">#内存分配 (1) </a>
@@ -942,6 +961,9 @@
     <a class="post-tag-item" href="/tags/#慢查" title="慢查"
         rel="1">#慢查 (1) </a>
     
+    <a class="post-tag-item" href="/tags/#序列化" title="序列化"
+        rel="1">#序列化 (1) </a>
+    
     <a class="post-tag-item" href="/tags/#函数式编程" title="函数式编程"
         rel="1">#函数式编程 (1) </a>
     
@@ -980,6 +1002,12 @@
     
     <a class="post-tag-item" href="/tags/#操作系统" title="操作系统"
         rel="1">#操作系统 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#微服务" title="微服务"
+        rel="1">#微服务 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Vert.x" title="Vert.x"
+        rel="1">#Vert.x (1) </a>
     
     <a class="post-tag-item" href="/tags/#Spring Core" title="Spring Core"
         rel="1">#Spring Core (1) </a>
@@ -1059,16 +1087,72 @@
             <span class="number">115</span><span>文章</span>
         </a>
         <a href="/series" class="col-xs-4 middle">
-            <span class="number">34</span><span>专题</span>
+            <span class="number">35</span><span>专题</span>
         </a>
         <a href="/tags" class="col-xs-4">
-            <span class="number">148</span><span>标签</span>
+            <span class="number">152</span><span>标签</span>
         </a>
     </nav>
 
     
 </div></section>
         
+        
+        <section class="gkt-sidebar-content box-shadow">
+            <strong>算法</strong>
+            <ul>
+                
+                <li>
+                    <a href="/post/algorithm/八皇后算法解析.html"
+                        class="gkt-sidebar-active">八皇后算法解析</a>
+                    
+                    <!-- Table of Contents -->
+<div id="sidebar-toc">
+  <!-- TOC  -->
+  
+  
+</div>
+
+<script>
+  (function () {
+    var h2 = document.querySelectorAll('article h2');
+    var h3 = document.querySelectorAll('article h3');
+    var linkList = document.querySelectorAll('#sidebar-toc a');
+
+    function findLinkElement(name) {
+      for (var i = 0; i < linkList.length; i++) {
+        var items = linkList[i].href.split('#');
+        if (items && items[items.length - 1] === encodeURIComponent(name)) {
+          return i;
+        }
+      }
+      return -1;
+    }
+
+    function activeLink(titleList) {
+      var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+      for (var i = titleList.length - 1; i >= 0; i--) {
+        if (scrollTop - titleList[i].offsetTop > 0) {
+          var index = findLinkElement(titleList[i].id);
+          index != -1 && linkList[index].classList.add('gkt-sidebar-active');
+          break;
+        }
+      }
+    }
+
+    window.addEventListener("scroll", function (e) {
+      [].slice.call(linkList).forEach(function (link) {
+        link.classList.remove('gkt-sidebar-active');
+      })
+      activeLink(h2);
+    })
+  })();
+</script>
+                    
+                </li>
+                
+            </ul>
+        </section>
         
         
         <section class="gkt-sidebar-content box-shadow">
@@ -1085,34 +1169,6 @@
                 
                 <li>
                     <a href="/post/dateabase/Redis/2020_12_08_Redis清理方法.html">Redis存储优化</a>
-                </li>
-                
-                <li>
-                    <a href="/post/其他/2020-11-28_猴子管理法则.html">猴子管理法则</a>
-                </li>
-                
-                <li>
-                    <a href="/post/其他/2020-11-27_『认知升级』是比其他一切都更加重要的思维模型转变.html">『认知升级』是比其他一切都更加重要的思维模型转变</a>
-                </li>
-                
-                <li>
-                    <a href="/post/util/2020-11-26_开发资源整理.html">开发资源导航</a>
-                </li>
-                
-                <li>
-                    <a href="/post/其他/2020-11-26_Jira修改Path路径后的用户管理问题.html">Jira 修改 Path 路径后的用户管理问题</a>
-                </li>
-                
-                <li>
-                    <a href="/post/其他/2020-10-25_V2ray配置.html">V2ray 配置</a>
-                </li>
-                
-                <li>
-                    <a href="/post/dateabase/mysql/2020-09-13_MySQL什么时候会使用内部临时表.html">MySQL什么时候会使用内部临时表?</a>
-                </li>
-                
-                <li>
-                    <a href="/post/dateabase/mysql/2020-09-12_MySQL中的Character_Set与Collation.html">MySQL 中的 Character Set 与 Collation</a>
                 </li>
                 
             </ul>

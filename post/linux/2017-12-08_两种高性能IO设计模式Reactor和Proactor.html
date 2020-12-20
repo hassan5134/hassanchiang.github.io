@@ -105,7 +105,7 @@
                                 href="/post/java/basic/2016-10-25_hashmap_jdk7.html">Java 基础</a></li>
                         
                         <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/java/advance/2016-11-03_java_memory_malloc.html">Java 进阶</a></li>
+                                href="/post/java/advance/2016-10-25_number.html">Java 进阶</a></li>
                         
                         <li class="gkt-sub-cate-name "><a class="float-left"
                                 href="/post/java/io/2017-04-15_java_io_1_overview.html">Java IO</a></li>
@@ -263,6 +263,11 @@
                 </li>
                 
                 <li class="gkt-cate-name float-left ">
+                    <a class="float-left" href="/post/algorithm/八皇后算法解析.html">算法</a>
+                    
+                </li>
+                
+                <li class="gkt-cate-name float-left ">
                     <a class="float-left" href="/post/其他/2020-01-29_弹琴吧非会员扒谱技巧.html">其他 ▾</a>
                     
                     <ul class="gkt-sub-cate">
@@ -323,7 +328,7 @@
         <a class="float-left" href="/post/linux/2017-12-07_Unix网络IO模型及Linux的IO多路复用模型.html"><i class="u-arrow-left"></i></a>
         
         
-        <a class="float-right" href="/post/linux/2017-12-09_Linux内存映射mmap原理分析.html"><i class="u-arrow-right"></i></a>
+        <a class="float-right" href="/post/util/monitor/2017-12-10_从零开始搭建Prometheus自动监控报警系统.html"><i class="u-arrow-right"></i></a>
         
     </div>
     <article class="col-xs-12">
@@ -336,32 +341,32 @@
                 
                 <li>
                     <a href="/post/linux/2017-11-26_IO-同步，异步，阻塞，非阻塞.html">IO - 同步，异步，阻塞，非阻塞</a>
-                    <span class="post-item-date">(Nov 25, 2017)</span>
+                    <span class="post-item-date">(Nov 26, 2017)</span>
                 </li>
                 
                 <li>
                     <a href="/post/linux/2017-12-07_Unix网络IO模型及Linux的IO多路复用模型.html">Unix 网络 IO 模型及 Linux 的 IO 多路复用模型</a>
-                    <span class="post-item-date">(Dec 6, 2017)</span>
-                </li>
-                
-                <li>
-                    <a href="/post/linux/2017-12-08_两种高性能IO设计模式Reactor和Proactor.html">两种高性能 I/O 设计模式 Reactor 和 Proactor</a>
                     <span class="post-item-date">(Dec 7, 2017)</span>
                 </li>
                 
                 <li>
-                    <a href="/post/linux/2017-12-09_Linux内存映射mmap原理分析.html">Linux内存映射mmap原理分析</a>
+                    <a href="/post/linux/2017-12-08_两种高性能IO设计模式Reactor和Proactor.html">两种高性能 I/O 设计模式 Reactor 和 Proactor</a>
                     <span class="post-item-date">(Dec 8, 2017)</span>
                 </li>
                 
                 <li>
-                    <a href="/post/linux/2017-12-10_浅析Linux中的零拷贝技术.html">浅析Linux中的零拷贝技术</a>
+                    <a href="/post/linux/2017-12-09_Linux内存映射mmap原理分析.html">Linux内存映射mmap原理分析</a>
                     <span class="post-item-date">(Dec 9, 2017)</span>
                 </li>
                 
                 <li>
+                    <a href="/post/linux/2017-12-10_浅析Linux中的零拷贝技术.html">浅析Linux中的零拷贝技术</a>
+                    <span class="post-item-date">(Dec 10, 2017)</span>
+                </li>
+                
+                <li>
                     <a href="/post/linux/2020-12-16_原来8张图，就可以搞懂「零拷贝」了.html">原来 8 张图，就可以搞懂「零拷贝」了</a>
-                    <span class="post-item-date">(Dec 15, 2020)</span>
+                    <span class="post-item-date">(Dec 16, 2020)</span>
                 </li>
                 
             </ul>
@@ -458,7 +463,7 @@ event_dispatch();</code></pre>
             </p>
             
             <p>
-                <span>本文发表于 2017-12-07，最后修改于 2020-11-28。</span>
+                <span>本文发表于 2017-12-08，最后修改于 2020-12-20。</span>
             </p>
             <!-- 文章末尾的提示 start -->
             
@@ -473,7 +478,7 @@ event_dispatch();</code></pre>
     <a class="float-left" href="/post/linux/2017-12-07_Unix网络IO模型及Linux的IO多路复用模型.html">上一篇 « Unix 网络 IO 模型及 Linux 的 IO 多路复用模型</a>
     
     
-    <a class="float-right" href="/post/linux/2017-12-09_Linux内存映射mmap原理分析.html">下一篇 » Linux内存映射mmap原理分析</a>
+    <a class="float-right" href="/post/util/monitor/2017-12-10_从零开始搭建Prometheus自动监控报警系统.html">下一篇 » 从零开始搭建Prometheus自动监控报警系统（企业级）</a>
     
 </p>
     </article>
@@ -485,81 +490,7 @@ event_dispatch();</code></pre>
         <h3>推荐阅读</h3>
         
         <div class="post-preview">
-    <div class="post-img" style="background-image: url('/images/computer-networking.png')"></div>
-    <div class="post-info">
-        <div class="post-info-center">
-            <div class="hidden-xs">
-                
-                
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#协议"
-                    title="协议">协议</a>
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#TCP"
-                    title="TCP">TCP</a>
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#UDP"
-                    title="UDP">UDP</a>
-                <span>/</span>
-                
-                
-            </div>
-            <a href="/post/network/2017-12-05_为什么TCP和UDP的端口号可以重复.html" class="title">
-                2017-12-05_为什么tcp/udp的端口号可以重复.md
-            </a>
-            <p class="text-gray">
-                <small>
-                    <span>发表于2017-12-04，</span>
-                    <span class="hidden-xs">全文314字，</span>
-                    <span>阅读约2分钟</span>
-                </small>
-            </p>
-        </div>
-    </div>
-</div>
-        
-        <div class="post-preview">
-    <div class="post-img" style="background-image: url('/images/computer-networking.png')"></div>
-    <div class="post-info">
-        <div class="post-info-center">
-            <div class="hidden-xs">
-                
-                
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#TCP"
-                    title="TCP">TCP</a>
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#UDP"
-                    title="UDP">UDP</a>
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#网络协议"
-                    title="网络协议">网络协议</a>
-                <span>/</span>
-                
-                
-            </div>
-            <a href="/post/network/2017-11-24_面向报文（UDP）和面向字节流（TCP）的区别.html" class="title">
-                面向报文（UDP）和面向字节流（TCP）的区别
-            </a>
-            <p class="text-gray">
-                <small>
-                    <span>发表于2017-11-25，</span>
-                    <span class="hidden-xs">全文2078字，</span>
-                    <span>阅读约7分钟</span>
-                </small>
-            </p>
-        </div>
-    </div>
-</div>
-        
-        <div class="post-preview">
-    <div class="post-img" style="background-image: url('/images/java/io.png')"></div>
+    <div class="post-img" style="background-image: url('/images/java/basic/java_logo.png')"></div>
     <div class="post-info">
         <div class="post-info-center">
             <div class="hidden-xs">
@@ -571,24 +502,94 @@ event_dispatch();</code></pre>
                     title="Java">Java</a>
                 <span>/</span>
                 
-                <a class="text-gray" href="/tags/#NIO"
-                    title="NIO">NIO</a>
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#Buffer"
-                    title="Buffer">Buffer</a>
+                <a class="text-gray" href="/tags/#性能优化"
+                    title="性能优化">性能优化</a>
                 <span>/</span>
                 
                 
             </div>
-            <a href="/post/java/nio/2017-04-22_java_nio_2.html" class="title">
-                Java NIO(2) Buffer
+            <a href="/post/java/advance/2020-04-25_java_optimize.html" class="title">
+                接口性能优化思路
             </a>
             <p class="text-gray">
                 <small>
-                    <span>发表于2017-04-21，</span>
-                    <span class="hidden-xs">全文4747字，</span>
-                    <span>阅读约16分钟</span>
+                    <span>发表于2020-04-25，</span>
+                    <span class="hidden-xs">全文299字，</span>
+                    <span>阅读约1分钟</span>
+                </small>
+            </p>
+        </div>
+    </div>
+</div>
+        
+        <div class="post-preview">
+    <div class="post-img" style="background-image: url('/images/idea_logo.png')"></div>
+    <div class="post-info">
+        <div class="post-info-center">
+            <div class="hidden-xs">
+                
+                
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#Java"
+                    title="Java">Java</a>
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#Idea"
+                    title="Idea">Idea</a>
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#JavaIDE"
+                    title="JavaIDE">JavaIDE</a>
+                <span>/</span>
+                
+                
+            </div>
+            <a href="/post/util/ide/2017-10-25_idea_shotcut.html" class="title">
+                IntelliJ 各种快捷键
+            </a>
+            <p class="text-gray">
+                <small>
+                    <span>发表于2017-10-25，</span>
+                    <span class="hidden-xs">全文2211字，</span>
+                    <span>阅读约8分钟</span>
+                </small>
+            </p>
+        </div>
+    </div>
+</div>
+        
+        <div class="post-preview">
+    <div class="post-img" style="background-image: url('/images/java/basic/java_logo.png')"></div>
+    <div class="post-info">
+        <div class="post-info-center">
+            <div class="hidden-xs">
+                
+                
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#Java"
+                    title="Java">Java</a>
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#ThreadLocal"
+                    title="ThreadLocal">ThreadLocal</a>
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#Java线程"
+                    title="Java线程">Java线程</a>
+                <span>/</span>
+                
+                
+            </div>
+            <a href="/post/java/basic/2016-10-25_threadlocal.html" class="title">
+                ThreadLocal 笔记
+            </a>
+            <p class="text-gray">
+                <small>
+                    <span>发表于2016-10-25，</span>
+                    <span class="hidden-xs">全文3731字，</span>
+                    <span>阅读约13分钟</span>
                 </small>
             </p>
         </div>
@@ -624,8 +625,11 @@ event_dispatch();</code></pre>
     <a class="post-tag-item" href="/tags/#Hello World" title="Hello World"
         rel="1">#Hello World (1) </a>
     
+    <a class="post-tag-item" href="/tags/#八皇后" title="八皇后"
+        rel="1">#八皇后 (1) </a>
+    
     <a class="post-tag-item" href="/tags/#算法" title="算法"
-        rel="1">#算法 (1) </a>
+        rel="2">#算法 (2) </a>
     
     <a class="post-tag-item" href="/tags/#创建型模式" title="创建型模式"
         rel="1">#创建型模式 (1) </a>
@@ -682,7 +686,7 @@ event_dispatch();</code></pre>
         rel="1">#反编译 (1) </a>
     
     <a class="post-tag-item" href="/tags/#Java" title="Java"
-        rel="47">#Java (47) </a>
+        rel="50">#Java (50) </a>
     
     <a class="post-tag-item" href="/tags/#面试" title="面试"
         rel="3">#面试 (3) </a>
@@ -865,7 +869,7 @@ event_dispatch();</code></pre>
         rel="2">#Vue (2) </a>
     
     <a class="post-tag-item" href="/tags/#二进制" title="二进制"
-        rel="1">#二进制 (1) </a>
+        rel="2">#二进制 (2) </a>
     
     <a class="post-tag-item" href="/tags/#内存分配" title="内存分配"
         rel="1">#内存分配 (1) </a>
@@ -1014,6 +1018,9 @@ event_dispatch();</code></pre>
     <a class="post-tag-item" href="/tags/#慢查" title="慢查"
         rel="1">#慢查 (1) </a>
     
+    <a class="post-tag-item" href="/tags/#序列化" title="序列化"
+        rel="1">#序列化 (1) </a>
+    
     <a class="post-tag-item" href="/tags/#函数式编程" title="函数式编程"
         rel="1">#函数式编程 (1) </a>
     
@@ -1052,6 +1059,12 @@ event_dispatch();</code></pre>
     
     <a class="post-tag-item" href="/tags/#操作系统" title="操作系统"
         rel="1">#操作系统 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#微服务" title="微服务"
+        rel="1">#微服务 (1) </a>
+    
+    <a class="post-tag-item" href="/tags/#Vert.x" title="Vert.x"
+        rel="1">#Vert.x (1) </a>
     
     <a class="post-tag-item" href="/tags/#Spring Core" title="Spring Core"
         rel="1">#Spring Core (1) </a>
@@ -1131,10 +1144,10 @@ event_dispatch();</code></pre>
             <span class="number">115</span><span>文章</span>
         </a>
         <a href="/series" class="col-xs-4 middle">
-            <span class="number">34</span><span>专题</span>
+            <span class="number">35</span><span>专题</span>
         </a>
         <a href="/tags" class="col-xs-4">
-            <span class="number">148</span><span>标签</span>
+            <span class="number">152</span><span>标签</span>
         </a>
     </nav>
 
