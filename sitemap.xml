@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.fenxiangz.com/post/java/advance/2016-10-25_number.html</loc>
+    
+    <lastmod>2020-12-20</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.fenxiangz.com/post/java/advance/2016-11-24_java_serializable.html</loc>
+    
+    <lastmod>2020-12-20</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.fenxiangz.com/post/algorithm/%E5%85%AB%E7%9A%87%E5%90%8E%E7%AE%97%E6%B3%95%E8%A7%A3%E6%9E%90.html</loc>
+    
+    <lastmod>2020-12-20</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.fenxiangz.com/archives/index.html</loc>
     
     <lastmod>2020-12-20</lastmod>
@@ -590,13 +611,6 @@
   </url>
   
   <url>
-    <loc>https://blog.fenxiangz.com/post/algorithm/%E5%85%AB%E7%9A%87%E5%90%8E%E7%AE%97%E6%B3%95%E8%A7%A3%E6%9E%90.html</loc>
-    
-    <lastmod>2020-11-26</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://blog.fenxiangz.com/post/design/2019-01-03_Java%E7%BB%8F%E5%85%B8%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F_1_%E4%BA%94%E5%A4%A7%E5%88%9B%E5%BB%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F.html</loc>
     
     <lastmod>2020-11-26</lastmod>
@@ -793,21 +807,7 @@
   </url>
   
   <url>
-    <loc>https://blog.fenxiangz.com/post/java/advance/2016-11-24_java_serializable.html</loc>
-    
-    <lastmod>2020-11-24</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://blog.fenxiangz.com/post/java/advance/2016-11-03_java_memory_malloc.html</loc>
-    
-    <lastmod>2020-11-24</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.fenxiangz.com/post/java/advance/2016-10-25_number.html</loc>
     
     <lastmod>2020-11-24</lastmod>
     
@@ -845,13 +845,6 @@
   
   <url>
     <loc>https://blog.fenxiangz.com/tags/Hello-World/</loc>
-    <lastmod>2020-12-20</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.fenxiangz.com/tags/%E5%85%AB%E7%9A%87%E5%90%8E/</loc>
     <lastmod>2020-12-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1768,13 +1761,6 @@
   </url>
   
   <url>
-    <loc>https://blog.fenxiangz.com/tags/%E5%BA%8F%E5%88%97%E5%8C%96/</loc>
-    <lastmod>2020-12-20</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.fenxiangz.com/tags/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/</loc>
     <lastmod>2020-12-20</lastmod>
     <changefreq>daily</changefreq>
@@ -1887,13 +1873,6 @@
   </url>
   
 
-  
-  <url>
-    <loc>https://blog.fenxiangz.com/categories/%E7%AE%97%E6%B3%95/</loc>
-    <lastmod>2020-12-20</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
   
   <url>
     <loc>https://blog.fenxiangz.com/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</loc>

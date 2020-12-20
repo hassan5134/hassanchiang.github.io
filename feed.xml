@@ -816,24 +816,20 @@ create procedure </description>
       <title>八皇后算法解析</title>
       <link>https://blog.fenxiangz.com/post/algorithm/%E5%85%AB%E7%9A%87%E5%90%8E%E7%AE%97%E6%B3%95%E8%A7%A3%E6%9E%90.html</link>
       <guid>https://blog.fenxiangz.com/post/algorithm/%E5%85%AB%E7%9A%87%E5%90%8E%E7%AE%97%E6%B3%95%E8%A7%A3%E6%9E%90.html</guid>
-      <pubDate>Tue, 26 Nov 2019 03:29:24 GMT</pubDate>
+      <pubDate>Tue, 26 Nov 2019 11:29:24 GMT</pubDate>
       
         
         
-      <description>&lt;p&gt;今天研究力扣的一道题死活写不出来对应的算法，没办法自己算法基础太差。于是看了下答案，发现使用什么回溯算法，菜鸟表示平时开发期间写的最复杂的程序就是写了两层for循环，已经很牛逼了有木有？这个回溯算法什么鬼？于是乎百度了下，算是了解了回溯算法是什么玩意儿。这里分析一波八皇后算</description>
+      <description>&lt;p&gt;{: id=”20201220214147-8n6s9od”}&lt;/p&gt;
+&lt;p&gt;tags:&lt;br&gt;{: id=”20201220214147-k9gj31p”}&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;{: id=”20201220214147-c689aop”}八皇后&lt;/li&gt;
+&lt;li&gt;</description>
         
       
       
-      <enclosure url="https://blog.fenxiangz.com/images/algorithm.jpg" type="image"/>
       
       
-      
-      <category domain="https://blog.fenxiangz.com/categories/%E7%AE%97%E6%B3%95/">算法</category>
-      
-      
-      <category domain="https://blog.fenxiangz.com/tags/%E5%85%AB%E7%9A%87%E5%90%8E/">八皇后</category>
-      
-      <category domain="https://blog.fenxiangz.com/tags/%E7%AE%97%E6%B3%95/">算法</category>
       
       
       <comments>https://blog.fenxiangz.com/post/algorithm/%E5%85%AB%E7%9A%87%E5%90%8E%E7%AE%97%E6%B3%95%E8%A7%A3%E6%9E%90.html#disqus_thread</comments>
@@ -3197,24 +3193,20 @@ public class PipeExa</description>
       <title>序列化和反序列化浅析</title>
       <link>https://blog.fenxiangz.com/post/java/advance/2016-11-24_java_serializable.html</link>
       <guid>https://blog.fenxiangz.com/post/java/advance/2016-11-24_java_serializable.html</guid>
-      <pubDate>Wed, 23 Nov 2016 16:00:00 GMT</pubDate>
+      <pubDate>Thu, 24 Nov 2016 00:00:00 GMT</pubDate>
       
         
         
-      <description>&lt;h1 id=&quot;0-简介&quot;&gt;&lt;a href=&quot;#0-简介&quot; class=&quot;headerlink&quot; title=&quot;0.简介&quot;&gt;&lt;/a&gt;0.简介&lt;/h1&gt;&lt;p&gt;序列化和反序列化对于现代的程序员来说是一个既熟悉又陌生的概念。说熟悉是因为几乎每个程序员在工作中都直接或间接的使用过它，说陌</description>
+      <description>&lt;p&gt;{: id=”20201220214147-x6u751t”}&lt;/p&gt;
+&lt;p&gt;tags:&lt;br&gt;{: id=”20201220214147-8hf12qh”}&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;{: id=”20201220214147-rkamcwv”}序列化&lt;/li&gt;
+&lt;li&gt;</description>
         
       
       
-      <enclosure url="https://blog.fenxiangz.com/images/java/basic/java_logo.png" type="image"/>
       
       
-      
-      <category domain="https://blog.fenxiangz.com/categories/Java-%E8%BF%9B%E9%98%B6/">Java 进阶</category>
-      
-      
-      <category domain="https://blog.fenxiangz.com/tags/Java/">Java</category>
-      
-      <category domain="https://blog.fenxiangz.com/tags/%E5%BA%8F%E5%88%97%E5%8C%96/">序列化</category>
       
       
       <comments>https://blog.fenxiangz.com/post/java/advance/2016-11-24_java_serializable.html#disqus_thread</comments>
@@ -3288,24 +3280,20 @@ public class PipeExa</description>
       <title>为什么 8 位有符号整数的范围为 “-128 ~ +127”</title>
       <link>https://blog.fenxiangz.com/post/java/advance/2016-10-25_number.html</link>
       <guid>https://blog.fenxiangz.com/post/java/advance/2016-10-25_number.html</guid>
-      <pubDate>Wed, 26 Oct 2016 03:29:24 GMT</pubDate>
+      <pubDate>Wed, 26 Oct 2016 11:29:24 GMT</pubDate>
       
         
         
-      <description>&lt;p&gt;这是一个困惑了我几年的问题，它让我对现在的教科书和老师极其不满，从我 N 年前开始摸电脑时，就几乎在每一本 C++ 教科书上都说，8 位有符号的取值范围是 - 128 到 +127，为什么不是 - 127 到 +127 呢，后来的 java，int 的取值范围，再 32 位</description>
+      <description>&lt;p&gt;{: id=”20201220214147-nmx0726”}&lt;/p&gt;
+&lt;p&gt;tags:&lt;br&gt;{: id=”20201220214147-1h1czpe”}&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;{: id=”20201220214147-26d8wza”}二进制&lt;/li&gt;
+&lt;li&gt;</description>
         
       
       
-      <enclosure url="https://blog.fenxiangz.com/images/java/basic/java_logo.png" type="image"/>
       
       
-      
-      <category domain="https://blog.fenxiangz.com/categories/Java-%E8%BF%9B%E9%98%B6/">Java 进阶</category>
-      
-      
-      <category domain="https://blog.fenxiangz.com/tags/Java/">Java</category>
-      
-      <category domain="https://blog.fenxiangz.com/tags/%E4%BA%8C%E8%BF%9B%E5%88%B6/">二进制</category>
       
       
       <comments>https://blog.fenxiangz.com/post/java/advance/2016-10-25_number.html#disqus_thread</comments>
