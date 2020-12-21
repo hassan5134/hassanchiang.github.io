@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.fenxiangz.com/post/java/basic/2012-12-22_Java_Synchronized%E5%8E%9F%E7%90%86%E5%9B%BE.html</loc>
+    
+    <lastmod>2020-12-21</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.fenxiangz.com/series/index.html</loc>
     
     <lastmod>2020-12-20</lastmod>
