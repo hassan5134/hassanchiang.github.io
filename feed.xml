@@ -721,6 +721,34 @@ create procedure </description>
     </item>
     
     <item>
+      <title>HttpClient连接池原理及一次连接时序图</title>
+      <link>https://blog.fenxiangz.com/post/java/util/2020-12-23_HttpClient%E8%BF%9E%E6%8E%A5%E6%B1%A0%E5%8E%9F%E7%90%86%E5%8F%8A%E4%B8%80%E6%AC%A1%E8%BF%9E%E6%8E%A5%E6%97%B6%E5%BA%8F%E5%9B%BE.html</link>
+      <guid>https://blog.fenxiangz.com/post/java/util/2020-12-23_HttpClient%E8%BF%9E%E6%8E%A5%E6%B1%A0%E5%8E%9F%E7%90%86%E5%8F%8A%E4%B8%80%E6%AC%A1%E8%BF%9E%E6%8E%A5%E6%97%B6%E5%BA%8F%E5%9B%BE.html</guid>
+      <pubDate>Wed, 20 May 2020 00:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h1 id=&quot;HttpClient介绍&quot;&gt;&lt;a href=&quot;#HttpClient介绍&quot; class=&quot;headerlink&quot; title=&quot;HttpClient介绍&quot;&gt;&lt;/a&gt;HttpClient介绍&lt;/h1&gt;&lt;p&gt;HttpClient是一个实现了http协议的开源Java客</description>
+        
+      
+      
+      <enclosure url="https://blog.fenxiangz.com/images/java/basic/java_logo.png" type="image"/>
+      
+      
+      
+      <category domain="https://blog.fenxiangz.com/categories/RPC/">RPC</category>
+      
+      
+      <category domain="https://blog.fenxiangz.com/tags/Java/">Java</category>
+      
+      <category domain="https://blog.fenxiangz.com/tags/HttpClient/">HttpClient</category>
+      
+      
+      <comments>https://blog.fenxiangz.com/post/java/util/2020-12-23_HttpClient%E8%BF%9E%E6%8E%A5%E6%B1%A0%E5%8E%9F%E7%90%86%E5%8F%8A%E4%B8%80%E6%AC%A1%E8%BF%9E%E6%8E%A5%E6%97%B6%E5%BA%8F%E5%9B%BE.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
       <title>JUC 概览</title>
       <link>https://blog.fenxiangz.com/post/java/advance/2020-05-02_java_juc.html</link>
       <guid>https://blog.fenxiangz.com/post/java/advance/2020-05-02_java_juc.html</guid>
