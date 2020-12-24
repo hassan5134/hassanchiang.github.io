@@ -232,14 +232,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2017-12-06 00:00:00" itemprop="dateCreated datePublished" datetime="2017-12-06T00:00:00+00:00">2017-12-06</time>
+      <time title="创建时间：2017-12-06 08:00:00" itemprop="dateCreated datePublished" datetime="2017-12-06T08:00:00+08:00">2017-12-06</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-12-20 16:47:02" itemprop="dateModified" datetime="2020-12-20T16:47:02+00:00">2020-12-20</time>
+        <time title="修改时间：2020-12-21 00:47:02" itemprop="dateModified" datetime="2020-12-21T00:47:02+08:00">2020-12-21</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -265,83 +265,14 @@
 <p>Mtools 适用于 FAT32 格式分区。<br>ntfsprogs 适用于 NTFS 格式分区。<br>e2label适用于 ext2 和 ext3 型格式分区。</p>
 <p>以上程序的具体使用说明分别如下:</p>
 <h1 id="使用mtools编辑FAT32磁盘分区卷标"><a href="#使用mtools编辑FAT32磁盘分区卷标" class="headerlink" title="使用mtools编辑FAT32磁盘分区卷标"></a>使用mtools编辑FAT32磁盘分区卷标</h1><p>我想更改由系统自动挂载的USB设备中的FAT32分区卷标.我有两个外接硬盘驱动器(一个日常家用,一个公司工作用),其中一个是iPod.这两个驱动器都被系统以”sda1”或”sda2”等名称挂载于”/media”目录下,在电脑里我很难通过这些名字辨认出哪个文件夹是对应哪个驱动器.后来,我发现更改这些驱动器上的FAT32分区卷标不是件容易事.所以我觉得有必要将我是如何修改这些FAT32分区卷标的过程写下来.方便那些遇到同样问题的人.讲解之前首先明白:系统会将外接的驱动器自动挂载到”/media/”目录下,以”sda1”类似的卷标名命名分区,为了容易区别各分区,我们需要修改默认的卷标</p>
-<p>按如下步骤一步一步操作即可更改FAT分区卷标:</p>
-<h2 id="操作指导"><a href="#操作指导" class="headerlink" title="操作指导"></a>操作指导</h2><ol>
-<li><p>安装mtools 软件包</p>
-<p>sudo apt-get install mtools </p>
-</li>
-<li><p>系统自动装载插入的USB设备后,可以用如下命令查看新设备相关信息:</p>
-<p> mount</p>
-</li>
-</ol>
-<p>显示信息中”sda1”或与之相似的字段即是系统分配给设备的名字。</p>
-<ol start="3">
-<li><p>复制”/etc”目录下mtools.conf文件为新文件”~/.mtoolsrc”</p>
-<p> cp /etc/mtools.conf ~/.mtoolsrc </p>
-</li>
-<li><p>编辑刚复制的”~/.mtoolsrc”文件,在最后一行加入如下命令行：</p>
-<p> drive i: file=”/dev/sda2”</p>
-</li>
-</ol>
-<p>上面命令行中字段”sda2”应根据实际情况更改为你在第二步操作中所看到的新设备名称。</p>
-<ol start="5">
-<li><p>更改命令提示符路径到”i:”盘：</p>
-<p> mcd i: </p>
-</li>
-<li><p>查看”i:”当前的卷标</p>
-<p> sudo mlabel -s i: </p>
-</li>
-<li><p>更改”i:”盘原始卷标为你喜欢的新卷标名：</p>
-<p> sudo mlabel i:my-ipod</p>
-</li>
-</ol>
-<p>你可以将上述命令行操作中的”my-ipod”字段替换为你喜欢的名字,用以代表插入的USB设备。</p>
-<ol start="8">
-<li><p>检查更改是否成功</p>
-<p> sudo mlabel -s i:</p>
-</li>
-</ol>
-<p>经过以上操作,电脑显示如下信息: Volume label is MY-IPODYou’re</p>
-<p>恭喜!卷标修改已经成功.下次插入USB设备后,你可以在目录” /media/MY-IPOD”下找到你USB设备上的文件。</p>
-<h1 id="使用ntfsprogs-修改NTFS分区卷标"><a href="#使用ntfsprogs-修改NTFS分区卷标" class="headerlink" title="使用ntfsprogs 修改NTFS分区卷标"></a>使用ntfsprogs 修改NTFS分区卷标</h1><h2 id="操作指导-1"><a href="#操作指导-1" class="headerlink" title="操作指导"></a>操作指导</h2><ol>
-<li><p>安装ntfsprogs软件包</p>
-<p> sudo apt-get install ntfsprogs </p>
-</li>
-<li><p>NTFS分区驱动器插入后被自动装载,可以用如下命令查看此新设备相关信息：</p>
-<p> mount</p>
-</li>
-</ol>
-<p>显示信息中”sda1”或与之相似的字段即是系统分配给新设备的名字。</p>
-<ol start="3">
-<li><p>更改原始卷标为你喜欢的新卷标名：</p>
-<p> sudo ntfslabel /dev/sda1 newlabel</p>
-</li>
-</ol>
-<p>replace newlabel with what you would like to name the usb drive / Harddisk<br>用你喜欢的卷标名替换此命令中的单词”newlabel” 。</p>
-<p>和FAT分区不同,更改NTFS分区卷标后你必须卸下此设备(卸载步骤:系统-&gt;管理-&gt;磁盘管理-&gt;硬盘分区下面的”禁用”按钮)</p>
-<ol start="3">
-<li>检查更改是否成功</li>
-</ol>
-<p>重启电脑后查看相应NTFS分区卷标是否改变.如果你更改的是USB设备卷标,你需要重新插入设备。</p>
-<h1 id="使用e2label更改-ext2-或ext3-分区卷标"><a href="#使用e2label更改-ext2-或ext3-分区卷标" class="headerlink" title="使用e2label更改 ext2 或ext3 分区卷标"></a>使用e2label更改 ext2 或ext3 分区卷标</h1><h2 id="操作指南"><a href="#操作指南" class="headerlink" title="操作指南"></a>操作指南</h2><ol>
-<li><p>设备被自动加载后，可以用如下命令查看此新设备相关信息:</p>
-<p> mount</p>
-</li>
-</ol>
-<p>显示信息中”sda1”或与之相似的字段即是系统分配给新设备的名字。</p>
-<ol start="2">
-<li><p>更改原始卷标为你喜欢的新卷标名：</p>
-<p> sudo e2label /dev/sda1 newlabel</p>
-</li>
-</ol>
-<p>用你喜欢的卷标名替换此命令中的单词”newlabel”</p>
-<p>更改分区卷标后你必须卸下此设备(卸载步骤:系统-&gt;管理-&gt;磁盘管理-&gt;硬盘分区下面的”禁用”按钮)。</p>
-<ol start="3">
-<li>检查更改是否成功：</li>
-</ol>
-<p>重启电脑后查看相应分区卷标是否改变.如果你更改的是USB设备卷标,你需要重新插入设备。</p>
-<p>原文：<a target="_blank" rel="noopener" href="http://www.cnblogs.com/xusion/articles/3015145.html">http://www.cnblogs.com/xusion/articles/3015145.html</a></p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/linux/2017-12-06_%E9%87%8D%E5%91%BD%E5%90%8D%E7%A3%81%E7%9B%98%E6%8C%82%E8%BD%BD%E5%88%86%E5%8C%BA%E5%8D%B7%E6%A0%87(%E7%A3%81%E7%9B%98%E5%90%8D).html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -391,14 +322,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2017-12-05 00:00:00" itemprop="dateCreated datePublished" datetime="2017-12-05T00:00:00+00:00">2017-12-05</time>
+      <time title="创建时间：2017-12-05 08:00:00" itemprop="dateCreated datePublished" datetime="2017-12-05T08:00:00+08:00">2017-12-05</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-12-20 16:47:02" itemprop="dateModified" datetime="2020-12-20T16:47:02+00:00">2020-12-20</time>
+        <time title="修改时间：2020-12-21 00:47:02" itemprop="dateModified" datetime="2020-12-21T00:47:02+08:00">2020-12-21</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -471,14 +402,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2017-12-04 00:00:00" itemprop="dateCreated datePublished" datetime="2017-12-04T00:00:00+00:00">2017-12-04</time>
+      <time title="创建时间：2017-12-04 08:00:00" itemprop="dateCreated datePublished" datetime="2017-12-04T08:00:00+08:00">2017-12-04</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-12-20 16:47:02" itemprop="dateModified" datetime="2020-12-20T16:47:02+00:00">2020-12-20</time>
+        <time title="修改时间：2020-12-21 00:47:02" itemprop="dateModified" datetime="2020-12-21T00:47:02+08:00">2020-12-21</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -503,31 +434,14 @@
           <h3 id="简单使用："><a href="#简单使用：" class="headerlink" title="简单使用："></a>简单使用：</h3><p><a target="_blank" rel="noopener" href="https://github.com/XX-net/XX-Net/wiki/How-to-use">https://github.com/XX-net/XX-Net/wiki/How-to-use</a></p>
 <p>默认配置看不了视频。</p>
 <h3 id="自己创建-GAE-appid"><a href="#自己创建-GAE-appid" class="headerlink" title="自己创建 GAE appid"></a>自己创建 GAE appid</h3><p>因为官方教程有点出路，我自己整理了一下操作步骤。</p>
-<p>自己创建 GAE appid 需要事先有一个梯子。</p>
-<h4 id="Google-部分操作"><a href="#Google-部分操作" class="headerlink" title="Google 部分操作"></a>Google 部分操作</h4><ol>
-<li><p>登录/注册Google帐户</p>
-</li>
-<li><p>访问：<a target="_blank" rel="noopener" href="https://console.developers.google.com/cloud-resource-manager">https://console.developers.google.com/cloud-resource-manager</a></p>
-</li>
-<li><p>点击图例：<br><img src="./2017-12-04_XXNET%E6%8C%BA%E4%B8%8D%E9%94%99%E7%9A%84%EF%BC%8C%E8%AE%B0%E5%BD%95%E4%B8%80%E4%B8%8B%E7%AE%80%E5%8D%95%E7%9A%84%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/1.png"></p>
-</li>
-<li><p>按步骤输入项目名称创建就好了</p>
-</li>
-<li><p>创建完后，刷新：<a target="_blank" rel="noopener" href="https://console.developers.google.com/cloud-resource-manager">https://console.developers.google.com/cloud-resource-manager</a> 页面，就能看见你创建的 app id 了<br><img src="./2017-12-04_XXNET%E6%8C%BA%E4%B8%8D%E9%94%99%E7%9A%84%EF%BC%8C%E8%AE%B0%E5%BD%95%E4%B8%80%E4%B8%8B%E7%AE%80%E5%8D%95%E7%9A%84%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/2.png"></p>
-</li>
-<li><p>进入页面：<a target="_blank" rel="noopener" href="https://console.cloud.google.com/home/dashboard">https://console.cloud.google.com/home/dashboard</a></p>
-</li>
-<li><p>按图操作：<br><img src="./2017-12-04_XXNET%E6%8C%BA%E4%B8%8D%E9%94%99%E7%9A%84%EF%BC%8C%E8%AE%B0%E5%BD%95%E4%B8%80%E4%B8%8B%E7%AE%80%E5%8D%95%E7%9A%84%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/3.png"></p>
-</li>
-<li><p>按图操作：<br><img src="./2017-12-04_XXNET%E6%8C%BA%E4%B8%8D%E9%94%99%E7%9A%84%EF%BC%8C%E8%AE%B0%E5%BD%95%E4%B8%80%E4%B8%8B%E7%AE%80%E5%8D%95%E7%9A%84%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/4.png"></p>
-</li>
-<li><p>选 Python<br><img src="./2017-12-04_XXNET%E6%8C%BA%E4%B8%8D%E9%94%99%E7%9A%84%EF%BC%8C%E8%AE%B0%E5%BD%95%E4%B8%80%E4%B8%8B%E7%AE%80%E5%8D%95%E7%9A%84%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/5.png"></p>
-</li>
-<li><p>进入下一个页面，选择一个服务器地区，选 us-central 就好，然后就等待初始化完成就好了。Google这边就设置完了。</p>
-</li>
-</ol>
-<h4 id="XXNET-部分操作"><a href="#XXNET-部分操作" class="headerlink" title="XXNET 部分操作"></a>XXNET 部分操作</h4><p>官方教程：<a target="_blank" rel="noopener" href="https://github.com/XX-net/XX-Net/wiki/How-to-use">https://github.com/XX-net/XX-Net/wiki/How-to-use</a></p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/linux/2017-12-04_XXNET%E6%8C%BA%E4%B8%8D%E9%94%99%E7%9A%84%EF%BC%8C%E8%AE%B0%E5%BD%95%E4%B8%80%E4%B8%8B%E7%AE%80%E5%8D%95%E7%9A%84%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -577,14 +491,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2017-12-03 00:00:00" itemprop="dateCreated datePublished" datetime="2017-12-03T00:00:00+00:00">2017-12-03</time>
+      <time title="创建时间：2017-12-03 08:00:00" itemprop="dateCreated datePublished" datetime="2017-12-03T08:00:00+08:00">2017-12-03</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-12-20 16:47:02" itemprop="dateModified" datetime="2020-12-20T16:47:02+00:00">2020-12-20</time>
+        <time title="修改时间：2020-12-21 00:47:02" itemprop="dateModified" datetime="2020-12-21T00:47:02+08:00">2020-12-21</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -656,14 +570,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2017-12-01 00:00:00" itemprop="dateCreated datePublished" datetime="2017-12-01T00:00:00+00:00">2017-12-01</time>
+      <time title="创建时间：2017-12-01 08:00:00" itemprop="dateCreated datePublished" datetime="2017-12-01T08:00:00+08:00">2017-12-01</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-12-20 16:47:02" itemprop="dateModified" datetime="2020-12-20T16:47:02+00:00">2020-12-20</time>
+        <time title="修改时间：2020-12-21 00:47:02" itemprop="dateModified" datetime="2020-12-21T00:47:02+08:00">2020-12-21</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -690,7 +604,14 @@
 <p>通常在 system - setting - keyboard  的 Custom 标签下进行设置</p>
 <p>wmctrl 没有的话，需要自己安装一下</p>
 <p>-EOF-</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/linux/2017-12-01_super+d%E6%98%BE%E7%A4%BA%E6%A1%8C%E9%9D%A2%E5%BF%AB%E6%8D%B7%E9%94%AE.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -740,14 +661,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2017-11-30 00:00:00" itemprop="dateCreated datePublished" datetime="2017-11-30T00:00:00+00:00">2017-11-30</time>
+      <time title="创建时间：2017-11-30 08:00:00" itemprop="dateCreated datePublished" datetime="2017-11-30T08:00:00+08:00">2017-11-30</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-12-20 16:47:02" itemprop="dateModified" datetime="2020-12-20T16:47:02+00:00">2020-12-20</time>
+        <time title="修改时间：2020-12-21 00:47:02" itemprop="dateModified" datetime="2020-12-21T00:47:02+08:00">2020-12-21</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -823,14 +744,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2017-11-29 00:00:00" itemprop="dateCreated datePublished" datetime="2017-11-29T00:00:00+00:00">2017-11-29</time>
+      <time title="创建时间：2017-11-29 08:00:00" itemprop="dateCreated datePublished" datetime="2017-11-29T08:00:00+08:00">2017-11-29</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-12-20 16:47:02" itemprop="dateModified" datetime="2020-12-20T16:47:02+00:00">2020-12-20</time>
+        <time title="修改时间：2020-12-21 00:47:02" itemprop="dateModified" datetime="2020-12-21T00:47:02+08:00">2020-12-21</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -859,12 +780,14 @@
 <p>解决方法：</p>
 <p>Make sure software centre is not open and that updates are not running.</p>
 <p>使用：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo rm -f &#x2F;var&#x2F;lib&#x2F;dpkg&#x2F;lock </span><br></pre></td></tr></table></figure>
-<p>可以解锁 software installer programs</p>
-<p>然后执行：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo fuser -vki &#x2F;var&#x2F;lib&#x2F;dpkg&#x2F;lock</span><br><span class="line">sudo dpkg --configure -a</span><br></pre></td></tr></table></figure>
-<p>即可解决。</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/linux/2017-11-29_%E5%AE%89%E8%A3%85deb%E5%8C%85%E8%A2%AB%E4%B8%AD%E6%96%AD%E9%97%AE%E9%A2%98.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -914,14 +837,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2017-11-28 00:00:00" itemprop="dateCreated datePublished" datetime="2017-11-28T00:00:00+00:00">2017-11-28</time>
+      <time title="创建时间：2017-11-28 08:00:00" itemprop="dateCreated datePublished" datetime="2017-11-28T08:00:00+08:00">2017-11-28</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-12-20 16:47:02" itemprop="dateModified" datetime="2020-12-20T16:47:02+00:00">2020-12-20</time>
+        <time title="修改时间：2020-12-21 00:47:02" itemprop="dateModified" datetime="2020-12-21T00:47:02+08:00">2020-12-21</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -948,16 +871,14 @@
 <p>举例来说，根目录下面有一个子目录/bin，用于存放二进制程序。但是，/usr子目录下面还有/usr/bin，以及/usr/local/bin，也用于存放二进制程序；某些系统甚至还有/opt/bin。它们有何区别？</p>
 <p>长久以来，我也感到很费解，不明白为什么这样设计。像大多数人一样，我只是根据《Unix文件系统结构标准》（Filesystem Hierarchy Standard），死记硬背不同目录的区别。</p>
 <p>昨天，我读到了Rob Landley的简短解释，这才恍然大悟，原来Unix目录结构是历史造成的。</p>
-<p>话说1969年，Ken Thompson和Dennis Ritchie在小型机PDP-7上发明了Unix。1971年，他们将主机升级到了PDP-11。</p>
-<p>当时，他们使用一种叫做RK05的储存盘，一盘的容量大约是1.5MB。</p>
-<p>没过多久，操作系统（根目录）变得越来越大，一块盘已经装不下了。于是，他们加上了第二盘RK05，并且规定第一块盘专门放系统程序，第二块盘专门放用户自己的程序，因此挂载的目录点取名为/usr。也就是说，根目录”/”挂载在第一块盘，”/usr”目录挂载在第二块盘。除此之外，两块盘的目录结构完全相同，第一块盘的目录（/bin, /sbin, /lib, /tmp…）都在/usr目录下重新出现一次。</p>
-<p>后来，第二块盘也满了，他们只好又加了第三盘RK05，挂载的目录点取名为/home，并且规定/usr用于存放用户的程序，/home用于存放用户的数据。</p>
-<p>从此，这种目录结构就延续了下来。随着硬盘容量越来越大，各个目录的含义进一步得到明确。</p>
-<p>/：存放系统程序，也就是At&amp;t开发的Unix程序。</p>
-<p>/usr：存放Unix系统商（比如IBM和HP）开发的程序。</p>
-<p>/usr/local：存放用户自己安装的程序。</p>
-<p>/opt：在某些系统，用于存放第三方厂商开发的程序，所以取名为option，意为”选装”</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/linux/2017-11-28_Unix%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84%E7%9A%84%E6%9D%A5%E5%8E%86.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1007,14 +928,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2017-11-26 00:00:00" itemprop="dateCreated datePublished" datetime="2017-11-26T00:00:00+00:00">2017-11-26</time>
+      <time title="创建时间：2017-11-26 08:00:00" itemprop="dateCreated datePublished" datetime="2017-11-26T08:00:00+08:00">2017-11-26</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-12-20 16:47:02" itemprop="dateModified" datetime="2020-12-20T16:47:02+00:00">2020-12-20</time>
+        <time title="修改时间：2020-12-21 00:47:02" itemprop="dateModified" datetime="2020-12-21T00:47:02+08:00">2020-12-21</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1087,14 +1008,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2017-11-26 00:00:00" itemprop="dateCreated datePublished" datetime="2017-11-26T00:00:00+00:00">2017-11-26</time>
+      <time title="创建时间：2017-11-26 08:00:00" itemprop="dateCreated datePublished" datetime="2017-11-26T08:00:00+08:00">2017-11-26</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-12-20 16:47:02" itemprop="dateModified" datetime="2020-12-20T16:47:02+00:00">2020-12-20</time>
+        <time title="修改时间：2020-12-21 00:47:02" itemprop="dateModified" datetime="2020-12-21T00:47:02+08:00">2020-12-21</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1125,49 +1046,14 @@ nonblocking IO
 IO multiplexing
 signal driven IO
 asynchronous IO</code></pre>
-<p>由于signal driven IO在实际中并不常用，所以我这只提及剩下的四种IO Model。</p>
-<p>再说一下IO发生时涉及的对象和步骤。</p>
-<p>对于一个network IO (这里我们以read举例)，它会涉及到两个系统对象，一个是调用这个IO的process (or thread)，另一个就是系统内核(kernel)。当一个read操作发生时，它会经历两个阶段：</p>
-<ol>
-<li><p>等待数据准备 (Waiting for the data to be ready)</p>
-</li>
-<li><p>将数据从内核拷贝到进程中 (Copying the data from the kernel to the process)<br>记住这两点很重要，因为这些IO Model的区别就是在两个阶段上各有不同的情况。</p>
-</li>
-</ol>
-<h2 id="blocking-IO"><a href="#blocking-IO" class="headerlink" title="blocking IO"></a>blocking IO</h2><p>在linux中，默认情况下所有的socket都是blocking，一个典型的读操作流程大概是这样：</p>
-<p><img src="./2017-11-26_IO-%E5%90%8C%E6%AD%A5%EF%BC%8C%E5%BC%82%E6%AD%A5%EF%BC%8C%E9%98%BB%E5%A1%9E%EF%BC%8C%E9%9D%9E%E9%98%BB%E5%A1%9E/1.png"></p>
-<p>当用户进程调用了recvfrom这个系统调用，kernel就开始了IO的第一个阶段：准备数据。</p>
-<p>对于network io来说，很多时候数据在一开始还没有到达（比如，还没有收到一个完整的UDP包），这个时候kernel就要等待足够的数据到来。而在用户进程这边，整个进程会被阻塞。当kernel一直等到数据准备好了，它就会将数据从kernel中拷贝到用户内存，然后kernel返回结果，用户进程才解除block的状态，重新运行起来。</p>
-<p>所以，blocking IO的特点就是在IO执行的两个阶段都被block了。</p>
-<h2 id="non-blocking-IO"><a href="#non-blocking-IO" class="headerlink" title="non-blocking IO"></a>non-blocking IO</h2><p>linux下，可以通过设置socket使其变为non-blocking。当对一个non-blocking socket执行读操作时，流程是这个样子：</p>
-<p><img src="./2017-11-26_IO-%E5%90%8C%E6%AD%A5%EF%BC%8C%E5%BC%82%E6%AD%A5%EF%BC%8C%E9%98%BB%E5%A1%9E%EF%BC%8C%E9%9D%9E%E9%98%BB%E5%A1%9E/2.png"></p>
-<p>从图中可以看出，当用户进程发出read操作时，如果kernel中的数据还没有准备好，那么它并不会block用户进程，而是立刻返回一个error。从用户进程角度讲 ，它发起一个read操作后，并不需要等待，而是马上就得到了一个结果。用户进程判断结果是一个error时，它就知道数据还没有准备好，于是它可以再次发送read操作。一旦kernel中的数据准备好了，并且又再次收到了用户进程的system call，那么它马上就将数据拷贝到了用户内存，然后返回。</p>
-<p>所以，用户进程其实是需要不断的主动询问kernel数据好了没有。</p>
-<h2 id="IO-multiplexing"><a href="#IO-multiplexing" class="headerlink" title="IO multiplexing"></a>IO multiplexing</h2><p>IO multiplexing这个词可能有点陌生，但是如果我说select，epoll，大概就都能明白了。有些地方也称这种IO方式为event driven IO。我们都知道，select/epoll的好处就在于单个process就可以同时处理多个网络连接的IO。它的基本原理就是select/epoll这个function会不断的轮询所负责的所有socket，当某个socket有数据到达了，就通知用户进程。它的流程如图：</p>
-<p><img src="./2017-11-26_IO-%E5%90%8C%E6%AD%A5%EF%BC%8C%E5%BC%82%E6%AD%A5%EF%BC%8C%E9%98%BB%E5%A1%9E%EF%BC%8C%E9%9D%9E%E9%98%BB%E5%A1%9E/3.png"></p>
-<p>当用户进程调用了select，那么整个进程会被block，而同时，kernel会“监视”所有select负责的socket，当任何一个socket中的数据准备好了，select就会返回。这个时候用户进程再调用read操作，将数据从kernel拷贝到用户进程。</p>
-<p>这个图和blocking IO的图其实并没有太大的不同，事实上，还更差一些。因为这里需要使用两个system call (select 和 recvfrom)，而blocking IO只调用了一个system call (recvfrom)。但是，用select的优势在于它可以同时处理多个connection。（多说一句。所以，如果处理的连接数不是很高的话，使用select/epoll的web server不一定比使用multi-threading + blocking IO的web server性能更好，可能延迟还更大。select/epoll的优势并不是对于单个连接能处理得更快，而是在于能处理更多的连接。）</p>
-<p>在IO multiplexing Model中，实际中，对于每一个socket，一般都设置成为non-blocking，但是，如上图所示，整个用户的process其实是一直被block的。只不过process是被select这个函数block，而不是被socket IO给block。</p>
-<h2 id="Asynchronous-I-O"><a href="#Asynchronous-I-O" class="headerlink" title="Asynchronous I/O"></a>Asynchronous I/O</h2><p>linux下的asynchronous IO其实用得很少。先看一下它的流程：</p>
-<p><img src="./2017-11-26_IO-%E5%90%8C%E6%AD%A5%EF%BC%8C%E5%BC%82%E6%AD%A5%EF%BC%8C%E9%98%BB%E5%A1%9E%EF%BC%8C%E9%9D%9E%E9%98%BB%E5%A1%9E/4.png"></p>
-<p>用户进程发起read操作之后，立刻就可以开始去做其它的事。而另一方面，从kernel的角度，当它受到一个asynchronous read之后，首先它会立刻返回，所以不会对用户进程产生任何block。然后，kernel会等待数据准备完成，然后将数据拷贝到用户内存，当这一切都完成之后，kernel会给用户进程发送一个signal，告诉它read操作完成了。</p>
-<p>到目前为止，已经将四个IO Model都介绍完了。现在回过头来回答最初的那几个问题：blocking和non-blocking的区别在哪，synchronous IO和asynchronous IO的区别在哪。</p>
-<p>先回答最简单的这个：blocking vs non-blocking。前面的介绍中其实已经很明确的说明了这两者的区别。调用blocking IO会一直block住对应的进程直到操作完成，而non-blocking IO在kernel还准备数据的情况下会立刻返回。</p>
-<p>在说明synchronous IO和asynchronous IO的区别之前，需要先给出两者的定义。Stevens给出的定义（其实是POSIX的定义）是这样子的：</p>
-<pre><code>A synchronous I/O operation causes the requesting process to be blocked until that I/O operation completes;
-An asynchronous I/O operation does not cause the requesting process to be blocked; </code></pre>
-<p>两者的区别就在于synchronous IO做”IO operation”的时候会将process阻塞。按照这个定义，之前所述的blocking IO，non-blocking IO，IO multiplexing都属于synchronous IO。有人可能会说，non-blocking IO并没有被block啊。这里有个非常“狡猾”的地方，定义中所指的”IO operation”是指真实的IO操作，就是例子中的recvfrom这个system call。non-blocking IO在执行recvfrom这个system call的时候，如果kernel的数据没有准备好，这时候不会block进程。但是，当kernel中数据准备好的时候，recvfrom会将数据从kernel拷贝到用户内存中，这个时候进程是被block了，在这段时间内，进程是被block的。而asynchronous IO则不一样，当进程发起IO 操作之后，就直接返回再也不理睬了，直到kernel发送一个信号，告诉进程说IO完成。在这整个过程中，进程完全没有被block。</p>
-<p>各个IO Model的比较如图所示：</p>
-<p><img src="./2017-11-26_IO-%E5%90%8C%E6%AD%A5%EF%BC%8C%E5%BC%82%E6%AD%A5%EF%BC%8C%E9%98%BB%E5%A1%9E%EF%BC%8C%E9%9D%9E%E9%98%BB%E5%A1%9E/5.png"></p>
-<p>经过上面的介绍，会发现non-blocking IO和asynchronous IO的区别还是很明显的。在non-blocking IO中，虽然进程大部分时间都不会被block，但是它仍然要求进程去主动的check，并且当数据准备完成以后，也需要进程主动的再次调用recvfrom来将数据拷贝到用户内存。而asynchronous IO则完全不同。它就像是用户进程将整个IO操作交给了他人（kernel）完成，然后他人做完后发信号通知。在此期间，用户进程不需要去检查IO操作的状态，也不需要主动的去拷贝数据。</p>
-<p>最后，再举几个不是很恰当的例子来说明这四个IO Model:</p>
-<p>有A，B，C，D四个人在钓鱼：</p>
-<p>A用的是最老式的鱼竿，所以呢，得一直守着，等到鱼上钩了再拉杆；</p>
-<p>B的鱼竿有个功能，能够显示是否有鱼上钩，所以呢，B就和旁边的MM聊天，隔会再看看有没有鱼上钩，有的话就迅速拉杆；</p>
-<p>C用的鱼竿和B差不多，但他想了一个好办法，就是同时放好几根鱼竿，然后守在旁边，一旦有显示说鱼上钩了，它就将对应的鱼竿拉起来；</p>
-<p>D是个有钱人，干脆雇了一个人帮他钓鱼，一旦那个人把鱼钓上来了，就给D发个短信。</p>
-<p>原文：<a target="_blank" rel="noopener" href="http://blog.csdn.net/historyasamirror/article/details/5778378">http://blog.csdn.net/historyasamirror/article/details/5778378</a></p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/linux/2017-11-26_IO-%E5%90%8C%E6%AD%A5%EF%BC%8C%E5%BC%82%E6%AD%A5%EF%BC%8C%E9%98%BB%E5%A1%9E%EF%BC%8C%E9%9D%9E%E9%98%BB%E5%A1%9E.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 

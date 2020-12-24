@@ -232,14 +232,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2016-10-30 00:00:00" itemprop="dateCreated datePublished" datetime="2016-10-30T00:00:00+00:00">2016-10-30</time>
+      <time title="创建时间：2016-10-30 08:00:00" itemprop="dateCreated datePublished" datetime="2016-10-30T08:00:00+08:00">2016-10-30</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-12-20 16:47:02" itemprop="dateModified" datetime="2020-12-20T16:47:02+00:00">2020-12-20</time>
+        <time title="修改时间：2020-12-21 00:47:02" itemprop="dateModified" datetime="2020-12-21T00:47:02+08:00">2020-12-21</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -268,24 +268,14 @@
 <li>提供了很好的扩展性，可以根据实际需要灵活的自定义注解。</li>
 </ul>
 <p>2 如何使用</p>
-<p>（1）自定义一个组合注解</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@Target(ElementType.TYPE)</span><br><span class="line">@Retention(RetentionPolicy.RUNTIME)</span><br><span class="line">@Documented</span><br><span class="line">@Configuration &#x2F;&#x2F;实际上就是一个bean注解</span><br><span class="line">@ComponentScan&#x2F;&#x2F;自动扫描对应value（package路径）值下面的所有bean</span><br><span class="line">public @interface  WiselyConfiguration &#123;</span><br><span class="line">    String[] value() default&#123;&#125;;&#x2F;&#x2F;可以不写，实际在@ComponentScan注解中已经定义过，所以可以拿过来直接用</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>（2）使用自定义注解</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;@Configuration &#x2F;&#x2F;属性注解</span><br><span class="line">&#x2F;&#x2F;@ComponentScan(&quot;com.gdb.spingboot.service&quot;)  &#x2F;&#x2F; 要扫描的bean路径</span><br><span class="line">@WiselyConfiguration(value &#x3D; &quot;com.gdb.spingboot.service&quot;)  &#x2F;&#x2F;自定义注解，扫描的所有的bean来源于value值所对应的包路径下</span><br><span class="line">public class ElConfig&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>组合注解，和上面两个注解实现的功能完全一致，所以如果在繁琐的注解被多次使用的情况下，可以考虑自定义组合注解。</p>
-<h3 id="注解继承"><a href="#注解继承" class="headerlink" title="注解继承"></a>注解继承</h3><p>@Inhberited注解可以让指定的注解在某个类上使用后，这个类的子类也将自动被该注解标记。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">@Retention(RetentionPolicy.RUNTIME)</span><br><span class="line">@Inherited </span><br><span class="line">public @interface Hello &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class AnnotationTest3&#123;</span><br><span class="line">    &#x2F;&#x2F;在基类上使用被@Inherited标记了的注解@Hello@HelloclassBase&#123;&#125;</span><br><span class="line">    &#x2F;&#x2F;派生类没有直接注解@HelloclassDerivedextendsBase&#123;&#125;</span><br><span class="line">    public static void main(String[] args)&#123;</span><br><span class="line">    &#x2F;&#x2F;派生类也会自动被注解@Hello标记。if( Derived.class.isAnnotationPresent(Hello.class))&#123;</span><br><span class="line">        Hello hello &#x3D; (Hello)Derived.class.getAnnotation(Hello.class);</span><br><span class="line">        System.out.println(&quot;Hello&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="注解的其它事项"><a href="#注解的其它事项" class="headerlink" title="注解的其它事项"></a>注解的其它事项</h3><p>（1）当注解中含有数组属性时，使用{}赋值，各个元素使用逗号分隔。</p>
-<p>（2）注解的属性可以是另外一个注解。</p>
-<p>（3）注解的属性可以是另外一个注解的数组。</p>
-<p>（4）注解的默认属性是value，只有一个value属性时可以不写value=xxx，直接写值即可。</p>
-<p>（5）注解的属性的默认值使用default来定义。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;定义注解</span><br><span class="line">@Retention(RetentionPolicy.RUNTIME)</span><br><span class="line">public @interface SomeFuture &#123;</span><br><span class="line">    String value();&#x2F;&#x2F;默认的属性int[]  arrayValue(); &#x2F;&#x2F;数组Hello  helloValue();&#x2F;&#x2F;是另外一个注解@Hello</span><br><span class="line">    Hello[] helloArrayValue() default &#123;@Hello,@Hello&#125;; &#x2F;&#x2F;注解的数组，而且提供默认值。</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;使用注解</span><br><span class="line">@SomeFuture(</span><br><span class="line">    value&#x3D;&quot;hello&quot;, &#x2F;&#x2F;默认属性</span><br><span class="line">    arrayValue&#x3D;&#123;1,2,3&#125;,&#x2F;&#x2F;数组属性</span><br><span class="line">    helloValue&#x3D;@Hello,&#x2F;&#x2F;属性是另外一个注解</span><br><span class="line">    helloArrayValue&#x3D;&#123;@Hello,@Hello,@Hello&#125;&#x2F;&#x2F;属性是另外一个注解的数组。</span><br><span class="line">)</span><br><span class="line">public class AnnotationTest4&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/java/spring/2016-10-30_Spring%20%E7%BB%84%E5%90%88%E6%B3%A8%E8%A7%A3&%E6%B3%A8%E8%A7%A3%E7%BB%A7%E6%89%BF.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -335,14 +325,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2016-10-26 11:29:24" itemprop="dateCreated datePublished" datetime="2016-10-26T11:29:24+00:00">2016-10-26</time>
+      <time title="创建时间：2016-10-26 19:29:24" itemprop="dateCreated datePublished" datetime="2016-10-26T19:29:24+08:00">2016-10-26</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-12-20 16:47:02" itemprop="dateModified" datetime="2020-12-20T16:47:02+00:00">2020-12-20</time>
+        <time title="修改时间：2020-12-21 00:47:02" itemprop="dateModified" datetime="2020-12-21T00:47:02+08:00">2020-12-21</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -369,26 +359,14 @@
 <p>几经周折，终于把它搞清楚了:<br>其实，它是计算机底层为了实现数值运算而决定的，涉及非常非常基础的原码，反码，补码知识，一般 (99.9999%) 都不会用得上。 那 0.0001%，估计也就是计算机考试了。</p>
 <p>话说:</p>
 <p>用 2^8 来表示无符号整数的话，全世界的理解都是 0 到 255 了，那么，有符号呢?</p>
-<p>用最高位表示符号，0 为 +，1 为 -，那么，正常的理解就是 -127 至 +127 了。 这就是原码了，值得一提的是，原码的弱点，有 2 个 0，即 + 0 和 - 0，还有就是，进行异号相加或同号相减时，比较笨蛋，先要判断 2 个数的绝对值大小，然后进行加减操作，最后运算结果的符号还要与大的符号相同。</p>
-<p>于是乎，反码产生了，原因。。。。略，反正，没过多久，反码就成为了过滤产物，也就是，后来补码出现了。</p>
-<p>补码的知识不说了，只说有关 + 127 和 - 128 的。<br>官方的定义 [-2^(n-1)，2(n-1)-1]，补码的 0 没有正负之分。原因呢? 没有一本书上有说，这也是我这么火的原因，但通过思考，google，再思考，很快找到答案:</p>
-<p>首先，难不免干点白痴般地事情，穷举一下。。。</p>
-<p>正数，原码跟补码一样</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">+127， 	0111 1111 </span><br><span class="line">+126， 	0111 1110 </span><br><span class="line">+125， 	0111 1101 </span><br><span class="line">+124， 	0111 1100 </span><br><span class="line">+123， 	0111 1011 </span><br><span class="line">+122，	0111 1010 </span><br><span class="line">……</span><br><span class="line">+4， 	0000 0100   </span><br><span class="line">+3， 	0000 0011   </span><br><span class="line">+2， 	0000 0010   </span><br><span class="line">+1， 	0000 0001 </span><br><span class="line">0，   	0000 0000 (无正负之分)</span><br></pre></td></tr></table></figure>
-<p>下面是负数了</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">值， 	原码， 		符号位不变其它取反，	+1 </span><br><span class="line">-1， 	1000 0001，	1111 1110，		1111 1111</span><br><span class="line">-2，  	1000 0010，	1111 1101，		1111 1110   </span><br><span class="line">-3，  	1000 0011，	1111 1100，		1111 1101   </span><br><span class="line">-4，  	1000 0100，	1111 1011，		1111 1100   </span><br><span class="line">-5，  	1000 0101，	1111 1010，		1111 1011   </span><br><span class="line">-6，  	1000 0110，	1111 1001，		1111 1010   </span><br><span class="line">-7，  	1000 0111，	1111 1000，		1111 1001   </span><br><span class="line">-8，  	1000 1000，	1111 0111，		1111 1000   </span><br><span class="line">-9，  	1000 1001，	1111 0110，		1111 0111 </span><br><span class="line">-10，  	1000 1010，	1111 0101，		1111 0110 </span><br><span class="line">-11，  	1000 1011，	1111 0100，		1111 0101 </span><br><span class="line">-12，  	1000 1100，	1111 0011，		1111 0100 </span><br><span class="line">-13，  	1000 1101，	1111 0010，		1111 0011 </span><br><span class="line">-14，  	1000 1110，	1111 0001，		1111 0010 </span><br><span class="line">-15，  	1000 1111，	1111 0000，		1111 0001 </span><br><span class="line">-16，  	1001 0000，	1110 1111，		1111 0000 </span><br><span class="line">-17，  	1001 0001，	1110 1110，		1110 1111 </span><br><span class="line">…… </span><br><span class="line">-24，  	1001 1000，	1110 0111，		1110 1000 </span><br><span class="line">…… </span><br><span class="line">-99，  	1110 0011，	1001 1100，		1110 0100 </span><br><span class="line">…… </span><br><span class="line">-124， 	1111 1100，	1000 0011，		1000 0100 </span><br><span class="line">-125， 	1111 1101，	1000 0010，		1000 0011 </span><br><span class="line">-126， 	1111 1110，	1000 0001，		1000 0010 </span><br><span class="line">-127， 	1111 1111，	1000 0000，		1000 0001</span><br></pre></td></tr></table></figure>
-<p>看出点什么了没有?<br>如果没有，那么，给个提示， 再继续下去，下一个补码是什么呢?</p>
-<p>当然是</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">值， 	原码， 		符号位不变其它取反，	+1 </span><br><span class="line">-128， 	先略过，  	再略过， 			1000 0000</span><br></pre></td></tr></table></figure>
-<p>1000 0000 那么，它的原码是什么呢?</p>
-<p>从补码求原码的方法跟原码求补码是一样的。</p>
-<p>先保留符号位其它求反: 1111 1111， 再加 1:11000 0000， 超过了 8 位了 对，用 8 位数的原码在这里已经无法表示了。</p>
-<p>关键就在这里，补码 1000 0000 为 -128 是不用怀疑的 (上面的穷举)， 那么，回到原码处， 它的原码也是 1000 0000(超出的自动丢失)， 1000 0000 在原码表示什么呢? -0， 但补码却规定 0 没有正负之分 转换一下思路，看看计算机里，是怎么运算的:</p>
-<p>对于负数，先取绝对值，然后求反，加一</p>
-<p>-128 -&gt; 128 -&gt; 1000 0000 -&gt; 0111 1111 -&gt; 1000 0000</p>
-<p>现在明确了吧。</p>
-<p>所以， 8 位有符号的整数取值范围的补码表示 1000 0000 到 0000 0000， 再到 0111 1111 即 -128 到 0， 再到 127 最终 -128 ~ +127。</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/java/advance/2016-10-25_number.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -438,14 +416,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2016-10-25 11:29:24" itemprop="dateCreated datePublished" datetime="2016-10-25T11:29:24+00:00">2016-10-25</time>
+      <time title="创建时间：2016-10-25 19:29:24" itemprop="dateCreated datePublished" datetime="2016-10-25T19:29:24+08:00">2016-10-25</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-12-20 16:47:02" itemprop="dateModified" datetime="2020-12-20T16:47:02+00:00">2020-12-20</time>
+        <time title="修改时间：2020-12-21 00:47:02" itemprop="dateModified" datetime="2020-12-21T00:47:02+08:00">2020-12-21</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -468,37 +446,18 @@
     
     <div class="post-body" itemprop="articleBody">
           <p><strong>作用</strong></p>
-<p>ThreadLocal 不是用来解决共享对象访问的多线程访问问题，而是用于解决不同线程保持各自独立的一个对象。<br>典型的问题就是：当一个单例 A 持有某个属性对象 a.b 时，如果 a.b 在多个方法里面使用，就有可能造成线程不安全，如果把 b 定义成 ThreadLocal<B> b 就可以避免以上问题。</p>
+<p>ThreadLocal 不是用来解决共享对象访问的多线程访问问题，而是用于解决不同线程保持各自独立的一个对象。<br>典型的问题就是：当一个单例 A 持有某个属性对象 a.b 时，如果 a.b 在多个方法里面使用，就有可能造成线程不安全，如果把 b 定义成 ThreadLocal<b> b 就可以避免以上问题。</b></p>
 <p><strong>实现</strong></p>
 <p>一、ThreadLocal</p>
 <p>实例方法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">public void set(T value) &#123;</span><br><span class="line">    Thread t &#x3D; Thread.currentThread();</span><br><span class="line">    ThreadLocalMap map &#x3D; getMap(t);</span><br><span class="line">    if (map !&#x3D; null)</span><br><span class="line">        map.set(this, value);</span><br><span class="line">    else</span><br><span class="line">        createMap(t, value);</span><br><span class="line">&#125;</span><br><span class="line">ThreadLocalMap getMap(Thread t) &#123;</span><br><span class="line">    return t.threadLocals;</span><br><span class="line">&#125;</span><br><span class="line">void createMap(Thread t, T firstValue) &#123;</span><br><span class="line">    t.threadLocals &#x3D; new ThreadLocalMap(this, firstValue);</span><br><span class="line">&#125;</span><br><span class="line">public T get() &#123;</span><br><span class="line">    Thread t &#x3D; Thread.currentThread();</span><br><span class="line">    ThreadLocalMap map &#x3D; getMap(t);</span><br><span class="line">    if (map !&#x3D; null) &#123;</span><br><span class="line">        ThreadLocalMap.Entry e &#x3D; map.getEntry(this);</span><br><span class="line">        if (e !&#x3D; null)</span><br><span class="line">            return (T)e.value;</span><br><span class="line">    &#125;</span><br><span class="line">    return setInitialValue();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>set() 方法逻辑：<br>获取当前线程对应的 ThreadLocalMap map;<br>如果存在直接 map.set;<br>否则 new ThreadLocalMap 给线程使用。</p>
-<p>由此可知，每个线程都有一个自己的 ThreadLocal.ThreadLocalMap 对象。</p>
-<p>get() 方法逻辑：<br>获取当前线程对应的 ThreadLocalMap map;<br>如果存在，且当前 ThreadLocal 实例对应的值不为空，返回 map 拿到的值；<br>否则，设置前 ThreadLocal 实例默认值并返回。</p>
-<p>二、ThreadLocalMap</p>
-<p>ThreadLocalMap 构造函数：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">private static final int INITIAL_CAPACITY &#x3D; 16;</span><br><span class="line">ThreadLocalMap(ThreadLocal firstKey, Object firstValue) &#123;</span><br><span class="line">    table &#x3D; new Entry[INITIAL_CAPACITY];</span><br><span class="line">    int i &#x3D; firstKey.threadLocalHashCode &amp; (INITIAL_CAPACITY - 1);</span><br><span class="line">    table[i] &#x3D; new Entry(firstKey, firstValue);</span><br><span class="line">    size &#x3D; 1;</span><br><span class="line">    setThreshold(INITIAL_CAPACITY);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>第一点：INITIAL_CAPACITY 必须是 2 的 N 次幂，默认值为 16。</p>
-<p>为什么是 2 的 N 次幂值？</p>
-<p>ThreadLocalMap 类保存着一个 table 每一个 ThreadLocal 有自己的 threadLocalHashCode 值</p>
-<p>从 ThreadLocalMap table 里存 / 取值的时候会通过 threadLocalHashCode 值计算出一个 i，再通过 table[i] 得到 ThreadLocal 的值。<br>如构造函数代码所示：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int i &#x3D; firstKey.threadLocalHashCode &amp; (INITIAL_CAPACITY - 1);</span><br></pre></td></tr></table></figure>
-<p>这是计算方法，这个过程实际上是一个取模的过程。</p>
-<p>举个例子</p>
-<p>十进制取模：26 % 16 = 10</p>
-<p>二进制取模：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">  00011010 </span><br><span class="line">&amp; 00001111</span><br><span class="line">&#x3D; 00001010</span><br><span class="line">&#x3D; 10</span><br></pre></td></tr></table></figure>
-<p>所以，十进制的取模对于二进制，只需要使用公式 M &amp; (C-1) 即可，这种与操作对于 CPU 运算效率很高。当然，一个大前提就是 C-1 的值转换为二进制时，低位部分要求全是 1 才行。所以要求 C 必须是 2 的 N 次幂。</p>
-<p>第二点：threadLocalHashCode</p>
-<p>看一下 ThreadLocal 这部分的代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;**</span><br><span class="line"> * ThreadLocals rely on per-thread linear-probe hash maps attached</span><br><span class="line"> * to each thread (Thread.threadLocals and</span><br><span class="line"> * inheritableThreadLocals).  The ThreadLocal objects act as keys,</span><br><span class="line"> * searched via threadLocalHashCode.  This is a custom hash code</span><br><span class="line"> * (useful only within ThreadLocalMaps) that eliminates collisions</span><br><span class="line"> * in the common case where consecutively constructed ThreadLocals</span><br><span class="line"> * are used by the same threads, while remaining well-behaved in</span><br><span class="line"> * less common cases.</span><br><span class="line"> *&#x2F;</span><br><span class="line">private final int threadLocalHashCode &#x3D; nextHashCode();</span><br><span class="line">&#x2F;**</span><br><span class="line"> * The next hash code to be given out. Updated atomically. Starts at</span><br><span class="line"> * zero.</span><br><span class="line"> *&#x2F;</span><br><span class="line">private static AtomicInteger nextHashCode &#x3D; new AtomicInteger();</span><br><span class="line">&#x2F;**</span><br><span class="line"> * The difference between successively generated hash codes - turns</span><br><span class="line"> * implicit sequential thread-local IDs into near-optimally spread</span><br><span class="line"> * multiplicative hash values for power-of-two-sized tables.</span><br><span class="line"> *&#x2F;</span><br><span class="line">private static final int HASH_INCREMENT &#x3D; 0x61c88647;</span><br><span class="line">&#x2F;**</span><br><span class="line"> * Returns the next hash code.</span><br><span class="line"> *&#x2F;</span><br><span class="line">private static int nextHashCode() &#123;</span><br><span class="line">    return nextHashCode.getAndAdd(HASH_INCREMENT);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>可以看出来，ThreadLocal 第一次 set 值的时候，threadLocalHashCode 得到的是 0，之后每次得到的数都是加了 0x61c88647。这算一个 16 进制表示的数，转换成十进制是：1640531527。</p>
-<p>为什么是这个数？</p>
-<p>本屌暂时还没搞懂~</p>
-<p>简单的总结一下 ThreadLocal：</p>
-<p>1、每一个 ThreadLocal 实例有一个自己的 threadLocalHashCode；<br>2、每一个 Thread 有一个自己的 ThreadLocalMap threadLocals， threadLocals 的 key 是 ThreadLocal 实例，value 是 ThreadLocal 真是的实际保存的对象实例。<br>3、ThreadLocalMap 使用 table 数组保存每一个 Entry（key-value）。<br>4、ThreadLocalMap 计算 ThreadLocal 对应 table[i] 的 i 使用 threadLocalHashCode 取模获得。</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/java/basic/2016-10-25_threadlocal.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -548,14 +507,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2016-10-25 00:00:00" itemprop="dateCreated datePublished" datetime="2016-10-25T00:00:00+00:00">2016-10-25</time>
+      <time title="创建时间：2016-10-25 08:00:00" itemprop="dateCreated datePublished" datetime="2016-10-25T08:00:00+08:00">2016-10-25</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-12-20 16:47:02" itemprop="dateModified" datetime="2020-12-20T16:47:02+00:00">2020-12-20</time>
+        <time title="修改时间：2020-12-21 00:47:02" itemprop="dateModified" datetime="2020-12-21T00:47:02+08:00">2020-12-21</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -581,28 +540,15 @@
 <p>HashMap 继承 AbstractMap，实现了 Map 接口。</p>
 <h4 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">static final int DEFAULT_INITIAL_CAPACITY &#x3D; 1 &lt;&lt; 4; &#x2F;&#x2F; 默认初始化容量值，16，要求 2 的 N 次幂（计算 table index 要求），可以在构造方法指定，如果在构造函数指定 50，那么 Map 会自动选择扩容到 50 以后的 2 次幂，即：64</span><br><span class="line"></span><br><span class="line">static final int MAXIMUM_CAPACITY &#x3D; 1 &lt;&lt; 30;&#x2F;&#x2F; 最大容量</span><br><span class="line"></span><br><span class="line">static final float DEFAULT_LOAD_FACTOR &#x3D; 0.75f;&#x2F;&#x2F; 默认负载因子，可以在构造方法指定实际值</span><br><span class="line"></span><br><span class="line">transient Entry[] table &#x3D; (Entry[]) EMPTY_TABLE;&#x2F;&#x2F; 所有 HashMap 实例初始化时，共享该值，表示空集合</span><br><span class="line"></span><br><span class="line">transient int size;&#x2F;&#x2F; Map 中 k-v 个数</span><br><span class="line"></span><br><span class="line">int threshold;&#x2F;&#x2F; 临界值，size &gt;&#x3D; 该值的时候，进行 resize</span><br><span class="line"></span><br><span class="line">final float loadFactor;&#x2F;&#x2F; 负载因子，用于计算 threshold，threshold &#x3D; (int)Math.min(capacity* loadFactor, MAXIMUM_CAPACITY + 1);</span><br><span class="line"></span><br><span class="line">transient int modCount;&#x2F;&#x2F; 记录 Map 结构被修改的次数，这里的修改可能是 Map 的 size 改变，比如 put，remove，clear 等；rehash；当 clone 的时候，返回的克隆 Map 对象的 modCout 被为 0</span><br><span class="line"></span><br><span class="line">static final int ALTERNATIVE_HASHING_THRESHOLD_DEFAULT &#x3D; Integer.MAX_VALUE;&#x2F;&#x2F; 默认替换散列阈值</span><br><span class="line"></span><br><span class="line">private static class Holder.ALTERNATIVE_HASHING_THRESHOLD &#x2F;&#x2F; 替换散列阈值，该值在 VM 启动以后初始化，如果系统属性（system property）数定义了 jdk.map.althashing.threshold &gt;&#x3D; 0 时，则使用定义的值作为该值；否则使用 Integer.MAX_VALUE。当调用 resize 或者 inflateTable 的时候，如果满足条件 capacity &gt;&#x3D; 该值，会进行 rehash，rehash 的目的是为了避免 hash 值的碰撞。</span><br><span class="line"></span><br><span class="line">transient int hashSeed &#x3D; 0;&#x2F;&#x2F; hashSeed 用于计算 key 的 hash 值，它与 key 的 hashCode 进行按位异或运算。这个 hashSeed 是一个与实例相关的随机值，主要用于解决 hash 冲突。上面说到 rehash 其实就是事先改变 hashSeed 的值，以至于计算 key 的新 hash 值与原 hash 值不同</span><br></pre></td></tr></table></figure>
 
-<h4 id="构造方法"><a href="#构造方法" class="headerlink" title="构造方法"></a>构造方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public HashMap(int initialCapacity, float loadFactor)</span><br><span class="line"></span><br><span class="line">public HashMap(int initialCapacity)</span><br><span class="line"></span><br><span class="line">public HashMap()</span><br><span class="line"></span><br><span class="line">public HashMap(Map&lt;? extends K, ? extends V&gt; m)</span><br></pre></td></tr></table></figure>
-
-<h4 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public V put(K key, V value)</span><br><span class="line"></span><br><span class="line">public V get(Object key)</span><br><span class="line"></span><br><span class="line">public V remove(Object key)</span><br><span class="line"></span><br><span class="line">public boolean containsKey(Object key)</span><br></pre></td></tr></table></figure>
-
-<h4 id="内部存储结构（JDK-1-7）"><a href="#内部存储结构（JDK-1-7）" class="headerlink" title="内部存储结构（JDK 1.7）"></a>内部存储结构（JDK 1.7）</h4><p><img src="./2016-10-25_hashmap_jdk7/hashmap_jdk7.png" alt="HashMap内部结构"> </p>
-<p>（图片来源：<a target="_blank" rel="noopener" href="http://javaconceptoftheday.com/how-hashmap-works-internally-in-java/%EF%BC%89">http://javaconceptoftheday.com/how-hashmap-works-internally-in-java/）</a></p>
-<h4 id="Entry-结构"><a href="#Entry-结构" class="headerlink" title="Entry 结构"></a>Entry 结构</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">static class Entry&lt;K,V&gt; implements Map.Entry&lt;K,V&gt; &#123;</span><br><span class="line">    final K key;</span><br><span class="line">    V value;</span><br><span class="line">    Entry&lt;K,V&gt; next;</span><br><span class="line">    int hash;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>Entry 自身持有另外一个 Entry 对象 next，构成了链表的数据结构。</p>
-<h4 id="put-方法"><a href="#put-方法" class="headerlink" title="put 方法"></a>put 方法</h4><p>算哈希值 –&gt; 算 table index –&gt; 存。</p>
-<p>1、检查 table ，如果 == EMPTY_TABLE，先按照指定的容量扩容 table ，即：table = new Entry[capacity]，如果 capacity 的值不是 2 的 N 次幂，则 capacity 值会被修改为比 capacity 大的最近一个 2 的 N 次幂数。</p>
-<p>2、检查 key == null ，如果是，则认为 key 的 hashValue 对应的 table index 为 0，否则需要计算 key 的 hashValue ，计算方法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">final int hash(Object k) &#123;</span><br><span class="line">    int h &#x3D; hashSeed;</span><br><span class="line">    if (0 !&#x3D; h &amp;&amp; k instanceof String) &#123;</span><br><span class="line">        return sun.misc.Hashing.stringHash32((String) k);</span><br><span class="line">    &#125;</span><br><span class="line">    h ^&#x3D; k.hashCode();</span><br><span class="line">    &#x2F;&#x2F; This function ensures that hashCodes that differ only by</span><br><span class="line">    &#x2F;&#x2F; constant multiples at each bit position have a bounded</span><br><span class="line">    &#x2F;&#x2F; number of collisions (approximately 8 at default load factor).</span><br><span class="line">    h ^&#x3D; (h &gt;&gt;&gt; 20) ^ (h &gt;&gt;&gt; 12);</span><br><span class="line">    return h ^ (h &gt;&gt;&gt; 7) ^ (h &gt;&gt;&gt; 4);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>然后，计算 hashValue 对应的 table index ，方法：index = hashValue &amp; (table.length-1);</p>
-<p>这个运算相当于 hashValue 对 table.length 的取模运算。因为 table.length 是优化过的，是 2 的 N 次幂，所以可以这样计算。（数学原理参考另外篇文章：<a href="http://blog.fenxiangz.com/java-basic/thread-local/">http://blog.fenxiangz.com/java-basic/thread-local/</a> ，ThreadLocalMap 部分）</p>
-<p>最后，就算出了这个 key-value 对于的 table[index] 了。</p>
-<p>3、put，如果 table[index] == null , 则直接 new Entry，存就好了；</p>
-<p>否则，先计算 table[index] 链表上的所有 Entry e，确认是否有 e.hash == hashValue &amp;&amp; e.key.equals(key) 的 e，</p>
-<p>如果有，则用新的 value 替换旧的 e.value 并返回旧的 e.value；</p>
-<p>否则，e1 = new Entry， table[index] = e1 ，并把原有的 table[index] 作为 e1.next。</p>
-<p>存的过程，如果 (size&gt;= threshold) &amp;&amp; (null != table[index])，会导致 resize 扩容，并且如果满足条件 capacity &gt;= Holder.ALTERNATIVE_HASHING_THRESHOLD 的时候会进行 rehash，rehash 的目的是为了避免 hash 值的碰撞。</p>
-<p>rehash 的成本是很高的，所以，如果使用 HashMap 的时候，指定了 capacity ，capacity 应该尽可能的大于业务预期的大小。防止过程中 rehash。</p>
-
+<h4 id="构造方法"><a href="#构造方法" class="headerlink" title="构造方法"></a>构造方法</h4>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/java/basic/2016-10-25_hashmap_jdk7.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -652,14 +598,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2012-11-03 02:00:00" itemprop="dateCreated datePublished" datetime="2012-11-03T02:00:00+00:00">2012-11-03</time>
+      <time title="创建时间：2012-11-03 10:00:00" itemprop="dateCreated datePublished" datetime="2012-11-03T10:00:00+08:00">2012-11-03</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-12-20 16:47:02" itemprop="dateModified" datetime="2020-12-20T16:47:02+00:00">2020-12-20</time>
+        <time title="修改时间：2020-12-21 00:47:02" itemprop="dateModified" datetime="2020-12-21T00:47:02+08:00">2020-12-21</time>
       </span>
 
   
@@ -722,14 +668,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2012-11-03 01:00:00" itemprop="dateCreated datePublished" datetime="2012-11-03T01:00:00+00:00">2012-11-03</time>
+      <time title="创建时间：2012-11-03 09:00:00" itemprop="dateCreated datePublished" datetime="2012-11-03T09:00:00+08:00">2012-11-03</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-12-20 16:47:02" itemprop="dateModified" datetime="2020-12-20T16:47:02+00:00">2020-12-20</time>
+        <time title="修改时间：2020-12-21 00:47:02" itemprop="dateModified" datetime="2020-12-21T00:47:02+08:00">2020-12-21</time>
       </span>
 
   
@@ -792,14 +738,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2012-11-03 00:00:00" itemprop="dateCreated datePublished" datetime="2012-11-03T00:00:00+00:00">2012-11-03</time>
+      <time title="创建时间：2012-11-03 08:00:00" itemprop="dateCreated datePublished" datetime="2012-11-03T08:00:00+08:00">2012-11-03</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-12-20 16:47:02" itemprop="dateModified" datetime="2020-12-20T16:47:02+00:00">2020-12-20</time>
+        <time title="修改时间：2020-12-21 00:47:02" itemprop="dateModified" datetime="2020-12-21T00:47:02+08:00">2020-12-21</time>
       </span>
 
   
@@ -816,16 +762,14 @@
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
 
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/hello-world.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 

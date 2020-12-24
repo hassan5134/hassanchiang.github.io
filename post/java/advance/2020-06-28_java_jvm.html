@@ -23,12 +23,12 @@
     var NexT = window.NexT || {};
     var CONFIG = {"hostname":"blog.fenxiangz.com","root":"/","images":"/images","scheme":"Pisces","version":"8.1.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}};
   </script>
-<meta name="description" content="转载：https:&#x2F;&#x2F;www.jianshu.com&#x2F;p&#x2F;76959115d486 1 CPU和内存的交互了解jvm内存模型前，了解下cpu和计算机内存的交互情况。【因为Java虚拟机内存模型定义的访问操作与计算机十分相似】 有篇很棒的文章，从cpu讲到内存模型:什么是java内存模型  在计算机中，cpu和内存的交互最为频繁，相比内存，磁盘读写太慢，内存相当于高速的缓冲区。 但是随着cpu的发展">
+<meta name="description" content="转载：https:&#x2F;&#x2F;www.jianshu.com&#x2F;p&#x2F;76959115d486 1 CPU和内存的交互了解jvm内存模型前，了解下cpu和计算机内存的交互情况。【因为Java虚拟机内存模型定义的访问操作与计算机十分相似】 有篇很棒的文章，从cpu讲到内存模型:什么是java内存模型">
 <meta property="og:type" content="article">
 <meta property="og:title" content="深入理解JVM-内存模型（jmm）和GC">
 <meta property="og:url" content="https://blog.fenxiangz.com/post/java/advance/2020-06-28_java_jvm.html">
 <meta property="og:site_name" content="分享之">
-<meta property="og:description" content="转载：https:&#x2F;&#x2F;www.jianshu.com&#x2F;p&#x2F;76959115d486 1 CPU和内存的交互了解jvm内存模型前，了解下cpu和计算机内存的交互情况。【因为Java虚拟机内存模型定义的访问操作与计算机十分相似】 有篇很棒的文章，从cpu讲到内存模型:什么是java内存模型  在计算机中，cpu和内存的交互最为频繁，相比内存，磁盘读写太慢，内存相当于高速的缓冲区。 但是随着cpu的发展">
+<meta property="og:description" content="转载：https:&#x2F;&#x2F;www.jianshu.com&#x2F;p&#x2F;76959115d486 1 CPU和内存的交互了解jvm内存模型前，了解下cpu和计算机内存的交互情况。【因为Java虚拟机内存模型定义的访问操作与计算机十分相似】 有篇很棒的文章，从cpu讲到内存模型:什么是java内存模型">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://blog.fenxiangz.com/post/java/advance/2020-06-28_java_jvm/1.png">
 <meta property="og:image" content="https://blog.fenxiangz.com/post/java/advance/2020-06-28_java_jvm/2.png">
@@ -262,14 +262,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2020-06-28 00:00:00" itemprop="dateCreated datePublished" datetime="2020-06-28T00:00:00+00:00">2020-06-28</time>
+      <time title="创建时间：2020-06-28 08:00:00" itemprop="dateCreated datePublished" datetime="2020-06-28T08:00:00+08:00">2020-06-28</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-12-20 16:47:02" itemprop="dateModified" datetime="2020-12-20T16:47:02+00:00">2020-12-20</time>
+        <time title="修改时间：2020-12-21 00:47:02" itemprop="dateModified" datetime="2020-12-21T00:47:02+08:00">2020-12-21</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">

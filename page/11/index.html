@@ -232,14 +232,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2017-04-18 00:00:00" itemprop="dateCreated datePublished" datetime="2017-04-18T00:00:00+00:00">2017-04-18</time>
+      <time title="创建时间：2017-04-18 08:00:00" itemprop="dateCreated datePublished" datetime="2017-04-18T08:00:00+08:00">2017-04-18</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-12-20 16:47:02" itemprop="dateModified" datetime="2020-12-20T16:47:02+00:00">2020-12-20</time>
+        <time title="修改时间：2020-12-21 00:47:02" itemprop="dateModified" datetime="2020-12-21T00:47:02+08:00">2020-12-21</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -266,171 +266,14 @@
 <p>TokenReplacingReader 从标准的 Java.io.Reader 中读取字符数据（继承），所有可以使用 Reader的地方，就都可以使用 TokenReplacingReader 。</p>
 <p>接着我们需要一个Token解析接口，用来解析替换字符：ITokenResolver ，整体关系图如下：</p>
 <p><img src="./2017-04-18_java_io_4_reader/1.png"></p>
-<p>TokenReplacingReader 字符串替换用法：</p>
-<pre><code>public static void main(String[] args) throws IOException &#123;
-
-    Map&lt;String, String&gt; tokens = new HashMap&lt;String, String&gt;();
-    tokens.put(&quot;token1&quot;, &quot;value1&quot;);
-    tokens.put(&quot;token2&quot;, &quot;JJ ROCKS!!!&quot;);
-
-    MapTokenResolver resolver = new MapTokenResolver(tokens);
-
-    Reader source =
-        new StringReader(&quot;1234567890$&#123;token1&#125;abcdefg$&#123;token2&#125;XYZ$000&quot;);
-
-    Reader reader = new TokenReplacingReader(source, resolver);
-
-    int data = reader.read();
-    while(data != -1)&#123;
-        System.out.print((char) data);
-        data = reader.read();
-    &#125;
-&#125;</code></pre>
-<p>TokenReplacingReader 流替换，文件替换，字符数组替换以及字符串替换，就可以改成如下的方式：</p>
-<pre><code>ITokenResolver resolver = ... ; // get ITokenResolver instance.
-
-Reader reader = new TokenReplacingReader(
-        new InputStreamReader(inputStream), resolver);
-
-Reader reader = new TokenReplacingReader(
-        new FileReader(new File(&quot;c:\\file.txt&quot;), resolver);
-
-Reader reader = new TokenReplacingReader(
-        new CharArrayReader(charArray), resolver);
-
-Reader reader = new TokenReplacingReader(
-        new StringReader(&quot;biiig string....&quot;), resolver);</code></pre>
-<p>ITokenResolver 实现：</p>
-<pre><code>public interface ITokenResolver &#123;
-    public String resolveToken(String tokenName);
-&#125;</code></pre>
-<p>ITokenResolver 实现： </p>
-<pre><code>import java.util.HashMap;
-import java.util.Map;
-
-public class MapTokenResolver implements ITokenResolver &#123;
-
-    protected Map&lt;String, String&gt; tokenMap = new HashMap&lt;String, String&gt;();
-
-    public MapTokenResolver(Map&lt;String, String&gt; tokenMap) &#123;
-        this.tokenMap = tokenMap;
-    &#125;
-
-    public String resolveToken(String tokenName) &#123;
-        return this.tokenMap.get(tokenName);
-    &#125;
-
-&#125;</code></pre>
-<p>TokenReplacingReader实现：</p>
-<pre><code>import java.io.IOException;
-import java.io.PushbackReader;
-import java.io.Reader;
-import java.nio.CharBuffer;
-
-public class TokenReplacingReader extends Reader &#123;
-
-    protected PushbackReader pushbackReader = null;
-    protected ITokenResolver tokenResolver = null;
-    protected StringBuilder tokenNameBuffer = new StringBuilder();
-    protected String tokenValue = null;
-    protected int tokenValueIndex = 0;
-
-    public TokenReplacingReader(Reader source, ITokenResolver resolver) &#123;
-        this.pushbackReader = new PushbackReader(source, 2);
-        this.tokenResolver = resolver;
-    &#125;
-
-    public int read(CharBuffer target) throws IOException &#123;
-        throw new RuntimeException(&quot;Operation Not Supported&quot;);
-    &#125;
-
-    public int read() throws IOException &#123;
-        if (this.tokenValue != null) &#123;
-            if (this.tokenValueIndex &lt; this.tokenValue.length()) &#123;
-                return this.tokenValue.charAt(this.tokenValueIndex++);
-            &#125;
-            if (this.tokenValueIndex == this.tokenValue.length()) &#123;
-                this.tokenValue = null;
-                this.tokenValueIndex = 0;
-            &#125;
-        &#125;
-
-        int data = this.pushbackReader.read();
-        if (data != &#39;$&#39;) return data;
-
-        data = this.pushbackReader.read();
-        if (data != &#39;&#123;&#39;) &#123;
-            this.pushbackReader.unread(data);
-            return &#39;$&#39;;
-        &#125;
-        this.tokenNameBuffer.delete(0, this.tokenNameBuffer.length());
-
-        data = this.pushbackReader.read();
-        while (data != &#39;&#125;&#39;) &#123;
-            this.tokenNameBuffer.append((char) data);
-            data = this.pushbackReader.read();
-        &#125;
-
-        this.tokenValue = this.tokenResolver
-                .resolveToken(this.tokenNameBuffer.toString());
-
-        if (this.tokenValue == null) &#123;
-            this.tokenValue = &quot;$&#123;&quot; + this.tokenNameBuffer.toString() + &quot;&#125;&quot;;
-        &#125;
-        if (this.tokenValue.length() == 0) &#123;
-            return read();
-        &#125;
-        return this.tokenValue.charAt(this.tokenValueIndex++);
-
-
-    &#125;
-
-    public int read(char cbuf[]) throws IOException &#123;
-        return read(cbuf, 0, cbuf.length);
-    &#125;
-
-    public int read(char cbuf[], int off, int len) throws IOException &#123;
-        int charsRead = 0;
-        for (int i = 0; i &lt; len; i++) &#123;
-            int nextChar = read();
-            if (nextChar == -1) &#123;
-                if (charsRead == 0) &#123;
-                    charsRead = -1;
-                &#125;
-                break;
-            &#125;
-            charsRead = i + 1;
-            cbuf[off + i] = (char) nextChar;
-        &#125;
-        return charsRead;
-    &#125;
-
-    public void close() throws IOException &#123;
-        this.pushbackReader.close();
-    &#125;
-
-    public long skip(long n) throws IOException &#123;
-        throw new RuntimeException(&quot;Operation Not Supported&quot;);
-    &#125;
-
-    public boolean ready() throws IOException &#123;
-        return this.pushbackReader.ready();
-    &#125;
-
-    public boolean markSupported() &#123;
-        return false;
-    &#125;
-
-    public void mark(int readAheadLimit) throws IOException &#123;
-        throw new RuntimeException(&quot;Operation Not Supported&quot;);
-    &#125;
-
-    public void reset() throws IOException &#123;
-        throw new RuntimeException(&quot;Operation Not Supported&quot;);
-    &#125;
-&#125;</code></pre>
-<p>原文：<br><a target="_blank" rel="noopener" href="http://tutorials.jenkov.com/java-howto/replace-strings-in-streams-arrays-files.html">http://tutorials.jenkov.com/java-howto/replace-strings-in-streams-arrays-files.html</a></p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/java/io/2017-04-18_java_io_4_reader.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -480,14 +323,14 @@ public class TokenReplacingReader extends Reader &#123;
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2017-04-17 00:00:00" itemprop="dateCreated datePublished" datetime="2017-04-17T00:00:00+00:00">2017-04-17</time>
+      <time title="创建时间：2017-04-17 08:00:00" itemprop="dateCreated datePublished" datetime="2017-04-17T08:00:00+08:00">2017-04-17</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-12-20 16:47:02" itemprop="dateModified" datetime="2020-12-20T16:47:02+00:00">2020-12-20</time>
+        <time title="修改时间：2020-12-21 00:47:02" itemprop="dateModified" datetime="2020-12-21T00:47:02+08:00">2020-12-21</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -523,13 +366,14 @@ public final static PrintStream err = null;</code></pre>
   System.err.println(&quot;File opening failed:&quot;);
   e.printStackTrace();
 &#125;</code></pre>
-<p>System. in , System.out,  and System.error 可以使用  System.setIn(), System.setOut() 或 System.setErr() 改变标准输出，比如：</p>
-<pre><code>OutputStream output = new FileOutputStream(&quot;c:\\data\\system.out.txt&quot;);
-PrintStream printOut = new PrintStream(output);
-System.setOut(printOut);</code></pre>
-<p>这样，System.out 将输出到指定的文件。</p>
-<p>注意：<br>in， out 和 error 使用了 final 修饰，所以像 “System.out = myOut” 这样直接赋值是编译不通过的，但是可以通过 setXXX 重新赋值是因为 System 里面的 setXXX 是通过 native 方法实现的，具体可以参考源码以及链接：<a target="_blank" rel="noopener" href="http://stackoverflow.com/questions/5951464/java-final-system-out-system-in-and-system-err">http://stackoverflow.com/questions/5951464/java-final-system-out-system-in-and-system-err</a> 。</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/java/io/2017-04-17_java_io_3_system_in.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -579,14 +423,14 @@ System.setOut(printOut);</code></pre>
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2017-04-16 00:00:00" itemprop="dateCreated datePublished" datetime="2017-04-16T00:00:00+00:00">2017-04-16</time>
+      <time title="创建时间：2017-04-16 08:00:00" itemprop="dateCreated datePublished" datetime="2017-04-16T08:00:00+08:00">2017-04-16</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-12-20 16:47:02" itemprop="dateModified" datetime="2020-12-20T16:47:02+00:00">2020-12-20</time>
+        <time title="修改时间：2020-12-21 00:47:02" itemprop="dateModified" datetime="2020-12-21T00:47:02+08:00">2020-12-21</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -646,8 +490,14 @@ public class PipeExample &#123;
 <p> PipedOutputStream 和 PipedInputStream ，用于两个线程间通信。可以将管道输出流连接到管道输入流来创建通信管道。管道输出流是管道的发送端。通常，数据由某个线程写入 PipedOutputStream 对象，并由其他线程从连接的 PipedInputStream 读取。不建议对这两个对象尝试使用单个线程，因为这样<strong>可能会造成该线程死锁</strong>。如果某个线程正从连接的管道输入流中读取数据字节，但该线程不再处于活动状态，则该管道被视为处于 <strong>毁坏</strong> 状态。</p>
 <p>PipedInputStream 和 PipedOutputStream 都有一个方法 connect()，用于连接另一个输入或输出管道，如果连接一个已连接（connected）的管道流，connect() 将抛出异常：java.io.IOException: Already connected。</p>
 <p>PipedInputStream 中实际是用了一个1024字节固定大小的循环缓冲区。写入PipedOutputStream 的数据实际上保存到对应的 PipedInputStream 的内部缓冲区。从 PipedInputStream 执行读操作时，读取的数据实际上来自这个内部缓冲区。如果对应的 PipedInputStream 输入缓冲区已满，任何企图写入 PipedOutputStream 的线程都将被阻塞。而且这个写操作线程将一直阻塞，直至出现读取 PipedInputStream 的操作从缓冲区删除数据。这也就是说往 PipedOutputStream 写数据的线程Send若是和从 PipedInputStream 读数据的线程 Receive 是同一个线程的话，那么一旦Send线程发送数据过多（大于 1024 字节），它就会被阻塞，这就直接导致接受数据的线程阻塞而无法工作（因为是同一个线程嘛），那么这就是一个典型的死锁现象，这也就是为什么 javadoc 中关于这两个类的使用时告诉大家要在不同线程环境下使用的原因了。</p>
-<p>同一个 JVM 中，除了管道，还有很多其他的方式用于线程之间数据交换，通常会使用一个对象来进行数据交换。但是，如果需要使用字节数据在线程之间进行交换，使用管道的方式提供了这种可能。</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/java/io/2017-04-16_java_io_2_pipeline.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -697,14 +547,14 @@ public class PipeExample &#123;
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2017-04-15 00:00:00" itemprop="dateCreated datePublished" datetime="2017-04-15T00:00:00+00:00">2017-04-15</time>
+      <time title="创建时间：2017-04-15 08:00:00" itemprop="dateCreated datePublished" datetime="2017-04-15T08:00:00+08:00">2017-04-15</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-12-20 16:47:02" itemprop="dateModified" datetime="2020-12-20T16:47:02+00:00">2020-12-20</time>
+        <time title="修改时间：2020-12-21 00:47:02" itemprop="dateModified" datetime="2020-12-21T00:47:02+08:00">2020-12-21</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -731,7 +581,14 @@ public class PipeExample &#123;
 </blockquote>
 <h2 id="Java-IO-类一览"><a href="#Java-IO-类一览" class="headerlink" title="Java IO 类一览"></a>Java IO 类一览</h2><p><img src="./2017-04-15_java_io_1_overview/1.png"> </p>
 <p>From ：<a target="_blank" rel="noopener" href="http://tutorials.jenkov.com/java-io/overview.html">http://tutorials.jenkov.com/java-io/overview.html</a></p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/java/io/2017-04-15_java_io_1_overview.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -781,14 +638,14 @@ public class PipeExample &#123;
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2017-03-28 00:00:00" itemprop="dateCreated datePublished" datetime="2017-03-28T00:00:00+00:00">2017-03-28</time>
+      <time title="创建时间：2017-03-28 08:00:00" itemprop="dateCreated datePublished" datetime="2017-03-28T08:00:00+08:00">2017-03-28</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-12-20 16:47:02" itemprop="dateModified" datetime="2020-12-20T16:47:02+00:00">2020-12-20</time>
+        <time title="修改时间：2020-12-21 00:47:02" itemprop="dateModified" datetime="2020-12-21T00:47:02+08:00">2020-12-21</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -815,31 +672,14 @@ public class PipeExample &#123;
 <p>这是从450家企业的招聘信息中统计而来，相对来说还是比较真实的，虽然有些公司的招聘要求万年不变，但还是可以大致反应企业的招聘要求的。</p>
 <p>尽管Struts2漏洞频出，但是由于政府、银行以及传统企业遗留项目大部分还是采用Struts2的，所以还是占有一定市场，但绝壁不会增长。新兴互联网公司，一般来说主要是Spring家族居多，spring、spring Mvc以及Spring Boot 出现的频率较多。</p>
 <p>从图中可以看出，分布式服务框架应用也是大部分企业招聘的必要条件了，阿里系的Dubbo名列前茅。相应的分布式应用程序协调服Zookeeper也出现在其中。</p>
-<p>时下很流行的RESTful架构，准确的来说它是一种标准。也是很多企业考察的对象。</p>
-<p>以下是出现次数超过100的一些技能，大家可以做一个参考。</p>
-<blockquote>
-<p> Spring 299<br>MySQL 290<br>JavaScript 216<br>Linux 165<br>J2EE 151<br>设计模式 148<br>Struts2 138<br>Hibernate 132<br>Mybatis 130<br>jQuery 128<br>HTML 127<br>TOMCAT 117<br>iBatis 103<br>CSS 103<br>redis 102<br>多线程 102<br>dubbo 47 （绝壁不是打酱油的）</p>
-</blockquote>
-<p>相信每个程序员、或者说每个工作者都应该有自己的职业规划，问一下自己对编程到底持有的是一种什么样的态度，是够用就好呢还是不断研究？</p>
-<h3 id="Spring-框架"><a href="#Spring-框架" class="headerlink" title="Spring 框架"></a>Spring 框架</h3><p><img src="./2017-03-28_java_acknowledge/4.png" alt="4"> </p>
-<h3 id="JAVA核心技术总结"><a href="#JAVA核心技术总结" class="headerlink" title="JAVA核心技术总结"></a>JAVA核心技术总结</h3><p><img src="./2017-03-28_java_acknowledge/5.png" alt="5"> </p>
-<h3 id="J2EE技术总结"><a href="#J2EE技术总结" class="headerlink" title="J2EE技术总结"></a>J2EE技术总结</h3><p><img src="./2017-03-28_java_acknowledge/6.png" alt="6"> </p>
-<h3 id="工作和学习总结"><a href="#工作和学习总结" class="headerlink" title="工作和学习总结"></a>工作和学习总结</h3><p><img src="./2017-03-28_java_acknowledge/7.png" alt="7"> </p>
-<h3 id="大数据相关技术总结"><a href="#大数据相关技术总结" class="headerlink" title="大数据相关技术总结"></a>大数据相关技术总结</h3><p><img src="./2017-03-28_java_acknowledge/8.png" alt="8"> </p>
-<p>社区昵称 happycc 的精彩回答：<br>正在使用的<br>Spring框架<br>Spring框架是一个分层架构,有7个定义良好的模块组成<br>spring模块构建在核心容器智之上, 核心容器定义了创建、 配置、和管理bean的方式<br>组成spring框架的每个模块(或组件)都可以单独存在, 或者与其他一个或多个模块联合实现</p>
-<p>模块如下:</p>
-<blockquote>
-<p>1–核心容器<br>核心容器提供spring框架的基本功能,核心容器的主要组件是BeanFactory, 他是工厂模式的实现.<br>BeanFactory使用控制反转(IOC)模式将应用程序的配置和依赖性与实际的应用程序代码分开<br>2–Spring上下文<br>是一个配置文件,该配置文件向spring框架提供上下文信息<br>3–Spring AOP<br>通过配置管理特性,Spring AOP 模块直接将面向切面(方面)编程功能集成到spring框架中<br>4–spring DAO<br>JDBC DAO抽象层提供了有意义的已成层次结构, 可用该结构管理异常处理和不同数据库抛出的错误信息,极大的降低了异常代码数量<br>5–Spring ORM<br>spring框架插入了若干个ORM框架, 从而提供了ORM的对象工具,其中包括了Hibernate, Mybatis<br>6–Spring Web<br>web上下文模块建立在应用程序上下文模块之上,为基于web的应用程序提供上下文<br>7–Spring MVC<br>该框架是一个全功能的构建web应用程序的MVC实现. 通过策略接口,MVC框架变成高度可配置的. MVC容纳了大量视图技术. 其中包括JSP、Velocity和POI</p>
-</blockquote>
-<p>Spring 框架的好处</p>
-<p>spring是最大的工厂<br>spring负责业务逻辑组件的框架和生成, 并管理业务逻辑组件的生命周期<br>spring可以生产所有实例, 从控制器、 业务逻辑组件、 持久层组件<br>Spring特点</p>
-<p>1–降低了组件之间的耦合性, 实现了软件各个层之间的解耦<br>2–可以使用spring容器提供的服务, 如: 事务管理, 消息服务<br>3–容器提供单例模式支持<br>4–容器提供AOP技术, 利用它很容易实现权限拦截, 运行期监控<br>5–容器提供了众多的辅助类, 能加快应用的开发(org.springframework.jdbc.core.JDBCTemplate 等)<br>6–spring对主流的应用框架提供了集成支持, 例如: hibernate,JPA, Struts, Mybatis(IBatis)<br>7–Spring属于低侵入式设计, 代码污染度极低<br>8–独立于各种应用服务器<br>9–spring的DI机制降低了业务对象替换的复杂性<br>10–spring的高度开发性, 并不强制应用完全依赖于spring, 开发者可以自由选择spring的部分或者全部</p>
-<p>社区昵称 小崽崽 的精彩回答：</p>
-<p>PHP才是世界上最好的语言，看我大PHP技能树</p>
-<p><img src="./2017-03-28_java_acknowledge/9.png" alt="9"> </p>
-<p><img src="./2017-03-28_java_acknowledge/10.png" alt="10"> </p>
-<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/26035486?from=timeline">https://zhuanlan.zhihu.com/p/26035486?from=timeline</a></p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/java/advance/2017-03-28_java_acknowledge.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -889,14 +729,14 @@ public class PipeExample &#123;
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2017-01-02 00:00:00" itemprop="dateCreated datePublished" datetime="2017-01-02T00:00:00+00:00">2017-01-02</time>
+      <time title="创建时间：2017-01-02 08:00:00" itemprop="dateCreated datePublished" datetime="2017-01-02T08:00:00+08:00">2017-01-02</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-12-20 16:47:02" itemprop="dateModified" datetime="2020-12-20T16:47:02+00:00">2020-12-20</time>
+        <time title="修改时间：2020-12-21 00:47:02" itemprop="dateModified" datetime="2020-12-21T00:47:02+08:00">2020-12-21</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -923,47 +763,14 @@ public class PipeExample &#123;
 <p>在微服务的大潮之中， 架构师小明把系统拆分成了多个服务，根据需要部署在多个机器上，这些服务非常灵活，可以随着访问量弹性扩展。</p>
 <p><img src="./2019-01-02_%E5%B0%8F%E7%99%BD%E7%A7%91%E6%99%AENetty%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8/2.png"></p>
 <p>世界上没有免费的午餐， 拆分成多个“微服务”以后虽然增加了弹性，但也带来了一个巨大的挑战：服务之间互相调用的开销。</p>
-<p>比如说：原来用户下一个订单需要登录，浏览产品详情，加入购物车，支付，扣库存等一系列操作，在单体应用的时候它们都在一台机器的同一个进程中，说白了就是模块之间的函数调用，效率超级高。</p>
-<p>现在好了，服务被安置到了不同的服务器上，一个订单流程，几乎每个操作都要越网络，都是远程过程调用(RPC)， 那执行时间、执行效率可远远比不上以前了。</p>
-<p>远程过程调用的第一版实现使用了HTTP协议，也就是说各个服务对外提供HTTP接口。 小明发现，HTTP协议虽然简单明了，但是废话太多，仅仅是给服务器发个简单的消息都会附带一大堆无用信息：</p>
-<ul>
-<li>  GET /orders/1 HTTP/1.1</li>
-<li>  Host: order.myshop.com</li>
-<li>  User-Agent: Mozilla/5.0 (Windows NT 6.1; )</li>
-<li>  Accept: text/html;</li>
-<li>  Accept-Language: en-US,en;</li>
-<li>  Accept-Encoding: gzip</li>
-<li>  Connection: keep-alive</li>
-<li>  ……</li>
-</ul>
-<p>看看那User-Agent，Accept-Language ，这个协议明显是为浏览器而生的！但是我这里是程序之间的调用，用这个HTTP有点亏。</p>
-<p>能不能自定义一个精简的协议？ 在这个协议中我只需要把要调用方法名和参数发给服务器即可，根本不用这么多乱七八糟的额外信息。</p>
-<p>但是自定义协议客户端和服务器端就得直接使用“低级”的Socket了，尤其是服务器端，得能够处理高并发的访问请求才行。</p>
-<p>小明复习了一下服务器端的socket编程，最早的Java是所谓的阻塞IO(Blocking IO)， 想处理多个socket的连接的话需要创建多个线程， 一个线程对应一个。</p>
-<p><img src="./2019-01-02_%E5%B0%8F%E7%99%BD%E7%A7%91%E6%99%AENetty%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8/3.png"></p>
-<p>这种方式写起来倒是挺简单的，但是连接（socket）多了就受不了了，如果真的有成千上万个线程同时处理成千上万个socket，占用大量的空间不说，光是线程之间的切换就是一个巨大的开销。</p>
-<p>更重要的是，虽然有大量的socket，但是真正需要处理的（可以读写数据的socket）却不多，大量的线程处于等待数据状态（这也是为什么叫做阻塞的原因），资源浪费得让人心疼。</p>
-<p>后来Java为了解决这个问题，又搞了一个非阻塞IO(NIO：Non-Blocking IO，有人也叫做New IO)， 改变了一下思路：通过多路复用的方式让一个线程去处理多个Socket。</p>
-<p><img src="./2019-01-02_%E5%B0%8F%E7%99%BD%E7%A7%91%E6%99%AENetty%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8/4.png"></p>
-<p>这样一来，只需要使用少量的线程就可以搞定多个socket了，线程只需要通过Selector去查一下它所管理的socket集合，哪个Socket的数据准备好了，就去处理哪个Socket，一点儿都不浪费。</p>
-<p>好了，就是Java NIO了！</p>
-<p>小明先定义了一套精简的RPC的协议，里边规定了如何去调用一个服务，方法名和参数该如何传递，返回值用什么格式……等等。然后雄心勃勃地要把这个协议用Java NIO给实现了。</p>
-<p>可是美好的理想很快被无情的现实给击碎， 小明努力了一周就意识到自己陷入了一个大坑之中，Java NIO虽然看起来简单，但是API还是太“低级”了，有太多的复杂性，没有强悍的、一流的编程能力根本无法驾驭，根本做不到高并发情况下的可靠和高效。</p>
-<p>小明不死心，继续向领导要人要资源，一定要把这个坑给填上，挣扎了6个月以后，终于实现了一个自己的NIO框架，可以执行高并发的RPC调用了。</p>
-<p>然后又是长达6个月的修修补补，小明经常半夜被叫醒：生产环境的RPC调用无法返回了！ 这样的Bug不知道改了多少个。</p>
-<p>在那些不眠之夜中，小明经常仰天长叹：我用NIO做个高并发的RPC框架怎么这么难呐！</p>
-<p>一年之后，自研的框架终于稳定，可是小明也从张大胖那里听到了一个让他崩溃的消息： 小明你知道吗?有个叫Netty的开源框架，可以快速地开发高性能的面向协议的服务器和客户端。 易用、健壮、安全、高效，你可以在Netty上轻松实现各种自定义的协议！咱们也试试？</p>
-<p>小明赶紧研究，看完后不由得“泪流满面”：这东西怎么不早点出来啊！</p>
-<p>好了，这个故事我快编不下去了，要烂尾了。</p>
-<p>说说Netty到底是何方神圣， 要解决什么问题吧。</p>
-<p>像上面小明的例子，想使用Java NIO来实现一个高性能的RPC框架，调用协议，数据的格式和次序都是自己定义的，现有的HTTP根本玩不转，那使用Netty就是绝佳的选择。</p>
-<p>其实游戏领域是个更好的例子，长连接，自定义协议，高并发，Netty就是绝配。</p>
-<p>因为Netty本身就是一个基于NIO的网络框架， 封装了Java NIO那些复杂的底层细节，给你提供简单好用的抽象概念来编程。</p>
-<p>注意几个关键词，首先它是个框架，是个“半成品”，不能开箱即用，你必须得拿过来做点定制，利用它开发出自己的应用程序，然后才能运行（就像使用Spring那样）。</p>
-<p>一个更加知名的例子就是阿里巴巴的Dubbo了，这个RPC框架的底层用的就是Netty。</p>
-<p>另外一个关键词是高性能，如果你的应用根本没有高并发的压力，那就不一定要用Netty了。</p>
-<p>原文：<a target="_blank" rel="noopener" href="http://zhuanlan.51cto.com/art/201711/558661.htm">http://zhuanlan.51cto.com/art/201711/558661.htm</a></p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/java/netty/2019-01-02_%E5%B0%8F%E7%99%BD%E7%A7%91%E6%99%AENetty%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1013,14 +820,14 @@ public class PipeExample &#123;
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2016-12-09 00:00:00" itemprop="dateCreated datePublished" datetime="2016-12-09T00:00:00+00:00">2016-12-09</time>
+      <time title="创建时间：2016-12-09 08:00:00" itemprop="dateCreated datePublished" datetime="2016-12-09T08:00:00+08:00">2016-12-09</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-12-20 16:47:02" itemprop="dateModified" datetime="2020-12-20T16:47:02+00:00">2020-12-20</time>
+        <time title="修改时间：2020-12-21 00:47:02" itemprop="dateModified" datetime="2020-12-21T00:47:02+08:00">2020-12-21</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1094,14 +901,14 @@ public class PipeExample &#123;
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2016-11-28 07:59:24" itemprop="dateCreated datePublished" datetime="2016-11-28T07:59:24+00:00">2016-11-28</time>
+      <time title="创建时间：2016-11-28 15:59:24" itemprop="dateCreated datePublished" datetime="2016-11-28T15:59:24+08:00">2016-11-28</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-12-20 16:47:02" itemprop="dateModified" datetime="2020-12-20T16:47:02+00:00">2020-12-20</time>
+        <time title="修改时间：2020-12-21 00:47:02" itemprop="dateModified" datetime="2020-12-21T00:47:02+08:00">2020-12-21</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1128,19 +935,14 @@ public class PipeExample &#123;
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">static String readFirstLineFromFile(String path) throws IOException &#123;  </span><br><span class="line">    try (BufferedReader br &#x3D; new BufferedReader(new FileReader(path))) &#123;  </span><br><span class="line">        return br.readLine();  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure>
 <p>可以看到 try 语句多了个括号，而在括号里初始化了一个 BufferedReader。<br>这种在 try 后面加个括号，再初始化对象的语法就叫 try-with-resources。<br>实际上，相当于下面的代码（其实略有不同，下面会说明）：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">static String readFirstLineFromFileWithFinallyBlock(String path) throws IOException &#123;  </span><br><span class="line">    BufferedReader br &#x3D; new BufferedReader(new FileReader(path));  </span><br><span class="line">    try &#123;  </span><br><span class="line">        return br.readLine();  </span><br><span class="line">    &#125; finally &#123;  </span><br><span class="line">        if (br !&#x3D; null) br.close();  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure>
-
-<p>很容易可以猜想到，这是编绎器自动在 try-with-resources 后面增加了判断对象是否为 null，如果不为 null，则调用 close() 函数的的字节码。</p>
-<p>只有实现了 java.lang.AutoCloseable 接口，或者 java.io.Closable（实际上继随自 java.lang.AutoCloseable）接口的对象，才会自动调用其 close() 函数。<br>有点不同的是 Java.io.Closable 要求一实现者保证 close 函数可以被重复调用。而 AutoCloseable 的 close() 函数则不要求是幂等的。具体可以参考 Javadoc。</p>
-<p>下面从编绎器生成的字节码来分析下，try-with-resources 到底是怎样工作的：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">public class TryStudy implements AutoCloseable&#123;  </span><br><span class="line">    static void test() throws Exception &#123;  </span><br><span class="line">        try(TryStudy tryStudy &#x3D; new TryStudy())&#123;  </span><br><span class="line">            System.out.println(tryStudy);  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">    @Override  </span><br><span class="line">    public void close() throws Exception &#123;  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure>
-<p>TryStudy 实现了 AutoCloseable 接口，下面来看下 test 函数的字节码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">static test()V throws java&#x2F;lang&#x2F;Exception   </span><br><span class="line">  TRYCATCHBLOCK L0 L1 L2   </span><br><span class="line">  TRYCATCHBLOCK L3 L4 L4   </span><br><span class="line"> L5  </span><br><span class="line">  LINENUMBER 21 L5  </span><br><span class="line">  ACONST_NULL  </span><br><span class="line">  ASTORE 0  </span><br><span class="line">  ACONST_NULL  </span><br><span class="line">  ASTORE 1  </span><br><span class="line"> L3  </span><br><span class="line">  NEW TryStudy  </span><br><span class="line">  DUP  </span><br><span class="line">  INVOKESPECIAL TryStudy.&lt;init&gt; ()V  </span><br><span class="line">  ASTORE 2  </span><br><span class="line"> L0  </span><br><span class="line">  LINENUMBER 22 L0  </span><br><span class="line">  GETSTATIC java&#x2F;lang&#x2F;System.out : Ljava&#x2F;io&#x2F;PrintStream;  </span><br><span class="line">  ALOAD 2  </span><br><span class="line">  INVOKEVIRTUAL java&#x2F;io&#x2F;PrintStream.println (Ljava&#x2F;lang&#x2F;Object;)V  </span><br><span class="line"> L1  </span><br><span class="line">  LINENUMBER 23 L1  </span><br><span class="line">  ALOAD 2  </span><br><span class="line">  IFNULL L6  </span><br><span class="line">  ALOAD 2  </span><br><span class="line">  INVOKEVIRTUAL TryStudy.close ()V  </span><br><span class="line">  GOTO L6  </span><br><span class="line"> L2  </span><br><span class="line"> FRAME FULL [java&#x2F;lang&#x2F;Throwable java&#x2F;lang&#x2F;Throwable TryStudy] [java&#x2F;lang&#x2F;Throwable]  </span><br><span class="line">  ASTORE 0  </span><br><span class="line">  ALOAD 2  </span><br><span class="line">  IFNULL L7  </span><br><span class="line">  ALOAD 2  </span><br><span class="line">  INVOKEVIRTUAL TryStudy.close ()V  </span><br><span class="line"> L7  </span><br><span class="line"> FRAME CHOP 1  </span><br><span class="line">  ALOAD 0  </span><br><span class="line">  ATHROW  </span><br><span class="line"> L4  </span><br><span class="line"> FRAME SAME1 java&#x2F;lang&#x2F;Throwable  </span><br><span class="line">  ASTORE 1  </span><br><span class="line">  ALOAD 0  </span><br><span class="line">  IFNONNULL L8  </span><br><span class="line">  ALOAD 1  </span><br><span class="line">  ASTORE 0  </span><br><span class="line">  GOTO L9  </span><br><span class="line"> L8  </span><br><span class="line"> FRAME SAME  </span><br><span class="line">  ALOAD 0  </span><br><span class="line">  ALOAD 1  </span><br><span class="line">  IF_ACMPEQ L9  </span><br><span class="line">  ALOAD 0  </span><br><span class="line">  ALOAD 1  </span><br><span class="line">  INVOKEVIRTUAL java&#x2F;lang&#x2F;Throwable.addSuppressed (Ljava&#x2F;lang&#x2F;Throwable;)V  </span><br><span class="line"> L9  </span><br><span class="line"> FRAME SAME  </span><br><span class="line">  ALOAD 0  </span><br><span class="line">  ATHROW  </span><br><span class="line"> L6  </span><br><span class="line">  LINENUMBER 24 L6  </span><br><span class="line"> FRAME CHOP 2  </span><br><span class="line">  RETURN  </span><br><span class="line">  LOCALVARIABLE tryStudy LTryStudy; L0 L7 2  </span><br><span class="line">  MAXSTACK &#x3D; 2  </span><br><span class="line">  MAXLOCALS &#x3D; 3 </span><br></pre></td></tr></table></figure>
-<p>从字节码里可以看出，的确是有判断 tryStudy 对象是否为 null，如果不是 null，则调用 close 函数进行资源回收。<br>再仔细分析，可以发现有一个 Throwable.addSuppressed 的调用，那么这个调用是什么呢？<br>其实，上面的字节码大概是这个样子的（当然，不完全是这样的，因为汇编的各种灵活的跳转用 Java 是表达不出来的）：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">static void test() throws Exception &#123;  </span><br><span class="line">    TryStudy tryStudy &#x3D; null;  </span><br><span class="line">    try&#123;  </span><br><span class="line">        tryStudy &#x3D; new TryStudy();  </span><br><span class="line">        System.out.println(tryStudy);  </span><br><span class="line">    &#125;catch(Throwable suppressedException) &#123;  </span><br><span class="line">        if (tryStudy !&#x3D; null) &#123;  </span><br><span class="line">            try &#123;  </span><br><span class="line">                tryStudy.close();  </span><br><span class="line">            &#125;catch(Throwable e) &#123;  </span><br><span class="line">                e.addSuppressed(suppressedException);  </span><br><span class="line">                throw e;  </span><br><span class="line">            &#125;  </span><br><span class="line">        &#125;  </span><br><span class="line">        throw suppressedException;  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure>
-<p>有点晕是吧，其实很简单。使用了 try-with-resources 语句之后，有可能会出现两个异常，一个是 try 块里的异常，一个是调用 close 函数里抛出的异常。<br>当然，平时我们写代码时，没有关注到。一般都是再抛出 close 函数里的异常，前面的异常被丢弃了。<br>如果在调用 close 函数时出现异常，那么前面的异常就被称为 Suppressed Exceptions，因此 Throwable 还有个 addSuppressed 函数可以把它们保存起来，当用户捕捉到 close 里抛出的异常时，就可以调用 Throwable.getSuppressed 函数来取出 close 之前的异常了。</p>
-<p>总结：<br>使用 try-with-resources 的语法可以实现资源的自动回收处理，大大提高了代码的便利性，和 mutil catch 一样，是个好东东。<br>用编绎器生成的字节码的角度来看，try-with-resources 语法更加高效点。<br>java.io.Closable 接口要求一实现者保证 close 函数可以被重复调用，而 AutoCloseable 的 close() 函数则不要求是幂等的。<br>参考：<br><a target="_blank" rel="noopener" href="http://docs.oracle.com/javase/tutorial/essential/exceptions/tryResourceClose.html">http://docs.oracle.com/javase/tutorial/essential/exceptions/tryResourceClose.html</a><br><a target="_blank" rel="noopener" href="http://docs.oracle.com/javase/7/docs/api/java/lang/AutoCloseable.html">http://docs.oracle.com/javase/7/docs/api/java/lang/AutoCloseable.html</a><br><a target="_blank" rel="noopener" href="http://docs.oracle.com/javase/7/docs/api/java/io/Closeable.html">http://docs.oracle.com/javase/7/docs/api/java/io/Closeable.html</a></p>
-<p>原文<br><a target="_blank" rel="noopener" href="http://blog.csdn.net/hengyunabc/article/details/18459463">http://blog.csdn.net/hengyunabc/article/details/18459463</a></p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/java/basic/2016-11-18_try_with_resources.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1190,14 +992,14 @@ public class PipeExample &#123;
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2016-11-24 00:00:00" itemprop="dateCreated datePublished" datetime="2016-11-24T00:00:00+00:00">2016-11-24</time>
+      <time title="创建时间：2016-11-24 08:00:00" itemprop="dateCreated datePublished" datetime="2016-11-24T08:00:00+08:00">2016-11-24</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-12-20 16:47:02" itemprop="dateModified" datetime="2020-12-20T16:47:02+00:00">2020-12-20</time>
+        <time title="修改时间：2020-12-21 00:47:02" itemprop="dateModified" datetime="2020-12-21T00:47:02+08:00">2020-12-21</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1223,101 +1025,14 @@ public class PipeExample &#123;
 <p>本文将从序列化和反序列化的设计和实现的入手，来简单讲解一下序列化和反序列化。其中包括以下几个方面：</p>
 <p><strong>1.序列化和反序列化的作用<br>2.什么样的数据是可序列化的<br>3.序列化和反序列化的分类<br>3.序列化和反序列化的类型映射</strong></p>
 <p>本文不会涉及到某几种语言的某几种序列化实现的性能对比之类的内容。</p>
-<h1 id="1-序列化和反序列化的作用"><a href="#1-序列化和反序列化的作用" class="headerlink" title="1.序列化和反序列化的作用"></a>1.序列化和反序列化的作用</h1><p>我们在编写程序代码时，通常会定义一些常量和变量，然后再写一堆操作它们的指令。不管是变量还是常量，它们表示的都是数据。所以简单的说，一个程序就是一堆指令操作一堆数据。</p>
-<p>但是为了更有效的管理这堆数据，现代的程序设计语言都会引入一个类型系统来对这些数据进行分类管理，而不是让程序员把所有数据都一股脑的当做二进制串来进行操作。</p>
-<p>比如一个常量可能是一个数字，一个布尔值，一个字符串，或者是一个由它们构成的数组。而变量通常具有更丰富的类型可以使用。甚至你还可以自定义类型。对于面向对象的语言来说，一个类型表示的不仅仅是数据本身，还包括了对这种类型数据的一组操作。</p>
-<p>一个程序可以以源码或者可执行的二进制形式保存在磁盘（或者其它存储介质）上。当你需要执行它时，它会以某种形式被载入内存，然后执行。</p>
-<p>一个程序在执行过程中通常会生成新的数据，这些新的数据一部分是临时的，在内存中，它们转瞬即逝。还有一部分数据可能需要被保存下来，或者被传递到其它的地方去。在这种情况下，可能就会涉及到数据的形式转换的问题。这个<strong>把程序运行时的内存数据转换为一种可保存或可传递的数据的过程，我们就称它为序列化。</strong></p>
-<p>这些保存和传递的数据，可能会在某个时间被重新载入内存，但可能会是不同的进程，或者不同的程序，甚至不同的机器上被载入，还原为内存中的具体类型的数据变量，这个<strong>从保存的数据还原为具体语言具体类型的数据变量的过程，我们称它为反序列化。</strong></p>
-<h1 id="2-什么样的数据是可序列化的"><a href="#2-什么样的数据是可序列化的" class="headerlink" title="2.什么样的数据是可序列化的"></a>2.什么样的数据是可序列化的</h1><p>什么样的数据可序列化这是一个相对的问题，而不是一个绝对的问题。因为它会受到各种不同因素的影响。</p>
-<h2 id="数据的可还原性"><a href="#数据的可还原性" class="headerlink" title="数据的可还原性"></a>数据的可还原性</h2><p>被序列化的数据应该是可还原的。可还原的意思是，一个被序列化的数据在被反序列化后仍然是有意义的。注意，这里说的是有意义，而不是说被反序列化的数据应该跟序列化之前的源数据相同。为了便于理解，我们来举例说明一下。</p>
-<p><strong>指针数据是否可序列化</strong></p>
-<p>首先我们来讨论一下指针类型的数据是否可序列化。</p>
-<p>通常我们认为指针数据是不可序列化的，因为它表示的是一个内存地址，而如果我们把这个内存地址保存下来，下一次我们将这个内存地址还原到一个指针变量中时，这个内存地址所指向的位置的数据可能早就不是我们所需要的数据了，甚至指向的是一个完全没有意义的数据。所以，在这种情况下，虽然前后两个指针变量的值相同，但是还原之后的指针变量指向的数据已经没有意义了，我们就称它不具有可还原性。</p>
-<p>那么指针数据真的不可序列化吗？如果我们从需要反序列化的数据有意义这个角度考虑，那么我们也可以做到对指针数据的序列化。</p>
-<p>指针通常分为指向具体类型数据的指针（例如：int *, string *）和指向不明类型数据的指针（例如 void *）。</p>
-<p>对于前者，如果我们希望序列化的数据包含指向的具体类型的数据，并且在反序列化之后，能够还原为一个指向该具体类型数据的指针，且指向的数据值跟源值相同的话，那么我们其实是可以做到的。虽然，还原之后的指针所指向的内存地址，跟源指针指向的内存地址可能完全不一样，但是它指向的数据是有意义的，且是我们期望的，那么这种情况下，我们也可以称这个指针数据是可还原的。</p>
-<p>对于后者，如果我们没有所指向数据的具体信息，那就没有办法对指向的数据进行保存。所以这种类型的指针也就没办法进行序列化了。</p>
-<p>另外，还有一种特殊的指针类型，它保存的并不是一个具体的内存地址，而是一个相对的偏移量，比如 uintptr_t 类型就常作此用，这种时候，对它的值序列化和反序列化之后，得到的值仍然是同样的相对偏移量值，在这种情况下，反序列化后的数据就是有意义的，所以，这种指针数据也具有可还原性。</p>
-<p>从上面的分析，我们可以看出，指针类型是否可序列化，取决于我们想要什么意义的反序列化数据。</p>
-<p><strong>资源类型是否可序列化</strong></p>
-<p>对于资源类型，有些语言有明确的定义，比如 PHP，而有些语言则没有明确的定义。但大致上我们可以认为一个打开的文件对象，一个打开的数据库连接，一个打开的网络套接字，以及诸如此类跟外部资源相关的数据类型，都可以被称作资源类型。</p>
-<p>对于资源类型我们通常认为它们都是不可序列化的，哪怕表示该类型的结构体中的所有字段都是可序列化的基本类型数据。原因是这些资源类型中保存的数据是跟当前打开的资源相关的，这些数据如果复制到其它的进程，或者其它的机器中去之后，这些资源类型中保存的数据就失去了意义。</p>
-<p>对于资源类型的一部分属性数据，比如文件名，数据库地址，网络套接字地址，它们可以在不同的进程、不同的机器之间传递之后，仍然表示原有的意义。</p>
-<p>但是通常的序列化程序是不会对资源类型做这样的序列化操作的，因为序列化程序对资源类型序列化时，并不能假定用户需要的仅仅是这些信息，而且如果用户需要的真的就仅仅是这些信息的话，那用户完全可以明确的只序列化这些数据，而不是对整个资源类型做序列化操作。</p>
-<p>但是有些特殊的资源，比如内存流，文件流等。不同的序列化实现可能对待它们的方式也不同。有些序列化实现认为这些资源类型同样不可序列化。而有些序列化实现则认为可以将资源本身一起序列化，比如内存流中的数据会被作为序列化数据的主体进行序列化，在反序列化时，被反序列化为另外一个内存流对象，虽然是两个不同的资源，但是资源中的数据是相同的。</p>
-<h2 id="序列化格式的限制"><a href="#序列化格式的限制" class="headerlink" title="序列化格式的限制"></a>序列化格式的限制</h2><p>一个数据能否被序列化，还要看所使用的序列化格式是否支持。</p>
-<p>对于基本类型的数据来说，几乎所有的序列化格式都支持。但是对于有些采用代码生成器方式实现的序列化来说，它们可能只支持通过 IDL 生成的代码中所定义的类型的序列化，而不支持对语言内置的单个原生类型数据变量的序列化，也不支持通过普通方式定义的自定义类型数据的序列化。比如 Protocol Buffers 就是这样。</p>
-<p>对于复杂类型，比如 map 这种类型，有些序列化格式只支持 Key 为字符串类型的 map 数据的序列化。而不支持其它 Key 类型的 map 数据的序列化。比如 JSON 就是这样。</p>
-<p>还有一种复杂类型数据是带有循环引用结构的数据，比如下面这个 JavaScript 代码中定义的这个数组 a：</p>
-<p>var a = [];<br>a[0] = a;<br>它的第一个元素引用了自己，这就产生了循环引用。对于这种类型的数据，很多的序列化格式也是不支持的，比如 JSON，Msgpack 都不支持这种类型数据的序列化。</p>
-<p>但是上面所说的情况，并不是所有的序列化格式都不支持，比如 Hprose 对上面所说的所有类型都支持。</p>
-<p>以上这些限制都是序列化格式本身造成的。</p>
-<h2 id="序列化实现的限制"><a href="#序列化实现的限制" class="headerlink" title="序列化实现的限制"></a>序列化实现的限制</h2><p>对于同一种序列化格式，即便是在同一种语言中，也可能存在着多种不同的实现，比如对于 JSON 序列化来说，它的 Java 版本的实现甚至有上百种。这些不同的实现各有特色，也各有各的限制，甚至互不兼容。有些实现可能仅仅支持几种特别定义的类型。有些则对语言内置的类型提供了很好的支持。</p>
-<p>还有一些序列化格式跟特定语言有紧密的绑定关系，因此无法做到跨语言的序列化和反序列化，比如 Java 序列化，.NET 的 Binary 序列化，Go 语言的 Gob 序列化格式就只能支持特定的语言。</p>
-<p>而且即便是这种针对特定语言的序列化也不是支持该语言的所有类型。比如：Java 序列化对于 class 类型只支持实现了 java.io.Serializable 接口的类型；.NET Binary 序列化则只支持标记了 System.SerializableAttribute 属性的类型。</p>
-<p>所以，我们不能想当然的认为，一个数据支持某一种序列化，就一定支持其它类型的序列化。这种假设是不成立的。</p>
-<h1 id="3-序列化和反序列化的分类"><a href="#3-序列化和反序列化的分类" class="headerlink" title="3.序列化和反序列化的分类"></a>3.序列化和反序列化的分类</h1><p>序列化和反序列化的格式多种多样，它们之间的主要区别可以大致分这样几类：</p>
-<h2 id="按照可读性分类"><a href="#按照可读性分类" class="headerlink" title="按照可读性分类"></a>按照可读性分类</h2><p>首先从可读性角度，大致可分为文本序列化和二进制序列化两种，但是也有一些序列化格式介于两者之间，我们将它们暂称为半文本序列化。</p>
-<p><strong>文本序列化</strong></p>
-<p>XML 和 JSON 是大家最常见的两种文本序列化格式。</p>
-<p>文本序列化的数据都是使用人类可读的字符表示的，就像大部分编程语言一样。而且允许包含多余的空白，以增加可读性。当然也可以表示为紧凑编码形式，以利于减少存储空间和传输流量。</p>
-<p>文本序列化除了可读性还具有可编辑性，因此，文本序列化格式也经常被用于作为配置文件的存储格式。这样，使用普通的文本编辑器就可以方便的编辑这种配置文件。</p>
-<p>文本序列化在表示数字时，通常采用人类可读的十进制数（包括小数和科学计数法）的字符串形式，这除了具有可读性以外，还有另外一个好处，就是可以方便的表示大整数或者高精度小数。</p>
-<p><strong>二进制序列化</strong></p>
-<p>二进制序列化的的数据不具有可读性，但是通常比文本序列化格式更加紧凑，而且在解析速度上也更有优势，当然实际的解析速度还跟具体实现有很大的关系，所以这也不是绝对的。</p>
-<p>因为它们本身不具有可读性，所以在实际使用时，如果要想查看这些数据，就需要借助一些工具将它们解析为可读信息之后才能使用。在这方面，它们相对于文本序列化具有明显的劣势。</p>
-<p>二进制序列化表示数字时，通常会使用定长或者变长的二进制编码方式，这虽然有利于更快的编码和解析编程语言中的基本数字类型，但是却不能表示大整数和高精度小数。</p>
-<p>Protocol Buffers，Msgpack，BSON，Hessian 等格式是二进制序列化格式的代表。</p>
-<p><strong>半文本序列化</strong></p>
-<p>半文本序列化格式通常兼具文本序列化的可读性和二进制序列化的性能。</p>
-<p>半文本序列化的数据也使用人类可读的字符表示，具有一定的可读性，但是半文本序列化是空白敏感的，因此它们不能像文本序列化那样在序列化数据中添加空白。</p>
-<p>半文本序列化格式采用紧凑编码形式，而且通常会采用跟二进制编码类似的 TLV（Type-Length-Value）编码方式，因此具有比文本序列化更高效的解析速度，当然实际解析效率也跟具体实现有关。</p>
-<p>半文本序列化格式中对原本的二进制字符串数据仍然按照二进制字符串的格式保存，而不会像文本序列化格式一样，需要将它们转换为 Base64 格式的文本。对于二进制字符串来说，不管是转为 Base64 格式的文本还是原本的样子，都不具有可读性，因此，直接以原格式保存，并不损失可读性，但是却可以增加解析效率。</p>
-<p>半文本序列化格式在表示字符串时不会像文本序列化那样在字符串中间增加转义字符，或者将原本的字符用转义符号表示，因此，半本文序列化格式中的字符串反而比文本序列化的字符串具有更好的可读性。</p>
-<p>半文本序列化格式在数字编码上具有跟文本序列化格式一样的特点。</p>
-<p>Hprose，PHP 序列化格式是半文本序列化的代表。</p>
-<h2 id="按照自描述性分类"><a href="#按照自描述性分类" class="headerlink" title="按照自描述性分类"></a>按照自描述性分类</h2><p><strong>自描述序列化</strong></p>
-<p>如果序列化数据中包含有数据类型的元信息，或者数据的表示形式同时可以反映出它的类型，那么这种序列化格式就是自描述的。自描述的序列化格式，可以在不借助外部描述的情况下，进行解析。</p>
-<p>文本序列化和半文本序列化基本上都是自描述的。二进制序列化格式中，大部分也是自描述的。</p>
-<p>自描述序列化格式不依赖外描述文件是它的优势，在一些应用场景下，这具有不可替代的优越性。但也因为包含了元信息，导致它的数据大小通常要比非自描述序列化的数据大一些。</p>
-<p>像 XML，JSON，Hprose，Hessian，Msgpack 都是自描述类型的序列化格式。</p>
-<p><strong>非自描述序列化</strong></p>
-<p>非自描述序列化的数据在体积上更小，但是因为舍弃了自描述性，使得这种序列化数据在离开外部描述之后，就无法再被使用。</p>
-<p>Protocol Buffers 是典型的非自描述类型的序列化格式的代表。</p>
-<h2 id="按照实现方式分类"><a href="#按照实现方式分类" class="headerlink" title="按照实现方式分类"></a>按照实现方式分类</h2><p>序列化和反序列化的很大一部分特征是由它们的实现决定的。关于序列化通常是使用代码生成或者反射的方式来实现，而对于反序列化除了这两种方式之外，还有将序列化数据解析为语法树的方式，这种方式实际上并不算反序列化，但通常可以更快的查找和获取文本序列化数据中某个节点的值。</p>
-<p><strong>基于代码生成器实现的序列化</strong></p>
-<p>采用代码生成方式实现序列化的好处是可以不依赖编程语言本身运行时中的元数据信息，这样即使某个语言（比如 C/C++）的运行时中本身没有包含足够的元数据时，也可以方便的进行序列化和反序列化。</p>
-<p>采用代码生成方式实现序列化的另一个好处是，因为不使用反射，序列化和反序列化的速度通常会比基于反射实现的序列化反序列化更快一些。</p>
-<p>但是采用代码生成方式实现的序列化的缺点也很明显，比如对支持的数据类型限制比较严格，使用起来比较麻烦，需要编写 IDL 文件，在类型映射上比较死板，通常只能实现 1-1 的映射（这个我们后面再谈），类型升级时，会产生兼容性问题等等。</p>
-<p><strong>基于反射实现的序列化</strong></p>
-<p>基于动态反射来实现序列化和反序列化可以做到更好的类型支持，比如语言的内置类型和普通方式编写的自定义类型的数据都可以被序列化和反序列化，而且无需编写 IDL 文件就可以实现动态序列化，类型映射也更加灵活，可以实现 n-m 的映射，类型升级时，可以避免产生兼容性问题。</p>
-<p>但通常基于反射实现的序列化和反序列化的速度要比采用代码生成方式的序列化和反序列化要慢一些，但是这也不是绝对的，因为在实现中，可通过一些其它的手段来提升性能。</p>
-<p>例如采用缓存的方式，对于那些需要反射才能获得的元信息进行缓存，这样在获取元信息时可以避免反射而直接使用缓存的元信息来加快序列化速度。还可以使用动态的字节码生成方式，比如在 Java 中使用 ASM 技术来动态生成序列化和反序列化的代码，在 .NET 中使用 Emit 技术也可以实现同样的功能。而对于 C、C++、Rust 等语言可以采用宏和模板的方式在编译期生成具体类型的序列化和反序列化的代码，对于 D、Nim 等语言则可以采用编译期反射和编译期代码执行功能在编译期动态生成具体类型的序列化和反序列化代码，通过这些手段，既可以获得传统的代码生成器方式的序列化和反序列化的性能，又可以避免代码生成器的缺陷。</p>
-<p>例如 Hprose for .NET 就采用上面提到的元数据缓存 + Emit 动态代码生成的优化手段，使得它的序列化和反序列化速度远远超过 Protocol Buffers 的速度。</p>
-<h2 id="按照跨语言能力分类"><a href="#按照跨语言能力分类" class="headerlink" title="按照跨语言能力分类"></a>按照跨语言能力分类</h2><p>并不是所有的序列化格式都是跨语言的。即使是跨语言的序列化格式，在跨语言的能力上也有所不同。</p>
-<p><strong>特定语言专有的序列化</strong></p>
-<p>大部分语言内置的序列化格式都属于特定语言专有的序列化。例如 Java 的序列化，.NET 的 Binary 序列化，Go 的 Gob 序列化都属于这一种。</p>
-<p>但也有特例，比如 PHP 序列化，原本是 PHP 语言专有的序列化格式，但因为它的格式比较简单，因此也有一些其它语言上的 PHP 序列化的第三方实现。但终究 PHP 序列化格式跟 PHP 语言的关系更加紧密，所以在其他语言中使用 PHP 序列化时相对于其它跨语言的序列化格式或多或少的会有一些不方便的地方。</p>
-<p><strong>跨语言的序列化</strong></p>
-<p>文本序列化格式往往具有更好的跨语言特征。比如 XML，JSON 等序列化格式，对于不同的语言都有很多的实现来支持。</p>
-<p>还有一些半文本或二进制序列化格式也是为跨语言而设计的，比如 Hprose，Protocol Buffers，MsgPack 等，它们也具有很好的跨语言能力。</p>
-<p>但多数二进制序列化格式在跨语言方面有很多限制。</p>
-<h1 id="4-序列化和反序列化的类型映射"><a href="#4-序列化和反序列化的类型映射" class="headerlink" title="4.序列化和反序列化的类型映射"></a>4.序列化和反序列化的类型映射</h1><p>如果编程语言中的数据类型跟序列化格式中的数据类型有且只有唯一的映射关系，我们就把这种类型映射关系称为 1-1 映射。</p>
-<p>如果在序列化时，编程语言中的多种数据类型被映射为一种序列化格式的类型，并且在反序列化时，一种序列化类型可以被反序列化为编程语言中的多种类型，那么这种类型映射关系称为 n-m 映射。</p>
-<p>当然还存在其它的情况，比如多种序列化类型被反序列化为编程语言中的同一种类型，再比如编程语言中的所有类型跟序列化类型中的某个类型都不存在映射关系，等等。这些其它情况，我们也把它们归到 1-1 映射中。</p>
-<p>1-1 映射还是 n-m 映射，除了跟序列化格式有关以外，还跟具体的语言实现有很大的关系。</p>
-<h2 id="1-1-映射"><a href="#1-1-映射" class="headerlink" title="1-1 映射"></a>1-1 映射</h2><p>语言内置的序列化和反序列化实现一般都是 1-1 映射。这可以保证序列化之前的数据跟反序列化之后的数据在类型上的完全一致性。但也由于语言内置类型的丰富性和 1-1 映射的一致性，导致这些语言内置的序列化格式几乎无法做到跨语言实现。</p>
-<p>我们前面也谈到过一个特例，那就是 PHP 序列化，PHP 序列化之所以能够做到跨语言实现，是因为它本身的内置类型非常有限，以至于即使在 PHP 中是 1-1 映射的数据类型还不如其它一些跨语言的序列化支持的数据类型更丰富。</p>
-<p>而 JSON 格式，如果把它放到 JavaScript 中，它也是 1-1 映射的。而 JSON 序列化在其它语言中的实现则是多种多样，有的仅支持 1-1 映射，有的则支持 n-m 映射，即便是同一种语言的不同实现也是如此。</p>
-<p>1-1 映射最麻烦的问题是，要么支持的类型不够丰富，要么跨语言方面难以实现。</p>
-<p>第一个问题对于本来类型就不是很多的脚本语言来说通常不是问题，但对于 Java，C# 之类的语言来说，这就是个问题了。</p>
-<h2 id="n-m-映射"><a href="#n-m-映射" class="headerlink" title="n-m 映射"></a>n-m 映射</h2><p>n-m 映射可以很好的解决这个问题。</p>
-<p>比如序列化格式中不需要为 Array，List，Tuple，Set 定义不同的类型，而只需要一种通用的列表类型，之后就可以将某种具体语言的 Array，List，Tuple，Set 等具有列表特征的数据都映射为这一种列表类型，在反序列化的时候，则直接反序列化为某种指定的类型。</p>
-<p>这样做还有一个额外的好处：当你希望类型一致的时候，你就可以实现类型一致，而当你不希望使用一致的类型时，可以直接在序列化和反序列化的过程中进行类型的转换。而不需要得到了一致的类型之后，再去自己手动转换为另一种类型。</p>
-<p>通过反射方式来实现的序列化和反序列化可以更方便的实现 n-m 映射。而通过代码生成器方式实现的序列化和反序列化则通常只能实现 1-1 映射。因此，通过反射方式来实现的序列化和反序列化具有更好的灵活性。</p>
-<p>原文：<a target="_blank" rel="noopener" href="https://hacpai.com/article/1478633580985">https://hacpai.com/article/1478633580985</a></p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/java/advance/2016-11-24_java_serializable.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1367,14 +1082,14 @@ public class PipeExample &#123;
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2016-11-03 13:29:24" itemprop="dateCreated datePublished" datetime="2016-11-03T13:29:24+00:00">2016-11-03</time>
+      <time title="创建时间：2016-11-03 21:29:24" itemprop="dateCreated datePublished" datetime="2016-11-03T21:29:24+08:00">2016-11-03</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-12-20 16:47:02" itemprop="dateModified" datetime="2020-12-20T16:47:02+00:00">2020-12-20</time>
+        <time title="修改时间：2020-12-21 00:47:02" itemprop="dateModified" datetime="2020-12-21T00:47:02+08:00">2020-12-21</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1400,45 +1115,14 @@ public class PipeExample &#123;
 <p>静态存储区（方法区）：主要存放静态数据、全局 static 数据和常量。这块内存在程序编译时就已经分配好，并且在程序整个运行期间都存在。</p>
 <p>栈区 ：当方法被执行时，方法体内的局部变量（其中包括基础数据类型、对象的引用）都在栈上创建，并在方法执行结束时这些局部变量所持有的内存将会自动被释放。因为栈内存分配运算内置于处理器的指令集中，效率很高，但是分配的内存容量有限。</p>
 <p>堆区 ： 又称动态内存分配，通常就是指在程序运行时直接 new 出来的内存，也就是对象的实例。这部分内存在不使用时将会由 Java 垃圾回收器来负责回收。</p>
-<h3 id="栈与堆的区别"><a href="#栈与堆的区别" class="headerlink" title="栈与堆的区别"></a>栈与堆的区别</h3><p>在方法体内定义的（局部变量）一些基本类型的变量和对象的引用变量都是在方法的栈内存中分配的。当在一段方法块中定义一个变量时，Java 就会在栈中为该变量分配内存空间，当超过该变量的作用域后，该变量也就无效了，分配给它的内存空间也将被释放掉，该内存空间可以被重新使用。<br>堆内存用来存放所有由 new 创建的对象（包括该对象其中的所有成员变量）和数组。在堆中分配的内存，将由 Java 垃圾回收器来自动管理。在堆中产生了一个数组或者对象后，还可以在栈中定义一个特殊的变量，这个变量的取值等于数组或者对象在堆内存中的首地址，这个特殊的变量就是我们上面说的引用变量。我们可以通过这个引用变量来访问堆中的对象或者数组。</p>
-<p>举个例子:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">public class Sample &#123; </span><br><span class="line">    int s1 &#x3D; 0; </span><br><span class="line">    Sample mSample1 &#x3D; new Sample();  </span><br><span class="line">    public void method() &#123; </span><br><span class="line">        int s2 &#x3D; 1; </span><br><span class="line">        Sample mSample2 &#x3D; new Sample(); </span><br><span class="line">    &#125; </span><br><span class="line">&#125;  </span><br><span class="line"></span><br><span class="line">Sample mSample3 &#x3D; new Sample(); </span><br></pre></td></tr></table></figure>
-<p>Sample 类的局部变量 s2 和引用变量 mSample2 都是存在于栈中，但 mSample2 指向的对象是存在于堆上的。mSample3 指向的对象实体存放在堆上，包括这个对象的所有成员变量 s1 和 mSample1，而它自己存在于栈中。</p>
-<p>局部变量的基本数据类型和引用存储于栈中，引用的对象实体存储于堆中。—— 因为它们属于方法中的变量，生命周期随方法而结束。</p>
-<p>成员变量全部存储于堆中（包括基本数据类型，引用和引用的对象实体）—— 因为它们属于类，类对象终究是要被new出来使用的。</p>
-<p>了解了 Java 的内存分配之后，我们再来看看 Java 是怎么管理内存的。</p>
-<h3 id="Java是如何管理内存"><a href="#Java是如何管理内存" class="headerlink" title="Java是如何管理内存"></a>Java是如何管理内存</h3><p>Java的内存管理就是对象的分配和释放问题。在 Java 中，程序员需要通过关键字 new 为每个对象申请内存空间 (基本类型除外)，所有的对象都在堆 (Heap)中分配空间。另外，对象的释放是由 GC 决定和执行的。在 Java 中，内存的分配是由程序完成的，而内存的释放是由 GC 完成的，这种收支两条线的方法确实简化了程序员的工作。但同时，它也加重了JVM的工作。这也是 Java 程序运行速度较慢的原因之一。因为，GC 为了能够正确释放对象，GC 必须监控每一个对象的运行状态，包括对象的申请、引用、被引用、赋值等，GC 都需要进行监控。<br>监视对象状态是为了更加准确地、及时地释放对象，而释放对象的根本原则就是该对象不再被引用。</p>
-<p>为了更好理解 GC 的工作原理，我们可以将对象考虑为有向图的顶点，将引用关系考虑为图的有向边，有向边从引用者指向被引对象。另外，每个线程对象可以作为一个图的起始顶点，例如大多程序从 main 进程开始执行，那么该图就是以 main 进程顶点开始的一棵根树。在这个有向图中，根顶点可达的对象都是有效对象，GC将不回收这些对象。如果某个对象 (连通子图)与这个根顶点不可达(注意，该图为有向图)，那么我们认为这个(这些)对象不再被引用，可以被 GC 回收。以下，我们举一个例子说明如何用有向图表示内存管理。对于程序的每一个时刻，我们都有一个有向图表示JVM的内存分配情况。以下右图，就是左边程序运行到第6行的示意图。</p>
-<p><img src="./2016-11-03_java_memory_malloc/1.png" alt="1.png"> </p>
-<p>Java使用有向图的方式进行内存管理，可以消除引用循环的问题，例如有三个对象，相互引用，只要它们和根进程不可达的，那么GC也是可以回收它们的。这种方式的优点是管理内存的精度很高，但是效率较低。另外一种常用的内存管理技术是使用计数器，例如COM模型采用计数器方式管理构件，它与有向图相比，精度行低(很难处理循环引用的问题)，但执行效率很高。</p>
-<h3 id="Java-内存回收机制"><a href="#Java-内存回收机制" class="headerlink" title="Java 内存回收机制"></a>Java 内存回收机制</h3><p>不论哪种语言的内存分配方式，都需要返回所分配内存的真实地址，也就是返回一个指针到内存块的首地址。Java 中对象是采用 new 或者反射的方法创建的，这些对象的创建都是在堆（Heap）中分配的，所有对象的回收都是由 Java 虚拟机通过垃圾回收机制完成的。GC 为了能够正确释放对象，会监控每个对象的运行状况，对他们的申请、引用、被引用、赋值等状况进行监控，Java 会使用有向图的方法进行管理内存，实时监控对象是否可以达到，如果不可到达，则就将其回收，这样也可以消除引用循环的问题。在 Java 语言中，判断一个内存空间是否符合垃圾收集标准有两个：一个是给对象赋予了空值 null，以下再没有调用过，另一个是给对象赋予了新值，这样重新分配了内存空间。</p>
-<h3 id="什么是Java中的内存泄露"><a href="#什么是Java中的内存泄露" class="headerlink" title="什么是Java中的内存泄露"></a>什么是Java中的内存泄露</h3><p>在Java中，内存泄漏就是存在一些被分配的对象，这些对象有下面两个特点，首先，这些对象是可达的，即在有向图中，存在通路可以与其相连；其次，这些对象是无用的，即程序以后不会再使用这些对象。如果对象满足这两个条件，这些对象就可以判定为Java中的内存泄漏，这些对象不会被GC所回收，然而它却占用内存。</p>
-<p>在C++中，内存泄漏的范围更大一些。有些对象被分配了内存空间，然后却不可达，由于C++中没有GC，这些内存将永远收不回来。在Java中，这些不可达的对象都由GC负责回收，因此程序员不需要考虑这部分的内存泄露。</p>
-<p>通过分析，我们得知，对于C++，程序员需要自己管理边和顶点，而对于Java程序员只需要管理边就可以了(不需要管理顶点的释放)。通过这种方式，Java提高了编程的效率。</p>
-<p><img src="./2016-11-03_java_memory_malloc/2.png" alt="2.png"> </p>
-<p>因此，通过以上分析，我们知道在Java中也有内存泄漏，但范围比C++要小一些。因为Java从语言上保证，任何对象都是可达的，所有的不可达对象都由GC管理。</p>
-<p>对于程序员来说，GC基本是透明的，不可见的。虽然，我们只有几个函数可以访问GC，例如运行GC的函数System.gc()，但是根据Java语言规范定义， 该函数不保证JVM的垃圾收集器一定会执行。因为，不同的JVM实现者可能使用不同的算法管理GC。通常，GC的线程的优先级别较低。JVM调用GC的策略也有很多种，有的是内存使用到达一定程度时，GC才开始工作，也有定时执行的，有的是平缓执行GC，有的是中断式执行GC。但通常来说，我们不需要关心这些。除非在一些特定的场合，GC的执行影响应用程序的性能，例如对于基于Web的实时系统，如网络游戏等，用户不希望GC突然中断应用程序执行而进行垃圾回收，那么我们需要调整GC的参数，让GC能够通过平缓的方式释放内存，例如将垃圾回收分解为一系列的小步骤执行，Sun提供的HotSpot JVM就支持这一特性。</p>
-<h3 id="Java-内存泄露引起原因"><a href="#Java-内存泄露引起原因" class="headerlink" title="Java 内存泄露引起原因"></a>Java 内存泄露引起原因</h3><p>那么，Java 内存泄露根本原因是什么呢？长生命周期的对象持有短生命周期对象的引用就很可能发生内存泄露，尽管短生命周期对象已经不再需要，但是因为长生命周期对象持有它的引用而导致不能被回收，这就是 java 中内存泄露的发生场景。具体主要有如下几大类： </p>
-<p><strong>1、静态集合类引起内存泄露：</strong> </p>
-<p>像 HashMap、Vector 等的使用最容易出现内存泄露，这些静态变量的生命周期和应用程序一致，他们所引用的所有的对象 Object 也不能被释放，因为他们也将一直被 Vector 等引用着。<br>例: </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">static Vector v &#x3D; new Vector(10); </span><br><span class="line">for (int i &#x3D; 1; i&lt;100; i++)  &#123; </span><br><span class="line">    Object o &#x3D; new Object(); </span><br><span class="line">    v.add(o); </span><br><span class="line">    o &#x3D; null; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在这个例子中，循环申请 Object 对象，并将所申请的对象放入一个 Vector 中，如果仅仅释放引用本身（o = null），那么 Vector 仍然引用该对象，所以这个对象对 GC 来说是不可回收的。因此，如果对象加入到 Vector 后，还必须从 Vector 中删除，最简单的方法就是将 Vector 对象设置为 null。</p>
-<p><strong>2、当集合里面的对象属性被修改后，再调用 remove（）方法时不起作用：</strong></p>
-<p>例： </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args)  &#123; </span><br><span class="line">    Set&lt;Person&gt; set &#x3D; new HashSet&lt;Person&gt;(); </span><br><span class="line">    Person p1 &#x3D; new Person(&quot;唐僧&quot;,&quot;pwd1&quot;,25); </span><br><span class="line">    Person p2 &#x3D; new Person(&quot;孙悟空&quot;,&quot;pwd2&quot;,26); </span><br><span class="line">    Person p3 &#x3D; new Person(&quot;猪八戒&quot;,&quot;pwd3&quot;,27); </span><br><span class="line">    set.add(p1); </span><br><span class="line">    set.add(p2); </span><br><span class="line">    set.add(p3); </span><br><span class="line">    System.out.println(&quot;总共有:&quot;+set.size()+&quot;个元素!&quot;); &#x2F;&#x2F; 结果：总共有: 3 个元素! </span><br><span class="line">    p3.setAge(2); &#x2F;&#x2F; 修改 p3 的年龄, 此时 p3 元素对应的 hashcode 值发生改变 </span><br><span class="line">    set.remove(p3); &#x2F;&#x2F; 此时 remove 不掉，造成内存泄漏</span><br><span class="line"></span><br><span class="line">    set.add(p3); &#x2F;&#x2F; 重新添加，居然添加成功 </span><br><span class="line">    System.out.println(&quot;总共有:&quot;+set.size()+&quot;个元素!&quot;); &#x2F;&#x2F; 结果：总共有: 4 个元素! </span><br><span class="line">    for (Person person : set) &#123; </span><br><span class="line">        System.out.println(person); </span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>3、监听器</strong> </p>
-<p>在 java 编程中，我们都需要和监听器打交道，通常一个应用当中会用到很多监听器，我们会调用一个控件的诸如 addXXXListener() 等方法来增加监听器，但往往在释放对象的时候却没有记住去删除这些监听器，从而增加了内存泄漏的机会。</p>
-<p><strong>4、各种连接</strong> </p>
-<p>比如数据库连接（dataSourse.getConnection()），网络连接 (socket) 和 io 连接，除非其显式的调用了其 close（）方法将其连接关闭，否则是不会自动被 GC 回收的。对于 Resultset 和 Statement 对象可以不进行显式回收，但 Connection 一定要显式回收，因为 Connection 在任何时候都无法自动回收，而 Connection 一旦回收，Resultset 和 Statement 对象就会立即为 NULL。但是如果使用连接池，情况就不一样了，除了要显式地关闭连接，还必须显式地关闭 Resultset Statement 对象（关闭其中一个，另外一个也会关闭），否则就会造成大量的 Statement 对象无法释放，从而引起内存泄漏。这种情况下一般都会在 try 里面去的连接，在 finally 里面释放连接。</p>
-<p> <strong>5、内部类和外部模块等的引用</strong> </p>
-<p>内部类的引用是比较容易遗忘的一种，而且一旦没释放可能导致一系列的后继类对象没有释放。此外程序员还要小心外部模块不经意的引用，例如程序员 A 负责 A 模块，调用了 B 模块的一个方法如： </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public void registerMsg(Object b); </span><br></pre></td></tr></table></figure>
-<p>这种调用就要非常小心了，传入了一个对象，很可能模块 B 就保持了对该对象的引用，这时候就需要注意模块 B 是否提供相应的操作去除引用。</p>
-<p><strong>6、单例模式</strong> </p>
-<p>不正确使用单例模式是引起内存泄露的一个常见问题，单例对象在被初始化后将在 JVM 的整个生命周期中存在（以静态变量的方式），如果单例对象持有外部对象的引用，那么这个外部对象将不能被 jvm 正常回收，导致内存泄露，考虑下面的例子： </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">class A&#123; </span><br><span class="line">    public A()&#123; </span><br><span class="line">        B.getInstance().setA(this); </span><br><span class="line">    &#125; </span><br><span class="line">    .... </span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;B 类采用单例模式 </span><br><span class="line">class B&#123; </span><br><span class="line">    private A a; </span><br><span class="line">    private static B instance&#x3D;new B(); </span><br><span class="line">    public B()&#123;&#125; </span><br><span class="line">    public static B getInstance()&#123; </span><br><span class="line">        return instance; </span><br><span class="line">    &#125; </span><br><span class="line">    public void setA(A a)&#123; </span><br><span class="line">        this.a&#x3D;a; </span><br><span class="line">    &#125; </span><br><span class="line">    &#x2F;&#x2F;getter... </span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
-<p>显然 B 采用 singleton 模式，它持有一个 A 对象的引用，而这个 A 类的对象将不能被回收。想象下如果 A 是个比较复杂的对象或者集合类型会发生什么情况。</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/java/advance/2016-11-03_java_memory_malloc.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
