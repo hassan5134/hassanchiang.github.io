@@ -23,12 +23,12 @@
     var NexT = window.NexT || {};
     var CONFIG = {"hostname":"blog.fenxiangz.com","root":"/","images":"/images","scheme":"Pisces","version":"8.1.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}};
   </script>
-<meta name="description" content="HttpClient介绍HttpClient是一个实现了http协议的开源Java客户端工具库，可以通过程序发送http请求。 1.1 HttpClient发送请求和接收响应1.1.1 代码示例以Get请求为例，以下代码获得google主页内容并将返回结果打印出来。">
+<meta name="description" content="HttpClient介绍HttpClient是一个实现了http协议的开源Java客户端工具库，可以通过程序发送http请求。 1.1 HttpClient发送请求和接收响应">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HttpClient连接池原理及一次连接时序图">
 <meta property="og:url" content="https://blog.fenxiangz.com/post/java/util/2020-12-23_HttpClient%E8%BF%9E%E6%8E%A5%E6%B1%A0%E5%8E%9F%E7%90%86%E5%8F%8A%E4%B8%80%E6%AC%A1%E8%BF%9E%E6%8E%A5%E6%97%B6%E5%BA%8F%E5%9B%BE.html">
 <meta property="og:site_name" content="分享之">
-<meta property="og:description" content="HttpClient介绍HttpClient是一个实现了http协议的开源Java客户端工具库，可以通过程序发送http请求。 1.1 HttpClient发送请求和接收响应1.1.1 代码示例以Get请求为例，以下代码获得google主页内容并将返回结果打印出来。">
+<meta property="og:description" content="HttpClient介绍HttpClient是一个实现了http协议的开源Java客户端工具库，可以通过程序发送http请求。 1.1 HttpClient发送请求和接收响应">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://blog.fenxiangz.com/post/java/util/2020-12-23_HttpClient%E8%BF%9E%E6%8E%A5%E6%B1%A0%E5%8E%9F%E7%90%86%E5%8F%8A%E4%B8%80%E6%AC%A1%E8%BF%9E%E6%8E%A5%E6%97%B6%E5%BA%8F%E5%9B%BE/1.jpg">
 <meta property="og:image" content="https://blog.fenxiangz.com/post/java/util/2020-12-23_HttpClient%E8%BF%9E%E6%8E%A5%E6%B1%A0%E5%8E%9F%E7%90%86%E5%8F%8A%E4%B8%80%E6%AC%A1%E8%BF%9E%E6%8E%A5%E6%97%B6%E5%BA%8F%E5%9B%BE/2.jpg">

@@ -264,59 +264,6 @@
           <p>Java8 新引入函数式编程方式，大大的提高了编码效率。本文将对涉及的对象等进行统一的学习及记录。内容包括：Stream/Function/Optional/Consumer。</p>
 <p>首先需要清楚一个概念：函数式接口；它指的是有且只有一个未实现的方法的接口，一般通过 FunctionalInterface 这个注解来表明某个接口是一个函数式接口。函数式接口是 Java 支持函数式编程的基础。</p>
 <p>本文目录：</p>
-<ul>
-<li><p><a href="#1-java8-%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E8%AF%AD%E6%B3%95%E5%85%A5%E9%97%A8">1 Java8 函数式编程语法入门</a></p>
-</li>
-<li><p><a href="#2-java-%E5%87%BD%E6%95%B0%E5%BC%8F%E6%8E%A5%E5%8F%A3">2 Java 函数式接口</a></p>
-</li>
-<li><p><a href="#2-1-consumer">2.1 Consumer</a></p>
-</li>
-<li><p><a href="#2-2-function">2.2 Function</a></p>
-</li>
-<li><p><a href="#2-3-predicate">2.3 Predicate</a></p>
-</li>
-<li><p><a href="#3-%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E6%8E%A5%E5%8F%A3%E7%9A%84%E4%BD%BF%E7%94%A8">3 函数式编程接口的使用</a></p>
-</li>
-<li><p><a href="#3-1-stream">3.1 Stream</a></p>
-</li>
-<li><p><a href="#3-1-1-stream-%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%88%9B%E5%BB%BA">3.1.1 Stream 对象的创建</a></p>
-</li>
-<li><p><a href="#3-1-2-stream-%E5%AF%B9%E8%B1%A1%E7%9A%84%E4%BD%BF%E7%94%A8">3.1.2 Stream 对象的使用</a></p>
-</li>
-<li><p><a href="#3-1-2-1-filter">3.1.2.1 filter</a></p>
-</li>
-<li><p><a href="#3-1-2-2-map">3.1.2.2 map</a></p>
-</li>
-<li><p><a href="#3-1-2-3-flatmap">3.1.2.3 flatMap</a></p>
-</li>
-<li><p><a href="#3-1-2-4-takewhile">3.1.2.4 takeWhile</a></p>
-</li>
-<li><p><a href="#3-1-2-5-dropwhile">3.1.2.5 dropWhile</a></p>
-</li>
-<li><p><a href="#3-1-2-6-reduce-%E4%B8%8E-collect">3.1.2.6 reduce 与 collect</a></p>
-</li>
-<li><p><a href="#3-2-optional">3.2 Optional</a></p>
-</li>
-<li><p><a href="#3-2-1-optional%E5%AF%B9%E8%B1%A1%E5%88%9B%E5%BB%BA">3.2.1 Optional 对象创建</a></p>
-</li>
-<li><p><a href="#3-2-1-1-empty">3.2.1.1 empty</a></p>
-</li>
-<li><p><a href="#3-2-1-2-of">3.2.1.2 of</a></p>
-</li>
-<li><p><a href="#3-2-1-3-ofnullable">3.2.1.3 ofNullable</a></p>
-</li>
-<li><p><a href="#3-2-2-%E6%96%B9%E6%B3%95">3.2.2 方法</a></p>
-</li>
-<li><p><a href="#3-2-3-%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF">3.2.3 使用场景</a></p>
-</li>
-<li><p><a href="#3-2-3-1-%E5%88%A4%E6%96%AD%E7%BB%93%E6%9E%9C%E4%B8%8D%E4%B8%BA%E7%A9%BA%E5%90%8E%E4%BD%BF%E7%94%A8">3.2.3.1 判断结果不为空后使用</a></p>
-</li>
-<li><p><a href="#3-2-3-2-%E5%8F%98%E9%87%8F%E4%B8%BA%E7%A9%BA%E6%97%B6%E6%8F%90%E4%BE%9B%E9%BB%98%E8%AE%A4%E5%80%BC">3.2.3.2 变量为空时提供默认值</a></p>
-</li>
-<li><p><a href="#3-2-3-3-%E5%8F%98%E9%87%8F%E4%B8%BA%E7%A9%BA%E6%97%B6%E6%8A%9B%E5%87%BA%E5%BC%82%E5%B8%B8-%E5%90%A6%E5%88%99%E4%BD%BF%E7%94%A8">3.2.3.3 变量为空时抛出异常,否则使用</a></p>
-</li>
-</ul>
-<h1 id="1-Java8-函数式编程语法入门"><a href="#1-Java8-函数式编程语法入门" class="headerlink" title="1 Java8 函数式编程语法入门"></a>1 Java8 函数式编程语法入门</h1>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/post/java/advance/2019-05-04_java_labmda.html#more" rel="contents">
@@ -439,23 +386,6 @@
 &#125; catch (IOException e) &#123;
     e.printStackTrace();
 &#125;</code></pre>
-<p>客户端代码：</p>
-<pre><code>public class NIOClientTest&#123;
-    public static void main(String[] args) throws UnknownHostException, IOException&#123;
-        try &#123;
-            Socket socket = new Socket(&quot;127.0.0.1&quot;,666);
-            try(OutputStreamWriter output = new OutputStreamWriter(socket.getOutputStream());)&#123;
-                output.write(1);
-                output.flush();
-            &#125;catch (Exception e) &#123;
-                e.printStackTrace();
-            &#125;
-            socket.close();
-        &#125; catch (Exception e1) &#123;
-            e1.printStackTrace();
-        &#125;
-    &#125;
-&#125;</code></pre>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/post/java/nio/2019-04-07_java_nio_debug.html#more" rel="contents">
@@ -545,8 +475,6 @@
           <p>找问题的时后发现了这篇文章，惊为天人，几乎涵盖了我所有碰到的坑，非常不错！</p>
 <p>不得不说，NIO的API设计的够难用的，坑还巨多….这也是为什么大家都不直接使用nio的原因吧，一般会用mina或者netty啥的（这是个记录的博客，所以会不断更新）</p>
 <p>关于通道本身的一些注意点，请参考我之前的：<a target="_blank" rel="noopener" href="http://www.360doc.com/content/12/0822/00/495229_231622420.shtml">nio通道(2)—几个注意点</a></p>
-<p>其他一些参考<a target="_blank" rel="noopener" href="http://www.dazhuangzhuang.com/?p=144">nio summary</a></p>
-<h1 id="1-坑爹的事件"><a href="#1-坑爹的事件" class="headerlink" title="1 坑爹的事件"></a>1 坑爹的事件</h1>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/post/java/nio/2019-04-07_java_nio_%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F%E7%82%B9.html#more" rel="contents">
@@ -636,7 +564,6 @@
           <p>今天我们要来做一道小菜，这道菜就是RPC通讯框架。它使用netty作为原料，fastjson序列化工具作为调料，来实现一个极简的多线程RPC服务框架。</p>
 <p>我们暂且命名该RPC框架为rpckids。</p>
 <p><img src="./2019-03-26_%E5%9F%BA%E4%BA%8ENetty%E8%87%AA%E5%B7%B1%E5%8A%A8%E6%89%8B%E5%AE%9E%E7%8E%B0RPC%E6%A1%86%E6%9E%B6/1.png"></p>
-<h1 id="食用指南"><a href="#食用指南" class="headerlink" title="食用指南"></a>食用指南</h1><p>在告诉读者完整的制作菜谱之前，我们先来试试这个小菜怎么个吃法，好不好吃，是不是吃起来很方便。如果读者觉得很难吃，那后面的菜谱就没有多大意义了，何必花心思去学习制作一门谁也不爱吃的大烂菜呢？</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/post/java/netty/2019-03-26_%E5%9F%BA%E4%BA%8ENetty%E8%87%AA%E5%B7%B1%E5%8A%A8%E6%89%8B%E5%AE%9E%E7%8E%B0RPC%E6%A1%86%E6%9E%B6.html#more" rel="contents">
@@ -725,8 +652,6 @@
     <div class="post-body" itemprop="articleBody">
           <h2 id="结合-CPU-理解一行-Java-代码是怎么执行的"><a href="#结合-CPU-理解一行-Java-代码是怎么执行的" class="headerlink" title="结合 CPU 理解一行 Java 代码是怎么执行的"></a>结合 CPU 理解一行 Java 代码是怎么执行的</h2><p>根据冯·诺依曼思想，计算机采用二进制作为数制基础，必须包含:运算器、控制器、存储设备，以及输入输出设备，如下图所示。</p>
 <p><img src="./2019-03-06_java_os/1.png"></p>
-<p>(该图来源于百度)</p>
-<p>我们先来分析 CPU 的工作原理，现代 CPU 芯片中大都集成了，控制单元，运算单元，存储单元。控制单元是 CPU 的控制中心， CPU 需要通过它才知道下一步做什么，也就是执行什么指令，控制单元又包含:指令寄存器( IR )，指令译码器( ID )和操作控制器( OC ).<br>当程序被加载进内存后，指令就在内存中了，这个时候说的内存是独立于 CPU 外的主存设备，也就是 PC 机中的内存条，指令指针寄存器IP 指向内存中下一条待执行指令的地址，控制单元根据 IP寄存器的指向，将主存中的指令装载到指令寄存器，这个指令寄存器也是一个存储设备，不过他集成在 CPU 内部，指令从主存到达 CPU 后只是一串 010101 的二进制串，还需要通过译码器解码，分析出<br>操作码是什么，操作数在哪，之后就是具体的运算单元进行算术运算(加减乘除)，逻辑运算(比较，位移).而 CPU 指令执行过程大致为:取址(去主存获取指令放到寄存器)，译码(从主存获取操作数放入高速缓存 L1 )，执行(运算).</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/post/java/advance/2019-03-06_java_os.html#more" rel="contents">
@@ -820,7 +745,6 @@
 <li> BIO 、NIO、AIO 模型的介绍，会详细介绍 NIO；</li>
 <li> 几种 IO 模型的对比。</li>
 </ol>
-<h2 id="Java-IO-模型介绍"><a href="#Java-IO-模型介绍" class="headerlink" title="Java IO 模型介绍"></a>Java IO 模型介绍</h2><hr>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/post/java/nio/2019-02-27_java_nio_model.html#more" rel="contents">
@@ -909,8 +833,7 @@
     <div class="post-body" itemprop="articleBody">
           <p>原创： zhangshaolin <strong>张少林同学</strong><br>微信号: zhangshaolin_tonxue</p>
 <p>功能介绍 分享</p>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><code>Java</code>中的线程是使用<code>Thread</code>类实现的，<code>Thread</code>在初学<code>Java</code>的时候就学过了，也在实践中用过，不过一直没从源码的角度去看过它的实现，今天从源码的角度出发，再次学习<code>Java Thread</code>，愿此后对<code>Thread</code>的实践更加得心应手。</p>
-<h2 id="从注释开始"><a href="#从注释开始" class="headerlink" title="从注释开始"></a>从注释开始</h2>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/post/java/basic/2019-01-21_java_thread_source.html#more" rel="contents">
@@ -1091,8 +1014,6 @@
     <div class="post-body" itemprop="articleBody">
           <p>接下来我们看看结构型模式，共七种：适配器模式、装饰器模式、代理模式、外观模式、桥接模式、组合模式、享元模式。其中适配器模式主要分为三类：类的适配器模式、对象的适配器模式、接口的适配器模式。其中的对象的适配器模式是各种结构型模式的起源。</p>
 <h2 id="一、适配器模式"><a href="#一、适配器模式" class="headerlink" title="一、适配器模式"></a>一、适配器模式</h2><p>适配器模式主要分为三类：类的适配器模式、对象的适配器模式、接口的适配器模式。</p>
-<p>适配器模式将某个类的接口转换成客户端期望的另一个接口表示，目的是消除由于接口不匹配所造成的类的兼容性问题。有点抽象，我们来看看详细的内容。</p>
-<h3 id="1-1、类的适配器模式"><a href="#1-1、类的适配器模式" class="headerlink" title="1.1、类的适配器模式"></a>1.1、类的适配器模式</h3>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/post/design/2019-01-04_Java%E7%BB%8F%E5%85%B8%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F_2_%E4%B8%83%E5%A4%A7%E7%BB%93%E6%9E%84%E5%9E%8B%E6%A8%A1%E5%BC%8F.html#more" rel="contents">
@@ -1180,8 +1101,7 @@
     
     <div class="post-body" itemprop="articleBody">
           <hr>
-<h2 id="一、概况"><a href="#一、概况" class="headerlink" title="一、概况"></a>一、概况</h2><h3 id="总体来说设计模式分为三大类："><a href="#总体来说设计模式分为三大类：" class="headerlink" title="总体来说设计模式分为三大类："></a>总体来说设计模式分为三大类：</h3><p>（1）创建型模式，共五种：工厂方法模式、抽象工厂模式、单例模式、建造者模式、原型模式。</p>
-<p>（2）结构型模式，共七种：适配器模式、装饰器模式、代理模式、外观模式、桥接模式、组合模式、享元模式。</p>
+<h2 id="一、概况"><a href="#一、概况" class="headerlink" title="一、概况"></a>一、概况</h2><h3 id="总体来说设计模式分为三大类："><a href="#总体来说设计模式分为三大类：" class="headerlink" title="总体来说设计模式分为三大类："></a>总体来说设计模式分为三大类：</h3>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/post/design/2019-01-03_Java%E7%BB%8F%E5%85%B8%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F_1_%E4%BA%94%E5%A4%A7%E5%88%9B%E5%BB%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F.html#more" rel="contents">

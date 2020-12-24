@@ -23,12 +23,12 @@
     var NexT = window.NexT || {};
     var CONFIG = {"hostname":"blog.fenxiangz.com","root":"/","images":"/images","scheme":"Pisces","version":"8.1.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}};
   </script>
-<meta name="description" content="随着移动互联网的爆发性增长，小明公司的电子商务系统访问量越来越大，由于现有系统是个单体的巨型应用，已经无法满足海量的并发请求，拆分势在必行。  在微服务的大潮之中， 架构师小明把系统拆分成了多个服务，根据需要部署在多个机器上，这些服务非常灵活，可以随着访问量弹性扩展。  世界上没有免费的午餐， 拆分成多个“微服务”以后虽然增加了弹性，但也带来了一个巨大的挑战：服务之间互相调用的开销。">
+<meta name="description" content="随着移动互联网的爆发性增长，小明公司的电子商务系统访问量越来越大，由于现有系统是个单体的巨型应用，已经无法满足海量的并发请求，拆分势在必行。  在微服务的大潮之中， 架构师小明把系统拆分成了多个服务，根据需要部署在多个机器上，这些服务非常灵活，可以随着访问量弹性扩展。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="小白科普：Netty有什么用？">
 <meta property="og:url" content="https://blog.fenxiangz.com/post/java/netty/2019-01-02_%E5%B0%8F%E7%99%BD%E7%A7%91%E6%99%AENetty%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8.html">
 <meta property="og:site_name" content="分享之">
-<meta property="og:description" content="随着移动互联网的爆发性增长，小明公司的电子商务系统访问量越来越大，由于现有系统是个单体的巨型应用，已经无法满足海量的并发请求，拆分势在必行。  在微服务的大潮之中， 架构师小明把系统拆分成了多个服务，根据需要部署在多个机器上，这些服务非常灵活，可以随着访问量弹性扩展。  世界上没有免费的午餐， 拆分成多个“微服务”以后虽然增加了弹性，但也带来了一个巨大的挑战：服务之间互相调用的开销。">
+<meta property="og:description" content="随着移动互联网的爆发性增长，小明公司的电子商务系统访问量越来越大，由于现有系统是个单体的巨型应用，已经无法满足海量的并发请求，拆分势在必行。  在微服务的大潮之中， 架构师小明把系统拆分成了多个服务，根据需要部署在多个机器上，这些服务非常灵活，可以随着访问量弹性扩展。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://blog.fenxiangz.com/post/java/netty/2019-01-02_%E5%B0%8F%E7%99%BD%E7%A7%91%E6%99%AENetty%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8/1.png">
 <meta property="og:image" content="https://blog.fenxiangz.com/post/java/netty/2019-01-02_%E5%B0%8F%E7%99%BD%E7%A7%91%E6%99%AENetty%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8/2.png">

@@ -264,7 +264,6 @@
           <p>编辑ext2/ext3/FAT32/NTFS磁盘分区卷标<br>根据不同的磁盘分区类型,分别有3个程序可供选用.</p>
 <p>Mtools 适用于 FAT32 格式分区。<br>ntfsprogs 适用于 NTFS 格式分区。<br>e2label适用于 ext2 和 ext3 型格式分区。</p>
 <p>以上程序的具体使用说明分别如下:</p>
-<h1 id="使用mtools编辑FAT32磁盘分区卷标"><a href="#使用mtools编辑FAT32磁盘分区卷标" class="headerlink" title="使用mtools编辑FAT32磁盘分区卷标"></a>使用mtools编辑FAT32磁盘分区卷标</h1><p>我想更改由系统自动挂载的USB设备中的FAT32分区卷标.我有两个外接硬盘驱动器(一个日常家用,一个公司工作用),其中一个是iPod.这两个驱动器都被系统以”sda1”或”sda2”等名称挂载于”/media”目录下,在电脑里我很难通过这些名字辨认出哪个文件夹是对应哪个驱动器.后来,我发现更改这些驱动器上的FAT32分区卷标不是件容易事.所以我觉得有必要将我是如何修改这些FAT32分区卷标的过程写下来.方便那些遇到同样问题的人.讲解之前首先明白:系统会将外接的驱动器自动挂载到”/media/”目录下,以”sda1”类似的卷标名命名分区,为了容易区别各分区,我们需要修改默认的卷标</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/post/linux/2017-12-06_%E9%87%8D%E5%91%BD%E5%90%8D%E7%A3%81%E7%9B%98%E6%8C%82%E8%BD%BD%E5%88%86%E5%8C%BA%E5%8D%B7%E6%A0%87(%E7%A3%81%E7%9B%98%E5%90%8D).html#more" rel="contents">
@@ -433,7 +432,6 @@
     <div class="post-body" itemprop="articleBody">
           <h3 id="简单使用："><a href="#简单使用：" class="headerlink" title="简单使用："></a>简单使用：</h3><p><a target="_blank" rel="noopener" href="https://github.com/XX-net/XX-Net/wiki/How-to-use">https://github.com/XX-net/XX-Net/wiki/How-to-use</a></p>
 <p>默认配置看不了视频。</p>
-<h3 id="自己创建-GAE-appid"><a href="#自己创建-GAE-appid" class="headerlink" title="自己创建 GAE appid"></a>自己创建 GAE appid</h3><p>因为官方教程有点出路，我自己整理了一下操作步骤。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/post/linux/2017-12-04_XXNET%E6%8C%BA%E4%B8%8D%E9%94%99%E7%9A%84%EF%BC%8C%E8%AE%B0%E5%BD%95%E4%B8%80%E4%B8%8B%E7%AE%80%E5%8D%95%E7%9A%84%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B.html#more" rel="contents">
@@ -602,8 +600,6 @@
           <p>如果某个 Linux 发行版没有super + d 显示桌面快捷键，可以自己配置一下</p>
 <p>命令： wmctrl -k on </p>
 <p>通常在 system - setting - keyboard  的 Custom 标签下进行设置</p>
-<p>wmctrl 没有的话，需要自己安装一下</p>
-<p>-EOF-</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/post/linux/2017-12-01_super+d%E6%98%BE%E7%A4%BA%E6%A1%8C%E9%9D%A2%E5%BF%AB%E6%8D%B7%E9%94%AE.html#more" rel="contents">
@@ -693,8 +689,14 @@
           <p>chrome 54 以上版本没有自带 flash，在播放 flash 视频时 chrome 会下载 swf 文件。如果在 chrome://plugins 启用了 flash 插件，则会显示 flash out of date。</p>
 <p>需要让 chrome 安装 flash 插件。在地址栏输入 chrome://components，然后点击 Adobe Flash Player 下面的 Check for update，chrome 会下载安装 flash 插件。下载插件需要代理，但 chrome 不会使用代理插件（例如 SwithyOmega）提供的代理，应该用外部程序代理。我直接用路由器的 shadowsocks 了。</p>
 <p>此时如果启用了 flash 插件，则会卡在 Checking for status。需要先到 chrome://plugins 禁用 flash 插件。</p>
-<p>安装完毕显示 Component updated 后，在地址栏输入 chrome://plugins，点击页面右侧的 Details，点击 Adobe Flash Player 项中 PPAPI 下面的 Enable，然后勾选 “Always allowed to run”，启用 flash。</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/linux/2017-11-30_%E8%A7%A3%E5%86%B3Linux%E4%B8%8BChrome%E6%97%A0%E6%B3%95%E6%92%AD%E6%94%BEflash%E9%97%AE%E9%A2%98.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -778,8 +780,6 @@
 <p>only one software management tool is allowed to run restarting is not work</p>
 </blockquote>
 <p>解决方法：</p>
-<p>Make sure software centre is not open and that updates are not running.</p>
-<p>使用：</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/post/linux/2017-11-29_%E5%AE%89%E8%A3%85deb%E5%8C%85%E8%A2%AB%E4%B8%AD%E6%96%AD%E9%97%AE%E9%A2%98.html#more" rel="contents">
@@ -869,8 +869,6 @@
           <p>原文出处： <a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2012/02/a_history_of_unix_directory_structure.html">阮一峰（ @ruanyf ）</a>   </p>
 <p>Unix（包含Linux）的初学者，常常会很困惑，不明白目录结构的含义何在。</p>
 <p>举例来说，根目录下面有一个子目录/bin，用于存放二进制程序。但是，/usr子目录下面还有/usr/bin，以及/usr/local/bin，也用于存放二进制程序；某些系统甚至还有/opt/bin。它们有何区别？</p>
-<p>长久以来，我也感到很费解，不明白为什么这样设计。像大多数人一样，我只是根据《Unix文件系统结构标准》（Filesystem Hierarchy Standard），死记硬背不同目录的区别。</p>
-<p>昨天，我读到了Rob Landley的简短解释，这才恍然大悟，原来Unix目录结构是历史造成的。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/post/linux/2017-11-28_Unix%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84%E7%9A%84%E6%9D%A5%E5%8E%86.html#more" rel="contents">
@@ -1040,12 +1038,6 @@
           <p>同步（synchronous） IO和异步（asynchronous） IO，阻塞（blocking） IO和非阻塞（non-blocking）IO分别是什么，到底有什么区别？这个问题其实不同的人给出的答案都可能不同，比如wiki，就认为asynchronous IO和non-blocking IO是一个东西。这其实是因为不同的人的知识背景不同，并且在讨论这个问题的时候上下文(context)也不相同。所以，为了更好的回答这个问题，我先限定一下本文的上下文。</p>
 <p>本文讨论的背景是Linux环境下的network IO。</p>
 <p>本文最重要的参考文献是Richard Stevens的“UNIX® Network Programming Volume 1, Third Edition: The Sockets Networking ”，6.2节“I/O Models ”，Stevens在这节中详细说明了各种IO的特点和区别，如果英文够好的话，推荐直接阅读。Stevens的文风是有名的深入浅出，所以不用担心看不懂。本文中的流程图也是截取自参考文献。</p>
-<p>Stevens在文章中一共比较了五种IO Model：</p>
-<pre><code>blocking IO
-nonblocking IO
-IO multiplexing
-signal driven IO
-asynchronous IO</code></pre>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/post/linux/2017-11-26_IO-%E5%90%8C%E6%AD%A5%EF%BC%8C%E5%BC%82%E6%AD%A5%EF%BC%8C%E9%98%BB%E5%A1%9E%EF%BC%8C%E9%9D%9E%E9%98%BB%E5%A1%9E.html#more" rel="contents">

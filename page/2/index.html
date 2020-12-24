@@ -276,8 +276,6 @@ begin
 end;;
 delimiter ;
 call idata();</code></pre>
-<p>然后我们执行一下这条语句</p>
-<pre><code>explain select 1000 as f union (select id from t1 order by id desc limit 2)</code></pre>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/post/dateabase/mysql/2020-09-13_MySQL%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E4%BC%9A%E4%BD%BF%E7%94%A8%E5%86%85%E9%83%A8%E4%B8%B4%E6%97%B6%E8%A1%A8.html#more" rel="contents">
@@ -366,7 +364,6 @@ call idata();</code></pre>
     <div class="post-body" itemprop="articleBody">
           <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>MySQL 应该算是目前最流行的数据库之一，经常建库建表的同学应该对 Character Set 和 Collation 这两个词不陌生。</p>
 <p>虽然一直有接触，但我还是挺云里雾里的。直到前些天特地做了功课，才敢说有个比较清晰的了解，所以就有了这篇文章。</p>
-<h2 id="Character-Set-与-Collation"><a href="#Character-Set-与-Collation" class="headerlink" title="Character Set 与 Collation"></a>Character Set 与 Collation</h2><p>简单地说，Character Set 是字符集，而 Collation 是比对方法，是两个不同维度的概念。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/post/dateabase/mysql/2020-09-12_MySQL%E4%B8%AD%E7%9A%84Character_Set%E4%B8%8ECollation.html#more" rel="contents">
@@ -453,13 +450,7 @@ call idata();</code></pre>
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="Scheme与数据类型优化"><a href="#Scheme与数据类型优化" class="headerlink" title="Scheme与数据类型优化"></a>Scheme与数据类型优化</h2><h3 id="选择合适的类型"><a href="#选择合适的类型" class="headerlink" title="选择合适的类型"></a>选择合适的类型</h3><h4 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h4><ul>
-<li>更小的通常更好：尽可能把列的大小指定在合理的范围；</li>
-<li>简单，例如：能用整型就用整型；避免字符串表示日期，应该用内建的日期和时间类型；ip应转成long存储等；</li>
-<li>尽量避免默认值为 <code>NULL</code>，尤其是当需要在该列上创建索引的时候；</li>
-<li>例外情况：如果是稀疏数据，比如很多行都为<code>NULL</code>，只有少部分数据为<code>NULL</code>，使用<code>NULL</code>可以很好的提高空间利用率；</li>
-</ul>
-<h3 id="整数类型"><a href="#整数类型" class="headerlink" title="整数类型"></a>整数类型</h3>
+          <h2 id="Scheme与数据类型优化"><a href="#Scheme与数据类型优化" class="headerlink" title="Scheme与数据类型优化"></a>Scheme与数据类型优化</h2><h3 id="选择合适的类型"><a href="#选择合适的类型" class="headerlink" title="选择合适的类型"></a>选择合适的类型</h3><h4 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h4>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/post/dateabase/mysql/2020-09-11_%E9%AB%98%E6%80%A7%E8%83%BDMySQL%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0(2).html#more" rel="contents">
@@ -548,8 +539,6 @@ call idata();</code></pre>
     <div class="post-body" itemprop="articleBody">
           <p>原文：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/kerrycode/p/5593204.html">https://www.cnblogs.com/kerrycode/p/5593204.html</a></p>
 <h2 id="慢查询日志概念"><a href="#慢查询日志概念" class="headerlink" title="慢查询日志概念"></a>慢查询日志概念</h2><pre><code> MySQL的慢查询日志是MySQL提供的一种日志记录，它用来记录在MySQL中响应时间超过阀值的语句，具体指运行时间超过long_query_time值的SQL，则会被记录到慢查询日志中。long_query_time的默认值为10，意思是运行10S以上的语句。默认情况下，Mysql数据库并不启动慢查询日志，需要我们手动来设置这个参数，当然，如果不是调优需要的话，一般不建议启动该参数，因为开启慢查询日志会或多或少带来一定的性能影响。慢查询日志支持将日志记录写入文件，也支持将日志记录写入数据库表。</code></pre>
-<p>官方文档，关于慢查询的日志介绍如下（部分资料，具体参考官方相关链接）：</p>
-<p>The slow query log consists of SQL statements that took more than long_query_time seconds to execute and required at least min_examined_row_limit rows to be examined. The minimum and default values of long_query_time are 0 and 10, respectively. The value can be specified to a resolution of microseconds. For logging to a file, times are written including the microseconds part. For logging to tables, only integer times are written; the microseconds part is ignored.</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/post/dateabase/mysql/2020-09-10_%E9%AB%98%E6%80%A7%E8%83%BDMySQL_MySQL%E6%85%A2%E6%9F%A5%E8%AF%A2%E6%97%A5%E5%BF%97%E6%80%BB%E7%BB%93.html#more" rel="contents">
@@ -637,7 +626,6 @@ call idata();</code></pre>
     
     <div class="post-body" itemprop="articleBody">
           <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><h3 id="什么是性能？"><a href="#什么是性能？" class="headerlink" title="什么是性能？"></a>什么是性能？</h3><p>完成某件任务所需要的时间度量，也就是响应时间。</p>
-<h3 id="什么是优化？"><a href="#什么是优化？" class="headerlink" title="什么是优化？"></a>什么是优化？</h3><p>在一定的工作负载下，尽可能地降低响应时间。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/post/dateabase/mysql/2020-09-09_%E9%AB%98%E6%80%A7%E8%83%BDMySQL%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0(1).html#more" rel="contents">
@@ -726,7 +714,6 @@ call idata();</code></pre>
     <div class="post-body" itemprop="articleBody">
           <h1 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h1><p>在上一期月报中我们分享了SQL Server三种常见的备份技术及工作方式，本期月报将分享如何充分利用三者的优点来制定SQL Server数据库的备份和还原策略以达到数据库快速灾难恢复能力。</p>
 <p><a target="_blank" rel="noopener" href="http://mysql.taobao.org/monthly/2017/11/03/">上期月报：MSSQL · 最佳实践 · SQL Server三种常见备份</a></p>
-<h1 id="三个术语"><a href="#三个术语" class="headerlink" title="三个术语"></a>三个术语</h1><p>在详细介绍SQL Server的灾备策略之前，我们先简要介绍三个重要的术语：</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/post/dateabase/MSSQL/2020-09-08_MSSQL%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5_SQL_Server%E5%A4%87%E4%BB%BD%E7%AD%96%E7%95%A5.html#more" rel="contents">
@@ -816,7 +803,6 @@ call idata();</code></pre>
           <p>I have recently spoken at a meetup about <a target="_blank" rel="noopener" href="https://www.e4developer.com/2018/02/20/practical-choreography-with-spring-cloud-presentation/">Practical Choreography with Spring Cloud Stream</a>. It was a great event where I was asked many questions after the talk. One question got me thinking: <em>“What book about Spring Cloud do you recommend?” *which as it turns out boils down to *“How do you learn Spring Cloud?”.</em> I heard that question posed a few times before in different ways. Here, I will give you my answer on what I think is the best way of learning Spring Cloud.</p>
 <p>With Spring Cloud being probably the hottest framework on JVM for integrating microservices, the interest in it is growing. Most people interested in the microservices are already familiar with Spring Boot. If you haven’t heard of it before, check out my <a target="_blank" rel="noopener" href="https://www.e4developer.com/2018/01/16/microservices-toolbox-spring-boot/">Spring Boot introduction</a> blog post, and definitely see the <a target="_blank" rel="noopener" href="https://projects.spring.io/spring-boot/">official site</a>– it has some very good <em>Getting Started Guides</em>.</p>
 <p>With that out of the way, let’s look at learning Spring Cloud!</p>
-<h3 id="Understand-the-Scope"><a href="#Understand-the-Scope" class="headerlink" title="Understand the Scope"></a>Understand the Scope</h3><p>The first thing to do when trying to learn something so big and diverse is understanding the scope. Learning Spring Cloud can mean many things. First of all, the Spring Cloud currently contains:</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/post/java/spring/2020-09-02_How-to-learn-Spring-Cloud.html#more" rel="contents">
@@ -904,8 +890,7 @@ call idata();</code></pre>
     
     <div class="post-body" itemprop="articleBody">
           <h3 id="获取系统支持的字符集"><a href="#获取系统支持的字符集" class="headerlink" title="获取系统支持的字符集"></a><strong>获取系统支持的字符集</strong></h3><pre><code>Charset.availableCharsets();  // Java</code></pre>
-<h3 id="编解码"><a href="#编解码" class="headerlink" title="编解码"></a><strong>编解码</strong></h3><p>编码：字符 -&gt; 字节 ；<br>解码：字节 -&gt; 字符；</p>
-<h3 id="字符集"><a href="#字符集" class="headerlink" title="字符集"></a><strong>字符集</strong></h3>
+<h3 id="编解码"><a href="#编解码" class="headerlink" title="编解码"></a><strong>编解码</strong></h3>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/post/java/advance/2020-06-29_%E5%AD%97%E7%AC%A6%E9%9B%86%E7%9F%A5%E8%AF%86%E7%82%B9.html#more" rel="contents">
@@ -994,8 +979,6 @@ call idata();</code></pre>
     <div class="post-body" itemprop="articleBody">
           <p>转载：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/76959115d486">https://www.jianshu.com/p/76959115d486</a></p>
 <h2 id="1-CPU和内存的交互"><a href="#1-CPU和内存的交互" class="headerlink" title="1 CPU和内存的交互"></a>1 CPU和内存的交互</h2><p>了解jvm内存模型前，了解下cpu和计算机内存的交互情况。【因为Java虚拟机内存模型定义的访问操作与计算机十分相似】</p>
-<p>有篇很棒的文章，从cpu讲到内存模型:<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/bf158fbb2432">什么是java内存模型</a></p>
-<hr>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/post/java/advance/2020-06-28_java_jvm.html#more" rel="contents">

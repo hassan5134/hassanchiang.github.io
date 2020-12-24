@@ -263,11 +263,6 @@
     <div class="post-body" itemprop="articleBody">
           <h3 id="组合注解"><a href="#组合注解" class="headerlink" title="组合注解"></a>组合注解</h3><p>被注解的注解称为组合注解。</p>
 <p>1.好处</p>
-<ul>
-<li>简单化注解配置，用很少的注解来标注特定含义的多个元注解</li>
-<li>提供了很好的扩展性，可以根据实际需要灵活的自定义注解。</li>
-</ul>
-<p>2 如何使用</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/post/java/spring/2016-10-30_Spring%20%E7%BB%84%E5%90%88%E6%B3%A8%E8%A7%A3&%E6%B3%A8%E8%A7%A3%E7%BB%A7%E6%89%BF.html#more" rel="contents">
@@ -357,8 +352,6 @@
           <p>这是一个困惑了我几年的问题，它让我对现在的教科书和老师极其不满，从我 N 年前开始摸电脑时，就几乎在每一本 C++ 教科书上都说，8 位有符号的取值范围是 - 128 到 +127，为什么不是 - 127 到 +127 呢，后来的 java，int 的取值范围，再 32 位计算，-2^31 到 +2^31-1，可是，却从来没有任何一本教科书或一个老师比我解释过这个问题。 原因没有在工作上或者是什么地方直接遇到它，所以我也一直忽略它，但心里总是有一根刺。</p>
 <p>直到刚才!!!! 就是刚才，无聊之极，在看汇编的书时，又遇到它了，但一如以往，书上直接地，有心地，明显地绕过了这个问题，真是可恶啊。</p>
 <p>几经周折，终于把它搞清楚了:<br>其实，它是计算机底层为了实现数值运算而决定的，涉及非常非常基础的原码，反码，补码知识，一般 (99.9999%) 都不会用得上。 那 0.0001%，估计也就是计算机考试了。</p>
-<p>话说:</p>
-<p>用 2^8 来表示无符号整数的话，全世界的理解都是 0 到 255 了，那么，有符号呢?</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/post/java/advance/2016-10-25_number.html#more" rel="contents">
@@ -448,8 +441,6 @@
           <p><strong>作用</strong></p>
 <p>ThreadLocal 不是用来解决共享对象访问的多线程访问问题，而是用于解决不同线程保持各自独立的一个对象。<br>典型的问题就是：当一个单例 A 持有某个属性对象 a.b 时，如果 a.b 在多个方法里面使用，就有可能造成线程不安全，如果把 b 定义成 ThreadLocal<b> b 就可以避免以上问题。</b></p>
 <p><strong>实现</strong></p>
-<p>一、ThreadLocal</p>
-<p>实例方法：</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/post/java/basic/2016-10-25_threadlocal.html#more" rel="contents">
@@ -538,9 +529,7 @@
     <div class="post-body" itemprop="articleBody">
           <p>JDK 1.8 对 HashMap 改进很多，1.8 中已经移除了 Entry 的这种实现方式了，改用了 Node，所以存储结构也发生了很大的变化，代码也从 1k 行膨胀到了 2k 行，这次梳理的是 1.7 的 HashMap 实现。1.8 下次再详细看看。</p>
 <p>HashMap 继承 AbstractMap，实现了 Map 接口。</p>
-<h4 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">static final int DEFAULT_INITIAL_CAPACITY &#x3D; 1 &lt;&lt; 4; &#x2F;&#x2F; 默认初始化容量值，16，要求 2 的 N 次幂（计算 table index 要求），可以在构造方法指定，如果在构造函数指定 50，那么 Map 会自动选择扩容到 50 以后的 2 次幂，即：64</span><br><span class="line"></span><br><span class="line">static final int MAXIMUM_CAPACITY &#x3D; 1 &lt;&lt; 30;&#x2F;&#x2F; 最大容量</span><br><span class="line"></span><br><span class="line">static final float DEFAULT_LOAD_FACTOR &#x3D; 0.75f;&#x2F;&#x2F; 默认负载因子，可以在构造方法指定实际值</span><br><span class="line"></span><br><span class="line">transient Entry[] table &#x3D; (Entry[]) EMPTY_TABLE;&#x2F;&#x2F; 所有 HashMap 实例初始化时，共享该值，表示空集合</span><br><span class="line"></span><br><span class="line">transient int size;&#x2F;&#x2F; Map 中 k-v 个数</span><br><span class="line"></span><br><span class="line">int threshold;&#x2F;&#x2F; 临界值，size &gt;&#x3D; 该值的时候，进行 resize</span><br><span class="line"></span><br><span class="line">final float loadFactor;&#x2F;&#x2F; 负载因子，用于计算 threshold，threshold &#x3D; (int)Math.min(capacity* loadFactor, MAXIMUM_CAPACITY + 1);</span><br><span class="line"></span><br><span class="line">transient int modCount;&#x2F;&#x2F; 记录 Map 结构被修改的次数，这里的修改可能是 Map 的 size 改变，比如 put，remove，clear 等；rehash；当 clone 的时候，返回的克隆 Map 对象的 modCout 被为 0</span><br><span class="line"></span><br><span class="line">static final int ALTERNATIVE_HASHING_THRESHOLD_DEFAULT &#x3D; Integer.MAX_VALUE;&#x2F;&#x2F; 默认替换散列阈值</span><br><span class="line"></span><br><span class="line">private static class Holder.ALTERNATIVE_HASHING_THRESHOLD &#x2F;&#x2F; 替换散列阈值，该值在 VM 启动以后初始化，如果系统属性（system property）数定义了 jdk.map.althashing.threshold &gt;&#x3D; 0 时，则使用定义的值作为该值；否则使用 Integer.MAX_VALUE。当调用 resize 或者 inflateTable 的时候，如果满足条件 capacity &gt;&#x3D; 该值，会进行 rehash，rehash 的目的是为了避免 hash 值的碰撞。</span><br><span class="line"></span><br><span class="line">transient int hashSeed &#x3D; 0;&#x2F;&#x2F; hashSeed 用于计算 key 的 hash 值，它与 key 的 hashCode 进行按位异或运算。这个 hashSeed 是一个与实例相关的随机值，主要用于解决 hash 冲突。上面说到 rehash 其实就是事先改变 hashSeed 的值，以至于计算 key 的新 hash 值与原 hash 值不同</span><br></pre></td></tr></table></figure>
-
-<h4 id="构造方法"><a href="#构造方法" class="headerlink" title="构造方法"></a>构造方法</h4>
+<h4 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h4>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/post/java/basic/2016-10-25_hashmap_jdk7.html#more" rel="contents">
@@ -759,9 +748,7 @@
     
     <div class="post-body" itemprop="articleBody">
           <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/post/hello-world.html#more" rel="contents">

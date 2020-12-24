@@ -23,12 +23,12 @@
     var NexT = window.NexT || {};
     var CONFIG = {"hostname":"blog.fenxiangz.com","root":"/","images":"/images","scheme":"Pisces","version":"8.1.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}};
   </script>
-<meta name="description" content="Reactor 和 Proactor 是基于事件驱动，在网络编程中经常用到两种设计模式。 曾经在一个项目中用到了网络库 libevent，也学习了一段时间，其内部实现所用到的就是 Reactor，所知道的还有 ACE；Proactor 模式的库有 Boost.Asio，ACE，暂时没有用过。但我也翻阅了一些文档，理解了它的实现方法。下面是我在学习这两种设计模式过程的笔记。 ReactorReact">
+<meta name="description" content="Reactor 和 Proactor 是基于事件驱动，在网络编程中经常用到两种设计模式。 曾经在一个项目中用到了网络库 libevent，也学习了一段时间，其内部实现所用到的就是 Reactor，所知道的还有 ACE；Proactor 模式的库有 Boost.Asio，ACE，暂时没有用过。但我也翻阅了一些文档，理解了它的实现方法。下面是我在学习这两种设计模式过程的笔记。 Reactor">
 <meta property="og:type" content="article">
 <meta property="og:title" content="两种高性能 I&#x2F;O 设计模式 Reactor 和 Proactor">
 <meta property="og:url" content="https://blog.fenxiangz.com/post/linux/2017-12-08_%E4%B8%A4%E7%A7%8D%E9%AB%98%E6%80%A7%E8%83%BDIO%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8FReactor%E5%92%8CProactor.html">
 <meta property="og:site_name" content="分享之">
-<meta property="og:description" content="Reactor 和 Proactor 是基于事件驱动，在网络编程中经常用到两种设计模式。 曾经在一个项目中用到了网络库 libevent，也学习了一段时间，其内部实现所用到的就是 Reactor，所知道的还有 ACE；Proactor 模式的库有 Boost.Asio，ACE，暂时没有用过。但我也翻阅了一些文档，理解了它的实现方法。下面是我在学习这两种设计模式过程的笔记。 ReactorReact">
+<meta property="og:description" content="Reactor 和 Proactor 是基于事件驱动，在网络编程中经常用到两种设计模式。 曾经在一个项目中用到了网络库 libevent，也学习了一段时间，其内部实现所用到的就是 Reactor，所知道的还有 ACE；Proactor 模式的库有 Boost.Asio，ACE，暂时没有用过。但我也翻阅了一些文档，理解了它的实现方法。下面是我在学习这两种设计模式过程的笔记。 Reactor">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://blog.fenxiangz.com/post/linux/2017-12-08_%E4%B8%A4%E7%A7%8D%E9%AB%98%E6%80%A7%E8%83%BDIO%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8FReactor%E5%92%8CProactor/1.png">
 <meta property="og:image" content="https://blog.fenxiangz.com/post/linux/2017-12-08_%E4%B8%A4%E7%A7%8D%E9%AB%98%E6%80%A7%E8%83%BDIO%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8FReactor%E5%92%8CProactor/2.png">

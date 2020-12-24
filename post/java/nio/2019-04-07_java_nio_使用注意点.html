@@ -23,12 +23,12 @@
     var NexT = window.NexT || {};
     var CONFIG = {"hostname":"blog.fenxiangz.com","root":"/","images":"/images","scheme":"Pisces","version":"8.1.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}};
   </script>
-<meta name="description" content="找问题的时后发现了这篇文章，惊为天人，几乎涵盖了我所有碰到的坑，非常不错！ 不得不说，NIO的API设计的够难用的，坑还巨多….这也是为什么大家都不直接使用nio的原因吧，一般会用mina或者netty啥的（这是个记录的博客，所以会不断更新） 关于通道本身的一些注意点，请参考我之前的：nio通道(2)—几个注意点 其他一些参考nio summary 1 坑爹的事件">
+<meta name="description" content="找问题的时后发现了这篇文章，惊为天人，几乎涵盖了我所有碰到的坑，非常不错！ 不得不说，NIO的API设计的够难用的，坑还巨多….这也是为什么大家都不直接使用nio的原因吧，一般会用mina或者netty啥的（这是个记录的博客，所以会不断更新） 关于通道本身的一些注意点，请参考我之前的：nio通道(2)—几个注意点">
 <meta property="og:type" content="article">
 <meta property="og:title" content="NIO 各种使用注意点">
 <meta property="og:url" content="https://blog.fenxiangz.com/post/java/nio/2019-04-07_java_nio_%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F%E7%82%B9.html">
 <meta property="og:site_name" content="分享之">
-<meta property="og:description" content="找问题的时后发现了这篇文章，惊为天人，几乎涵盖了我所有碰到的坑，非常不错！ 不得不说，NIO的API设计的够难用的，坑还巨多….这也是为什么大家都不直接使用nio的原因吧，一般会用mina或者netty啥的（这是个记录的博客，所以会不断更新） 关于通道本身的一些注意点，请参考我之前的：nio通道(2)—几个注意点 其他一些参考nio summary 1 坑爹的事件">
+<meta property="og:description" content="找问题的时后发现了这篇文章，惊为天人，几乎涵盖了我所有碰到的坑，非常不错！ 不得不说，NIO的API设计的够难用的，坑还巨多….这也是为什么大家都不直接使用nio的原因吧，一般会用mina或者netty啥的（这是个记录的博客，所以会不断更新） 关于通道本身的一些注意点，请参考我之前的：nio通道(2)—几个注意点">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://pocket-image-cache.com/direct?url=http://userimage3.360doc.com/12/0902/22/495229_201209022226160388.jpg&resize=w640">
 <meta property="og:image" content="https://pocket-image-cache.com/direct?url=http://userimage3.360doc.com/12/0902/22/495229_201209022226160919.jpg&resize=w640">

@@ -263,8 +263,6 @@
     <div class="post-body" itemprop="articleBody">
           <h1 id="netty概要"><a href="#netty概要" class="headerlink" title="netty概要"></a>netty概要</h1><p>netty是一个异步非阻塞的通信框架（类似的框架还有mina，grizzly）。</p>
 <p>底层封装了NIO2.0模块，即AIO。</p>
-<p>好处：使用起来无需关注如何连接，只需关注业务逻辑处理代码，而且性能高效。遵循servlet3.0标准规范的，和tomcat等web容器不同的是异步非阻塞。tomcat容器支持最大并发量大概在800左右。而且netty也不算是web容器。</p>
-<p>使用流程：<br>服务端：配置端口，长连接还是短连接（针对业务，比如聊天一般用长连接，和客户端保持连接，短连接是针对是数据量大连接次数少的情况，比如一小时上传文件4到5次），最后要调用下异步关闭，否则服务端会关闭的，一般我们是不允许服务端关闭的。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/post/java/netty/2020-05-24_Netty%20%E7%AC%94%E8%AE%B0%E6%B1%87%E6%80%BB.html#more" rel="contents">
@@ -353,14 +351,6 @@
     <div class="post-body" itemprop="articleBody">
           <p>首先在说明单例设计模式中的 DCL 问题之前我们首先看看实现单例设计模式的两种方式：饿汉式和懒汉式。</p>
 <h2 id="什么是饿汉式？"><a href="#什么是饿汉式？" class="headerlink" title="什么是饿汉式？"></a>什么是饿汉式？</h2><p>饿汉式就是不管你是否用的上，一开始就先初始化对象（也叫做提前初始化）</p>
-<p><strong>代码示例：</strong></p>
-<pre><code>public class EagerInitialization&#123;
-    private EagerInitialization() &#123;&#125;
-    private static Resource resource = new Resource();
-    public static Resource getResource()&#123;
-        return resource;
-    &#125;
-&#125;</code></pre>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/post/java/advance/2019-05-21_java%E4%B8%AD%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8FDCL%E7%9A%84%E7%BC%BA%E9%99%B7%E5%8F%8A%E5%8D%95%E4%BE%8B%E7%9A%84%E6%AD%A3%E7%A1%AE%E5%86%99%E6%B3%95.html#more" rel="contents">
@@ -449,7 +439,6 @@
     <div class="post-body" itemprop="articleBody">
           <h3 id="1"><a href="#1" class="headerlink" title="1"></a><strong>1</strong></h3><p><img src="./2020-05-20_SpringBoot%E6%8E%92%E5%9D%91/1.png"> </p>
 <p>2.0.3 有内存暂用 不释放的问题，小版本升级到2.0.5就可以解决；</p>
-<h3 id="2"><a href="#2" class="headerlink" title="2"></a><strong>2</strong></h3><p>SpringBoot 2.2.x 版本有CPU增高的bug；<br>2.2.1-2.2.5 版本是会造成频繁的拿锁与解锁 ；<br>2.2.6 版本 cpu会持续增高<br>建议选择： 2.1 版本；</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/post/java/spring/2020-05-20_SpringBoot%E6%8E%92%E5%9D%91.html#more" rel="contents">
@@ -537,7 +526,7 @@
     
     <div class="post-body" itemprop="articleBody">
           <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>SprintBoot总体来说，搭建还是比较容易的，特别是SpringCloud全家桶，简称亲民微服务，但在发展趋势中，容器化技术已经成熟，面对巨耗内存的SprintBoot，小公司表示用不起。如今，很多刚诞生的JAVA微服务框架大多主打“轻量级”，主要还是因为SprintBoot太重。</p>
-<h2 id="JAVA系微服务框架No1-Spring-Cloud"><a href="#JAVA系微服务框架No1-Spring-Cloud" class="headerlink" title="JAVA系微服务框架No1-Spring Cloud"></a>JAVA系微服务框架No1-Spring Cloud</h2><h4 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h4><p>有Spring大靠山在，更新、稳定性、成熟度的问题根本不需要考虑。在JAVA系混的技术人员大约都听说过Spring的大名吧，所以不缺程序员……，而且这入手的难度十分低，完全可以省去一个架构师。<br>但是，你必然在服务器上付出：</p>
+<h2 id="JAVA系微服务框架No1-Spring-Cloud"><a href="#JAVA系微服务框架No1-Spring-Cloud" class="headerlink" title="JAVA系微服务框架No1-Spring Cloud"></a>JAVA系微服务框架No1-Spring Cloud</h2>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/post/java/spring/2020-05-20_%E8%AF%B7%E7%BB%99SprintBoot%E5%A4%9A%E4%B8%80%E4%BA%9B%E5%86%85%E5%AD%98.html#more" rel="contents">
@@ -627,8 +616,6 @@
           <p>Spring 最重要的概念是 IOC 和 AOP，本篇文章其实就是要带领大家来分析下 Spring 的 IOC 容器。既然大家平时都要用到 Spring，怎么可以不好好了解 Spring 呢？阅读本文并不能让你成为 Spring 专家，不过一定有助于大家理解 Spring 的很多概念，帮助大家排查应用中和 Spring 相关的一些问题。</p>
 <p>本文采用的源码版本是 4.3.11.RELEASE，算是 5.0.x 前比较新的版本了。为了降低难度，本文所说的所有的内容都是基于 xml 的配置的方式，实际使用已经很少人这么做了，至少不是纯 xml 配置，不过从理解源码的角度来看用这种方式来说无疑是最合适的。</p>
 <p>阅读建议：读者至少需要知道怎么配置 Spring，了解 Spring 中的各种概念，少部分内容我还假设读者使用过 SpringMVC。本文要说的 IOC 总体来说有两处地方最重要，一个是创建 Bean 容器，一个是初始化 Bean，如果读者觉得一次性看完本文压力有点大，那么可以按这个思路分两次消化。读者不一定对 Spring 容器的源码感兴趣，也许附录部分介绍的知识对读者有些许作用。</p>
-<p>希望通过本文可以让读者不惧怕阅读 Spring 源码，也希望大家能反馈表述错误或不合理的地方。</p>
-<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/post/java/spring/2020-11-20_SpringIOC%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90.html#more" rel="contents">
@@ -717,35 +704,6 @@
     <div class="post-body" itemprop="articleBody">
           <p>在Java中，线程部分是一个重点，本篇文章说的JUC也是关于线程的。JUC就是java.util .concurrent工具包的简称。这是一个处理线程的工具包，JDK 1.5开始出现的。下面一起来看看它怎么使用。</p>
 <h1 id="一、volatile关键字与内存可见性"><a href="#一、volatile关键字与内存可见性" class="headerlink" title="一、volatile关键字与内存可见性"></a>一、volatile关键字与内存可见性</h1><p><strong>1、内存可见性：</strong></p>
-<p>先来看看下面的一段代码：</p>
-<pre><code>public class TestVolatile &#123;
-    public static void main(String[] args)&#123; //这个线程是用来读取flag的值的
-        ThreadDemo threadDemo = new ThreadDemo();
-        Thread thread = new Thread(threadDemo);
-        thread.start();
-        while (true)&#123;
-            if (threadDemo.isFlag())&#123;
-                System.out.println(&quot;主线程读取到的flag = &quot; + threadDemo.isFlag());
-                break;
-            &#125;
-        &#125;
-    &#125;
-&#125;
-
-@Data
-class ThreadDemo implements Runnable&#123; //这个线程是用来修改flag的值的
-    public  boolean flag = false;
-    @Override
-    public void run() &#123;
-        try &#123;
-            Thread.sleep(200);
-        &#125; catch (InterruptedException e) &#123;
-            e.printStackTrace();
-        &#125;
-        flag = true;
-        System.out.println(&quot;ThreadDemo线程修改后的flag = &quot; + isFlag());
-    &#125;
-&#125;</code></pre>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/post/java/advance/2020-05-02_java_juc.html#more" rel="contents">
@@ -832,16 +790,7 @@ class ThreadDemo implements Runnable&#123; //这个线程是用来修改flag的�
     
     
     <div class="post-body" itemprop="articleBody">
-          <h4 id="1-数据库查询是否有问题，是不是慢查？索引？数据量？"><a href="#1-数据库查询是否有问题，是不是慢查？索引？数据量？" class="headerlink" title="1. 数据库查询是否有问题，是不是慢查？索引？数据量？"></a>1. 数据库查询是否有问题，是不是慢查？索引？数据量？</h4><h4 id="2-中间件：缓存，命中率？"><a href="#2-中间件：缓存，命中率？" class="headerlink" title="2. 中间件：缓存，命中率？"></a>2. 中间件：缓存，命中率？</h4><h4 id="3-代码：过长，多层循环？"><a href="#3-代码：过长，多层循环？" class="headerlink" title="3. 代码：过长，多层循环？"></a>3. 代码：过长，多层循环？</h4><h4 id="4-多线程并发"><a href="#4-多线程并发" class="headerlink" title="4. 多线程并发"></a>4. 多线程并发</h4><ul>
-<li><p>开多少线程</p>
-</li>
-<li><p>如何控制线程数量</p>
-</li>
-<li><p>线程安全问题</p>
-</li>
-<li><p>Executors 慎用，内部无界队列；</p>
-</li>
-</ul>
+          <h4 id="1-数据库查询是否有问题，是不是慢查？索引？数据量？"><a href="#1-数据库查询是否有问题，是不是慢查？索引？数据量？" class="headerlink" title="1. 数据库查询是否有问题，是不是慢查？索引？数据量？"></a>1. 数据库查询是否有问题，是不是慢查？索引？数据量？</h4><h4 id="2-中间件：缓存，命中率？"><a href="#2-中间件：缓存，命中率？" class="headerlink" title="2. 中间件：缓存，命中率？"></a>2. 中间件：缓存，命中率？</h4><h4 id="3-代码：过长，多层循环？"><a href="#3-代码：过长，多层循环？" class="headerlink" title="3. 代码：过长，多层循环？"></a>3. 代码：过长，多层循环？</h4>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/post/java/advance/2020-04-25_java_optimize.html#more" rel="contents">
@@ -931,8 +880,6 @@ class ThreadDemo implements Runnable&#123; //这个线程是用来修改flag的�
           <p>分享一个最近发现的技巧，我在一个吉他谱网站找谱子，发现要会员权限，需要付费。</p>
 <p>这样：</p>
 <p><img src="./2020-01-29_%E5%BC%B9%E7%90%B4%E5%90%A7%E9%9D%9E%E4%BC%9A%E5%91%98%E6%89%92%E8%B0%B1%E6%8A%80%E5%B7%A7/1.png"></p>
-<p>通过网页源码查看曲谱地址：</p>
-<p><img src="./2020-01-29_%E5%BC%B9%E7%90%B4%E5%90%A7%E9%9D%9E%E4%BC%9A%E5%91%98%E6%89%92%E8%B0%B1%E6%8A%80%E5%B7%A7/2.png"></p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/post/%E5%85%B6%E4%BB%96/2020-01-29_%E5%BC%B9%E7%90%B4%E5%90%A7%E9%9D%9E%E4%BC%9A%E5%91%98%E6%89%92%E8%B0%B1%E6%8A%80%E5%B7%A7.html#more" rel="contents">
@@ -1020,8 +967,7 @@ class ThreadDemo implements Runnable&#123; //这个线程是用来修改flag的�
     
     <div class="post-body" itemprop="articleBody">
           <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>在创建Spring Boot web应用程序时，有时需要从 <code>classpath</code> 加载文件，例如，数据仅作为文件可用的时候。在我的例子中，我使用 <code>MAXMIND GeoLite2</code> 数据库进行地理位置检索。因此，我需要加载文件并创建一个 <code>DatabaseReader</code> 对象，该对象存储在服务器内存中。<br>下面您将找到在WAR和JAR中加载文件的解决方案。</p>
-<h2 id="The-ResourceLoader"><a href="#The-ResourceLoader" class="headerlink" title="The ResourceLoader"></a>The ResourceLoader</h2><p>Java本身提供了线程 classLoader 可以用来尝试加载文件，但 Spring 框架提供了更加优雅的方式，比如 ： <a target="_blank" rel="noopener" href="http://docs.spring.io/spring/docs/current/spring-framework-reference/html/resources.html">ResourceLoader</a>。</p>
-<p>你只需要在需要的地方注入 ResourceLoader ，然后调用 getResource(“some path”)  方法即可。</p>
+<h2 id="The-ResourceLoader"><a href="#The-ResourceLoader" class="headerlink" title="The ResourceLoader"></a>The ResourceLoader</h2>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/post/java/spring/2019-12-28_%E3%80%90%E8%AF%91%E3%80%91Spring%20Boot%20%E4%BB%8E%20classpath%20%E5%8A%A0%E8%BD%BD%E6%96%87%E4%BB%B6.html#more" rel="contents">
@@ -1111,8 +1057,6 @@ class ThreadDemo implements Runnable&#123; //这个线程是用来修改flag的�
           <p>今天研究力扣的一道题死活写不出来对应的算法，没办法自己算法基础太差。于是看了下答案，发现使用什么回溯算法，菜鸟表示平时开发期间写的最复杂的程序就是写了两层for循环，已经很牛逼了有木有？这个回溯算法什么鬼？于是乎百度了下，算是了解了回溯算法是什么玩意儿。这里分析一波八皇后算法来加深一下理解。</p>
 <p>八皇后算法描述如下：在8×8格的国际象棋上摆放八个皇后，使其不能互相攻击，即任意两个皇后都不能处于同一行、同一列或同一斜线上，问有多少种摆法！ </p>
 <p><img src="./%E5%85%AB%E7%9A%87%E5%90%8E%E7%AE%97%E6%B3%95%E8%A7%A3%E6%9E%90/1.png"> </p>
-<p>下面来分析一波，假设此时我们想要在黑色方块位置放置一个皇后： </p>
-<p><img src="./%E5%85%AB%E7%9A%87%E5%90%8E%E7%AE%97%E6%B3%95%E8%A7%A3%E6%9E%90/2.png"></p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/post/algorithm/%E5%85%AB%E7%9A%87%E5%90%8E%E7%AE%97%E6%B3%95%E8%A7%A3%E6%9E%90.html#more" rel="contents">

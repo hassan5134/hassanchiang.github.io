@@ -23,12 +23,12 @@
     var NexT = window.NexT || {};
     var CONFIG = {"hostname":"blog.fenxiangz.com","root":"/","images":"/images","scheme":"Pisces","version":"8.1.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}};
   </script>
-<meta name="description" content="Java 内存分配策略Java 程序运行时的内存分配策略有三种, 分别是静态分配, 栈式分配, 和堆式分配，对应的，三种存储策略使用的内存空间主要分别是静态存储区（也称方法区）、栈区和堆区。 静态存储区（方法区）：主要存放静态数据、全局 static 数据和常量。这块内存在程序编译时就已经分配好，并且在程序整个运行期间都存在。 栈区 ：当方法被执行时，方法体内的局部变量（其中包括基础数据类型、对象">
+<meta name="description" content="Java 内存分配策略Java 程序运行时的内存分配策略有三种, 分别是静态分配, 栈式分配, 和堆式分配，对应的，三种存储策略使用的内存空间主要分别是静态存储区（也称方法区）、栈区和堆区。 静态存储区（方法区）：主要存放静态数据、全局 static 数据和常量。这块内存在程序编译时就已经分配好，并且在程序整个运行期间都存在。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java 内存分配和泄露">
 <meta property="og:url" content="https://blog.fenxiangz.com/post/java/advance/2016-11-03_java_memory_malloc.html">
 <meta property="og:site_name" content="分享之">
-<meta property="og:description" content="Java 内存分配策略Java 程序运行时的内存分配策略有三种, 分别是静态分配, 栈式分配, 和堆式分配，对应的，三种存储策略使用的内存空间主要分别是静态存储区（也称方法区）、栈区和堆区。 静态存储区（方法区）：主要存放静态数据、全局 static 数据和常量。这块内存在程序编译时就已经分配好，并且在程序整个运行期间都存在。 栈区 ：当方法被执行时，方法体内的局部变量（其中包括基础数据类型、对象">
+<meta property="og:description" content="Java 内存分配策略Java 程序运行时的内存分配策略有三种, 分别是静态分配, 栈式分配, 和堆式分配，对应的，三种存储策略使用的内存空间主要分别是静态存储区（也称方法区）、栈区和堆区。 静态存储区（方法区）：主要存放静态数据、全局 static 数据和常量。这块内存在程序编译时就已经分配好，并且在程序整个运行期间都存在。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://blog.fenxiangz.com/post/java/advance/2016-11-03_java_memory_malloc/1.png">
 <meta property="og:image" content="https://blog.fenxiangz.com/post/java/advance/2016-11-03_java_memory_malloc/2.png">

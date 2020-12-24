@@ -23,12 +23,12 @@
     var NexT = window.NexT || {};
     var CONFIG = {"hostname":"blog.fenxiangz.com","root":"/","images":"/images","scheme":"Pisces","version":"8.1.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}};
   </script>
-<meta name="description" content="JDK 1.8 对 HashMap 改进很多，1.8 中已经移除了 Entry 的这种实现方式了，改用了 Node，所以存储结构也发生了很大的变化，代码也从 1k 行膨胀到了 2k 行，这次梳理的是 1.7 的 HashMap 实现。1.8 下次再详细看看。 HashMap 继承 AbstractMap，实现了 Map 接口。 属性123456789101112131415161718192021">
+<meta name="description" content="JDK 1.8 对 HashMap 改进很多，1.8 中已经移除了 Entry 的这种实现方式了，改用了 Node，所以存储结构也发生了很大的变化，代码也从 1k 行膨胀到了 2k 行，这次梳理的是 1.7 的 HashMap 实现。1.8 下次再详细看看。 HashMap 继承 AbstractMap，实现了 Map 接口。 属性">
 <meta property="og:type" content="article">
 <meta property="og:title" content="关于 HashMap （JDK 1.7）">
 <meta property="og:url" content="https://blog.fenxiangz.com/post/java/basic/2016-10-25_hashmap_jdk7.html">
 <meta property="og:site_name" content="分享之">
-<meta property="og:description" content="JDK 1.8 对 HashMap 改进很多，1.8 中已经移除了 Entry 的这种实现方式了，改用了 Node，所以存储结构也发生了很大的变化，代码也从 1k 行膨胀到了 2k 行，这次梳理的是 1.7 的 HashMap 实现。1.8 下次再详细看看。 HashMap 继承 AbstractMap，实现了 Map 接口。 属性123456789101112131415161718192021">
+<meta property="og:description" content="JDK 1.8 对 HashMap 改进很多，1.8 中已经移除了 Entry 的这种实现方式了，改用了 Node，所以存储结构也发生了很大的变化，代码也从 1k 行膨胀到了 2k 行，这次梳理的是 1.7 的 HashMap 实现。1.8 下次再详细看看。 HashMap 继承 AbstractMap，实现了 Map 接口。 属性">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://blog.fenxiangz.com/post/java/basic/2016-10-25_hashmap_jdk7/hashmap_jdk7.png">
 <meta property="article:published_time" content="2016-10-25T00:00:00.000Z">

@@ -23,12 +23,12 @@
     var NexT = window.NexT || {};
     var CONFIG = {"hostname":"blog.fenxiangz.com","root":"/","images":"/images","scheme":"Pisces","version":"8.1.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}};
   </script>
-<meta name="description" content="这里提供了截取出来的一次client端和server端TCP包的交互过程。建议将图单独放到一台设备、或者打印出来查看，以便不断核对下述内容。   图：TCP数据包交换过程 再开始分析之前，还需要论述一下seq、ack表示什么意思，应该以什么样的角度去理解这两个序列号。  sequence number：表示的是我方（发送方）这边，这个packet的数据部分的第一位应该在整个data stream中">
+<meta name="description" content="这里提供了截取出来的一次client端和server端TCP包的交互过程。建议将图单独放到一台设备、或者打印出来查看，以便不断核对下述内容。   图：TCP数据包交换过程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="TCP协议中的seq&#x2F;ack序号是如何变化的？">
 <meta property="og:url" content="https://blog.fenxiangz.com/post/network/2017-12-14_TCP%E5%8D%8F%E8%AE%AE%E4%B8%AD%E7%9A%84seq_ack%E5%BA%8F%E5%8F%B7%E6%98%AF%E5%A6%82%E4%BD%95%E5%8F%98%E5%8C%96%E7%9A%84%EF%BC%9F.html">
 <meta property="og:site_name" content="分享之">
-<meta property="og:description" content="这里提供了截取出来的一次client端和server端TCP包的交互过程。建议将图单独放到一台设备、或者打印出来查看，以便不断核对下述内容。   图：TCP数据包交换过程 再开始分析之前，还需要论述一下seq、ack表示什么意思，应该以什么样的角度去理解这两个序列号。  sequence number：表示的是我方（发送方）这边，这个packet的数据部分的第一位应该在整个data stream中">
+<meta property="og:description" content="这里提供了截取出来的一次client端和server端TCP包的交互过程。建议将图单独放到一台设备、或者打印出来查看，以便不断核对下述内容。   图：TCP数据包交换过程">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://blog.fenxiangz.com/post/network/2017-12-14_TCP%E5%8D%8F%E8%AE%AE%E4%B8%AD%E7%9A%84seq_ack%E5%BA%8F%E5%8F%B7%E6%98%AF%E5%A6%82%E4%BD%95%E5%8F%98%E5%8C%96%E7%9A%84%EF%BC%9F/1.png">
 <meta property="article:published_time" content="2017-12-13T00:00:00.000Z">

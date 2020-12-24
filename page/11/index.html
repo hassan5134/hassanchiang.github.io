@@ -264,8 +264,6 @@
           <p>传统的字符替换，我们通常会想到使用 String.replace()，但是这个有些问题。<br>String.replace()每次替换，都会产生新的字符串，替换5次就产生5个新的字符串。这样空间复杂度就是 O(N*M)。N是字符串大小，M是替换的次数。这种情况下，如果是替换数据量大的字符串就会有内存问题。同样，这种方式也不利于扩展。</p>
 <p>这篇文章通过使用自己实现的 TokenReplacingReader 来解决这个问题。</p>
 <p>TokenReplacingReader 从标准的 Java.io.Reader 中读取字符数据（继承），所有可以使用 Reader的地方，就都可以使用 TokenReplacingReader 。</p>
-<p>接着我们需要一个Token解析接口，用来解析替换字符：ITokenResolver ，整体关系图如下：</p>
-<p><img src="./2017-04-18_java_io_4_reader/1.png"></p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/post/java/io/2017-04-18_java_io_4_reader.html#more" rel="contents">
@@ -357,15 +355,6 @@
 public final static PrintStream out = null;
 public final static PrintStream err = null;</code></pre>
 <p>System. in 用于控制台标准输入；<br>System.out 用于控制台标准输出；<br>System.error 用于控制台标准错误输出（有些 IDE 执行程序时，会显示红色字体，比如 Eclipse）。</p>
-<p>System.out + System.err 使用例子:</p>
-<pre><code>try &#123;
-  InputStream input = new FileInputStream(&quot;c:\\data\\...&quot;);
-  System.out.println(&quot;File opened...&quot;);
-
-&#125; catch (IOException e)&#123;
-  System.err.println(&quot;File opening failed:&quot;);
-  e.printStackTrace();
-&#125;</code></pre>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/post/java/io/2017-04-17_java_io_3_system_in.html#more" rel="contents">
@@ -488,8 +477,6 @@ public class PipeExample &#123;
     &#125;
 &#125;</code></pre>
 <p> PipedOutputStream 和 PipedInputStream ，用于两个线程间通信。可以将管道输出流连接到管道输入流来创建通信管道。管道输出流是管道的发送端。通常，数据由某个线程写入 PipedOutputStream 对象，并由其他线程从连接的 PipedInputStream 读取。不建议对这两个对象尝试使用单个线程，因为这样<strong>可能会造成该线程死锁</strong>。如果某个线程正从连接的管道输入流中读取数据字节，但该线程不再处于活动状态，则该管道被视为处于 <strong>毁坏</strong> 状态。</p>
-<p>PipedInputStream 和 PipedOutputStream 都有一个方法 connect()，用于连接另一个输入或输出管道，如果连接一个已连接（connected）的管道流，connect() 将抛出异常：java.io.IOException: Already connected。</p>
-<p>PipedInputStream 中实际是用了一个1024字节固定大小的循环缓冲区。写入PipedOutputStream 的数据实际上保存到对应的 PipedInputStream 的内部缓冲区。从 PipedInputStream 执行读操作时，读取的数据实际上来自这个内部缓冲区。如果对应的 PipedInputStream 输入缓冲区已满，任何企图写入 PipedOutputStream 的线程都将被阻塞。而且这个写操作线程将一直阻塞，直至出现读取 PipedInputStream 的操作从缓冲区删除数据。这也就是说往 PipedOutputStream 写数据的线程Send若是和从 PipedInputStream 读数据的线程 Receive 是同一个线程的话，那么一旦Send线程发送数据过多（大于 1024 字节），它就会被阻塞，这就直接导致接受数据的线程阻塞而无法工作（因为是同一个线程嘛），那么这就是一个典型的死锁现象，这也就是为什么 javadoc 中关于这两个类的使用时告诉大家要在不同线程环境下使用的原因了。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/post/java/io/2017-04-16_java_io_2_pipeline.html#more" rel="contents">
@@ -579,8 +566,7 @@ public class PipeExample &#123;
           <h2 id="Java-IO-支持特性"><a href="#Java-IO-支持特性" class="headerlink" title="Java IO  支持特性"></a>Java IO  支持特性</h2><blockquote>
 <p>文件访问<br>网络访问<br>内存访问<br>线程之间的访问 (Pipes　管道)<br>缓冲<br>过滤<br>解析<br>读写文本 (Readers / Writers)<br>读写原始数据类型 (long, int 等)<br>读写对象 </p>
 </blockquote>
-<h2 id="Java-IO-类一览"><a href="#Java-IO-类一览" class="headerlink" title="Java IO 类一览"></a>Java IO 类一览</h2><p><img src="./2017-04-15_java_io_1_overview/1.png"> </p>
-<p>From ：<a target="_blank" rel="noopener" href="http://tutorials.jenkov.com/java-io/overview.html">http://tutorials.jenkov.com/java-io/overview.html</a></p>
+<h2 id="Java-IO-类一览"><a href="#Java-IO-类一览" class="headerlink" title="Java IO 类一览"></a>Java IO 类一览</h2>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/post/java/io/2017-04-15_java_io_1_overview.html#more" rel="contents">
@@ -670,8 +656,6 @@ public class PipeExample &#123;
           <p>先看看这些程序员技能树，你掌握或了解哪些？OMG竟然有么多～～～震精！震精！！！</p>
 <p><img src="./2017-03-28_java_acknowledge/1.png" alt="1"><br><img src="./2017-03-28_java_acknowledge/2.png" alt="2"><br><img src="./2017-03-28_java_acknowledge/3.png" alt="3"> </p>
 <p>这是从450家企业的招聘信息中统计而来，相对来说还是比较真实的，虽然有些公司的招聘要求万年不变，但还是可以大致反应企业的招聘要求的。</p>
-<p>尽管Struts2漏洞频出，但是由于政府、银行以及传统企业遗留项目大部分还是采用Struts2的，所以还是占有一定市场，但绝壁不会增长。新兴互联网公司，一般来说主要是Spring家族居多，spring、spring Mvc以及Spring Boot 出现的频率较多。</p>
-<p>从图中可以看出，分布式服务框架应用也是大部分企业招聘的必要条件了，阿里系的Dubbo名列前茅。相应的分布式应用程序协调服Zookeeper也出现在其中。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/post/java/advance/2017-03-28_java_acknowledge.html#more" rel="contents">
@@ -761,8 +745,6 @@ public class PipeExample &#123;
           <p>随着移动互联网的爆发性增长，小明公司的电子商务系统访问量越来越大，由于现有系统是个单体的巨型应用，已经无法满足海量的并发请求，拆分势在必行。</p>
 <p><img src="./2019-01-02_%E5%B0%8F%E7%99%BD%E7%A7%91%E6%99%AENetty%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8/1.png"></p>
 <p>在微服务的大潮之中， 架构师小明把系统拆分成了多个服务，根据需要部署在多个机器上，这些服务非常灵活，可以随着访问量弹性扩展。</p>
-<p><img src="./2019-01-02_%E5%B0%8F%E7%99%BD%E7%A7%91%E6%99%AENetty%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8/2.png"></p>
-<p>世界上没有免费的午餐， 拆分成多个“微服务”以后虽然增加了弹性，但也带来了一个巨大的挑战：服务之间互相调用的开销。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/post/java/netty/2019-01-02_%E5%B0%8F%E7%99%BD%E7%A7%91%E6%99%AENetty%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8.html#more" rel="contents">
@@ -933,8 +915,6 @@ public class PipeExample &#123;
           <p>这个所谓的 try-with-resources，是个语法糖。实际上就是自动调用资源的 close() 函数。</p>
 <p>例如：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">static String readFirstLineFromFile(String path) throws IOException &#123;  </span><br><span class="line">    try (BufferedReader br &#x3D; new BufferedReader(new FileReader(path))) &#123;  </span><br><span class="line">        return br.readLine();  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure>
-<p>可以看到 try 语句多了个括号，而在括号里初始化了一个 BufferedReader。<br>这种在 try 后面加个括号，再初始化对象的语法就叫 try-with-resources。<br>实际上，相当于下面的代码（其实略有不同，下面会说明）：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">static String readFirstLineFromFileWithFinallyBlock(String path) throws IOException &#123;  </span><br><span class="line">    BufferedReader br &#x3D; new BufferedReader(new FileReader(path));  </span><br><span class="line">    try &#123;  </span><br><span class="line">        return br.readLine();  </span><br><span class="line">    &#125; finally &#123;  </span><br><span class="line">        if (br !&#x3D; null) br.close();  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/post/java/basic/2016-11-18_try_with_resources.html#more" rel="contents">
@@ -1023,8 +1003,6 @@ public class PipeExample &#123;
     <div class="post-body" itemprop="articleBody">
           <h1 id="0-简介"><a href="#0-简介" class="headerlink" title="0.简介"></a>0.简介</h1><p>序列化和反序列化对于现代的程序员来说是一个既熟悉又陌生的概念。说熟悉是因为几乎每个程序员在工作中都直接或间接的使用过它，说陌生是因为大多数程序员对序列化和反序列化的认识仅仅停留在比较一下各种不同实现的序列化的性能上面，而很少有程序员对序列化和反序列化的设计和实现有深入的研究。</p>
 <p>本文将从序列化和反序列化的设计和实现的入手，来简单讲解一下序列化和反序列化。其中包括以下几个方面：</p>
-<p><strong>1.序列化和反序列化的作用<br>2.什么样的数据是可序列化的<br>3.序列化和反序列化的分类<br>3.序列化和反序列化的类型映射</strong></p>
-<p>本文不会涉及到某几种语言的某几种序列化实现的性能对比之类的内容。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/post/java/advance/2016-11-24_java_serializable.html#more" rel="contents">
@@ -1113,8 +1091,6 @@ public class PipeExample &#123;
     <div class="post-body" itemprop="articleBody">
           <h3 id="Java-内存分配策略"><a href="#Java-内存分配策略" class="headerlink" title="Java 内存分配策略"></a>Java 内存分配策略</h3><p>Java 程序运行时的内存分配策略有三种, 分别是静态分配, 栈式分配, 和堆式分配，对应的，三种存储策略使用的内存空间主要分别是静态存储区（也称方法区）、栈区和堆区。</p>
 <p>静态存储区（方法区）：主要存放静态数据、全局 static 数据和常量。这块内存在程序编译时就已经分配好，并且在程序整个运行期间都存在。</p>
-<p>栈区 ：当方法被执行时，方法体内的局部变量（其中包括基础数据类型、对象的引用）都在栈上创建，并在方法执行结束时这些局部变量所持有的内存将会自动被释放。因为栈内存分配运算内置于处理器的指令集中，效率很高，但是分配的内存容量有限。</p>
-<p>堆区 ： 又称动态内存分配，通常就是指在程序运行时直接 new 出来的内存，也就是对象的实例。这部分内存在不使用时将会由 Java 垃圾回收器来负责回收。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/post/java/advance/2016-11-03_java_memory_malloc.html#more" rel="contents">

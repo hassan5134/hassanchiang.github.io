@@ -23,12 +23,12 @@
     var NexT = window.NexT || {};
     var CONFIG = {"hostname":"blog.fenxiangz.com","root":"/","images":"/images","scheme":"Pisces","version":"8.1.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}};
   </script>
-<meta name="description" content="作用 ThreadLocal 不是用来解决共享对象访问的多线程访问问题，而是用于解决不同线程保持各自独立的一个对象。典型的问题就是：当一个单例 A 持有某个属性对象 a.b 时，如果 a.b 在多个方法里面使用，就有可能造成线程不安全，如果把 b 定义成 ThreadLocal b 就可以避免以上问题。 实现 一、ThreadLocal 实例方法：">
+<meta name="description" content="作用 ThreadLocal 不是用来解决共享对象访问的多线程访问问题，而是用于解决不同线程保持各自独立的一个对象。典型的问题就是：当一个单例 A 持有某个属性对象 a.b 时，如果 a.b 在多个方法里面使用，就有可能造成线程不安全，如果把 b 定义成 ThreadLocal b 就可以避免以上问题。 实现">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ThreadLocal 笔记">
 <meta property="og:url" content="https://blog.fenxiangz.com/post/java/basic/2016-10-25_threadlocal.html">
 <meta property="og:site_name" content="分享之">
-<meta property="og:description" content="作用 ThreadLocal 不是用来解决共享对象访问的多线程访问问题，而是用于解决不同线程保持各自独立的一个对象。典型的问题就是：当一个单例 A 持有某个属性对象 a.b 时，如果 a.b 在多个方法里面使用，就有可能造成线程不安全，如果把 b 定义成 ThreadLocal b 就可以避免以上问题。 实现 一、ThreadLocal 实例方法：">
+<meta property="og:description" content="作用 ThreadLocal 不是用来解决共享对象访问的多线程访问问题，而是用于解决不同线程保持各自独立的一个对象。典型的问题就是：当一个单例 A 持有某个属性对象 a.b 时，如果 a.b 在多个方法里面使用，就有可能造成线程不安全，如果把 b 定义成 ThreadLocal b 就可以避免以上问题。 实现">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2016-10-25T11:29:24.000Z">
 <meta property="article:modified_time" content="2020-12-20T16:47:02.963Z">

@@ -27,7 +27,7 @@
     
     
     <summary type="html">&lt;h1 id=&quot;HttpClient介绍&quot;&gt;&lt;a href=&quot;#HttpClient介绍&quot; class=&quot;headerlink&quot; title=&quot;HttpClient介绍&quot;&gt;&lt;/a&gt;HttpClient介绍&lt;/h1&gt;&lt;p&gt;HttpClient是一个实现了http协议的开源Java客户端工具库，可以通过程序发送http请求。&lt;/p&gt;
-&lt;h2 id=&quot;1-1-HttpClient发送请求和接收响应&quot;&gt;&lt;a href=&quot;#1-1-HttpClient发送请求和接收响应&quot; class=&quot;headerlink&quot; title=&quot;1.1 HttpClient发送请求和接收响应&quot;&gt;&lt;/a&gt;1.1 HttpClient发送请求和接收响应&lt;/h2&gt;&lt;h3 id=&quot;1-1-1-代码示例&quot;&gt;&lt;a href=&quot;#1-1-1-代码示例&quot; class=&quot;headerlink&quot; title=&quot;1.1.1 代码示例&quot;&gt;&lt;/a&gt;1.1.1 &lt;strong&gt;代码示例&lt;/strong&gt;&lt;/h3&gt;&lt;p&gt;以Get请求为例，以下代码获得google主页内容并将返回结果打印出来。&lt;/p&gt;</summary>
+&lt;h2 id=&quot;1-1-HttpClient发送请求和接收响应&quot;&gt;&lt;a href=&quot;#1-1-HttpClient发送请求和接收响应&quot; class=&quot;headerlink&quot; title=&quot;1.1 HttpClient发送请求和接收响应&quot;&gt;&lt;/a&gt;1.1 HttpClient发送请求和接收响应&lt;/h2&gt;</summary>
     
     
     <content src="https://blog.fenxiangz.com/images/java/basic/java_logo.png" type="image"/>
@@ -107,8 +107,7 @@
     
     <summary type="html">&lt;p&gt;原文：&lt;a href=&quot;https://xie.infoq.cn/article/8d19a4c691918d313e60296d7&quot;&gt;https://xie.infoq.cn/article/8d19a4c691918d313e60296d7&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;./2020-12-16_%E5%8E%9F%E6%9D%A58%E5%BC%A0%E5%9B%BE%EF%BC%8C%E5%B0%B1%E5%8F%AF%E4%BB%A5%E6%90%9E%E6%87%82%E3%80%8C%E9%9B%B6%E6%8B%B7%E8%B4%9D%E3%80%8D%E4%BA%86/1.jpeg&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;./2020-12-16_%E5%8E%9F%E6%9D%A58%E5%BC%A0%E5%9B%BE%EF%BC%8C%E5%B0%B1%E5%8F%AF%E4%BB%A5%E6%90%9E%E6%87%82%E3%80%8C%E9%9B%B6%E6%8B%B7%E8%B4%9D%E3%80%8D%E4%BA%86/2.png&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;磁盘可以说是计算机系统最慢的硬件之一，读写速度相差内存 10 倍以上，所以针对优化磁盘的技术非常的多，比如零拷贝、直接 I/O、异步 I/O 等等，这些优化的目的就是为了提高系统的吞吐量，另外操作系统内核中的磁盘高速缓存区，可以有效的减少磁盘的访问次数。&lt;/p&gt;</summary>
+&lt;p&gt;&lt;img src=&quot;./2020-12-16_%E5%8E%9F%E6%9D%A58%E5%BC%A0%E5%9B%BE%EF%BC%8C%E5%B0%B1%E5%8F%AF%E4%BB%A5%E6%90%9E%E6%87%82%E3%80%8C%E9%9B%B6%E6%8B%B7%E8%B4%9D%E3%80%8D%E4%BA%86/2.png&quot;&gt;&lt;/p&gt;</summary>
     
     
     <content src="https://blog.fenxiangz.com/images/linux.png" type="image"/>
@@ -138,8 +137,7 @@
     
     
     <summary type="html">&lt;h2 id=&quot;bigkeys-扫描&quot;&gt;&lt;a href=&quot;#bigkeys-扫描&quot; class=&quot;headerlink&quot; title=&quot;bigkeys 扫描&quot;&gt;&lt;/a&gt;bigkeys 扫描&lt;/h2&gt;&lt;p&gt;&lt;code&gt;/redis-cli -h  localhost  -p 6379 --bigkeys&lt;/code&gt;&lt;/p&gt;
-&lt;h2 id=&quot;全量扫描&quot;&gt;&lt;a href=&quot;#全量扫描&quot; class=&quot;headerlink&quot; title=&quot;全量扫描&quot;&gt;&lt;/a&gt;全量扫描&lt;/h2&gt;&lt;p&gt;通过以下脚本扫描 Redis中的全量Keys， Keys存量较大的情况下，可以分多次优化处理。&lt;br&gt;比如：keys.txt文件收集到100MB时，停止，先优化一部分；优化完，再扫描，再优化。&lt;br&gt;脚本如下，注意确保脚本在 ./redis-cli 统计目录，或修改为绝对 redis-cli 绝对路径执行。&lt;/p&gt;
-&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;32&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;33&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;34&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;35&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;36&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;37&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;38&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;39&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;40&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;41&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;42&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;43&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;44&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;45&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;bash&quot;&gt;!/bin/bash&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;bash&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#redis主机IP&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;host=$1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;bash&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#redis端口&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;port=$2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;bash&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#key模式&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;pattern=$3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;db=$4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;bash&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#游标&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;cursor=0&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;bash&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#退出信号&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;signal=0&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;echo &amp;quot;&amp;quot;&amp;gt;~/keys.txt&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;bash&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#循环获取key并删除&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;while [ $signal -ne 1 ]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    do&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        ##将redis scan得到的结果赋值到变量&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        re=$(./redis-cli -h $host -p $port -c -n $db scan $cursor count 1000 match $pattern)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        ##以换行作为分隔符&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        IFS=$&amp;#x27;\n&amp;#x27;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        ##转成数组&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        arr=($re)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        ##第一个元素是游标值&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        cursor=$&amp;#123;arr[0]&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        ##打印数组&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        len=$&amp;#123;#arr[*]&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        for ((i=1;i&amp;lt;len;i++))&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                do&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                   a=$&amp;#123;arr[i]&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                   echo $a &amp;gt;&amp;gt; ~/keys.txt&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        ##游标为0表示没有key了&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        if [ $cursor -eq 0 ];then&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            signal=1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        fi&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;echo &amp;#x27;done&amp;#x27;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
+&lt;h2 id=&quot;全量扫描&quot;&gt;&lt;a href=&quot;#全量扫描&quot; class=&quot;headerlink&quot; title=&quot;全量扫描&quot;&gt;&lt;/a&gt;全量扫描&lt;/h2&gt;</summary>
     
     
     <content src="https://blog.fenxiangz.com/images/Redis.png" type="image"/>
@@ -166,8 +164,7 @@
     
     <summary type="html">&lt;p&gt;很多管理者往往遇到这样的情况，当你听完下属员工的工作汇报后发现事情并没有得到彻底解决，而原本计划好今天要做的工作也因此耽误了不少时间。&lt;/p&gt;
 &lt;p&gt;猴子管理法则的目的在于帮助经理人确定由适当人选在适当的时间，用正确的方法做正确的事。&lt;/p&gt;
-&lt;p&gt;身为经理人要能够让员工去抚养自己的“猴子”，你也有足够的时间去做规划、协调、创新等重要工作。&lt;/p&gt;
-&lt;h3 id=&quot;责任是一只猴子&quot;&gt;&lt;a href=&quot;#责任是一只猴子&quot; class=&quot;headerlink&quot; title=&quot;责任是一只猴子&quot;&gt;&lt;/a&gt;&lt;strong&gt;责任是一只猴子&lt;/strong&gt;&lt;/h3&gt;&lt;p&gt;这其中的关键在于，本来该下属员工自行完成的工作，因为逃避责任的缘故， 交由上司处理。&lt;/p&gt;</summary>
+&lt;p&gt;身为经理人要能够让员工去抚养自己的“猴子”，你也有足够的时间去做规划、协调、创新等重要工作。&lt;/p&gt;</summary>
     
     
     
@@ -190,9 +187,7 @@
     
     <summary type="html">&lt;p&gt;我们在过去的时光中，谈了很多关于技术、关于生活、关于工作、关于学习的话题，这次我们来谈谈关于『认知升级』这个话题。&lt;/p&gt;
 &lt;p&gt;实际上，&lt;strong&gt;『认知升级』相对来说是个比较抽象的概念，它与掌握一门技术相比不是那么容易看到&lt;/strong&gt;。因为技术的进步和成长是任何人都可以看到成效的。比如说，你之前不会Netty或是对Netty不是那么了解，通过学习和实践掌握了Netty的方方面面，那这其中的进步就是非常明显的，也是很容易看到成效的。&lt;/p&gt;
-&lt;p&gt;与技术上的成长相比，『认知升级』则属于更加抽象，且更具方法论的一个话题了。那么，到底什么是认知呢？&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;我个人认为，所谓认知指的是你对这个世界，对身边环境，对于生活、学习与工作的认识以及所采取的行事方法。&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;如果说切实掌握了一项技术属于『硬技能』的话，那么『认知升级』则属于软技能这个领域。不过，&lt;strong&gt;这里千万不要认为只有『硬技能』才是我们需要掌握的；相反，『软技能』的重要性有时还会超越『硬技能』&lt;/strong&gt;，为什么这么说呢？&lt;/p&gt;</summary>
+&lt;p&gt;与技术上的成长相比，『认知升级』则属于更加抽象，且更具方法论的一个话题了。那么，到底什么是认知呢？&lt;/p&gt;</summary>
     
     
     
@@ -216,8 +211,7 @@
     
     
     <summary type="html">&lt;p&gt;Confluence 同步 Jira 的几个相关配置&lt;/p&gt;
-&lt;h2 id=&quot;1-仅使用外部用户管理&quot;&gt;&lt;a href=&quot;#1-仅使用外部用户管理&quot; class=&quot;headerlink&quot; title=&quot;1. 仅使用外部用户管理&quot;&gt;&lt;/a&gt;1. 仅使用外部用户管理&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;./2020-11-26_Jira%E4%BF%AE%E6%94%B9Path%E8%B7%AF%E5%BE%84%E5%90%8E%E7%9A%84%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86%E9%97%AE%E9%A2%98/1.png&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;2-Confluence-的-Links-配置&quot;&gt;&lt;a href=&quot;#2-Confluence-的-Links-配置&quot; class=&quot;headerlink&quot; title=&quot;2. Confluence 的 Links 配置&quot;&gt;&lt;/a&gt;2. Confluence 的 Links 配置&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;./2020-11-26_Jira%E4%BF%AE%E6%94%B9Path%E8%B7%AF%E5%BE%84%E5%90%8E%E7%9A%84%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86%E9%97%AE%E9%A2%98/2.png&quot;&gt;&lt;/p&gt;</summary>
+&lt;h2 id=&quot;1-仅使用外部用户管理&quot;&gt;&lt;a href=&quot;#1-仅使用外部用户管理&quot; class=&quot;headerlink&quot; title=&quot;1. 仅使用外部用户管理&quot;&gt;&lt;/a&gt;1. 仅使用外部用户管理&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;./2020-11-26_Jira%E4%BF%AE%E6%94%B9Path%E8%B7%AF%E5%BE%84%E5%90%8E%E7%9A%84%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86%E9%97%AE%E9%A2%98/1.png&quot;&gt;&lt;/p&gt;</summary>
     
     
     
@@ -256,15 +250,7 @@
 &lt;li&gt;&lt;a href=&quot;http://www.cnblogs.com/rubylouvre/archive/2010/01/05/1639541.html&quot;&gt;Javscript Bind函数&lt;/a&gt; &lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;http://www.addyosmani.com/resources/essentialjsdesignpatterns/book/&quot;&gt;Javscript设计模式&lt;/a&gt; &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h4 id=&quot;JSON工具：&quot;&gt;&lt;a href=&quot;#JSON工具：&quot; class=&quot;headerlink&quot; title=&quot;JSON工具：&quot;&gt;&lt;/a&gt;JSON工具：&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.jsonlint.com/&quot;&gt;JSONLint&lt;/a&gt;  - The JSON Validator&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://undefined.org/python/#simplejson&quot;&gt;SimpleJSON&lt;/a&gt;  - Python Stuff&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://jsonformatter.curiousconcept.com/&quot;&gt;JSON Formatter (&amp;amp; Validator!)&lt;/a&gt; &lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.raboof.com/Projects/TidyJson/&quot;&gt;Tidy JSON - JSON Pretty Printer/Colorer&lt;/a&gt;  - C#(.NET)&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.cerny-online.com/cerny.js/demos/json-pretty-printing&quot;&gt;Cerny.js - JSON Pretty Printing Demo&lt;/a&gt; &lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://github.com/nicksieger/jsonpretty&quot;&gt;jsonpretty(ruby)&lt;/a&gt; &lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4 id=&quot;Vim-Json：&quot;&gt;&lt;a href=&quot;#Vim-Json：&quot; class=&quot;headerlink&quot; title=&quot;Vim Json：&quot;&gt;&lt;/a&gt;Vim Json：&lt;/h4&gt;</summary>
+&lt;h4 id=&quot;JSON工具：&quot;&gt;&lt;a href=&quot;#JSON工具：&quot; class=&quot;headerlink&quot; title=&quot;JSON工具：&quot;&gt;&lt;/a&gt;JSON工具：&lt;/h4&gt;</summary>
     
     
     
@@ -290,9 +276,7 @@
     
     
     <summary type="html">&lt;h1 id=&quot;Mac&quot;&gt;&lt;a href=&quot;#Mac&quot; class=&quot;headerlink&quot; title=&quot;Mac&quot;&gt;&lt;/a&gt;Mac&lt;/h1&gt;&lt;p&gt;下载软件：&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://github.com/yanue/V2rayU/releases/download/2.1.0/V2rayU.dmg&quot;&gt;https://github.com/yanue/V2rayU/releases/download/2.1.0/V2rayU.dmg&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;配置教程：&lt;br&gt;&lt;a href=&quot;https://github.com/yanue/V2rayU/wiki/V2rayU%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E&quot;&gt;https://github.com/yanue/V2rayU/wiki/V2rayU%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E&lt;/a&gt;&lt;/p&gt;
-&lt;h1 id=&quot;Window&quot;&gt;&lt;a href=&quot;#Window&quot; class=&quot;headerlink&quot; title=&quot;Window&quot;&gt;&lt;/a&gt;Window&lt;/h1&gt;</summary>
+&lt;p&gt;&lt;a href=&quot;https://github.com/yanue/V2rayU/releases/download/2.1.0/V2rayU.dmg&quot;&gt;https://github.com/yanue/V2rayU/releases/download/2.1.0/V2rayU.dmg&lt;/a&gt;&lt;/p&gt;</summary>
     
     
     
@@ -327,9 +311,7 @@ begin
   end while;
 end;;
 delimiter ;
-call idata();&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;然后我们执行一下这条语句&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;explain select 1000 as f union (select id from t1 order by id desc limit 2)&lt;/code&gt;&lt;/pre&gt;</summary>
+call idata();&lt;/code&gt;&lt;/pre&gt;</summary>
     
     
     <content src="https://blog.fenxiangz.com/images/MySQL.png" type="image"/>
@@ -357,8 +339,7 @@ call idata();&lt;/code&gt;&lt;/pre&gt;
     
     
     <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h2&gt;&lt;p&gt;MySQL 应该算是目前最流行的数据库之一，经常建库建表的同学应该对 Character Set 和 Collation 这两个词不陌生。&lt;/p&gt;
-&lt;p&gt;虽然一直有接触，但我还是挺云里雾里的。直到前些天特地做了功课，才敢说有个比较清晰的了解，所以就有了这篇文章。&lt;/p&gt;
-&lt;h2 id=&quot;Character-Set-与-Collation&quot;&gt;&lt;a href=&quot;#Character-Set-与-Collation&quot; class=&quot;headerlink&quot; title=&quot;Character Set 与 Collation&quot;&gt;&lt;/a&gt;Character Set 与 Collation&lt;/h2&gt;&lt;p&gt;简单地说，Character Set 是字符集，而 Collation 是比对方法，是两个不同维度的概念。&lt;/p&gt;</summary>
+&lt;p&gt;虽然一直有接触，但我还是挺云里雾里的。直到前些天特地做了功课，才敢说有个比较清晰的了解，所以就有了这篇文章。&lt;/p&gt;</summary>
     
     
     <content src="https://blog.fenxiangz.com/images/MySQL.png" type="image"/>
@@ -385,13 +366,7 @@ call idata();&lt;/code&gt;&lt;/pre&gt;
     <content type="html"><![CDATA[<h2 id="Scheme与数据类型优化"><a href="#Scheme与数据类型优化" class="headerlink" title="Scheme与数据类型优化"></a>Scheme与数据类型优化</h2><h3 id="选择合适的类型"><a href="#选择合适的类型" class="headerlink" title="选择合适的类型"></a>选择合适的类型</h3><h4 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h4><ul><li>更小的通常更好：尽可能把列的大小指定在合理的范围；</li><li>简单，例如：能用整型就用整型；避免字符串表示日期，应该用内建的日期和时间类型；ip应转成long存储等；</li><li>尽量避免默认值为 <code>NULL</code>，尤其是当需要在该列上创建索引的时候；</li><li>例外情况：如果是稀疏数据，比如很多行都为<code>NULL</code>，只有少部分数据为<code>NULL</code>，使用<code>NULL</code>可以很好的提高空间利用率；</li></ul><h3 id="整数类型"><a href="#整数类型" class="headerlink" title="整数类型"></a>整数类型</h3><ul><li>有符号和无符号类型使用相同的存储空间，并具有相同的性能；</li><li>整数计算一般使用64位 <code>BIGINT</code>整数（一些聚合函数除外，它们使用 <code>DECIMAL</code> 或 <code>DOUBLE</code> 进行计算）；</li><li>整型可以指定宽度，例如：<code>INT(11)</code> ，对大多数应用没有意义：它不会影响合法范围，只是给一些交互功工具（例如：MySQL命令行终端）用来提示显示字符宽度。不影响存储和计算；</li></ul><h3 id="实数类型"><a href="#实数类型" class="headerlink" title="实数类型"></a>实数类型</h3><ul><li>高精度计算：<code>DECIMAL</code>  ，非CPU直接计算，通过MySQL服务器自身实现高精度计算，性能不如：<code>FLOAT</code>、<code>DOUBLE</code>；</li><li>大整数：<code>BIGINT</code>，可以把小数乘以小数位数（按精度需要，提高相应的倍数）来存储，可以提高计算性能；</li><li>浮点相对精度较低：<code>FLOAT</code>、<code>DOUBLE</code>，CPU直接支持浮点计算，精度不一定很高，但运算更快；</li></ul><h3 id="字符串类型"><a href="#字符串类型" class="headerlink" title="字符串类型"></a>字符串类型</h3><p><code>VARCHAR</code> ： 变长，省空间，更新时需要做更多额外的工作，容易碎片化；<br> <code>CHAR</code>：定长，占用固定的空间，不容易产生碎片；</p><ul><li>存储和存储引擎具体的实现有关；</li><li><code>VARCHAR</code> 需要额外1或2个字节记录字符串长度；</li><li>虽然<code>VARCHAR</code> 是变长存储，但也要控制好长度，例如：<code>VARCHAR(5)</code>和<code>VARCHAR(200)</code>对于存储 <code>hello</code> 来讲，空间开销是一样的，但在内存中保存时，通常会分配固定的大小来保持。在使用“内存临时表”进行排序或操作时会影响存储性能，在使用“磁盘临时表”进行排序时也一样，所以应该正确的分配空间；</li></ul><h3 id="BLOB-和-TEXT"><a href="#BLOB-和-TEXT" class="headerlink" title="BLOB 和 TEXT"></a><code>BLOB</code> 和 <code>TEXT</code></h3><h4 id="不同点"><a href="#不同点" class="headerlink" title="不同点"></a>不同点</h4><p><code>BLOB</code>： 二进制存储，没有排序规则或字符集<br><code>TEXT</code>：有字符集和排序规则 （参考：<a href="https://tech.fenxiangz.com/topic/121/mysql-%E4%B8%AD%E7%9A%84-character-set-%E4%B8%8E-collation">MySQL 中的 Character Set 与 Collation</a>）</p><h4 id="查询和排序问题"><a href="#查询和排序问题" class="headerlink" title="查询和排序问题"></a>查询和排序问题</h4><ul><li>涉及变量：max_sort_length </li><li><code>BLOB</code> 和 <code>TEXT</code> 列的查询会使用磁盘临时表，严重影响性能，应该避免查询列（排序列）使用 <code>BLOB</code>  和  <code>TEXT</code> ；<br>如果无法避免时，通过使用 <code>SUBSTRING(column, length) </code> 将列值转换为字符串（ORDER BY 也同样适用），这样可以适用内存临时表进行计算，但要确保子串足够短，避免超过  <code>max_heap_table_size</code>  或  <code>tmp_table_size</code> ，超过以后又会使用磁盘临时表。</li></ul>]]></content>
     
     
-    <summary type="html">&lt;h2 id=&quot;Scheme与数据类型优化&quot;&gt;&lt;a href=&quot;#Scheme与数据类型优化&quot; class=&quot;headerlink&quot; title=&quot;Scheme与数据类型优化&quot;&gt;&lt;/a&gt;Scheme与数据类型优化&lt;/h2&gt;&lt;h3 id=&quot;选择合适的类型&quot;&gt;&lt;a href=&quot;#选择合适的类型&quot; class=&quot;headerlink&quot; title=&quot;选择合适的类型&quot;&gt;&lt;/a&gt;选择合适的类型&lt;/h3&gt;&lt;h4 id=&quot;要点&quot;&gt;&lt;a href=&quot;#要点&quot; class=&quot;headerlink&quot; title=&quot;要点&quot;&gt;&lt;/a&gt;要点&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;更小的通常更好：尽可能把列的大小指定在合理的范围；&lt;/li&gt;
-&lt;li&gt;简单，例如：能用整型就用整型；避免字符串表示日期，应该用内建的日期和时间类型；ip应转成long存储等；&lt;/li&gt;
-&lt;li&gt;尽量避免默认值为 &lt;code&gt;NULL&lt;/code&gt;，尤其是当需要在该列上创建索引的时候；&lt;/li&gt;
-&lt;li&gt;例外情况：如果是稀疏数据，比如很多行都为&lt;code&gt;NULL&lt;/code&gt;，只有少部分数据为&lt;code&gt;NULL&lt;/code&gt;，使用&lt;code&gt;NULL&lt;/code&gt;可以很好的提高空间利用率；&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;整数类型&quot;&gt;&lt;a href=&quot;#整数类型&quot; class=&quot;headerlink&quot; title=&quot;整数类型&quot;&gt;&lt;/a&gt;整数类型&lt;/h3&gt;</summary>
+    <summary type="html">&lt;h2 id=&quot;Scheme与数据类型优化&quot;&gt;&lt;a href=&quot;#Scheme与数据类型优化&quot; class=&quot;headerlink&quot; title=&quot;Scheme与数据类型优化&quot;&gt;&lt;/a&gt;Scheme与数据类型优化&lt;/h2&gt;&lt;h3 id=&quot;选择合适的类型&quot;&gt;&lt;a href=&quot;#选择合适的类型&quot; class=&quot;headerlink&quot; title=&quot;选择合适的类型&quot;&gt;&lt;/a&gt;选择合适的类型&lt;/h3&gt;&lt;h4 id=&quot;要点&quot;&gt;&lt;a href=&quot;#要点&quot; class=&quot;headerlink&quot; title=&quot;要点&quot;&gt;&lt;/a&gt;要点&lt;/h4&gt;</summary>
     
     
     <content src="https://blog.fenxiangz.com/images/MySQL.png" type="image"/>
@@ -419,9 +394,7 @@ call idata();&lt;/code&gt;&lt;/pre&gt;
     
     
     <summary type="html">&lt;p&gt;原文：&lt;a href=&quot;https://www.cnblogs.com/kerrycode/p/5593204.html&quot;&gt;https://www.cnblogs.com/kerrycode/p/5593204.html&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;慢查询日志概念&quot;&gt;&lt;a href=&quot;#慢查询日志概念&quot; class=&quot;headerlink&quot; title=&quot;慢查询日志概念&quot;&gt;&lt;/a&gt;慢查询日志概念&lt;/h2&gt;&lt;pre&gt;&lt;code&gt; MySQL的慢查询日志是MySQL提供的一种日志记录，它用来记录在MySQL中响应时间超过阀值的语句，具体指运行时间超过long_query_time值的SQL，则会被记录到慢查询日志中。long_query_time的默认值为10，意思是运行10S以上的语句。默认情况下，Mysql数据库并不启动慢查询日志，需要我们手动来设置这个参数，当然，如果不是调优需要的话，一般不建议启动该参数，因为开启慢查询日志会或多或少带来一定的性能影响。慢查询日志支持将日志记录写入文件，也支持将日志记录写入数据库表。&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;官方文档，关于慢查询的日志介绍如下（部分资料，具体参考官方相关链接）：&lt;/p&gt;
-&lt;p&gt;The slow query log consists of SQL statements that took more than long_query_time seconds to execute and required at least min_examined_row_limit rows to be examined. The minimum and default values of long_query_time are 0 and 10, respectively. The value can be specified to a resolution of microseconds. For logging to a file, times are written including the microseconds part. For logging to tables, only integer times are written; the microseconds part is ignored.&lt;/p&gt;</summary>
+&lt;h2 id=&quot;慢查询日志概念&quot;&gt;&lt;a href=&quot;#慢查询日志概念&quot; class=&quot;headerlink&quot; title=&quot;慢查询日志概念&quot;&gt;&lt;/a&gt;慢查询日志概念&lt;/h2&gt;&lt;pre&gt;&lt;code&gt; MySQL的慢查询日志是MySQL提供的一种日志记录，它用来记录在MySQL中响应时间超过阀值的语句，具体指运行时间超过long_query_time值的SQL，则会被记录到慢查询日志中。long_query_time的默认值为10，意思是运行10S以上的语句。默认情况下，Mysql数据库并不启动慢查询日志，需要我们手动来设置这个参数，当然，如果不是调优需要的话，一般不建议启动该参数，因为开启慢查询日志会或多或少带来一定的性能影响。慢查询日志支持将日志记录写入文件，也支持将日志记录写入数据库表。&lt;/code&gt;&lt;/pre&gt;</summary>
     
     
     <content src="https://blog.fenxiangz.com/images/MySQL.png" type="image"/>
@@ -448,8 +421,7 @@ call idata();&lt;/code&gt;&lt;/pre&gt;
     <content type="html"><![CDATA[<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><h3 id="什么是性能？"><a href="#什么是性能？" class="headerlink" title="什么是性能？"></a>什么是性能？</h3><p>完成某件任务所需要的时间度量，也就是响应时间。</p><h3 id="什么是优化？"><a href="#什么是优化？" class="headerlink" title="什么是优化？"></a>什么是优化？</h3><p>在一定的工作负载下，尽可能地降低响应时间。</p><p>核心：找到时间花在哪里，这很重要。</p><h3 id="如何找？"><a href="#如何找？" class="headerlink" title="如何找？"></a>如何找？</h3><p>通过测量，所以测量是性能优化的关键方法。</p><h3 id="如何测量？"><a href="#如何测量？" class="headerlink" title="如何测量？"></a>如何测量？</h3><p>找到系统的可测量点，但首先需要系统可测量化的支持，然而实际情况是系统很少可以做到可测量化。</p><p>因为很难进行系统内部测量，所以我们只能尽可能通过外部去测量系统。</p><p>另外需要注意是的，无论是内部测量还是外部测量，数据都不一定是百分之百准确的。</p><p>举例：如果<code>SQL</code>慢查了，花费了10s，如果9.6s都在等待磁盘IO，那么追究其他的0.4s就没什么意义。</p><h1 id="理解性能优剖析"><a href="#理解性能优剖析" class="headerlink" title="理解性能优剖析"></a>理解性能优剖析</h1><h3 id="什么是值得优化的查询"><a href="#什么是值得优化的查询" class="headerlink" title="什么是值得优化的查询"></a>什么是值得优化的查询</h3><pre><code>1. 占系统总体性能影响比重大的；2. 投入成本低于优化后的收入；</code></pre><h3 id="异常情况"><a href="#异常情况" class="headerlink" title="异常情况"></a>异常情况</h3><p>系统内部的异常</p><h3 id="未知的未知"><a href="#未知的未知" class="headerlink" title="未知的未知"></a>未知的未知</h3><p>性能优化过程发现了“丢失的时间”，比如：程序内部测量点发现耗时10s，但<code>MySQL</code>内部测量发现耗时是8s，那么丢失的2s可能就是没有测量到的，需要注意。</p><h3 id="注意平均值问题"><a href="#注意平均值问题" class="headerlink" title="注意平均值问题"></a>注意平均值问题</h3><p>平均值往往掩盖一些频率小但有性能问题的点</p><h1 id="对应用程序剖析"><a href="#对应用程序剖析" class="headerlink" title="对应用程序剖析"></a>对应用程序剖析</h1><p>增加测量点本身一定程度上会增加部分开销，但这部分开销如果远小于性能优化的贡献。<br>轻量级监控：为了尽可能降低性能监控开销，可以增加灰度测量点，只针对n%的概率进行监控。</p><h1 id="剖析MySQL"><a href="#剖析MySQL" class="headerlink" title="剖析MySQL"></a>剖析MySQL</h1><p>× 慢查日志</p><p>× 剖析单条查询</p>]]></content>
     
     
-    <summary type="html">&lt;h1 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h1&gt;&lt;h3 id=&quot;什么是性能？&quot;&gt;&lt;a href=&quot;#什么是性能？&quot; class=&quot;headerlink&quot; title=&quot;什么是性能？&quot;&gt;&lt;/a&gt;什么是性能？&lt;/h3&gt;&lt;p&gt;完成某件任务所需要的时间度量，也就是响应时间。&lt;/p&gt;
-&lt;h3 id=&quot;什么是优化？&quot;&gt;&lt;a href=&quot;#什么是优化？&quot; class=&quot;headerlink&quot; title=&quot;什么是优化？&quot;&gt;&lt;/a&gt;什么是优化？&lt;/h3&gt;&lt;p&gt;在一定的工作负载下，尽可能地降低响应时间。&lt;/p&gt;</summary>
+    <summary type="html">&lt;h1 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h1&gt;&lt;h3 id=&quot;什么是性能？&quot;&gt;&lt;a href=&quot;#什么是性能？&quot; class=&quot;headerlink&quot; title=&quot;什么是性能？&quot;&gt;&lt;/a&gt;什么是性能？&lt;/h3&gt;&lt;p&gt;完成某件任务所需要的时间度量，也就是响应时间。&lt;/p&gt;</summary>
     
     
     <content src="https://blog.fenxiangz.com/images/MySQL.png" type="image"/>
@@ -477,8 +449,7 @@ call idata();&lt;/code&gt;&lt;/pre&gt;
     
     
     <summary type="html">&lt;h1 id=&quot;摘要&quot;&gt;&lt;a href=&quot;#摘要&quot; class=&quot;headerlink&quot; title=&quot;摘要&quot;&gt;&lt;/a&gt;摘要&lt;/h1&gt;&lt;p&gt;在上一期月报中我们分享了SQL Server三种常见的备份技术及工作方式，本期月报将分享如何充分利用三者的优点来制定SQL Server数据库的备份和还原策略以达到数据库快速灾难恢复能力。&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;http://mysql.taobao.org/monthly/2017/11/03/&quot;&gt;上期月报：MSSQL · 最佳实践 · SQL Server三种常见备份&lt;/a&gt;&lt;/p&gt;
-&lt;h1 id=&quot;三个术语&quot;&gt;&lt;a href=&quot;#三个术语&quot; class=&quot;headerlink&quot; title=&quot;三个术语&quot;&gt;&lt;/a&gt;三个术语&lt;/h1&gt;&lt;p&gt;在详细介绍SQL Server的灾备策略之前，我们先简要介绍三个重要的术语：&lt;/p&gt;</summary>
+&lt;p&gt;&lt;a href=&quot;http://mysql.taobao.org/monthly/2017/11/03/&quot;&gt;上期月报：MSSQL · 最佳实践 · SQL Server三种常见备份&lt;/a&gt;&lt;/p&gt;</summary>
     
     
     <content src="https://blog.fenxiangz.com/images/MSSQL.png" type="image"/>
@@ -505,8 +476,7 @@ call idata();&lt;/code&gt;&lt;/pre&gt;
     
     <summary type="html">&lt;p&gt;I have recently spoken at a meetup about &lt;a href=&quot;https://www.e4developer.com/2018/02/20/practical-choreography-with-spring-cloud-presentation/&quot;&gt;Practical Choreography with Spring Cloud Stream&lt;/a&gt;. It was a great event where I was asked many questions after the talk. One question got me thinking: &lt;em&gt;“What book about Spring Cloud do you recommend?” *which as it turns out boils down to *“How do you learn Spring Cloud?”.&lt;/em&gt; I heard that question posed a few times before in different ways. Here, I will give you my answer on what I think is the best way of learning Spring Cloud.&lt;/p&gt;
 &lt;p&gt;With Spring Cloud being probably the hottest framework on JVM for integrating microservices, the interest in it is growing. Most people interested in the microservices are already familiar with Spring Boot. If you haven’t heard of it before, check out my &lt;a href=&quot;https://www.e4developer.com/2018/01/16/microservices-toolbox-spring-boot/&quot;&gt;Spring Boot introduction&lt;/a&gt; blog post, and definitely see the &lt;a href=&quot;https://projects.spring.io/spring-boot/&quot;&gt;official site&lt;/a&gt;– it has some very good &lt;em&gt;Getting Started Guides&lt;/em&gt;.&lt;/p&gt;
-&lt;p&gt;With that out of the way, let’s look at learning Spring Cloud!&lt;/p&gt;
-&lt;h3 id=&quot;Understand-the-Scope&quot;&gt;&lt;a href=&quot;#Understand-the-Scope&quot; class=&quot;headerlink&quot; title=&quot;Understand the Scope&quot;&gt;&lt;/a&gt;Understand the Scope&lt;/h3&gt;&lt;p&gt;The first thing to do when trying to learn something so big and diverse is understanding the scope. Learning Spring Cloud can mean many things. First of all, the Spring Cloud currently contains:&lt;/p&gt;</summary>
+&lt;p&gt;With that out of the way, let’s look at learning Spring Cloud!&lt;/p&gt;</summary>
     
     
     <content src="https://blog.fenxiangz.com/images/java/spring-framework.png" type="image"/>
@@ -534,8 +504,7 @@ call idata();&lt;/code&gt;&lt;/pre&gt;
     
     
     <summary type="html">&lt;h3 id=&quot;获取系统支持的字符集&quot;&gt;&lt;a href=&quot;#获取系统支持的字符集&quot; class=&quot;headerlink&quot; title=&quot;获取系统支持的字符集&quot;&gt;&lt;/a&gt;&lt;strong&gt;获取系统支持的字符集&lt;/strong&gt;&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;Charset.availableCharsets();  // Java&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&quot;编解码&quot;&gt;&lt;a href=&quot;#编解码&quot; class=&quot;headerlink&quot; title=&quot;编解码&quot;&gt;&lt;/a&gt;&lt;strong&gt;编解码&lt;/strong&gt;&lt;/h3&gt;&lt;p&gt;编码：字符 -&amp;gt; 字节 ；&lt;br&gt;解码：字节 -&amp;gt; 字符；&lt;/p&gt;
-&lt;h3 id=&quot;字符集&quot;&gt;&lt;a href=&quot;#字符集&quot; class=&quot;headerlink&quot; title=&quot;字符集&quot;&gt;&lt;/a&gt;&lt;strong&gt;字符集&lt;/strong&gt;&lt;/h3&gt;</summary>
+&lt;h3 id=&quot;编解码&quot;&gt;&lt;a href=&quot;#编解码&quot; class=&quot;headerlink&quot; title=&quot;编解码&quot;&gt;&lt;/a&gt;&lt;strong&gt;编解码&lt;/strong&gt;&lt;/h3&gt;</summary>
     
     
     <content src="https://blog.fenxiangz.com/images/java/basic/java_logo.png" type="image"/>
@@ -559,9 +528,7 @@ call idata();&lt;/code&gt;&lt;/pre&gt;
     
     
     <summary type="html">&lt;p&gt;转载：&lt;a href=&quot;https://www.jianshu.com/p/76959115d486&quot;&gt;https://www.jianshu.com/p/76959115d486&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;1-CPU和内存的交互&quot;&gt;&lt;a href=&quot;#1-CPU和内存的交互&quot; class=&quot;headerlink&quot; title=&quot;1 CPU和内存的交互&quot;&gt;&lt;/a&gt;1 CPU和内存的交互&lt;/h2&gt;&lt;p&gt;了解jvm内存模型前，了解下cpu和计算机内存的交互情况。【因为Java虚拟机内存模型定义的访问操作与计算机十分相似】&lt;/p&gt;
-&lt;p&gt;有篇很棒的文章，从cpu讲到内存模型:&lt;a href=&quot;https://www.jianshu.com/p/bf158fbb2432&quot;&gt;什么是java内存模型&lt;/a&gt;&lt;/p&gt;
-&lt;hr&gt;</summary>
+&lt;h2 id=&quot;1-CPU和内存的交互&quot;&gt;&lt;a href=&quot;#1-CPU和内存的交互&quot; class=&quot;headerlink&quot; title=&quot;1 CPU和内存的交互&quot;&gt;&lt;/a&gt;1 CPU和内存的交互&lt;/h2&gt;&lt;p&gt;了解jvm内存模型前，了解下cpu和计算机内存的交互情况。【因为Java虚拟机内存模型定义的访问操作与计算机十分相似】&lt;/p&gt;</summary>
     
     
     <content src="https://blog.fenxiangz.com/images/java/basic/java_logo.png" type="image"/>

@@ -23,12 +23,12 @@
     var NexT = window.NexT || {};
     var CONFIG = {"hostname":"blog.fenxiangz.com","root":"/","images":"/images","scheme":"Pisces","version":"8.1.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}};
   </script>
-<meta name="description" content="Java 1.4之后引入了NIO框架。 Java NIO: Channels and Buffers（通道和缓冲区）标准的IO是在字节流和字符流进行操作。NIO 是在通道（Channel）和缓冲区（Buffer）进行操作。数据总是从通道读取到缓冲区里，或者从缓冲区写入到通道里。 Java NIO: Asynchronous IO（异步IO）NIO可以做异步IO，例如：当线程从通道读取数据到缓冲区时">
+<meta name="description" content="Java 1.4之后引入了NIO框架。 Java NIO: Channels and Buffers（通道和缓冲区）标准的IO是在字节流和字符流进行操作。NIO 是在通道（Channel）和缓冲区（Buffer）进行操作。数据总是从通道读取到缓冲区里，或者从缓冲区写入到通道里。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java NIO (1) 基本概念">
 <meta property="og:url" content="https://blog.fenxiangz.com/post/java/nio/2017-04-21_java_nio_1.html">
 <meta property="og:site_name" content="分享之">
-<meta property="og:description" content="Java 1.4之后引入了NIO框架。 Java NIO: Channels and Buffers（通道和缓冲区）标准的IO是在字节流和字符流进行操作。NIO 是在通道（Channel）和缓冲区（Buffer）进行操作。数据总是从通道读取到缓冲区里，或者从缓冲区写入到通道里。 Java NIO: Asynchronous IO（异步IO）NIO可以做异步IO，例如：当线程从通道读取数据到缓冲区时">
+<meta property="og:description" content="Java 1.4之后引入了NIO框架。 Java NIO: Channels and Buffers（通道和缓冲区）标准的IO是在字节流和字符流进行操作。NIO 是在通道（Channel）和缓冲区（Buffer）进行操作。数据总是从通道读取到缓冲区里，或者从缓冲区写入到通道里。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://blog.fenxiangz.com/post/java/nio/2017-04-21_java_nio_1/1.png">
 <meta property="og:image" content="https://blog.fenxiangz.com/post/java/nio/2017-04-21_java_nio_1/2.png">

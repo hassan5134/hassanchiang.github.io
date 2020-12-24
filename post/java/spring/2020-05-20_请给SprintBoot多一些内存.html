@@ -23,12 +23,12 @@
     var NexT = window.NexT || {};
     var CONFIG = {"hostname":"blog.fenxiangz.com","root":"/","images":"/images","scheme":"Pisces","version":"8.1.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}};
   </script>
-<meta name="description" content="概述SprintBoot总体来说，搭建还是比较容易的，特别是SpringCloud全家桶，简称亲民微服务，但在发展趋势中，容器化技术已经成熟，面对巨耗内存的SprintBoot，小公司表示用不起。如今，很多刚诞生的JAVA微服务框架大多主打“轻量级”，主要还是因为SprintBoot太重。 JAVA系微服务框架No1-Spring Cloud介绍有Spring大靠山在，更新、稳定性、成熟度的问题根">
+<meta name="description" content="概述SprintBoot总体来说，搭建还是比较容易的，特别是SpringCloud全家桶，简称亲民微服务，但在发展趋势中，容器化技术已经成熟，面对巨耗内存的SprintBoot，小公司表示用不起。如今，很多刚诞生的JAVA微服务框架大多主打“轻量级”，主要还是因为SprintBoot太重。 JAVA系微服务框架No1-Spring Cloud">
 <meta property="og:type" content="article">
 <meta property="og:title" content="请给Sprint Boot多一些内存">
 <meta property="og:url" content="https://blog.fenxiangz.com/post/java/spring/2020-05-20_%E8%AF%B7%E7%BB%99SprintBoot%E5%A4%9A%E4%B8%80%E4%BA%9B%E5%86%85%E5%AD%98.html">
 <meta property="og:site_name" content="分享之">
-<meta property="og:description" content="概述SprintBoot总体来说，搭建还是比较容易的，特别是SpringCloud全家桶，简称亲民微服务，但在发展趋势中，容器化技术已经成熟，面对巨耗内存的SprintBoot，小公司表示用不起。如今，很多刚诞生的JAVA微服务框架大多主打“轻量级”，主要还是因为SprintBoot太重。 JAVA系微服务框架No1-Spring Cloud介绍有Spring大靠山在，更新、稳定性、成熟度的问题根">
+<meta property="og:description" content="概述SprintBoot总体来说，搭建还是比较容易的，特别是SpringCloud全家桶，简称亲民微服务，但在发展趋势中，容器化技术已经成熟，面对巨耗内存的SprintBoot，小公司表示用不起。如今，很多刚诞生的JAVA微服务框架大多主打“轻量级”，主要还是因为SprintBoot太重。 JAVA系微服务框架No1-Spring Cloud">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://blog.fenxiangz.com/post/java/spring/2020-05-20_%E8%AF%B7%E7%BB%99SprintBoot%E5%A4%9A%E4%B8%80%E4%BA%9B%E5%86%85%E5%AD%98/1.png">
 <meta property="og:image" content="https://blog.fenxiangz.com/post/java/spring/2020-05-20_%E8%AF%B7%E7%BB%99SprintBoot%E5%A4%9A%E4%B8%80%E4%BA%9B%E5%86%85%E5%AD%98/2.png">

@@ -269,12 +269,6 @@
 <li>  串行化（SERIALIZABLE）。读操作会隐式获取共享锁，可以保证不同事务间的互斥。</li>
 </ul>
 <p>四个级别逐渐增强，每个级别解决一个问题。</p>
-<ul>
-<li>  脏读，最容易理解。另一个事务修改了数据，但尚未提交，而本事务中的SELECT会读到这些未被提交的数据。</li>
-<li>  不重复读。解决了脏读后，会遇到，同一个事务执行过程中，另外一个事务提交了新数据，因此本事务先后两次读到的数据结果会不一致。</li>
-<li>  幻读。解决了不重复读，保证了同一个事务里，查询的结果都是事务开始时的状态（一致性）。但是，如果另一个事务同时提交了新数据，本事务再更新时，就会“惊奇的”发现了这些新数据，貌似之前读到的数据是“鬼影”一样的幻觉。</li>
-</ul>
-<p>借鉴并改造了一个搞笑的比喻：</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/post/dateabase/mysql/2018-12-17_MySQL%E7%9A%84InnoDB%E7%9A%84%E5%B9%BB%E8%AF%BB%E9%97%AE%E9%A2%98.html#more" rel="contents">
@@ -548,27 +542,6 @@ mysql&gt; show variables like &#39;%log_que%&#39;;
 | log_queries_not_using_indexes | ON    |
 +-------------------------------+-------+
 1 row in set (0.01 sec)</code></pre>
-<p>开启慢查日志配置：</p>
-<pre><code>mysql&gt; show variables like &#39;%slow_query%&#39;;
-+---------------------+--------------------------------+
-| Variable_name       | Value                          |
-+---------------------+--------------------------------+
-| slow_query_log      | OFF                            |
-| slow_query_log_file | /var/lib/mysql/mysql-slow.log |
-+---------------------+--------------------------------+
-2 rows in set (0.01 sec)
-
-mysql&gt; set global slow_query_log=ON;
-Query OK, 0 rows affected (0.04 sec)
-
-mysql&gt; show variables like &#39;%slow_query%&#39;;
-+---------------------+--------------------------------+
-| Variable_name       | Value                          |
-+---------------------+--------------------------------+
-| slow_query_log      | ON                             |
-| slow_query_log_file | /var/lib/mysql/mysql-slow.log |
-+---------------------+--------------------------------+
-2 rows in set (0.01 sec)</code></pre>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/post/dateabase/mysql/2018-12-15_MySQL%E4%BC%98%E5%8C%96%E6%A6%82%E8%A6%81.html#more" rel="contents">
@@ -661,11 +634,6 @@ sudo dpkg --remove --force-remove-reinstreq &lt;packagename&gt;
 sudo apt-get remove &lt;packagename&gt;
 sudo apt-get autoremove &amp;&amp; sudo apt-get autoclean</code></pre>
 <p>清理Docker示例：</p>
-<pre><code>sudo mv /var/lib/dpkg/info/docker.* /tmp/
-sudo dpkg --remove --force-remove-reinstreq docker.io
-sudo apt-get remove docker docker-ce docker.io containerd.io
-sudo apt-get autoremove &amp;&amp; sudo apt-get autoclean</code></pre>
-<p>参考链接：</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/post/linux/2018-11-17_Ubuntu%E5%8C%85%E9%94%99%E8%AF%AF%E6%88%96%E4%B8%8D%E4%B8%80%E8%87%B4%E6%97%B6%E7%9A%84%E6%B8%85%E7%90%86%E6%96%B9%E5%BC%8F.html#more" rel="contents">
@@ -754,8 +722,7 @@ sudo apt-get autoremove &amp;&amp; sudo apt-get autoclean</code></pre>
     <div class="post-body" itemprop="articleBody">
           <p>Clement Escoffier, Julien Viet, 沈勇 译Version 0.6,Dec, 23th, 2017 原文：<a target="_blank" rel="noopener" href="http://escoffier.me/vertx-hol/">http://escoffier.me/vertx-hol/</a></p>
 <hr>
-<h2 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h2><p>让我们从头开始…​. Vert.x . 什么是Vert.x? 这是一个好问题，也许是一个非常好的起点。 如果你访问了 <a target="_blank" rel="noopener" href="http://vertx.io/">Vert.x 网站</a>, Vert.x 的定义是 “用来在JVM上构建反应式（reactive）应用程序的工具箱”。 这个定义不是十分清楚，是吗？什么是 工具箱 ? 什么是 反应式（reactive)应用程序 ? 在这个实验里，我们将要讲解这些术语，并且用Vert.x建立一个应用程序，以此说明什么是Vert.x。这个应用程序是由一组 微服务(microservices) 组成的。再说这是一个流行趋势。不是吗？ 实际上，Vert.x已经极大的促进了 微服务(microservices) 。</p>
-<p>我们要写的应用程序会是这样的：</p>
+<h2 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h2>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/post/java/advance/2018-11-05_java_vertx.html#more" rel="contents">
@@ -855,11 +822,7 @@ sudo apt-get autoremove &amp;&amp; sudo apt-get autoclean</code></pre>
 <li>  <a target="_blank" rel="noopener" href="https://www.codechef.com/">Code Chef</a></li>
 <li>  <a target="_blank" rel="noopener" href="http://www.spoj.com/">Sphere Online Judge – SPOJ</a></li>
 </ul>
-<h4 id="在线编程面试"><a href="#在线编程面试" class="headerlink" title="在线编程面试"></a>在线编程面试</h4><ul>
-<li>  <a target="_blank" rel="noopener" href="http://www.gainlo.co/#!/">Gainlo</a></li>
-<li>  <a target="_blank" rel="noopener" href="https://refdash.com/">Refdash</a></li>
-</ul>
-<h4 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h4>
+<h4 id="在线编程面试"><a href="#在线编程面试" class="headerlink" title="在线编程面试"></a>在线编程面试</h4>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/post/interview/2018-10-26_%E6%8A%80%E6%9C%AF%E9%9D%A2%E8%AF%95%E8%A6%81%E4%BA%86%E8%A7%A3%E7%9A%84%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9F%A5%E8%AF%86.html#more" rel="contents">
@@ -948,8 +911,6 @@ sudo apt-get autoremove &amp;&amp; sudo apt-get autoclean</code></pre>
     <div class="post-body" itemprop="articleBody">
           <h3 id="1-谈谈你对-springmvc-的理解"><a href="#1-谈谈你对-springmvc-的理解" class="headerlink" title="1.谈谈你对 springmvc 的理解"></a>1.谈谈你对 springmvc 的理解</h3><p>第一印象，以为问的 spring，但是别人问的好像是 springmvc</p>
 <p>ps: spring mvc 类似于 struts 的一个 MVC 开框架，其实都是属于 spring，spring mvc需要有 spring 的架包作为支撑才能跑起来，所以 spingMVC 只是 sping 中一个小功能，小模块而已。</p>
-<p>继续谈 spring：</p>
-<p>Spring 的两大核心 AOP 与 IOC，可以单独用于任何应用，包括与 Struts 等 MVC 框架与Hibernate 等 ORM 框架的集成。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/post/interview/2018-10-25_Java%E9%9D%A2%E8%AF%95%E6%95%B4%E7%90%86.html#more" rel="contents">
@@ -1037,8 +998,7 @@ sudo apt-get autoremove &amp;&amp; sudo apt-get autoclean</code></pre>
     
     <div class="post-body" itemprop="articleBody">
           <h1 id="一、交集"><a href="#一、交集" class="headerlink" title="一、交集"></a>一、交集</h1><pre><code>sort a.txt b.txt | uniq -d</code></pre>
-<h1 id="二、并集"><a href="#二、并集" class="headerlink" title="二、并集"></a>二、并集</h1><pre><code>sort a.txt b.txt | uniq </code></pre>
-<h1 id="三、差集"><a href="#三、差集" class="headerlink" title="三、差集"></a>三、差集</h1>
+<h1 id="二、并集"><a href="#二、并集" class="headerlink" title="二、并集"></a>二、并集</h1>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/post/linux/2017-12-16_Linux%E4%B8%A4%E4%B8%AA%E6%96%87%E4%BB%B6%E6%B1%82%E4%BA%A4%E9%9B%86%E3%80%81%E5%B9%B6%E9%9B%86%E3%80%81%E5%B7%AE%E9%9B%86.html#more" rel="contents">
@@ -1127,8 +1087,6 @@ sudo apt-get autoremove &amp;&amp; sudo apt-get autoclean</code></pre>
     <div class="post-body" itemprop="articleBody">
           <p>原文：<a target="_blank" rel="noopener" href="https://xie.infoq.cn/article/964c8184326daff02aea8a746">https://xie.infoq.cn/article/964c8184326daff02aea8a746</a></p>
 <h5 id="每日一句英语学习，每天进步一点点："><a href="#每日一句英语学习，每天进步一点点：" class="headerlink" title="每日一句英语学习，每天进步一点点："></a>每日一句英语学习，每天进步一点点：</h5><p><img src="https://static001.geekbang.org/infoq/49/499d675ebb7370be1b4f48072165cd97.png"></p>
-<hr>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/post/network/2017-12-15_%E8%BF%9140%E5%BC%A0%E5%9B%BE%E8%A7%A3%E8%A2%AB%E9%97%AE%E5%8D%83%E7%99%BE%E9%81%8D%E7%9A%84TCP.html#more" rel="contents">

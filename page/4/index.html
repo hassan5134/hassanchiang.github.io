@@ -265,7 +265,6 @@
 <p>win7<br>android-sdk_r24.0.2-windows.zip<br>jdk7<br>android studio1.5<br>eclipse<br>charles</p>
 </blockquote>
 <p>温馨提示：后面三个工具都需要jre|jdk环境，请首先安装jdk.</p>
-<h3 id="2-抓包过程"><a href="#2-抓包过程" class="headerlink" title="2.抓包过程"></a>2.抓包过程</h3><p>通过在PC端安装charles软件，android端设置网络代理，抓取网络数据包。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/post/frontend/2019-11-26_APK%E5%8F%8D%E7%BC%96%E8%AF%91%E6%80%BB%E7%BB%93.html#more" rel="contents">
@@ -355,8 +354,6 @@
           <p><img src="./2019-10-27_%E7%A7%BB%E5%8A%A8%E7%AB%AF%E8%B7%A8%E5%B9%B3%E5%8F%B0%E6%96%B9%E6%A1%88%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9/1.png"></p>
 <p><img src="./2019-10-27_%E7%A7%BB%E5%8A%A8%E7%AB%AF%E8%B7%A8%E5%B9%B3%E5%8F%B0%E6%96%B9%E6%A1%88%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9/2.png"></p>
 <p><img src="./2019-10-27_%E7%A7%BB%E5%8A%A8%E7%AB%AF%E8%B7%A8%E5%B9%B3%E5%8F%B0%E6%96%B9%E6%A1%88%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9/3.png"></p>
-<p><img src="./2019-10-27_%E7%A7%BB%E5%8A%A8%E7%AB%AF%E8%B7%A8%E5%B9%B3%E5%8F%B0%E6%96%B9%E6%A1%88%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9/4.png"></p>
-<p><img src="./2019-10-27_%E7%A7%BB%E5%8A%A8%E7%AB%AF%E8%B7%A8%E5%B9%B3%E5%8F%B0%E6%96%B9%E6%A1%88%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9/5.png"></p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/post/frontend/2019-10-27_%E7%A7%BB%E5%8A%A8%E7%AB%AF%E8%B7%A8%E5%B9%B3%E5%8F%B0%E6%96%B9%E6%A1%88%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9.html#more" rel="contents">
@@ -446,7 +443,6 @@
           <p>最近前端届多端框架频出，相信很多有代码多端运行需求的开发者都会产生一些疑惑：这些框架都有什么优缺点？到底应该用哪个？</p>
 <p>作为 Taro 开发团队一员，笔者想在本文尽量站在一个客观公正的角度去评价各个框架的选型和优劣。但宥于利益相关，本文的观点很可能是带有偏向性的，大家可以带着批判的眼光去看待，权当抛砖引玉。</p>
 <p>那么，当我们在讨论多端框架时，我们在谈论什么：</p>
-<h3 id="多端"><a href="#多端" class="headerlink" title="多端"></a>多端</h3><p>笔者以为，现在流行的多端框架可以大致分为三类：</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/post/frontend/2019-10-26_%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%A4%9A%E7%AB%AF%E6%A1%86%E6%9E%B6%E5%85%A8%E9%9D%A2%E6%B5%8B%E8%AF%84.html#more" rel="contents">
@@ -537,9 +533,6 @@
 <p>在使用iview框架的时候，经常会看到组件用v-model双向绑定数据，与传统步骤父组件通过props传值子组件，子组件发送$emit来修改值相比，这种方式避免操作子组件的同时再操作父组件，显得子组件的封装效果更好。所以，个人认为，我们自己封装组件也应该有这样的思维，父组件通过slot或者props传值，由子组件完成一些效果，再抛出必要的事件让父组件接受，这样组件的可复用性就很强，有利于多次使用。</p>
 </blockquote>
 <h2 id="v-model指令是什么"><a href="#v-model指令是什么" class="headerlink" title="v-model指令是什么?"></a>v-model指令是什么?</h2><p>刚刚提到，iview通过v-model双向绑定数据，所以首先我们要明白v-model在这个过程中做了什么。有vue基础的同学应该知道，v-model本质是一个语法糖，在v-bind和v-on的整合。表单元素比如input，v-bind绑定一个值，就把data数据传给了value，同时再通过v-on监听input事件，当表单数据改变的时候，也会把值传给data数据，代码如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type&#x3D;&#39;text&#39; v-model&#x3D;&#39;msg&#39;&gt;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 相当于</span><br><span class="line"></span><br><span class="line">&lt;input type&#x3D;&#39;text&#39; :value&#x3D;msg @input&#x3D;&#39;msg &#x3D;$event.target.value&#39;&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="vue2-2新增model-API"><a href="#vue2-2新增model-API" class="headerlink" title="vue2.2新增model API"></a>vue2.2新增model API</h2>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/post/frontend/vue/2017-10-26_vue%E8%87%AA%E5%AE%9A%E4%B9%89%E7%BB%84%E4%BB%B6%E4%B8%AD%E7%9A%84v-model%E7%AE%80%E5%8D%95%E8%A7%A3%E9%87%8A.html#more" rel="contents">
@@ -629,8 +622,6 @@
           <p>如果你看到这篇文章，我确信你毫无疑问会认为jQuery是一个使用简便的库。jQuery可能使用起来很简单，但是它仍然有一些奇怪的地方，对它基本功能和概念不熟悉的人可能会难以掌握。但是不用担心，我下面已经把代码划分成小部分，做了一个简单的指导。那些语法看起来可能过于复杂，但是如果进入到它的思想和模式中，它是非常简单易懂的。<br>下面，我们有了一个插件的基本层次：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; Shawn Khameneh</span><br><span class="line">&#x2F;&#x2F; ExtraordinaryThoughts.com</span><br><span class="line"> </span><br><span class="line">(function($) &#123;</span><br><span class="line">    var privateFunction &#x3D; function() &#123;</span><br><span class="line">        &#x2F;&#x2F; 代码在这里运行</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    var methods &#x3D; &#123;</span><br><span class="line">        init: function(options) &#123;</span><br><span class="line">            return this.each(function() &#123;</span><br><span class="line">                var $this &#x3D; $(this);</span><br><span class="line">                var settings &#x3D; $this.data(&#39;pluginName&#39;);</span><br><span class="line"> </span><br><span class="line">                if(typeof(settings) &#x3D;&#x3D; &#39;undefined&#39;) &#123;</span><br><span class="line"> </span><br><span class="line">                    var defaults &#x3D; &#123;</span><br><span class="line">                        propertyName: &#39;value&#39;,</span><br><span class="line">                        onSomeEvent: function() &#123;&#125;</span><br><span class="line">                    &#125;</span><br><span class="line"> </span><br><span class="line">                    settings &#x3D; $.extend(&#123;&#125;, defaults, options);</span><br><span class="line"> </span><br><span class="line">                    $this.data(&#39;pluginName&#39;, settings);</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                    settings &#x3D; $.extend(&#123;&#125;, settings, options);</span><br><span class="line">                &#125;</span><br><span class="line"> </span><br><span class="line">                &#x2F;&#x2F; 代码在这里运行</span><br><span class="line"> </span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;,</span><br><span class="line">        destroy: function(options) &#123;</span><br><span class="line">            return $(this).each(function() &#123;</span><br><span class="line">                var $this &#x3D; $(this);</span><br><span class="line"> </span><br><span class="line">                $this.removeData(&#39;pluginName&#39;);</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;,</span><br><span class="line">        val: function(options) &#123;</span><br><span class="line">            var someValue &#x3D; this.eq(0).html();</span><br><span class="line"> </span><br><span class="line">            return someValue;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line"> </span><br><span class="line">    $.fn.pluginName &#x3D; function() &#123;</span><br><span class="line">        var method &#x3D; arguments[0];</span><br><span class="line"> </span><br><span class="line">        if(methods[method]) &#123;</span><br><span class="line">            method &#x3D; methods[method];</span><br><span class="line">            arguments &#x3D; Array.prototype.slice.call(arguments, 1);</span><br><span class="line">        &#125; else if( typeof(method) &#x3D;&#x3D; &#39;object&#39; || !method ) &#123;</span><br><span class="line">            method &#x3D; methods.init;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            $.error( &#39;Method &#39; +  method + &#39; does not exist on jQuery.pluginName&#39; );</span><br><span class="line">            return this;</span><br><span class="line">        &#125;</span><br><span class="line"> </span><br><span class="line">        return method.apply(this, arguments);</span><br><span class="line"> </span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">&#125;)(jQuery);</span><br></pre></td></tr></table></figure>
 <p>你可能会注意到，我所提到代码的结构和其他插件代码有很大的不同。根据你的使用和需求的不同，插件的开发方式也可能会呈现多样化。我的目的是澄清代码中的一些概念，足够让你找到适合自己的方法去理解和开发一个jQuery插件。</p>
-<p>现在，来解剖我们的代码吧！</p>
-<h3 id="容器：一个即时执行函数"><a href="#容器：一个即时执行函数" class="headerlink" title="容器：一个即时执行函数"></a>容器：一个即时执行函数</h3>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/post/frontend/2016-10-26_%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3jQuery%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91.html#more" rel="contents">
@@ -723,22 +714,7 @@
 <li> 设计合理的磁盘存储数据块，以及访问这些数据库的策略，这是在应用层面考虑的。例如，我们可以给存放的数据设计索引，通过寻址索引来加快和减少磁盘的访问量，还可以采用异步和非阻塞的方式加快磁盘的访问速度。</li>
 <li> 应用合理的RAID策略提升磁盘I/O。</li>
 </ol>
-<h3 id="2-Web前端调优"><a href="#2-Web前端调优" class="headerlink" title="2. Web前端调优"></a>2. Web前端调优</h3><ol>
-<li> 减少网络交互的次数（多次请求合并）</li>
-<li> 减少网络传输数据量的大小(压缩)</li>
-<li> 尽量减少编码（尽量提前将字符转化为字节，或者减少从字符到字节的转化过程。）</li>
-<li> 使用浏览器缓存</li>
-<li> 减少Cookie传输</li>
-<li> 合理布局页面</li>
-<li> 使用页面压缩</li>
-<li> 延迟加载页面</li>
-<li> CSS在最上面，JS在最下面</li>
-<li> CDN</li>
-<li> 反向代理</li>
-<li> 页面静态化</li>
-<li> 异地部署</li>
-</ol>
-<h3 id="3-服务降级（自动优雅降级）"><a href="#3-服务降级（自动优雅降级）" class="headerlink" title="3.服务降级（自动优雅降级）"></a>3.服务降级（自动优雅降级）</h3>
+<h3 id="2-Web前端调优"><a href="#2-Web前端调优" class="headerlink" title="2. Web前端调优"></a>2. Web前端调优</h3>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/post/distribution/2019-08-14_%E5%A4%A7%E5%9E%8B%E5%88%86%E5%B8%83%E5%BC%8F%E7%BD%91%E7%AB%99%E6%9C%AF%E8%AF%AD%E5%88%86%E6%9E%90.html#more" rel="contents">
@@ -828,7 +804,6 @@
           <p>分布式系统（distributed system）正变得越来越重要，大型网站几乎都是分布式的。</p>
 <p>分布式系统的最大难点，就是各个节点的状态如何同步。CAP 定理是这方面的基本定理，也是理解分布式系统的起点。</p>
 <p>本文介绍该定理。它其实很好懂，而且是显而易见的。下面的内容主要参考了 Michael Whittaker 的<a target="_blank" rel="noopener" href="https://mwhittaker.github.io/blog/an_illustrated_proof_of_the_cap_theorem/">文章</a>。</p>
-<h2 id="一、分布式系统的三个指标"><a href="#一、分布式系统的三个指标" class="headerlink" title="一、分布式系统的三个指标"></a>一、分布式系统的三个指标</h2><p><img src="./2019-08-12_CAP%E5%AE%9A%E7%90%86%E7%9A%84%E5%90%AB%E4%B9%89/1.png"></p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/post/distribution/2019-08-12_CAP%E5%AE%9A%E7%90%86%E7%9A%84%E5%90%AB%E4%B9%89.html#more" rel="contents">
@@ -916,7 +891,7 @@
     
     <div class="post-body" itemprop="articleBody">
           <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>这是分布式系统中一个很实际的问题，书上说的不是很详细，整理总结一下。</p>
-<h1 id="1、脑裂和假死"><a href="#1、脑裂和假死" class="headerlink" title="1、脑裂和假死"></a>1、脑裂和假死</h1><h2 id="1-1-脑裂"><a href="#1-1-脑裂" class="headerlink" title="1.1 脑裂"></a>1.1 脑裂</h2><p>官方定义：当一个集群的不同部分在同一时间都认为自己是活动的时候，我们就可以将这个现象称为脑裂症状。通俗的说，就是比如当你的 cluster 里面有两个结点，它们都知道在这个 cluster 里需要选举出一个 master。那么当它们两之间的通信完全没有问题的时候，就会达成共识，选出其中一个作为 master。但是如果它们之间的通信出了问题，那么两个结点都会觉得现在没有 master，所以每个都把自己选举成 master。于是 cluster 里面就会有两个 master。举例：</p>
+<h1 id="1、脑裂和假死"><a href="#1、脑裂和假死" class="headerlink" title="1、脑裂和假死"></a>1、脑裂和假死</h1>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/post/distribution/2019-08-13_Zookeeper%E6%98%AF%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%E8%84%91%E8%A3%82%E9%97%AE%E9%A2%98.html#more" rel="contents">
@@ -1006,8 +981,6 @@
           <p>一、定义 </p>
 <p>1、堆：FIFO队列优先，先进先出。jvm只有一个堆区被所有线程所共享！堆存放在二级缓存中，调用对象的速度相对慢一些，生命周期由虚拟机的垃圾回收机制定。</p>
 <p>2、栈：FILO先进后出，暂存数据的地方。每个线程都包含一个栈区！栈存放在一级缓存中，存取速度较快，“栈是限定仅在表头进行插入和删除操作的线性表”。</p>
-<p>3、方法区：用来存放方法和static变量。</p>
-<p>二、存储的数据类型</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/post/java/advance/2019-07-22_java_stack.html#more" rel="contents">
@@ -1098,8 +1071,6 @@
 <blockquote>
 <p>A byte bufferis either direct or non-direct. Given a direct byte buffer, the Java virtual machine will make a best effort to perform native I/O operations directly upon it. That is, it will attempt to avoid copying the buffer’s content to (or from) an intermediate buffer before (orafter) each invocation of one of the underlying operating system’s native I/O operations.</p>
 </blockquote>
-<p><code>byte byffer</code>可以是两种类型，一种是基于直接内存（也就是非堆内存）；另一种是非直接内存（也就是堆内存）。</p>
-<p>对于直接内存来说，JVM将会在IO操作上具有更高的性能，因为它直接作用于本地系统的IO操作。而非直接内存，也就是堆内存中的数据，如果要作IO操作，会先复制到直接内存，再利用本地IO处理。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/post/java/nio/2019-07-22_java_nio_Java%E7%9B%B4%E6%8E%A5%E5%86%85%E5%AD%98%E4%B8%8E%E9%9D%9E%E7%9B%B4%E6%8E%A5%E5%86%85%E5%AD%98%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95.html#more" rel="contents">

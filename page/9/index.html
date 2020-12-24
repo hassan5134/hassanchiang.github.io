@@ -264,8 +264,6 @@
           <p>面向报文的传输方式是应用层交给 UDP 多长的报文，UDP 就照样发送，即一次发送一个报文。因此，应用程序必须选择合适大小的报文。若报文太长，则 IP 层需要分片，降低效率。若太短，会是 IP 太小。UDP 对应用层交下来的报文，既不合并，也不拆分，而是保留这些报文的边界。这也就是说，应用层交给 UDP 多长的报文，UDP 就照样发送，即一次发送一个报文。</p>
 <p>面向字节流的话，虽然应用程序和 TCP 的交互是一次一个数据块（大小不等），但 TCP 把应用程序看成是一连串的无结构的字节流。TCP 有一个缓冲，当应用程序传送的数据块太长，TCP 就可以把它划分短一些再传送。如果应用程序一次只发送一个字节，TCP 也可以等待积累有足够多的字节后再构成报文段发送出去。</p>
 <p>下图是 TCP 和 UDP 协议的一些应用。</p>
-<p><img src="./2017-11-24_%E9%9D%A2%E5%90%91%E6%8A%A5%E6%96%87%EF%BC%88UDP%EF%BC%89%E5%92%8C%E9%9D%A2%E5%90%91%E5%AD%97%E8%8A%82%E6%B5%81%EF%BC%88TCP%EF%BC%89%E7%9A%84%E5%8C%BA%E5%88%AB/1.png"> </p>
-<p>下图是 TCP 和 UDP 协议的比较。<br><img src="./2017-11-24_%E9%9D%A2%E5%90%91%E6%8A%A5%E6%96%87%EF%BC%88UDP%EF%BC%89%E5%92%8C%E9%9D%A2%E5%90%91%E5%AD%97%E8%8A%82%E6%B5%81%EF%BC%88TCP%EF%BC%89%E7%9A%84%E5%8C%BA%E5%88%AB/2.png"> </p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/post/network/2017-11-24_%E9%9D%A2%E5%90%91%E6%8A%A5%E6%96%87%EF%BC%88UDP%EF%BC%89%E5%92%8C%E9%9D%A2%E5%90%91%E5%AD%97%E8%8A%82%E6%B5%81%EF%BC%88TCP%EF%BC%89%E7%9A%84%E5%8C%BA%E5%88%AB.html#more" rel="contents">
@@ -368,8 +366,6 @@
 <li><p>请求结果发给用户。</p>
 </li>
 </ol>
-<p>CDN 网络是在用户和服务器之间增加 Cache 层，如何将用户的请求引导到 Cache 上获得源服务器的数据，主要是通过接管 DNS 实现，这就是 CDN 的最基本的原理，当然很多细节没有涉及到，比如第 1 步，首先向本地的 DNS 服务器请求。第 5 步，内容淘汰机制（根据 TTL）等。但原理大体如此。</p>
-<p>当用户访问加入 CDN 服务的网站时，域名解析请求将最终交给全局负载均衡 DNS 进行处理。全局负载均衡 DNS 通过一组预先定义好的策略，将当时最接近用 户的节点地址提供给用户，使用户能够得到快速的服务。同时，它还与分布在世界各地的所有 CDNC 节点保持通信，搜集各节点的通信状态，确保不将用户的请求 分配到不可用的 CDN 节点上，实际上是通过 DNS 做全局负载均衡。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/post/network/2017-11-25_%E4%B8%80%E5%BC%A0%E5%9B%BE%E8%AF%B4%E6%98%8ECDN%E7%BD%91%E7%BB%9C%E7%9A%84%E5%8E%9F%E7%90%86.html#more" rel="contents">
@@ -459,8 +455,6 @@
           <p>在我们平时的开发中用到的最多的是 HTTP 协议，而 HTTP 协议本身是一种应用层协议，属于文本协议；并且这种协议也基本上满足了应用的大部分需求。HTTP 协议当初的设计并没有想到它应用的是如此的广泛，所以设计的时候考虑的比较简单实用，也许也就是这种简单实用才这么广泛；但如今，HTTP 协议似乎并不能满足所有的需求，特别是当今的 web2.0 时代，浏览器应用横行的年代，也越来越多需要长连接的应用，所以在 HTML5 以及 Flash 等客户端应用中都加入了长连接的定义，并且我也相信在未来的互联网开发中会出现很多的长连接应用。在我们公司也曾经自己开发过长连接的应用，前端是基于 flash 的，后端是基于 Java 的实现，自己基于 TCP/IP 协议制定了一套稳定，安全，可靠的应用层协议，至今一直在线上运行，情况也比较稳定；在此，我想基于我的知识和对于 socket 的理解在这里做一次分享，也许不是很深入和透彻，但绝对很基础。</p>
 <p>其实如果不理解套接字的具体实现所关联的数据结构和底层协议的工作细节，就很难抓住网络编程的精妙之处，对于 TCP 套接字（即 Socket 的实例）来说更是如此。这里我就对创建和使用 Socket 和 ServerSocket 实例的底层细节进行介绍。请注意，这些内容仅仅涵盖了一些普通的事件实例，略去了很多细节。尽管如此，我相信即使是这样的基础的理解也是有用的。如果希望了解更详尽的内容，可以参考 TCP 规范，或关于该方面的其他著作（例如 TCP/IP 详解）。</p>
 <p>图 1 是一个 Socket 实例所关联的一些信息的简化视图。JVM 或其运行的平台（即，主机操作系统中的 “套接字层”）为这些类的支持提供了底层实现。Java 对象上的操作则转换成了这种底层抽象上的操作。在这里，“Socket” 指的是图 1 中的类之一，而 “套接字（socket）” 指的是底层抽象，这种抽象是有操作系统提供或由 JVM 自己实现（例如在嵌入式系统中）。有一点需要注意，即运行在统一主机上的其他程序可能也会通过底层套接字抽象来使用网络，因此会与 Java Socket 实例竞争系统资源，如端口等。</p>
-<p><img src="./2017-11-26_%E6%B7%B1%E5%85%A5%E5%89%96%E6%9E%90Socket%E5%AE%9E%E7%8E%B0/1.png"></p>
-<p>在此，“套接字结构” 是指底层实现（包括 JVM 和 TCP/IP，但通常是后者）的数据结构集，这些数据结构包括了特定 Socket 实例所关联的信息。例如，套接字结构除其他信息外还包括：</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/post/network/2017-11-26_%E6%B7%B1%E5%85%A5%E5%89%96%E6%9E%90Socket%E5%AE%9E%E7%8E%B0.html#more" rel="contents">
@@ -629,8 +623,6 @@
           <p>Heidi SQL 通过 SSH 隧道链接mysql，适用于 mysql 数据库本地机器不可达，只能通过 SSH 隧道的情况。</p>
 <p>步骤：</p>
 <p><strong>1. 选：</strong></p>
-<p><img src="./2017-11-28_HeidiSQL%E9%80%9A%E8%BF%87SSH%E9%9A%A7%E9%81%93%E9%93%BE%E6%8E%A5mysql/1.png"></p>
-<p><strong>2. 下载 plink，选择安装路径：</strong></p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/post/network/2017-11-28_HeidiSQL%E9%80%9A%E8%BF%87SSH%E9%9A%A7%E9%81%93%E9%93%BE%E6%8E%A5mysql.html#more" rel="contents">
@@ -720,8 +712,6 @@
           <p><strong>环境</strong></p>
 <p>Vmware11 安装 Centos 7 系统，版本如下。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ uname -s -r </span><br><span class="line">Linux 3.10.0-229.el7.x86_64</span><br></pre></td></tr></table></figure>
-<p><strong>安装</strong></p>
-<p>1.使用 root 账户或具有 root 权限的用户登录。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/post/docker/2017-11-25_Docker_Get_Started.html#more" rel="contents">
@@ -811,8 +801,6 @@
           <p>update-alternatives 是符号链接管理工具。用于分组管理命令的链接和优先级。</p>
 <p>update-alternatives 以链接组进行管理，每一个链接组（link group）都有两种不同的模式：自动模式和手动模式，任一给定时刻一个组都是而且只能是其中的一种模式。</p>
 <p>如果一个组处于自动模式，当包被安装或删除时，备选方案系统会自己决定是否和如何来更新相应链接（links）。</p>
-<p>如果处于手动模式，备选方案系统会保留原先管理员所做的选择并且避免改变链接（除非发生 broken）。</p>
-<p>当第一次被安装到系统时链接组被分配为自动模式；如果之后系统管理员对模式的设置做出更改，这个组会被自动转换为手动模式。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/post/linux/2017-11-27_update-alternatives_%E5%91%BD%E4%BB%A4.html#more" rel="contents">
@@ -901,7 +889,6 @@
     <div class="post-body" itemprop="articleBody">
           <p>Java 8 刚于几周前发布，日期是2014年3月18日，这次开创性的发布在Java社区引发了不少讨论，并让大家感到激动。特性之一便是随同发布的lambda表达式，它将允许我们将行为传到函数里。在Java 8之前，如果想将行为传入函数，仅有的选择就是匿名类，需要6行代码。而定义行为最重要的那行代码，却混在中间不够突出。Lambda表达式取代了匿名类，取消了模板，允许用函数式风格编写代码。这样有时可读性更好，表达更清晰。在Java生态系统中，函数式表达与对面向对象的全面支持是个激动人心的进步。将进一步促进并行第三方库的发展，充分利用多核CPU。尽管业界需要时间来消化Java 8，但我认为任何严谨的Java开发者都不应忽视此次Java发布的核心特性，即lambda表达式、函数式接口、流API、默认方法和新的Date以及Time API。作为开发人员，我发现学习和掌握lambda表达式的最佳方法就是勇于尝试，尽可能多练习lambda表达式例子。鉴于受Java 8发布的影响最大的是Java集合框架（Java Collections framework），所以最好练习流API和lambda表达式，用于对列表（Lists）和集合（Collections）数据进行提取、过滤和排序。我一直在进行关于Java 8的写作，过去也曾分享过一些资源来帮助大家<a target="_blank" rel="noopener" href="http://javarevisited.blogspot.jp/2013/11/java-8-tutorials-resources-and-examples-lambda-expression-stream-api-functional-interfaces.html">掌握Java 8</a>。本文分享在代码中最有用的10个lambda表达式的使用方法，这些例子都短小精悍，将帮助你快速学会lambda表达式。</p>
 <h2 id="Java-8-lambda表达式示例"><a href="#Java-8-lambda表达式示例" class="headerlink" title="Java 8 lambda表达式示例"></a>Java 8 lambda表达式示例</h2><p>我个人对Java 8发布非常激动，尤其是lambda表达式和流API。越来越多的了解它们，我能写出更干净的代码。虽然一开始并不是这样。第一次看到用lambda表达式写出来的Java代码时，我对这种神秘的语法感到非常失望，认为它们把Java搞得不可读，但我错了。花了一天时间做了一些lambda表达式和流API示例的练习后，我开心的看到了更清晰的Java代码。这有点像学习<a target="_blank" rel="noopener" href="http://javarevisited.blogspot.sg/2011/09/generics-java-example-tutorial.html">泛型</a>，第一次见的时候我很讨厌它。我甚至继续使用老版Java 1.4来处理集合，直到有一天，朋友跟我介绍了使用泛型的好处（才意识到它的好处）。所以基本立场就是，不要畏惧lambda表达式以及方法引用的神秘语法，做几次练习，从集合类中提取、过滤数据之后，你就会喜欢上它。下面让我们开启学习Java 8 lambda表达式的学习之旅吧，首先从简单例子开始。</p>
-<h3 id="例1、用lambda表达式实现Runnable"><a href="#例1、用lambda表达式实现Runnable" class="headerlink" title="例1、用lambda表达式实现Runnable"></a>例1、用lambda表达式实现Runnable</h3><p>我开始使用Java 8时，首先做的就是使用lambda表达式替换匿名类，而实现Runnable接口是匿名类的最好示例。看一下Java 8之前的runnable实现方法，需要4行代码，而使用lambda表达式只需要一行代码。我们在这里做了什么呢？那就是用() -&gt; {}代码块替代了整个<a target="_blank" rel="noopener" href="http://javarevisited.blogspot.sg/2012/12/inner-class-and-nested-static-class-in-java-difference.html">匿名类</a>。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/post/java/basic/2017-11-10_java-lambda.html#more" rel="contents">
