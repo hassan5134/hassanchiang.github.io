@@ -1,1525 +1,1619 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-
-<!-- Head tag -->
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="referrer" content="no-referrer-when-downgrade">
-  
-  <meta name="baidu-site-verification" content="" />
-  <meta name="google-site-verification" content="" />
-  <meta name="msvalidate.01" content="" />
-  <meta name="360-site-verification" content="" />
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- if page has tags, then add tags to keyword -->
-  
-  
-  <meta name="keywords" content=",">
-  <!-- page.description has higher priority -->
-  <meta name="description" content="Share everything">
-  <link rel="shortcut icon" href="/favico.png">
-  <title>
-    
-    分享之
-    
-  </title>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
 
-  <link rel="canonical" href="/page/4/">
-  
-<link rel="stylesheet" href="/css/reset.css">
 
-  
-<link rel="stylesheet" href="/css/layout.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
-  
-<link rel="stylesheet" href="/css/markdown.css">
+<link rel="stylesheet" href="/css/main.css">
 
-  <!-- Pygments Highlight CSS -->
-  
-<link rel="stylesheet" href="/css/highlight.css">
 
-  
-<link rel="stylesheet" href="/css/geektutu.css">
 
-  <!-- global function -->
-  <script>
-    window.globalAddScript = function (url, onload, onerror) {
-      var s = document.createElement('script');
-      s.src = url;
-      onload && (s.onload = onload);
-      onerror && (s.onerror = onerror);
-      document.body.appendChild(s);
-    }
-    window.globalAddCss = function (url) {
-      var s = document.createElement('link');
-      s.rel = 'stylesheet';
-      s.href = url;
-      document.body.appendChild(s);
-    }
-    window.getPosition = function (ele) {
-      var x = 0, y = 0;
-      while (ele) {
-        x += (ele.offsetLeft - ele.scrollLeft + ele.clientLeft);
-        y += (ele.offsetTop - ele.scrollTop + ele.clientTop);
-        ele = ele.offsetParent;
-      }
-      return { x: x, y: y };
-    }
-    window.getDom = function (str) { return document.querySelector(str) }
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blog.fenxiangz.com","root":"/","images":"/images","scheme":"Pisces","version":"8.1.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}};
   </script>
-  <!-- google ad -->
+<meta name="description" content="Share everything">
+<meta property="og:type" content="website">
+<meta property="og:title" content="分享之">
+<meta property="og:url" content="https://blog.fenxiangz.com/page/4/index.html">
+<meta property="og:site_name" content="分享之">
+<meta property="og:description" content="Share everything">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="Hassan">
+<meta property="article:tag" content="JAVA,Linux,技术分享,网络">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://blog.fenxiangz.com/page/4/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-CN'
+  };
+</script>
+<title>分享之</title>
   
-<meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/feed.xml" title="分享之" type="application/rss+xml">
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="分享之" type="application/atom+xml">
 </head>
 
-<body>
-    <header class="gkt-header col-xs-12 padding-0">
-    <div id="gkt-nav" class="gkt-header-container">
-        <a href="/" class="gkt-header-title float-left">
-            <img class="float-left" src="/favico.png" alt="">
-            <span>分享之</span>
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">分享之</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Share everything</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <section class="post-toc-wrap sidebar-panel">
+        </section>
+        <!--/noindex-->
+
+        <section class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Hassan</p>
+  <div class="site-description" itemprop="description">Share everything</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">117</span>
+          <span class="site-state-item-name">日志</span>
         </a>
-        <nav class="gkt-header-nav text-right">
-            <ul>
-                <li><a class="hidden-xs" href="/feed.xml">订阅</a></li>
-                <li><a href="/series/">专题</a></li>
-                <li><a href="/archives/">归档</a></li>
-                <li><a href="/post/link.html">友链</a></li>
-                <li><a href="/post/about.html">关于</a></li>
-            </ul>
-        </nav>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">36</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">153</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </section>
+      </div>
     </div>
-    <div id="gkt-cate-nav" class="gkt-header-container hidden-xs">
-        
-        <nav class="gkt-header-nav float-left">
-            <ul>
-                
-                
-                <li class="gkt-cate-name float-left ">
-                    <a class="float-left" href="/post/java/basic/2016-10-25_hashmap_jdk7.html">Java ▾</a>
-                    
-                    <ul class="gkt-sub-cate">
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/java/basic/2016-10-25_hashmap_jdk7.html">Java 基础</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/java/advance/2016-10-25_number.html">Java 进阶</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/java/io/2017-04-15_java_io_1_overview.html">Java IO</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/java/nio/2017-04-21_java_nio_1.html">Java NIO</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/interview/2018-10-25_Java面试整理.html">Java 面试</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/java/util/2020-12-23_HttpClient连接池原理及一次连接时序图.html">RPC</a></li>
-                        
-                    </ul>
-                    
-                </li>
-                
-                <li class="gkt-cate-name float-left ">
-                    <a class="float-left" href="/post/java/spring/2016-10-30_Spring 组合注解&amp;注解继承.html">Spring ▾</a>
-                    
-                    <ul class="gkt-sub-cate">
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/java/spring/2016-10-30_Spring 组合注解&amp;注解继承.html">Spring Core</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/java/spring/2019-12-28_【译】Spring Boot 从 classpath 加载文件.html">Spring Boot</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/java/spring/2020-09-02_How-to-learn-Spring-Cloud.html">Spring Cloud</a></li>
-                        
-                    </ul>
-                    
-                </li>
-                
-                <li class="gkt-cate-name float-left ">
-                    <a class="float-left" href="/post/java/netty/2019-01-02_小白科普Netty有什么用.html">Java 框架</a>
-                    
-                </li>
-                
-                <li class="gkt-cate-name float-left ">
-                    <a class="float-left" href="/post/util/ide/2017-10-25_idea_shotcut.html">工具 ▾</a>
-                    
-                    <ul class="gkt-sub-cate">
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/util/ide/2017-10-25_idea_shotcut.html">IDE</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/util/gradle/LearnGradle_1_安装.html">Gradle</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/docker/2017-11-25_Docker_Get_Started.html">Docker</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/util/monitor/2017-12-10_从零开始搭建Prometheus自动监控报警系统.html">监控</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/util/svn/2017-12-10_SVN自动删除“被手动删除”的文件.html">SVN</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/util/2020-11-26_开发资源整理.html">资源导航</a></li>
-                        
-                    </ul>
-                    
-                </li>
-                
-                <li class="gkt-cate-name float-left ">
-                    <a class="float-left" href="/post/linux/2017-11-27_update-alternatives_命令.html">Linux ▾</a>
-                    
-                    <ul class="gkt-sub-cate">
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/linux/2017-11-27_update-alternatives_命令.html">其他</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/linux/2017-11-26_IO-同步，异步，阻塞，非阻塞.html">IO</a></li>
-                        
-                    </ul>
-                    
-                </li>
-                
-                <li class="gkt-cate-name float-left ">
-                    <a class="float-left" href="/post/network/2017-11-24_面向报文（UDP）和面向字节流（TCP）的区别.html">计算机网络 ▾</a>
-                    
-                    <ul class="gkt-sub-cate">
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/network/2017-11-24_面向报文（UDP）和面向字节流（TCP）的区别.html">TCP/IP</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/network/2017-11-25_一张图说明CDN网络的原理.html">网络/其他</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/network/2018-12-15_URL和URI的区别.html">网络/术语</a></li>
-                        
-                    </ul>
-                    
-                </li>
-                
-                <li class="gkt-cate-name float-left ">
-                    <a class="float-left" href="/post/dateabase/mysql/2018-12-15_MySQL优化概要.html">数据库 ▾</a>
-                    
-                    <ul class="gkt-sub-cate">
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/dateabase/mysql/2018-12-15_MySQL优化概要.html">MySQL</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/dateabase/MSSQL/2020-09-08_MSSQL最佳实践_SQL_Server备份策略.html">MSSQL</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/dateabase/Redis/2020_12_08_Redis清理方法.html">Redis</a></li>
-                        
-                    </ul>
-                    
-                </li>
-                
-                <li class="gkt-cate-name float-left ">
-                    <a class="float-left" href="/post/design/2019-01-03_Java经典设计模式_1_五大创建型模式.html">设计模式</a>
-                    
-                </li>
-                
-                <li class="gkt-cate-name float-left ">
-                    <a class="float-left" href="/post/distribution/2019-08-12_CAP定理的含义.html">分布式 ▾</a>
-                    
-                    <ul class="gkt-sub-cate">
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/distribution/2019-08-12_CAP定理的含义.html">概念</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/distribution/2019-08-13_Zookeeper是如何解决脑裂问题.html">zookeeper</a></li>
-                        
-                    </ul>
-                    
-                </li>
-                
-                <li class="gkt-cate-name float-left ">
-                    <a class="float-left" href="/post/frontend/vue/2017-10-26_vue自定义组件中的v-model简单解释.html">前端 ▾</a>
-                    
-                    <ul class="gkt-sub-cate">
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/frontend/vue/2017-10-26_vue自定义组件中的v-model简单解释.html">VUE</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/frontend/2016-10-26_深入理解jQuery插件开发.html">jQuery</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/frontend/2019-10-26_小程序多端框架全面测评.html">跨平台</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/frontend/2019-11-26_APK反编译总结.html">Android</a></li>
-                        
-                    </ul>
-                    
-                </li>
-                
-                <li class="gkt-cate-name float-left ">
-                    <a class="float-left" href="/post/algorithm/八皇后算法解析.html">算法</a>
-                    
-                </li>
-                
-                <li class="gkt-cate-name float-left ">
-                    <a class="float-left" href="/post/其他/2020-01-29_弹琴吧非会员扒谱技巧.html">其他 ▾</a>
-                    
-                    <ul class="gkt-sub-cate">
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/其他/2020-01-29_弹琴吧非会员扒谱技巧.html">其他/Tampermonkey</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/其他/2020-10-25_V2ray配置.html">其他/V2ray</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/其他/2020-11-26_Jira修改Path路径后的用户管理问题.html">其他/Jira</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/其他/2020-11-27_『认知升级』是比其他一切都更加重要的思维模型转变.html">其他/管理</a></li>
-                        
-                    </ul>
-                    
-                </li>
-                
-            </ul>
-        </nav>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.fenxiangz.com/post/frontend/2019-11-26_APK%E5%8F%8D%E7%BC%96%E8%AF%91%E6%80%BB%E7%BB%93.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Hassan">
+      <meta itemprop="description" content="Share everything">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="分享之">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/post/frontend/2019-11-26_APK%E5%8F%8D%E7%BC%96%E8%AF%91%E6%80%BB%E7%BB%93.html" class="post-title-link" itemprop="url">APK反编译总结</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-11-26 00:00:00" itemprop="dateCreated datePublished" datetime="2019-11-26T00:00:00+00:00">2019-11-26</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-12-20 16:47:02" itemprop="dateModified" datetime="2020-12-20T16:47:02+00:00">2020-12-20</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Android/" itemprop="url" rel="index"><span itemprop="name">Android</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="1-准备环境"><a href="#1-准备环境" class="headerlink" title="1.准备环境"></a>1.准备环境</h3><blockquote>
+<p>win7<br>android-sdk_r24.0.2-windows.zip<br>jdk7<br>android studio1.5<br>eclipse<br>charles</p>
+</blockquote>
+<p>温馨提示：后面三个工具都需要jre|jdk环境，请首先安装jdk.</p>
+<h3 id="2-抓包过程"><a href="#2-抓包过程" class="headerlink" title="2.抓包过程"></a>2.抓包过程</h3><p>通过在PC端安装charles软件，android端设置网络代理，抓取网络数据包。</p>
+<p>2.1、PC端：在pc端创建wifi热点共享给外设-&gt;CMD命令行</p>
+<pre><code>netsh wlan set hostednetwork mode=allow ssid=abcd key=abcd1234</code></pre>
+<p>选择正在使用的网络连接，右键共享-&gt;勾选并选择刚刚创建的热点连接</p>
+<pre><code>netsh wlan start hostednetwork</code></pre>
+<p>charles:proxy setting 设置代理端口，若需https抓包请设置ssl选项，并且客户端安装charles证书</p>
+<p>2.2、客户端：WLAN设置刚创建的“abcd”共享，并指定代理IP和端口号（自己ipconfig查看即可）</p>
+<h3 id="3-准备反编译工具"><a href="#3-准备反编译工具" class="headerlink" title="3.准备反编译工具"></a>3.准备反编译工具</h3><p>主要针对jvm的class文件和android虚拟机字节码smali，所需软件如下：</p>
+<pre><code>apktool_2.0.0rc4.zip    ---- 可以得到apk里的资源和smali文件
+dex2jar-2.0.zip        ---- 获得class文件
+jd-gui.exe        ---- 反解class文件
+signapk.rar        ---- 修改smali或者资源文件，重新打包签名，***DEBUG***</code></pre>
+<h3 id="4-开始吧"><a href="#4-开始吧" class="headerlink" title="4.开始吧"></a>4.开始吧</h3><p>这里以反编译土豆 app为例：</p>
+<p>得到res和smali</p>
+<pre><code>java -jar apktool.jar d -d ..\..\youku\tudou\tudoushipin_61.apk -o ..\..\youku\tudou\tudoushipin_61</code></pre>
+<p>得到class</p>
+<p>dex2jar.bat tudoushipin_61.apk</p>
+<p>对上面的class使用jd-gui反编译，并导入eclipse</p>
+<h3 id="5-上演调试-amp-amp-android-studio"><a href="#5-上演调试-amp-amp-android-studio" class="headerlink" title="5.上演调试 &amp;&amp; android studio"></a>5.上演调试 &amp;&amp; android studio</h3><p>将smali文件导入到android studio</p>
+<p>5.1、找到刚才apktool反解的目录找到AndroidManifest.xml，LAUNCHER对应的Activity标签上加入可被debug的配置android:debuggable=”true”，并保存。</p>
+<p>5.2、假设我们现在把断点加载app的启动入口：<br>找到APK的入口Activity类（搜索关键字LAUNCHER你懂得），也就是：com.tudou.ui.activity.WelcomeActivity。</p>
+<p>到了关键性的一步，找到这个Activity对应的smali文件；<br>定位到入口方法：onCreate；<br>在下面加入DEBUG代码，app启动时加入断点会停在这个位置；<br>说明一下：这段代码是smali的语法更多了解可以自行Google，OK。</p>
+<pre><code>a=0;//     invoke-static &#123;&#125;, Landroid/os/Debug;-&gt;waitForDebugger()V</code></pre>
+<p>说明：根据你的需要可以把断点加到任意位置，前提是你要知道它在对应的smali文件的哪一行：方法是拿反编译后的Java文件和smali对应着去看，然后再找；后面的DEBUG也是这个思路（剧透）。</p>
+<p>5.3、对修改后的apk重新打包</p>
+<p>i.重新打包：</p>
+<pre><code>java -jar apktool.jar b -d ..\..\youku\tudou\tudoushipin_61 -o debug-tudou.apk</code></pre>
+<p>ii.重新签名：</p>
+<pre><code>java -jar signapk\signapk.jar signapk\testkey.x509.pem signapk\testkey.pk8 debug-tudou.apk debug-tudou.sign.apk</code></pre>
+<p>iii.一切可能都不是那么顺利):(</p>
+<p>5.4、开启android studio–&gt;基于知名的IntelliJ IDEA开发</p>
+<p>1.导入之前反编译得到的smali文件到android studio，并在‘前面加debug代码’的地方加入断点。<br>2.找一部android手机（模拟器就算了，又慢又总是不兼容），安装刚才的签名后的apk，通过USB数据线接入PC。</p>
+<p>5.5、有一些必要的说明</p>
+<p>1.默认安装完android studio，例如：C:\dev\android\sdk<br>2.对于android Dalvik虚拟机的调试监控，DDMS已经被废弃了，新的是tools下的monitor工具，将其启动<br>3.在monitor中会看到devices中会出现小手机图标，端口号一般是8600</p>
+<h3 id="6-开始远程调试"><a href="#6-开始远程调试" class="headerlink" title="6.开始远程调试"></a>6.开始远程调试</h3><p>1.android studio中菜单栏-&gt;RUN-&gt;Edit Configuration -&gt; Remote（这根在eclipse中差不多）<br>指定host:localhost，端口：8600，module：smali所在的位置<br>启动app–&gt;运行debug即可 -&gt; 顺利的话光标会定位到你刚才的断点处。</p>
+<p>2.观察Android Monitor窗口<br>观察Debugger tag，可以查看对象和变量的值</p>
+<p>@hell 分享</p>
+
+      
     </div>
-</header>
-<div class="gkt-header-placeholder" style="height: 44px"></div>
-<div class="gkt-header-placeholder hidden-xs" style="height: 44px"></div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.fenxiangz.com/post/frontend/2019-10-27_%E7%A7%BB%E5%8A%A8%E7%AB%AF%E8%B7%A8%E5%B9%B3%E5%8F%B0%E6%96%B9%E6%A1%88%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Hassan">
+      <meta itemprop="description" content="Share everything">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="分享之">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/post/frontend/2019-10-27_%E7%A7%BB%E5%8A%A8%E7%AB%AF%E8%B7%A8%E5%B9%B3%E5%8F%B0%E6%96%B9%E6%A1%88%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9.html" class="post-title-link" itemprop="url">移动端跨平台方案如何选择</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-10-27 00:00:00" itemprop="dateCreated datePublished" datetime="2019-10-27T00:00:00+00:00">2019-10-27</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-12-20 16:47:02" itemprop="dateModified" datetime="2020-12-20T16:47:02+00:00">2020-12-20</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%B7%A8%E5%B9%B3%E5%8F%B0/" itemprop="url" rel="index"><span itemprop="name">跨平台</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><img src="./2019-10-27_%E7%A7%BB%E5%8A%A8%E7%AB%AF%E8%B7%A8%E5%B9%B3%E5%8F%B0%E6%96%B9%E6%A1%88%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9/1.png"></p>
+<p><img src="./2019-10-27_%E7%A7%BB%E5%8A%A8%E7%AB%AF%E8%B7%A8%E5%B9%B3%E5%8F%B0%E6%96%B9%E6%A1%88%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9/2.png"></p>
+<p><img src="./2019-10-27_%E7%A7%BB%E5%8A%A8%E7%AB%AF%E8%B7%A8%E5%B9%B3%E5%8F%B0%E6%96%B9%E6%A1%88%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9/3.png"></p>
+<p><img src="./2019-10-27_%E7%A7%BB%E5%8A%A8%E7%AB%AF%E8%B7%A8%E5%B9%B3%E5%8F%B0%E6%96%B9%E6%A1%88%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9/4.png"></p>
+<p><img src="./2019-10-27_%E7%A7%BB%E5%8A%A8%E7%AB%AF%E8%B7%A8%E5%B9%B3%E5%8F%B0%E6%96%B9%E6%A1%88%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9/5.png"></p>
+<p><img src="./2019-10-27_%E7%A7%BB%E5%8A%A8%E7%AB%AF%E8%B7%A8%E5%B9%B3%E5%8F%B0%E6%96%B9%E6%A1%88%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9/6.png"></p>
+<p><img src="./2019-10-27_%E7%A7%BB%E5%8A%A8%E7%AB%AF%E8%B7%A8%E5%B9%B3%E5%8F%B0%E6%96%B9%E6%A1%88%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9/7.png"></p>
+<p><img src="./2019-10-27_%E7%A7%BB%E5%8A%A8%E7%AB%AF%E8%B7%A8%E5%B9%B3%E5%8F%B0%E6%96%B9%E6%A1%88%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9/8.png"></p>
+<p><img src="./2019-10-27_%E7%A7%BB%E5%8A%A8%E7%AB%AF%E8%B7%A8%E5%B9%B3%E5%8F%B0%E6%96%B9%E6%A1%88%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9/9.png"></p>
+<p><img src="./2019-10-27_%E7%A7%BB%E5%8A%A8%E7%AB%AF%E8%B7%A8%E5%B9%B3%E5%8F%B0%E6%96%B9%E6%A1%88%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9/10.png"></p>
+<p><img src="./2019-10-27_%E7%A7%BB%E5%8A%A8%E7%AB%AF%E8%B7%A8%E5%B9%B3%E5%8F%B0%E6%96%B9%E6%A1%88%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9/11.png"></p>
+<p><img src="./2019-10-27_%E7%A7%BB%E5%8A%A8%E7%AB%AF%E8%B7%A8%E5%B9%B3%E5%8F%B0%E6%96%B9%E6%A1%88%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9/12.png"></p>
+<p><img src="./2019-10-27_%E7%A7%BB%E5%8A%A8%E7%AB%AF%E8%B7%A8%E5%B9%B3%E5%8F%B0%E6%96%B9%E6%A1%88%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9/13.png"></p>
+<p><img src="./2019-10-27_%E7%A7%BB%E5%8A%A8%E7%AB%AF%E8%B7%A8%E5%B9%B3%E5%8F%B0%E6%96%B9%E6%A1%88%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9/14.png"></p>
+<p><img src="./2019-10-27_%E7%A7%BB%E5%8A%A8%E7%AB%AF%E8%B7%A8%E5%B9%B3%E5%8F%B0%E6%96%B9%E6%A1%88%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9/15.png"></p>
+<p><img src="./2019-10-27_%E7%A7%BB%E5%8A%A8%E7%AB%AF%E8%B7%A8%E5%B9%B3%E5%8F%B0%E6%96%B9%E6%A1%88%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9/16.png"></p>
+<p><img src="./2019-10-27_%E7%A7%BB%E5%8A%A8%E7%AB%AF%E8%B7%A8%E5%B9%B3%E5%8F%B0%E6%96%B9%E6%A1%88%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9/17.png"></p>
+<p><img src="./2019-10-27_%E7%A7%BB%E5%8A%A8%E7%AB%AF%E8%B7%A8%E5%B9%B3%E5%8F%B0%E6%96%B9%E6%A1%88%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9/18.png"></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.fenxiangz.com/post/frontend/2019-10-26_%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%A4%9A%E7%AB%AF%E6%A1%86%E6%9E%B6%E5%85%A8%E9%9D%A2%E6%B5%8B%E8%AF%84.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Hassan">
+      <meta itemprop="description" content="Share everything">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="分享之">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/post/frontend/2019-10-26_%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%A4%9A%E7%AB%AF%E6%A1%86%E6%9E%B6%E5%85%A8%E9%9D%A2%E6%B5%8B%E8%AF%84.html" class="post-title-link" itemprop="url">小程序多端框架全面测评：chameleon、Taro、uni-app、mpvue、WePY</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-10-26 00:00:00" itemprop="dateCreated datePublished" datetime="2019-10-26T00:00:00+00:00">2019-10-26</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-12-20 16:47:02" itemprop="dateModified" datetime="2020-12-20T16:47:02+00:00">2020-12-20</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%B7%A8%E5%B9%B3%E5%8F%B0/" itemprop="url" rel="index"><span itemprop="name">跨平台</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>最近前端届多端框架频出，相信很多有代码多端运行需求的开发者都会产生一些疑惑：这些框架都有什么优缺点？到底应该用哪个？</p>
+<p>作为 Taro 开发团队一员，笔者想在本文尽量站在一个客观公正的角度去评价各个框架的选型和优劣。但宥于利益相关，本文的观点很可能是带有偏向性的，大家可以带着批判的眼光去看待，权当抛砖引玉。</p>
+<p>那么，当我们在讨论多端框架时，我们在谈论什么：</p>
+<h3 id="多端"><a href="#多端" class="headerlink" title="多端"></a>多端</h3><p>笔者以为，现在流行的多端框架可以大致分为三类：</p>
+<p><strong>1. 全包型</strong></p>
+<p>这类框架最大的特点就是从底层的渲染引擎、布局引擎，到中层的 DSL，再到上层的框架全部由自己开发，代表框架是 Qt 和 Flutter。这类框架优点非常明显：性能（的上限）高；各平台渲染结果一致。缺点也非常明显：需要完全重新学习 DSL（QML/Dart），以及难以适配中国特色的端：小程序。</p>
+<p>这类框架是最原始也是最纯正的的多端开发框架，由于底层到上层每个环节都掌握在自己手里，也能最大可能地去保证开发和跨端体验一致。但它们的框架研发成本巨大，渲染引擎、布局引擎、DSL、上层框架每个部分都需要大量人力开发维护。</p>
+<p><strong>2. Web 技术型</strong></p>
+<p>这类框架把 Web 技术（JavaScript，CSS）带到移动开发中，自研布局引擎处理 CSS，使用 JavaScript 写业务逻辑，使用流行的前端框架作为 DSL，各端分别使用各自的原生组件渲染。代表框架是 React Native 和 Weex，这样做的优点有：</p>
+<ol>
+<li>开发迅速</li>
+<li>复用前端生态</li>
+<li>易于学习上手，不管前端后端移动端，多多少少都会一点 JS、CSS</li>
+</ol>
+<p>缺点有：</p>
+<ol>
+<li>交互复杂时难以写出高性能的代码，这类框架的设计就必然导致 <code>JS</code> 和 <code>Native</code> 之间需要通信，类似于手势操作这样频繁地触发通信就很可能使得 UI 无法在 16ms 内及时绘制。React Native 有一些声明式的组件可以避免这个问题，但声明式的写法很难满足复杂交互的需求。</li>
+<li>由于没有渲染引擎，使用各端的原生组件渲染，相同代码渲染的一致性没有第一种高。</li>
+</ol>
+<p><strong>3. JavaScript 编译型</strong></p>
+<p>这类框架就是我们这篇文章的主角们：<code>Taro</code>、<code>WePY</code> 、<code>uni-app</code> 、 <code>mpvue</code> 、 <code>chameleon</code>，它们的原理也都大同小异：先以 JavaScript 作为基础选定一个 DSL 框架，以这个 DSL 框架为标准在各端分别编译为不同的代码，各端分别有一个运行时框架或兼容组件库保证代码正确运行。</p>
+<p>这类框架最大优点和创造的最大原因就是小程序，因为第一第二种框架其实除了可以跨系统平台之外，也都能编译运行在浏览器中。(Qt 有 Qt for WebAssembly, Flutter 有 Hummingbird，React Native 有 <code>react-native-web</code>, Weex 原生支持)</p>
+<p>另外一个优点是在移动端一般会编译到 React Native/Weex，所以它们也都拥有 Web 技术型框架的优点。这看起来很美好，但实际上 React Native/Weex 的缺点编译型框架也无法避免。除此之外，<strong>编译型框架的抽象也不是免费的</strong>：当 bug 出现时，问题的根源可能出在运行时、编译时、组件库以及三者依赖的库等等各个方面。在 Taro 开源的过程中，我们就遇到过 Babel 的 bug，React Native 的 bug，JavaScript 引擎的 bug，当然也少不了 Taro 本身的 bug。相信其它原理相同的框架也无法避免这一问题。</p>
+<p>但这并不意味着这类为了小程序而设计的多端框架就都不堪大用。首先现在各巨头超级 App 的小程序百花齐放，框架会为了抹平小程序做了许多工作，这些工作在大部分情况下是不需要开发者关心的。其次是许多业务类型并不需要复杂的逻辑和交互，没那么容易触发到框架底层依赖的 bug。</p>
+<p>那么当你的业务适合选择编译型框架时，在笔者看来首先要考虑的就是选择 DSL 的起点。因为有多端需求业务通常都希望能快速开发，一个能够快速适应团队开发节奏的 DSL 就至关重要。不管是 React 还是 Vue（或者类 Vue）都有它们的优缺点，大家可以根据团队技术栈和偏好自行选择。</p>
+<p>如果不管什么 DSL 都能接受，那就可以进入下一个环节：</p>
+<h3 id="生态"><a href="#生态" class="headerlink" title="生态"></a>生态</h3><p>以下内容均以各框架现在（2019 年 3 月 11 日）已发布稳定版为标准进行讨论。</p>
+<p><strong>1. 开发工具</strong></p>
+<p>就开发工具而言 <code>uni-app</code> 应该是一骑绝尘，它的文档内容最为翔实丰富，还自带了 IDE 图形化开发工具，鼠标点点点就能编译测试发布。</p>
+<p>其它的框架都是使用 CLI 命令行工具，但值得注意的是 <code>chameleon</code> 有独立的语法检查工具，<code>Taro</code> 则单独写了 ESLint 规则和规则集。</p>
+<p>在语法支持方面，<code>mpvue</code>、<code>uni-app</code>、<code>Taro</code> 、<code>WePY</code> 均支持 TypeScript，四者也都能通过 <code>typing</code> 实现编辑器自动补全。除了 API 补全之外，得益于 TypeScript 对于 JSX 的良好支持，Taro 也能对组件进行自动补全。</p>
+<p>CSS 方面，所有框架均支持 <code>SASS</code>、<code>LESS</code>、<code>Stylus</code>，Taro 则多一个 <code>CSS Modules</code> 的支持。</p>
+<p>所以这一轮比拼的结果应该是：</p>
+<p><strong>uni-app &gt; Taro &gt; chameleon &gt; WePY、mpvue</strong></p>
+<p><strong>2. 多端支持度</strong></p>
+<p>只从支持端的数量来看，<code>Taro</code> 和 <code>uni-app</code> 以六端略微领先（移动端、H5、微信小程序、百度小程序、支付宝小程序、头条小程序），<code>chameleon</code> 少了头条小程序紧随其后。</p>
+<p>但值得一提的是 <code>chameleon</code> 有一套自研<a target="_blank" rel="noopener" href="https://cmljs.org/doc/framework/polymorphism/intro.html">多态协议</a>，编写多端代码的体验会好许多，可以说是一个能戳到多端开发痛点的功能。<code>uni-app</code> 则有一套独立的<a target="_blank" rel="noopener" href="https://uniapp.dcloud.io/platform">条件编译语法</a>，这套语法能同时作用于 <code>js</code>、样式和模板文件。<code>Taro</code> 可以在业务逻辑中根据环境变量使用条件编译，也可以直接使用<a target="_blank" rel="noopener" href="https://nervjs.github.io/taro/docs/envs.html">条件编译文件</a>（类似 React Native 的方式）。</p>
+<p>在移动端方面，<code>uni-app</code> 基于 <code>weex</code> 定制了一套 <code>nvue</code> 方案 弥补 <code>weex</code> API 的不足；<code>Taro</code>则是暂时基于 <code>expo</code> 达到同样的效果；<code>chameleon</code> 在移动端则有一套 SDK 配合多端协议与原生语言通信。</p>
+<p>H5 方面，<code>chameleon</code> 同样是由多态协议实现支持，<code>uni-app</code> 和 <code>Taro</code> 则是都在 H5 实现了一套兼容的组件库和 API。</p>
+<p><code>mpvue</code> 和 <code>WePY</code> 都提供了转换各端小程序的功能，但都没有 h5 和移动端的支持。</p>
+<p>所以最后一轮对比的结果是：</p>
+<p><strong>chameleon &gt; Taro、uni-app &gt; mpvue &gt; WePY</strong></p>
+<p><img src="https://pocket-image-cache.com//filters:no_upscale()/https%3A%2F%2Fimage.fundebug.com%2F2019-03-27-02.jpg"></p>
+<p><strong>3. 组件库/工具库/demo</strong></p>
+<p>作为开源时间最长的框架，<code>WePY</code> 不管从 Demo，组件库数量 ，工具库来看都占有一定优势。</p>
+<p><code>uni-app</code> 则有自己的插件市场和 UI 库，如果算上收费的框架和插件比起 <code>WePy</code> 也是完全不遑多让的。</p>
+<p><code>Taro</code> 也有官方维护的跨端 UI 库 <code>taro-ui</code> ，另外在状态管理工具上也有非常丰富的选择（Redux、MobX、dva），但 demo 的数量不如前两个。但 <code>Taro</code> 有一个转换微信小程序代码为 Taro 代码的工具，可以弥补这一问题。</p>
+<p>而 <code>mpvue</code> 没有官方维护的 UI 库，<code>chameleon</code> 第三方的 demo 和工具库也还基本没有。</p>
+<p>所以这轮的排序是：</p>
+<p><strong>WePY &gt; uni-app 、taro &gt; mpvue &gt; chameleon</strong></p>
+<p><strong>4. 接入成本</strong></p>
+<p>接入成本有两个方面：</p>
+<p>第一是框架接入原有微信小程序生态。由于目前微信小程序已呈一家独大之势，开源的组件和库（例如 <code>wxparse</code>、<code>echart</code>、<code>zan-ui</code> 等）多是基于原生微信小程序框架语法写成的。目前看来 <code>uni-app</code> 、<code>Taro</code>、<code>mpvue</code> 均有文档或 demo 在框架中直接使用原生小程序组件/库，<code>WePY</code> 由于运行机制的问题，很多情况需要小改一下目标库的源码，<code>chameleon</code> 则是提供了一个按步骤大改目标库源码的迁移方式。</p>
+<p>第二是原有微信小程序项目部分接入框架重构。在这个方面 Taro 在京东购物小程序上进行了大胆的实践，具体可以查看文章<a target="_blank" rel="noopener" href="https://aotu.io/notes/2018/09/11/taro-in-jd/">《Taro 在京东购物小程序上的实践》</a>。其它框架则没有提到相关内容。</p>
+<p>而对于两种接入方式 Taro 都提供了 <code>taro convert</code> 功能，既可以将原有微信小程序项目转换为 Taro 多端代码，也可以将微信小程序生态的组件转换为 Taro 组件。</p>
+<p>所以这轮的排序是：</p>
+<p><strong>Taro &gt; mpvue 、 uni-app &gt; WePY &gt; chameleon</strong></p>
+<p><strong>流行度</strong></p>
+<p>从 GitHub 的 star 来看，<code>mpvue</code> 、<code>Taro</code>、<code>WePY</code> 的差距非常小。从 NPM 和 CNPM 的 CLI 工具下载量来看，是 Taro（3k/week）&gt; mpvue (2k/w) &gt; WePY (1k/w)。但发布时间也刚好反过来。笔者估计三家的流行程度和案例都差不太多。</p>
+<p><code>uni-app</code> 则号称有上万案例，但不像其它框架一样有一些大厂应用案例。另外从开发者的数量来看也是 <code>uni-app</code> 领先，它拥有 20+ 个 QQ 交流群（最大人数 2000）。</p>
+<p>所以从流行程度来看应该是：</p>
+<p><strong>uni-app &gt; Taro、WePY、mpvue &gt; chameleon</strong></p>
+<p><img src="./2019-10-26_%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%A4%9A%E7%AB%AF%E6%A1%86%E6%9E%B6%E5%85%A8%E9%9D%A2%E6%B5%8B%E8%AF%84/1.jpg"></p>
+<p><strong>5. 开源建设</strong></p>
+<p>一个开源作品能走多远是由框架维护团队和第三方开发者共同决定的。虽然开源建设不能具体地量化，但依然是衡量一个框架/库生命力的非常重要的标准。</p>
+<p>从第三方贡献者数量来看，<code>Taro</code> 在这一方面领先，并且 <code>Taro</code> 的一些核心包/功能（MobX、CSS Modules、alias）也是由第三方开发者贡献的。除此之外，腾讯开源的 <code>omi</code> 框架小程序部分也是基于 Taro 完成的。</p>
+<p><code>WePY</code> 在腾讯开源计划的加持下在这一方面也有不错的表现；<code>mpvue</code> 由于停滞开发了很久就比较落后了；可能是产品策略的原因，<code>uni-app</code> 在开源建设上并不热心，甚至有些部分代码都没有开源；<code>chameleon</code> 刚刚开源不久，但它的代码和测试用例都非常规范，以后或许会有不错的表现。</p>
+<p>那么这一轮的对比结果是：</p>
+<p><strong>Taro &gt; WePY &gt; mpvue &gt; chameleon &gt; uni-app</strong></p>
+<p>最后补一个总的生态对比图表：</p>
+<p><img src="./2019-10-26_%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%A4%9A%E7%AB%AF%E6%A1%86%E6%9E%B6%E5%85%A8%E9%9D%A2%E6%B5%8B%E8%AF%84/2.jpg"></p>
+<h3 id="未来"><a href="#未来" class="headerlink" title="未来"></a>未来</h3><p>从各框架已经公布的规划来看：</p>
+<p><code>WePY</code> 已经发布了 <code>v2.0.alpha</code> 版本，虽然没有公开的文档可以查阅到 <code>2.0</code> 版本有什么新功能/特性，但据其作者介绍，<code>WePY 2.0</code> 会放大招，是一个「对得起开发者」的版本。笔者也非常期待 2.0 正式发布后 <code>WePY</code> 的表现。</p>
+<p><code>mpvue</code> 已经发布了 <code>2.0</code> 的版本，主要是更新了其它端小程序的支持。但从代码提交， issue 的回复/解决率来看，<code>mpvue</code> 要想在未来有作为首先要打消社区对于 <code>mpvue</code>不管不顾不更新的质疑。</p>
+<p><code>uni-app</code> 已经在生态上建设得很好了，应该会在此基础之上继续稳步发展。如果 <code>uni-app</code> 能加强开源开放，再加强与大厂的合作，相信未来还能更上一层楼。</p>
+<p><code>chameleon</code> 的规划比较宏大，虽然是最后发的框架，但已经在规划或正在实现的功能有：</p>
+<ul>
+<li>快应用和端拓展协议</li>
+<li>通用组件库和垂直类组件库</li>
+<li>面向研发的图形化开发工具</li>
+<li>面向非研发的图形化页面搭建工具</li>
+</ul>
+<p>如果 <code>chameleon</code> 把这些功能都做出来的话，再继续完善生态，争取更多第三方开发者，那么在未来 <code>chameleon</code> 将大有可为。</p>
+<p><code>Taro</code> 的未来也一样值得憧憬。Taro 即将要发布的 <code>1.3</code> 版本就会支持以下功能：</p>
+<ul>
+<li>快应用支持</li>
+<li>Taro Doctor，自动化检查项目配置和代码合法性</li>
+<li>更多的 JSX 语法支持，1.3 之后限制生产力的语法只有 <code>只能用 map 创造循环组件</code> 一条</li>
+<li>H5 打包体积大幅精简</li>
+</ul>
+<p>同时 <code>Taro</code> 也正在对移动端进行大规模重构；开发图形化开发工具；开发组件/物料平台以及图形化页面搭建工具。</p>
+<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>那说了那么多，到底用哪个呢？</p>
+<p>如果不介意尝鲜和学习 DSL 的话，完全可以尝试 <code>WePY</code> 2.0 和 <code>chameleon</code> ，一个是酝酿了很久的 2.0 全新升级，一个有专门针对多端开发的多态协议。</p>
+<p><code>uni-app</code> 和 <code>Taro</code> 相比起来就更像是「水桶型」框架，从工具、UI 库，开发体验、多端支持等各方面来看都没有明显的短板。而 <code>mpvue</code> 由于开发一度停滞，现在看来各个方面都不如在小程序端基于它的 <code>uni-app</code> 。</p>
+<p>当然，Talk is cheap。如果对这个话题有更多兴趣的同学可以去 GitHub 另行研究，有空看代码，没空看提交。</p>
+<p>原文：<a target="_blank" rel="noopener" href="https://blog.csdn.net/zhichaosong/article/details/88980582">https://blog.csdn.net/zhichaosong/article/details/88980582</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.fenxiangz.com/post/frontend/vue/2017-10-26_vue%E8%87%AA%E5%AE%9A%E4%B9%89%E7%BB%84%E4%BB%B6%E4%B8%AD%E7%9A%84v-model%E7%AE%80%E5%8D%95%E8%A7%A3%E9%87%8A.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Hassan">
+      <meta itemprop="description" content="Share everything">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="分享之">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/post/frontend/vue/2017-10-26_vue%E8%87%AA%E5%AE%9A%E4%B9%89%E7%BB%84%E4%BB%B6%E4%B8%AD%E7%9A%84v-model%E7%AE%80%E5%8D%95%E8%A7%A3%E9%87%8A.html" class="post-title-link" itemprop="url">vue自定义组件中的v-model简单解释（vue单页面组件传值）</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-10-25 00:00:00" itemprop="dateCreated datePublished" datetime="2019-10-25T00:00:00+00:00">2019-10-25</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-12-20 16:47:02" itemprop="dateModified" datetime="2020-12-20T16:47:02+00:00">2020-12-20</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/VUE/" itemprop="url" rel="index"><span itemprop="name">VUE</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <blockquote>
+<p>在使用iview框架的时候，经常会看到组件用v-model双向绑定数据，与传统步骤父组件通过props传值子组件，子组件发送$emit来修改值相比，这种方式避免操作子组件的同时再操作父组件，显得子组件的封装效果更好。所以，个人认为，我们自己封装组件也应该有这样的思维，父组件通过slot或者props传值，由子组件完成一些效果，再抛出必要的事件让父组件接受，这样组件的可复用性就很强，有利于多次使用。</p>
+</blockquote>
+<h2 id="v-model指令是什么"><a href="#v-model指令是什么" class="headerlink" title="v-model指令是什么?"></a>v-model指令是什么?</h2><p>刚刚提到，iview通过v-model双向绑定数据，所以首先我们要明白v-model在这个过程中做了什么。有vue基础的同学应该知道，v-model本质是一个语法糖，在v-bind和v-on的整合。表单元素比如input，v-bind绑定一个值，就把data数据传给了value，同时再通过v-on监听input事件，当表单数据改变的时候，也会把值传给data数据，代码如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type&#x3D;&#39;text&#39; v-model&#x3D;&#39;msg&#39;&gt;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 相当于</span><br><span class="line"></span><br><span class="line">&lt;input type&#x3D;&#39;text&#39; :value&#x3D;msg @input&#x3D;&#39;msg &#x3D;$event.target.value&#39;&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="vue2-2新增model-API"><a href="#vue2-2新增model-API" class="headerlink" title="vue2.2新增model API"></a>vue2.2新增model API</h2><p>虽说新增，实际上vue3.0都已经发布了，这其实算个比较旧特性，官网是这么写的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">允许一个自定义组件在使用 v-model 时定制 prop 和 event。默认情况下，一个组件上的 v-model 会把 value 用作 prop 且把 input 用作 event，但是一些输入类型比如单选框和复选框按钮可能想使用 value prop 来达到不同的目的。使用 model 选项可以回避这些情况产生的冲突。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>这句话比较长，咱们来一步步理解，首先是第一句</p>
+<blockquote>
+<ol>
+<li>允许一个自定义组件在使用v-model时定制prop和event</li>
+</ol>
+</blockquote>
+<p>一般说来，<code>v-model</code>用在表单元素上进行数据的双向绑定，自定义组件通常通过父子组件传值绑定数据</p>
+<blockquote>
+<ol>
+<li>默认情况下，一个组件上的<code>v-model</code>会把value用作prop且把input用作event</li>
+</ol>
+</blockquote>
+<p>前边说了，<code>v-model</code>是<code>v-bind</code>和<code>v-on</code>的语法糖，那么这里<code>v-model</code>就完成两个步骤</p>
+<p>举一个栗子</p>
+<p>比如</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 父组件</span><br><span class="line">&lt;Child v-model&#x3D;&#39;iptValue&#39;&gt;&lt;&#x2F;Child&gt;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 子组件Vue.components(&#39;Child&#39;,&#123;</span><br><span class="line">        model: &#123;</span><br><span class="line">            prop: ipt,</span><br><span class="line">            evnet: change    </span><br><span class="line">        &#125;</span><br><span class="line">        props: &#123;</span><br><span class="line">            ipt: Number</span><br><span class="line">        &#125;</span><br><span class="line">        template: &#96;&lt;input type&#x3D;&#39;number&#39; :value&#x3D;&#39;ipt&#39; @change&#x3D;&#39;$emit(&quot;change&quot;,parseInt($event.target.value))&#39;&gt;&#96;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>这里父组件中的v-model相当于</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;Child:value&#x3D;&#39;iptValue&#39; @change&#x3D;&#39;value &#x3D;&gt; iptValue &#x3D; value&#39;&gt;&lt;&#x2F;Child&gt;</span><br></pre></td></tr></table></figure>
+
+<p>用文字解释下上面的代码</p>
+<p>前面说了，父子组件传值通过prop和$emit，第一步父组件把iptValue通过prop传给了子组件，但要注意，我这里的子组件给prop取了一个别名叫做<code>ipt</code>作为区分,所以子组件的prop对象中的键为我取的别名<code>ipt</code>。第二步，当子组件input值改变的时候，子组件监听了一个onchange方法，注意我这里也给$emit中的事件取了一个别名，只不过这个别名和原来的名字一样change，input值改变emit提交change事件并把新值传给父组件，又又又要注意，$emit的荷载都是字符串….</p>
+<p>然后就跟上面代码一样</p>
+<p>父组件执行<code>value =&gt; iptValue = value</code>语句，这样就完成了父子组件数据的双向绑定</p>
+<p>个人觉得<code>v-model</code>用在自定义组件最大的好处是提高了组件的封装性，父组件不必要另外写一个接受子组件发送给来的$emit方法</p>
+<blockquote>
+<ol>
+<li>最后是第三句话，<code>但是一些输入类型比如单选框和复选框按钮可能想使用 value prop 来达到不同的目的</code></li>
+</ol>
+</blockquote>
+<p>其实这很容易理解，因为<code>value</code>字符串在input中是有意义的，取别名有利于区分，不太重要啦这一小部分…</p>
+<h2 id="结束"><a href="#结束" class="headerlink" title="结束"></a>结束</h2><p>那么以上就是个人对于自定义组件<code>v-model</code>的一点心得，文章有疑问或错误的地方还请指出，感谢阅读</p>
+<p>原文：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/youma/p/11386428.html">https://www.cnblogs.com/youma/p/11386428.html</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.fenxiangz.com/post/frontend/2016-10-26_%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3jQuery%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Hassan">
+      <meta itemprop="description" content="Share everything">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="分享之">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/post/frontend/2016-10-26_%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3jQuery%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91.html" class="post-title-link" itemprop="url">vue自定义组件中的v-model简单解释（vue单页面组件传值）</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-10-25 00:00:00" itemprop="dateCreated datePublished" datetime="2019-10-25T00:00:00+00:00">2019-10-25</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-12-20 16:47:02" itemprop="dateModified" datetime="2020-12-20T16:47:02+00:00">2020-12-20</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/jQuery/" itemprop="url" rel="index"><span itemprop="name">jQuery</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>如果你看到这篇文章，我确信你毫无疑问会认为jQuery是一个使用简便的库。jQuery可能使用起来很简单，但是它仍然有一些奇怪的地方，对它基本功能和概念不熟悉的人可能会难以掌握。但是不用担心，我下面已经把代码划分成小部分，做了一个简单的指导。那些语法看起来可能过于复杂，但是如果进入到它的思想和模式中，它是非常简单易懂的。<br>下面，我们有了一个插件的基本层次：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; Shawn Khameneh</span><br><span class="line">&#x2F;&#x2F; ExtraordinaryThoughts.com</span><br><span class="line"> </span><br><span class="line">(function($) &#123;</span><br><span class="line">    var privateFunction &#x3D; function() &#123;</span><br><span class="line">        &#x2F;&#x2F; 代码在这里运行</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    var methods &#x3D; &#123;</span><br><span class="line">        init: function(options) &#123;</span><br><span class="line">            return this.each(function() &#123;</span><br><span class="line">                var $this &#x3D; $(this);</span><br><span class="line">                var settings &#x3D; $this.data(&#39;pluginName&#39;);</span><br><span class="line"> </span><br><span class="line">                if(typeof(settings) &#x3D;&#x3D; &#39;undefined&#39;) &#123;</span><br><span class="line"> </span><br><span class="line">                    var defaults &#x3D; &#123;</span><br><span class="line">                        propertyName: &#39;value&#39;,</span><br><span class="line">                        onSomeEvent: function() &#123;&#125;</span><br><span class="line">                    &#125;</span><br><span class="line"> </span><br><span class="line">                    settings &#x3D; $.extend(&#123;&#125;, defaults, options);</span><br><span class="line"> </span><br><span class="line">                    $this.data(&#39;pluginName&#39;, settings);</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                    settings &#x3D; $.extend(&#123;&#125;, settings, options);</span><br><span class="line">                &#125;</span><br><span class="line"> </span><br><span class="line">                &#x2F;&#x2F; 代码在这里运行</span><br><span class="line"> </span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;,</span><br><span class="line">        destroy: function(options) &#123;</span><br><span class="line">            return $(this).each(function() &#123;</span><br><span class="line">                var $this &#x3D; $(this);</span><br><span class="line"> </span><br><span class="line">                $this.removeData(&#39;pluginName&#39;);</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;,</span><br><span class="line">        val: function(options) &#123;</span><br><span class="line">            var someValue &#x3D; this.eq(0).html();</span><br><span class="line"> </span><br><span class="line">            return someValue;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line"> </span><br><span class="line">    $.fn.pluginName &#x3D; function() &#123;</span><br><span class="line">        var method &#x3D; arguments[0];</span><br><span class="line"> </span><br><span class="line">        if(methods[method]) &#123;</span><br><span class="line">            method &#x3D; methods[method];</span><br><span class="line">            arguments &#x3D; Array.prototype.slice.call(arguments, 1);</span><br><span class="line">        &#125; else if( typeof(method) &#x3D;&#x3D; &#39;object&#39; || !method ) &#123;</span><br><span class="line">            method &#x3D; methods.init;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            $.error( &#39;Method &#39; +  method + &#39; does not exist on jQuery.pluginName&#39; );</span><br><span class="line">            return this;</span><br><span class="line">        &#125;</span><br><span class="line"> </span><br><span class="line">        return method.apply(this, arguments);</span><br><span class="line"> </span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">&#125;)(jQuery);</span><br></pre></td></tr></table></figure>
+<p>你可能会注意到，我所提到代码的结构和其他插件代码有很大的不同。根据你的使用和需求的不同，插件的开发方式也可能会呈现多样化。我的目的是澄清代码中的一些概念，足够让你找到适合自己的方法去理解和开发一个jQuery插件。</p>
+<p>现在，来解剖我们的代码吧！</p>
+<h3 id="容器：一个即时执行函数"><a href="#容器：一个即时执行函数" class="headerlink" title="容器：一个即时执行函数"></a>容器：一个即时执行函数</h3><p>根本上来说，每个插件的代码是被包含在一个即时执行的函数当中，如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(function(arg1, arg2) &#123;</span><br><span class="line">   &#x2F;&#x2F; 代码</span><br><span class="line">&#125;)(arg1, arg2);</span><br></pre></td></tr></table></figure>
+<p>即时执行函数，顾名思义，是一个函数。让它与众不同的是，它被包含在一对小括号里面，这让所有的代码都在匿名函数的局部作用域中运行。这并不是说DOM（全局变量）在函数内是被屏蔽的，而是外部无法访问到函数内部的公共变量和对象命名空间。这是一个很好的开始，这样你声明你的变量和对象的时候，就不用担心着变量名和已经存在的代码有冲突。</p>
+<p>现在，因为函数内部所有的所有公共变量是无法访问的，这样要把jQuery本身作为一个内部的公共变量来使用就会成为问题。就像普通的函数一样，即时函数也根据引用传入对象参数。我们可以将jQuery对象传入函数，如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(function($) &#123;</span><br><span class="line"> </span><br><span class="line">   &#x2F;&#x2F; 局部作用域中使用$来引用jQuery</span><br><span class="line">&#125;)(jQuery);</span><br></pre></td></tr></table></figure>
+<p>我们传入了一个把公共变量“jQuery”传入了一个即时执行的函数里面，在函数局部（容器）中我们可以通过“$”来引用它。也就是说，我们把容器当做一个函数来调用，而这个函数的参数就是jQuery。因为我们引用的“jQuery”作为公共变量传入，而不是它的简写“$”，这样我们就可以兼容Prototype库。如果你不用Prototype或者其它用“$”做简写的库的话，你不这样做也不会造成什么影响，但是知道这种用法仍是一件好事。</p>
+<h3 id="插件：一个函数"><a href="#插件：一个函数" class="headerlink" title="插件：一个函数"></a>插件：一个函数</h3><p>一个jQuery插件本质上是我们塞进jQuery命名空间中一个庞大的函数，当然，我们可以很轻易地用“jQuery.pluginName=function”，来达到我们的目的，但是如果我们这样做的话我们的插件的代码是处于没有被保护的暴露状态的。“jQuery.fn”是“jQuery.prototype”的简写，意味当我们通过jQuery命名空间去获取我们的插件的时候，它仅可写（不可修改）。它事实上可以为你干点什么事呢？它让你恰当地组织自己的代码，和理解如何保护你的代码不受运行时候不需要的修改。最好的说法就是，这是一个很好的实践！</p>
+<p>通过一个插件，我们获得一个基本的jQuery函数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">(function($) &#123;</span><br><span class="line"> </span><br><span class="line">    $.fn.pluginName &#x3D; function(options) &#123;</span><br><span class="line"> </span><br><span class="line">        &#x2F;&#x2F; 代码在此处运行</span><br><span class="line"> </span><br><span class="line">        return this;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">&#125;)(jQuery);</span><br></pre></td></tr></table></figure>
+<p>上面的代码中的函数可以像其他的jQuery函数那样通过“$(‘#element’).pluginName()”来调用。注意，我是如何把“return this”语句加进去的；这小片的代码通过返回一个原来元素的集合（包含在this当中）的引用来产生链式调用的效果，而这些元素是被一个jQuery对象所包裹的。你也应该注意，“this”在这个特定的作用域中是一个jQuery对象，相当于“$(‘#element’)”。</p>
+<p>根据返回的对象，我们可以总结出，在上面的代码中，使用“$(‘#element’).pluginName()”的效果和使用“$(‘#element’)”的效果是一样的。在你的即时执行函数作用域中，没必要用“$(this)”的方式来把this包裹到一个jQuery对象中，因为this本身已经是被包装好的jQuery对象。</p>
+<h3 id="多个元素：理解Sizzle"><a href="#多个元素：理解Sizzle" class="headerlink" title="多个元素：理解Sizzle"></a>多个元素：理解Sizzle</h3><p>jQuery使用的选择器引擎叫Sizzle，Sizzle可以为你的函数提供多元素操作（例如对所有类名相同的元素）。这是jQuery几个优秀的特性之一，但这也是你在开发插件过程中需要考虑的事情。即使你不准备为你的插件提供多元素支持，但为这做准备仍然是一个很好的实践。</p>
+<p>这里我添加了一小段代码，它让你的插件代码为多元素集合中每个元素单独地起作用：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">function($) &#123;</span><br><span class="line"> </span><br><span class="line">    &#x2F;&#x2F; 向jQuery中被保护的“fn”命名空间中添加你的插件代码，用“pluginName”作为插件的函数名称</span><br><span class="line">    $.fn.pluginName &#x3D; function(options) &#123;</span><br><span class="line"> </span><br><span class="line">        &#x2F;&#x2F; 返回“this”（函数each（）的返回值也是this），以便进行链式调用。</span><br><span class="line">        return this.each(function() &#123;</span><br><span class="line"> </span><br><span class="line">            &#x2F;&#x2F; 此处运行代码，可以通过“this”来获得每个单独的元素</span><br><span class="line">            &#x2F;&#x2F; 例如： $(this).show()；</span><br><span class="line">            var $this &#x3D; $(this);</span><br><span class="line"> </span><br><span class="line">        &#125;);</span><br><span class="line"> </span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">&#125;)(jQuery);</span><br></pre></td></tr></table></figure>
+<p>在以上示例代码中，我并不是用 each（）在我的选择器中每个元素上运行代码。在那个被 each（）调用的函数的局部作用域中，你可以通过this来引用每个被单独处理的元素，也就是说你可以通过$(this)来引用它的jQuery对象。在局部作用域中，我用$this变量存储起jQuery对象，而不是每次调用函数的时候都使用$(this)，这会是个很好的实践。当然，这样做并不总是必要的；但我已经额外把它包含在我的代码中。还有要注意的是，我们将会对每个单独方法都使用 each（），这样到时我们就可以返回我们需要的值，而不是一个jQuery对象。</p>
+<p>下面是一个例子，假如我们的插件支持一个 val 的方法，它可以返回我们需要的值：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$(&#39;#element&#39;).pluginName(&#39;val&#39;);</span><br><span class="line">&#x2F;&#x2F; 会返回我们需要的值，而不是一个jQuery对象</span><br></pre></td></tr></table></figure>
+<h3 id="功能：公有方法和私有方法"><a href="#功能：公有方法和私有方法" class="headerlink" title="功能：公有方法和私有方法"></a>功能：公有方法和私有方法</h3><p>一个基本的函数可能在某些情况下可以良好地工作，但是一个稍微复杂一点的插件就需要提供各种各样的方法和私有函数。你可能会使用不同的命名空间去为你的插件提供各种方法，但是最好不要让你的源代码因为多余的命名空间而变得混乱。</p>
+<p>下面的代码定义了一个存储公有方法的JSON对象，以及展示了如何使用插件中的主函数中去判断哪些方法被调用，和如何在让方法作用到选择器每个元素上。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line">(function($) &#123;</span><br><span class="line"> </span><br><span class="line">    &#x2F;&#x2F; 在我们插件容器内，创造一个公共变量来构建一个私有方法</span><br><span class="line">    var privateFunction &#x3D; function() &#123;</span><br><span class="line">        &#x2F;&#x2F; code here</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    &#x2F;&#x2F; 通过字面量创造一个对象，存储我们需要的共有方法</span><br><span class="line">    var methods &#x3D; &#123;</span><br><span class="line">        &#x2F;&#x2F; 在字面量对象中定义每个单独的方法</span><br><span class="line">        init: function() &#123;</span><br><span class="line"> </span><br><span class="line">            &#x2F;&#x2F; 为了更好的灵活性，对来自主函数，并进入每个方法中的选择器其中的每个单独的元素都执行代码</span><br><span class="line">            return this.each(function() &#123;</span><br><span class="line">                &#x2F;&#x2F; 为每个独立的元素创建一个jQuery对象</span><br><span class="line">                var $this &#x3D; $(this);</span><br><span class="line"> </span><br><span class="line">                &#x2F;&#x2F; 执行代码</span><br><span class="line">                &#x2F;&#x2F; 例如： privateFunction();</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;,</span><br><span class="line">        destroy: function() &#123;</span><br><span class="line">            &#x2F;&#x2F; 对选择器每个元素都执行方法</span><br><span class="line">            return this.each(function() &#123;</span><br><span class="line">                &#x2F;&#x2F; 执行代码</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line"> </span><br><span class="line">    $.fn.pluginName &#x3D; function() &#123;</span><br><span class="line">        &#x2F;&#x2F; 获取我们的方法，遗憾的是，如果我们用function(method)&#123;&#125;来实现，这样会毁掉一切的</span><br><span class="line">        var method &#x3D; arguments[0];</span><br><span class="line"> </span><br><span class="line">        &#x2F;&#x2F; 检验方法是否存在</span><br><span class="line">        if(methods[method]) &#123;</span><br><span class="line"> </span><br><span class="line">            &#x2F;&#x2F; 如果方法存在，存储起来以便使用</span><br><span class="line">            &#x2F;&#x2F; 注意：我这样做是为了等下更方便地使用each（）</span><br><span class="line">            method &#x3D; methods[method];</span><br><span class="line"> </span><br><span class="line">        &#x2F;&#x2F; 如果方法不存在，检验对象是否为一个对象（JSON对象）或者method方法没有被传入</span><br><span class="line">        &#125; else if( typeof(method) &#x3D;&#x3D; &#39;object&#39; || !method ) &#123;</span><br><span class="line"> </span><br><span class="line">            &#x2F;&#x2F; 如果我们传入的是一个对象参数，或者根本没有参数，init方法会被调用</span><br><span class="line">            method &#x3D; methods.init;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line"> </span><br><span class="line">            &#x2F;&#x2F; 如果方法不存在或者参数没传入，则报出错误。需要调用的方法没有被正确调用</span><br><span class="line">            $.error( &#39;Method &#39; +  method + &#39; does not exist on jQuery.pluginName&#39; );</span><br><span class="line">            return this;</span><br><span class="line">        &#125;</span><br><span class="line"> </span><br><span class="line">        &#x2F;&#x2F; 调用我们选中的方法</span><br><span class="line">        &#x2F;&#x2F; 再一次注意我们是如何将each（）从这里转移到每个单独的方法上的</span><br><span class="line">        return method.call(this);</span><br><span class="line"> </span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">&#125;)(jQuery);</span><br></pre></td></tr></table></figure>
+<p>注意我把 privateFunction 当做了一个函数内部的全局变量。考虑到所有的代码的运行都是在插件容器内进行的，所以这种做法是可以被接受的，因为它只在插件的作用域中可用。在插件中的主函数中，我检验了传入参数所指向的方法是否存在。如果方法不存在或者传入的是参数为对象， init 方法会被运行。最后，如果传入的参数不是一个对象而是一个不存在的方法，我们会报出一个错误信息。</p>
+<p>同样要注意的是，我是如何在每个方法中都使用 this.each() 的。当我们在主函数中调用 method.call(this) 的时候，这里的 this 事实上就是一个jQuery对象，作为 this 传入每个方法中。所以在我们方法的即时作用域中，它已经是一个jQuery对象。只有在被 each（）所调用的函数中，我们才有必要将this包装在一个jQuery对象中。</p>
+<p>下面是一些用法的例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*</span><br><span class="line"> 注意这些例子可以在目前的插件代码中正确运行，并不是所有的插件都使用同样的代码结构 </span><br><span class="line">*&#x2F;</span><br><span class="line">&#x2F;&#x2F; 为每个类名为 &quot;.className&quot; 的元素执行init方法</span><br><span class="line">$(&#39;.className&#39;).pluginName();</span><br><span class="line">$(&#39;.className&#39;).pluginName(&#39;init&#39;);</span><br><span class="line">$(&#39;.className&#39;).pluginName(&#39;init&#39;, &#123;&#125;); &#x2F;&#x2F; 向init方法传入“&#123;&#125;”对象作为函数参数</span><br><span class="line">$(&#39;.className&#39;).pluginName(&#123;&#125;); &#x2F;&#x2F; 向init方法传入“&#123;&#125;”对象作为函数参数</span><br><span class="line"> </span><br><span class="line">&#x2F;&#x2F; 为每个类名为 “.className” 的元素执行destroy方法</span><br><span class="line">$(&#39;.className&#39;).pluginName(&#39;destroy&#39;);</span><br><span class="line">$(&#39;.className&#39;).pluginName(&#39;destroy&#39;, &#123;&#125;); &#x2F;&#x2F; 向destroy方法传入“&#123;&#125;”对象作为函数参数</span><br><span class="line"> </span><br><span class="line">&#x2F;&#x2F; 所有代码都可以正常运行</span><br><span class="line">$(&#39;.className&#39;).pluginName(&#39;init&#39;, &#39;argument1&#39;, &#39;argument2&#39;); &#x2F;&#x2F; 把 &quot;argument 1&quot; 和 &quot;argument 2&quot; 传入 &quot;init&quot;</span><br><span class="line"> </span><br><span class="line">&#x2F;&#x2F; 不正确的使用</span><br><span class="line">$(&#39;.className&#39;).pluginName(&#39;nonexistantMethod&#39;);</span><br><span class="line">$(&#39;.className&#39;).pluginName(&#39;nonexistantMethod&#39;, &#123;&#125;);</span><br><span class="line">$(&#39;.className&#39;).pluginName(&#39;argument 1&#39;); &#x2F;&#x2F; 会尝试调用 &quot;argument 1&quot; 方法</span><br><span class="line">$(&#39;.className&#39;).pluginName(&#39;argument 1&#39;, &#39;argument 2&#39;); &#x2F;&#x2F; 会尝试调用 &quot;argument 1&quot; ，“argument 2”方法</span><br><span class="line">$(&#39;.className&#39;).pluginName(&#39;privateFunction&#39;); &#x2F;&#x2F; &#39;privateFunction&#39; 不是一个方法</span><br></pre></td></tr></table></figure>
+
+<p>在上面的例子中多次出现了 {} ，表示的是传入方法中的参数。在这小节中，上面代码可以可以正常运行，但是参数不会被传入方法中。继续阅读下一小节，你会知道如何向方法传入参数。  </p>
+<h3 id="设置插件：传入参数"><a href="#设置插件：传入参数" class="headerlink" title="设置插件：传入参数"></a>设置插件：传入参数</h3><p>许多插件都支持参数传入，如配置参数和回调函数。你可以通过传入JS键值对对象或者函数参数，为方法提供信息。如果你的方法支持多于一个或两个参数，那么没有比传入对象参数更恰当的方式。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">(function($) &#123;</span><br><span class="line">    var methods &#x3D; &#123;</span><br><span class="line">        init: function(options) &#123;</span><br><span class="line"> </span><br><span class="line">            &#x2F;&#x2F; 在每个元素上执行方法</span><br><span class="line">            return this.each(function() &#123;</span><br><span class="line">                var $this &#x3D; $(this);</span><br><span class="line"> </span><br><span class="line">                &#x2F;&#x2F; 创建一个默认设置对象</span><br><span class="line">                var defaults &#x3D; &#123;</span><br><span class="line">                    propertyName: &#39;value&#39;,</span><br><span class="line">                    onSomeEvent: function() &#123;&#125;</span><br><span class="line">                &#125;</span><br><span class="line"> </span><br><span class="line">                &#x2F;&#x2F; 使用extend方法从options和defaults对象中构造出一个settings对象</span><br><span class="line">                var settings &#x3D; $.extend(&#123;&#125;, defaults, options);</span><br><span class="line"> </span><br><span class="line">                &#x2F;&#x2F; 执行代码</span><br><span class="line"> </span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line"> </span><br><span class="line">    $.fn.pluginName &#x3D; function() &#123;</span><br><span class="line">        var method &#x3D; arguments[0];</span><br><span class="line"> </span><br><span class="line">        if(methods[method]) &#123;</span><br><span class="line">            method &#x3D; methods[method];</span><br><span class="line"> </span><br><span class="line">            &#x2F;&#x2F; 我们的方法是作为参数传入的，把它从参数列表中删除，因为调用方法时并不需要它</span><br><span class="line">            arguments &#x3D; Array.prototype.slice.call(arguments, 1);</span><br><span class="line">        &#125; else if( typeof(method) &#x3D;&#x3D; &#39;object&#39; || !method ) &#123;</span><br><span class="line">            method &#x3D; methods.init;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            $.error( &#39;Method &#39; +  method + &#39; does not exist on jQuery.pluginName&#39; );</span><br><span class="line">            return this;</span><br><span class="line">        &#125;</span><br><span class="line"> </span><br><span class="line">        &#x2F;&#x2F; 用apply方法来调用我们的方法并传入参数</span><br><span class="line">        return method.apply(this, arguments);</span><br><span class="line"> </span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">&#125;)(jQuery);</span><br></pre></td></tr></table></figure>
+
+<p>正如上面所示，一个“options”参数被添加到方法当中，和“arguments”也被添加到了主函数中。如果一个方法已经被声明，在参数传入方法之前，调用那个方法的参数会从参数列表中删除掉。我用了“apply（）”来代替了“call（）”，“apply（）”本质上是和“call（）”做着同样的工作的，但不同的是它允许参数的传入。这种结构也允许多个参数的传入，如果你愿意这样做，你也可以为你的方法修改参数列表，例如：“init:function(arg1, arg2){}”。</p>
+<p>如果你是使用JS对象作为参数传入，你可能需要定义一个默认对象。一旦默认对象被声明，你可以使用“$.extend”来合并参数对象和默认对象中的值，以形成一个新的参数对象来使用（在我们的例子中就是“settings”）；</p>
+<p>这里有一些例子，用来演示以上的逻辑：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">var options &#x3D; &#123;</span><br><span class="line">    customParameter: &#39;Test 1&#39;,</span><br><span class="line">    propertyName: &#39;Test 2&#39;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">var defaults &#x3D; &#123;</span><br><span class="line">    propertyName: &#39;Test 3&#39;,</span><br><span class="line">    onSomeEvent: &#39;Test 4&#39;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">var settings &#x3D; $.extend(&#123;&#125;, defaults, options);</span><br><span class="line">&#x2F;*</span><br><span class="line">settings &#x3D;&#x3D; &#123;</span><br><span class="line">    propertyName: &#39;Test 2&#39;,</span><br><span class="line">    onSomeEvent: &#39;Test 4&#39;,</span><br><span class="line">    customParameter: &#39;Test 1&#39;</span><br><span class="line">&#125;</span><br><span class="line">*&#x2F;</span><br></pre></td></tr></table></figure>
+<p>保存设置：添加持久性数据<br>有时你会想在你的插件中保存设置和信息，这时jQuery中的“data（）”函数就可以派上用场了。它在使用上是非常简单的，它会尝试获取和元素相关的数据，如果数据不存在，它就会创造相应的数据并添加到元素上。一旦你使用了“data（）”来为元素添加信息，请确认你已经记住，当不再需要数据的时候，用“removeData（）”来删除相应的数据。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; Shawn Khameneh</span><br><span class="line">&#x2F;&#x2F; ExtraordinaryThoughts.com</span><br><span class="line"> </span><br><span class="line">(function($) &#123;</span><br><span class="line">    var privateFunction &#x3D; function() &#123;</span><br><span class="line">        &#x2F;&#x2F; 执行代码</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    var methods &#x3D; &#123;</span><br><span class="line">        init: function(options) &#123;</span><br><span class="line"> </span><br><span class="line">            &#x2F;&#x2F; 在每个元素上执行方法</span><br><span class="line">            return this.each(function() &#123;</span><br><span class="line">                var $this &#x3D; $(this);</span><br><span class="line"> </span><br><span class="line">                &#x2F;&#x2F; 尝试去获取settings，如果不存在，则返回“undefined”</span><br><span class="line">                var settings &#x3D; $this.data(&#39;pluginName&#39;);</span><br><span class="line"> </span><br><span class="line">                &#x2F;&#x2F; 如果获取settings失败，则根据options和default创建它</span><br><span class="line">                if(typeof(settings) &#x3D;&#x3D; &#39;undefined&#39;) &#123;</span><br><span class="line"> </span><br><span class="line">                    var defaults &#x3D; &#123;</span><br><span class="line">                        propertyName: &#39;value&#39;,</span><br><span class="line">                        onSomeEvent: function() &#123;&#125;</span><br><span class="line">                    &#125;</span><br><span class="line"> </span><br><span class="line">                    settings &#x3D; $.extend(&#123;&#125;, defaults, options);</span><br><span class="line"> </span><br><span class="line">                    &#x2F;&#x2F; 保存我们新创建的settings</span><br><span class="line">                    $this.data(&#39;pluginName&#39;, settings);</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                    &#x2F; 如果我们获取了settings，则将它和options进行合并（这不是必须的，你可以选择不这样做）</span><br><span class="line">                    settings &#x3D; $.extend(&#123;&#125;, settings, options);</span><br><span class="line"> </span><br><span class="line">                    &#x2F;&#x2F; 如果你想每次都保存options，可以添加下面代码：</span><br><span class="line">                    &#x2F;&#x2F; $this.data(&#39;pluginName&#39;, settings);</span><br><span class="line">                &#125;</span><br><span class="line"> </span><br><span class="line">                &#x2F;&#x2F; 执行代码</span><br><span class="line"> </span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;,</span><br><span class="line">        destroy: function(options) &#123;</span><br><span class="line">            &#x2F;&#x2F; 在每个元素中执行代码</span><br><span class="line">            return $(this).each(function() &#123;</span><br><span class="line">                var $this &#x3D; $(this);</span><br><span class="line"> </span><br><span class="line">                &#x2F;&#x2F; 执行代码</span><br><span class="line"> </span><br><span class="line">                &#x2F;&#x2F; 删除元素对应的数据</span><br><span class="line">                $this.removeData(&#39;pluginName&#39;);</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;,</span><br><span class="line">        val: function(options) &#123;</span><br><span class="line">            &#x2F;&#x2F; 这里的代码通过.eq(0)来获取选择器中的第一个元素的，我们或获取它的HTML内容作为我们的返回值</span><br><span class="line">            var someValue &#x3D; this.eq(0).html();</span><br><span class="line"> </span><br><span class="line">            &#x2F;&#x2F; 返回值</span><br><span class="line">            return someValue;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line"> </span><br><span class="line">    $.fn.pluginName &#x3D; function() &#123;</span><br><span class="line">        var method &#x3D; arguments[0];</span><br><span class="line"> </span><br><span class="line">        if(methods[method]) &#123;</span><br><span class="line">            method &#x3D; methods[method];</span><br><span class="line">            arguments &#x3D; Array.prototype.slice.call(arguments, 1);</span><br><span class="line">        &#125; else if( typeof(method) &#x3D;&#x3D; &#39;object&#39; || !method ) &#123;</span><br><span class="line">            method &#x3D; methods.init;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            $.error( &#39;Method &#39; +  method + &#39; does not exist on jQuery.pluginName&#39; );</span><br><span class="line">            return this;</span><br><span class="line">        &#125;</span><br><span class="line"> </span><br><span class="line">        return method.apply(this, arguments);</span><br><span class="line"> </span><br><span class="line">    &#125;  </span><br><span class="line"> </span><br><span class="line">&#125;)(jQuery);</span><br></pre></td></tr></table></figure>
+
+<p>在上面的代码中，我检验了元素的数据是否存在。如果数据不存在，“options”和“default”会被合并，构建成一个新的settings，然后用“data（）”保存在元素中。</p>
+<p>英文原文：<a target="_blank" rel="noopener" href="http://extraordinarythoughts.com/2011/08/20/understanding-jquery-plugins/">Extraordinary Thougths</a>  ， 编译：伯乐在线——<a target="_blank" rel="noopener" href="http://blog.jobbole.com/30550/">戴嘉华</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.fenxiangz.com/post/distribution/2019-08-14_%E5%A4%A7%E5%9E%8B%E5%88%86%E5%B8%83%E5%BC%8F%E7%BD%91%E7%AB%99%E6%9C%AF%E8%AF%AD%E5%88%86%E6%9E%90.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Hassan">
+      <meta itemprop="description" content="Share everything">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="分享之">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/post/distribution/2019-08-14_%E5%A4%A7%E5%9E%8B%E5%88%86%E5%B8%83%E5%BC%8F%E7%BD%91%E7%AB%99%E6%9C%AF%E8%AF%AD%E5%88%86%E6%9E%90.html" class="post-title-link" itemprop="url">大型分布式网站术语分析</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-08-13 00:00:00" itemprop="dateCreated datePublished" datetime="2019-08-13T00:00:00+00:00">2019-08-13</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-12-20 16:47:02" itemprop="dateModified" datetime="2020-12-20T16:47:02+00:00">2020-12-20</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%A6%82%E5%BF%B5/" itemprop="url" rel="index"><span itemprop="name">概念</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="1-I-O优化"><a href="#1-I-O优化" class="headerlink" title="1. I/O优化"></a>1. I/O优化</h3><ol>
+<li> 增加缓存，减少磁盘的访问次数。</li>
+<li> 优化磁盘的管理系统，设计最优的磁盘方式策略，以及磁盘的寻址策略，这是在底层操作系统层面考虑的。</li>
+<li> 设计合理的磁盘存储数据块，以及访问这些数据库的策略，这是在应用层面考虑的。例如，我们可以给存放的数据设计索引，通过寻址索引来加快和减少磁盘的访问量，还可以采用异步和非阻塞的方式加快磁盘的访问速度。</li>
+<li> 应用合理的RAID策略提升磁盘I/O。</li>
+</ol>
+<h3 id="2-Web前端调优"><a href="#2-Web前端调优" class="headerlink" title="2. Web前端调优"></a>2. Web前端调优</h3><ol>
+<li> 减少网络交互的次数（多次请求合并）</li>
+<li> 减少网络传输数据量的大小(压缩)</li>
+<li> 尽量减少编码（尽量提前将字符转化为字节，或者减少从字符到字节的转化过程。）</li>
+<li> 使用浏览器缓存</li>
+<li> 减少Cookie传输</li>
+<li> 合理布局页面</li>
+<li> 使用页面压缩</li>
+<li> 延迟加载页面</li>
+<li> CSS在最上面，JS在最下面</li>
+<li> CDN</li>
+<li> 反向代理</li>
+<li> 页面静态化</li>
+<li> 异地部署</li>
+</ol>
+<h3 id="3-服务降级（自动优雅降级）"><a href="#3-服务降级（自动优雅降级）" class="headerlink" title="3.服务降级（自动优雅降级）"></a>3.服务降级（自动优雅降级）</h3><p>拒绝服务和关闭服务</p>
+<h3 id="4-幂等性设计"><a href="#4-幂等性设计" class="headerlink" title="4.幂等性设计"></a>4.幂等性设计</h3><p>有些服务天然具有幂等性，比如讲用户性别设置为男性，不管设置多少次，结果都一样。但是对转账交易等操作，问题就会比较复杂，需要通过交易编号等信息进行服务调用有效性校验，只有有效的操作才能继续执行。</p>
+<p>（注：幂等性是系统的接口对外一种承诺(而不是实现), 承诺只要调用接口成功, 外部多次调用对系统的影响是一致的. 声明为幂等的接口会认为外部调用失败是常态, 并且失败之后必然会有重试.）</p>
+<h3 id="5-失效转移"><a href="#5-失效转移" class="headerlink" title="5.失效转移"></a>5.失效转移</h3><p>若数据服务器集群中任何一台服务器宕机，那么应用程序针对这台服务器的所有读写操作都需要重新路由到其他服务器，保证数据访问不会失败，这个过程叫失效转移。<br>失效转移包括：失效确认（心跳检测和应用程序访问失败报告）、访问转移、数据恢复。<br>失效转移保证当一个数据副本不可访问时，可以快速切换访问数据的其他副本，保证系统可用。</p>
+<h3 id="6-性能优化"><a href="#6-性能优化" class="headerlink" title="6.性能优化"></a>6.性能优化</h3><p>根据网站分层架构,性能优化可分为：web前端性能优化、应用服务器性能优化、存储服务器性能优化。</p>
+<ol>
+<li>web前端性能优化<ul>
+<li>  浏览器访问优化：减少http请求;使用浏览器缓存;启用压缩;css放在页面最上面、javaScript放在页面最下面;减少Cookie传输</li>
+<li>  CDN加速</li>
+<li>  反向代理</li>
+</ul>
+</li>
+<li>应用服务器性能优化<ul>
+<li>  分布式缓存（Redis等）</li>
+<li>  异步操作（消息队列）</li>
+<li>  使用集群（负载均衡）</li>
+<li>  代码优化</li>
+</ul>
+</li>
+<li>存储性能优化<ul>
+<li>  机械硬盘vs固态硬盘</li>
+<li>  B+树 vs LSM树</li>
+<li>  RAID vs HDFS</li>
+</ul>
+</li>
+</ol>
+<h3 id="7-代码优化"><a href="#7-代码优化" class="headerlink" title="7. 代码优化"></a>7. 代码优化</h3><ul>
+<li>  多线程（Q:怎么确保线程安全？无锁机制有哪些？）</li>
+<li>  资源复用（单例模式，连接池，线程池）</li>
+<li>  数据结构</li>
+<li>  垃圾回收</li>
+</ul>
+<h3 id="8-负载均衡"><a href="#8-负载均衡" class="headerlink" title="8. 负载均衡"></a>8. 负载均衡</h3><ul>
+<li>HTTP重定向负载均衡<br>  当用户发来请求的时候，Web服务器通过修改HTTP响应头中的Location标记来返回一个新的url，然后浏览器再继续请求这个新url，实际上就是页面重定向。通过重定向，来达到“负载均衡”的目标。例如，我们在下载PHP源码包的时候，点击下载链接时，为了解决不同国家和地域下载速度的问题，它会返回一个离我们近的下载地址。重定向的HTTP返回码是302。<br>  优点：比较简单。<br>  缺点：浏览器需要两次请求服务器才能完成一次访问，性能较差。重定向服务自身的处理能力有可能成为瓶颈，整个集群的伸缩性国模有限；使用HTTP302响应码重定向，有可能使搜索引擎判断为SEO作弊，降低搜索排名。</li>
+<li>DNS域名解析负载均衡<br>  DNS（Domain Name System）负责域名解析的服务，域名url实际上是服务器的别名，实际映射是一个IP地址，解析过程，就是DNS完成域名到IP的映射。而一个域名是可以配置成对应多个IP的。因此，DNS也就可以作为负载均衡服务。<br>  事实上，大型网站总是部分使用DNS域名解析，利用域名解析作为第一级负载均衡手段，即域名解析得到的一组服务器并不是实际提供Web服务的物理服务器，而是同样提供负载均衡服务的内部服务器，这组内部负载均衡服务器再进行负载均衡，将请求分发到真是的Web服务器上。<br>  优点：将负载均衡的工作转交给DNS，省掉了网站管理维护负载均衡服务器的麻烦，同时许多DNS还支持基于地理位置的域名解析，即会将域名解析成举例用户地理最近的一个服务器地址，这样可以加快用户访问速度，改善性能。<br>  缺点：不能自由定义规则，而且变更被映射的IP或者机器故障时很麻烦，还存在DNS生效延迟的问题。而且DNS负载均衡的控制权在域名服务商那里，网站无法对其做更多改善和更强大的管理。</li>
+<li>反向代理负载均衡<br>  反向代理服务可以缓存资源以改善网站性能。实际上，在部署位置上，反向代理服务器处于Web服务器前面（这样才可能缓存Web相应，加速访问），这个位置也正好是负载均衡服务器的位置，所以大多数反向代理服务器同时提供负载均衡的功能，管理一组Web服务器，将请求根据负载均衡算法转发到不同的Web服务器上。Web服务器处理完成的响应也需要通过反向代理服务器返回给用户。由于web服务器不直接对外提供访问，因此Web服务器不需要使用外部ip地址，而反向代理服务器则需要配置双网卡和内部外部两套IP地址。<br>  优点：和反向代理服务器功能集成在一起，部署简单。<br>  缺点：反向代理服务器是所有请求和响应的中转站，其性能可能会成为瓶颈。</li>
+<li>  LVS-NAT:修改IP地址</li>
+<li>  LVS-TUN: 一个IP报文封装在另一个IP报文的技术。</li>
+<li>  LVS-DR:将数据帧的MAC地址改为选出服务器的MAC地址，再将修改后的数据帧在与服务器组的局域网上发送。</li>
+</ul>
+<h3 id="9-缓存"><a href="#9-缓存" class="headerlink" title="9.缓存"></a>9.缓存</h3><p>缓存就是将数据存放在距离计算最近的位置以加快处理速度。缓存是改善软件性能的第一手段，现在CPU越来越快的一个重要因素就是使用了更多的缓存，在复杂的软件设计中，缓存几乎无处不在。大型网站架构设计在很多方面都使用了缓存设计。</p>
+<ul>
+<li>  CDN: 及内容分发网络，部署在距离终端用户最近的网络服务商，用户的网络请求总是先到达他的网络服务商哪里，在这里缓存网站的一些静态资源（较少变化的数据），可以就近以最快速度返回给用户，如视频网站和门户网站会将用户访问量大的热点内容缓存在CDN中。</li>
+<li>  反向代理：反向代理属于网站前端架构的一部分，部署在网站的前端，当用户请求到达网站的数据中心时，最先访问到的就是反向代理服务器，这里缓存网站的静态资源，无需将请求继续转发给应用服务器就能返回给用户。</li>
+<li>  本地缓存：在应用服务器本地缓存着热点数据，应用程序可以在本机内存中直接访问数据，而无需访问数据库。</li>
+<li>  分布式缓存：大型网站的数据量非常庞大，即使只缓存一小部分，需要的内存空间也不是单机能承受的，所以除了本地缓存，还需要分布式缓存，将数据缓存在一个专门的分布式缓存集群中，应用程序通过网络通信访问缓存数据。</li>
+</ul>
+<p>使用缓存有两个前提条件，一是数据访问热点不均衡，某些数据会被更频繁的访问，这些数据应该放在缓存中；二是数据在某个时间段内有效，不会很快过期，否则缓存的数据就会因已经失效而产生脏读，影响结果的正确性。网站应用中，缓存处理可以加快数据访问速度，还可以减轻后端应用和数据存储的负载压力，这一点对网站数据库架构至关重要，网站数据库几乎都是按照有缓存的前提进行负载能力设计的。</p>
+<h3 id="10-负载均衡算法"><a href="#10-负载均衡算法" class="headerlink" title="10. 负载均衡算法"></a>10. 负载均衡算法</h3><p>轮询 Round Robin<br>加强轮询 Weight Round Robin<br>随机 Random<br>加强随机 Weight Random<br>最少连接 Least Connections<br>加强最少连接<br>源地址散列 Hash<br>其他算法</p>
+<ul>
+<li>  最快算法(Fastest)：传递连接给那些响应最快的服务器。当其中某个服务器发生第二到第7 层的故障，BIG-IP 就把其从服务器队列中拿出，不参加下一次的用户请求的分配，直到其恢复正常。</li>
+<li>  观察算法(Observed)：连接数目和响应时间以这两项的最佳平衡为依据为新的请求选择服务器。当其中某个服务器发生第二到第7 层的故障，BIG-IP就把其从服务器队列中拿出，不参加下一次的用户请求的分配，直到其恢复正常。</li>
+<li>  预测算法(Predictive)：BIG-IP利用收集到的服务器当前的性能指标，进行预测分析，选择一台服务器在下一个时间片内，其性能将达到最佳的服务器相应用户的请求。(被BIG-IP 进行检测)</li>
+<li>  动态性能分配算法(Dynamic Ratio-APM):BIG-IP 收集到的应用程序和应用服务器的各项性能参数，动态调整流量分配。</li>
+<li>  动态服务器补充算法(Dynamic Server Act.):当主服务器群中因故障导致数量减少时，动态地将备份服务器补充至主服务器群。</li>
+<li>  服务质量算法(QoS):按不同的优先级对数据流进行分配。</li>
+<li>  服务类型算法(ToS): 按不同的服务类型(在Type of Field中标识)负载均衡对数据流进行分配。</li>
+<li>  规则模式算法：针对不同的数据流设置导向规则，用户可自行</li>
+</ul>
+<h3 id="11-扩展性和伸缩性的区别"><a href="#11-扩展性和伸缩性的区别" class="headerlink" title="11. 扩展性和伸缩性的区别"></a>11. 扩展性和伸缩性的区别</h3><p><strong>扩展性</strong>：指对现有系统影响最小的情况下，系统功能可持续扩展或替身的能力。表现在系统基础设施稳定不需要经常变更，应用之间较少依赖和耦合，对需求变更可以敏捷响应。它是系统架构设计层面的开闭原则（对扩展开放，对修改关闭），架构设计考虑未来功能扩展，当系统增加新功能时，不需要对现有系统的结构和代码进行修改。</p>
+<p>衡量网站架构扩展性好坏的主要标准就是在网站增加新的业务产品时，是否可以实现对现有产品透明无影响，不需要任何改动或者很少改动既有业务功能就可以上线新产品。不同产品之间是否很少耦合，一个产品改动对其他产品无影响，其他产品和功能不需要受牵连进行改动。</p>
+<p><strong>伸缩性</strong>：所谓网站的伸缩性指是不需要改变网站的软硬件设计，仅仅通过改变部署的服务器数量就可以扩大或者缩小网站的服务处理能力。</p>
+<p>指系统能够增加（减少）自身资源规模的方式增强（减少）自己计算处理事务的能力。如果这种增减是成比例的，就被称作线性伸缩性。在网站架构中，通常指利用集群的方式增加服务器数量、提高系统的整体事务吞吐能力。</p>
+<p>衡量架构伸缩性的主要标准就是可以用多台服务器构建集群，是否容易向集群中添加新的服务器。加入新的服务器后是否可以提供和原来服务无差别的服务、集群中的可容纳的总的服务器数量是否有限制。</p>
+<h3 id="12-分布式缓存的一致性hash"><a href="#12-分布式缓存的一致性hash" class="headerlink" title="12.分布式缓存的一致性hash"></a>12.分布式缓存的一致性hash</h3><p>具体算法过程：先构造一个长度为2^32的整数环（这个环被称作一致性Hash环）根据节点名称的Hash值（其分布范围为[0,2^32 – 1]）将缓存服务器阶段设置在这个Hash环上。然后根据需要缓存的数据的Key值计算得到Hash值（其分布范围也同样为[0,2^32 – 1]），然后在Hash环上顺时针查找举例这个KEY的hash值最近的缓存服务器节点，完成KEY到服务器的Hash映射查找。</p>
+<p>优化策略：将每台物理服务器虚拟为一组虚拟缓存服务器，将虚拟服务器的Hash值放置在Hash环上，key在换上先找到虚拟服务器节点，再得到物理服务器的信息。</p>
+<p>一台物理服务器设置多少个虚拟服务器节点合适呢？经验值：150。</p>
+<h3 id="13-网络安全"><a href="#13-网络安全" class="headerlink" title="13. 网络安全"></a>13. 网络安全</h3><ol>
+<li>XSS攻击<br> 跨站点脚本攻击(Cross Site Script)，指黑客通过篡改网页，注入恶意的HTML脚本，在用户浏览网页时，控制用户浏览器进行恶意操作的一种攻击方式。<br> 防范手段：消毒（XSS攻击者一般都是通过在请求中嵌入恶意脚本大道攻击的目的，这些脚本是一般用户输入中不使用的，如果进行过滤和消毒处理，即对某些html危险字符转移，如“&gt;”转译为“&amp; gt;”）;HttpOnly(防止XSS攻击者窃取Cookie).</li>
+<li>注入攻击：SQL注入和OS注入<br> SQL防范：预编译语句PreparedStatement; ORM；避免密码明文存放；处理好相应的异常。</li>
+<li>CSRF（Cross Site Request Forgery，跨站点请求伪造）。听起来与XSS有点相似，事实上两者区别很大，XSS利用的是站内的信任用户，而CSRF则是通过伪装来自受信任用户的请求来利用受信任的网站。<br> 防范：httpOnly;增加token;通过Referer识别。</li>
+<li> 文件上传漏洞</li>
+<li> DDos攻击</li>
+</ol>
+<h3 id="14-加密技术"><a href="#14-加密技术" class="headerlink" title="14. 加密技术"></a>14. 加密技术</h3><ol>
+<li> 摘要加密：MD5, SHA</li>
+<li> 对称加密：DES算法，RC算法， AES</li>
+<li>非对称加密：RSA<br> 非对称加密技术通常用在信息安全传输，数字签名等场合。<br> HTTPS传输中浏览器使用的数字证书实质上是经过权威机构认证的非对称加密的公钥。</li>
+</ol>
+<h3 id="15-流控（流量控制）"><a href="#15-流控（流量控制）" class="headerlink" title="15. 流控（流量控制）"></a>15. 流控（流量控制）</h3><ol>
+<li> 流量丢弃</li>
+<li> 通过单机内存队列来进行有限的等待，直接丢弃用户请求的处理方式显得简单而粗暴，并且如果是I/O密集型应用（包括网络I/O和磁盘I/O），瓶颈一般不再CPU和内存。因此，适当的等待，既能够替身用户体验，又能够提高资源利用率。</li>
+<li> 通过分布式消息队列来将用户的请求异步化。</li>
+</ol>
+<hr>
+<p>参考资料<br>1. <a target="_blank" rel="noopener" href="http://blog.csdn.net/u013256816/article/details/50705578">LVS：三种负载均衡方式比较+另三种负载均衡方式</a><br>2. 《大型网站技术架构——核心原理与技术分析》李智慧 著。<br>3. <a target="_blank" rel="noopener" href="http://blog.csdn.net/u013256816/article/details/48707505">亿级Web系统搭建：单机到分布式集群</a><br>4. 《大型分布式网站架构设计与实现》陈康贤 著。</p>
+<p>from:<a target="_blank" rel="noopener" href="http://www.importnew.com/24198.html">http://www.importnew.com/24198.html</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.fenxiangz.com/post/distribution/2019-08-12_CAP%E5%AE%9A%E7%90%86%E7%9A%84%E5%90%AB%E4%B9%89.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Hassan">
+      <meta itemprop="description" content="Share everything">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="分享之">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/post/distribution/2019-08-12_CAP%E5%AE%9A%E7%90%86%E7%9A%84%E5%90%AB%E4%B9%89.html" class="post-title-link" itemprop="url">【转载-阮一峰】CAP 定理的含义</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-08-12 00:00:00" itemprop="dateCreated datePublished" datetime="2019-08-12T00:00:00+00:00">2019-08-12</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-12-20 16:47:02" itemprop="dateModified" datetime="2020-12-20T16:47:02+00:00">2020-12-20</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%A6%82%E5%BF%B5/" itemprop="url" rel="index"><span itemprop="name">概念</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>分布式系统（distributed system）正变得越来越重要，大型网站几乎都是分布式的。</p>
+<p>分布式系统的最大难点，就是各个节点的状态如何同步。CAP 定理是这方面的基本定理，也是理解分布式系统的起点。</p>
+<p>本文介绍该定理。它其实很好懂，而且是显而易见的。下面的内容主要参考了 Michael Whittaker 的<a target="_blank" rel="noopener" href="https://mwhittaker.github.io/blog/an_illustrated_proof_of_the_cap_theorem/">文章</a>。</p>
+<h2 id="一、分布式系统的三个指标"><a href="#一、分布式系统的三个指标" class="headerlink" title="一、分布式系统的三个指标"></a>一、分布式系统的三个指标</h2><p><img src="./2019-08-12_CAP%E5%AE%9A%E7%90%86%E7%9A%84%E5%90%AB%E4%B9%89/1.png"></p>
+<p>1998年，加州大学的计算机科学家 Eric Brewer 提出，分布式系统有三个指标。</p>
+<blockquote>
+<ul>
+<li>Consistency</li>
+<li>Availability</li>
+<li>Partition tolerance</li>
+</ul>
+</blockquote>
+<p>它们的第一个字母分别是 C、A、P。</p>
+<p>Eric Brewer 说，这三个指标不可能同时做到。这个结论就叫做 CAP 定理。</p>
+<h2 id="二、Partition-tolerance"><a href="#二、Partition-tolerance" class="headerlink" title="二、Partition tolerance"></a>二、Partition tolerance</h2><p>先看 Partition tolerance，中文叫做”分区容错”。</p>
+<p>大多数分布式系统都分布在多个子网络。每个子网络就叫做一个区（partition）。分区容错的意思是，区间通信可能失败。比如，一台服务器放在中国，另一台服务器放在美国，这就是两个区，它们之间可能无法通信。</p>
+<p><img src="./2019-08-12_CAP%E5%AE%9A%E7%90%86%E7%9A%84%E5%90%AB%E4%B9%89/2.png"></p>
+<p>上图中，G1 和 G2 是两台跨区的服务器。G1 向 G2 发送一条消息，G2 可能无法收到。系统设计的时候，必须考虑到这种情况。</p>
+<p>一般来说，分区容错无法避免，因此可以认为 CAP 的 P 总是成立。CAP 定理告诉我们，剩下的 C 和 A 无法同时做到。</p>
+<h2 id="三、Consistency"><a href="#三、Consistency" class="headerlink" title="三、Consistency"></a>三、Consistency</h2><p>Consistency 中文叫做”一致性”。意思是，写操作之后的读操作，必须返回该值。举例来说，某条记录是 v0，用户向 G1 发起一个写操作，将其改为 v1。</p>
+<p><img src="./2019-08-12_CAP%E5%AE%9A%E7%90%86%E7%9A%84%E5%90%AB%E4%B9%89/3.png"></p>
+<p>接下来，用户的读操作就会得到 v1。这就叫一致性。</p>
+<p><img src="./2019-08-12_CAP%E5%AE%9A%E7%90%86%E7%9A%84%E5%90%AB%E4%B9%89/4.png"></p>
+<p>问题是，用户有可能向 G2 发起读操作，由于 G2 的值没有发生变化，因此返回的是 v0。G1 和 G2 读操作的结果不一致，这就不满足一致性了。</p>
+<p><img src="./2019-08-12_CAP%E5%AE%9A%E7%90%86%E7%9A%84%E5%90%AB%E4%B9%89/5.png"></p>
+<p>为了让 G2 也能变为 v1，就要在 G1 写操作的时候，让 G1 向 G2 发送一条消息，要求 G2 也改成 v1。</p>
+<p><img src="./2019-08-12_CAP%E5%AE%9A%E7%90%86%E7%9A%84%E5%90%AB%E4%B9%89/6.png"></p>
+<p>这样的话，用户向 G2 发起读操作，也能得到 v1。</p>
+<p><img src="./2019-08-12_CAP%E5%AE%9A%E7%90%86%E7%9A%84%E5%90%AB%E4%B9%89/7.png"></p>
+<h2 id="四、Availability"><a href="#四、Availability" class="headerlink" title="四、Availability"></a>四、Availability</h2><p>Availability 中文叫做”可用性”，意思是只要收到用户的请求，服务器就必须给出回应。</p>
+<p>用户可以选择向 G1 或 G2 发起读操作。不管是哪台服务器，只要收到请求，就必须告诉用户，到底是 v0 还是 v1，否则就不满足可用性。</p>
+<h2 id="五、Consistency-和-Availability-的矛盾"><a href="#五、Consistency-和-Availability-的矛盾" class="headerlink" title="五、Consistency 和 Availability 的矛盾"></a>五、Consistency 和 Availability 的矛盾</h2><p>一致性和可用性，为什么不可能同时成立？答案很简单，因为可能通信失败（即出现分区容错）。</p>
+<p>如果保证 G2 的一致性，那么 G1 必须在写操作时，锁定 G2 的读操作和写操作。只有数据同步后，才能重新开放读写。锁定期间，G2 不能读写，没有可用性不。</p>
+<p>如果保证 G2 的可用性，那么势必不能锁定 G2，所以一致性不成立。</p>
+<p>综上所述，G2 无法同时做到一致性和可用性。系统设计时只能选择一个目标。如果追求一致性，那么无法保证所有节点的可用性；如果追求所有节点的可用性，那就没法做到一致性。</p>
+<p>[更新 2018.7.17]</p>
+<p>读者问，在什么场合，可用性高于一致性？</p>
+<p>举例来说，发布一张网页到 CDN，多个服务器有这张网页的副本。后来发现一个错误，需要更新网页，这时只能每个服务器都更新一遍。</p>
+<p>一般来说，网页的更新不是特别强调一致性。短时期内，一些用户拿到老版本，另一些用户拿到新版本，问题不会特别大。当然，所有人最终都会看到新版本。所以，这个场合就是可用性高于一致性。</p>
+<p>（完）</p>
+<p>【转载】<a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2018/07/cap.html">http://www.ruanyifeng.com/blog/2018/07/cap.html</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.fenxiangz.com/post/distribution/2019-08-13_Zookeeper%E6%98%AF%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%E8%84%91%E8%A3%82%E9%97%AE%E9%A2%98.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Hassan">
+      <meta itemprop="description" content="Share everything">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="分享之">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/post/distribution/2019-08-13_Zookeeper%E6%98%AF%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%E8%84%91%E8%A3%82%E9%97%AE%E9%A2%98.html" class="post-title-link" itemprop="url">Zookeeper是如何解决脑裂问题</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-08-12 00:00:00" itemprop="dateCreated datePublished" datetime="2019-08-12T00:00:00+00:00">2019-08-12</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-12-20 16:47:02" itemprop="dateModified" datetime="2020-12-20T16:47:02+00:00">2020-12-20</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/zookeeper/" itemprop="url" rel="index"><span itemprop="name">zookeeper</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>这是分布式系统中一个很实际的问题，书上说的不是很详细，整理总结一下。</p>
+<h1 id="1、脑裂和假死"><a href="#1、脑裂和假死" class="headerlink" title="1、脑裂和假死"></a>1、脑裂和假死</h1><h2 id="1-1-脑裂"><a href="#1-1-脑裂" class="headerlink" title="1.1 脑裂"></a>1.1 脑裂</h2><p>官方定义：当一个集群的不同部分在同一时间都认为自己是活动的时候，我们就可以将这个现象称为脑裂症状。通俗的说，就是比如当你的 cluster 里面有两个结点，它们都知道在这个 cluster 里需要选举出一个 master。那么当它们两之间的通信完全没有问题的时候，就会达成共识，选出其中一个作为 master。但是如果它们之间的通信出了问题，那么两个结点都会觉得现在没有 master，所以每个都把自己选举成 master。于是 cluster 里面就会有两个 master。举例：</p>
+<p><img src="2019-08-13_Zookeeper%E6%98%AF%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%E8%84%91%E8%A3%82%E9%97%AE%E9%A2%98/1.png"></p>
+<p>UserA和UserB分别将自己的信息注册在RouterA和RouterB中。RouterA和RouterB使用数据同步（2PC），来同步信息。那么当UserA想要向UserB发送一个消息的时候，需要现在RouterA中查询出UserA到UserB的消息路由路径，然后再交付给相应的路径进行路由。</p>
+<p>当脑裂发生的时候，相当RouterA和RouterB直接的联系丢失了，RouterA认为整个系统中只有它一个Router，RouterB也是这样认为的。那么相当于RouterA中没有UserB的信息，RouterB中没有UserA的信息了，此时UserA再发送消息给UserB的时候，RouterA会认为UserB已经离线了，然后将该信息进行离线持久化，这样整个网络的路由是不是就乱掉了。</p>
+<p>对于Zookeeper来说有一个很重要的问题，就是到底是根据一个什么样的情况来判断一个节点死亡down掉了。 在分布式系统中这些都是有监控者来判断的，但是监控者也很难判定其他的节点的状态，唯一一个可靠的途径就是心跳，Zookeeper也是使用心跳来判断客户端是否仍然活着，但是使用心跳机制来判断节点的存活状态也带来了假死问题。</p>
+<h2 id="1-2-假死"><a href="#1-2-假死" class="headerlink" title="1.2 假死"></a>1.2 假死</h2><p>ZooKeeper每个节点都尝试注册一个象征master的临时节点，其他没有注册成功的则成为slaver，并且通过watch机制监控着master所创建的临时节点，Zookeeper通过内部心跳机制来确定master的状态，一旦master出现意外Zookeeper能很快获悉并且通知其他的slaver，其他slaver在之后作出相关反应。这样就完成了一个切换。</p>
+<p>这种模式也是比较通用的模式，基本大部分都是这样实现的，但是这里面有个很严重的问题，如果注意不到会导致短暂的时间内系统出现脑裂，因为心跳出现超时可能是master挂了，但是也可能是master，zookeeper之间网络出现了问题，也同样可能导致。这种情况就是假死，master并未死掉，但是与ZooKeeper之间的网络出现问题导致Zookeeper认为其挂掉了然后通知其他节点进行切换，这样slaver中就有一个成为了master，但是原本的master并未死掉，这时候client也获得master切换的消息，但是仍然会有一些延时，zookeeper需要通讯需要一个一个通知，这时候整个系统就很混乱可能有一部分client已经通知到了连接到新的master上去了，有的client仍然连接在老的master上如果同时有两个client需要对master的同一个数据更新并且刚好这两个client此刻分别连接在新老的master上，就会出现很严重问题。</p>
+<h2 id="1-3-总结"><a href="#1-3-总结" class="headerlink" title="1.3 总结"></a>1.3 总结</h2><p>假死：由于心跳超时（网络原因导致的）认为master死了，但其实master还存活着。</p>
+<p>脑裂：由于假死会发起新的master选举，选举出一个新的master，但旧的master网络又通了，导致出现了两个master ，有的客户端连接到老的master 有的客户端链接到新的master。</p>
+<h1 id="2、Zookeeper的解决方案"><a href="#2、Zookeeper的解决方案" class="headerlink" title="2、Zookeeper的解决方案"></a>2、Zookeeper的解决方案</h1><p>要解决Split-Brain的问题，一般有3种方式:</p>
+<ul>
+<li>Quorums（ˈkwôrəm 法定人数） ：比如3个节点的集群，Quorums = 2, 也就是说集群可以容忍1个节点失效，这时候还能选举出1个lead，集群还可用。比如4个节点的集群，它的Quorums = 3，Quorums要超过3，相当于集群的容忍度还是1，如果2个节点失效，那么整个集群还是无效的</li>
+<li>Redundant communications：冗余通信的方式，集群中采用多种通信方式，防止一种通信方式失效导致集群中的节点无法通信。</li>
+<li>Fencing, 共享资源的方式：比如能看到共享资源就表示在集群中，能够获得共享资源的锁的就是Leader，看不到共享资源的，就不在集群中。</li>
+</ul>
+<p>ZooKeeper默认采用了Quorums这种方式，即只有集群中超过半数节点投票才能选举出Leader。这样的方式可以确保leader的唯一性,要么选出唯一的一个leader,要么选举失败。在ZooKeeper中Quorums有2个作用：</p>
+<ul>
+<li>集群中最少的节点数用来选举Leader保证集群可用：通知客户端数据已经安全保存前集群中最少数量的节点数已经保存了该数据。一旦这些节点保存了该数据，客户端将被通知已经安全保存了，可以继续其他任务。而集群中剩余的节点将会最终也保存了该数据。</li>
+<li>假设某个leader假死，其余的followers选举出了一个新的leader。这时，旧的leader复活并且仍然认为自己是leader，这个时候它向其他followers发出写请求也是会被拒绝的。因为每当新leader产生时，会生成一个epoch，这个epoch是递增的，followers如果确认了新的leader存在，知道其epoch，就会拒绝epoch小于现任leader epoch的所有请求。那有没有follower不知道新的leader存在呢，有可能，但肯定不是大多数，否则新leader无法产生。Zookeeper的写也遵循quorum机制，因此，得不到大多数支持的写是无效的，旧leader即使各种认为自己是leader，依然没有什么作用。</li>
+</ul>
+<h1 id="3、总结"><a href="#3、总结" class="headerlink" title="3、总结"></a>3、总结</h1><p>总结一下就是，通过Quorums机制来防止脑裂和假死，当leader挂掉之后，可以重新选举出新的leader节点使整个集群达成一致；当出现假死现象时，通过epoch大小来拒绝旧的leader发起的请求，在前面也已经讲到过，这个时候，重新恢复通信的老的leader节点会进入恢复模式，与新的leader节点做数据同步，perfect。</p>
+<p>原文: <a target="_blank" rel="noopener" href="https://blog.csdn.net/u013374645/article/details/93140148">https://blog.csdn.net/u013374645/article/details/93140148</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.fenxiangz.com/post/java/advance/2019-07-22_java_stack.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Hassan">
+      <meta itemprop="description" content="Share everything">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="分享之">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/post/java/advance/2019-07-22_java_stack.html" class="post-title-link" itemprop="url">JVM内存结构：堆、栈、方法区</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-07-22 00:00:00" itemprop="dateCreated datePublished" datetime="2019-07-22T00:00:00+00:00">2019-07-22</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-12-20 16:47:02" itemprop="dateModified" datetime="2020-12-20T16:47:02+00:00">2020-12-20</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Java-%E8%BF%9B%E9%98%B6/" itemprop="url" rel="index"><span itemprop="name">Java 进阶</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>一、定义 </p>
+<p>1、堆：FIFO队列优先，先进先出。jvm只有一个堆区被所有线程所共享！堆存放在二级缓存中，调用对象的速度相对慢一些，生命周期由虚拟机的垃圾回收机制定。</p>
+<p>2、栈：FILO先进后出，暂存数据的地方。每个线程都包含一个栈区！栈存放在一级缓存中，存取速度较快，“栈是限定仅在表头进行插入和删除操作的线性表”。</p>
+<p>3、方法区：用来存放方法和static变量。</p>
+<p>二、存储的数据类型</p>
+<p>1、堆用来存储new出来的对象和数组</p>
+<p>2、栈用来存储基本类型变量和对象的引用变量的地址</p>
+<p>3、方法区存储方法和static变量</p>
+<p>三、优缺点</p>
+<p>1、堆的优点-可以动态的分配内存大小，生命周期不确定。缺点-速度略慢</p>
+<p>2、栈的优点-速度快，缺点-存在栈中的数据大小和生命周期必须是明确的，缺少灵活性。</p>
+<p><img src="./2019-07-22_java_stack/1.png"> </p>
+<p>四、直接内存</p>
+<p>直接内存并不是虚拟机运行时数据区的一部分，也不是Java 虚拟机规范中农定义的内存区域。在JDK1.4 中新加入了NIO(New Input/Output)类，引入了一种基于通道(Channel)与缓冲区（Buffer）的I/O 方式，它可以使用native 函数库直接分配堆外内存，然后通脱一个存储在Java堆中的DirectByteBuffer 对象作为这块内存的引用进行操作。这样能在一些场景中显著提高性能，因为避免了在Java堆和Native堆中来回复制数据。</p>
+<ul>
+<li><p>本机直接内存的分配不会受到Java 堆大小的限制，受到本机总内存大小限制</p>
+</li>
+<li><p>配置虚拟机参数时，不要忽略直接内存 防止出现OutOfMemoryError异常</p>
+</li>
+</ul>
+<p>直接内存（堆外内存）与堆内存比较</p>
+<ol>
+<li>直接内存申请空间耗费更高的性能，当频繁申请到一定量时尤为明显</li>
+<li>直接内存IO读写的性能要优于普通的堆内存，在多次读写操作的情况下差异明显</li>
+</ol>
+<p>代码验证：</p>
+<pre><code>package com.youyuan.web.controller.user;
+
+import java.nio.ByteBuffer;
+
+/**
+ * 直接内存 与 堆内存的比较
+ */
+public class ByteBufferCompare &#123;
+
+    public static void main(String[] args) &#123;
+        allocateCompare(); //分配比较
+        operateCompare(); //读写比较
+    &#125;
+
+    /**
+     * 直接内存 和 堆内存的 分配空间比较
+     * &lt;p&gt;
+     * 结论： 在数据量提升时，直接内存相比非直接内的申请，有很严重的性能问题
+     */
+    public static void allocateCompare() &#123;
+        int time = 10000000; //操作次数
+
+        long st = System.currentTimeMillis();
+        for (int i = 0; i &lt; time; i++) &#123;
+            //ByteBuffer.allocate(int capacity) 分配一个新的字节缓冲区。
+            ByteBuffer buffer = ByteBuffer.allocate(2); //非直接内存分配申请
+        &#125;
+        long et = System.currentTimeMillis();
+        System.out.println(&quot;在进行&quot; + time + &quot;次分配操作时，堆内存 分配耗时:&quot; + (et - st) + &quot;ms&quot;);
+        long st_heap = System.currentTimeMillis();
+        for (int i = 0; i &lt; time; i++) &#123;
+            //ByteBuffer.allocateDirect(int capacity) 分配新的直接字节缓冲区。
+            ByteBuffer buffer = ByteBuffer.allocateDirect(2); //直接内存分配申请
+        &#125;
+        long et_direct = System.currentTimeMillis();
+        System.out.println(&quot;在进行&quot; + time + &quot;次分配操作时，直接内存 分配耗时:&quot; + (et_direct - st_heap) + &quot;ms&quot;);
+    &#125;
+
+    /**
+     * 直接内存 和 堆内存的 读写性能比较
+     * &lt;p&gt;
+     * 结论：直接内存在直接的IO 操作上，在频繁的读写时 会有显著的性能提升
+     */
+    public static void operateCompare() &#123;
+        int time = 1000000000;
+        ByteBuffer buffer = ByteBuffer.allocate(2 * time);
+        long st = System.currentTimeMillis();
+        for (int i = 0; i &lt; time; i++) &#123;
+            // putChar(char value) 用来写入 char 值的相对 put 方法
+            buffer.putChar(&#39;a&#39;);
+        &#125;
+        buffer.flip();
+        for (int i = 0; i &lt; time; i++) &#123;
+            buffer.getChar();
+        &#125;
+        long et = System.currentTimeMillis();
+        System.out.println(&quot;在进行&quot; + time + &quot;次读写操作时，非直接内存读写耗时：&quot; + (et - st) + &quot;ms&quot;);
+        ByteBuffer buffer_d = ByteBuffer.allocateDirect(2 * time);
+        long st_direct = System.currentTimeMillis();
+        for (int i = 0; i &lt; time; i++) &#123;
+            // putChar(char value) 用来写入 char 值的相对 put 方法
+            buffer_d.putChar(&#39;a&#39;);
+        &#125;
+        buffer_d.flip();
+        for (int i = 0; i &lt; time; i++) &#123;
+            buffer_d.getChar();
+        &#125;
+        long et_direct = System.currentTimeMillis();
+        System.out.println(&quot;在进行&quot; + time + &quot;次读写操作时，直接内存读写耗时:&quot; + (et_direct - st_direct) + &quot;ms&quot;);
+    &#125;
+&#125;</code></pre>
+<p>输出：<br>在进行10000000次分配操作时，堆内存 分配耗时:12ms<br>在进行10000000次分配操作时，直接内存 分配耗时:8233ms<br>在进行1000000000次读写操作时，非直接内存读写耗时：4055ms<br>在进行1000000000次读写操作时，直接内存读写耗时:745ms</p>
+<p>可以自己设置不同的time 值进行比较</p>
+<p>分析</p>
+<p>从数据流的角度，来看</p>
+<p>非直接内存作用链:<br>本地IO –&gt;直接内存–&gt;非直接内存–&gt;直接内存–&gt;本地IO<br>直接内存作用链:<br>本地IO–&gt;直接内存–&gt;本地IO</p>
+<p>直接内存使用场景</p>
+<ul>
+<li>有很大的数据需要存储，它的生命周期很长</li>
+<li>适合频繁的IO操作，例如网络并发场景</li>
+</ul>
+<p>参考</p>
+<p>《深入理解Java虚拟机》 –周志明</p>
+<p>博文：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/xing901022/p/5243657.html">https://www.cnblogs.com/xing901022/p/5243657.html</a> (rel=undefined)</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.fenxiangz.com/post/java/nio/2019-07-22_java_nio_Java%E7%9B%B4%E6%8E%A5%E5%86%85%E5%AD%98%E4%B8%8E%E9%9D%9E%E7%9B%B4%E6%8E%A5%E5%86%85%E5%AD%98%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Hassan">
+      <meta itemprop="description" content="Share everything">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="分享之">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/post/java/nio/2019-07-22_java_nio_Java%E7%9B%B4%E6%8E%A5%E5%86%85%E5%AD%98%E4%B8%8E%E9%9D%9E%E7%9B%B4%E6%8E%A5%E5%86%85%E5%AD%98%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95.html" class="post-title-link" itemprop="url">Java直接内存与非直接内存性能测试</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-07-22 00:00:00" itemprop="dateCreated datePublished" datetime="2019-07-22T00:00:00+00:00">2019-07-22</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-12-20 16:47:02" itemprop="dateModified" datetime="2020-12-20T16:47:02+00:00">2020-12-20</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Java-NIO/" itemprop="url" rel="index"><span itemprop="name">Java NIO</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="什么是直接内存与非直接内存"><a href="#什么是直接内存与非直接内存" class="headerlink" title="什么是直接内存与非直接内存"></a>什么是直接内存与非直接内存</h2><p>根据官方文档的描述：</p>
+<blockquote>
+<p>A byte bufferis either direct or non-direct. Given a direct byte buffer, the Java virtual machine will make a best effort to perform native I/O operations directly upon it. That is, it will attempt to avoid copying the buffer’s content to (or from) an intermediate buffer before (orafter) each invocation of one of the underlying operating system’s native I/O operations.</p>
+</blockquote>
+<p><code>byte byffer</code>可以是两种类型，一种是基于直接内存（也就是非堆内存）；另一种是非直接内存（也就是堆内存）。</p>
+<p>对于直接内存来说，JVM将会在IO操作上具有更高的性能，因为它直接作用于本地系统的IO操作。而非直接内存，也就是堆内存中的数据，如果要作IO操作，会先复制到直接内存，再利用本地IO处理。</p>
+<p>从数据流的角度，非直接内存是下面这样的作用链：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">本地IO--&gt;直接内存--&gt;非直接内存--&gt;直接内存--&gt;本地IO</span><br></pre></td></tr></table></figure>
+
+<p>而直接内存是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">本地IO--&gt;直接内存--&gt;本地IO</span><br></pre></td></tr></table></figure>
+
+<p>很明显，再做IO处理时，比如网络发送大量数据时，直接内存会具有更高的效率。</p>
+<blockquote>
+<p>A direct byte buffer may be created by invoking the allocateDirect factory method of this class. The buffers returned by this method typically have somewhat higher allocation and deallocation costs than non-direct buffers. The contents of direct buffers may reside outside of the normal garbage-collected heap, and so their impact upon the memory footprint of an application might not be obvious. It is therefore recommended that direct buffers be allocated primarily for large, long-lived buffers that are subject to the underlying system’s native I/O operations. In general it is best to allocate direct buffers only when they yield a measureable gain in program performance.</p>
+</blockquote>
+<p>但是，不要高兴的太早。文档中也说了，直接内存使用allocateDirect创建，但是它比申请普通的堆内存需要耗费更高的性能。不过，这部分的数据是在JVM之外的，因此它不会占用应用的内存。</p>
+<p>所以呢，当你有很大的数据要缓存，并且它的生命周期又很长，那么就比较适合使用直接内存。只是一般来说，如果不是能带来很明显的性能提升，还是推荐直接使用堆内存。</p>
+<p>关于直接内存需要注意的，就是上面两点了，其他的关于视图啊、作用链啊，都是使用上的问题了。如果有兴趣，可以<a target="_blank" rel="noopener" href="http://docs.oracle.com/javase/8/docs/api/">参考官方API ( 进去后搜索ByteBuffer，就能看到！)</a>，里面有少量的描述！重要的一些用法，还得自己摸索。</p>
+<h2 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h2><p>通过上面的官方文档，与一些资料的搜索。可以总结下，直接内存的使用场景：</p>
+<ul>
+<li>1 有很大的数据需要存储，它的生命周期又很长</li>
+<li>2 适合频繁的IO操作，比如网络并发场景</li>
+</ul>
+<h2 id="申请分配地址速度比较"><a href="#申请分配地址速度比较" class="headerlink" title="申请分配地址速度比较"></a>申请分配地址速度比较</h2><p>下面用一段简单的代码，测试下申请内存空间的速度：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">inttime &#x3D; 10000000;</span><br><span class="line">Date begin &#x3D; newDate();</span><br><span class="line">for(int i&#x3D;0;i&lt;time;i++)&#123;</span><br><span class="line">    ByteBuffer buffer &#x3D; ByteBuffer.allocate(2);</span><br><span class="line">&#125;</span><br><span class="line">Dateend &#x3D; newDate();</span><br><span class="line">System.out.println(end.getTime()-begin.getTime());</span><br><span class="line">begin &#x3D; newDate();</span><br><span class="line">for(int i&#x3D;0;i&lt;time;i++)&#123;</span><br><span class="line">    ByteBuffer buffer &#x3D; ByteBuffer.allocateDirect(2);</span><br><span class="line">&#125;</span><br><span class="line">end &#x3D; newDate();</span><br><span class="line">System.out.println(end.getTime()-begin.getTime());</span><br></pre></td></tr></table></figure>
+
+<p>得到的测试结果如下：</p>
+<p><img src="./2019-07-22_java_nio_Java%E7%9B%B4%E6%8E%A5%E5%86%85%E5%AD%98%E4%B8%8E%E9%9D%9E%E7%9B%B4%E6%8E%A5%E5%86%85%E5%AD%98%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/1.png"></p>
+<p>在数据量提升时，直接内存相比于非直接内存的申请 有十分十分十分明显的性能问题！</p>
+<h2 id="读写速度比较"><a href="#读写速度比较" class="headerlink" title="读写速度比较"></a>读写速度比较</h2><p>然后在写段代码，测试下读写的速度：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">inttime &#x3D; 1000;</span><br><span class="line">Date begin &#x3D; newDate();</span><br><span class="line">ByteBuffer buffer &#x3D; ByteBuffer.allocate(2*time);</span><br><span class="line">for(int i&#x3D;0;i&lt;time;i++)&#123;</span><br><span class="line">    buffer.putChar(&#39;a&#39;);</span><br><span class="line">&#125;</span><br><span class="line">buffer.flip();</span><br><span class="line">for(int i&#x3D;0;i&lt;time;i++)&#123;</span><br><span class="line">    buffer.getChar();</span><br><span class="line">&#125;</span><br><span class="line">Dateend &#x3D; newDate();</span><br><span class="line">System.out.println(end.getTime()-begin.getTime());</span><br><span class="line">begin &#x3D; newDate();</span><br><span class="line">ByteBuffer buffer2 &#x3D; ByteBuffer.allocateDirect(2*time);</span><br><span class="line">for(int i&#x3D;0;i&lt;time;i++)&#123;</span><br><span class="line">    buffer2.putChar(&#39;a&#39;);</span><br><span class="line">&#125;</span><br><span class="line">buffer2.flip();</span><br><span class="line">for(int i&#x3D;0;i&lt;time;i++)&#123;</span><br><span class="line">    buffer2.getChar();</span><br><span class="line">&#125;</span><br><span class="line">end &#x3D; newDate();</span><br><span class="line">System.out.println(end.getTime()-begin.getTime());</span><br></pre></td></tr></table></figure>
+
+<p>测试的结果如下：</p>
+<p><img src="./2019-07-22_java_nio_Java%E7%9B%B4%E6%8E%A5%E5%86%85%E5%AD%98%E4%B8%8E%E9%9D%9E%E7%9B%B4%E6%8E%A5%E5%86%85%E5%AD%98%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/2.png"></p>
+<p>可以看到直接内存在直接的IO操作上，还是有明显的差异的！</p>
+<p>  作者：<a target="_blank" rel="noopener" href="http://www.cnblogs.com/xing901022">xingoo</a></p>
+<p>  出处：<a target="_blank" rel="noopener" href="http://www.cnblogs.com/xing901022">http://www.cnblogs.com/xing901022</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
+
+
 <script>
-    (function () {
-        window.addEventListener('scroll', function () {
-            if (window.innerWidth < 768) {
-                return;
-            }
-            var nav = document.querySelector('#gkt-nav');
-            var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-            scrollTop > 50 && (nav.classList.add('hide'));
-            scrollTop <= 50 && (nav.classList.remove('hide'));
-        });
-        var cateNavs = document.querySelectorAll('#gkt-cate-nav>nav>ul>li');
-        [].slice.call(cateNavs).forEach(function (item) {
-            var sub = item.querySelector('.gkt-sub-cate');
-            if (!sub) return;
-            item.addEventListener('mouseenter', function (e) { sub.style.display = 'block'; }, false);
-            item.addEventListener('mouseleave', function (e) { sub.style.display = 'none'; }, false);
-        })
-    })();
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
 </script>
-    <!-- Main Content -->
-    <div class="main-container">
-        <!-- Main Content -->
-<main class="col-xs-12 padding-0 markdown-it">
-    <!-- Post Container -->
-    
-    <style>
-        @media (min-width: 1200px) {
-            .main-container {
-                width: 1000px !important;
-            }
-        }
-    </style>
-    <div class="float-left post-container box-shadow">
-        <!-- Main Content -->
-<!-- css page.ejs -->
-<!-- 置顶文章 -->
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
 
 
-<!-- 普通文章 -->
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Hassan</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
 
-<div class="post-preview">
-    <div class="post-img" style="background-image: url('/')"></div>
-    <div class="post-info">
-        <div class="post-info-center">
-            <div class="hidden-xs">
-                
-                
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#Android"
-                    title="Android">Android</a>
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#apk"
-                    title="apk">apk</a>
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#反编译"
-                    title="反编译">反编译</a>
-                <span>/</span>
-                
-                
-            </div>
-            <a href="/post/frontend/2019-11-26_APK反编译总结.html" class="title">
-                APK反编译总结
-            </a>
-            <p class="text-gray">
-                <small>
-                    <span>发表于2019-11-26，</span>
-                    <span class="hidden-xs">全文2442字，</span>
-                    <span>阅读约9分钟</span>
-                </small>
-            </p>
-        </div>
     </div>
-</div>
+  </footer>
 
-<div class="post-preview">
-    <div class="post-img" style="background-image: url('/images/frontend-logo.png')"></div>
-    <div class="post-info">
-        <div class="post-info-center">
-            <div class="hidden-xs">
-                
-                
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#JavaScript"
-                    title="JavaScript">JavaScript</a>
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#chameleon"
-                    title="chameleon">chameleon</a>
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#跨平台"
-                    title="跨平台">跨平台</a>
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#小程序"
-                    title="小程序">小程序</a>
-                <span>/</span>
-                
-                
-            </div>
-            <a href="/post/frontend/2019-10-27_移动端跨平台方案如何选择.html" class="title">
-                移动端跨平台方案如何选择
-            </a>
-            <p class="text-gray">
-                <small>
-                    <span>发表于2019-10-27，</span>
-                    <span class="hidden-xs">全文860字，</span>
-                    <span>阅读约3分钟</span>
-                </small>
-            </p>
-        </div>
-    </div>
-</div>
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
 
-<div class="post-preview">
-    <div class="post-img" style="background-image: url('/images/frontend-logo.png')"></div>
-    <div class="post-info">
-        <div class="post-info-center">
-            <div class="hidden-xs">
-                
-                
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#JavaScript"
-                    title="JavaScript">JavaScript</a>
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#chameleon"
-                    title="chameleon">chameleon</a>
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#跨平台"
-                    title="跨平台">跨平台</a>
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#小程序"
-                    title="小程序">小程序</a>
-                <span>/</span>
-                
-                
-            </div>
-            <a href="/post/frontend/2019-10-26_小程序多端框架全面测评.html" class="title">
-                小程序多端框架全面测评：chameleon、Taro、uni-app、mpvue、WePY
-            </a>
-            <p class="text-gray">
-                <small>
-                    <span>发表于2019-10-26，</span>
-                    <span class="hidden-xs">全文6217字，</span>
-                    <span>阅读约21分钟</span>
-                </small>
-            </p>
-        </div>
-    </div>
-</div>
-
-<div class="post-preview">
-    <div class="post-img" style="background-image: url('/images/vue.png')"></div>
-    <div class="post-info">
-        <div class="post-info-center">
-            <div class="hidden-xs">
-                
-                
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#JavaScript"
-                    title="JavaScript">JavaScript</a>
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#Vue"
-                    title="Vue">Vue</a>
-                <span>/</span>
-                
-                
-            </div>
-            <a href="/post/frontend/vue/2017-10-26_vue自定义组件中的v-model简单解释.html" class="title">
-                vue自定义组件中的v-model简单解释（vue单页面组件传值）
-            </a>
-            <p class="text-gray">
-                <small>
-                    <span>发表于2019-10-25，</span>
-                    <span class="hidden-xs">全文2222字，</span>
-                    <span>阅读约8分钟</span>
-                </small>
-            </p>
-        </div>
-    </div>
-</div>
-
-<div class="post-preview">
-    <div class="post-img" style="background-image: url('/images/frontend-logo.png')"></div>
-    <div class="post-info">
-        <div class="post-info-center">
-            <div class="hidden-xs">
-                
-                
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#JavaScript"
-                    title="JavaScript">JavaScript</a>
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#Vue"
-                    title="Vue">Vue</a>
-                <span>/</span>
-                
-                
-            </div>
-            <a href="/post/frontend/2016-10-26_深入理解jQuery插件开发.html" class="title">
-                vue自定义组件中的v-model简单解释（vue单页面组件传值）
-            </a>
-            <p class="text-gray">
-                <small>
-                    <span>发表于2019-10-25，</span>
-                    <span class="hidden-xs">全文12177字，</span>
-                    <span>阅读约41分钟</span>
-                </small>
-            </p>
-        </div>
-    </div>
-</div>
-
-<div class="post-preview">
-    <div class="post-img" style="background-image: url('/images/zookeeper.jpeg')"></div>
-    <div class="post-info">
-        <div class="post-info-center">
-            <div class="hidden-xs">
-                
-                
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#分布式"
-                    title="分布式">分布式</a>
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#术语"
-                    title="术语">术语</a>
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#理论"
-                    title="理论">理论</a>
-                <span>/</span>
-                
-                
-            </div>
-            <a href="/post/distribution/2019-08-14_大型分布式网站术语分析.html" class="title">
-                大型分布式网站术语分析
-            </a>
-            <p class="text-gray">
-                <small>
-                    <span>发表于2019-08-13，</span>
-                    <span class="hidden-xs">全文6058字，</span>
-                    <span>阅读约21分钟</span>
-                </small>
-            </p>
-        </div>
-    </div>
-</div>
-
-<div class="post-preview">
-    <div class="post-img" style="background-image: url('/images/distribution.png')"></div>
-    <div class="post-info">
-        <div class="post-info-center">
-            <div class="hidden-xs">
-                
-                
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#分布式"
-                    title="分布式">分布式</a>
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#CAP"
-                    title="CAP">CAP</a>
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#概念"
-                    title="概念">概念</a>
-                <span>/</span>
-                
-                
-            </div>
-            <a href="/post/distribution/2019-08-12_CAP定理的含义.html" class="title">
-                【转载-阮一峰】CAP 定理的含义
-            </a>
-            <p class="text-gray">
-                <small>
-                    <span>发表于2019-08-12，</span>
-                    <span class="hidden-xs">全文2074字，</span>
-                    <span>阅读约7分钟</span>
-                </small>
-            </p>
-        </div>
-    </div>
-</div>
-
-<div class="post-preview">
-    <div class="post-img" style="background-image: url('/images/zookeeper.jpeg')"></div>
-    <div class="post-info">
-        <div class="post-info-center">
-            <div class="hidden-xs">
-                
-                
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#分布式"
-                    title="分布式">分布式</a>
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#概念"
-                    title="概念">概念</a>
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#脑裂"
-                    title="脑裂">脑裂</a>
-                <span>/</span>
-                
-                
-            </div>
-            <a href="/post/distribution/2019-08-13_Zookeeper是如何解决脑裂问题.html" class="title">
-                Zookeeper是如何解决脑裂问题
-            </a>
-            <p class="text-gray">
-                <small>
-                    <span>发表于2019-08-12，</span>
-                    <span class="hidden-xs">全文2959字，</span>
-                    <span>阅读约10分钟</span>
-                </small>
-            </p>
-        </div>
-    </div>
-</div>
-
-<div class="post-preview">
-    <div class="post-img" style="background-image: url('/images/java/basic/java_logo.png')"></div>
-    <div class="post-info">
-        <div class="post-info-center">
-            <div class="hidden-xs">
-                
-                
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#Java"
-                    title="Java">Java</a>
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#内存模型"
-                    title="内存模型">内存模型</a>
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#jvm"
-                    title="jvm">jvm</a>
-                <span>/</span>
-                
-                
-            </div>
-            <a href="/post/java/advance/2019-07-22_java_stack.html" class="title">
-                JVM内存结构：堆、栈、方法区
-            </a>
-            <p class="text-gray">
-                <small>
-                    <span>发表于2019-07-22，</span>
-                    <span class="hidden-xs">全文4013字，</span>
-                    <span>阅读约14分钟</span>
-                </small>
-            </p>
-        </div>
-    </div>
-</div>
-
-<div class="post-preview">
-    <div class="post-img" style="background-image: url('/images/java/io.png')"></div>
-    <div class="post-info">
-        <div class="post-info-center">
-            <div class="hidden-xs">
-                
-                
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#Java"
-                    title="Java">Java</a>
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#NIO"
-                    title="NIO">NIO</a>
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#直接内存"
-                    title="直接内存">直接内存</a>
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#非直接内存"
-                    title="非直接内存">非直接内存</a>
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#堆内存"
-                    title="堆内存">堆内存</a>
-                <span>/</span>
-                
-                
-            </div>
-            <a href="/post/java/nio/2019-07-22_java_nio_Java直接内存与非直接内存性能测试.html" class="title">
-                Java直接内存与非直接内存性能测试
-            </a>
-            <p class="text-gray">
-                <small>
-                    <span>发表于2019-07-22，</span>
-                    <span class="hidden-xs">全文3256字，</span>
-                    <span>阅读约11分钟</span>
-                </small>
-            </p>
-        </div>
-    </div>
-</div>
-
-<div style="margin: 15px 0">
-    <div class="text-center">
-    <p>
-        
-        <a href="/page/3/">« 上一页</a>
-        
-        &nbsp;&nbsp;&nbsp;&nbsp;
-        
-        <a href="/page/5/">下一页 »</a>
-        
-    </p>
-</div>
-</div>
-    </div>
-    <aside class="float-left gkt-sidebar hidden-xs hidden-sm">
-        <div style="clear: both"></div>
-        <div class="gkt-sidebar-wrapper">
-            <section class="bg-white box-shadow"><style>
-    .gkt-summary {
-        border: 1px solid #DDDDDD;
-        border-radius: 3px;
-        padding: 5px;
-        width: 100%;
-    }
-
-
-    .gkt-summary nav {
-        overflow: hidden;
-    }
-
-    .gkt-summary nav a {
-        display: inline-block;
-        text-align: center;
-        color: #333;
-        font-size: 12px;
-    }
-
-    .gkt-summary nav span {
-        display: block;
-    }
-
-    .gkt-summary nav .middle {
-        border-left: 1px solid #eaecef;
-        border-right: 1px solid #eaecef;
-    }
-
-    .gkt-summary .number {
-        font-weight: bold;
-    }
-
-    .gkt-summary .link-list {
-        margin-top: 5px;
-        margin-bottom: -5px;
-        padding-top: 7px;
-        border-top: 1px dashed #999;
-        display: flex;
-    }
-
-    .gkt-summary .link-list a {
-        flex: 1;
-    }
-
-    .gkt-summary .link-list img {
-        width: 25px;
-        height: 25px;
-    }
-</style>
-
-<div class="gkt-summary">
-    <nav>
-        <a href="/" class="col-xs-4">
-            <span class="number">117</span><span>文章</span>
-        </a>
-        <a href="/series" class="col-xs-4 middle">
-            <span class="number">36</span><span>专题</span>
-        </a>
-        <a href="/tags" class="col-xs-4">
-            <span class="number">153</span><span>标签</span>
-        </a>
-    </nav>
-
-    
-</div></section>
-            <section class="gkt-sidebar-content bg-white box-shadow"><!-- Featured Tags -->
-<style>
-    #featured-tag .post-tag-item {
-        font-size: 12px;
-        line-height: 30px;
-        display: inline-block;
-        height: 30px;
-        margin: 5px 0px;
-        padding: 0 7px;
-        color: #333;
-        border-radius: 15px;
-        background: #f6f6f6;
-    }
-
-    #featured-tag .post-tag-item:hover {
-        color: #337ab7;
-    }
-</style>
-<div id="featured-tag">
-    
-    <a class="post-tag-item" href="/tags/#关于我" title="关于我"
-        rel="1">#关于我 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Hello World" title="Hello World"
-        rel="1">#Hello World (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#八皇后" title="八皇后"
-        rel="1">#八皇后 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#算法" title="算法"
-        rel="2">#算法 (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#创建型模式" title="创建型模式"
-        rel="1">#创建型模式 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#设计模式" title="设计模式"
-        rel="3">#设计模式 (3) </a>
-    
-    <a class="post-tag-item" href="/tags/#分布式" title="分布式"
-        rel="3">#分布式 (3) </a>
-    
-    <a class="post-tag-item" href="/tags/#CAP" title="CAP"
-        rel="1">#CAP (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#概念" title="概念"
-        rel="4">#概念 (4) </a>
-    
-    <a class="post-tag-item" href="/tags/#脑裂" title="脑裂"
-        rel="1">#脑裂 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#术语" title="术语"
-        rel="1">#术语 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#理论" title="理论"
-        rel="1">#理论 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Docker" title="Docker"
-        rel="2">#Docker (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#入门" title="入门"
-        rel="2">#入门 (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#学习笔记" title="学习笔记"
-        rel="1">#学习笔记 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#JavaScript" title="JavaScript"
-        rel="4">#JavaScript (4) </a>
-    
-    <a class="post-tag-item" href="/tags/#chameleon" title="chameleon"
-        rel="2">#chameleon (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#跨平台" title="跨平台"
-        rel="2">#跨平台 (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#小程序" title="小程序"
-        rel="2">#小程序 (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#Android" title="Android"
-        rel="1">#Android (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#apk" title="apk"
-        rel="1">#apk (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#反编译" title="反编译"
-        rel="1">#反编译 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Java" title="Java"
-        rel="52">#Java (52) </a>
-    
-    <a class="post-tag-item" href="/tags/#面试" title="面试"
-        rel="3">#面试 (3) </a>
-    
-    <a class="post-tag-item" href="/tags/#数据结构" title="数据结构"
-        rel="1">#数据结构 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#IO" title="IO"
-        rel="12">#IO (12) </a>
-    
-    <a class="post-tag-item" href="/tags/#同步" title="同步"
-        rel="2">#同步 (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#异步" title="异步"
-        rel="1">#异步 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#阻塞" title="阻塞"
-        rel="1">#阻塞 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#非阻塞" title="非阻塞"
-        rel="1">#非阻塞 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#符号链接" title="符号链接"
-        rel="1">#符号链接 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#目录" title="目录"
-        rel="1">#目录 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#deb" title="deb"
-        rel="2">#deb (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#chrome" title="chrome"
-        rel="1">#chrome (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#快捷键" title="快捷键"
-        rel="1">#快捷键 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#bbr" title="bbr"
-        rel="1">#bbr (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#协议" title="协议"
-        rel="3">#协议 (3) </a>
-    
-    <a class="post-tag-item" href="/tags/#XXNET" title="XXNET"
-        rel="1">#XXNET (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#磁盘管理" title="磁盘管理"
-        rel="1">#磁盘管理 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#挂载" title="挂载"
-        rel="1">#挂载 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#网络" title="网络"
-        rel="2">#网络 (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#模型" title="模型"
-        rel="2">#模型 (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#MMAP" title="MMAP"
-        rel="1">#MMAP (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#内存映射" title="内存映射"
-        rel="1">#内存映射 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#内存" title="内存"
-        rel="1">#内存 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#零拷贝" title="零拷贝"
-        rel="2">#零拷贝 (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#输入法" title="输入法"
-        rel="1">#输入法 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#命令" title="命令"
-        rel="1">#命令 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#集合运算" title="集合运算"
-        rel="1">#集合运算 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Ubuntu" title="Ubuntu"
-        rel="1">#Ubuntu (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#包管理" title="包管理"
-        rel="4">#包管理 (4) </a>
-    
-    <a class="post-tag-item" href="/tags/#TCP" title="TCP"
-        rel="3">#TCP (3) </a>
-    
-    <a class="post-tag-item" href="/tags/#UDP" title="UDP"
-        rel="2">#UDP (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#网络协议" title="网络协议"
-        rel="1">#网络协议 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#CDN" title="CDN"
-        rel="1">#CDN (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Socket" title="Socket"
-        rel="1">#Socket (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#vpn" title="vpn"
-        rel="1">#vpn (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#ssh" title="ssh"
-        rel="1">#ssh (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Heidi" title="Heidi"
-        rel="1">#Heidi (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#MySQL" title="MySQL"
-        rel="9">#MySQL (9) </a>
-    
-    <a class="post-tag-item" href="/tags/#网络术语" title="网络术语"
-        rel="3">#网络术语 (3) </a>
-    
-    <a class="post-tag-item" href="/tags/#URL" title="URL"
-        rel="1">#URL (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#URI" title="URI"
-        rel="1">#URI (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Tampermonkey" title="Tampermonkey"
-        rel="1">#Tampermonkey (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#弹琴吧" title="弹琴吧"
-        rel="1">#弹琴吧 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#吉他" title="吉他"
-        rel="1">#吉他 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#V2ray" title="V2ray"
-        rel="1">#V2ray (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Jira" title="Jira"
-        rel="1">#Jira (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#管理" title="管理"
-        rel="2">#管理 (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#认知" title="认知"
-        rel="1">#认知 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#备份" title="备份"
-        rel="1">#备份 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#MSSQL" title="MSSQL"
-        rel="1">#MSSQL (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Redis" title="Redis"
-        rel="1">#Redis (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#优化" title="优化"
-        rel="2">#优化 (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#SQL优化" title="SQL优化"
-        rel="2">#SQL优化 (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#ACID" title="ACID"
-        rel="1">#ACID (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#幻读" title="幻读"
-        rel="1">#幻读 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#性能优化" title="性能优化"
-        rel="4">#性能优化 (4) </a>
-    
-    <a class="post-tag-item" href="/tags/#阅读笔记" title="阅读笔记"
-        rel="2">#阅读笔记 (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#字符集" title="字符集"
-        rel="2">#字符集 (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#Collation" title="Collation"
-        rel="1">#Collation (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#临时表" title="临时表"
-        rel="1">#临时表 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Vue" title="Vue"
-        rel="2">#Vue (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#二进制" title="二进制"
-        rel="2">#二进制 (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#内存分配" title="内存分配"
-        rel="1">#内存分配 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#内存泄露" title="内存泄露"
-        rel="1">#内存泄露 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#书籍推荐" title="书籍推荐"
-        rel="1">#书籍推荐 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#知识体系" title="知识体系"
-        rel="1">#知识体系 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#反码" title="反码"
-        rel="1">#反码 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#补码" title="补码"
-        rel="1">#补码 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#单例" title="单例"
-        rel="1">#单例 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#DCL" title="DCL"
-        rel="1">#DCL (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#内存模型" title="内存模型"
-        rel="1">#内存模型 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#jvm" title="jvm"
-        rel="3">#jvm (3) </a>
-    
-    <a class="post-tag-item" href="/tags/#HashMap" title="HashMap"
-        rel="1">#HashMap (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Java集合" title="Java集合"
-        rel="1">#Java集合 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#ThreadLocal" title="ThreadLocal"
-        rel="1">#ThreadLocal (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Java线程" title="Java线程"
-        rel="3">#Java线程 (3) </a>
-    
-    <a class="post-tag-item" href="/tags/#异常" title="异常"
-        rel="1">#异常 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Java异常" title="Java异常"
-        rel="1">#Java异常 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#思维导图" title="思维导图"
-        rel="2">#思维导图 (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#垃圾回收" title="垃圾回收"
-        rel="2">#垃圾回收 (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#Java引用" title="Java引用"
-        rel="1">#Java引用 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Exception" title="Exception"
-        rel="1">#Exception (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Stream" title="Stream"
-        rel="1">#Stream (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Netty" title="Netty"
-        rel="4">#Netty (4) </a>
-    
-    <a class="post-tag-item" href="/tags/#笔记" title="笔记"
-        rel="1">#笔记 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#NIO" title="NIO"
-        rel="7">#NIO (7) </a>
-    
-    <a class="post-tag-item" href="/tags/#Buffer" title="Buffer"
-        rel="1">#Buffer (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Selector" title="Selector"
-        rel="1">#Selector (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#问题" title="问题"
-        rel="2">#问题 (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#直接内存" title="直接内存"
-        rel="1">#直接内存 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#非直接内存" title="非直接内存"
-        rel="1">#非直接内存 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#堆内存" title="堆内存"
-        rel="1">#堆内存 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#注解" title="注解"
-        rel="1">#注解 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Spring" title="Spring"
-        rel="6">#Spring (6) </a>
-    
-    <a class="post-tag-item" href="/tags/#文件加载" title="文件加载"
-        rel="1">#文件加载 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Spring Boot" title="Spring Boot"
-        rel="3">#Spring Boot (3) </a>
-    
-    <a class="post-tag-item" href="/tags/#Spring Cloud" title="Spring Cloud"
-        rel="1">#Spring Cloud (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Gradle" title="Gradle"
-        rel="3">#Gradle (3) </a>
-    
-    <a class="post-tag-item" href="/tags/#Idea" title="Idea"
-        rel="1">#Idea (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#JavaIDE" title="JavaIDE"
-        rel="1">#JavaIDE (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#监控" title="监控"
-        rel="1">#监控 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#报警" title="报警"
-        rel="1">#报警 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Prometheus" title="Prometheus"
-        rel="1">#Prometheus (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#SVN" title="SVN"
-        rel="1">#SVN (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#结构型模式" title="结构型模式"
-        rel="1">#结构型模式 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#行为型模式" title="行为型模式"
-        rel="1">#行为型模式 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#云原生" title="云原生"
-        rel="1">#云原生 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Cloud" title="Cloud"
-        rel="1">#Cloud (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#异步IO" title="异步IO"
-        rel="1">#异步IO (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#直接IO" title="直接IO"
-        rel="1">#直接IO (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#慢查" title="慢查"
-        rel="1">#慢查 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#序列化" title="序列化"
-        rel="1">#序列化 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#函数式编程" title="函数式编程"
-        rel="1">#函数式编程 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#lambda" title="lambda"
-        rel="1">#lambda (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#并发编程" title="并发编程"
-        rel="1">#并发编程 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#JUC" title="JUC"
-        rel="1">#JUC (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#lambda表达式" title="lambda表达式"
-        rel="1">#lambda表达式 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#源码" title="源码"
-        rel="1">#源码 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#RPC" title="RPC"
-        rel="1">#RPC (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Reactor" title="Reactor"
-        rel="1">#Reactor (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#NIO模型" title="NIO模型"
-        rel="1">#NIO模型 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#工具" title="工具"
-        rel="1">#工具 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Wiki" title="Wiki"
-        rel="1">#Wiki (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#整理" title="整理"
-        rel="1">#整理 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#操作系统" title="操作系统"
-        rel="1">#操作系统 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#微服务" title="微服务"
-        rel="1">#微服务 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Vert.x" title="Vert.x"
-        rel="1">#Vert.x (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Spring Core" title="Spring Core"
-        rel="1">#Spring Core (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#源码分析" title="源码分析"
-        rel="1">#源码分析 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#文件名批量修改" title="文件名批量修改"
-        rel="1">#文件名批量修改 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#HttpClient" title="HttpClient"
-        rel="1">#HttpClient (1) </a>
-    
-</div></section>
-            
-        </div>
-    </aside>
-    
-
-<script>
-    (function () {
-        var ele = getDom('.gkt-sidebar-content')
-        if(!ele) return;
-        var wrapper = getDom('.gkt-sidebar-wrapper')
-        var last = 0
-        ele.style.maxHeight = ((window.innerHeight || 798) - 200) + 'px'
-        var f = function (e) {
-            var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-            var isDown = scrollTop > last;
-            var pos = getPosition(ele).y - scrollTop;
-            var downLimit = 50;
-            var upLimit = -100;
-            // uarrow.style.marginTop = scrollTop + 'px';
-            isDown && pos <= downLimit && wrapper.classList.add("gkt-sidebar-fixed");
-            !isDown && pos > upLimit && wrapper.classList.remove("gkt-sidebar-fixed");
-            last = scrollTop
-        }
-        f()
-        window.addEventListener("scroll", f)
-    })();
-</script>
-
-</main>
-    </div>
-    <style>
-    img#go-top {
-        position: fixed;
-        bottom: 100px;
-        width: 50px;
-        cursor: pointer;
-        z-index: 9999;
-    }
-</style>
-<img id="go-top" src="/icon/top.png" class="hidden-xs" style="display: none" />
-<script>
-    (function () {
-        var goTop = document.getElementById('go-top');
-        var mainContainer = document.querySelector('.main-container');
-        
-        goTop.addEventListener('click', function () {
-            window.scroll(0, 0);
-        }, false);
-        window.addEventListener('scroll', function () {
-            var right = document.body.offsetWidth - mainContainer.getBoundingClientRect().right;
-            var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-            goTop.style.right = right + 10 + 'px'
-            scrollTop > 700 && (goTop.style.display = "block");
-            scrollTop <= 700 && (goTop.style.display = "none");
-        });
-    })();
-</script>
-    <style>
-    #geektutu-click-img-container {
-        position: fixed;
-        left: 0;
-        top: 0;
-        text-align: center;
-        width: 100%;
-        display: none;
-        z-index: 9999;
-    }
-
-    #geektutu-click-img-container img {
-        object-fit: contain;
-        background: #eaecef;
-        padding: 15px;
-        border-radius: 10px;
-        height: auto;
-        width: auto;
-        vertical-align: middle;
-    }
-</style>
-
-
-<div id="geektutu-click-img-container">
-    <img src="" alt="Big Image">
-</div>
-
-<script>
-    (function () {
-        var container = document.querySelector('#geektutu-click-img-container')
-        var targetImg = container.querySelector('img')
-        var imgs = document.querySelectorAll('article img');
-        targetImg.addEventListener('click', function (e) {
-            container.style.display = 'none';
-            e && e.stopPropagation && e.stopPropagation();
-        }, false);
-
-        for (var i = 0; i < imgs.length; ++i) {
-            var img = imgs[i];
-            img.addEventListener('click', (function (src, rate) {
-                return function (e) {
-                    e && e.stopPropagation && e.stopPropagation();
-                    if (window.innerWidth < 980) {
-                        return
-                    }
-                    targetImg.style.height = targetImg.style.width = 'auto';
-                    if (window.innerWidth / window.innerHeight > rate) {
-                        targetImg.style.height = (window.innerHeight - 20) + 'px';
-                    } else {
-                        targetImg.style.width = (window.innerWidth - 20) + 'px';
-                    }
-                    container.style.height = window.innerHeight + 'px'
-                    container.style.lineHeight = window.innerHeight + 'px'
-                    container.style.display = 'block';
-                    targetImg.src = src;
-                };
-            }(img.src, img.width / img.height)), false)
-        }
-    })();
-</script>
-    <!-- Footer -->
-    <!-- Footer -->
-<style>
-    footer {
-        width: 100%;
-        line-height: 1.5;
-        padding: 20px;
-    }
-
-    footer a {
-        color: #333;
-        text-decoration: none;
-    }
-
-    .footer-hexo img {
-        height: 20px;
-        margin-bottom: -5px;
-    }
-
-    .footer-hexo a {
-        color: #337ab7;
-    }
-</style>
-<footer class="text-center col-xs-12">
-    <p>
-        <small>© 2020 - Hassan - </small>
-        <small>
-            <a target="_blank" rel="nofollow noopener" href="http://beian.miit.gov.cn/"></a>
-        </small>
-    </p>
-    <p class="footer-hexo">
-        <!-- 但若直接使用或修改主题，请务必保留这段声明 -->
-        <small>Powered by <a target="_blank" href="https://hexo.io">Hexo</a> | Theme
-            <a target="_blank" href="https://geektutu.com">Geektutu</a>
-            <a target="_blank" rel="noopener" href="https://github.com/geektutu/hexo-theme-geektutu">
-                <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAYGBgYHBgcICAcKCwoLCg8ODAwODxYQERAREBYiFRkVFRkVIh4kHhweJB42KiYmKjY+NDI0PkxERExfWl98fKcBBgYGBgcGBwgIBwoLCgsKDw4MDA4PFhAREBEQFiIVGRUVGRUiHiQeHB4kHjYqJiYqNj40MjQ+TERETF9aX3x8p//CABEIACIAUAMBIgACEQEDEQH/xAAcAAABBAMBAAAAAAAAAAAAAAAAAQQFBwIDBgj/2gAIAQEAAAAA9KrHSgAYL5/z6zZGuJd12uugbhq3uKtmuRtix20IS7lTLAfAAAn/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/9oACAECEAAAAAAB/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/aAAgBAxAAAAAAAf/EADEQAAICAQIEBQEGBwAAAAAAAAECAwQFAAYREhORBxQhUlQxQVFic5KxJDJCYYGC0f/aAAgBAQABPwCFHnjWUzuvN6hV4cANSRLGjO9yRVUcSzMoA7jVXJYe5N0a2dhmk9kc0bN2GvLN8mbuNeWb5M3ca8s3yZu415Y/Jm7jXlm+TN3H/NeVPyZu40vOk3TZywK8wJ+v3EHVM/wsI/Dq2lrxN3Nnca16eti8chSAIoMbzByhMwP14kHVfwIiSaF5c96J6kwwCOTnHsYk8uvCrdmQy1TI4rJuz3cZLyGR/wCd4+YoOf8AEpUjXitubLYPG4paFsUxcuiGe7yc5gTW3LW44szXmobsi3Dhmic2+Z4+vCVH9CpraPiQ+QvbgTJrPFBWd5YpWrmNIIEXiRO32Pqt4p7cnfHk18lFBdmEVW1LVdIZGOrniTt6plrWKaO69yCykDRxwF+LMAewB0Txtr+Sf31VI8tEPw62fZt7N3Humtbpzz13ucX6CGSWMSuzpLyD1eNgeUka3PuvHbaxq3biTMHfkiSNCS78CwU+3Xg7Vu3MhuTcU6cq3Zemn3Eh2dv8Lzcut+29x1atKbHYqLJUhLwyNMwiZ3j9yDWOxUOV3tgb+3No5LDx1pi9+aeIwRlNY6bc+Jv+IFGrhLxtXJZ7VKcw81diiAAEn0JOrkWZyNfbEr0tz27UGQgkuGzXdIIvyowq99bRxk9ffO/L81SZBPZgEEroQroIxxMZOgeNsfkn99QypHGqO4Vl9CDrN4LDZkwyzyyQ2IgRHZrzGCZVP1XnQglT9oOtw4LC7iqV6uRkZoYpxKFSQpzFRw4EjVRMfSrQ1qqwxQxKFjjTgFUD7BoWYR6iVe+mtxt9Zwf9teaj4AdccPu5tedX5A/VrzUR+sy/q1CwksF19VEfDj/cnQRW+qg66cfsXtrpx+xe2unH7F7a6cfsXtrpx+xe2unH7F7a6cfsXtoxx+xe2gAAOA1//8QAFBEBAAAAAAAAAAAAAAAAAAAAMP/aAAgBAgEBPwB//8QAFBEBAAAAAAAAAAAAAAAAAAAAMP/aAAgBAwEBPwB//9k="
-                    alt="Github Star">
-            </a>
-        </small>
-    </p>
-    
-    <p>
-        <small>
-            <span id="busuanzi_container_site_pv">👁<span id="busuanzi_value_site_pv"></span></span> &nbsp;
-            <span id="busuanzi_container_page_pv">📚<span id="busuanzi_value_page_pv"></span></span>
-        </small>
-    </p>
-    
-    
-
-</footer>
-
-
-<script>
-    window.addEventListener('load', function () {
-        globalAddScript('//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js');
-    })
-</script>
-
-<!-- Baidu Tongji -->
+  
 
 
 
 
 
-    <script>
-        // 非本站网址，新开tab页签
-        (function () {
-            var stopBubble = function (e) {
-                e && e.stopPropagation && e.stopPropagation();
-            }
-            var links = document.querySelectorAll('a');
-            [].slice.call(links).forEach(function (item) {
-                if (item.href && item.href.indexOf(window.location.host) === -1) {
-                    item.target = '_blank'
-                }
-                // 阻止冒泡，不触发彩蛋。
-                item.addEventListener('click', stopBubble, false);
-            });
-            var article = document.querySelector('article');
-            article && article.addEventListener('click', stopBubble, false)
-        })();
-    </script>
-    
-<script>
-    (function (window, document, undefined) {
-        var hearts = [];
-        var keywords = ["点个赞", "留个言", "赞赏一下", "分享之", "blog.fenxiangz.com"];
-        function randomInt(max) {
-            return Math.floor(Math.random() * Math.floor(max));
-        }
-        window.addEventListener('click', createWord)
 
-        function createWord(e) {
-            var d = document.createElement("span");
-            d.style.position = 'fixed';
-            d.style.zIndex = 9999;
-            d.style.color = 'rgb(' + [randomInt(255), randomInt(255), randomInt(255)].join(',') + ')';
-            d.innerHTML = keywords[randomInt(keywords.length)];
-            d.onselectstart = function () { return false; }
 
-            hearts.push({ el: d, x: e.clientX - 5, y: e.clientY - 5, alpha: 1, scale: 1 });
-            document.body.appendChild(d);
-        }
-        (function gameloop() {
-            for (var i = 0; i < hearts.length; i++) {
-                heart = hearts[i];
-                if (heart.alpha <= 0) {
-                    document.body.removeChild(heart.el);
-                    hearts.splice(i, 1);
-                    continue;
-                }
-                heart.y -= heart.alpha < 0.5 ? 2 : 1;
-                heart.scale += 0.002;
-                heart.alpha -= 0.013;
-                heart.el.style.transform = 'scale(' + heart.scale + ')';
-                heart.el.style.left = heart.x + 'px';
-                heart.el.style.top = heart.y + 'px';
-            }
-            setTimeout(gameloop, 10)
-        })();
-    })(window, document);
-</script>
+  
+
+
+
+
+
 
 </body>
-
 </html>

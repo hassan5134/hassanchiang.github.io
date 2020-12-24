@@ -1,1471 +1,2071 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-
-<!-- Head tag -->
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="referrer" content="no-referrer-when-downgrade">
-  
-  <meta name="baidu-site-verification" content="" />
-  <meta name="google-site-verification" content="" />
-  <meta name="msvalidate.01" content="" />
-  <meta name="360-site-verification" content="" />
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- if page has tags, then add tags to keyword -->
-  
-  
-  <meta name="keywords" content=",">
-  <!-- page.description has higher priority -->
-  <meta name="description" content="Share everything">
-  <link rel="shortcut icon" href="/favico.png">
-  <title>
-    
-    分享之
-    
-  </title>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
 
-  <link rel="canonical" href="/">
-  
-<link rel="stylesheet" href="/css/reset.css">
 
-  
-<link rel="stylesheet" href="/css/layout.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
-  
-<link rel="stylesheet" href="/css/markdown.css">
+<link rel="stylesheet" href="/css/main.css">
 
-  <!-- Pygments Highlight CSS -->
-  
-<link rel="stylesheet" href="/css/highlight.css">
 
-  
-<link rel="stylesheet" href="/css/geektutu.css">
 
-  <!-- global function -->
-  <script>
-    window.globalAddScript = function (url, onload, onerror) {
-      var s = document.createElement('script');
-      s.src = url;
-      onload && (s.onload = onload);
-      onerror && (s.onerror = onerror);
-      document.body.appendChild(s);
-    }
-    window.globalAddCss = function (url) {
-      var s = document.createElement('link');
-      s.rel = 'stylesheet';
-      s.href = url;
-      document.body.appendChild(s);
-    }
-    window.getPosition = function (ele) {
-      var x = 0, y = 0;
-      while (ele) {
-        x += (ele.offsetLeft - ele.scrollLeft + ele.clientLeft);
-        y += (ele.offsetTop - ele.scrollTop + ele.clientTop);
-        ele = ele.offsetParent;
-      }
-      return { x: x, y: y };
-    }
-    window.getDom = function (str) { return document.querySelector(str) }
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blog.fenxiangz.com","root":"/","images":"/images","scheme":"Pisces","version":"8.1.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}};
   </script>
-  <!-- google ad -->
+<meta name="description" content="Share everything">
+<meta property="og:type" content="website">
+<meta property="og:title" content="分享之">
+<meta property="og:url" content="https://blog.fenxiangz.com/index.html">
+<meta property="og:site_name" content="分享之">
+<meta property="og:description" content="Share everything">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="Hassan">
+<meta property="article:tag" content="JAVA,Linux,技术分享,网络">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://blog.fenxiangz.com/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-CN'
+  };
+</script>
+<title>分享之</title>
   
-<meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/feed.xml" title="分享之" type="application/rss+xml">
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="分享之" type="application/atom+xml">
 </head>
 
-<body>
-    <header class="gkt-header col-xs-12 padding-0">
-    <div id="gkt-nav" class="gkt-header-container">
-        <a href="/" class="gkt-header-title float-left">
-            <img class="float-left" src="/favico.png" alt="">
-            <span>分享之</span>
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">分享之</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Share everything</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <section class="post-toc-wrap sidebar-panel">
+        </section>
+        <!--/noindex-->
+
+        <section class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Hassan</p>
+  <div class="site-description" itemprop="description">Share everything</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">117</span>
+          <span class="site-state-item-name">日志</span>
         </a>
-        <nav class="gkt-header-nav text-right">
-            <ul>
-                <li><a class="hidden-xs" href="/feed.xml">订阅</a></li>
-                <li><a href="/series/">专题</a></li>
-                <li><a href="/archives/">归档</a></li>
-                <li><a href="/post/link.html">友链</a></li>
-                <li><a href="/post/about.html">关于</a></li>
-            </ul>
-        </nav>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">36</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">153</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </section>
+      </div>
     </div>
-    <div id="gkt-cate-nav" class="gkt-header-container hidden-xs">
-        
-        <nav class="gkt-header-nav float-left">
-            <ul>
-                
-                
-                <li class="gkt-cate-name float-left ">
-                    <a class="float-left" href="/post/java/basic/2016-10-25_hashmap_jdk7.html">Java ▾</a>
-                    
-                    <ul class="gkt-sub-cate">
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/java/basic/2016-10-25_hashmap_jdk7.html">Java 基础</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/java/advance/2016-10-25_number.html">Java 进阶</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/java/io/2017-04-15_java_io_1_overview.html">Java IO</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/java/nio/2017-04-21_java_nio_1.html">Java NIO</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/interview/2018-10-25_Java面试整理.html">Java 面试</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/java/util/2020-12-23_HttpClient连接池原理及一次连接时序图.html">RPC</a></li>
-                        
-                    </ul>
-                    
-                </li>
-                
-                <li class="gkt-cate-name float-left ">
-                    <a class="float-left" href="/post/java/spring/2016-10-30_Spring 组合注解&amp;注解继承.html">Spring ▾</a>
-                    
-                    <ul class="gkt-sub-cate">
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/java/spring/2016-10-30_Spring 组合注解&amp;注解继承.html">Spring Core</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/java/spring/2019-12-28_【译】Spring Boot 从 classpath 加载文件.html">Spring Boot</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/java/spring/2020-09-02_How-to-learn-Spring-Cloud.html">Spring Cloud</a></li>
-                        
-                    </ul>
-                    
-                </li>
-                
-                <li class="gkt-cate-name float-left ">
-                    <a class="float-left" href="/post/java/netty/2019-01-02_小白科普Netty有什么用.html">Java 框架</a>
-                    
-                </li>
-                
-                <li class="gkt-cate-name float-left ">
-                    <a class="float-left" href="/post/util/ide/2017-10-25_idea_shotcut.html">工具 ▾</a>
-                    
-                    <ul class="gkt-sub-cate">
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/util/ide/2017-10-25_idea_shotcut.html">IDE</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/util/gradle/LearnGradle_1_安装.html">Gradle</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/docker/2017-11-25_Docker_Get_Started.html">Docker</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/util/monitor/2017-12-10_从零开始搭建Prometheus自动监控报警系统.html">监控</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/util/svn/2017-12-10_SVN自动删除“被手动删除”的文件.html">SVN</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/util/2020-11-26_开发资源整理.html">资源导航</a></li>
-                        
-                    </ul>
-                    
-                </li>
-                
-                <li class="gkt-cate-name float-left ">
-                    <a class="float-left" href="/post/linux/2017-11-27_update-alternatives_命令.html">Linux ▾</a>
-                    
-                    <ul class="gkt-sub-cate">
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/linux/2017-11-27_update-alternatives_命令.html">其他</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/linux/2017-11-26_IO-同步，异步，阻塞，非阻塞.html">IO</a></li>
-                        
-                    </ul>
-                    
-                </li>
-                
-                <li class="gkt-cate-name float-left ">
-                    <a class="float-left" href="/post/network/2017-11-24_面向报文（UDP）和面向字节流（TCP）的区别.html">计算机网络 ▾</a>
-                    
-                    <ul class="gkt-sub-cate">
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/network/2017-11-24_面向报文（UDP）和面向字节流（TCP）的区别.html">TCP/IP</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/network/2017-11-25_一张图说明CDN网络的原理.html">网络/其他</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/network/2018-12-15_URL和URI的区别.html">网络/术语</a></li>
-                        
-                    </ul>
-                    
-                </li>
-                
-                <li class="gkt-cate-name float-left ">
-                    <a class="float-left" href="/post/dateabase/mysql/2018-12-15_MySQL优化概要.html">数据库 ▾</a>
-                    
-                    <ul class="gkt-sub-cate">
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/dateabase/mysql/2018-12-15_MySQL优化概要.html">MySQL</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/dateabase/MSSQL/2020-09-08_MSSQL最佳实践_SQL_Server备份策略.html">MSSQL</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/dateabase/Redis/2020_12_08_Redis清理方法.html">Redis</a></li>
-                        
-                    </ul>
-                    
-                </li>
-                
-                <li class="gkt-cate-name float-left ">
-                    <a class="float-left" href="/post/design/2019-01-03_Java经典设计模式_1_五大创建型模式.html">设计模式</a>
-                    
-                </li>
-                
-                <li class="gkt-cate-name float-left ">
-                    <a class="float-left" href="/post/distribution/2019-08-12_CAP定理的含义.html">分布式 ▾</a>
-                    
-                    <ul class="gkt-sub-cate">
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/distribution/2019-08-12_CAP定理的含义.html">概念</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/distribution/2019-08-13_Zookeeper是如何解决脑裂问题.html">zookeeper</a></li>
-                        
-                    </ul>
-                    
-                </li>
-                
-                <li class="gkt-cate-name float-left ">
-                    <a class="float-left" href="/post/frontend/vue/2017-10-26_vue自定义组件中的v-model简单解释.html">前端 ▾</a>
-                    
-                    <ul class="gkt-sub-cate">
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/frontend/vue/2017-10-26_vue自定义组件中的v-model简单解释.html">VUE</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/frontend/2016-10-26_深入理解jQuery插件开发.html">jQuery</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/frontend/2019-10-26_小程序多端框架全面测评.html">跨平台</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/frontend/2019-11-26_APK反编译总结.html">Android</a></li>
-                        
-                    </ul>
-                    
-                </li>
-                
-                <li class="gkt-cate-name float-left ">
-                    <a class="float-left" href="/post/algorithm/八皇后算法解析.html">算法</a>
-                    
-                </li>
-                
-                <li class="gkt-cate-name float-left ">
-                    <a class="float-left" href="/post/其他/2020-01-29_弹琴吧非会员扒谱技巧.html">其他 ▾</a>
-                    
-                    <ul class="gkt-sub-cate">
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/其他/2020-01-29_弹琴吧非会员扒谱技巧.html">其他/Tampermonkey</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/其他/2020-10-25_V2ray配置.html">其他/V2ray</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/其他/2020-11-26_Jira修改Path路径后的用户管理问题.html">其他/Jira</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/其他/2020-11-27_『认知升级』是比其他一切都更加重要的思维模型转变.html">其他/管理</a></li>
-                        
-                    </ul>
-                    
-                </li>
-                
-            </ul>
-        </nav>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.fenxiangz.com/post/java/util/2020-12-23_HttpClient%E8%BF%9E%E6%8E%A5%E6%B1%A0%E5%8E%9F%E7%90%86%E5%8F%8A%E4%B8%80%E6%AC%A1%E8%BF%9E%E6%8E%A5%E6%97%B6%E5%BA%8F%E5%9B%BE.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Hassan">
+      <meta itemprop="description" content="Share everything">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="分享之">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/post/java/util/2020-12-23_HttpClient%E8%BF%9E%E6%8E%A5%E6%B1%A0%E5%8E%9F%E7%90%86%E5%8F%8A%E4%B8%80%E6%AC%A1%E8%BF%9E%E6%8E%A5%E6%97%B6%E5%BA%8F%E5%9B%BE.html" class="post-title-link" itemprop="url">HttpClient连接池原理及一次连接时序图</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-12-23 00:00:00 / 修改时间：05:47:04" itemprop="dateCreated datePublished" datetime="2020-12-23T00:00:00+00:00">2020-12-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/RPC/" itemprop="url" rel="index"><span itemprop="name">RPC</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="HttpClient介绍"><a href="#HttpClient介绍" class="headerlink" title="HttpClient介绍"></a>HttpClient介绍</h1><p>HttpClient是一个实现了http协议的开源Java客户端工具库，可以通过程序发送http请求。</p>
+<h2 id="1-1-HttpClient发送请求和接收响应"><a href="#1-1-HttpClient发送请求和接收响应" class="headerlink" title="1.1 HttpClient发送请求和接收响应"></a>1.1 HttpClient发送请求和接收响应</h2><h3 id="1-1-1-代码示例"><a href="#1-1-1-代码示例" class="headerlink" title="1.1.1 代码示例"></a>1.1.1 <strong>代码示例</strong></h3><p>以Get请求为例，以下代码获得google主页内容并将返回结果打印出来。</p>
+<pre><code>public final static void main(String[] args) throws Exception &#123;
+    HttpClient httpclient = new DefaultHttpClient();
+    try &#123;
+        HttpGet httpget = new HttpGet(&quot;http://www.google.com/&quot;);
+        System.out.println(&quot;executing request &quot; + httpget.getURI());
+        // 创建response处理器
+        ResponseHandler&lt;String&gt; responseHandler = new BasicResponseHandler();
+        String responseBody = httpclient.execute(httpget, responseHandler);
+        System.out.println(&quot;----------------------------------------&quot;);
+        System.out.println(responseBody);
+        System.out.println(&quot;----------------------------------------&quot;);
+    &#125; finally &#123;
+        //HttpClient不再使用时，关闭连接管理器以保证所有资源的释放
+        httpclient.getConnectionManager().shutdown();
+    &#125;
+&#125;</code></pre>
+<h3 id="1-1-2-时序图"><a href="#1-1-2-时序图" class="headerlink" title="1.1.2 时序图"></a><strong>1.1.2 时序图</strong></h3><p>httpClient执行一次请求，即运行一次httpClient.execute()方法，时序图如下：</p>
+<p><img src="./2020-12-23_HttpClient%E8%BF%9E%E6%8E%A5%E6%B1%A0%E5%8E%9F%E7%90%86%E5%8F%8A%E4%B8%80%E6%AC%A1%E8%BF%9E%E6%8E%A5%E6%97%B6%E5%BA%8F%E5%9B%BE/1.jpg"></p>
+<h3 id="1-1-3-时序图说明"><a href="#1-1-3-时序图说明" class="headerlink" title="1.1.3 时序图说明"></a><strong>1.1.3 时序图说明</strong></h3><h4 id="1-1-3-1-时序图编号说明"><a href="#1-1-3-1-时序图编号说明" class="headerlink" title="1.1.3.1  时序图编号说明"></a>1.1.3.1  时序图编号说明</h4><p> 1.1、1.2、1.3等均为操作1的子操作，即：操作1 execute()中又分别调用了操作1.1 createClientConnectionManager()、操作1.2 createClientRequestDirector()以及操作1.3 requestDirector 对象的execute()方法等，以此类推。</p>
+<p> 按时间先后顺序分别编号为1,2,3等，以此类推。</p>
+<h4 id="1-1-3-2-主要类说明"><a href="#1-1-3-2-主要类说明" class="headerlink" title="1.1.3.2 主要类说明"></a>1.1.3.2 主要类说明</h4><p><img src="./2020-12-23_HttpClient%E8%BF%9E%E6%8E%A5%E6%B1%A0%E5%8E%9F%E7%90%86%E5%8F%8A%E4%B8%80%E6%AC%A1%E8%BF%9E%E6%8E%A5%E6%97%B6%E5%BA%8F%E5%9B%BE/2.jpg"></p>
+<p> 对于图中各对象，httpClient jar包中均提供对应的接口及相应的实现类。</p>
+<p> 图中直接与服务器进行socket通信的是最右端接口OperatedClientConnection某一实现类的对象，图中从右到左进行了层层的封装，最终开发人员直接使用的是接口HttpClient某一实现类的对象进行请求的发送和响应的接收（如2.1.1代码示例）。</p>
+<p> 时序图中各对象所在类关系如下图类图所示（仅列出图中所出现的各个类及方法，参数多的方法省略部分参数，其他类属性和操作请参照源码）：</p>
+<p><strong>1.1.3.2.1 接口OperatedClientConnection</strong></p>
+<p> 该接口对应一个http连接，与服务器端建立socket连接进行通信。</p>
+<p><strong>1.1.3.2.2 接口ManagedClientConnection</strong></p>
+<p> 该接口对一个http连接OperatedClientConnection进行封装，ManagedClientConnection维持一个PoolEntry&lt;HttpRoute, OperatedClientConnection&gt;路由和连接的对应。提供方法获得对应连接管理器，对http连接的各类方法，如建立连接，获得相应，关闭连接等进行封装。</p>
+<p><strong>1.1.3.2.3 接口RequestDirector</strong></p>
+<p> RequestDirector为消息的发送执行者，该接口负责消息路由的选择和可能的重定向，消息的鉴权，连接的分配回收（调用ClientConnectionManager相关方法），建立，关闭等并控制连接的保持。</p>
+<p> 连接是否保持以及保持时间默认原则如下：</p>
+<p><strong>连接是否保持</strong>：客户端如果希望保持长连接，应该在发起请求时告诉服务器希望服务器保持长连接（http 1.0设置connection字段为keep-alive，http 1.1字段默认保持）。根据服务器的响应来确定是否保持长连接，判断原则如下：</p>
+<p>检查返回response报文头的Transfer-Encoding字段，若该字段值存在且不为chunked，则连接不保持，直接关闭。其他情况进入下一步。</p>
+<p>检查返回的response报文头的Content-Length字段，若该字段值为空或者格式不正确（多个长度，值不是整数），则连接不保持，直接关闭。其他情况进入下一步</p>
+<p>检查返回的response报文头的connection字段（若该字段不存在，则为Proxy-Connection字段）值</p>
+<p>如果这俩字段都不存在，则http 1.1版本默认为保持，将连接标记为保持， 1.0版本默认为连接不保持，直接关闭。</p>
+<p>如果字段存在，若字段值为close 则连接不保持，直接关闭；若字段值为keep-alive则连接标记为保持。</p>
+<p><strong>连接保持时间</strong>：连接交换至连接管理时，若连接标记为保持，则将由连接管理器保持一段时间；若连接没有标记为保持，则直接从连接池中删除并关闭entry。连接保持时，保持时间规则如下：</p>
+<p>保持时间计时开始时间为连接交换至连接池的时间。</p>
+<p>保持时长计算规则为：获取keep-alive字段中timeout属性的值，</p>
+<p>若该字段存在，则保持时间为 timeout属性值*1000，单位毫秒。</p>
+<p>若该字段不存在，则连接保持时间设置为-1，表示为无穷。</p>
+<p>响应头日志示例：</p>
+<pre><code>17:59:42.051 [main] DEBUG org.apache.http.headers - &lt;&lt; Keep-Alive: timeout=5, max=100
+17:59:42.051 [main] DEBUG org.apache.http.headers - &lt;&lt; Connection: Keep-Alive
+17:59:42.051 [main] DEBUG org.apache.http.headers - &lt;&lt; Content-Type: text/html; charset=utf-8
+17:59:42.062 [main] DEBUG c.ebupt.omp.sop.srmms.SopHttpClient - Connection can be kept alive for 5000 MILLISECONDS</code></pre>
+<p>若需要修改连接的保持及重用默认原则，则需编写子类继承自AbstractHttpClient，分别覆盖其  createConnectionReuseStrategy() 和createConnectionKeepAliveStrategy() 方法。</p>
+<p><strong>1.1.3.2.4 接口ClientConnectionManager</strong></p>
+<p> ClientConnectionManager为连接池管理器，是线程安全的。Jar包中提供的具体实现类有BasicClientConnectionManager和PoolingClientConnectionManager。其中BasicClientConnectionManager只管理一个连接。PoolingClientConnectionManager管理连接池。</p>
+<p> 若有特殊需要，开发人员可自行编写连接管理器实现该接口。</p>
+<p> 连接管理器自动管理连接的分配以及回收工作，并支持连接保持以及重用。连接保持以及重用由RequestDirector进行控制。</p>
+<p><strong>1.1.3.2.5 接口HttpClient</strong></p>
+<p>接口HttpClient为开发人员直接使用的发送请求和接收响应的接口，是线程安全的。jar包中提供的实现类有：AbstractHttpClient, DefaultHttpClient, AutoRetryHttpClient, ContentEncodingHttpClient, DecompressingHttpClient, SystemDefaultHttpClient。其中其他所有类都继承自抽象类AbStractHttpClient，该类使用了门面模式，对http协议的处理进行了默认的封装,包括默认连接管理器，默认消息头，默认消息发送等，开发人员可以覆盖其中的方法更改其默认设置。</p>
+<p>AbstractHttpClient默认设置连接管理器为BasicClientConnectionManager。若要修改连接管理器，则应该采用以下方式之一：</p>
+<p>初始化时，传入连接池，例如：</p>
+<p>ClientConnectionManager connManager  = new PoolingClientConnectionManager();</p>
+<p>HttpClient httpclient = new DefaultHttpClient(connManager);</p>
+<p>编写httpClient接口的实现类，继承自AbstractHttpClient并覆盖其createClientConnectionManager()方法，在方法中创建自己的连接管理器。</p>
+<h4 id="1-1-3-3-方法说明"><a href="#1-1-3-3-方法说明" class="headerlink" title="1.1.3.3 方法说明"></a>1.1.3.3 方法说明</h4><p>createClientConnectionManager()，创建连接池，该方法为protected。子类可覆盖修改默认连接池。</p>
+<p>createClientRequestDirector()，创建请求执行者，该方法为protected。子类可覆盖但一般不需要。</p>
+<p>httpClient中调用1.2方法所创建的请求执行者requestDirector的execute()方法。该方法中依次调用如下方法：</p>
+<p>1.3.1调用连接管理器的requestConnection(route, userToken)方法，该方法调用连接池httpConnPool的lease方法，创建一个Future<HttpPoolEntry>。Futrue用法参见Java标准API。返回clientConnectionRequest。</p>
+<p>1.3.2调用clientConnectionRequest的getConnection(timeout, TimeUnit.MILLISECONDS)方法，该方法负责将连接池中可用连接分配给当前请求，具体如下：</p>
+<p>创建clientConnectionOperator。</p>
+<p>执行1.3.1中创建的Future的任务，该任务获得当前可用的poolEntry&lt;router，OperatedClientConnection&gt;并封装成managedClientConnectionImpl返回。</p>
+<p>1.3.3调用 tryConnect(roureq, context)方法，该方法最终调用OperatedClientConnection的openning方法，与服务器建立socket连接。</p>
+<p>1.3.4调用 tryExecute(roureq, context)方法，该方法最终调用OperatedClientConnection的receiveResponseHeader（）和receiveResponseEntity（）获得服务器响应。</p>
+<p>1.3.5 判断连接是否保持用来重用，若保持，则设置保持时间，并将连接标记为可重用不保持则调用managedClientConnectionImpl的close方法关闭连接，该方法最终调用OperatedClientConnection的close()方法关闭连接。</p>
+<p>最终respose返回至httpClient。</p>
+<p>发送请求的线程需处理当前连接，若已被标记为重用，则交还至连接池管理器；否则，关闭当前连接。（使用响应处理器ResponseHanler）。本次请求结束。</p>
+<h2 id="1-2-HttpClient连接池"><a href="#1-2-HttpClient连接池" class="headerlink" title="1.2 HttpClient连接池"></a>1.2 HttpClient连接池</h2><p>若连接管理器配置为PoolingClientConnectionManager，则httpClient将使用连接池来管理连接的分配，回收等操作。</p>
+<h3 id="1-2-1-连接池结构"><a href="#1-2-1-连接池结构" class="headerlink" title="1.2.1 连接池结构"></a><strong>1.2.1 连接池结构</strong></h3><p>连接池结构图如下，其中：</p>
+<p><img src="./2020-12-23_HttpClient%E8%BF%9E%E6%8E%A5%E6%B1%A0%E5%8E%9F%E7%90%86%E5%8F%8A%E4%B8%80%E6%AC%A1%E8%BF%9E%E6%8E%A5%E6%97%B6%E5%BA%8F%E5%9B%BE/3.png"></p>
+<p>PoolEntry&lt;HttpRoute, OperatedClientConnection&gt;为路由和连接的对应。</p>
+<p>routeToPool可以多个（图中仅示例两个）；图中各队列大小动态变化，并不相等；</p>
+<p>maxTotal限制的是外层httpConnPool中leased集合和available队列的总和的大小，leased和available的大小没有单独限制；</p>
+<p>同理：maxPerRoute限制的是routeToPool中leased集合和available队列的总和的大小；</p>
+<h3 id="1-2-2-连接池工作原理"><a href="#1-2-2-连接池工作原理" class="headerlink" title="1.2.2 连接池工作原理"></a><strong>1.2.2 连接池工作原理</strong></h3><h4 id="1-2-2-1-分配连接"><a href="#1-2-2-1-分配连接" class="headerlink" title="1.2.2.1  分配连接"></a>1.2.2.1  分配连接</h4><p>分配连接给当前请求包括两部分：1从连接池获取可用连接PoolEntry；2.将连接与当前请求绑定。其中第一部分从连接池获取可用连接的过程为：</p>
+<p>1 获取route对应连接池routeToPool中可用的连接，有则返回该连接。若没有则转入下一步。</p>
+<p>2 若routeToPool和外层HttpConnPool连接池均还有可用的空间，则新建连接，并将该连接作为可用连接返回；否则进行下一步</p>
+<p>3 将当前请求放入pending队列，等待执行。</p>
+<p>4 上述过程中包含各个队列和集合的删除，添加等操作以及各种判断条件，具体流程如下：</p>
+<p><img src="./2020-12-23_HttpClient%E8%BF%9E%E6%8E%A5%E6%B1%A0%E5%8E%9F%E7%90%86%E5%8F%8A%E4%B8%80%E6%AC%A1%E8%BF%9E%E6%8E%A5%E6%97%B6%E5%BA%8F%E5%9B%BE/4.jpg"></p>
+<h4 id="1-2-2-2-回收连接"><a href="#1-2-2-2-回收连接" class="headerlink" title="1.2.2.2  回收连接"></a>1.2.2.2  回收连接</h4><p>连接用完之后连接池需要进行回收，具体流程如下：</p>
+<p>1 若当前连接标记为重用，则将该连接从routeToPool中的leased集合删除，并添加至available队列，同样的将该请求从外层httpConnPool的leased集合删除，并添加至其available队列。同时唤醒该routeToPool的pending队列的第一个PoolEntryFuture。将其从pending队列删除，并将其从外层httpConnPool的pending队列中删除。</p>
+<p>2 若连接没有标记为重用，则分别从routeToPool和外层httpConnPool中删除该连接，并关闭该连接。</p>
+<h4 id="1-2-2-3-过期和空闲连接的关闭"><a href="#1-2-2-3-过期和空闲连接的关闭" class="headerlink" title="1.2.2.3  过期和空闲连接的关闭"></a>1.2.2.3  过期和空闲连接的关闭</h4><p>连接如果标记为保持时，将由连接管理器保持一段时间，此时连接可能出现的情况是：</p>
+<p>连接处于空闲状态，时间已超过连接保持时间</p>
+<p>连接处于空闲状态，时间没有超过连接保持时间</p>
+<p>以上两种情况中，随时都会出现连接的服务端已关闭的情况，而此时连接的客户端并没有阻塞着去接受服务端的数据，所以客户端不知道连接已关闭，无法关闭自身的socket。</p>
+<p>连接池提供的方法：</p>
+<p>首先连接池在每个请求获取连接时，都会在RouteToPool的available队列获取Entry并检测此时Entry是否已关闭或者已过期，若是则关闭并移除该Entry。</p>
+<p>closeExpiredConnections()该方法关闭超过连接保持时间的空闲连接。</p>
+<p>closeIdleConnections(timeout,tunit)该方法关闭空闲时间超过timeout的连接，空闲时间从交还给连接管理器时开始，不管是否已过期超过空闲时间则关闭。所以Idle时间应该设置的尽量长一点。</p>
+<p>以上两个方法连接关闭的过程均是：</p>
+<p>关闭entry;</p>
+<p>RouteToPool中删除当前entry。先删available队列中的，如果没有，再删除leased集合中的。</p>
+<p>httpConnPool中删除当前entry。删除过程同RouteToPool</p>
+<p>唤醒阻塞在RouteToPool中的第一个future。</p>
+<h2 id="1-3-相关原理说明"><a href="#1-3-相关原理说明" class="headerlink" title="1.3 相关原理说明"></a>1.3 相关原理说明</h2><h3 id="1-3-1-Tcp连接的关闭"><a href="#1-3-1-Tcp连接的关闭" class="headerlink" title="1.3.1 Tcp连接的关闭"></a>1.3.1 <strong>Tcp连接的关闭</strong></h3><p>Http连接实际上在传输层建立的是tcp连接，最终利用的是socket进行通信。http连接的保持和关闭实际上都和TCP连接的关闭有关。TCP关闭过程如下图：</p>
+<p><img src="./2020-12-23_HttpClient%E8%BF%9E%E6%8E%A5%E6%B1%A0%E5%8E%9F%E7%90%86%E5%8F%8A%E4%B8%80%E6%AC%A1%E8%BF%9E%E6%8E%A5%E6%97%B6%E5%BA%8F%E5%9B%BE/5.png"></p>
+<p>说明：</p>
+<p> TCP连接程序中使用socket编程进行实现。一条TCP是一条抽象的连接通道，由通信双方的IP+端口号唯一确定，两端分别通过socket实例进行操作，一个socket实例包括一个输入通道和输出通道，一端的输出通道为另一端的输入通道。</p>
+<p> Tcp连接的关闭是连接的两端分别都需要进行关闭（调用close(socket)，该函数执行发送FIN，等待ACK等图示操作）。实际上没有客户端和服务端的区别，只有主动关闭和被动关闭的区别。对于上层的其http连接，实际上也就是http服务端主动关闭或者http客户端主动关闭，而不管谁主动，最终服务端和客户端都需要调用close(socket)关闭连接。</p>
+<p> 主动关闭的一端A调用了close函数之后，若另一端B并没有阻塞着等待着数据，就无法检测到连接的A端已关闭，就没法关闭自身的socket，造成资源的浪费。http连接都是一次请求和响应，之后便交回给连接管理池，因此在http连接池中应当能够移除已过期或者空闲太久的连接，因为他们可能已经被服务器端关闭或者客户端短期内不再使用。</p>
+<p> TIME_WAIT状态：</p>
+<p><strong>可靠地实现TCP全双工连接的终止</strong></p>
+<p>在进行关闭连接四路握手协议时，最后的ACK是由主动关闭端发出的，如果这个最终的ACK丢失，被动关闭端将重发最终的FIN，因此主动关闭端必须维护状态信息允许它重发最终的ACK。如果不维持这个状态信息，那么主动关闭端将发送RST分节（复位），被动关闭端将此分节解释成一个错误（在java中会抛出connection reset的SocketException)。因而，要实现TCP全双工连接的正常终止，主动关闭的客户端必须维持状态信息进入TIME_WAIT状态。</p>
+<p><strong>允许老的重复分节在网络中消逝</strong></p>
+<p>TCP分节可能由于路由器异常而“迷途”，在迷途期间，TCP发送端可能因确认超时而重发这个分节，迷途的分节在路由器修复后也会被送到最终目的地，这个原来的迷途分节就称为lost duplicate。在关闭一个TCP连接后，马上又重新建立起一个相同的IP地址和端口之间的TCP连接，后一个连接被称为前一个连接的化身（incarnation)，那么有可能出现这种情况，前一个连接的迷途重复分组在前一个连接终止后出现，从而被误解成从属于新的化身。为了避免这个情况，TCP不允许处于TIME_WAIT状态的连接启动一个新的化身，因为TIME_WAIT状态持续2MSL，就可以保证当成功建立一个TCP连接的时候，来自连接先前化身的重复分组已经在网络中消逝。</p>
+<h1 id="HttpClient最佳实践"><a href="#HttpClient最佳实践" class="headerlink" title="HttpClient最佳实践"></a>HttpClient最佳实践</h1><h2 id="2-1-总原则"><a href="#2-1-总原则" class="headerlink" title="2.1 总原则"></a>2.1 总原则</h2><h3 id="2-1-1-版本"><a href="#2-1-1-版本" class="headerlink" title="2.1.1 版本"></a>2.1.1 <strong>版本</strong></h3><p>原Commons HttpClient：3.x不再升级维护，使用Apache HttpComponents的HttpClient代替。Pom文件修改如下：</p>
+<p>1 原maven依赖：</p>
+<pre><code>&lt;dependency&gt;
+       &lt;groupId&gt;commons-httpclient&lt;/groupId&gt;
+       &lt;artifactId&gt;commons-httpclient&lt;/artifactId&gt;
+       &lt;version&gt;3.1&lt;/version&gt;
+&lt;/dependency&gt;</code></pre>
+<p>2 替换为：</p>
+<pre><code>&lt;dependency&gt;
+       &lt;groupId&gt;org.apache.httpcomponents&lt;/groupId&gt;
+       &lt;artifactId&gt;httpclient&lt;/artifactId&gt;
+       &lt;version&gt;4.2.1&lt;/version&gt;
+&lt;/dependency&gt;</code></pre>
+<h3 id="2-1-2-使用http连接池管理器"><a href="#2-1-2-使用http连接池管理器" class="headerlink" title="2.1.2 使用http连接池管理器"></a><strong>2.1.2 使用http连接池管理器</strong></h3><p> 编写类继承自DefaultHttpClient(以下假设为SopHttpClient)，覆盖其createClientConnectionManager()方法，方法中创建连接池管理器。</p>
+<p> 开启一个线程（假设为IdleConnectionMonitorThread）用来清除连接池中空闲和过期的连接。</p>
+<h3 id="2-1-3-保持HttpClient单例"><a href="#2-1-3-保持HttpClient单例" class="headerlink" title="2.1.3 保持HttpClient单例"></a><strong>2.1.3 保持HttpClient单例</strong></h3><p>Spring配置中使用默认scope，即单例模式，其他类使用时由Spring配置进行依赖注入，不要使用new方法。SopHttpClient应该提供方法destroy()并配置在Spring销毁该bean前调用，destory()方法中关闭对应连接池管理器和监控线程IdleConnectionMonitorThread。</p>
+<h3 id="2-1-4-异常处理机制（请求和响应）："><a href="#2-1-4-异常处理机制（请求和响应）：" class="headerlink" title="2.1.4 异常处理机制（请求和响应）："></a><strong>2.1.4 异常处理机制（请求和响应）：</strong></h3><p>编写类实现接口HttpRequestRetryHandler（可参照默认实现DefaultHttpRequestRetryHandler），并覆盖AbstractHttpClient中的createHttpRequestRetryHandler()方法创建新的重试处理机制。</p>
+<h3 id="2-1-5-参数可配置"><a href="#2-1-5-参数可配置" class="headerlink" title="2.1.5 参数可配置"></a><strong>2.1.5 参数可配置</strong></h3><p>各参数（连接池默认ip、端口和大小等，超时时间等）尽量都集中在SopHttpClient类中，设置为由Spring进行统一配置，且提供接口在程序中修改。</p>
+<h3 id="2-1-6-保证连接交回至连接池管理器"><a href="#2-1-6-保证连接交回至连接池管理器" class="headerlink" title="2.1.6 保证连接交回至连接池管理器"></a><strong>2.1.6 保证连接交回至连接池管理器</strong></h3><h4 id="2-1-6-1-方式"><a href="#2-1-6-1-方式" class="headerlink" title="2.1.6.1  方式"></a>2.1.6.1  方式</h4><p>HttpResponse response = httpclient.execute(httpMethod);</p>
+<p>HttpEntity entity = response.getEntity();</p>
+<p>这两段代码返回的entity是HttpEntity的实现类BasicManagedEntity。此时与本次请求关联的连接尚未归还至连接管理器。需要调用以下两条语句：</p>
+<p>InputStream instream = entity.getContent();//获得响应具体内容</p>
+<p>//处理响应：代码省略</p>
+<p>instream.close();//关闭输入流同时会将连接交回至连接处理器</p>
+<h4 id="2-1-6-2-使用默认的响应处理器BasicResponseHandler"><a href="#2-1-6-2-使用默认的响应处理器BasicResponseHandler" class="headerlink" title="2.1.6.2  使用默认的响应处理器BasicResponseHandler"></a>2.1.6.2  使用默认的响应处理器BasicResponseHandler</h4><p> HttpClient Jar包中提供BasicResponseHandler。<strong>如果返回的类型能确定需要解码为String类型的话，推荐使用该响应处理器。</strong></p>
+<p> 该处理器解码http连接响应字节流为String类型，对返回码&gt;=300的响应进行了异常封装，并能够保证连接交还给连接池管理器。</p>
+<p> 该处理器将字节解码为字符的过程依次如下：</p>
+<p>1 如果响应http报文Head部分由指定的charset，则使用该charset进行解码，否则进行下一步。例如使用UTF-8解码以下响应：</p>
+<p>17:59:42.051 [main] DEBUG org.apache.http.headers - &lt;&lt; Content-Type: text/html; charset=utf-8</p>
+<p>2 如果响应报文未执行charset，则使用传入EntityUntils.toString()时指定的charset进行解码。否则进行下一步</p>
+<p>3 使用ISO-8859-1进行解码。</p>
+<h4 id="2-1-6-3-BasicManagedEntity关闭连接池管理器原理"><a href="#2-1-6-3-BasicManagedEntity关闭连接池管理器原理" class="headerlink" title="2.1.6.3  BasicManagedEntity关闭连接池管理器原理"></a>2.1.6.3  BasicManagedEntity关闭连接池管理器原理</h4><p><strong>2.1.6.3.1</strong></p>
+<p>BasicManagedEntity实现了三个接口:HttpEntity，ConnectionReleaseTrigger, EofSensorWatcher。</p>
+<p>调用BasicManagedEntity的getContent方法时，实际上初始化了EofSensorInputStream的实例，并将BasicManagedEntity当前对象自身作为EofSensorWatcher传入。</p>
+<pre><code>//BasicManagedEntity类的继承体系，HttpEntityWrapper实现了接口HttpEntity
+public class BasicManagedEntity extends HttpEntityWrapper 
+        implements ConnectionReleaseTrigger, EofSensorWatcher</code></pre>
+<p>BasicManagedEntity的getContent方法：</p>
+<pre><code>@Override
+public InputStream getContent() throws IOException &#123;
+    return new EofSensorInputStream(wrappedEntity.getContent(), this);
+&#125;
+
+// EofSensorInputStream构造函数声明
+public EofSensorInputStream(final InputStream in,final EofSensorWatcher watcher);</code></pre>
+<p><strong>2.1.6.3.2</strong> </p>
+<p>调用EofSensorInputStream的close方法，该方法调用自身的checkClose()方法，checkClose()方法中调入了传入的EofSensorWatcher watcher的streamClosed()方法并关闭输入流，由于上一步骤中实际传入的watcher是BasicManagedEntity的实例，因此实际上调用的是BasicManagedEntity的streamClose()方法。</p>
+<pre><code>//close方法
+@Override
+public void close() throws IOException &#123;
+
+    // tolerate multiple calls to close()
+
+    selfClosed = true;
+
+    checkClose();
+
+&#125;
+
+//checkClose方法
+protected void checkClose() throws IOException &#123;
+    if (wrappedStream != null) &#123;
+        try &#123;
+            boolean scws = true; // should close wrapped stream?
+            if (eofWatcher != null)
+                scws = eofWatcher.streamClosed(wrappedStream);
+            if (scws)
+                wrappedStream.close();
+        &#125; finally &#123;
+            wrappedStream = null;
+        &#125;
+    &#125;
+&#125;</code></pre>
+<p><strong>2.1.6.3.3</strong> </p>
+<p>BasicManagedEntity的streamClose()方法中将连接交回至连接池管理器。</p>
+<pre><code>public boolean streamClosed(InputStream wrapped) throws IOException &#123;
+    try &#123;
+        if (attemptReuse &amp;&amp; (managedConn != null)) &#123;
+            boolean valid = managedConn.isOpen();
+            // this assumes that closing the stream will
+            // consume the remainder of the response body:
+            try &#123;
+                wrapped.close();
+                managedConn.markReusable();
+            &#125; catch (SocketException ex) &#123;
+                if (valid) &#123;
+                    throw ex;
+                &#125;
+            &#125;
+        &#125;
+    &#125; finally &#123;
+        releaseManagedConnection();
+    &#125;
+    return false;</code></pre>
+<p>}</p>
+<h3 id="2-1-7-其他"><a href="#2-1-7-其他" class="headerlink" title="2.1.7 其他"></a><strong>2.1.7 其他</strong></h3><p>HttpClient 提供了非常灵活的架构，同时提供了很多接口，需要修改时，找到对应接口和默认实现类，参照默认实现类进行修改即可（或继承默认实现类，覆盖其对应方法）。通常需要更改的类有AbstractHttpClient和各种handler以及Strategy</p>
+<p>文章转载自：<a target="_blank" rel="noopener" href="https://developer.aliyun.com/article/11893">https://developer.aliyun.com/article/11893</a></p>
+
+      
     </div>
-</header>
-<div class="gkt-header-placeholder" style="height: 44px"></div>
-<div class="gkt-header-placeholder hidden-xs" style="height: 44px"></div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.fenxiangz.com/post/java/basic/2012-12-22_Java_Synchronized%E5%8E%9F%E7%90%86%E5%9B%BE.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Hassan">
+      <meta itemprop="description" content="Share everything">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="分享之">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/post/java/basic/2012-12-22_Java_Synchronized%E5%8E%9F%E7%90%86%E5%9B%BE.html" class="post-title-link" itemprop="url">Java Synchronized 原理图</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-12-22 00:00:00" itemprop="dateCreated datePublished" datetime="2020-12-22T00:00:00+00:00">2020-12-22</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-12-21 16:38:03" itemprop="dateModified" datetime="2020-12-21T16:38:03+00:00">2020-12-21</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Java-%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index"><span itemprop="name">Java 基础</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><img src="./2012-12-22_Java_Synchronized%E5%8E%9F%E7%90%86%E5%9B%BE/11.png"></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.fenxiangz.com/post/util/2020-12-20_%E6%89%B9%E9%87%8F%E5%8E%BB%E9%99%A4%E6%96%87%E4%BB%B6%E5%90%8D%E9%83%A8%E5%88%86%E5%85%B3%E9%94%AE%E5%AD%97.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Hassan">
+      <meta itemprop="description" content="Share everything">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="分享之">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/post/util/2020-12-20_%E6%89%B9%E9%87%8F%E5%8E%BB%E9%99%A4%E6%96%87%E4%BB%B6%E5%90%8D%E9%83%A8%E5%88%86%E5%85%B3%E9%94%AE%E5%AD%97.html" class="post-title-link" itemprop="url">使用JS脚本批量去除文件名中部分关键字</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-12-20 00:00:00 / 修改时间：16:47:02" itemprop="dateCreated datePublished" datetime="2020-12-20T00:00:00+00:00">2020-12-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%B5%84%E6%BA%90%E5%AF%BC%E8%88%AA/" itemprop="url" rel="index"><span itemprop="name">资源导航</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>);</span><br><span class="line"> </span><br><span class="line"><span class="keyword">var</span> KEY_WORD = <span class="string">&#x27;要去掉的关键字&#x27;</span>;</span><br><span class="line"><span class="keyword">var</span> PATH = <span class="string">&#x27;/home/指定目录/&#x27;</span>;</span><br><span class="line"> </span><br><span class="line"><span class="comment">//遍历目录得到文件信息</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">run</span>(<span class="params">path, callback</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> files = fs.readdirSync(path);</span><br><span class="line"> </span><br><span class="line">    files.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">file</span>)</span>&#123;</span><br><span class="line">        f = path + <span class="string">&#x27;/&#x27;</span> + file;</span><br><span class="line">        <span class="keyword">if</span> (fs.statSync(f).isFile()) &#123;</span><br><span class="line">            callback(path, file);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">//目录递归处理</span></span><br><span class="line">            run(f, callRename);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">// 修改文件名称</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">rename</span>(<span class="params">oldPath, newPath</span>) </span>&#123;</span><br><span class="line">    fs.rename(oldPath, newPath, <span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (err) &#123;</span><br><span class="line">            <span class="keyword">throw</span> err;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">callRename</span>(<span class="params">path, fileName</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> oldPath = path + <span class="string">&#x27;/&#x27;</span> + fileName; <span class="comment">// 源文件路径</span></span><br><span class="line">    <span class="keyword">let</span> newPath = path + <span class="string">&#x27;/&#x27;</span> + fileName.replace(KEY_WORD, <span class="string">&#x27;&#x27;</span>); <span class="comment">// 新文件全路径</span></span><br><span class="line">    <span class="built_in">console</span>.log(newPath);</span><br><span class="line">    rename(oldPath, newPath);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 运行入口</span></span><br><span class="line">run(PATH, callRename);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.fenxiangz.com/post/linux/2020-12-16_%E5%8E%9F%E6%9D%A58%E5%BC%A0%E5%9B%BE%EF%BC%8C%E5%B0%B1%E5%8F%AF%E4%BB%A5%E6%90%9E%E6%87%82%E3%80%8C%E9%9B%B6%E6%8B%B7%E8%B4%9D%E3%80%8D%E4%BA%86.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Hassan">
+      <meta itemprop="description" content="Share everything">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="分享之">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/post/linux/2020-12-16_%E5%8E%9F%E6%9D%A58%E5%BC%A0%E5%9B%BE%EF%BC%8C%E5%B0%B1%E5%8F%AF%E4%BB%A5%E6%90%9E%E6%87%82%E3%80%8C%E9%9B%B6%E6%8B%B7%E8%B4%9D%E3%80%8D%E4%BA%86.html" class="post-title-link" itemprop="url">原来 8 张图，就可以搞懂「零拷贝」了</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-12-16 00:00:00" itemprop="dateCreated datePublished" datetime="2020-12-16T00:00:00+00:00">2020-12-16</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-12-20 16:47:02" itemprop="dateModified" datetime="2020-12-20T16:47:02+00:00">2020-12-20</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/IO/" itemprop="url" rel="index"><span itemprop="name">IO</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>原文：<a target="_blank" rel="noopener" href="https://xie.infoq.cn/article/8d19a4c691918d313e60296d7">https://xie.infoq.cn/article/8d19a4c691918d313e60296d7</a></p>
+<p><img src="./2020-12-16_%E5%8E%9F%E6%9D%A58%E5%BC%A0%E5%9B%BE%EF%BC%8C%E5%B0%B1%E5%8F%AF%E4%BB%A5%E6%90%9E%E6%87%82%E3%80%8C%E9%9B%B6%E6%8B%B7%E8%B4%9D%E3%80%8D%E4%BA%86/1.jpeg"></p>
+<p><img src="./2020-12-16_%E5%8E%9F%E6%9D%A58%E5%BC%A0%E5%9B%BE%EF%BC%8C%E5%B0%B1%E5%8F%AF%E4%BB%A5%E6%90%9E%E6%87%82%E3%80%8C%E9%9B%B6%E6%8B%B7%E8%B4%9D%E3%80%8D%E4%BA%86/2.png"></p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>磁盘可以说是计算机系统最慢的硬件之一，读写速度相差内存 10 倍以上，所以针对优化磁盘的技术非常的多，比如零拷贝、直接 I/O、异步 I/O 等等，这些优化的目的就是为了提高系统的吞吐量，另外操作系统内核中的磁盘高速缓存区，可以有效的减少磁盘的访问次数。</p>
+<p>这次，我们就以「文件传输」作为切入点，来分析 I/O 工作方式，以及如何优化传输文件的性能。</p>
+<p><img src="./2020-12-16_%E5%8E%9F%E6%9D%A58%E5%BC%A0%E5%9B%BE%EF%BC%8C%E5%B0%B1%E5%8F%AF%E4%BB%A5%E6%90%9E%E6%87%82%E3%80%8C%E9%9B%B6%E6%8B%B7%E8%B4%9D%E3%80%8D%E4%BA%86/3.png"></p>
+<hr>
+<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h3 id="为什么要有-DMA-技术"><a href="#为什么要有-DMA-技术" class="headerlink" title="为什么要有 DMA 技术?"></a>为什么要有 DMA 技术?</h3><p>在没有 DMA 技术前，I/O 的过程是这样的：</p>
+<ul>
+<li><p>CPU 发出对应的指令给磁盘控制器，然后返回；</p>
+</li>
+<li><p>磁盘控制器收到指令后，于是就开始准备数据，会把数据放入到磁盘控制器的内部缓冲区中，然后产生一个中断；</p>
+</li>
+<li><p>CPU 收到中断信号后，停下手头的工作，接着把磁盘控制器的缓冲区的数据一次一个字节地读进自己的寄存器，然后再把寄存器里的数据写入到内存，而在数据传输的期间 CPU 是无法执行其他任务的。</p>
+</li>
+</ul>
+<p>为了方便你理解，我画了一副图：</p>
+<p><img src="./2020-12-16_%E5%8E%9F%E6%9D%A58%E5%BC%A0%E5%9B%BE%EF%BC%8C%E5%B0%B1%E5%8F%AF%E4%BB%A5%E6%90%9E%E6%87%82%E3%80%8C%E9%9B%B6%E6%8B%B7%E8%B4%9D%E3%80%8D%E4%BA%86/4.png"></p>
+<p>可以看到，整个数据的传输过程，都要需要 CPU 亲自参与搬运数据的过程，而且这个过程，CPU 是不能做其他事情的。</p>
+<p>简单的搬运几个字符数据那没问题，但是如果我们用千兆网卡或者硬盘传输大量数据的时候，都用 CPU 来搬运的话，肯定忙不过来。</p>
+<p>计算机科学家们发现了事情的严重性后，于是就发明了 DMA 技术，也就是<em>直接内存访问（Direct Memory Access）</em> 技术。</p>
+<p>什么是 DMA 技术？简单理解就是，在进行 I/O 设备和内存的数据传输的时候，数据搬运的工作全部交给 DMA 控制器，而 CPU 不再参与任何与数据搬运相关的事情，这样 CPU 就可以去处理别的事务。</p>
+<p>那使用 DMA 控制器进行数据传输的过程究竟是什么样的呢？下面我们来具体看看。</p>
+<p><img src="./2020-12-16_%E5%8E%9F%E6%9D%A58%E5%BC%A0%E5%9B%BE%EF%BC%8C%E5%B0%B1%E5%8F%AF%E4%BB%A5%E6%90%9E%E6%87%82%E3%80%8C%E9%9B%B6%E6%8B%B7%E8%B4%9D%E3%80%8D%E4%BA%86/5.png"></p>
+<p>具体过程：</p>
+<ul>
+<li><p>用户进程调用 read 方法，向操作系统发出 I/O 请求，请求读取数据到自己的内存缓冲区中，进程进入阻塞状态；</p>
+</li>
+<li><p>操作系统收到请求后，进一步将 I/O 请求发送 DMA，然后让 CPU 执行其他任务；</p>
+</li>
+<li><p>DMA 进一步将 I/O 请求发送给磁盘；</p>
+</li>
+<li><p>磁盘收到 DMA 的 I/O 请求，把数据从磁盘读取到磁盘控制器的缓冲区中，当磁盘控制器的缓冲区被读满后，向 DMA 发起中断信号，告知自己缓冲区已满；</p>
+</li>
+<li><p>DMA 收到磁盘的信号，将磁盘控制器缓冲区中的数据拷贝到内核缓冲区中，此时不占用 CPU，CPU 可以执行其他任务；</p>
+</li>
+<li><p>当 DMA 读取了足够多的数据，就会发送中断信号给 CPU；</p>
+</li>
+<li><p>CPU 收到 DMA 的信号，知道数据已经准备好，于是将数据从内核拷贝到用户空间，系统调用返回；</p>
+</li>
+</ul>
+<p>可以看到， 整个数据传输的过程，CPU 不再参与数据搬运的工作，而是全程由 DMA 完成，但是 CPU 在这个过程中也是必不可少的，因为传输什么数据，从哪里传输到哪里，都需要 CPU 来告诉 DMA 控制器。</p>
+<p>早期 DMA 只存在在主板上，如今由于 I/O 设备越来越多，数据传输的需求也不尽相同，所以每个 I/O 设备里面都有自己的 DMA 控制器。</p>
+<hr>
+<h3 id="传统的文件传输有多糟糕？"><a href="#传统的文件传输有多糟糕？" class="headerlink" title="传统的文件传输有多糟糕？"></a>传统的文件传输有多糟糕？</h3><p>如果服务端要提供文件传输的功能，我们能想到的最简单的方式是：将磁盘上的文件读取出来，然后通过网络协议发送给客户端。</p>
+<p>传统 I/O 的工作方式是，数据读取和写入是从用户空间到内核空间来回复制，而内核空间的数据是通过操作系统层面的 I/O 接口从磁盘读取或写入。</p>
+<p>代码通常如下，一般会需要两个系统调用：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">read(file, tmp_buf, len);</span><br><span class="line"></span><br><span class="line">write(socket, tmp_buf, len);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>代码很简单，虽然就两行代码，但是这里面发生了不少的事情。</p>
+<p><img src="./2020-12-16_%E5%8E%9F%E6%9D%A58%E5%BC%A0%E5%9B%BE%EF%BC%8C%E5%B0%B1%E5%8F%AF%E4%BB%A5%E6%90%9E%E6%87%82%E3%80%8C%E9%9B%B6%E6%8B%B7%E8%B4%9D%E3%80%8D%E4%BA%86/6.png"></p>
+<p>首先，期间共发生了 4 次用户态与内核态的上下文切换，因为发生了两次系统调用，一次是  <code>read()</code> ，一次是 <code>write()</code>，每次系统调用都得先从用户态切换到内核态，等内核完成任务后，再从内核态切换回用户态。</p>
+<p>上下文切换到成本并不小，一次切换需要耗时几十纳秒到几微秒，虽然时间看上去很短，但是在高并发的场景下，这类时间容易被累积和放大，从而影响系统的性能。</p>
+<p>其次，还发生了 4 次数据拷贝，其中两次是 DMA 的拷贝，另外两次则是通过 CPU 拷贝的，下面说一下这个过程：</p>
+<ul>
+<li><p>第一次拷贝，把磁盘上的数据拷贝到操作系统内核的缓冲区里，这个拷贝的过程是通过 DMA 搬运的。</p>
+</li>
+<li><p>第二次拷贝，把内核缓冲区的数据拷贝到用户的缓冲区里，于是我们应用程序就可以使用这部分数据了，这个拷贝到过程是由 CPU 完成的。</p>
+</li>
+<li><p>第三次拷贝，把刚才拷贝到用户的缓冲区里的数据，再拷贝到内核的 socket 的缓冲区里，这个过程依然还是由 CPU 搬运的。</p>
+</li>
+<li><p>第四次拷贝，把内核的 socket 缓冲区里的数据，拷贝到网卡的缓冲区里，这个过程又是由 DMA 搬运的。</p>
+</li>
+</ul>
+<p>我们回过头看这个文件传输的过程，我们只是搬运一份数据，结果却搬运了 4 次，过多的数据拷贝无疑会消耗 CPU 资源，大大降低了系统性能。</p>
+<p>这种简单又传统的文件传输方式，存在冗余的上文切换和数据拷贝，在高并发系统里是非常糟糕的，多了很多不必要的开销，会严重影响系统性能。</p>
+<p>所以，要想提高文件传输的性能，就需要减少「用户态与内核态的上下文切换」和「内存拷贝」的次数。</p>
+<hr>
+<h3 id="如何优化文件传输的性能？"><a href="#如何优化文件传输的性能？" class="headerlink" title="如何优化文件传输的性能？"></a>如何优化文件传输的性能？</h3><blockquote>
+<p>先来看看，如何减少「用户态与内核态的上下文切换」的次数呢？</p>
+</blockquote>
+<p>读取磁盘数据的时候，之所以要发生上下文切换，这是因为用户空间没有权限操作磁盘或网卡，内核的权限最高，这些操作设备的过程都需要交由操作系统内核来完成，所以一般要通过内核去完成某些任务的时候，就需要使用操作系统提供的系统调用函数。</p>
+<p>而一次系统调用必然会发生 2 次上下文切换：首先从用户态切换到内核态，当内核执行完任务后，再切换回用户态交由进程代码执行。</p>
+<p>所以，要想减少上下文切换到次数，就要减少系统调用的次数。</p>
+<blockquote>
+<p>再来看看，如何减少「数据拷贝」的次数？</p>
+</blockquote>
+<p>在前面我们知道了，传统的文件传输方式会历经 4 次数据拷贝，而且这里面，「从内核的读缓冲区拷贝到用户的缓冲区里，再从用户的缓冲区里拷贝到 socket 的缓冲区里」，这个过程是没有必要的。</p>
+<p>因为文件传输的应用场景中，在用户空间我们并不会对数据「再加工」，所以数据实际上可以不用搬运到用户空间，因此用户的缓冲区是没有必要存在的。</p>
+<hr>
+<h3 id="如何实现零拷贝？"><a href="#如何实现零拷贝？" class="headerlink" title="如何实现零拷贝？"></a>如何实现零拷贝？</h3><p>零拷贝技术实现的方式通常有 2 种：</p>
+<ul>
+<li><p>mmap + write</p>
+</li>
+<li><p>sendfile</p>
+</li>
+</ul>
+<p>下面就谈一谈，它们是如何减少「上下文切换」和「数据拷贝」的次数。</p>
+<h4 id="mmap-write"><a href="#mmap-write" class="headerlink" title="mmap + write"></a>mmap + write</h4><p>在前面我们知道，<code>read()</code> 系统调用的过程中会把内核缓冲区的数据拷贝到用户的缓冲区里，于是为了减少这一步开销，我们可以用 <code>mmap()</code> 替换 <code>read()</code> 系统调用函数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">buf &#x3D; mmap(file, len);</span><br><span class="line"></span><br><span class="line">write(sockfd, buf, len);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><code>mmap()</code> 系统调用函数会直接把内核缓冲区里的数据「映射」到用户空间，这样，操作系统内核与用户空间就不需要再进行任何的数据拷贝操作。</p>
+<p><img src="./2020-12-16_%E5%8E%9F%E6%9D%A58%E5%BC%A0%E5%9B%BE%EF%BC%8C%E5%B0%B1%E5%8F%AF%E4%BB%A5%E6%90%9E%E6%87%82%E3%80%8C%E9%9B%B6%E6%8B%B7%E8%B4%9D%E3%80%8D%E4%BA%86/7.png"></p>
+<p>具体过程如下：</p>
+<ul>
+<li><p>应用进程调用了 <code>mmap()</code> 后，DMA 会把磁盘的数据拷贝到内核的缓冲区里。接着，应用进程跟操作系统内核「共享」这个缓冲区；</p>
+</li>
+<li><p>应用进程再调用 <code>write()</code>，操作系统直接将内核缓冲区的数据拷贝到 socket 缓冲区中，这一切都发生在内核态，由 CPU 来搬运数据；</p>
+</li>
+<li><p>最后，把内核的 socket 缓冲区里的数据，拷贝到网卡的缓冲区里，这个过程是由 DMA 搬运的。</p>
+</li>
+</ul>
+<p>我们可以得知，通过使用 <code>mmap()</code> 来代替 <code>read()</code>， 可以减少一次数据拷贝的过程。</p>
+<p>但这还不是最理想的零拷贝，因为仍然需要通过 CPU 把内核缓冲区的数据拷贝到 socket 缓冲区里，而且仍然需要 4 次上下文切换，因为系统调用还是 2 次。</p>
+<h4 id="sendfile"><a href="#sendfile" class="headerlink" title="sendfile"></a>sendfile</h4><p> 在 Linux 内核版本 2.1 中，提供了一个专门发送文件的系统调用函数 <code>sendfile()</code>，函数形式如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#include&lt;sys&#x2F;socket.h&gt;</span><br><span class="line"></span><br><span class="line">ssize_tsendfile(int out_fd, int in_fd, off_t *offset, size_t count);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>它的前两个参数分别是目的端和源端的文件描述符，后面两个参数是源端的偏移量和复制数据的长度，返回值是实际复制数据的长度。</p>
+<p>首先，它可以替代前面的 <code>read()</code> 和 <code>write()</code> 这两个系统调用，这样就可以减少一次系统调用，也就减少了 2 次上下文切换的开销。</p>
+<p>其次，该系统调用，可以直接把内核缓冲区里的数据拷贝到 socket 缓冲区里，不再拷贝到用户态，这样就只有 2 次上下文切换，和 3 次数据拷贝。如下图：</p>
+<p><img src="./2020-12-16_%E5%8E%9F%E6%9D%A58%E5%BC%A0%E5%9B%BE%EF%BC%8C%E5%B0%B1%E5%8F%AF%E4%BB%A5%E6%90%9E%E6%87%82%E3%80%8C%E9%9B%B6%E6%8B%B7%E8%B4%9D%E3%80%8D%E4%BA%86/8.png"></p>
+<p>但是这还不是真正的零拷贝技术，如果网卡支持 SG-DMA（The Scatter-Gather Direct Memory Access）技术（和普通的 DMA 有所不同），我们可以进一步减少通过 CPU 把内核缓冲区里的数据拷贝到 socket 缓冲区的过程。</p>
+<p>你可以在你的 Linux 系统通过下面这个命令，查看网卡是否支持 scatter-gather 特性：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">$ ethtool -k eth0 | grep scatter-gather</span><br><span class="line"></span><br><span class="line">scatter-gather: on</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>于是，从 Linux 内核 <code>2.4</code> 版本开始起，对于支持网卡支持 SG-DMA 技术的情况下， <code>sendfile()</code> 系统调用的过程发生了点变化，具体过程如下：</p>
+<ul>
+<li><p>第一步，通过 DMA 将磁盘上的数据拷贝到内核缓冲区里；</p>
+</li>
+<li><p>第二步，缓冲区描述符和数据长度传到 socket 缓冲区，这样网卡的 SG-DMA 控制器就可以直接将内核缓存中的数据拷贝到网卡的缓冲区里，此过程不需要将数据从操作系统内核缓冲区拷贝到 socket 缓冲区中，这样就减少了一次数据拷贝；</p>
+</li>
+</ul>
+<p>所以，这个过程之中，只进行了 2 次数据拷贝，如下图：</p>
+<p><img src="./2020-12-16_%E5%8E%9F%E6%9D%A58%E5%BC%A0%E5%9B%BE%EF%BC%8C%E5%B0%B1%E5%8F%AF%E4%BB%A5%E6%90%9E%E6%87%82%E3%80%8C%E9%9B%B6%E6%8B%B7%E8%B4%9D%E3%80%8D%E4%BA%86/9.png"></p>
+<p>这就是所谓的<em>零拷贝（Zero-copy）技术，因为我们没有在内存层面去拷贝数据，也就是说全程没有通过 CPU 来搬运数据，所有的数据都是通过 DMA 来进行传输的。</em>。</p>
+<p>零拷贝技术的文件传输方式相比传统文件传输的方式，减少了 2 次上下文切换和数据拷贝次数，只需要 2 次上下文切换和数据拷贝次数，就可以完成文件的传输，而且 2 次的数据拷贝过程，都不需要通过 CPU，2 次都是由 DMA 来搬运。</p>
+<p>所以，总体来看，零拷贝技术可以把文件传输的性能提高至少一倍以上。</p>
+<h4 id="使用零拷贝技术的项目"><a href="#使用零拷贝技术的项目" class="headerlink" title="使用零拷贝技术的项目"></a>使用零拷贝技术的项目</h4><p>事实上，Kafka 这个开源项目，就利用了「零拷贝」技术，从而大幅提升了 I/O 的吞吐率，这也是 Kafka 在处理海量数据为什么这么快的原因之一。</p>
+<p>如果你追溯 Kafka 文件传输的代码，你会发现，最终它调用了 Java NIO 库里的 <code>transferTo</code> 方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">@Overridepublic</span><br><span class="line"></span><br><span class="line">longtransferFrom(FileChannel fileChannel, long position, long count)throws IOException &#123; </span><br><span class="line"></span><br><span class="line">return fileChannel.transferTo(position, count, socketChannel);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>如果 Linux 系统支持 <code>sendfile()</code> 系统调用，那么 <code>transferTo()</code> 实际上最后就会使用到 <code>sendfile()</code> 系统调用函数。</p>
+<p>曾经有大佬专门写过程序测试过，在同样的硬件条件下，传统文件传输和零拷拷贝文件传输的性能差异，你可以看到下面这张测试数据图，使用了零拷贝能够缩短 <code>65%</code> 的时间，大幅度提升了机器传输数据的吞吐量。</p>
+<p><img src="./2020-12-16_%E5%8E%9F%E6%9D%A58%E5%BC%A0%E5%9B%BE%EF%BC%8C%E5%B0%B1%E5%8F%AF%E4%BB%A5%E6%90%9E%E6%87%82%E3%80%8C%E9%9B%B6%E6%8B%B7%E8%B4%9D%E3%80%8D%E4%BA%86/10.png"></p>
+<p>另外，Nginx 也支持零拷贝技术，一般默认是开启零拷贝技术，这样有利于提高文件传输的效率，是否开启零拷贝技术的配置如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">http &#123;</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">    sendfile on</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>sendfile 配置的具体意思: </p>
+<ul>
+<li><p>设置为 on 表示，使用零拷贝技术来传输文件：sendfile ，这样只需要 2 次上下文切换，和 2 次数据拷贝。</p>
+</li>
+<li><p>设置为 off 表示，使用传统的文件传输技术：read + write，这时就需要 4 次上下文切换，和 4 次数据拷贝。</p>
+</li>
+</ul>
+<p>当然，要使用 sendfile，Linux 内核版本必须要 2.1 以上的版本。</p>
+<hr>
+<h3 id="PageCache-有什么作用？"><a href="#PageCache-有什么作用？" class="headerlink" title="PageCache 有什么作用？"></a>PageCache 有什么作用？</h3><p>回顾前面说道文件传输过程，其中第一步都是先需要先把磁盘文件数据拷贝「内核缓冲区」里，这个「内核缓冲区」实际上是<em>磁盘高速缓存（PageCache）</em>。</p>
+<p> 由于零拷贝使用了 PageCache 技术，可以使得零拷贝进一步提升了性能，我们接下来看看 PageCache 是如何做到这一点的。</p>
+<p>读写磁盘相比读写内存的速度慢太多了，所以我们应该想办法把「读写磁盘」替换成「读写内存」。于是，我们会通过 DMA 把磁盘里的数据搬运到内存里，这样就可以用读内存替换读磁盘。</p>
+<p>但是，内存空间远比磁盘要小，内存注定只能拷贝磁盘里的一小部分数据。</p>
+<p>那问题来了，选择哪些磁盘数据拷贝到内存呢？</p>
+<p>我们都知道程序运行的时候，具有「局部性」，所以通常，刚被访问的数据在短时间内再次被访问的概率很高，于是我们可以用 PageCache 来缓存最近被访问的数据，当空间不足时淘汰最久未被访问的缓存。</p>
+<p>所以，读磁盘数据的时候，优先在 PageCache 找，如果数据存在则可以直接返回；如果没有，则从磁盘中读取，然后缓存 PageCache 中。</p>
+<p>还有一点，读取磁盘数据的时候，需要找到数据所在的位置，但是对于机械磁盘来说，就是通过磁头旋转到数据所在的扇区，再开始「顺序」读取数据，但是旋转磁头这个物理动作是非常耗时的，为了降低它的影响，PageCache 使用了「预读功能」。</p>
+<p>比如，假设 read 方法每次只会读 <code>32 KB</code> 的字节，虽然 read 刚开始只会读 0 ～ 32 KB 的字节，但内核会把其后面的 32～64 KB 也读取到 PageCache，这样后面读取 32～64 KB 的成本就很低，如果在 32～64 KB 淘汰出 PageCache 前，进程读取到它了，收益就非常大。</p>
+<p>所以，PageCache 的优点主要是两个：</p>
+<ul>
+<li><p>缓存最近被访问的数据；</p>
+</li>
+<li><p>预读功能；</p>
+</li>
+</ul>
+<p>这两个做法，将大大提高读写磁盘的性能。</p>
+<p>但是，在传输大文件（GB 级别的文件）的时候，PageCache 会不起作用，那就白白浪费 DMA 多做的一次数据拷贝，造成性能的降低，即使使用了 PageCache 的零拷贝也会损失性能</p>
+<p>这是因为如果你有很多 GB 级别文件需要传输，每当用户访问这些大文件的时候，内核就会把它们载入 PageCache 中，于是 PageCache 空间很快被这些大文件占满。</p>
+<p>另外，由于文件太大，可能某些部分的文件数据被再次访问的概率比较低，这样就会带来 2 个问题：</p>
+<ul>
+<li><p>PageCache 由于长时间被大文件占据，其他「热点」的小文件可能就无法充分使用到 PageCache，于是这样磁盘读写的性能就会下降了；</p>
+</li>
+<li><p>PageCache 中的大文件数据，由于没有享受到缓存带来的好处，但却耗费 DMA 多拷贝到 PageCache 一次；</p>
+</li>
+</ul>
+<p>所以，针对大文件的传输，不应该使用 PageCache，也就是说不应该使用零拷贝技术，因为可能由于 PageCache 被大文件占据，而导致「热点」小文件无法利用到 PageCache，这样在高并发的环境下，会带来严重的性能问题。</p>
+<hr>
+<h3 id="大文件传输用什么方式实现？"><a href="#大文件传输用什么方式实现？" class="headerlink" title="大文件传输用什么方式实现？"></a>大文件传输用什么方式实现？</h3><p>那针对大文件的传输，我们应该使用什么方式呢？</p>
+<p>我们先来看看最初的例子，当调用 read 方法读取文件时，进程实际上会阻塞在 read 方法调用，因为要等待磁盘数据的返回，如下图：</p>
+<p><img src="./2020-12-16_%E5%8E%9F%E6%9D%A58%E5%BC%A0%E5%9B%BE%EF%BC%8C%E5%B0%B1%E5%8F%AF%E4%BB%A5%E6%90%9E%E6%87%82%E3%80%8C%E9%9B%B6%E6%8B%B7%E8%B4%9D%E3%80%8D%E4%BA%86/11.png"></p>
+<p>具体过程：</p>
+<ul>
+<li><p>当调用 read 方法时，会阻塞着，此时内核会向磁盘发起 I/O 请求，磁盘收到请求后，便会寻址，当磁盘数据准备好后，就会向内核发起 I/O 中断，告知内核磁盘数据已经准备好；</p>
+</li>
+<li><p>内核收到 I/O 中断后，就将数据从磁盘控制器缓冲区拷贝到 PageCache 里；</p>
+</li>
+<li><p>最后，内核再把 PageCache 中的数据拷贝到用户缓冲区，于是 read 调用就正常返回了。</p>
+</li>
+</ul>
+<p>对于阻塞的问题，可以用异步 I/O 来解决，它工作方式如下图：</p>
+<p><img src="./2020-12-16_%E5%8E%9F%E6%9D%A58%E5%BC%A0%E5%9B%BE%EF%BC%8C%E5%B0%B1%E5%8F%AF%E4%BB%A5%E6%90%9E%E6%87%82%E3%80%8C%E9%9B%B6%E6%8B%B7%E8%B4%9D%E3%80%8D%E4%BA%86/12.png"></p>
+<p>它把读操作分为两部分：</p>
+<ul>
+<li><p>前半部分，内核向磁盘发起读请求，但是可以不等待数据就位就可以返回，于是进程此时可以处理其他任务；</p>
+</li>
+<li><p>后半部分，当内核将磁盘中的数据拷贝到进程缓冲区后，进程将接收到内核的通知，再去处理数据；</p>
+</li>
+</ul>
+<p>而且，我们可以发现，异步 I/O 并没有涉及到 PageCache，所以使用异步 I/O 就意味着要绕开 PageCache。</p>
+<p>绕开 PageCache 的 I/O 叫直接 I/O，使用 PageCache 的 I/O 则叫缓存 I/O。通常，对于磁盘，异步 I/O 只支持直接 I/O。</p>
+<p>前面也提到，大文件的传输不应该使用 PageCache，因为可能由于 PageCache 被大文件占据，而导致「热点」小文件无法利用到 PageCache。</p>
+<p>于是，在高并发的场景下，针对大文件的传输的方式，应该使用「异步 I/O + 直接 I/O」来替代零拷贝技术。</p>
+<p>直接 I/O 应用场景常见的两种：</p>
+<ul>
+<li><p>应用程序已经实现了磁盘数据的缓存，那么可以不需要 PageCache 再次缓存，减少额外的性能损耗。在 MySQL 数据库中，可以通过参数设置开启直接 I/O，默认是不开启；</p>
+</li>
+<li><p>传输大文件的时候，由于大文件难以命中 PageCache 缓存，而且会占满 PageCache 导致「热点」文件无法充分利用缓存，从而增大了性能开销，因此，这时应该使用直接 I/O。</p>
+</li>
+</ul>
+<p>另外，由于直接 I/O 绕过了 PageCache，就无法享受内核的这两点的优化：</p>
+<ul>
+<li><p>内核的 I/O 调度算法会缓存尽可能多的 I/O 请求在 PageCache 中，最后「合并」成一个更大的 I/O 请求再发给磁盘，这样做是为了减少磁盘的寻址操作；</p>
+</li>
+<li><p>内核也会「预读」后续的 I/O 请求放在 PageCache 中，一样是为了减少对磁盘的操作；</p>
+</li>
+</ul>
+<p>于是，传输大文件的时候，使用「异步 I/O + 直接 I/O」了，就可以无阻塞地读取文件了。</p>
+<p>所以，传输文件的时候，我们要根据文件的大小来使用不同的方式：</p>
+<ul>
+<li><p>传输大文件的时候，使用「异步 I/O + 直接 I/O」；</p>
+</li>
+<li><p>传输小文件的时候，则使用「零拷贝技术」；</p>
+</li>
+</ul>
+<p>在 nginx 中，我们可以用如下配置，来根据文件的大小来使用不同的方式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">location &#x2F;video&#x2F; &#123; </span><br><span class="line"></span><br><span class="line">    sendfile on; </span><br><span class="line"></span><br><span class="line">    aio on; </span><br><span class="line"></span><br><span class="line">    directio 1024m; </span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>当文件大小大于 <code>directio</code> 值后，使用「异步 I/O + 直接 I/O」，否则使用「零拷贝技术」。</p>
+<hr>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>早期 I/O 操作，内存与磁盘的数据传输的工作都是由 CPU 完成的，而此时 CPU 不能执行其他任务，会特别浪费 CPU 资源。</p>
+<p>于是，为了解决这一问题，DMA 技术就出现了，每个 I/O 设备都有自己的 DMA 控制器，通过这个 DMA 控制器，CPU 只需要告诉 DMA 控制器，我们要传输什么数据，从哪里来，到哪里去，就可以放心离开了。后续的实际数据传输工作，都会由 DMA 控制器来完成，CPU 不需要参与数据传输的工作。</p>
+<p>传统 IO 的工作方式，从硬盘读取数据，然后再通过网卡向外发送，我们需要进行 4 上下文切换，和 4 次数据拷贝，其中 2 次数据拷贝发生在内存里的缓冲区和对应的硬件设备之间，这个是由 DMA 完成，另外 2 次则发生在内核态和用户态之间，这个数据搬移工作是由 CPU 完成的。</p>
+<p>为了提高文件传输的性能，于是就出现了零拷贝技术，它通过一次系统调用（<code>sendfile</code> 方法）合并了磁盘读取与网络发送两个操作，降低了上下文切换次数。另外，拷贝数据都是发生在内核中的，天然就降低了数据拷贝的次数。</p>
+<p>Kafka 和 Nginx 都有实现零拷贝技术，这将大大提高文件传输的性能。</p>
+<p>零拷贝技术是基于 PageCache 的，PageCache 会缓存最近访问的数据，提升了访问缓存数据的性能，同时，为了解决机械硬盘寻址慢的问题，它还协助 I/O 调度算法实现了 IO 合并与预读，这也是顺序读比随机读性能好的原因。这些优势，进一步提升了零拷贝的性能。</p>
+<p>需要注意的是，零拷贝技术是不允许进程对文件内容作进一步的加工的，比如压缩数据再发送。</p>
+<p>另外，当传输大文件时，不能使用零拷贝，因为可能由于 PageCache 被大文件占据，而导致「热点」小文件无法利用到 PageCache，并且大文件的缓存命中率不高，这时就需要使用「异步 IO + 直接 IO 」的方式。</p>
+<p>在 Nginx 里，可以通过配置，设定一个文件大小阈值，针对大文件使用异步 IO 和直接 IO，而对小文件使用零拷贝。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.fenxiangz.com/post/dateabase/Redis/2020_12_08_Redis%E6%B8%85%E7%90%86%E6%96%B9%E6%B3%95.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Hassan">
+      <meta itemprop="description" content="Share everything">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="分享之">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/post/dateabase/Redis/2020_12_08_Redis%E6%B8%85%E7%90%86%E6%96%B9%E6%B3%95.html" class="post-title-link" itemprop="url">Redis存储优化</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-12-08 00:00:00" itemprop="dateCreated datePublished" datetime="2020-12-08T00:00:00+00:00">2020-12-08</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-12-20 16:47:02" itemprop="dateModified" datetime="2020-12-20T16:47:02+00:00">2020-12-20</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Redis/" itemprop="url" rel="index"><span itemprop="name">Redis</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="bigkeys-扫描"><a href="#bigkeys-扫描" class="headerlink" title="bigkeys 扫描"></a>bigkeys 扫描</h2><p><code>/redis-cli -h  localhost  -p 6379 --bigkeys</code></p>
+<h2 id="全量扫描"><a href="#全量扫描" class="headerlink" title="全量扫描"></a>全量扫描</h2><p>通过以下脚本扫描 Redis中的全量Keys， Keys存量较大的情况下，可以分多次优化处理。<br>比如：keys.txt文件收集到100MB时，停止，先优化一部分；优化完，再扫描，再优化。<br>脚本如下，注意确保脚本在 ./redis-cli 统计目录，或修改为绝对 redis-cli 绝对路径执行。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">#redis主机IP</span></span></span><br><span class="line">host=$1</span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">#redis端口</span></span></span><br><span class="line">port=$2</span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">#key模式</span></span></span><br><span class="line">pattern=$3</span><br><span class="line">db=$4</span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">#游标</span></span></span><br><span class="line">cursor=0</span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">#退出信号</span></span></span><br><span class="line">signal=0</span><br><span class="line"></span><br><span class="line">echo &quot;&quot;&gt;~/keys.txt</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">#循环获取key并删除</span></span></span><br><span class="line">while [ $signal -ne 1 ]</span><br><span class="line">    do</span><br><span class="line"></span><br><span class="line">        ##将redis scan得到的结果赋值到变量</span><br><span class="line">        re=$(./redis-cli -h $host -p $port -c -n $db scan $cursor count 1000 match $pattern)</span><br><span class="line"></span><br><span class="line">        ##以换行作为分隔符</span><br><span class="line">        IFS=$&#x27;\n&#x27;</span><br><span class="line"></span><br><span class="line">        ##转成数组</span><br><span class="line">        arr=($re)</span><br><span class="line"></span><br><span class="line">        ##第一个元素是游标值</span><br><span class="line">        cursor=$&#123;arr[0]&#125;</span><br><span class="line"></span><br><span class="line">        ##打印数组</span><br><span class="line">        len=$&#123;#arr[*]&#125;</span><br><span class="line">        for ((i=1;i&lt;len;i++))</span><br><span class="line">                do</span><br><span class="line">                   a=$&#123;arr[i]&#125;</span><br><span class="line">                   echo $a &gt;&gt; ~/keys.txt</span><br><span class="line">                done</span><br><span class="line"></span><br><span class="line">        ##游标为0表示没有key了</span><br><span class="line">        if [ $cursor -eq 0 ];then</span><br><span class="line">            signal=1</span><br><span class="line">        fi</span><br><span class="line">done</span><br><span class="line">echo &#x27;done&#x27;</span><br></pre></td></tr></table></figure>
+<p>得到 keys.txt 文件后，使用 awk, uniq, sort 等命令进行归并排序，脚本如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sort keys.txt &gt;&gt; keys-sort.txt</span><br><span class="line">cat keys-sort.txt | awk -F &#x27;:&#x27; &#x27;&#123;print $1&quot;:&quot;$2&quot;:&quot;$3&#125;&#x27; |  uniq -c | sort -rn  </span><br></pre></td></tr></table></figure>
+
+<p>分隔符和打印内容可以按实际情况调节输出，便于阅读。输出结果后，便可定位具体的Key进行优化了。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.fenxiangz.com/post/%E5%85%B6%E4%BB%96/2020-11-28_%E7%8C%B4%E5%AD%90%E7%AE%A1%E7%90%86%E6%B3%95%E5%88%99.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Hassan">
+      <meta itemprop="description" content="Share everything">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="分享之">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/post/%E5%85%B6%E4%BB%96/2020-11-28_%E7%8C%B4%E5%AD%90%E7%AE%A1%E7%90%86%E6%B3%95%E5%88%99.html" class="post-title-link" itemprop="url">猴子管理法则</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-11-28 00:00:00" itemprop="dateCreated datePublished" datetime="2020-11-28T00:00:00+00:00">2020-11-28</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-12-20 16:47:02" itemprop="dateModified" datetime="2020-12-20T16:47:02+00:00">2020-12-20</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%85%B6%E4%BB%96-%E7%AE%A1%E7%90%86/" itemprop="url" rel="index"><span itemprop="name">其他/管理</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>很多管理者往往遇到这样的情况，当你听完下属员工的工作汇报后发现事情并没有得到彻底解决，而原本计划好今天要做的工作也因此耽误了不少时间。</p>
+<p>猴子管理法则的目的在于帮助经理人确定由适当人选在适当的时间，用正确的方法做正确的事。</p>
+<p>身为经理人要能够让员工去抚养自己的“猴子”，你也有足够的时间去做规划、协调、创新等重要工作。</p>
+<h3 id="责任是一只猴子"><a href="#责任是一只猴子" class="headerlink" title="责任是一只猴子"></a><strong>责任是一只猴子</strong></h3><p>这其中的关键在于，本来该下属员工自行完成的工作，因为逃避责任的缘故， 交由上司处理。</p>
+<p>每个下属都有自己的猴子，如果都交由上司管理，显然，管理者自己的时间将变得十分不够用。</p>
+<p>当你一旦接收部属所该看养的猴子，他们就会以为是你自己要这些猴子的， 因此，你收的愈多，他们给的就愈多。</p>
+<p>于是你饱受堆积如山、永远处理不完的问题所困扰，甚至没有时间照顾自己的猴子，努力将一些不该摆在第一位的事情做得更有效率，平白让自己的成效打了折扣。</p>
+<p>经理人应该将时间投资在最重要的管理层面上，而不是养一大堆别人的猴子。</p>
+<p>当然，这个法则只能运用在有生存价值的猴子身上，不该存活的猴子，就狠心把他杀了吧！</p>
+<h3 id="“猴子”-问题"><a href="#“猴子”-问题" class="headerlink" title="“猴子”=问题"></a><strong>“猴子”=问题</strong></h3><p>你是问题处理高手吗？假如你的下属崇拜你，你或许会相当高兴。但那以后， 他几乎每件事都向你请示，你会觉得如何呢？你是否会感觉自己的时间不够用了，并因此开始检查自己的管理是不是出了什么问题呢？</p>
+<p>有一天，你的一位下属在办公室的走廊与你不期而遇，下属停下脚步问：“老板，有一个问题，我一直想向你请示该怎么办。”</p>
+<p>此时，下属的身上有一只需要照顾的 “猴子”，接下来他如此这般将问题汇报了一番。尽管你有要事在身，但还是不太好意思让急切地想把事情办好的下属失望。</p>
+<p>你非常认真地听着……慢慢地，“猴子”的一只脚已悄悄搭在你的肩膀上。你一直在认真倾听，并不时点头，几分钟后，你对他说这是一个非常不错的问题，很想先听听他的意见，并问：“你觉得该怎么办？”</p>
+<p>“老板，我就是因为想不出办法，才不得不向你求援的呀。”</p>
+<p>“不会吧，你一定能找到更好的方法。”你看了看手表，“这样吧，我现在正好有急事，明天下午四点后我有空，到时你拿几个解决方案来我们一起讨论。”</p>
+<p>告别前，你没有忘记补充一句：“你不是刚刚受过‘头脑风暴’训练吗？实在想不出，找几个搭档来一次‘头脑风暴’，明天我等你们的答案。”</p>
+<p>“猴子”悄悄收回了搭在你身上的那只脚，继续留在此下属的肩膀上。</p>
+<p>第二天，下属如约前来。从脸上表情看得出，他似乎胸有成竹：“老板，按照你的指点，我们已有了 5个觉得还可以的方案，只是不知道哪一个更好，现在就是请你拍板了。”</p>
+<p>即使你一眼就已看出哪一个更好，也不要急着帮他作出决定。不然，他以后对你会有依赖，或者万一事情没办好，他一定会说：“老板，这不能怪我，我都是按照你的意见去办的。”</p>
+<h3 id="关于作决定，记住以下准则"><a href="#关于作决定，记住以下准则" class="headerlink" title="关于作决定，记住以下准则"></a><strong>关于作决定，记住以下准则</strong></h3><p>1、该下属做决定的事，一定要让他们自己学着做决定；</p>
+<p>2、做决定意味着为自己的决定负责任。不想做决定，常常是潜意识里他不想承担责任；</p>
+<p>3、下属不思考问题、不习惯做决定的根源一般有两个：<br>其一是有“托付思想”，依赖上司或别人，这样的下属不堪大用；<br>其二是上司习惯代替下属做决定或喜欢享受别人听命于自己的成就感，这样的上司以及他所带领的团队难以胜任复杂的任务；</p>
+<p>4、让下属自己想办法，做决定，就是训练下属独立思考问题的能力和勇于承担责任的行事风格。</p>
+<p>对话还在继续。你兴奋地说：“太棒了，这么多好方案。你认为，相比较而言哪一个方案更好？”<br>“我觉得 A 方案更好一些。”<br>“这的确是一个不错的方案，不过你有没有考虑过万一出现这种情况，该怎么办？”<br>“噢，有道理，看来用 E 方案更好。”<br>“这方案真的也很好，可是，你有没有想过……” “我明白，应该选择 B 方案。”<br>“非常好，我的想法跟你一样，我看就按你的意见去办吧。”</p>
+<p>凭你的经验，其实你早就知道应该选择 B 方案，你不直接告诉他的目的是想借此又多赢得一次训练部属的机会。</p>
+<p>训练是一个虽慢反快的过程，训练的“慢”是为了将来更快。你这样做的好处不言而喻：</p>
+<ul>
+<li>1、打断下属负面的“依赖”神经链。</li>
+<li>2、训练了下属分析问题、全面思考问题的能力。</li>
+<li>3、让下属产生信心与成就感。他会觉得自己居然也有解决复杂问题的能力。越来越有能力的下属能越来越胜任更重要的任务。</li>
+<li>4、激发下属的行动力。</li>
+<li>5、你将因此不必照看下属的“猴子”而腾出更多的精力去照看自己的“猴子”。</li>
+</ul>
+<h3 id="管理艺术的-5个严格规则"><a href="#管理艺术的-5个严格规则" class="headerlink" title="管理艺术的 5个严格规则"></a><strong>管理艺术的 5个严格规则</strong></h3><p>规则一：“猴子”要么被喂养，要么被杀死。<br>否则，他们会饿死，而经理则要将大量宝贵时间浪费在尸体解剖或试图使他们复活上。</p>
+<p>规则二：“猴子”的数量必须被控制在经理有时间喂养的最大数额以下。下属会尽量找时间喂养猴子，但不应比这更多。饲养一只正常状况的猴子时间不应超过 5～15 分钟。</p>
+<p>规则三：“猴子”只能在约定的时间喂养。</p>
+<p>经理无须四处寻找饥饿的“猴子”，抓到一只喂一只。</p>
+<p>规则四：“猴子”应面对面或通过电话进行喂养，而不要通过邮件。文档处理可能会增加喂养程序，但不能取代喂养。</p>
+<p>规则五：应确定每只“猴子”下次的喂养时间。<br>这可以在任何时间由双方修改并达成一致，但不要模糊不清。否则，“猴子”或者会饿死或者最终回到经理的背上。</p>
+<h3 id="“猴子管理”理论的启示"><a href="#“猴子管理”理论的启示" class="headerlink" title="“猴子管理”理论的启示"></a><strong>“猴子管理”理论的启示</strong></h3><p>1、每一个人都应该照看自己的“猴子”；</p>
+<p>2、不要麻烦别人照看自己的“猴子”；</p>
+<p>3、组织中，每一个人都应该明白自己应该照看哪些“猴子”以及如何照看好它们；</p>
+<p>4、不要试图把自己的“猴子”托付给别人照顾。这里的别人可能是上司、下属、别的部门的同事，也可能是公司、社会乃至上天、命运等；</p>
+<p>5、不要出现没有人照看的“猴子”，也不要出现有两个以上“主人”的“猴子”；</p>
+<p>6、作为上司不仅应明确让下属知道他应该照看好哪些“猴子”，更需要训练下属如何照看好他们的“猴子”。</p>
+<p>7、“猴子管理”并不适用于所有管理。比如说我们在创业初期时，就需要创业者或创业团队背负所有的“猴子”。并主动的帮助其他人背负“猴子”，否则创业不会成功。</p>
+<p>8、“猴子管理”会使人变得自私，类似于各人自扫门前雪，会使团队失去活力。正常的团队应该是抢着“猴子”背负，而不是千方百计的防止别人的“猴子”窜上自己的肩膀。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.fenxiangz.com/post/%E5%85%B6%E4%BB%96/2020-11-27_%E3%80%8E%E8%AE%A4%E7%9F%A5%E5%8D%87%E7%BA%A7%E3%80%8F%E6%98%AF%E6%AF%94%E5%85%B6%E4%BB%96%E4%B8%80%E5%88%87%E9%83%BD%E6%9B%B4%E5%8A%A0%E9%87%8D%E8%A6%81%E7%9A%84%E6%80%9D%E7%BB%B4%E6%A8%A1%E5%9E%8B%E8%BD%AC%E5%8F%98.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Hassan">
+      <meta itemprop="description" content="Share everything">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="分享之">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/post/%E5%85%B6%E4%BB%96/2020-11-27_%E3%80%8E%E8%AE%A4%E7%9F%A5%E5%8D%87%E7%BA%A7%E3%80%8F%E6%98%AF%E6%AF%94%E5%85%B6%E4%BB%96%E4%B8%80%E5%88%87%E9%83%BD%E6%9B%B4%E5%8A%A0%E9%87%8D%E8%A6%81%E7%9A%84%E6%80%9D%E7%BB%B4%E6%A8%A1%E5%9E%8B%E8%BD%AC%E5%8F%98.html" class="post-title-link" itemprop="url">『认知升级』是比其他一切都更加重要的思维模型转变</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-11-27 00:00:00" itemprop="dateCreated datePublished" datetime="2020-11-27T00:00:00+00:00">2020-11-27</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-12-20 16:47:02" itemprop="dateModified" datetime="2020-12-20T16:47:02+00:00">2020-12-20</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%85%B6%E4%BB%96-%E7%AE%A1%E7%90%86/" itemprop="url" rel="index"><span itemprop="name">其他/管理</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>我们在过去的时光中，谈了很多关于技术、关于生活、关于工作、关于学习的话题，这次我们来谈谈关于『认知升级』这个话题。</p>
+<p>实际上，<strong>『认知升级』相对来说是个比较抽象的概念，它与掌握一门技术相比不是那么容易看到</strong>。因为技术的进步和成长是任何人都可以看到成效的。比如说，你之前不会Netty或是对Netty不是那么了解，通过学习和实践掌握了Netty的方方面面，那这其中的进步就是非常明显的，也是很容易看到成效的。</p>
+<p>与技术上的成长相比，『认知升级』则属于更加抽象，且更具方法论的一个话题了。那么，到底什么是认知呢？</p>
+<p><strong>我个人认为，所谓认知指的是你对这个世界，对身边环境，对于生活、学习与工作的认识以及所采取的行事方法。</strong></p>
+<p>如果说切实掌握了一项技术属于『硬技能』的话，那么『认知升级』则属于软技能这个领域。不过，<strong>这里千万不要认为只有『硬技能』才是我们需要掌握的；相反，『软技能』的重要性有时还会超越『硬技能』</strong>，为什么这么说呢？</p>
+<p><strong>根据我的经历，诸如『认知』这样的软技能是我们能够切实掌握『硬技能』的一个重要前提和方法论保证</strong>。具体来说，我们在学习任何一项新技术时，每个人所采取的方式与方法都是不尽相同的，你有你的方法，他有他的方法，而我显然也有我的方法。不过，无论中间采取了何种方法，我们的目标是不是都是一样，或是几乎是一样的呢？那我们的目标是什么呢？显然，我们的目标是扎实地掌握所学习的这项技术或是这个框架，并且对于一些重要技术与框架来说，掌握的越深入、越扎实越好。</p>
+<p><strong>既然大家的目标是一样的，即我们所要追求的最终结果几乎是无差别的，那么这中间的过程就会对结果起到很大的影响，有的影响是正向的，有的影响则是负向的。</strong></p>
+<p>从我们准备学习一门技术开始，一直到最终彻底掌握它，这中间会经历很多的过程，也会出现很多反复。因此，如何更好地确保中间过程的效率与效果就会对最终的结果产生极大的影响。</p>
+<p>可以将掌握一门技术的过程分为如下几个步骤：</p>
+<ul>
+<li><ol>
+<li>觉得这门技术挺有用，准备学习。</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>搜集学习资料，看官方文档、购买相关图书、看相关视频。</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>不停地遇到各种各样的问题，在网上不停地搜索解决方案。</li>
+</ol>
+</li>
+<li><ol start="4">
+<li>继续看官方文档、继续看书、继续看视频。</li>
+</ol>
+</li>
+<li><ol start="5">
+<li>依然会遇到各种问题，心情比较烦躁地搜索关于问题的解决方案。</li>
+</ol>
+</li>
+<li><ol start="6">
+<li>初步掌握了这项技术。</li>
+</ol>
+</li>
+<li><ol start="7">
+<li>一段时间没有使用或是没有再看这项技术，开始产生遗忘。</li>
+</ol>
+</li>
+<li><ol start="8">
+<li>又经过一段时间，发现之前学习的这项技术很多都已经记不清楚了，甚至当时非常清晰的一些细节已经完全回忆不起来了。</li>
+</ol>
+</li>
+<li><ol start="9">
+<li>重新开始学习这门技术。</li>
+</ol>
+</li>
+<li><ol start="10">
+<li>历经千辛万苦，终于算是比较深入地掌握了这项技术。</li>
+</ol>
+</li>
+<li><ol start="11">
+<li>又有一段时间没有再碰这项技术。</li>
+</ol>
+</li>
+<li><ol start="12">
+<li>当有一天翻看这项技术时，发现又有太多、太多的细节已经完全想不起来了。</li>
+</ol>
+</li>
+<li><ol start="13">
+<li>感到非常的沮丧。</li>
+</ol>
+</li>
+<li><ol start="14">
+<li>感到更加的沮丧。</li>
+</ol>
+</li>
+<li><ol start="15">
+<li>重复上述的步骤9。</li>
+</ol>
+</li>
+</ul>
+<p>是不是上面的这15个步骤感到似曾相识呢？</p>
+<p>原因在于什么？</p>
+<p><strong>根本原因在于，你将太多的精力放在了非核心上面，而对真正的核心之处却从来没有深入思考过。</strong></p>
+<p>经常有人咨询我，为什么我学起一些技术会比较快，而且还比较深入，并且还能将自己的积累很系统地讲出来。但是换作自己，哪怕将一门技术扎实掌握都很难做到呢？其实，这个问题并非个案，而是一个普遍存在的问题。这个普遍存在的问题严重到会成为制约你更好前进的一个巨大障碍。</p>
+<p>正所谓『不识庐山真面目，只缘身在此山中』。我们每个人都上了十多年学，但是很多人甚至连最为重要的学习方法都没有掌握。这里面一方面有学校教育的缺失，另一方面则是作为个体从来没有认真思考过这个问题。</p>
+<p>对于我来说，在上大学时收获的最重要两个方面并非掌握了什么专业知识，而是我在大三时明白了下面两点：</p>
+<ul>
+<li><ol>
+<li>我知道自己热爱的专业是什么：我不喜欢自己当时所在的专业，我更加喜欢计算机专业，因此确定了跨校跨专业考研的目标。</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>我掌握了适合自己的较为高效的自学方式：这一点在后来的时光中对我产生了巨大的帮助，让我能够走得更加从容不迫。</li>
+</ol>
+</li>
+</ul>
+<p>回到上面的话题，为什么我们在学习一项技术时总是容易遗忘，哪怕当时印象极其深刻的内容，以为自己永远也不会忘记的内容过一阵还是会遗忘呢？</p>
+<p>答案就是『无输出』。</p>
+<p>是的，道理就是如此简单。</p>
+<p>无论你的学习手段是什么，是看官方文档，看书，看文章，还是看视频，这些都是『输入』。是别人的东西灌输到你的脑海中，但它不是你的。</p>
+<p><strong>如何将别人的东西最终变成自己的呢？答案只有一个：输出。即，通过自己的不断输入，在脑海中经过一系列的加工，最终变成自己的输出</strong>。即下面这3个过程：</p>
+<ul>
+<li><ol>
+<li>输入</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>加工</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>输出。</li>
+</ol>
+</li>
+</ul>
+<p>很多很多人在学习时，第1个步骤做得都还可以；第2步则因人而异了，有些人会思考，有些人则全盘接受，更可悲的是将网上看来的东西就当作真理一般对待。至于第3步，只有很少很少人才会做。因为，这个步骤是最耗费时间与精力的一个步骤。而且，第3步在你学习的当下你会认为是一个毫无存在必要的步骤，因为你当时自我感觉已经将待学习的这项技术理解的很透彻了。然而，成败就在一念之间。</p>
+<p>对于没有输出的学习，其最终的效果就如同我上面所列出的15个步骤那般。</p>
+<p>为什么总有人说，一项技术只有在项目中实际用过了才能真正掌握，其实这里面暗暗隐含着『输出』这个环节。在项目中实际用过显然就是一种输出方式。但在项目中使用过仅仅是『输出』的一种方式而已，它并非全部，请勿一叶障目，不见树林。</p>
+<p><strong>在项目中使用本质上就是一种『输出』方式，它会令你产生一种错觉：一项技术只有在项目中使用过了才能算真正掌握。</strong></p>
+<p>当下的技术领域如此之多，一个项目充其量只会使用其中很少的一些技术集合。按照上面的理论，难道项目中用不上的技术就不用学了么？答案不言自明。</p>
+<p>其实，在项目中使用会令你加深对一项技术的理解与认识这个观点只不过是对于一种方法论的具体解读而已。</p>
+<p>『输出』的形态其实有很多种：</p>
+<ul>
+<li><ol>
+<li>在项目中使用</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>形成记录（记录到印象笔记或是有道云笔记上），发表到博客、微信公众号等媒体上</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>给别人讲</li>
+</ol>
+</li>
+</ul>
+<p>这里面我只列出了自己所钟爱的3种方式，其他方式也有很多。</p>
+<p>因此，你觉得在项目中使用才算掌握一门技术，在我眼里看来，可谓是『认知』尚未升级，因为你并未透过现象看到本质。在项目中使用可以让我们比较好地学会到应用，但是对于技术的深层次掌握是需要额外下功夫的，这通常都是对自己有着较高要求的人才会做的事情。</p>
+<p>给别人讲是一种我特别推崇的学习方式。通过这个过程，你会发现自己在技术理解上的诸多问题，同时会不断加深对技术细节的把控；可以这么说，<strong>将上面3种『输出』方式有机结合起来，会令你真正掌握学习的方法论，也会令你在学习之路上越走越好，越走越踏实</strong>。</p>
+<p>可以举一个例子，目前圣思园正在发布『深入理解JVM』课程。实际上，除了本职工作就是与JVM打交道之外，绝大多数人的日常工作并非天天都会接触到JVM，那为何还要学习呢？因为它重要啊！</p>
+<p>既然无法做到天天与JVM打交道，那该如何学习JVM呢？显然，既然无法做到在项目中直接使用，那我们就完全可以用其余2种方法：形成技术+给别人讲。</p>
+<p>参加圣思园课程学习的不少小伙伴已经在践行我上面所提出的观点，并且均取得了不错的效果，这里我也期望你能将自己的学习观点与认知方式分享出来，欢迎大家的评论。</p>
+<p>原文：<a target="_blank" rel="noopener" href="https://blog.csdn.net/ricohzhanglong/article/details/95947294">https://blog.csdn.net/ricohzhanglong/article/details/95947294</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.fenxiangz.com/post/%E5%85%B6%E4%BB%96/2020-11-26_Jira%E4%BF%AE%E6%94%B9Path%E8%B7%AF%E5%BE%84%E5%90%8E%E7%9A%84%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86%E9%97%AE%E9%A2%98.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Hassan">
+      <meta itemprop="description" content="Share everything">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="分享之">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/post/%E5%85%B6%E4%BB%96/2020-11-26_Jira%E4%BF%AE%E6%94%B9Path%E8%B7%AF%E5%BE%84%E5%90%8E%E7%9A%84%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86%E9%97%AE%E9%A2%98.html" class="post-title-link" itemprop="url">Jira 修改 Path 路径后的用户管理问题</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-11-26 00:00:00" itemprop="dateCreated datePublished" datetime="2020-11-26T00:00:00+00:00">2020-11-26</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-12-20 16:47:02" itemprop="dateModified" datetime="2020-12-20T16:47:02+00:00">2020-12-20</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%85%B6%E4%BB%96-Jira/" itemprop="url" rel="index"><span itemprop="name">其他/Jira</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>Confluence 同步 Jira 的几个相关配置</p>
+<h2 id="1-仅使用外部用户管理"><a href="#1-仅使用外部用户管理" class="headerlink" title="1. 仅使用外部用户管理"></a>1. 仅使用外部用户管理</h2><p><img src="./2020-11-26_Jira%E4%BF%AE%E6%94%B9Path%E8%B7%AF%E5%BE%84%E5%90%8E%E7%9A%84%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86%E9%97%AE%E9%A2%98/1.png"></p>
+<h2 id="2-Confluence-的-Links-配置"><a href="#2-Confluence-的-Links-配置" class="headerlink" title="2. Confluence 的 Links 配置"></a>2. Confluence 的 Links 配置</h2><p><img src="./2020-11-26_Jira%E4%BF%AE%E6%94%B9Path%E8%B7%AF%E5%BE%84%E5%90%8E%E7%9A%84%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86%E9%97%AE%E9%A2%98/2.png"></p>
+<h2 id="3-Jira-修改-Context-的-Path-路径后，Confluence账号无法登陆，用户管理问题。"><a href="#3-Jira-修改-Context-的-Path-路径后，Confluence账号无法登陆，用户管理问题。" class="headerlink" title="3. Jira 修改 Context 的  Path 路径后，Confluence账号无法登陆，用户管理问题。"></a>3. Jira 修改 Context 的  Path 路径后，Confluence账号无法登陆，用户管理问题。</h2><p><img src="./2020-11-26_Jira%E4%BF%AE%E6%94%B9Path%E8%B7%AF%E5%BE%84%E5%90%8E%E7%9A%84%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86%E9%97%AE%E9%A2%98/3.png"></p>
+<p>如果本身是可编辑的就直接编辑，非可编辑状态，需要先下移改成非首选，然后进入编辑页面更新外部用户目录的实际路径。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.fenxiangz.com/post/util/2020-11-26_%E5%BC%80%E5%8F%91%E8%B5%84%E6%BA%90%E6%95%B4%E7%90%86.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Hassan">
+      <meta itemprop="description" content="Share everything">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="分享之">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/post/util/2020-11-26_%E5%BC%80%E5%8F%91%E8%B5%84%E6%BA%90%E6%95%B4%E7%90%86.html" class="post-title-link" itemprop="url">开发资源导航</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-11-26 00:00:00" itemprop="dateCreated datePublished" datetime="2020-11-26T00:00:00+00:00">2020-11-26</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-12-20 16:47:02" itemprop="dateModified" datetime="2020-12-20T16:47:02+00:00">2020-12-20</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%B5%84%E6%BA%90%E5%AF%BC%E8%88%AA/" itemprop="url" rel="index"><span itemprop="name">资源导航</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="Javascript"><a href="#Javascript" class="headerlink" title="Javascript"></a>Javascript</h2><ul>
+<li><a target="_blank" rel="noopener" href="http://jqfundamentals.com/book/index.html">jQuery Fundamentals</a>  - jQuery 入门教程。</li>
+<li><a target="_blank" rel="noopener" href="http://www.cn-cuckoo.com/deconstructed/index.html">JavaScript库 代码解构</a>  - 将JavaScript流行框架源代码条分缕析展现出来</li>
+<li><a target="_blank" rel="noopener" href="http://www.cnblogs.com/TomXu/archive/2011/12/15/2288411.html">深入理解Javascript系列</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.cnblogs.com/TomXu/archive/2011/12/15/2288411.html">Script的defer和async的区别</a></li>
+<li><a target="_blank" rel="noopener" href="http://coolshell.cn/articles/6441.html">Javascript面向对象基础</a> </li>
+<li><a target="_blank" rel="noopener" href="http://github.com/addyosmani/backbone-fundamentals">Backbone.js基础</a> </li>
+<li><a target="_blank" rel="noopener" href="http://unixpapa.com/js/key.html">JavaScript Madness: Keyboard Events</a> </li>
+<li><a target="_blank" rel="noopener" href="http://dailyjs.com/tags.html#frameworks">Let’s Make Frameworks</a> </li>
+<li>国内公司JS框架：<a target="_blank" rel="noopener" href="http://kissyui.com/">Kissy - Taobao</a>  | <a target="_blank" rel="noopener" href="http://arale.alipay.net/">Arale - Alipay</a>  | <a target="_blank" rel="noopener" href="http://tangram.baidu.com/">Tangram - Baidu</a> </li>
+<li><a target="_blank" rel="noopener" href="http://js1k.com/">JS1K, 1k Javascript contest</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.json.org/">JSON Home Page</a> </li>
+<li><a target="_blank" rel="noopener" href="http://code.google.com/p/molokoloco-coding-project/wiki/JavascriptBase">NB JS Wiki(CSS、PHP、jQuery、Linux)</a> </li>
+<li><a target="_blank" rel="noopener" href="http://birdshome.cnblogs.com/archive/2006/05/28/IE_MemoryLeak.html">理解并解决IE的内存泄漏方式</a> <a target="_blank" rel="noopener" href="http://birdshome.cnblogs.com/archive/2006/06/01/ClosureReferences.html">2</a> <a target="_blank" rel="noopener" href="http://birdshome.cnblogs.com/archive/2006/06/17/Cross_Page_Leaks.html">3</a> <a target="_blank" rel="noopener" href="http://birdshome.cnblogs.com/archive/2006/06/30/Pseudo_Leaks.html">4</a> </li>
+<li><a target="_blank" rel="noopener" href="http://msdn.microsoft.com/en-us/library/bb250448.aspx">Understanding and Solving Internet Explorer Leak Patterns</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.cnblogs.com/rubylouvre/archive/2010/01/05/1639541.html">Javscript Bind函数</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.addyosmani.com/resources/essentialjsdesignpatterns/book/">Javscript设计模式</a> </li>
+</ul>
+<h4 id="JSON工具："><a href="#JSON工具：" class="headerlink" title="JSON工具："></a>JSON工具：</h4><ul>
+<li><a target="_blank" rel="noopener" href="http://www.jsonlint.com/">JSONLint</a>  - The JSON Validator</li>
+<li><a target="_blank" rel="noopener" href="http://undefined.org/python/#simplejson">SimpleJSON</a>  - Python Stuff</li>
+<li><a target="_blank" rel="noopener" href="http://jsonformatter.curiousconcept.com/">JSON Formatter (&amp; Validator!)</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.raboof.com/Projects/TidyJson/">Tidy JSON - JSON Pretty Printer/Colorer</a>  - C#(.NET)</li>
+<li><a target="_blank" rel="noopener" href="http://www.cerny-online.com/cerny.js/demos/json-pretty-printing">Cerny.js - JSON Pretty Printing Demo</a> </li>
+<li><a target="_blank" rel="noopener" href="http://github.com/nicksieger/jsonpretty">jsonpretty(ruby)</a> </li>
+</ul>
+<h4 id="Vim-Json："><a href="#Vim-Json：" class="headerlink" title="Vim Json："></a>Vim Json：</h4><ul>
+<li><a target="_blank" rel="noopener" href="http://lumberjaph.net/perl/2009/02/17/tidify-a-json-in-vim.html">tidify a json in Vim</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.vim.org/scripts/script.php?script_id=1945">JSON.vim</a>  - syntax</li>
+<li><a target="_blank" rel="noopener" href="http://visibletrap.blogspot.com/2010/05/vim-how-to-format-and-syntax-highlight.html">VIM - How to format and syntax highlight JSON file</a> </li>
+<li><a target="_blank" rel="noopener" href="http://bradmontgomery.blogspot.com/2010/01/add-json-syntax-highlighting-in-vim-on.html">Add JSON syntax highlighting in Vim on OS X</a> </li>
+</ul>
+<h4 id="JSONP："><a href="#JSONP：" class="headerlink" title="JSONP："></a>JSONP：</h4><ul>
+<li><a target="_blank" rel="noopener" href="http://www.ibm.com/developerworks/cn/web/wa-aj-jsonp1/index.html">使用 JSONP 实现跨域通信，第 1 部分: 结合 JSONP 和 jQuery 快速构建强大的 mashup</a> <a target="_blank" rel="noopener" href="http://www.ibm.com/developerworks/cn/web/wa-aj-jsonp2/index.html">第 2 部分: 使用 JSONP、jQuery 和 Yahoo! 查询语言构建 mashup</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.cn-cuckoo.com/2008/09/13/the-origin-of-jsonp-262.html">JSONP的起源</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.ibm.com/developerworks/cn/xml/x-mashups.html">Mashups：Web 应用程序新成员</a> </li>
+</ul>
+<h4 id="Javascript闭包："><a href="#Javascript闭包：" class="headerlink" title="Javascript闭包："></a>Javascript闭包：</h4><ul>
+<li><a target="_blank" rel="noopener" href="http://zh.wikipedia.org/zh-cn/%E9%97%AD%E5%8C%85_(%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6)">闭包 (计算机科学)</a> </li>
+<li><a target="_blank" rel="noopener" href="http://jibbering.com/faq/notes/closures/">Javascript Closures</a> </li>
+<li><a target="_blank" rel="noopener" href="http://roshanca.com/?p=153">什么是闭包</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.jibbering.com/faq/faq_notes/closures.html">Javascript Closures</a> <a target="_blank" rel="noopener" href="http://www.cn-cuckoo.com/2007/08/01/understand-javascript-closures-72.html">中文</a> <a target="_blank" rel="noopener" href="http://www.aspxhome.com/examples/javascript/program/483628/javascriptclosures.html">2</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2009/08/learning_javascript_closures.html">学习Javascript闭包（Closure）</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.mikkolee.com/81">作用域链 词法作用域 与 闭包（一）</a> <a target="_blank" rel="noopener" href="http://www.mikkolee.com/84">（二）</a> </li>
+</ul>
+<h4 id="Javascript工具："><a href="#Javascript工具：" class="headerlink" title="Javascript工具："></a>Javascript工具：</h4><ul>
+<li><a target="_blank" rel="noopener" href="http://www.jslint.com/">JSLint</a> </li>
+<li><a target="_blank" rel="noopener" href="http://javascriptlint.com/">JavaScript Lint</a> </li>
+<li><a target="_blank" rel="noopener" href="http://github.com/rainux/jslint.vim">Fork of hallettj/jslint.vim</a> </li>
+<li><a target="_blank" rel="noopener" href="http://varnow.org/?p=174">Google Closure Compiler压缩优化规则初探</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.phpblog.cn/archives/242">使用Google 的Closure Compiler来压缩javascript</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.cnblogs.com/JeffreyZhao/archive/2009/12/09/ikvm-google-closure-compiler.html">在项目中使用Google Closure Compiler</a> </li>
+<li><a target="_blank" rel="noopener" href="http://hikejun.com/blog/?p=476&amp;cpage=1">Mac下用Closure compiler</a> </li>
+<li><a target="_blank" rel="noopener" href="http://ued.sohu.com/article/611">JS 库浅析之 Google Closure</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.pushiming.com/blog/2010/12/advanced-optimization-in-closure-compiler-and-more/">Closure Compiler 高级模式及更多思考</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.slideshare.net/lifesinger/closure-compiler-vs-yuicompressor">Closure Compiler vs YUICompressor</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.minifyjs.com/">Minify JS</a> </li>
+<li><a target="_blank" rel="noopener" href="http://docs.jquery.com/QUnit">QUnit</a> <a target="_blank" rel="noopener" href="http://github.com/jquery/qunit">@github</a> </li>
+</ul>
+<ul>
+<li>JsBeautify：<a target="_blank" rel="noopener" href="http://jsbeautifier.org/">Online Javascript jsbeautifier</a> <a target="_blank" rel="noopener" href="http://github.com/einars/js-beautify">github</a> , <a target="_blank" rel="noopener" href="http://www.vim.org/scripts/script.php?script_id=2727">vimscript</a> </li>
+</ul>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://code.google.com/p/jsbeautifier/">js beautifier</a>  - plugin for Chrome</li>
+</ul>
+<h4 id="NodeJS："><a href="#NodeJS：" class="headerlink" title="NodeJS："></a>NodeJS：</h4><ul>
+<li><a target="_blank" rel="noopener" href="http://nodejs.org/">nodeJS</a>  - 服务器端 JavaScript 编程</li>
+<li><a target="_blank" rel="noopener" href="http://simonwillison.net/2009/Nov/23/node/">Node.js is genuinely exciting</a> </li>
+<li><a target="_blank" rel="noopener" href="http://blog.csdn.net/fuadam/archive/2010/03/15/5380178.aspx">在cygwin环境下编译node.js</a> </li>
+<li><a target="_blank" rel="noopener" href="http://github.com/ry/node_chat">node char</a>  - 用 nodeJS 写的聊天室</li>
+<li><a target="_blank" rel="noopener" href="https://no.de/">Joyent Node</a>  | <a target="_blank" rel="noopener" href="http://mattn.no.de/">mattn.no.de</a> </li>
+</ul>
+<h2 id="HTML-amp-CSS"><a href="#HTML-amp-CSS" class="headerlink" title="HTML &amp; CSS"></a>HTML &amp; CSS</h2><ul>
+<li><a target="_blank" rel="noopener" href="http://wiki.hotoo.me/CSS-Hacks.html">CSS Hacks &amp; Expression</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.digitalmediaminute.com/reference/entity/">XHTML Character Entity Reference HTML实体字符引用</a> </li>
+<li><a target="_blank" rel="noopener" href="http://blog.bingo929.com/css-frameworks-15.html">精选15个国外CSS框架</a> </li>
+<li><a target="_blank" rel="noopener" href="http://nicolasgallagher.com/pure-css-speech-bubbles/demo/">Pure Css Speech Bubbles</a> </li>
+</ul>
+<h4 id="CSS栅格系统-Grid-System-："><a href="#CSS栅格系统-Grid-System-：" class="headerlink" title="CSS栅格系统(Grid System)："></a>CSS栅格系统(Grid System)：</h4><ul>
+<li><a target="_blank" rel="noopener" href="http://1kbgrid.com/">The 1Kb CSS Grid</a>  - 拖放各个阈值并直接下载自动生成的CSS。</li>
+<li><a target="_blank" rel="noopener" href="http://www.spry-soft.com/grids/">Variable Grid System</a>  - 可直接修改各个阈值并预览效果。</li>
+<li><a target="_blank" rel="noopener" href="http://grid.mindplay.dk/">Grid Designer</a> </li>
+<li><a target="_blank" rel="noopener" href="http://builder.yaml.de/">YAML Builder</a>  - A tool for visual development of YAML based CSS layouts. </li>
+<li><a target="_blank" rel="noopener" href="http://960.gs/">960 Grid System</a> <a target="_blank" rel="noopener" href="http://github.com/nathansmith/960-Grid-System">960-Grid-System@github</a> </li>
+<li><a target="_blank" rel="noopener" href="http://ued.taobao.com/blog/2008/09/17/grid_systems/">网页的栅格系统设计</a>  - 青云</li>
+<li><a target="_blank" rel="noopener" href="http://www.gracecode.com/archives/2363/">我的栅格系统</a>  - 明城</li>
+<li><a target="_blank" rel="noopener" href="http://www.markboulton.co.uk/journal/comments/five-simple-steps-to-designing-grid-systems-part-1">Five simple steps to designing grid systems</a> <a target="_blank" rel="noopener" href="http://www.markboulton.co.uk/journal/comments/five-simple-steps-to-designing-grid-systems-part-2">2</a> <a target="_blank" rel="noopener" href="http://www.markboulton.co.uk/journal/comments/five-simple-steps-to-designing-grid-systems-part-3">3</a> <a target="_blank" rel="noopener" href="http://www.markboulton.co.uk/journal/comments/five-simple-steps-to-designing-grid-systems-part-4">4</a> <a target="_blank" rel="noopener" href="http://www.markboulton.co.uk/journal/comments/five-simple-steps-to-designing-grid-systems-part-5">5</a> </li>
+</ul>
+<h4 id="CSS疑难杂症："><a href="#CSS疑难杂症：" class="headerlink" title="CSS疑难杂症："></a>CSS疑难杂症：</h4><ul>
+<li><a target="_blank" rel="noopener" href="http://www.smallni.com/haslayout-block-formatting-contexts/">HasLayout和BFC(Block Formatting Contexts)的区别完整对比</a> </li>
+<li><a target="_blank" rel="noopener" href="http://rebuildpattern.com/node/44">Block Formatting Contexts的特性</a> </li>
+<li><a target="_blank" rel="noopener" href="http://haslayout.net/">hasLayout.net</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.satzansatz.de/cssd/onhavinglayout.html">On having layout</a> <a target="_blank" rel="noopener" href="http://www.blueidea.com/tech/site/2006/3698.asp">中文版</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.positioniseverything.net/explorer/expandingboxbug.html">Internet Explorer 6 and the Expanding Box Problem</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.qianduan.net/universal-to-remove-floating-style.html">万能清除浮动样式</a> </li>
+<li><a target="_blank" rel="noopener" href="http://ued.taobao.com/blog/2010/08/04/css-border%E4%BD%BF%E7%94%A8%E5%B0%8F%E5%88%86%E4%BA%AB/">CSS Border使用小分享</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.cnblogs.com/eazon/archive/2008/07/04/1235268.html">表格樣式集錦</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.zhangxinxu.com/wordpress/?p=56">复选框单选框与文字对齐问题的研究与解决</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.blueidea.com/tech/web/2008/6313.asp">连续字符自动换行的解决方案</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.cnblogs.com/yizuierguo/archive/2010/08/04/1792287.html">三谈Iframe自适应高度</a>  | <a target="_blank" rel="noopener" href="http://www.cnblogs.com/MaxIE/archive/2008/08/13/1266597.html">再谈iframe自适应高度</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.qianduan.net/cross-browser-inline-block.html">跨浏览器的inline-block</a> <a target="_blank" rel="noopener" href="http://blog.mozilla.com/webdev/2009/02/20/cross-browser-inline-block/">en</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.planabc.net/2007/03/11/display_inline-block/">display:inline-block的深入理解</a> </li>
+</ul>
+<h2 id="HTML5-amp-CSS3"><a href="#HTML5-amp-CSS3" class="headerlink" title="HTML5 &amp; CSS3"></a>HTML5 &amp; CSS3</h2><ul>
+<li><a target="_blank" rel="noopener" href="http://diveintohtml5.info/">Dive Into HTML5</a> </li>
+<li><a target="_blank" rel="noopener" href="http://blog.bingo929.com/google-enjoy-html5-drag-drop-filereaderenren.html">HTML5训练营</a> </li>
+<li><a target="_blank" rel="noopener" href="http://blog.bingo929.com/html5-websockets.html">HTML5 WebSockets</a> </li>
+<li><a target="_blank" rel="noopener" href="http://blog.bingo929.com/html5-ie-enabling-script.html">IE支持HTML5</a> </li>
+<li><a target="_blank" rel="noopener" href="http://blog.bingo929.com/power-of-html5-css3-div-css.html">感受HTML5&amp;CSS3</a> </li>
+<li>用JavaScript玩转计算机图形学：<a target="_blank" rel="noopener" href="http://www.cnblogs.com/miloyip/archive/2010/03/29/1698953.html">(一)光线追踪入门</a> <a target="_blank" rel="noopener" href="http://www.cnblogs.com/miloyip/archive/2010/04/02/1702768.html">(二)基本光源</a> </li>
+</ul>
+<h4 id="Canvas："><a href="#Canvas：" class="headerlink" title="Canvas："></a>Canvas：</h4><ul>
+<li><a target="_blank" rel="noopener" href="http://zh.wikipedia.org/wiki/Canvas_%28HTML%E5%85%83%E7%B4%A0%29">Canvas (HTML元素)</a> </li>
+<li><a target="_blank" rel="noopener" href="http://billmill.org/static/canvastutorial/index.html">Canvas Tutorial</a> </li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/cn/Canvas_tutorial">Canvas 教程</a> <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en/Canvas_tutorial">en</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#the-canvas-element">The canvas element</a> </li>
+<li><a target="_blank" rel="noopener" href="http://blog.bingo929.com/html-5-canvas-the-basics-html5.html">HTML5 Canvas</a> </li>
+</ul>
+<h4 id="Canvas使用教程："><a href="#Canvas使用教程：" class="headerlink" title="Canvas使用教程："></a>Canvas使用教程：</h4><ul>
+<li><a target="_blank" rel="noopener" href="http://jiachen.blogbus.com/logs/29567413.html">开题</a> </li>
+<li><a target="_blank" rel="noopener" href="http://jiachen.blogbus.com/logs/29569584.html">基本语法</a> </li>
+<li><a target="_blank" rel="noopener" href="http://jiachen.blogbus.com/logs/29596111.html">图形绘制</a> </li>
+<li><a target="_blank" rel="noopener" href="http://jiachen.blogbus.com/logs/32827552.html">图片应用</a> </li>
+</ul>
+<h4 id="Canvas-Games："><a href="#Canvas-Games：" class="headerlink" title="Canvas Games："></a>Canvas Games：</h4><ul>
+<li><a target="_blank" rel="noopener" href="http://henrikfalck.com/unrealsoccer/">Unreal Soccer</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.benjoffe.com/code/demos/canvascape/">Canvascape</a> </li>
+<li><a target="_blank" rel="noopener" href="http://dave-webster.com/projects/index.php?page=incs/plasma_demo1">Plasma demo using the HTML Canvas element</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.student.kuleuven.be/~m0216922/CG/plasma.html">Lodes Computer Graphics Tutorial</a> </li>
+<li><a target="_blank" rel="noopener" href="http://alteredqualia.com/cubeout/">CubeOut</a>  - 3D 俄罗斯方块</li>
+<li><a target="_blank" rel="noopener" href="http://canvasrider.com/tracks/all">自行车越野</a> </li>
+<li><a target="_blank" rel="noopener" href="http://box2d-js.sourceforge.net/index2.html">Box2DJS</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.effectgames.com/demos/canvascycle/?sound=1">Canvas Cycles</a> </li>
+<li><a target="_blank" rel="noopener" href="http://agent8ball.com/">Agent 8 Ball</a>  - 台球</li>
+</ul>
+<h4 id="工具："><a href="#工具：" class="headerlink" title="工具："></a>工具：</h4><ul>
+<li><a target="_blank" rel="noopener" href="http://www.css3generator.com/">CSS3 Generator</a> </li>
+<li><a target="_blank" rel="noopener" href="http://gradients.glrzad.com/">CSS3 Gradient Generator</a> </li>
+<li><a target="_blank" rel="noopener" href="http://css-tricks.com/examples/ButtonMaker/">CSS3 Button Maker</a> </li>
+<li><a target="_blank" rel="noopener" href="http://css3please.com/">CSS3 Please!</a>  - The Cross-Browser CSS3 Rule Generator</li>
+</ul>
+<h4 id="Framework："><a href="#Framework：" class="headerlink" title="Framework："></a>Framework：</h4><ul>
+<li><a target="_blank" rel="noopener" href="http://www.jgraph.com/mxgraph.html">mxGraph - the AJAX diagramming soluting</a> </li>
+<li><a target="_blank" rel="noopener" href="http://code.google.com/p/svgweb/">Scalable Vector Graphics Web Browser using Flash</a> </li>
+<li><a target="_blank" rel="noopener" href="http://code.google.com/p/explorercanvas/">HTML5 Canvas for Internet Explorer</a> </li>
+<li><a target="_blank" rel="noopener" href="http://code.google.com/p/svg2vml/">Library that provides support for SVG and VML with an SVG style interface</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.walterzorn.com/jsgraphics/jsgraphics_e.htm">DHTML: Draw Line, Ellipse, Oval, Circle, Polyline, Plygon, Triangle, with JavaScript</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.cnblogs.com/webgis8/articles/1529588.html">翻译Browser Drawing一篇:Canvas/SVG/VML Drawing Roundup</a> </li>
+<li><a target="_blank" rel="noopener" href="http://github.com/mrdoob/three.js">Three.js</a> </li>
+<li><a target="_blank" rel="noopener" href="http://raphaeljs.com/">Rapha?l</a>  - 非常棒的跨平台 JavaScript 图形库 | <a target="_blank" rel="noopener" href="http://github.com/DmitryBaranovskiy/raphael">raphael@github</a>  | <a target="_blank" rel="noopener" href="http://dmitry.baranovskiy.com/">blog</a> </li>
+<li><a target="_blank" rel="noopener" href="http://code.google.com/p/uupaa-js-spinoff/">uupaa.js spin-off projects</a> </li>
+</ul>
+<h4 id="Demo："><a href="#Demo：" class="headerlink" title="Demo："></a>Demo：</h4><ul>
+<li><a target="_blank" rel="noopener" href="http://www.alexbuga.com/v9/">Alex Buga Livingroom</a> </li>
+<li><a target="_blank" rel="noopener" href="http://guciek.net/test/burn">burn-canvas-test</a>  - 画图</li>
+<li><a target="_blank" rel="noopener" href="http://webdesignledger.com/inspiration/10-html5-demos-to-make-you-forget-about-flash">10 HTML5 Demos to Make You Forget About Flash</a> <a target="_blank" rel="noopener" href="http://designlol.net/archives/1418">cn</a> </li>
+<li><a target="_blank" rel="noopener" href="http://muro.deviantart.com/">deviantART Muro</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.phoboslab.org/biolab/">Biolab Disaster</a>  - Game</li>
+<li><a target="_blank" rel="noopener" href="http://labs.codecomputerlove.com/FlashVsHtml5/">乒乓球游戏：左边用Flash，右边用HTML5</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.20thingsilearned.com/">20 Things I Learned About Browsers and the Web</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.subcide.com/experiments/fail-whale/">Pure CSS Twitter ‘Fail Whale’</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.optimum7.com/css3-man/animation.html">CSS3-Man</a> </li>
+<li><a target="_blank" rel="noopener" href="http://knb.im/css3/">A啦多梦告诉你浏览器对 CSS3 的支持程度</a> </li>
+</ul>
+<h2 id="前端相关"><a href="#前端相关" class="headerlink" title="前端相关"></a>前端相关</h2><ul>
+<li><a target="_blank" rel="noopener" href="http://www.w3.org/">World Wide Web Consortium</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.webstandards.org/">The Web Standards Project</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.w3schools.com/">W3Schools Online Web Tutorials</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.google.com/support/webmasters/bin/answer.py?hl=cn&amp;answer=40132">HTTP 状态代码</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.floatfly.cn/default/web-error-info.html">网页错误代码详解</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.w3school.com.cn/">w3school - 在线教程</a> </li>
+<li><a target="_blank" rel="noopener" href="http://zh.wikipedia.org/zh-cn/REST">REST介绍</a> </li>
+<li><a target="_blank" rel="noopener" href="http://aliceui.com/category/solutions/">浏览器兼容解决方案</a> (AliceUI) | <a target="_blank" rel="noopener" href="http://aliceui.com/w3c-docs/">W3C 标准文档</a> (AliceUI)</li>
+<li>Microformats：<a target="_blank" rel="noopener" href="http://microformats.org/wiki/Main_Page">Microformats</a>  | <a target="_blank" rel="noopener" href="http://www.blueidea.com/tech/web/2009/6471.asp">什么是微格式及经典实例演示</a>  | <a target="_blank" rel="noopener" href="http://zh.wikipedia.org/zh/%E5%BE%AE%E6%A0%BC%E5%BC%8F">微格式 - Wikipedia</a> <a target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/Microformat">en</a>  | <a target="_blank" rel="noopener" href="http://suda.co.uk/projects/microformats/cheatsheet/">Microformats Cheat Sheat</a>  | <a target="_blank" rel="noopener" href="http://www.ued163.com/?p=470">微格式全功略Hcard、 hCalendar、hReview、XFN 轻松掌握</a>  | <a target="_blank" rel="noopener" href="http://tommyfan.com/blog/skill/microformats_hcard/">微格式 Microformats ? hCard</a>  | <a target="_blank" rel="noopener" href="http://www.mijia.org/blog/?p=152">使用微格式来丰富网站语义：简介</a>  | <a target="_blank" rel="noopener" href="http://www.ablognotlimited.com/articles/getting-semantic-with-microformats-introduction/">Getting Semantic With Microformats, Introduction</a> </li>
+</ul>
+<h2 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h2><ul>
+<li><a target="_blank" rel="noopener" href="http://woodpecker.org.cn/abyteofpython_cn/chinese/">简明Python教程</a> </li>
+<li><a target="_blank" rel="noopener" href="http://woodpecker.org.cn/diveintopython/">Dive Into Python中文版</a> </li>
+<li><a target="_blank" rel="noopener" href="http://woodpecker.org.cn/diveintopython3/">Dive Into Python3中文版</a> </li>
+<li><a target="_blank" rel="noopener" href="http://wiki.woodpecker.org.cn/moin/">啄木鸟社区Wiki</a> </li>
+<li><a target="_blank" rel="noopener" href="http://wiki.woodpecker.org.cn/moin/PyAbsolutelyZipManual">Python绝对简明手册</a> </li>
+</ul>
+<h2 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h2><ul>
+<li><a target="_blank" rel="noopener" href="http://deerchao.net/tutorials/regex/regex.htm">正则表达式30分钟入门教程</a> <a target="_blank" rel="noopener" href="http://help.locoy.com/Document/Learn_Regex_For_30_Minutes.htm">2</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.regexlab.com/zh/">正则表达式工作室</a>  | <a target="_blank" rel="noopener" href="http://www.regexlab.com/zh/regref.htm">揭开正则表达式的神秘面纱</a>  | <a target="_blank" rel="noopener" href="http://www.regexlab.com/zh/regtopic.htm">正则表达式话题</a> |  <a target="_blank" rel="noopener" href="http://www.regexlab.com/zh/deelx/introidx.htm">DEELX 正则引擎性能与特点</a> </li>
+<li><a target="_blank" rel="noopener" href="http://blog.chinaunix.net/u3/112728/showart_2207101.html">各种工具之正则表达式语法比较</a> <a target="_blank" rel="noopener" href="http://hi.baidu.com/libk/blog/item/b5eb710e6c636dc37acbe107.html">2</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.phpx.com/man/Regular_Expression/">Regular_Expression 入门</a> </li>
+<li><a target="_blank" rel="noopener" href="http://java.sun.com/docs/books/tutorial/essential/regex/">Lesson: Regular Expressions(Java)</a> </li>
+<li><a target="_blank" rel="noopener" href="http://docs.python.org/library/re.html">Regular expression operations(Python)</a> </li>
+<li><a target="_blank" rel="noopener" href="http://zh.wikipedia.org/wiki/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F">正则表达式 - 维基百科</a> </li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Global_Objects/RegExp#Special_characters_in_regular_expressions">RegExp - Mozilla</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.ibm.com/developerworks/cn/linux/l-lpic1-v3-103-7/?ca=drs-tp4608">学习 Linux，101: 使用正则表达式搜索文本文件</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.ibm.com/developerworks/cn/java/wa-regexp/index.html">构建用于正则表达式的抽象 Java API</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.greenend.org.uk/rjk/2002/06/regexp.html">Regexp Syntax Summary</a> </li>
+<li><a target="_blank" rel="noopener" href="http://blog.stevenlevithan.com/archives/javascript-regex-and-unicode">JavaScript, Regex, and Unicode</a> </li>
+<li><a target="_blank" rel="noopener" href="http://blog.csdn.net/myan/archive/2007/03/03/1520033.aspx">《理解正则表达式（程序员第3期文章）》</a> </li>
+<li><a target="_blank" rel="noopener" href="http://tech.idv2.com/2006/05/08/parse-regex-with-dfa/">利用有限自动机分析正则表达式</a> </li>
+<li><a target="_blank" rel="noopener" href="http://book.51cto.com/art/200902/111541.htm">《Linux系统最佳实践工具：命令行技术》</a> </li>
+<li><a target="_blank" rel="noopener" href="http://iregex.org/links">我爱正则表达式</a> </li>
+<li><a target="_blank" rel="noopener" href="http://regex.me/">正则表达式论坛</a> </li>
+<li>正则表达式工具：<a target="_blank" rel="noopener" href="http://regexpal.com/">Regexpal (online)</a> <a target="_blank" rel="noopener" href="http://www.microidc.com/usr/tools/regexpal/index.html">2</a>  | <a target="_blank" rel="noopener" href="http://gskinner.com/RegExr/">RegExr</a>  | <a target="_blank" rel="noopener" href="http://www.regexbuddy.com/">RegexBuddy</a>  | <a target="_blank" rel="noopener" href="http://www.ultrapico.com/Expresso.htm">Expresso (free, open-source)</a>  | <a target="_blank" rel="noopener" href="http://www.regexlab.com/zh/mtracer/">Match Tracer</a>  | <a target="_blank" rel="noopener" href="http://www.gethifi.com/tools/regex">HiFi Regex Tester</a>  | <a target="_blank" rel="noopener" href="http://www.redfernplace.com/software-projects/regex-builder/">RegEx Builder</a> </li>
+</ul>
+<h2 id="开发相关"><a href="#开发相关" class="headerlink" title="开发相关"></a>开发相关</h2><ul>
+<li><p><a target="_blank" rel="noopener" href="http://markdown.tw/">MarkDown语法</a> </p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://114.xixik.com/character/">HTML转义</a> </p>
+</li>
+<li><p>OAuth</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://oauth.net/">OAuth</a> </p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://www.rollingcode.org/blog/f/oauth-core-1.0-final-cn.html">OAuth核心</a> </p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://code.google.com/apis/accounts/docs/OAuth.html">OAtuh for Web Application</a> </p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/mattn/vim-oauth">Vim-oauth</a> </p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/mattn/webapi-vim">webapi-vim</a><br>&amp; OAuth在线测试：<a target="_blank" rel="noopener" href="http://term.ie/oauth/example/index.php">服务端</a>  | <a target="_blank" rel="noopener" href="http://term.ie/oauth/example/client.php">客户端</a> </p>
+</li>
+<li><p>国内开源镜像站：<a target="_blank" rel="noopener" href="http://mirrors.sohu.com/">Sohu.com</a>  | <a target="_blank" rel="noopener" href="http://mirrors.163.com/">163.com</a> </p>
+</li>
+<li><p>在线IDE：<a target="_blank" rel="noopener" href="http://www.coderun.com/ide/">CodeRun</a>  | <a target="_blank" rel="noopener" href="http://jsfiddle.net/">jsFiddle</a>  | <a target="_blank" rel="noopener" href="http://jsbin.com/">JS Bin</a>  | <a target="_blank" rel="noopener" href="http://code.wanz.im/">小可<Little Code /></a> </p>
+</li>
+<li><p>优良的文本处理工具：SED &amp; AWK</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://sed.sourceforge.net/">sed.sf.net</a>  | <a target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/AWK">AWK @wikipedia</a> <a target="_blank" rel="noopener" href="http://zh.wikipedia.org/wiki/AWK">中文</a> </p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://gnuwin32.sourceforge.net/packages/gawk.htm">Gawk for Windows</a>  | <a target="_blank" rel="noopener" href="http://gnuwin32.sourceforge.net/packages/sed.htm">Sed for Windows</a> </p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://blog.chinaunix.net/u/13392/showart.php?id=133128">sed-非交互式文本编辑器(L.E.McMahon 著,中文翻译)</a> <a target="_blank" rel="noopener" href="http://cm.bell-labs.com/7thEdMan/vol2/sed">En</a>  | <a target="_blank" rel="noopener" href="http://blog.chinaunix.net/u/13392/showart.php?id=134410">awk-模式扫描与处理语言(Aho,Kernighan,Weinberger著,中文翻译)(第二版)</a> <a target="_blank" rel="noopener" href="http://cm.bell-labs.com/7thEdMan/vol2/awk">En</a> </p>
+</li>
+<li><p>详解注明的AWK oneliner：<a target="_blank" rel="noopener" href="http://roylez.heroku.com/2010/04/11/awk-oneliner-translation-1.html">一：空行、行号和计算</a>  | <a target="_blank" rel="noopener" href="http://roylez.heroku.com/2010/04/28/awk-oneliner-translation-2.html">二：文本替换</a>  | <a target="_blank" rel="noopener" href="http://roylez.heroku.com/2010/05/15/awk-oneliner-translation-3.html">三：选择性输出特定行</a>  | <a target="_blank" rel="noopener" href="http://roylez.heroku.com/2010/07/29/awk-oneliner-translation-4.html">四：定义字符串和数组</a> </p>
+</li>
+<li><p>详解AWK oneliner原文：<a target="_blank" rel="noopener" href="http://www.catonmat.net/blog/awk-one-liners-explained-part-one/">Famous Awk One-Liners Explained</a>  | <a target="_blank" rel="noopener" href="http://www.catonmat.net/blog/update-on-famous-awk-one-liners-explained">Update on Famous Awk One-Liners Explained: String and Array Creation</a> </p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://panweizeng.com/archives/522">sed和awk的简单使用 - 潘魏增</a> </p>
+</li>
+<li><p>参考书籍：<a target="_blank" rel="noopener" href="http://cm.bell-labs.com/cm/cs/awkbook/">The AWK Programming Language</a>  | <a target="_blank" rel="noopener" href="http://oreilly.com/catalog/9780596000707/">Effective awk Programming, Third Edition</a>  | <a target="_blank" rel="noopener" href="http://oreilly.com/catalog/9781565922259">sed &amp; awk, Second Edition</a>  | <a target="_blank" rel="noopener" href="http://oreilly.com/catalog/9780596003524">sed and awk Pocket Reference, Second Edition</a> </p>
+</li>
+</ul>
+<h4 id="函数式编程："><a href="#函数式编程：" class="headerlink" title="函数式编程："></a>函数式编程：</h4><ul>
+<li><p><a target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/Functional_programming">@wikipedia</a> <a target="_blank" rel="noopener" href="http://zh.wikipedia.org/zh-cn/%E5%87%BD%E6%95%B8%E7%A8%8B%E5%BC%8F%E8%AA%9E%E8%A8%80">中文</a> </p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://www.aqee.net/2010/03/08/a-brief-history-of-object-functional-programming/">对象-函数式编程简史</a> <a target="_blank" rel="noopener" href="http://news.csdn.net/a/20100311/217407.html">2</a> </p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://www.ibm.com/developerworks/cn/web/wa-javascript.html">用函数式编程技术编写优美的 JavaScript</a> </p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://blog.zhaojie.me/tag/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/">函数式编程</a>  - 老赵</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://chenzhongke.com/wi/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B">函数式编程</a>  - czk wiki</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://wfp.group.javaeye.com/">函数式编程の道</a> </p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://blog.csdn.net/xuejx/archive/2009/08/12/4440105.aspx">哪种语言将统治多核时代 再看函数式语言特性</a> </p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://www.canonical.org/~kragen/tao-of-programming.html">The Tao Of Programming</a> ,<a target="_blank" rel="noopener" href="http://osiris.urbanna.net/tao.html">2</a> ,<a target="_blank" rel="noopener" href="http://livecn.huasing.org/tao_of_programming.htm">《编程之道》</a>  文言文版 by Livecn，<a target="_blank" rel="noopener" href="http://202.118.74.32/doc/Science/Computer/TaoOfProg.pdf">2</a>  白话文版 by 小赵</p>
+</li>
+<li><p>代码高亮：<a target="_blank" rel="noopener" href="http://mihai.bazon.net/projects/javascript-syntax-highlighting-engine">DlHightLight代码高亮组件</a>  | <a target="_blank" rel="noopener" href="http://code.google.com/p/google-code-prettify/">Google Code Prettify</a> </p>
+</li>
+</ul>
+<h2 id="版本控制"><a href="#版本控制" class="headerlink" title="版本控制"></a>版本控制</h2><ul>
+<li><a target="_blank" rel="noopener" href="http://blog.csdn.net/vagrxie/archive/2009/09/23/4582457.aspx">版本控制系统（RCS）的选择与比较</a> </li>
+<li><a target="_blank" rel="noopener" href="http://blog.csdn.net/tony1130/archive/2008/10/25/3137494.aspx">拥抱Mercurial—选择分布式版本控制工具</a> </li>
+<li><a target="_blank" rel="noopener" href="http://blog.csdn.net/meteor1113/archive/2009/07/16/4350408.aspx">几个分布式vcs比较</a> </li>
+<li><a target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/Comparison_of_revision_control_software">Comparison of revision control software</a> <h4 id="代码片段管理："><a href="#代码片段管理：" class="headerlink" title="代码片段管理："></a>代码片段管理：</h4></li>
+<li><a target="_blank" rel="noopener" href="http://gist.github.com/">gist@github</a> </li>
+<li><a target="_blank" rel="noopener" href="http://notepad.cc/">notepad.cc</a> </li>
+<li><a target="_blank" rel="noopener" href="http://snipt.org/">Snipt.org</a> </li>
+<li><a target="_blank" rel="noopener" href="http://paste.ubuntu.org.cn/">Ubuntu Paste</a> </li>
+<li><a target="_blank" rel="noopener" href="http://pastebin.com/">Pastebin</a> </li>
+<li><a target="_blank" rel="noopener" href="http://paste.pocoo.org/">Lodge It!</a> </li>
+</ul>
+<h4 id="SVN相关："><a href="#SVN相关：" class="headerlink" title="SVN相关："></a>SVN相关：</h4><ul>
+<li><a target="_blank" rel="noopener" href="http://svnbook.red-bean.com/">Subversion 与版本控制</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.iusesvn.com/subversion/tortoisesvn_doc/1.4/">TortoiseSVN 中文帮助手册(v1.4.1)</a> <a target="_blank" rel="noopener" href="http://tortoisesvn.net/docs/release/TortoiseSVN_zh_CN/index.html">v1.6.8</a> </li>
+<li><a target="_blank" rel="noopener" href="http://tortoisesvn.tigris.org/">Tigris.org</a>  - for Windows. </li>
+<li><a target="_blank" rel="noopener" href="http://www.subversion.org.cn/">Subversive中文站</a> </li>
+<li><a target="_blank" rel="noopener" href="http://subclipse.tigris.org/">Subclipse</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.eclipse.org/subversive/">Subversive</a> </li>
+<li><a target="_blank" rel="noopener" href="http://rabbitvcs.org/">RabbitVCS</a>  - for Linux. </li>
+<li><a target="_blank" rel="noopener" href="http://xuming.net/2010/04/rabbitvcs.html">Ubuntu下最好用的SVN客户端</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.open.collab.net/scdocs/ddUsingSVN_command-line.html.zh-cn">SVN 命令行</a> </li>
+</ul>
+<h4 id="Mercurial相关："><a href="#Mercurial相关：" class="headerlink" title="Mercurial相关："></a>Mercurial相关：</h4><ul>
+<li><a target="_blank" rel="noopener" href="http://mercurial.selenic.com/">Mercurial</a>  | <a target="_blank" rel="noopener" href="http://mercurial.selenic.com/wiki/ChineseTutorial">Mercurial 使用教程</a> </li>
+<li><a target="_blank" rel="noopener" href="http://hginit.com/">Hg Init: a Mercurial tutorial</a> </li>
+<li><a target="_blank" rel="noopener" href="http://hgbook.red-bean.com/">Mercurial: The Definitive Guide</a> <a target="_blank" rel="noopener" href="http://hgbook.red-bean.com/read/">read</a> </li>
+<li><a target="_blank" rel="noopener" href="http://leeiio.me/googlecode-converting-svn-to-hg/">在Google Code上用 Mercurial 取代 Subversion 管理你的项目</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.cn-cuckoo.com/2010/03/20/distributed-version-control-is-here-to-stay-baby-1436.html">乔尔谈软件终结篇：分布式版本控制系统的时代到来了</a>  - 讲到了分布式版本控制的精髓：管理变更，而不是管理版本。</li>
+<li><a target="_blank" rel="noopener" href="http://stevelosh.com/blog/2010/08/a-git-users-guide-to-mercurial-queues/">A Git User’s Guide to Mercurial Queues</a> </li>
+</ul>
+<ul>
+<li>Mercurial托管服务：<a target="_blank" rel="noopener" href="http://bitbucket.org/">Mercurial hosting - bitbucket.org</a>  | <a target="_blank" rel="noopener" href="http://www.fogcreek.com/kiln/">KilnHg</a> </li>
+</ul>
+<h4 id="Git相关："><a href="#Git相关：" class="headerlink" title="Git相关："></a>Git相关：</h4><ul>
+<li><a target="_blank" rel="noopener" href="http://git-scm.com/">Git</a>  - the Fast Version Control System. </li>
+<li><a target="_blank" rel="noopener" href="http://www-cs-students.stanford.edu/~blynn/gitmagic/intl/zh_cn/index.html">Stanford出品的Git Magic教程</a> </li>
+<li>最详细Git介绍：<a target="_blank" rel="noopener" href="http://progit.org/">Pro Git</a>  (<a target="_blank" rel="noopener" href="http://progit.org/book/">book</a> , <a target="_blank" rel="noopener" href="http://progit.org/book/zh/">中文版</a> )</li>
+<li><a target="_blank" rel="noopener" href="http://help.github.com/">Git官方帮助文档</a> </li>
+<li>简明教程：<a target="_blank" rel="noopener" href="http://blog.csdn.net/chinalinuxzend/archive/2008/11/14/3292896.aspx">git 之五分钟教程</a>  | <a target="_blank" rel="noopener" href="http://wangcong.org/blog/?p=283">进一步学习 Git</a>  | <a target="_blank" rel="noopener" href="http://www.ibm.com/developerworks/cn/linux/l-git/">使用 Git 管理源代码</a>  | <a target="_blank" rel="noopener" href="http://www.elias.cn/Develop/GitMini">分布式版本控制工具Git简明笔记</a>  | <a target="_blank" rel="noopener" href="http://labs.chinamobile.com/mblog/225_2822">译文:GIT日常命令20来条</a> </li>
+<li><a target="_blank" rel="noopener" href="http://blog.leezhong.com/translate/2010/10/30/a-successful-git-branch.html">Git开发管理之道</a> </li>
+<li>Git讨论：<a target="_blank" rel="noopener" href="http://zh-cn.whygitisbetterthanx.com/">Why Git is Better than X</a>  | <a target="_blank" rel="noopener" href="http://www.ibm.com/developerworks/cn/web/wa-git/">Git 改变了分布式 Web 开发规则</a>  | <a target="_blank" rel="noopener" href="http://www.joomlagate.com/article/joomla-review/why-subversion-will-be-replaced-by-git-for-version-control/">为什么说 Git 将取代 SVN 做软件版本控制？</a> </li>
+<li><a target="_blank" rel="noopener" href="http://rubynroll.javaeye.com/blog/203133">SVN+GIT=鱼与熊掌兼得</a> </li>
+<li>面向 Subversion 用户的 Git：<a target="_blank" rel="noopener" href="http://www.ibm.com/developerworks/cn/linux/l-git-subversion-1/">一: 入门指南</a>  | <a target="_blank" rel="noopener" href="http://www.ibm.com/developerworks/cn/linux/l-git-subversion-2/">面向 Subversion 用户的 Git，第 2 部分: 实施控制</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.jeffkit.info/2010/12/885/">Git的推广心得</a>  | <a target="_blank" rel="noopener" href="http://www.jeffkit.info/2010/12/860/">你为神马不用git-flow呢?</a>  | <a target="_blank" rel="noopener" href="http://www.jeffkit.info/2010/12/842/">开始实践git-flow</a> </li>
+<li><a target="_blank" rel="noopener" href="http://github.com/">github</a>  | <a target="_blank" rel="noopener" href="http://jekyllrb.com/">jekyll</a>  | <a target="_blank" rel="noopener" href="https://github.com/mojombo/jekyll">codes</a>  | <a target="_blank" rel="noopener" href="https://github.com/mojombo/mojombo.github.com">demos</a>  | <a target="_blank" rel="noopener" href="https://github.com/blog/272-github-pages">GitHub Pages</a>  | <a target="_blank" rel="noopener" href="http://blog.envylabs.com/2009/08/publishing-a-blog-with-github-pages-and-jekyll/">Publishing a Blog with GitHub Pages and Jekyll</a> </li>
+</ul>
+<h2 id="系统相关"><a href="#系统相关" class="headerlink" title="系统相关"></a>系统相关</h2><ul>
+<li><a target="_blank" rel="noopener" href="http://xbeta.info/win-run.htm">用win+r启动程序和文档</a> </li>
+<li><a target="_blank" rel="noopener" href="http://lamp.linux.gov.cn/Linux/LFS-6.2/index.html">Linux彻底定制指南(Linux From Scratch)</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.douban.com/group/topic/14530790/">服务器和架构方面的一些文章</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.cnblogs.com/stephen-liu74/archive/2011/12/20/2285454.html">Linux Shell常用技巧(目录)</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.cnblogs.com/stephen-liu74/archive/2012/01/04/2285640.html">Linux Shell高级技巧(目录)</a> </li>
+<li><a target="_blank" rel="noopener" href="http://wiki.ubuntu.org.cn/%E6%96%B0%E6%89%8B%E5%85%A5%E9%97%A8%E6%8C%87%E5%BC%95">Ubuntu新手入门指引</a>  | <a target="_blank" rel="noopener" href="http://wiki.ubuntu.org.cn/Ubuntu%E6%A1%8C%E9%9D%A2%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97">Ubuntu桌面入门指南</a> </li>
+<li>终端(Terminal)：<a target="_blank" rel="noopener" href="http://www.zsh.org/">zsh</a>  | <a target="_blank" rel="noopener" href="http://zsh.sourceforge.net/">zsh.sf.net</a>  | <a target="_blank" rel="noopener" href="http://linuxtoy.org/archives/zsh.html">终极Shell——Zsh</a>  | <a target="_blank" rel="noopener" href="http://sofish.de/1685">把 Mac 上的 bash 换成 zsh</a>  | <a target="_blank" rel="noopener" href="http://leeiio.me/bash-to-zsh-for-mac/">zsh – 给你的Mac不同体验的Terminal！</a>  | <a target="_blank" rel="noopener" href="https://github.com/robbyrussell/oh-my-zsh">oh-my-zsh@github</a> </li>
+<li>网络监控：<a target="_blank" rel="noopener" href="http://www.fiddler2.com/fiddler2/">Fiddler 2</a>  | <a target="_blank" rel="noopener" href="http://www.httpwatch.com/">HttpWatch</a>  | <a target="_blank" rel="noopener" href="http://www.charlesproxy.com/">Charles</a> </li>
+</ul>
+<h4 id="远程控制："><a href="#远程控制：" class="headerlink" title="远程控制："></a>远程控制：</h4><ul>
+<li>SSH技巧详解：<a target="_blank" rel="noopener" href="http://matt.might.net/articles/ssh-hacks/">SSH: More than secure shell</a> </li>
+<li>SSH：<a target="_blank" rel="noopener" href="http://fuse.sourceforge.net/sshfs.html">SSH Filesystem</a>  | <a target="_blank" rel="noopener" href="http://wowubuntu.com/sshfs.html">在 Ubuntu 上使用 sshfs 映射远程 ssh 文件系统为本地磁盘</a>  | <a target="_blank" rel="noopener" href="http://code.google.com/p/macfuse/">MacFUSE</a>  | <a target="_blank" rel="noopener" href="http://www.macupdate.com/app/mac/23721/sshfs-for-mac-os-x">sshfs for Mac OS X</a> </li>
+<li>SecureCRT：<a target="_blank" rel="noopener" href="http://www.vandyke.com/products/securecrt/index.html">SecureCRT</a>  | <a target="_blank" rel="noopener" href="http://www.cnblogs.com/ztf2008/archive/2009/09/11/1564979.html">SecureCRT 常用命令</a> </li>
+<li>PuTTY：<a target="_blank" rel="noopener" href="http://www.putty.org/">PuTTY</a>  | <a target="_blank" rel="noopener" href="http://code.google.com/p/puttycn/">PuTTY 中文版</a>  | <a target="_blank" rel="noopener" href="http://www.chiark.greenend.org.uk/~sgtatham/putty/">PuTTY: A Free Telnet/SSH Client</a>  | <a target="_blank" rel="noopener" href="http://chaifeng.com/blog/2007/06/putty_200611.html">PuTTY 中文教程</a>  | <a target="_blank" rel="noopener" href="https://docs.google.com/View?docid=ajbgz6fp3pjh_2dwwwwt">@google docs</a>  | <a target="_blank" rel="noopener" href="http://blog.csdn.net/niuniuchou/archive/2010/03/16/5387250.aspx">转</a>  | <a target="_blank" rel="noopener" href="http://zh.wikipedia.org/wiki/PuTTY">@wikipedia</a> </li>
+<li>cURL：<a target="_blank" rel="noopener" href="http://curl.haxx.se/">cURL and libcurl</a>  | <a target="_blank" rel="noopener" href="http://curl.haxx.se/docs/">docs</a>  | <a target="_blank" rel="noopener" href="http://php.net/manual/en/book.curl.php">PHP: cURL - Manual</a>  | <a target="_blank" rel="noopener" href="http://www.vimer.cn/2010/03/libcurl%E7%9A%84%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%80%EF%BC%89.html">libcurl的使用总结（一）</a>  | <a target="_blank" rel="noopener" href="http://www.vimer.cn/2010/03/libcurl%E7%9A%84%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93%EF%BC%88%E4%BA%8C%EF%BC%89.html">libcurl的使用总结（二）</a> </li>
+<li>rsync：<a target="_blank" rel="noopener" href="http://rsync.samba.org/">rsync</a>  | <a target="_blank" rel="noopener" href="http://zh.wikipedia.org/zh-cn/Rsync">zh@wikipedia</a>  | <a target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/Rsync">en@wikipedia</a>  | <a target="_blank" rel="noopener" href="http://everythinglinux.org/rsync/">A Tutorial on Using</a>  | <a target="_blank" rel="noopener" href="http://www.itefix.no/i2/node/10650">cwrsync - Rsync for Windows</a>  | <a target="_blank" rel="noopener" href="http://wowubuntu.com/rsync.html">如何用 Rsync 来备份 Linux 文件</a>  | <a target="_blank" rel="noopener" href="http://www.dbanotes.net/techmemo/aix_rsync.html">AIX 上配置 rsync 简记</a>  | <a target="_blank" rel="noopener" href="http://www.dbanotes.net/techmemo/rsync_cwrsync_backup_dreamhost_to_windows.html">用 Rsync(cwRsync)备份 Dreamhost 到 Windows 上</a>  | <a target="_blank" rel="noopener" href="http://www.dbanotes.net/techmemo/rsync_openssh.html">Rsync 与 OpenSSH 结合运用进行文件同步</a> </li>
+</ul>
+<h4 id="Email相关："><a href="#Email相关：" class="headerlink" title="Email相关："></a>Email相关：</h4><ul>
+<li><a target="_blank" rel="noopener" href="http://htmlemailboilerplate.com/">HTML Email Boilerplate - Email模板</a> </li>
+<li><a target="_blank" rel="noopener" href="http://blog.miniasp.com/post/2008/02/06/How-to-send-Email-with-embedded-picture-image.aspx">如何發送內嵌圖片的 E-mail ( Inline Attachment )</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.tzwhx.com/newOperate/html/1/11/112/18550.html">发送内嵌图片邮件的正确方法</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.oschina.net/bbs/thread/8428">使用 Commons-Email 在邮件内容中直接嵌入图片</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.iteedu.com/webtech/j2ee/springdiary/93.php">内嵌图片或附档</a> </li>
+<li><a target="_blank" rel="noopener" href="http://inlinestyler.torchboxapps.com/">HTML email inline styler</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.ajaxapp.com/2009/03/01/css-to-inline-styles-converter/">CSS to inline styles converter</a> </li>
+</ul>
+<h2 id="设计相关"><a href="#设计相关" class="headerlink" title="设计相关"></a>设计相关</h2><h4 id="图片、图标-Icons-："><a href="#图片、图标-Icons-：" class="headerlink" title="图片、图标(Icons)："></a>图片、图标(Icons)：</h4><ul>
+<li><a target="_blank" rel="noopener" href="http://speckyboy.com/2011/12/12/top-50-web-development-design-and-application-icon-sets-from-2011/">2011年50个最佳图标设计集合</a> </li>
+<li><a target="_blank" rel="noopener" href="http://findicons.com/">FindIcons图标搜索引擎</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.iconarchive.com/">Icon Archive</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.iconspedia.com/">PNG icons &amp; Icons Picks Download</a> </li>
+<li><a target="_blank" rel="noopener" href="http://dryicons.com/">DryIcons - Free Icons and Vector Graphics</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.iconeasy.com/">Icon Easy</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.tutorial9.net/">Tutorial9 | Photoshop Tutorials, Photography Tuts, and Resources</a> </li>
+<li><a target="_blank" rel="noopener" href="http://thedesignmag.com/16-sketchy-hand-drawn-icon-sets.html">16 Sketchy Hand Drawn Icon Sets</a> </li>
+<li><a target="_blank" rel="noopener" href="http://people.freedesktop.org/~jimmac/icons/">Gnome Icon Theme</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.dutchicon.com/">dutch icon?</a> </li>
+<li><a target="_blank" rel="noopener" href="http://openiconlibrary.sourceforge.net/">开源图标库</a> </li>
+<li>PhotoShop：<a target="_blank" rel="noopener" href="http://www.blueidea.com/tech/graph/2003/672.asp">PhotoShop通道白解</a>  | <a target="_blank" rel="noopener" href="http://zhidao.baidu.com/question/293029002.html">PhotoShop CS5序列号</a> </li>
+</ul>
+<h4 id="字体："><a href="#字体：" class="headerlink" title="字体："></a>字体：</h4><ul>
+<li><a target="_blank" rel="noopener" href="http://zh.wikipedia.org/wiki/%E8%A1%AC%E7%BA%BF%E4%BD%93">什么是衬线体</a> </li>
+<li><a target="_blank" rel="noopener" href="http://wenq.org/">文泉驿</a>  - 开源字体。开彼源兮，斯流永继。</li>
+<li><a target="_blank" rel="noopener" href="http://www.cnbeta.com/articles/102609.htm">让代码更美:10大编程字体</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.typeisbeautiful.com/">Type is Beautiful</a>  - 字体排版</li>
+<li><a target="_blank" rel="noopener" href="http://code.google.com/webfonts">Google Font Directory</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.network-science.de/ascii/">ASCII Generator</a> </li>
+<li>假文填充：<a target="_blank" rel="noopener" href="http://zh.wikipedia.org/zh-cn/Lorem_ipsum">Lorem ipsum</a>  | <a target="_blank" rel="noopener" href="http://more.handlino.com/">中文假文MoreText.js</a> <a target="_blank" rel="noopener" href="http://github.com/c9s/more.vim">MoreText的Vim插件</a>  | <a target="_blank" rel="noopener" href="http://www.richyli.com/tool/loremipsum/">亂數假文產生器 Chinese Lorem Ipsum</a> </li>
+</ul>
+<h4 id="表格："><a href="#表格：" class="headerlink" title="表格："></a>表格：</h4><ul>
+<li><a target="_blank" rel="noopener" href="http://article.yeeyan.org/view/155461/108136">15个优秀的表格设计技巧</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.askthecssguy.com/2007/08/creating_a_table_with_dynamica.html">Creating a table with dynamically highlighted columns like Crazy Eggs pricing table</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.junchenwu.com/2007/02/redesign_a_simple_table.html">越减越妙：简单表格的再设计</a> </li>
+<li><a target="_blank" rel="noopener" href="http://blog.bingo929.com/15-jquery-plugins-for-better-table-manipulation.html/comment-page-1">15款提高表格操作的jQuery插件</a> </li>
+</ul>
+<h4 id="资源："><a href="#资源：" class="headerlink" title="资源："></a>资源：</h4><ul>
+<li><a target="_blank" rel="noopener" href="http://dribbble.com/">Dribble：著名设计师聚合网站</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.zcool.com.cn/">站酷：交流设计、分享快乐</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.quanjing.com/">全景：创意图片库</a> </li>
+<li><a target="_blank" rel="noopener" href="http://designlol.net/">Designlol：全球设计精享</a> </li>
+<li><a target="_blank" rel="noopener" href="http://cn.designboom.com/">Designboom</a> </li>
+<li>配色方案：<a target="_blank" rel="noopener" href="http://www.colorschemer.com/">Color Schemer</a>  | <a target="_blank" rel="noopener" href="http://kuler.adobe.com/">kuler</a>  | <a target="_blank" rel="noopener" href="http://color.aurlien.net/">Piknik Color Picker</a> </li>
+<li><a target="_blank" rel="noopener" href="http://www.qianduan.net/80-more-absolutely-beautiful-dual-screen-wallpaper.html">80多个绝对漂亮的双屏壁纸</a> </li>
+</ul>
+<h2 id="VIM"><a href="#VIM" class="headerlink" title="VIM"></a>VIM</h2><ul>
+<li><a target="_blank" rel="noopener" href="http://blog.longwin.com.tw/2009/03/choose-vim-color-scheme-2009/">配置挑选Vim颜色(Color Scheme)</a> </li>
+<li><a target="_blank" rel="noopener" href="http://scmbob.org/vim_fdm.html">VIM折叠简介</a> </li>
+<li><a target="_blank" rel="noopener" href="http://freewind.me/blog/20110912/102.html">FuzzyFinder快速查找文件</a> </li>
+</ul>
+<p>转自：<a target="_blank" rel="noopener" href="https://www.luxiaolei.com/wiki">https://www.luxiaolei.com/wiki</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.fenxiangz.com/post/%E5%85%B6%E4%BB%96/2020-10-25_V2ray%E9%85%8D%E7%BD%AE.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Hassan">
+      <meta itemprop="description" content="Share everything">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="分享之">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/post/%E5%85%B6%E4%BB%96/2020-10-25_V2ray%E9%85%8D%E7%BD%AE.html" class="post-title-link" itemprop="url">V2ray 配置</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-10-25 00:00:00" itemprop="dateCreated datePublished" datetime="2020-10-25T00:00:00+00:00">2020-10-25</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-12-20 16:47:02" itemprop="dateModified" datetime="2020-12-20T16:47:02+00:00">2020-12-20</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%85%B6%E4%BB%96-V2ray/" itemprop="url" rel="index"><span itemprop="name">其他/V2ray</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Mac"><a href="#Mac" class="headerlink" title="Mac"></a>Mac</h1><p>下载软件：</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/yanue/V2rayU/releases/download/2.1.0/V2rayU.dmg">https://github.com/yanue/V2rayU/releases/download/2.1.0/V2rayU.dmg</a></p>
+<p>配置教程：<br><a target="_blank" rel="noopener" href="https://github.com/yanue/V2rayU/wiki/V2rayU%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E">https://github.com/yanue/V2rayU/wiki/V2rayU%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E</a></p>
+<h1 id="Window"><a href="#Window" class="headerlink" title="Window"></a>Window</h1><p>下载软件：<br><a target="_blank" rel="noopener" href="https://github.com/2dust/v2rayN/releases/download/3.13/v2rayN-Core.zip">https://github.com/2dust/v2rayN/releases/download/3.13/v2rayN-Core.zip</a></p>
+<h1 id="Android"><a href="#Android" class="headerlink" title="Android"></a>Android</h1><p>下载软件：<a target="_blank" rel="noopener" href="https://github.com/2dust/v2rayNG/releases/download/1.2.4/v2rayNG_1.2.4.apk">https://github.com/2dust/v2rayNG/releases/download/1.2.4/v2rayNG_1.2.4.apk</a></p>
+<h1 id="iOS"><a href="#iOS" class="headerlink" title="iOS"></a>iOS</h1><p>AppStore： Shadowrocket<br>教程：<br><a target="_blank" rel="noopener" href="https://www.hijk.pw/shadowrocket-config-v2ray-tutorial/">https://www.hijk.pw/shadowrocket-config-v2ray-tutorial/</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
+
+
 <script>
-    (function () {
-        window.addEventListener('scroll', function () {
-            if (window.innerWidth < 768) {
-                return;
-            }
-            var nav = document.querySelector('#gkt-nav');
-            var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-            scrollTop > 50 && (nav.classList.add('hide'));
-            scrollTop <= 50 && (nav.classList.remove('hide'));
-        });
-        var cateNavs = document.querySelectorAll('#gkt-cate-nav>nav>ul>li');
-        [].slice.call(cateNavs).forEach(function (item) {
-            var sub = item.querySelector('.gkt-sub-cate');
-            if (!sub) return;
-            item.addEventListener('mouseenter', function (e) { sub.style.display = 'block'; }, false);
-            item.addEventListener('mouseleave', function (e) { sub.style.display = 'none'; }, false);
-        })
-    })();
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
 </script>
-    <!-- Main Content -->
-    <div class="main-container">
-        <!-- Main Content -->
-<main class="col-xs-12 padding-0 markdown-it">
-    <!-- Post Container -->
-    
-    <style>
-        @media (min-width: 1200px) {
-            .main-container {
-                width: 1000px !important;
-            }
-        }
-    </style>
-    <div class="float-left post-container box-shadow">
-        <!-- Main Content -->
-<!-- css page.ejs -->
-<!-- 置顶文章 -->
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
 
 
-<!-- 普通文章 -->
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Hassan</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
 
-<div class="post-preview">
-    <div class="post-img" style="background-image: url('/images/java/basic/java_logo.png')"></div>
-    <div class="post-info">
-        <div class="post-info-center">
-            <div class="hidden-xs">
-                
-                
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#Java"
-                    title="Java">Java</a>
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#HttpClient"
-                    title="HttpClient">HttpClient</a>
-                <span>/</span>
-                
-                
-            </div>
-            <a href="/post/java/util/2020-12-23_HttpClient连接池原理及一次连接时序图.html" class="title">
-                HttpClient连接池原理及一次连接时序图
-            </a>
-            <p class="text-gray">
-                <small>
-                    <span>发表于2020-12-23，</span>
-                    <span class="hidden-xs">全文13043字，</span>
-                    <span>阅读约44分钟</span>
-                </small>
-            </p>
-        </div>
     </div>
-</div>
+  </footer>
 
-<div class="post-preview">
-    <div class="post-img" style="background-image: url('/images/java/basic/java_logo.png')"></div>
-    <div class="post-info">
-        <div class="post-info-center">
-            <div class="hidden-xs">
-                
-                
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#Java"
-                    title="Java">Java</a>
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#同步"
-                    title="同步">同步</a>
-                <span>/</span>
-                
-                
-            </div>
-            <a href="/post/java/basic/2012-12-22_Java_Synchronized原理图.html" class="title">
-                Java Synchronized 原理图
-            </a>
-            <p class="text-gray">
-                <small>
-                    <span>发表于2020-12-22，</span>
-                    <span class="hidden-xs">全文212字，</span>
-                    <span>阅读约1分钟</span>
-                </small>
-            </p>
-        </div>
-    </div>
-</div>
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
 
-<div class="post-preview">
-    <div class="post-img" style="background-image: url('/')"></div>
-    <div class="post-info">
-        <div class="post-info-center">
-            <div class="hidden-xs">
-                
-                
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#文件名批量修改"
-                    title="文件名批量修改">文件名批量修改</a>
-                <span>/</span>
-                
-                
-            </div>
-            <a href="/post/util/2020-12-20_批量去除文件名部分关键字.html" class="title">
-                使用JS脚本批量去除文件名中部分关键字
-            </a>
-            <p class="text-gray">
-                <small>
-                    <span>发表于2020-12-20，</span>
-                    <span class="hidden-xs">全文939字，</span>
-                    <span>阅读约4分钟</span>
-                </small>
-            </p>
-        </div>
-    </div>
-</div>
-
-<div class="post-preview">
-    <div class="post-img" style="background-image: url('/images/linux.png')"></div>
-    <div class="post-info">
-        <div class="post-info-center">
-            <div class="hidden-xs">
-                
-                
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#IO"
-                    title="IO">IO</a>
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#零拷贝"
-                    title="零拷贝">零拷贝</a>
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#异步IO"
-                    title="异步IO">异步IO</a>
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#直接IO"
-                    title="直接IO">直接IO</a>
-                <span>/</span>
-                
-                
-            </div>
-            <a href="/post/linux/2020-12-16_原来8张图，就可以搞懂「零拷贝」了.html" class="title">
-                原来 8 张图，就可以搞懂「零拷贝」了
-            </a>
-            <p class="text-gray">
-                <small>
-                    <span>发表于2020-12-16，</span>
-                    <span class="hidden-xs">全文9878字，</span>
-                    <span>阅读约33分钟</span>
-                </small>
-            </p>
-        </div>
-    </div>
-</div>
-
-<div class="post-preview">
-    <div class="post-img" style="background-image: url('/images/Redis.png')"></div>
-    <div class="post-info">
-        <div class="post-info-center">
-            <div class="hidden-xs">
-                
-                
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#Redis"
-                    title="Redis">Redis</a>
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#优化"
-                    title="优化">优化</a>
-                <span>/</span>
-                
-                
-            </div>
-            <a href="/post/dateabase/Redis/2020_12_08_Redis清理方法.html" class="title">
-                Redis存储优化
-            </a>
-            <p class="text-gray">
-                <small>
-                    <span>发表于2020-12-08，</span>
-                    <span class="hidden-xs">全文1295字，</span>
-                    <span>阅读约5分钟</span>
-                </small>
-            </p>
-        </div>
-    </div>
-</div>
-
-<div class="post-preview">
-    <div class="post-img" style="background-image: url('/')"></div>
-    <div class="post-info">
-        <div class="post-info-center">
-            <div class="hidden-xs">
-                
-                
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#管理"
-                    title="管理">管理</a>
-                <span>/</span>
-                
-                
-            </div>
-            <a href="/post/其他/2020-11-28_猴子管理法则.html" class="title">
-                猴子管理法则
-            </a>
-            <p class="text-gray">
-                <small>
-                    <span>发表于2020-11-28，</span>
-                    <span class="hidden-xs">全文2709字，</span>
-                    <span>阅读约10分钟</span>
-                </small>
-            </p>
-        </div>
-    </div>
-</div>
-
-<div class="post-preview">
-    <div class="post-img" style="background-image: url('/')"></div>
-    <div class="post-info">
-        <div class="post-info-center">
-            <div class="hidden-xs">
-                
-                
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#管理"
-                    title="管理">管理</a>
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#认知"
-                    title="认知">认知</a>
-                <span>/</span>
-                
-                
-            </div>
-            <a href="/post/其他/2020-11-27_『认知升级』是比其他一切都更加重要的思维模型转变.html" class="title">
-                『认知升级』是比其他一切都更加重要的思维模型转变
-            </a>
-            <p class="text-gray">
-                <small>
-                    <span>发表于2020-11-27，</span>
-                    <span class="hidden-xs">全文3278字，</span>
-                    <span>阅读约11分钟</span>
-                </small>
-            </p>
-        </div>
-    </div>
-</div>
-
-<div class="post-preview">
-    <div class="post-img" style="background-image: url('/')"></div>
-    <div class="post-info">
-        <div class="post-info-center">
-            <div class="hidden-xs">
-                
-                
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#Jira"
-                    title="Jira">Jira</a>
-                <span>/</span>
-                
-                
-            </div>
-            <a href="/post/其他/2020-11-26_Jira修改Path路径后的用户管理问题.html" class="title">
-                Jira 修改 Path 路径后的用户管理问题
-            </a>
-            <p class="text-gray">
-                <small>
-                    <span>发表于2020-11-26，</span>
-                    <span class="hidden-xs">全文449字，</span>
-                    <span>阅读约2分钟</span>
-                </small>
-            </p>
-        </div>
-    </div>
-</div>
-
-<div class="post-preview">
-    <div class="post-img" style="background-image: url('/')"></div>
-    <div class="post-info">
-        <div class="post-info-center">
-            <div class="hidden-xs">
-                
-                
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#工具"
-                    title="工具">工具</a>
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#Wiki"
-                    title="Wiki">Wiki</a>
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#整理"
-                    title="整理">整理</a>
-                <span>/</span>
-                
-                
-            </div>
-            <a href="/post/util/2020-11-26_开发资源整理.html" class="title">
-                开发资源导航
-            </a>
-            <p class="text-gray">
-                <small>
-                    <span>发表于2020-11-26，</span>
-                    <span class="hidden-xs">全文29639字，</span>
-                    <span>阅读约99分钟</span>
-                </small>
-            </p>
-        </div>
-    </div>
-</div>
-
-<div class="post-preview">
-    <div class="post-img" style="background-image: url('/')"></div>
-    <div class="post-info">
-        <div class="post-info-center">
-            <div class="hidden-xs">
-                
-                
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#V2ray"
-                    title="V2ray">V2ray</a>
-                <span>/</span>
-                
-                
-            </div>
-            <a href="/post/其他/2020-10-25_V2ray配置.html" class="title">
-                V2ray 配置
-            </a>
-            <p class="text-gray">
-                <small>
-                    <span>发表于2020-10-25，</span>
-                    <span class="hidden-xs">全文550字，</span>
-                    <span>阅读约2分钟</span>
-                </small>
-            </p>
-        </div>
-    </div>
-</div>
-
-<div style="margin: 15px 0">
-    <div class="text-center">
-    <p>
-        
-        &nbsp;&nbsp;&nbsp;&nbsp;
-        
-        <a href="/page/2/">下一页 »</a>
-        
-    </p>
-</div>
-</div>
-    </div>
-    <aside class="float-left gkt-sidebar hidden-xs hidden-sm">
-        <div style="clear: both"></div>
-        <div class="gkt-sidebar-wrapper">
-            <section class="bg-white box-shadow"><style>
-    .gkt-summary {
-        border: 1px solid #DDDDDD;
-        border-radius: 3px;
-        padding: 5px;
-        width: 100%;
-    }
-
-
-    .gkt-summary nav {
-        overflow: hidden;
-    }
-
-    .gkt-summary nav a {
-        display: inline-block;
-        text-align: center;
-        color: #333;
-        font-size: 12px;
-    }
-
-    .gkt-summary nav span {
-        display: block;
-    }
-
-    .gkt-summary nav .middle {
-        border-left: 1px solid #eaecef;
-        border-right: 1px solid #eaecef;
-    }
-
-    .gkt-summary .number {
-        font-weight: bold;
-    }
-
-    .gkt-summary .link-list {
-        margin-top: 5px;
-        margin-bottom: -5px;
-        padding-top: 7px;
-        border-top: 1px dashed #999;
-        display: flex;
-    }
-
-    .gkt-summary .link-list a {
-        flex: 1;
-    }
-
-    .gkt-summary .link-list img {
-        width: 25px;
-        height: 25px;
-    }
-</style>
-
-<div class="gkt-summary">
-    <nav>
-        <a href="/" class="col-xs-4">
-            <span class="number">117</span><span>文章</span>
-        </a>
-        <a href="/series" class="col-xs-4 middle">
-            <span class="number">36</span><span>专题</span>
-        </a>
-        <a href="/tags" class="col-xs-4">
-            <span class="number">153</span><span>标签</span>
-        </a>
-    </nav>
-
-    
-</div></section>
-            <section class="gkt-sidebar-content bg-white box-shadow"><!-- Featured Tags -->
-<style>
-    #featured-tag .post-tag-item {
-        font-size: 12px;
-        line-height: 30px;
-        display: inline-block;
-        height: 30px;
-        margin: 5px 0px;
-        padding: 0 7px;
-        color: #333;
-        border-radius: 15px;
-        background: #f6f6f6;
-    }
-
-    #featured-tag .post-tag-item:hover {
-        color: #337ab7;
-    }
-</style>
-<div id="featured-tag">
-    
-    <a class="post-tag-item" href="/tags/#关于我" title="关于我"
-        rel="1">#关于我 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Hello World" title="Hello World"
-        rel="1">#Hello World (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#八皇后" title="八皇后"
-        rel="1">#八皇后 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#算法" title="算法"
-        rel="2">#算法 (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#创建型模式" title="创建型模式"
-        rel="1">#创建型模式 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#设计模式" title="设计模式"
-        rel="3">#设计模式 (3) </a>
-    
-    <a class="post-tag-item" href="/tags/#分布式" title="分布式"
-        rel="3">#分布式 (3) </a>
-    
-    <a class="post-tag-item" href="/tags/#CAP" title="CAP"
-        rel="1">#CAP (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#概念" title="概念"
-        rel="4">#概念 (4) </a>
-    
-    <a class="post-tag-item" href="/tags/#脑裂" title="脑裂"
-        rel="1">#脑裂 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#术语" title="术语"
-        rel="1">#术语 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#理论" title="理论"
-        rel="1">#理论 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Docker" title="Docker"
-        rel="2">#Docker (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#入门" title="入门"
-        rel="2">#入门 (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#学习笔记" title="学习笔记"
-        rel="1">#学习笔记 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#JavaScript" title="JavaScript"
-        rel="4">#JavaScript (4) </a>
-    
-    <a class="post-tag-item" href="/tags/#chameleon" title="chameleon"
-        rel="2">#chameleon (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#跨平台" title="跨平台"
-        rel="2">#跨平台 (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#小程序" title="小程序"
-        rel="2">#小程序 (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#Android" title="Android"
-        rel="1">#Android (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#apk" title="apk"
-        rel="1">#apk (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#反编译" title="反编译"
-        rel="1">#反编译 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Java" title="Java"
-        rel="52">#Java (52) </a>
-    
-    <a class="post-tag-item" href="/tags/#面试" title="面试"
-        rel="3">#面试 (3) </a>
-    
-    <a class="post-tag-item" href="/tags/#数据结构" title="数据结构"
-        rel="1">#数据结构 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#IO" title="IO"
-        rel="12">#IO (12) </a>
-    
-    <a class="post-tag-item" href="/tags/#同步" title="同步"
-        rel="2">#同步 (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#异步" title="异步"
-        rel="1">#异步 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#阻塞" title="阻塞"
-        rel="1">#阻塞 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#非阻塞" title="非阻塞"
-        rel="1">#非阻塞 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#符号链接" title="符号链接"
-        rel="1">#符号链接 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#目录" title="目录"
-        rel="1">#目录 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#deb" title="deb"
-        rel="2">#deb (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#chrome" title="chrome"
-        rel="1">#chrome (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#快捷键" title="快捷键"
-        rel="1">#快捷键 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#bbr" title="bbr"
-        rel="1">#bbr (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#协议" title="协议"
-        rel="3">#协议 (3) </a>
-    
-    <a class="post-tag-item" href="/tags/#XXNET" title="XXNET"
-        rel="1">#XXNET (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#磁盘管理" title="磁盘管理"
-        rel="1">#磁盘管理 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#挂载" title="挂载"
-        rel="1">#挂载 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#网络" title="网络"
-        rel="2">#网络 (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#模型" title="模型"
-        rel="2">#模型 (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#MMAP" title="MMAP"
-        rel="1">#MMAP (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#内存映射" title="内存映射"
-        rel="1">#内存映射 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#内存" title="内存"
-        rel="1">#内存 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#零拷贝" title="零拷贝"
-        rel="2">#零拷贝 (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#输入法" title="输入法"
-        rel="1">#输入法 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#命令" title="命令"
-        rel="1">#命令 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#集合运算" title="集合运算"
-        rel="1">#集合运算 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Ubuntu" title="Ubuntu"
-        rel="1">#Ubuntu (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#包管理" title="包管理"
-        rel="4">#包管理 (4) </a>
-    
-    <a class="post-tag-item" href="/tags/#TCP" title="TCP"
-        rel="3">#TCP (3) </a>
-    
-    <a class="post-tag-item" href="/tags/#UDP" title="UDP"
-        rel="2">#UDP (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#网络协议" title="网络协议"
-        rel="1">#网络协议 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#CDN" title="CDN"
-        rel="1">#CDN (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Socket" title="Socket"
-        rel="1">#Socket (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#vpn" title="vpn"
-        rel="1">#vpn (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#ssh" title="ssh"
-        rel="1">#ssh (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Heidi" title="Heidi"
-        rel="1">#Heidi (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#MySQL" title="MySQL"
-        rel="9">#MySQL (9) </a>
-    
-    <a class="post-tag-item" href="/tags/#网络术语" title="网络术语"
-        rel="3">#网络术语 (3) </a>
-    
-    <a class="post-tag-item" href="/tags/#URL" title="URL"
-        rel="1">#URL (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#URI" title="URI"
-        rel="1">#URI (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Tampermonkey" title="Tampermonkey"
-        rel="1">#Tampermonkey (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#弹琴吧" title="弹琴吧"
-        rel="1">#弹琴吧 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#吉他" title="吉他"
-        rel="1">#吉他 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#V2ray" title="V2ray"
-        rel="1">#V2ray (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Jira" title="Jira"
-        rel="1">#Jira (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#管理" title="管理"
-        rel="2">#管理 (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#认知" title="认知"
-        rel="1">#认知 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#备份" title="备份"
-        rel="1">#备份 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#MSSQL" title="MSSQL"
-        rel="1">#MSSQL (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Redis" title="Redis"
-        rel="1">#Redis (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#优化" title="优化"
-        rel="2">#优化 (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#SQL优化" title="SQL优化"
-        rel="2">#SQL优化 (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#ACID" title="ACID"
-        rel="1">#ACID (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#幻读" title="幻读"
-        rel="1">#幻读 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#性能优化" title="性能优化"
-        rel="4">#性能优化 (4) </a>
-    
-    <a class="post-tag-item" href="/tags/#阅读笔记" title="阅读笔记"
-        rel="2">#阅读笔记 (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#字符集" title="字符集"
-        rel="2">#字符集 (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#Collation" title="Collation"
-        rel="1">#Collation (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#临时表" title="临时表"
-        rel="1">#临时表 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Vue" title="Vue"
-        rel="2">#Vue (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#二进制" title="二进制"
-        rel="2">#二进制 (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#内存分配" title="内存分配"
-        rel="1">#内存分配 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#内存泄露" title="内存泄露"
-        rel="1">#内存泄露 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#书籍推荐" title="书籍推荐"
-        rel="1">#书籍推荐 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#知识体系" title="知识体系"
-        rel="1">#知识体系 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#反码" title="反码"
-        rel="1">#反码 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#补码" title="补码"
-        rel="1">#补码 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#单例" title="单例"
-        rel="1">#单例 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#DCL" title="DCL"
-        rel="1">#DCL (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#内存模型" title="内存模型"
-        rel="1">#内存模型 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#jvm" title="jvm"
-        rel="3">#jvm (3) </a>
-    
-    <a class="post-tag-item" href="/tags/#HashMap" title="HashMap"
-        rel="1">#HashMap (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Java集合" title="Java集合"
-        rel="1">#Java集合 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#ThreadLocal" title="ThreadLocal"
-        rel="1">#ThreadLocal (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Java线程" title="Java线程"
-        rel="3">#Java线程 (3) </a>
-    
-    <a class="post-tag-item" href="/tags/#异常" title="异常"
-        rel="1">#异常 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Java异常" title="Java异常"
-        rel="1">#Java异常 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#思维导图" title="思维导图"
-        rel="2">#思维导图 (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#垃圾回收" title="垃圾回收"
-        rel="2">#垃圾回收 (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#Java引用" title="Java引用"
-        rel="1">#Java引用 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Exception" title="Exception"
-        rel="1">#Exception (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Stream" title="Stream"
-        rel="1">#Stream (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Netty" title="Netty"
-        rel="4">#Netty (4) </a>
-    
-    <a class="post-tag-item" href="/tags/#笔记" title="笔记"
-        rel="1">#笔记 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#NIO" title="NIO"
-        rel="7">#NIO (7) </a>
-    
-    <a class="post-tag-item" href="/tags/#Buffer" title="Buffer"
-        rel="1">#Buffer (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Selector" title="Selector"
-        rel="1">#Selector (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#问题" title="问题"
-        rel="2">#问题 (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#直接内存" title="直接内存"
-        rel="1">#直接内存 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#非直接内存" title="非直接内存"
-        rel="1">#非直接内存 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#堆内存" title="堆内存"
-        rel="1">#堆内存 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#注解" title="注解"
-        rel="1">#注解 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Spring" title="Spring"
-        rel="6">#Spring (6) </a>
-    
-    <a class="post-tag-item" href="/tags/#文件加载" title="文件加载"
-        rel="1">#文件加载 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Spring Boot" title="Spring Boot"
-        rel="3">#Spring Boot (3) </a>
-    
-    <a class="post-tag-item" href="/tags/#Spring Cloud" title="Spring Cloud"
-        rel="1">#Spring Cloud (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Gradle" title="Gradle"
-        rel="3">#Gradle (3) </a>
-    
-    <a class="post-tag-item" href="/tags/#Idea" title="Idea"
-        rel="1">#Idea (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#JavaIDE" title="JavaIDE"
-        rel="1">#JavaIDE (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#监控" title="监控"
-        rel="1">#监控 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#报警" title="报警"
-        rel="1">#报警 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Prometheus" title="Prometheus"
-        rel="1">#Prometheus (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#SVN" title="SVN"
-        rel="1">#SVN (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#结构型模式" title="结构型模式"
-        rel="1">#结构型模式 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#行为型模式" title="行为型模式"
-        rel="1">#行为型模式 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#云原生" title="云原生"
-        rel="1">#云原生 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Cloud" title="Cloud"
-        rel="1">#Cloud (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#异步IO" title="异步IO"
-        rel="1">#异步IO (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#直接IO" title="直接IO"
-        rel="1">#直接IO (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#慢查" title="慢查"
-        rel="1">#慢查 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#序列化" title="序列化"
-        rel="1">#序列化 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#函数式编程" title="函数式编程"
-        rel="1">#函数式编程 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#lambda" title="lambda"
-        rel="1">#lambda (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#并发编程" title="并发编程"
-        rel="1">#并发编程 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#JUC" title="JUC"
-        rel="1">#JUC (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#lambda表达式" title="lambda表达式"
-        rel="1">#lambda表达式 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#源码" title="源码"
-        rel="1">#源码 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#RPC" title="RPC"
-        rel="1">#RPC (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Reactor" title="Reactor"
-        rel="1">#Reactor (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#NIO模型" title="NIO模型"
-        rel="1">#NIO模型 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#工具" title="工具"
-        rel="1">#工具 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Wiki" title="Wiki"
-        rel="1">#Wiki (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#整理" title="整理"
-        rel="1">#整理 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#操作系统" title="操作系统"
-        rel="1">#操作系统 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#微服务" title="微服务"
-        rel="1">#微服务 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Vert.x" title="Vert.x"
-        rel="1">#Vert.x (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Spring Core" title="Spring Core"
-        rel="1">#Spring Core (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#源码分析" title="源码分析"
-        rel="1">#源码分析 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#文件名批量修改" title="文件名批量修改"
-        rel="1">#文件名批量修改 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#HttpClient" title="HttpClient"
-        rel="1">#HttpClient (1) </a>
-    
-</div></section>
-            
-        </div>
-    </aside>
-    
-
-<script>
-    (function () {
-        var ele = getDom('.gkt-sidebar-content')
-        if(!ele) return;
-        var wrapper = getDom('.gkt-sidebar-wrapper')
-        var last = 0
-        ele.style.maxHeight = ((window.innerHeight || 798) - 200) + 'px'
-        var f = function (e) {
-            var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-            var isDown = scrollTop > last;
-            var pos = getPosition(ele).y - scrollTop;
-            var downLimit = 50;
-            var upLimit = -100;
-            // uarrow.style.marginTop = scrollTop + 'px';
-            isDown && pos <= downLimit && wrapper.classList.add("gkt-sidebar-fixed");
-            !isDown && pos > upLimit && wrapper.classList.remove("gkt-sidebar-fixed");
-            last = scrollTop
-        }
-        f()
-        window.addEventListener("scroll", f)
-    })();
-</script>
-
-</main>
-    </div>
-    <style>
-    img#go-top {
-        position: fixed;
-        bottom: 100px;
-        width: 50px;
-        cursor: pointer;
-        z-index: 9999;
-    }
-</style>
-<img id="go-top" src="/icon/top.png" class="hidden-xs" style="display: none" />
-<script>
-    (function () {
-        var goTop = document.getElementById('go-top');
-        var mainContainer = document.querySelector('.main-container');
-        
-        goTop.addEventListener('click', function () {
-            window.scroll(0, 0);
-        }, false);
-        window.addEventListener('scroll', function () {
-            var right = document.body.offsetWidth - mainContainer.getBoundingClientRect().right;
-            var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-            goTop.style.right = right + 10 + 'px'
-            scrollTop > 700 && (goTop.style.display = "block");
-            scrollTop <= 700 && (goTop.style.display = "none");
-        });
-    })();
-</script>
-    <style>
-    #geektutu-click-img-container {
-        position: fixed;
-        left: 0;
-        top: 0;
-        text-align: center;
-        width: 100%;
-        display: none;
-        z-index: 9999;
-    }
-
-    #geektutu-click-img-container img {
-        object-fit: contain;
-        background: #eaecef;
-        padding: 15px;
-        border-radius: 10px;
-        height: auto;
-        width: auto;
-        vertical-align: middle;
-    }
-</style>
-
-
-<div id="geektutu-click-img-container">
-    <img src="" alt="Big Image">
-</div>
-
-<script>
-    (function () {
-        var container = document.querySelector('#geektutu-click-img-container')
-        var targetImg = container.querySelector('img')
-        var imgs = document.querySelectorAll('article img');
-        targetImg.addEventListener('click', function (e) {
-            container.style.display = 'none';
-            e && e.stopPropagation && e.stopPropagation();
-        }, false);
-
-        for (var i = 0; i < imgs.length; ++i) {
-            var img = imgs[i];
-            img.addEventListener('click', (function (src, rate) {
-                return function (e) {
-                    e && e.stopPropagation && e.stopPropagation();
-                    if (window.innerWidth < 980) {
-                        return
-                    }
-                    targetImg.style.height = targetImg.style.width = 'auto';
-                    if (window.innerWidth / window.innerHeight > rate) {
-                        targetImg.style.height = (window.innerHeight - 20) + 'px';
-                    } else {
-                        targetImg.style.width = (window.innerWidth - 20) + 'px';
-                    }
-                    container.style.height = window.innerHeight + 'px'
-                    container.style.lineHeight = window.innerHeight + 'px'
-                    container.style.display = 'block';
-                    targetImg.src = src;
-                };
-            }(img.src, img.width / img.height)), false)
-        }
-    })();
-</script>
-    <!-- Footer -->
-    <!-- Footer -->
-<style>
-    footer {
-        width: 100%;
-        line-height: 1.5;
-        padding: 20px;
-    }
-
-    footer a {
-        color: #333;
-        text-decoration: none;
-    }
-
-    .footer-hexo img {
-        height: 20px;
-        margin-bottom: -5px;
-    }
-
-    .footer-hexo a {
-        color: #337ab7;
-    }
-</style>
-<footer class="text-center col-xs-12">
-    <p>
-        <small>© 2020 - Hassan - </small>
-        <small>
-            <a target="_blank" rel="nofollow noopener" href="http://beian.miit.gov.cn/"></a>
-        </small>
-    </p>
-    <p class="footer-hexo">
-        <!-- 但若直接使用或修改主题，请务必保留这段声明 -->
-        <small>Powered by <a target="_blank" href="https://hexo.io">Hexo</a> | Theme
-            <a target="_blank" href="https://geektutu.com">Geektutu</a>
-            <a target="_blank" rel="noopener" href="https://github.com/geektutu/hexo-theme-geektutu">
-                <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAYGBgYHBgcICAcKCwoLCg8ODAwODxYQERAREBYiFRkVFRkVIh4kHhweJB42KiYmKjY+NDI0PkxERExfWl98fKcBBgYGBgcGBwgIBwoLCgsKDw4MDA4PFhAREBEQFiIVGRUVGRUiHiQeHB4kHjYqJiYqNj40MjQ+TERETF9aX3x8p//CABEIACIAUAMBIgACEQEDEQH/xAAcAAABBAMBAAAAAAAAAAAAAAAAAQQFBwIDBgj/2gAIAQEAAAAA9KrHSgAYL5/z6zZGuJd12uugbhq3uKtmuRtix20IS7lTLAfAAAn/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/9oACAECEAAAAAAB/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/aAAgBAxAAAAAAAf/EADEQAAICAQIEBQEGBwAAAAAAAAECAwQFAAYREhORBxQhUlQxQVFic5KxJDJCYYGC0f/aAAgBAQABPwCFHnjWUzuvN6hV4cANSRLGjO9yRVUcSzMoA7jVXJYe5N0a2dhmk9kc0bN2GvLN8mbuNeWb5M3ca8s3yZu415Y/Jm7jXlm+TN3H/NeVPyZu40vOk3TZywK8wJ+v3EHVM/wsI/Dq2lrxN3Nnca16eti8chSAIoMbzByhMwP14kHVfwIiSaF5c96J6kwwCOTnHsYk8uvCrdmQy1TI4rJuz3cZLyGR/wCd4+YoOf8AEpUjXitubLYPG4paFsUxcuiGe7yc5gTW3LW44szXmobsi3Dhmic2+Z4+vCVH9CpraPiQ+QvbgTJrPFBWd5YpWrmNIIEXiRO32Pqt4p7cnfHk18lFBdmEVW1LVdIZGOrniTt6plrWKaO69yCykDRxwF+LMAewB0Txtr+Sf31VI8tEPw62fZt7N3Humtbpzz13ucX6CGSWMSuzpLyD1eNgeUka3PuvHbaxq3biTMHfkiSNCS78CwU+3Xg7Vu3MhuTcU6cq3Zemn3Eh2dv8Lzcut+29x1atKbHYqLJUhLwyNMwiZ3j9yDWOxUOV3tgb+3No5LDx1pi9+aeIwRlNY6bc+Jv+IFGrhLxtXJZ7VKcw81diiAAEn0JOrkWZyNfbEr0tz27UGQgkuGzXdIIvyowq99bRxk9ffO/L81SZBPZgEEroQroIxxMZOgeNsfkn99QypHGqO4Vl9CDrN4LDZkwyzyyQ2IgRHZrzGCZVP1XnQglT9oOtw4LC7iqV6uRkZoYpxKFSQpzFRw4EjVRMfSrQ1qqwxQxKFjjTgFUD7BoWYR6iVe+mtxt9Zwf9teaj4AdccPu5tedX5A/VrzUR+sy/q1CwksF19VEfDj/cnQRW+qg66cfsXtrpx+xe2unH7F7a6cfsXtrpx+xe2unH7F7a6cfsXtoxx+xe2gAAOA1//8QAFBEBAAAAAAAAAAAAAAAAAAAAMP/aAAgBAgEBPwB//8QAFBEBAAAAAAAAAAAAAAAAAAAAMP/aAAgBAwEBPwB//9k="
-                    alt="Github Star">
-            </a>
-        </small>
-    </p>
-    
-    <p>
-        <small>
-            <span id="busuanzi_container_site_pv">👁<span id="busuanzi_value_site_pv"></span></span> &nbsp;
-            <span id="busuanzi_container_page_pv">📚<span id="busuanzi_value_page_pv"></span></span>
-        </small>
-    </p>
-    
-    
-
-</footer>
-
-
-<script>
-    window.addEventListener('load', function () {
-        globalAddScript('//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js');
-    })
-</script>
-
-<!-- Baidu Tongji -->
+  
 
 
 
 
 
-    <script>
-        // 非本站网址，新开tab页签
-        (function () {
-            var stopBubble = function (e) {
-                e && e.stopPropagation && e.stopPropagation();
-            }
-            var links = document.querySelectorAll('a');
-            [].slice.call(links).forEach(function (item) {
-                if (item.href && item.href.indexOf(window.location.host) === -1) {
-                    item.target = '_blank'
-                }
-                // 阻止冒泡，不触发彩蛋。
-                item.addEventListener('click', stopBubble, false);
-            });
-            var article = document.querySelector('article');
-            article && article.addEventListener('click', stopBubble, false)
-        })();
-    </script>
-    
-<script>
-    (function (window, document, undefined) {
-        var hearts = [];
-        var keywords = ["点个赞", "留个言", "赞赏一下", "分享之", "blog.fenxiangz.com"];
-        function randomInt(max) {
-            return Math.floor(Math.random() * Math.floor(max));
-        }
-        window.addEventListener('click', createWord)
 
-        function createWord(e) {
-            var d = document.createElement("span");
-            d.style.position = 'fixed';
-            d.style.zIndex = 9999;
-            d.style.color = 'rgb(' + [randomInt(255), randomInt(255), randomInt(255)].join(',') + ')';
-            d.innerHTML = keywords[randomInt(keywords.length)];
-            d.onselectstart = function () { return false; }
 
-            hearts.push({ el: d, x: e.clientX - 5, y: e.clientY - 5, alpha: 1, scale: 1 });
-            document.body.appendChild(d);
-        }
-        (function gameloop() {
-            for (var i = 0; i < hearts.length; i++) {
-                heart = hearts[i];
-                if (heart.alpha <= 0) {
-                    document.body.removeChild(heart.el);
-                    hearts.splice(i, 1);
-                    continue;
-                }
-                heart.y -= heart.alpha < 0.5 ? 2 : 1;
-                heart.scale += 0.002;
-                heart.alpha -= 0.013;
-                heart.el.style.transform = 'scale(' + heart.scale + ')';
-                heart.el.style.left = heart.x + 'px';
-                heart.el.style.top = heart.y + 'px';
-            }
-            setTimeout(gameloop, 10)
-        })();
-    })(window, document);
-</script>
+  
+
+
+
+
+
 
 </body>
-
 </html>

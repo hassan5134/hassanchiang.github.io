@@ -1,1505 +1,2389 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-
-<!-- Head tag -->
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="referrer" content="no-referrer-when-downgrade">
-  
-  <meta name="baidu-site-verification" content="" />
-  <meta name="google-site-verification" content="" />
-  <meta name="msvalidate.01" content="" />
-  <meta name="360-site-verification" content="" />
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- if page has tags, then add tags to keyword -->
-  
-  
-  <meta name="keywords" content=",">
-  <!-- page.description has higher priority -->
-  <meta name="description" content="Share everything">
-  <link rel="shortcut icon" href="/favico.png">
-  <title>
-    
-    分享之
-    
-  </title>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
 
-  <link rel="canonical" href="/page/2/">
-  
-<link rel="stylesheet" href="/css/reset.css">
 
-  
-<link rel="stylesheet" href="/css/layout.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
-  
-<link rel="stylesheet" href="/css/markdown.css">
+<link rel="stylesheet" href="/css/main.css">
 
-  <!-- Pygments Highlight CSS -->
-  
-<link rel="stylesheet" href="/css/highlight.css">
 
-  
-<link rel="stylesheet" href="/css/geektutu.css">
 
-  <!-- global function -->
-  <script>
-    window.globalAddScript = function (url, onload, onerror) {
-      var s = document.createElement('script');
-      s.src = url;
-      onload && (s.onload = onload);
-      onerror && (s.onerror = onerror);
-      document.body.appendChild(s);
-    }
-    window.globalAddCss = function (url) {
-      var s = document.createElement('link');
-      s.rel = 'stylesheet';
-      s.href = url;
-      document.body.appendChild(s);
-    }
-    window.getPosition = function (ele) {
-      var x = 0, y = 0;
-      while (ele) {
-        x += (ele.offsetLeft - ele.scrollLeft + ele.clientLeft);
-        y += (ele.offsetTop - ele.scrollTop + ele.clientTop);
-        ele = ele.offsetParent;
-      }
-      return { x: x, y: y };
-    }
-    window.getDom = function (str) { return document.querySelector(str) }
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blog.fenxiangz.com","root":"/","images":"/images","scheme":"Pisces","version":"8.1.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}};
   </script>
-  <!-- google ad -->
+<meta name="description" content="Share everything">
+<meta property="og:type" content="website">
+<meta property="og:title" content="分享之">
+<meta property="og:url" content="https://blog.fenxiangz.com/page/2/index.html">
+<meta property="og:site_name" content="分享之">
+<meta property="og:description" content="Share everything">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="Hassan">
+<meta property="article:tag" content="JAVA,Linux,技术分享,网络">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://blog.fenxiangz.com/page/2/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-CN'
+  };
+</script>
+<title>分享之</title>
   
-<meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/feed.xml" title="分享之" type="application/rss+xml">
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="分享之" type="application/atom+xml">
 </head>
 
-<body>
-    <header class="gkt-header col-xs-12 padding-0">
-    <div id="gkt-nav" class="gkt-header-container">
-        <a href="/" class="gkt-header-title float-left">
-            <img class="float-left" src="/favico.png" alt="">
-            <span>分享之</span>
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">分享之</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Share everything</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <section class="post-toc-wrap sidebar-panel">
+        </section>
+        <!--/noindex-->
+
+        <section class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Hassan</p>
+  <div class="site-description" itemprop="description">Share everything</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">117</span>
+          <span class="site-state-item-name">日志</span>
         </a>
-        <nav class="gkt-header-nav text-right">
-            <ul>
-                <li><a class="hidden-xs" href="/feed.xml">订阅</a></li>
-                <li><a href="/series/">专题</a></li>
-                <li><a href="/archives/">归档</a></li>
-                <li><a href="/post/link.html">友链</a></li>
-                <li><a href="/post/about.html">关于</a></li>
-            </ul>
-        </nav>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">36</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">153</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </section>
+      </div>
     </div>
-    <div id="gkt-cate-nav" class="gkt-header-container hidden-xs">
-        
-        <nav class="gkt-header-nav float-left">
-            <ul>
-                
-                
-                <li class="gkt-cate-name float-left ">
-                    <a class="float-left" href="/post/java/basic/2016-10-25_hashmap_jdk7.html">Java ▾</a>
-                    
-                    <ul class="gkt-sub-cate">
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/java/basic/2016-10-25_hashmap_jdk7.html">Java 基础</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/java/advance/2016-10-25_number.html">Java 进阶</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/java/io/2017-04-15_java_io_1_overview.html">Java IO</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/java/nio/2017-04-21_java_nio_1.html">Java NIO</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/interview/2018-10-25_Java面试整理.html">Java 面试</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/java/util/2020-12-23_HttpClient连接池原理及一次连接时序图.html">RPC</a></li>
-                        
-                    </ul>
-                    
-                </li>
-                
-                <li class="gkt-cate-name float-left ">
-                    <a class="float-left" href="/post/java/spring/2016-10-30_Spring 组合注解&amp;注解继承.html">Spring ▾</a>
-                    
-                    <ul class="gkt-sub-cate">
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/java/spring/2016-10-30_Spring 组合注解&amp;注解继承.html">Spring Core</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/java/spring/2019-12-28_【译】Spring Boot 从 classpath 加载文件.html">Spring Boot</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/java/spring/2020-09-02_How-to-learn-Spring-Cloud.html">Spring Cloud</a></li>
-                        
-                    </ul>
-                    
-                </li>
-                
-                <li class="gkt-cate-name float-left ">
-                    <a class="float-left" href="/post/java/netty/2019-01-02_小白科普Netty有什么用.html">Java 框架</a>
-                    
-                </li>
-                
-                <li class="gkt-cate-name float-left ">
-                    <a class="float-left" href="/post/util/ide/2017-10-25_idea_shotcut.html">工具 ▾</a>
-                    
-                    <ul class="gkt-sub-cate">
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/util/ide/2017-10-25_idea_shotcut.html">IDE</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/util/gradle/LearnGradle_1_安装.html">Gradle</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/docker/2017-11-25_Docker_Get_Started.html">Docker</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/util/monitor/2017-12-10_从零开始搭建Prometheus自动监控报警系统.html">监控</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/util/svn/2017-12-10_SVN自动删除“被手动删除”的文件.html">SVN</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/util/2020-11-26_开发资源整理.html">资源导航</a></li>
-                        
-                    </ul>
-                    
-                </li>
-                
-                <li class="gkt-cate-name float-left ">
-                    <a class="float-left" href="/post/linux/2017-11-27_update-alternatives_命令.html">Linux ▾</a>
-                    
-                    <ul class="gkt-sub-cate">
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/linux/2017-11-27_update-alternatives_命令.html">其他</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/linux/2017-11-26_IO-同步，异步，阻塞，非阻塞.html">IO</a></li>
-                        
-                    </ul>
-                    
-                </li>
-                
-                <li class="gkt-cate-name float-left ">
-                    <a class="float-left" href="/post/network/2017-11-24_面向报文（UDP）和面向字节流（TCP）的区别.html">计算机网络 ▾</a>
-                    
-                    <ul class="gkt-sub-cate">
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/network/2017-11-24_面向报文（UDP）和面向字节流（TCP）的区别.html">TCP/IP</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/network/2017-11-25_一张图说明CDN网络的原理.html">网络/其他</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/network/2018-12-15_URL和URI的区别.html">网络/术语</a></li>
-                        
-                    </ul>
-                    
-                </li>
-                
-                <li class="gkt-cate-name float-left ">
-                    <a class="float-left" href="/post/dateabase/mysql/2018-12-15_MySQL优化概要.html">数据库 ▾</a>
-                    
-                    <ul class="gkt-sub-cate">
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/dateabase/mysql/2018-12-15_MySQL优化概要.html">MySQL</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/dateabase/MSSQL/2020-09-08_MSSQL最佳实践_SQL_Server备份策略.html">MSSQL</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/dateabase/Redis/2020_12_08_Redis清理方法.html">Redis</a></li>
-                        
-                    </ul>
-                    
-                </li>
-                
-                <li class="gkt-cate-name float-left ">
-                    <a class="float-left" href="/post/design/2019-01-03_Java经典设计模式_1_五大创建型模式.html">设计模式</a>
-                    
-                </li>
-                
-                <li class="gkt-cate-name float-left ">
-                    <a class="float-left" href="/post/distribution/2019-08-12_CAP定理的含义.html">分布式 ▾</a>
-                    
-                    <ul class="gkt-sub-cate">
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/distribution/2019-08-12_CAP定理的含义.html">概念</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/distribution/2019-08-13_Zookeeper是如何解决脑裂问题.html">zookeeper</a></li>
-                        
-                    </ul>
-                    
-                </li>
-                
-                <li class="gkt-cate-name float-left ">
-                    <a class="float-left" href="/post/frontend/vue/2017-10-26_vue自定义组件中的v-model简单解释.html">前端 ▾</a>
-                    
-                    <ul class="gkt-sub-cate">
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/frontend/vue/2017-10-26_vue自定义组件中的v-model简单解释.html">VUE</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/frontend/2016-10-26_深入理解jQuery插件开发.html">jQuery</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/frontend/2019-10-26_小程序多端框架全面测评.html">跨平台</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/frontend/2019-11-26_APK反编译总结.html">Android</a></li>
-                        
-                    </ul>
-                    
-                </li>
-                
-                <li class="gkt-cate-name float-left ">
-                    <a class="float-left" href="/post/algorithm/八皇后算法解析.html">算法</a>
-                    
-                </li>
-                
-                <li class="gkt-cate-name float-left ">
-                    <a class="float-left" href="/post/其他/2020-01-29_弹琴吧非会员扒谱技巧.html">其他 ▾</a>
-                    
-                    <ul class="gkt-sub-cate">
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/其他/2020-01-29_弹琴吧非会员扒谱技巧.html">其他/Tampermonkey</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/其他/2020-10-25_V2ray配置.html">其他/V2ray</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/其他/2020-11-26_Jira修改Path路径后的用户管理问题.html">其他/Jira</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/其他/2020-11-27_『认知升级』是比其他一切都更加重要的思维模型转变.html">其他/管理</a></li>
-                        
-                    </ul>
-                    
-                </li>
-                
-            </ul>
-        </nav>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.fenxiangz.com/post/dateabase/mysql/2020-09-13_MySQL%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E4%BC%9A%E4%BD%BF%E7%94%A8%E5%86%85%E9%83%A8%E4%B8%B4%E6%97%B6%E8%A1%A8.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Hassan">
+      <meta itemprop="description" content="Share everything">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="分享之">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/post/dateabase/mysql/2020-09-13_MySQL%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E4%BC%9A%E4%BD%BF%E7%94%A8%E5%86%85%E9%83%A8%E4%B8%B4%E6%97%B6%E8%A1%A8.html" class="post-title-link" itemprop="url">MySQL什么时候会使用内部临时表?</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-09-13 00:00:00" itemprop="dateCreated datePublished" datetime="2020-09-13T00:00:00+00:00">2020-09-13</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-12-20 16:47:02" itemprop="dateModified" datetime="2020-12-20T16:47:02+00:00">2020-12-20</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/MySQL/" itemprop="url" rel="index"><span itemprop="name">MySQL</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>1.union执行过程</p>
+<p>首先我们创建一个表t1</p>
+<pre><code>create table t1(id int primary key, a int, b int, index(a));
+delimiter ;;
+create procedure idata()
+begin
+  declare i int;
+  set i=1;
+  while(i&lt;=1000)do
+    insert into t1 values(i, i, i);
+    set i=i+1;
+  end while;
+end;;
+delimiter ;
+call idata();</code></pre>
+<p>然后我们执行一下这条语句</p>
+<pre><code>explain select 1000 as f union (select id from t1 order by id desc limit 2)</code></pre>
+<p>首先说下union的语义，union的语义是取两个结果的并集，重复的保留一行,然后我们来看下explain的结果，第二行的key=PRIMARY，说明用到了主键索引。</p>
+<p>第三行的Extra的Using temporary说明用到了临时表</p>
+<p><img src="./2020-09-13_MySQL%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E4%BC%9A%E4%BD%BF%E7%94%A8%E5%86%85%E9%83%A8%E4%B8%B4%E6%97%B6%E8%A1%A8/1.png"></p>
+<p>下面我们看下这条语句的执行流程：</p>
+<p>1.创建一个临时表，只有f一个字段，且为主键</p>
+<p>2.将1000这个数据插入临时表</p>
+<p>3.子查询中步骤:</p>
+<pre><code>       1.插入1000进入临时表,因为主键冲突，插入失败
+
+       2.插入第二行900，插入成功</code></pre>
+<p>4.将临时表数据作为结果返回，并删除临时表</p>
+<p>这个过程的流程图如下：<br><img src="./2020-09-13_MySQL%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E4%BC%9A%E4%BD%BF%E7%94%A8%E5%86%85%E9%83%A8%E4%B8%B4%E6%97%B6%E8%A1%A8/2.jpg"></p>
+<p>如果我们把union改成union all，就不需要使用临时表了，因为union all是重复的也保留，</p>
+<p>大家可以看到extra这一列已经没有了Using temporary</p>
+<pre><code>explain select 1000 as f union all (select id from t1 order by id desc limit 2)</code></pre>
+<p><img src="./2020-09-13_MySQL%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E4%BC%9A%E4%BD%BF%E7%94%A8%E5%86%85%E9%83%A8%E4%B8%B4%E6%97%B6%E8%A1%A8/3.png"></p>
+<p>2.group by执行过程</p>
+<p>我们来看下面这条语句:</p>
+<pre><code>explain select id%10 as m, count(*) as c from t1 group by m;</code></pre>
+<p><img src="./2020-09-13_MySQL%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E4%BC%9A%E4%BD%BF%E7%94%A8%E5%86%85%E9%83%A8%E4%B8%B4%E6%97%B6%E8%A1%A8/4.png"><br>可以看到explain结果</p>
+<p>Using index(使用到了覆盖索引a，不需要回表); Using temporary(用到了临时表); Using filesort(对数据进行了排序)</p>
+<p>这条语句的意思是将id%10进行分组统计，并按照m进行排序</p>
+<p>执行流程如下:</p>
+<p>1.创建临时表，增加m,c字段，m是主键</p>
+<p>2.计算id%10的结果记为x</p>
+<p>3.如果临时表里面没有主键为x的行，则插入(x,1)，如果有的话，就将该行的c值加1</p>
+<p>4.遍历完成后，按照m字段排序返回结果给客户端</p>
+<p>流程图如下</p>
+<p><img src="./2020-09-13_MySQL%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E4%BC%9A%E4%BD%BF%E7%94%A8%E5%86%85%E9%83%A8%E4%B8%B4%E6%97%B6%E8%A1%A8/5.jpg"><br>接下来我们看下这条语句的执行结果</p>
+<pre><code>explain select id%10 as m, count(*) as c from t1 group by m</code></pre>
+<p><img src="./2020-09-13_MySQL%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E4%BC%9A%E4%BD%BF%E7%94%A8%E5%86%85%E9%83%A8%E4%B8%B4%E6%97%B6%E8%A1%A8/6.jpg"><br>其实，如果我们不需要对查询结果进行排序，我们可以加一个order by null</p>
+<p>我们执行一下这条语句</p>
+<pre><code>explain select id%10 as m, count(*) as c from t1 group by m order by null</code></pre>
+<p><img src="./2020-09-13_MySQL%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E4%BC%9A%E4%BD%BF%E7%94%A8%E5%86%85%E9%83%A8%E4%B8%B4%E6%97%B6%E8%A1%A8/7.jpg"><br>可以看到这里没有进行排序，由于扫描是从表t的id是从1开始的，所以第一行是1</p>
+<p>如果我们执行下列语句，会发生什么呢？</p>
+<p>我们上面说的临时表，其实是内存临时表，如果我们把内存临时表的容量改的比我们要查询的数据的容量小，那么就会使用到磁盘临时表，磁盘临时表的默认引擎是innodb</p>
+<pre><code>set tmp_table_size=1024;
+select id%100 as m, count(*) as c from t1 group by m order by null limit 10</code></pre>
+<p>group by 优化方法–直接排序</p>
+<p>其实在上面的关于从内存临时表转化成磁盘临时表是很浪费时间的，也就是说mysql，在执行过程中发现空间不够了，在转成磁盘临时表，但是如果我们直接告诉mysql，我要查询的数据很大，那么mysql优化器就会想到，既然你告诉我数据很大，那么我就直接用sort_buffer进行排序，如果sort_buffer内存不够大，会用到磁盘临时表辅助排序。</p>
+<pre><code>select SQL_BIG_RESULT id%100 as m, count(*) as c from t1 group by m;</code></pre>
+<p><img src="./2020-09-13_MySQL%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E4%BC%9A%E4%BD%BF%E7%94%A8%E5%86%85%E9%83%A8%E4%B8%B4%E6%97%B6%E8%A1%A8/8.jpg"><br>小结一下:</p>
+<p>1.如果我们不需要对统计结果进行排序，可以加上order by null省去排序流程。</p>
+<p>2.尽量让排序过程用上内存临时表，可以通过适当调大tmp_table_size的值来避免用到磁盘临时表。</p>
+<p>3.如果数据量实在太大，使用SQL_BIG_RESULT告诉优化器，直接使用排序算法。</p>
+<p>原文：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/66847189">https://zhuanlan.zhihu.com/p/66847189</a></p>
+
+      
     </div>
-</header>
-<div class="gkt-header-placeholder" style="height: 44px"></div>
-<div class="gkt-header-placeholder hidden-xs" style="height: 44px"></div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.fenxiangz.com/post/dateabase/mysql/2020-09-12_MySQL%E4%B8%AD%E7%9A%84Character_Set%E4%B8%8ECollation.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Hassan">
+      <meta itemprop="description" content="Share everything">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="分享之">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/post/dateabase/mysql/2020-09-12_MySQL%E4%B8%AD%E7%9A%84Character_Set%E4%B8%8ECollation.html" class="post-title-link" itemprop="url">MySQL 中的 Character Set 与 Collation</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-09-12 00:00:00" itemprop="dateCreated datePublished" datetime="2020-09-12T00:00:00+00:00">2020-09-12</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-12-20 16:47:02" itemprop="dateModified" datetime="2020-12-20T16:47:02+00:00">2020-12-20</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/MySQL/" itemprop="url" rel="index"><span itemprop="name">MySQL</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>MySQL 应该算是目前最流行的数据库之一，经常建库建表的同学应该对 Character Set 和 Collation 这两个词不陌生。</p>
+<p>虽然一直有接触，但我还是挺云里雾里的。直到前些天特地做了功课，才敢说有个比较清晰的了解，所以就有了这篇文章。</p>
+<h2 id="Character-Set-与-Collation"><a href="#Character-Set-与-Collation" class="headerlink" title="Character Set 与 Collation"></a>Character Set 与 Collation</h2><p>简单地说，Character Set 是字符集，而 Collation 是比对方法，是两个不同维度的概念。</p>
+<p>我们经常看到的 utf8、gbk、ascii 都是相互独立的字符集，即对 <a href="https://link.zhihu.com/?target=https://zh.wikipedia.org/wiki/Unicode">Unicode</a> 的一套编码。看到一个比较有趣的解释，摘抄过来。</p>
+<blockquote>
+<p>打个比方，你眼前有一个苹果，苹果在英文里称之为「Apple」，在中文里称之为「苹果」。苹果这个实体的概念就是 Unicode，而 utf8 之类的可以认为是不同语言对苹果的不同称谓，本质上都是描述苹果这个实体。</p>
+</blockquote>
+<p>每套字符集有一系列与之对应的比对方法，比如 utf8 字符集对应 utf8_general_ci、utf8_unicode_ci 等比对方法，不同的比对方法下得到的搜索结果、排序结果不尽相同。</p>
+<h2 id="utf8-与-utf8mb4"><a href="#utf8-与-utf8mb4" class="headerlink" title="utf8 与 utf8mb4"></a>utf8 与 utf8mb4</h2><p>抛开数据库，标准的 UTF-8 字符集编码是可以用 1 ~ 4 个字节去编码 21 位字符，这几乎包含了世界上所有能看见的语言。</p>
+<p>然而 MySQL 中实现的 utf8 最长只使用了 3 个字节，也就是只支持到了 Unicode 中的 <a href="https://link.zhihu.com/?target=https://zh.wikipedia.org/wiki/Unicode%25E5%25AD%2597%25E7%25AC%25A6%25E5%25B9%25B3%25E9%259D%25A2%25E6%2598%25A0%25E5%25B0%2584">基本多文本平面</a>。任何不在基本多文本平面的 Unicode 字符，都无法使用 MySQL 的 utf8 字符集存储。包括 Emoji 表情、一些不常用的汉字，以及任何新增的 Unicode 字符等等。</p>
+<p>为了解决这个问题，MySQL 在 5.5.3 之后增加了 <code>utf8mb4</code> 字符编码，mb4 即 most bytes 4。简单说 utf8mb4 是 utf8 的超集并完全兼容 utf8，能够用四个字节存储更多的字符。<a href="https://link.zhihu.com/?target=https://dev.mysql.com/doc/refman/5.6/en/charset-unicode-utf8mb4.html">官方手册</a> 中也有提到 utf8mb4 的解释，我摘抄部分过来。</p>
+<blockquote>
+<p>The <code>utfmb4</code> character set has these characteristics:</p>
+</blockquote>
+<ul>
+<li>Supports BMP and supplementary characters.</li>
+<li>Requires a maximum of four bytes per multibyte character.</li>
+</ul>
+<p><code>utf8mb4</code> contrasts with the <code>utf8mb3</code> character set, which supports only BMP characters and uses a maximum of three bytes per character:</p>
+<ul>
+<li>For a BMP character, <code>utf8mb4</code> and <code>utf8mb3</code> have identical storage characteristics: same code values, same encoding, same length.</li>
+<li>For a supplementary character, <code>utf8mb4</code> requires four bytes to store it, whereas <code>utf8mb3</code> cannot store the character at all. When converting <code>utf8mb3</code> columns to <code>utf8mb4</code>, you need not worry about converting supplementary characters because there will be none.</li>
+</ul>
+<h2 id="utf8mb4-general-ci-与-utf8mb4-unicode-ci"><a href="#utf8mb4-general-ci-与-utf8mb4-unicode-ci" class="headerlink" title="utf8mb4_general_ci 与 utf8mb4_unicode_ci"></a>utf8mb4_general_ci 与 utf8mb4_unicode_ci</h2><p>utf8mb4 对应的比对方法中，常用的有 <code>utf8mb4_general_ci</code> 和 <code>utf8mb4_unicode_ci</code>。关于这两个的区别，可以看下 StackOverflow 上有一个相关的热门讨论：<a href="https://link.zhihu.com/?target=https://stackoverflow.com/questions/766809/whats-the-difference-between-utf8-general-ci-and-utf8-unicode-ci">What’s the difference between utf8_general_ci and utf8_unicode_ci</a>，这边引用一下 <a href="https://link.zhihu.com/?target=http://seanlook.com/">Sean’s Notes</a> 的翻译：</p>
+<p>主要从排序准确性和性能两方面看：</p>
+<ul>
+<li><p>准确性</p>
+</li>
+<li><p><code>utf8mb4_unicode_ci</code> 基于标准的 Unicode 来排序和比较，能够在各种语言之间精确排序。</p>
+</li>
+<li><p><code>utf8mb4_general_ci</code> 没有实现 Unicode 排序规则，在遇到某些特殊语言或字符时，排序结果可能不是所期望的。</p>
+</li>
+<li><p>但是在绝大多数情况下，这种特殊字符的顺序可能不需要那么精确。比如 <code>*_unicode_ci</code> 把 <code>ß</code>、<code>Œ</code> 当成 <code>ss</code> 和 <code>OE</code> 来看，而 <code>*_general_ci</code> 会把它们当成 <code>s</code>、<code>e</code>，再如 <code>ÀÁÅåāă</code> 各自都与 <code>A</code> 相等。</p>
+</li>
+<li><p>性能</p>
+</li>
+<li><p><code>utf8mb4_general_ci</code> 在比较和排序的时候更快。</p>
+</li>
+<li><p><code>utf8mb4_unicode_ci</code> 在特殊情况下，Unicode 排序规则为了能够处理特殊字符的情况，实现了略微复杂的排序算法。</p>
+</li>
+<li><p>但是在绝大多数情况下，不会发生此类复杂比较。<code>*_general_ci</code> 理论上比 <code>*_unicode_ci</code> 可能快些，但相比现在的 CPU 来说，它远远不足以成为考虑性能的因素，索引涉及、SQL 设计才是。 我个人推荐是 <code>utf8mb4_unicode_ci</code>，将来 8.0 里也极有可能使用变为默认的规则。相比选择哪一种 collation，使用者应该更关心字符集与排序规则在数据库里的统一性。</p>
+</li>
+</ul>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>出于兼容性的考虑，对存储空间和性能没有特殊要求的场合下，建议使用 <code>utf8mb4</code> 字符集和 <code>utf8mb4_unicode_ci</code> 对比方法。</p>
+<p>原文：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/64570524">https://zhuanlan.zhihu.com/p/64570524</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.fenxiangz.com/post/dateabase/mysql/2020-09-11_%E9%AB%98%E6%80%A7%E8%83%BDMySQL%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0(2).html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Hassan">
+      <meta itemprop="description" content="Share everything">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="分享之">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/post/dateabase/mysql/2020-09-11_%E9%AB%98%E6%80%A7%E8%83%BDMySQL%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0(2).html" class="post-title-link" itemprop="url">高性能 MySQL 阅读笔记 (2)</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-09-11 00:00:00" itemprop="dateCreated datePublished" datetime="2020-09-11T00:00:00+00:00">2020-09-11</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-12-20 16:47:02" itemprop="dateModified" datetime="2020-12-20T16:47:02+00:00">2020-12-20</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/MySQL/" itemprop="url" rel="index"><span itemprop="name">MySQL</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="Scheme与数据类型优化"><a href="#Scheme与数据类型优化" class="headerlink" title="Scheme与数据类型优化"></a>Scheme与数据类型优化</h2><h3 id="选择合适的类型"><a href="#选择合适的类型" class="headerlink" title="选择合适的类型"></a>选择合适的类型</h3><h4 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h4><ul>
+<li>更小的通常更好：尽可能把列的大小指定在合理的范围；</li>
+<li>简单，例如：能用整型就用整型；避免字符串表示日期，应该用内建的日期和时间类型；ip应转成long存储等；</li>
+<li>尽量避免默认值为 <code>NULL</code>，尤其是当需要在该列上创建索引的时候；</li>
+<li>例外情况：如果是稀疏数据，比如很多行都为<code>NULL</code>，只有少部分数据为<code>NULL</code>，使用<code>NULL</code>可以很好的提高空间利用率；</li>
+</ul>
+<h3 id="整数类型"><a href="#整数类型" class="headerlink" title="整数类型"></a>整数类型</h3><ul>
+<li>有符号和无符号类型使用相同的存储空间，并具有相同的性能；</li>
+<li>整数计算一般使用64位 <code>BIGINT</code>整数（一些聚合函数除外，它们使用 <code>DECIMAL</code> 或 <code>DOUBLE</code> 进行计算）；</li>
+<li>整型可以指定宽度，例如：<code>INT(11)</code> ，对大多数应用没有意义：它不会影响合法范围，只是给一些交互功工具（例如：MySQL命令行终端）用来提示显示字符宽度。不影响存储和计算；</li>
+</ul>
+<h3 id="实数类型"><a href="#实数类型" class="headerlink" title="实数类型"></a>实数类型</h3><ul>
+<li>高精度计算：<code>DECIMAL</code>  ，非CPU直接计算，通过MySQL服务器自身实现高精度计算，性能不如：<code>FLOAT</code>、<code>DOUBLE</code>；</li>
+<li>大整数：<code>BIGINT</code>，可以把小数乘以小数位数（按精度需要，提高相应的倍数）来存储，可以提高计算性能；</li>
+<li>浮点相对精度较低：<code>FLOAT</code>、<code>DOUBLE</code>，CPU直接支持浮点计算，精度不一定很高，但运算更快；</li>
+</ul>
+<h3 id="字符串类型"><a href="#字符串类型" class="headerlink" title="字符串类型"></a>字符串类型</h3><p><code>VARCHAR</code> ： 变长，省空间，更新时需要做更多额外的工作，容易碎片化；<br> <code>CHAR</code>：定长，占用固定的空间，不容易产生碎片；</p>
+<ul>
+<li>存储和存储引擎具体的实现有关；</li>
+<li><code>VARCHAR</code> 需要额外1或2个字节记录字符串长度；</li>
+<li>虽然<code>VARCHAR</code> 是变长存储，但也要控制好长度，例如：<code>VARCHAR(5)</code>和<code>VARCHAR(200)</code>对于存储 <code>hello</code> 来讲，空间开销是一样的，但在内存中保存时，通常会分配固定的大小来保持。在使用“内存临时表”进行排序或操作时会影响存储性能，在使用“磁盘临时表”进行排序时也一样，所以应该正确的分配空间；</li>
+</ul>
+<h3 id="BLOB-和-TEXT"><a href="#BLOB-和-TEXT" class="headerlink" title="BLOB 和 TEXT"></a><code>BLOB</code> 和 <code>TEXT</code></h3><h4 id="不同点"><a href="#不同点" class="headerlink" title="不同点"></a>不同点</h4><p><code>BLOB</code>： 二进制存储，没有排序规则或字符集<br><code>TEXT</code>：有字符集和排序规则 （参考：<a target="_blank" rel="noopener" href="https://tech.fenxiangz.com/topic/121/mysql-%E4%B8%AD%E7%9A%84-character-set-%E4%B8%8E-collation">MySQL 中的 Character Set 与 Collation</a>）</p>
+<h4 id="查询和排序问题"><a href="#查询和排序问题" class="headerlink" title="查询和排序问题"></a>查询和排序问题</h4><ul>
+<li>涉及变量：max_sort_length </li>
+<li><code>BLOB</code> 和 <code>TEXT</code> 列的查询会使用磁盘临时表，严重影响性能，应该避免查询列（排序列）使用 <code>BLOB</code>  和  <code>TEXT</code> ；<br>如果无法避免时，通过使用 <code>SUBSTRING(column, length) </code> 将列值转换为字符串（ORDER BY 也同样适用），这样可以适用内存临时表进行计算，但要确保子串足够短，避免超过  <code>max_heap_table_size</code>  或  <code>tmp_table_size</code> ，超过以后又会使用磁盘临时表。</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.fenxiangz.com/post/dateabase/mysql/2020-09-10_%E9%AB%98%E6%80%A7%E8%83%BDMySQL_MySQL%E6%85%A2%E6%9F%A5%E8%AF%A2%E6%97%A5%E5%BF%97%E6%80%BB%E7%BB%93.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Hassan">
+      <meta itemprop="description" content="Share everything">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="分享之">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/post/dateabase/mysql/2020-09-10_%E9%AB%98%E6%80%A7%E8%83%BDMySQL_MySQL%E6%85%A2%E6%9F%A5%E8%AF%A2%E6%97%A5%E5%BF%97%E6%80%BB%E7%BB%93.html" class="post-title-link" itemprop="url">高性能 MySQL - MySQL慢查询日志总结</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-09-10 00:00:00" itemprop="dateCreated datePublished" datetime="2020-09-10T00:00:00+00:00">2020-09-10</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-12-20 16:47:02" itemprop="dateModified" datetime="2020-12-20T16:47:02+00:00">2020-12-20</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/MySQL/" itemprop="url" rel="index"><span itemprop="name">MySQL</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>原文：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/kerrycode/p/5593204.html">https://www.cnblogs.com/kerrycode/p/5593204.html</a></p>
+<h2 id="慢查询日志概念"><a href="#慢查询日志概念" class="headerlink" title="慢查询日志概念"></a>慢查询日志概念</h2><pre><code> MySQL的慢查询日志是MySQL提供的一种日志记录，它用来记录在MySQL中响应时间超过阀值的语句，具体指运行时间超过long_query_time值的SQL，则会被记录到慢查询日志中。long_query_time的默认值为10，意思是运行10S以上的语句。默认情况下，Mysql数据库并不启动慢查询日志，需要我们手动来设置这个参数，当然，如果不是调优需要的话，一般不建议启动该参数，因为开启慢查询日志会或多或少带来一定的性能影响。慢查询日志支持将日志记录写入文件，也支持将日志记录写入数据库表。</code></pre>
+<p>官方文档，关于慢查询的日志介绍如下（部分资料，具体参考官方相关链接）：</p>
+<p>The slow query log consists of SQL statements that took more than long_query_time seconds to execute and required at least min_examined_row_limit rows to be examined. The minimum and default values of long_query_time are 0 and 10, respectively. The value can be specified to a resolution of microseconds. For logging to a file, times are written including the microseconds part. For logging to tables, only integer times are written; the microseconds part is ignored.</p>
+<p>By default, administrative statements are not logged, nor are queries that do not use indexes for lookups. This behavior can be changed usinglog_slow_admin_statements and log_queries_not_using_indexes, as described later.</p>
+<h2 id="慢查询日志相关参数"><a href="#慢查询日志相关参数" class="headerlink" title="慢查询日志相关参数"></a>慢查询日志相关参数</h2><p>MySQL 慢查询的相关参数解释：</p>
+<p>slow_query_log    ：是否开启慢查询日志，1表示开启，0表示关闭。</p>
+<p>log-slow-queries  ：旧版（5.6以下版本）MySQL数据库慢查询日志存储路径。可以不设置该参数，系统则会默认给一个缺省的文件host_name-slow.log</p>
+<p>slow-query-log-file：新版（5.6及以上版本）MySQL数据库慢查询日志存储路径。可以不设置该参数，系统则会默认给一个缺省的文件host_name-slow.log</p>
+<p>long_query_time ：慢查询阈值，当查询时间多于设定的阈值时，记录日志。</p>
+<p>log_queries_not_using_indexes：未使用索引的查询也被记录到慢查询日志中（可选项）。</p>
+<p>log_output：日志存储方式。log_output=’FILE’表示将日志存入文件，默认值是’FILE’。log_output=’TABLE’表示将日志存入数据库，这样日志信息就会被写入到mysql.slow_log表中。MySQL数据库支持同时两种日志存储方式，配置的时候以逗号隔开即可，如：log_output=’FILE,TABLE’。日志记录到系统的专用日志表中，要比记录到文件耗费更多的系统资源，因此对于需要启用慢查询日志，又需要能够获得更高的系统性能，那么建议优先记录到文件。</p>
+<h2 id="慢查询日志配置"><a href="#慢查询日志配置" class="headerlink" title="慢查询日志配置"></a>慢查询日志配置</h2><p>默认情况下slow_query_log的值为OFF，表示慢查询日志是禁用的，可以通过设置slow_query_log的值来开启，如下所示：</p>
+<pre><code>mysql&gt; show variables  like &#39;%slow_query_log%&#39;;
+
++---------------------+-----------------------------------------------+
+
+| Variable_name       | Value                                         |
+
++---------------------+-----------------------------------------------+
+
+| slow_query_log      | OFF                                           |
+
+| slow_query_log_file | /home/WDPM/MysqlData/mysql/DB-Server-slow.log |
+
++---------------------+-----------------------------------------------+
+
+2 rows in set (0.00 sec)
+
+
+
+mysql&gt; set global slow_query_log=1;
+
+Query OK, 0 rows affected (0.09 sec)
+
+
+
+mysql&gt; show variables like &#39;%slow_query_log%&#39;;
+
++---------------------+-----------------------------------------------+
+
+| Variable_name       | Value                                         |
+
++---------------------+-----------------------------------------------+
+
+| slow_query_log      | ON                                            |
+
+| slow_query_log_file | /home/WDPM/MysqlData/mysql/DB-Server-slow.log |
+
++---------------------+-----------------------------------------------+
+
+2 rows in set (0.00 sec)</code></pre>
+<p>使用set global slow_query_log=1开启了慢查询日志只对当前数据库生效，如果MySQL重启后则会失效。如果要永久生效，就必须修改配置文件my.cnf（其它系统变量也是如此）。例如如下所示：</p>
+<pre><code>mysql&gt; show variables like &#39;slow_query%&#39;;
+
++---------------------+-----------------------------------------------+
+
+| Variable_name       | Value                                         |
+
++---------------------+-----------------------------------------------+
+
+| slow_query_log      | OFF                                           |
+
+| slow_query_log_file | /home/WDPM/MysqlData/mysql/DB-Server-slow.log |
+
++---------------------+-----------------------------------------------+
+
+2 rows in set (0.01 sec)</code></pre>
+<p><img src="./2020-09-10_%E9%AB%98%E6%80%A7%E8%83%BDMySQL_MySQL%E6%85%A2%E6%9F%A5%E8%AF%A2%E6%97%A5%E5%BF%97%E6%80%BB%E7%BB%93/1.png"></p>
+<p>修改my.cnf文件，增加或修改参数slow_query_log 和slow_query_log_file后，然后重启MySQL服务器，如下所示</p>
+<p>slow_query_log =1</p>
+<p>slow_query_log_file=/tmp/mysql_slow.log</p>
+<p><img src="./2020-09-10_%E9%AB%98%E6%80%A7%E8%83%BDMySQL_MySQL%E6%85%A2%E6%9F%A5%E8%AF%A2%E6%97%A5%E5%BF%97%E6%80%BB%E7%BB%93/2.png"></p>
+<pre><code>mysql&gt; show variables like &#39;slow_query%&#39;;
+
++---------------------+---------------------+
+
+| Variable_name       | Value               |
+
++---------------------+---------------------+
+
+| slow_query_log      | ON                  |
+
+| slow_query_log_file | /tmp/mysql_slow.log |
+
++---------------------+---------------------+
+
+2 rows in set (0.00 sec)</code></pre>
+<p>关于慢查询的参数slow_query_log_file ，它指定慢查询日志文件的存放路径，系统默认会给一个缺省的文件host_name-slow.log（如果没有指定参数slow_query_log_file的话）</p>
+<pre><code>mysql&gt; show variables like &#39;slow_query_log_file&#39;;
+
++---------------------+-----------------------------------------------+
+
+| Variable_name       | Value                                         |
+
++---------------------+-----------------------------------------------+
+
+| slow_query_log_file | /home/WDPM/MysqlData/mysql/DB-Server-slow.log |
+
++---------------------+-----------------------------------------------+
+
+1 row in set (0.00 sec)</code></pre>
+<p>那么开启了慢查询日志后，什么样的SQL才会记录到慢查询日志里面呢？ 这个是由参数long_query_time控制，默认情况下long_query_time的值为10秒，可以使用命令修改，也可以在my.cnf参数里面修改。关于运行时间正好等于long_query_time的情况，并不会被记录下来。也就是说，在mysql源码里是判断大于long_query_time，而非大于等于。从MySQL 5.1开始，long_query_time开始以微秒记录SQL语句运行时间，之前仅用秒为单位记录。如果记录到表里面，只会记录整数部分，不会记录微秒部分。</p>
+<pre><code>mysql&gt; show variables like &#39;long_query_time%&#39;;
+
++-----------------+-----------+
+
+| Variable_name   | Value     |
+
++-----------------+-----------+
+
+| long_query_time | 10.000000 |
+
++-----------------+-----------+
+
+1 row in set (0.00 sec)
+
+
+
+mysql&gt; set global long_query_time=4;
+
+Query OK, 0 rows affected (0.00 sec)
+
+
+
+mysql&gt; show variables like &#39;long_query_time&#39;;
+
++-----------------+-----------+
+
+| Variable_name   | Value     |
+
++-----------------+-----------+
+
+| long_query_time | 10.000000 |
+
++-----------------+-----------+
+
+1 row in set (0.00 sec)</code></pre>
+<p>如上所示，我修改了变量long_query_time，但是查询变量long_query_time的值还是10，难道没有修改到呢？注意：使用命令 set global long_query_time=4修改后，需要重新连接或新开一个会话才能看到修改值。你用show variables like ‘long_query_time’查看是当前会话的变量值，你也可以不用重新连接会话，而是用show global variables like ‘long_query_time’; 如下所示：</p>
+<p><img src="./2020-09-10_%E9%AB%98%E6%80%A7%E8%83%BDMySQL_MySQL%E6%85%A2%E6%9F%A5%E8%AF%A2%E6%97%A5%E5%BF%97%E6%80%BB%E7%BB%93/3.png"></p>
+<p>在MySQL里面执行下面SQL语句，然后我们去检查对应的慢查询日志，就会发现类似下面这样的信息。</p>
+<pre><code>mysql&gt; select sleep(3);
+
++----------+
+
+| sleep(3) |
+
++----------+
+
+|        0 |
+
++----------+
+
+1 row in set (3.00 sec)
+
+
+
+[root@DB-Server ~]# more /tmp/mysql_slow.log
+
+/usr/sbin/mysqld, Version: 5.6.20-enterprise-commercial-advanced-log (MySQL Enterprise Server - Advanced Edition (Commercial)). started with:
+
+Tcp port: 0  Unix socket: (null)
+
+Time                 Id Command    Argument
+
+/usr/sbin/mysqld, Version: 5.6.20-enterprise-commercial-advanced-log (MySQL Enterprise Server - Advanced Edition (Commercial)). started with:
+
+Tcp port: 0  Unix socket: (null)
+
+Time                 Id Command    Argument
+
+# Time: 160616 17:24:35
+
+# User@Host: root[root] @ localhost []  Id:     5
+
+# Query_time: 3.002615  Lock_time: 0.000000 Rows_sent: 1  Rows_examined: 0
+
+SET timestamp=1466069075;
+
+select sleep(3);</code></pre>
+<p><img src="./2020-09-10_%E9%AB%98%E6%80%A7%E8%83%BDMySQL_MySQL%E6%85%A2%E6%9F%A5%E8%AF%A2%E6%97%A5%E5%BF%97%E6%80%BB%E7%BB%93/4.png"></p>
+<p>log_output 参数是指定日志的存储方式。log_output=’FILE’表示将日志存入文件，默认值是’FILE’。log_output=’TABLE’表示将日志存入数据库，这样日志信息就会被写入到mysql.slow_log表中。MySQL数据库支持同时两种日志存储方式，配置的时候以逗号隔开即可，如：log_output=’FILE,TABLE’。日志记录到系统的专用日志表中，要比记录到文件耗费更多的系统资源，因此对于需要启用慢查询日志，又需要能够获得更高的系统性能，那么建议优先记录到文件。</p>
+<pre><code>mysql&gt; show variables like &#39;%log_output%&#39;;
+
++---------------+-------+
+
+| Variable_name | Value |
+
++---------------+-------+
+
+| log_output    | FILE  |
+
++---------------+-------+
+
+1 row in set (0.00 sec)
+
+
+
+mysql&gt; set global log_output=&#39;TABLE&#39;;
+
+Query OK, 0 rows affected (0.00 sec)
+
+
+mysql&gt; show variables like &#39;%log_output%&#39;;
+
++---------------+-------+
+
+| Variable_name | Value |
+
++---------------+-------+
+
+| log_output    | TABLE |
+
++---------------+-------+
+
+1 row in set (0.00 sec)
+
+
+
+mysql&gt; select sleep(5) ;
+
++----------+
+
+| sleep(5) |
+
++----------+
+
+|        0 |
+
++----------+
+
+1 row in set (5.00 sec)
+
+
+
+mysql&gt; 
+
+
+
+mysql&gt; select * from mysql.slow_log;
+
++---------------------+---------------------------+------------+-----------+-----------+---------------+----+----------------+-----------+-----------+-----------------+-----------+
+
+| start_time          | user_host                 | query_time | lock_time | rows_sent | rows_examined | db | last_insert_id | insert_id | server_id | sql_text        | thread_id |
+
++---------------------+---------------------------+------------+-----------+-----------+---------------+----+----------------+-----------+-----------+-----------------+-----------+
+
+| 2016-06-16 17:37:53 | root[root] @ localhost [] | 00:00:03   | 00:00:00  |         1 |             0 |    |              0 |         0 |         1 | select sleep(3) |         5 |
+
+| 2016-06-16 21:45:23 | root[root] @ localhost [] | 00:00:05   | 00:00:00  |         1 |             0 |    |              0 |         0 |         1 | select sleep(5) |         2 |
+
++---------------------+---------------------------+------------+-----------+-----------+---------------+----+----------------+-----------+-----------+-----------------+-----------+
+
+2 rows in set (0.00 sec)
+
+
+
+mysql&gt; </code></pre>
+<p>系统变量log-queries-not-using-indexes：未使用索引的查询也被记录到慢查询日志中（可选项）。如果调优的话，建议开启这个选项。另外，开启了这个参数，其实使用full index scan的sql也会被记录到慢查询日志。</p>
+<p>This option does not necessarily mean that no index is used. For example, a query that uses a full index scan uses an index but would be logged because the index would not limit the number of rows.</p>
+<pre><code>mysql&gt; show variables like &#39;log_queries_not_using_indexes&#39;;
+
++-------------------------------+-------+
+
+| Variable_name                 | Value |
+
++-------------------------------+-------+
+
+| log_queries_not_using_indexes | OFF   |
+
++-------------------------------+-------+
+
+1 row in set (0.00 sec)
+
+
+
+mysql&gt; set global log_queries_not_using_indexes=1;
+
+Query OK, 0 rows affected (0.00 sec)
+
+
+
+mysql&gt; show variables like &#39;log_queries_not_using_indexes&#39;;
+
++-------------------------------+-------+
+
+| Variable_name                 | Value |
+
++-------------------------------+-------+
+
+| log_queries_not_using_indexes | ON    |
+
++-------------------------------+-------+
+
+1 row in set (0.00 sec)</code></pre>
+<p>系统变量log_slow_admin_statements表示是否将慢管理语句例如ANALYZE TABLE和ALTER TABLE等记入慢查询日志</p>
+<pre><code>mysql&gt; show variables like &#39;log_slow_admin_statements&#39;;
+
++---------------------------+-------+
+
+| Variable_name             | Value |
+
++---------------------------+-------+
+
+| log_slow_admin_statements | OFF   |
+
++---------------------------+-------+
+
+1 row in set (0.00 sec)
+
+
+
+mysql&gt; </code></pre>
+<p>系统变量log_slow_slave_statements 表示</p>
+<p>By default, a replication slave does not write replicated queries to the slow query log. To change this, use thelog_slow_slave_statements system variable.</p>
+<p>When the slow query log is enabled, this variable enables logging for queries that have taken more than long_query_time seconds to execute on the slave. This variable was added in MySQL 5.7.1. Setting this variable has no immediate effect. The state of the variable applies on all subsequent START SLAVE statements.</p>
+<p>参数–log-short-format </p>
+<p>The server writes less information to the slow query log if you use the –log-short-format option.<br>H2M_LI_HEADER<br><strong>Command-Line Format</strong><code>--log-short-format</code><strong>Permitted Values**</strong>Type**<code>boolean</code><strong>Default</strong><code>FALSE</code></p>
+<p>另外，如果你想查询有多少条慢查询记录，可以使用系统变量。</p>
+<pre><code>mysql&gt; show global status like &#39;%Slow_queries%&#39;;
+
++---------------+-------+
+
+| Variable_name | Value |
+
++---------------+-------+
+
+| Slow_queries  | 2104  |
+
++---------------+-------+
+
+1 row in set (0.00 sec)
+
+
+
+mysql&gt; </code></pre>
+<p>日志分析工具mysqldumpslow</p>
+<p>在生产环境中，如果要手工分析日志，查找、分析SQL，显然是个体力活，MySQL提供了日志分析工具mysqldumpslow</p>
+<p>查看mysqldumpslow的帮助信息：</p>
+<pre><code>[root@DB-Server ~]# mysqldumpslow --help
+
+Usage: mysqldumpslow [ OPTS... ] [ LOGS... ]
+
+
+
+Parse and summarize the MySQL slow query log. Options are
+
+
+
+  --verbose    verbose
+
+  --debug      debug
+
+  --help       write this text to standard output
+
+
+
+  -v           verbose
+
+  -d           debug
+
+  -s ORDER     what to sort by (al, at, ar, c, l, r, t), &#39;at&#39; is default
+
+                al: average lock time
+
+                ar: average rows sent
+
+                at: average query time
+
+                 c: count
+
+                 l: lock time
+
+                 r: rows sent
+
+                 t: query time  
+
+  -r           reverse the sort order (largest last instead of first)
+
+  -t NUM       just show the top n queries
+
+  -a           don&#39;t abstract all numbers to N and strings to &#39;S&#39;
+
+  -n NUM       abstract numbers with at least n digits within names
+
+  -g PATTERN   grep: only consider stmts that include this string
+
+  -h HOSTNAME  hostname of db server for *-slow.log filename (can be wildcard),
+
+               default is &#39;*&#39;, i.e. match all
+
+  -i NAME      name of server instance (if using mysql.server startup script)
+
+  -l           don&#39;t subtract lock time from total time</code></pre>
+<p>-s, 是表示按照何种方式排序，</p>
+<blockquote>
+<p>c : 访问计数</p>
+<p>l : 锁定时间</p>
+<p>r : 返回记录</p>
+<p>t : 查询时间</p>
+<p>al : 平均锁定时间</p>
+<p>ar : 平均返回记录数</p>
+<p>at : 平均查询时间</p>
+</blockquote>
+<p>-t, 是top n的意思，即为返回前面多少条的数据；</p>
+<p>-g, 后边可以写一个正则匹配模式，大小写不敏感的；</p>
+<p>比如</p>
+<p>得到返回记录集最多的10个SQL。</p>
+<p>mysqldumpslow -s r -t 10 /database/mysql/mysql06_slow.log</p>
+<p>得到访问次数最多的10个SQL</p>
+<p>mysqldumpslow -s c -t 10 /database/mysql/mysql06_slow.log</p>
+<p>得到按照时间排序的前10条里面含有左连接的查询语句。</p>
+<p>mysqldumpslow -s t -t 10 -g “left join” /database/mysql/mysql06_slow.log</p>
+<p>另外建议在使用这些命令时结合 | 和more 使用 ，否则有可能出现刷屏的情况。</p>
+<p>mysqldumpslow -s r -t 20 /mysqldata/mysql/mysql06-slow.log | more</p>
+<p><strong>参考资料：</strong></p>
+<p><a target="_blank" rel="noopener" href="https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html">https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_long_query_time">https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_long_query_time</a></p>
+<p>作者：<a target="_blank" rel="noopener" href="http://www.cnblogs.com/kerrycode/">潇湘隐者</a></p>
+<p>出处：<a target="_blank" rel="noopener" href="http://www.cnblogs.com/kerrycode/">http://www.cnblogs.com/kerrycode/</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.fenxiangz.com/post/dateabase/mysql/2020-09-09_%E9%AB%98%E6%80%A7%E8%83%BDMySQL%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0(1).html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Hassan">
+      <meta itemprop="description" content="Share everything">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="分享之">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/post/dateabase/mysql/2020-09-09_%E9%AB%98%E6%80%A7%E8%83%BDMySQL%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0(1).html" class="post-title-link" itemprop="url">高性能 MySQL 阅读笔记 (1)</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-09-09 00:00:00" itemprop="dateCreated datePublished" datetime="2020-09-09T00:00:00+00:00">2020-09-09</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-12-20 16:47:02" itemprop="dateModified" datetime="2020-12-20T16:47:02+00:00">2020-12-20</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/MySQL/" itemprop="url" rel="index"><span itemprop="name">MySQL</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><h3 id="什么是性能？"><a href="#什么是性能？" class="headerlink" title="什么是性能？"></a>什么是性能？</h3><p>完成某件任务所需要的时间度量，也就是响应时间。</p>
+<h3 id="什么是优化？"><a href="#什么是优化？" class="headerlink" title="什么是优化？"></a>什么是优化？</h3><p>在一定的工作负载下，尽可能地降低响应时间。</p>
+<p>核心：找到时间花在哪里，这很重要。</p>
+<h3 id="如何找？"><a href="#如何找？" class="headerlink" title="如何找？"></a>如何找？</h3><p>通过测量，所以测量是性能优化的关键方法。</p>
+<h3 id="如何测量？"><a href="#如何测量？" class="headerlink" title="如何测量？"></a>如何测量？</h3><p>找到系统的可测量点，但首先需要系统可测量化的支持，然而实际情况是系统很少可以做到可测量化。</p>
+<p>因为很难进行系统内部测量，所以我们只能尽可能通过外部去测量系统。</p>
+<p>另外需要注意是的，无论是内部测量还是外部测量，数据都不一定是百分之百准确的。</p>
+<p>举例：如果<code>SQL</code>慢查了，花费了10s，如果9.6s都在等待磁盘IO，那么追究其他的0.4s就没什么意义。</p>
+<h1 id="理解性能优剖析"><a href="#理解性能优剖析" class="headerlink" title="理解性能优剖析"></a>理解性能优剖析</h1><h3 id="什么是值得优化的查询"><a href="#什么是值得优化的查询" class="headerlink" title="什么是值得优化的查询"></a>什么是值得优化的查询</h3><pre><code>1. 占系统总体性能影响比重大的；
+2. 投入成本低于优化后的收入；</code></pre>
+<h3 id="异常情况"><a href="#异常情况" class="headerlink" title="异常情况"></a>异常情况</h3><p>系统内部的异常</p>
+<h3 id="未知的未知"><a href="#未知的未知" class="headerlink" title="未知的未知"></a>未知的未知</h3><p>性能优化过程发现了“丢失的时间”，比如：程序内部测量点发现耗时10s，但<code>MySQL</code>内部测量发现耗时是8s，那么丢失的2s可能就是没有测量到的，需要注意。</p>
+<h3 id="注意平均值问题"><a href="#注意平均值问题" class="headerlink" title="注意平均值问题"></a>注意平均值问题</h3><p>平均值往往掩盖一些频率小但有性能问题的点</p>
+<h1 id="对应用程序剖析"><a href="#对应用程序剖析" class="headerlink" title="对应用程序剖析"></a>对应用程序剖析</h1><p>增加测量点本身一定程度上会增加部分开销，但这部分开销如果远小于性能优化的贡献。<br>轻量级监控：为了尽可能降低性能监控开销，可以增加灰度测量点，只针对n%的概率进行监控。</p>
+<h1 id="剖析MySQL"><a href="#剖析MySQL" class="headerlink" title="剖析MySQL"></a>剖析MySQL</h1><p>× 慢查日志</p>
+<p>× 剖析单条查询</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.fenxiangz.com/post/dateabase/MSSQL/2020-09-08_MSSQL%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5_SQL_Server%E5%A4%87%E4%BB%BD%E7%AD%96%E7%95%A5.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Hassan">
+      <meta itemprop="description" content="Share everything">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="分享之">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/post/dateabase/MSSQL/2020-09-08_MSSQL%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5_SQL_Server%E5%A4%87%E4%BB%BD%E7%AD%96%E7%95%A5.html" class="post-title-link" itemprop="url">MSSQL · 最佳实践 ·  SQL Server备份策略</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-09-08 00:00:00" itemprop="dateCreated datePublished" datetime="2020-09-08T00:00:00+00:00">2020-09-08</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-12-20 16:47:02" itemprop="dateModified" datetime="2020-12-20T16:47:02+00:00">2020-12-20</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/MSSQL/" itemprop="url" rel="index"><span itemprop="name">MSSQL</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h1><p>在上一期月报中我们分享了SQL Server三种常见的备份技术及工作方式，本期月报将分享如何充分利用三者的优点来制定SQL Server数据库的备份和还原策略以达到数据库快速灾难恢复能力。</p>
+<p><a target="_blank" rel="noopener" href="http://mysql.taobao.org/monthly/2017/11/03/">上期月报：MSSQL · 最佳实践 · SQL Server三种常见备份</a></p>
+<h1 id="三个术语"><a href="#三个术语" class="headerlink" title="三个术语"></a>三个术语</h1><p>在详细介绍SQL Server的灾备策略之前，我们先简要介绍三个重要的术语：</p>
+<ul>
+<li>RTO (Recovery Time Objective)恢复时间目标，是指出现灾难后多长时间能成功恢复数据库，即企业可容许服务中断的最大时间长度。比如说灾难发生后一天内恢复成功，则RTO值就是二十四小时；</li>
+<li>RPO (Recovery Point Objective)恢复点目标，是指服务恢复后，恢复回来的数据所对应的最新时间点。比如企业每天凌晨零晨进行完全备份一次，那么这个全备恢复回来的系统数据只会是最近灾难发生当天那个凌晨零时的资料；</li>
+<li>ERT(Estimated Recovery Time)预估恢复时间，是指根据备份链路的长度和备份文件的大小以及设备的还原效率来估算的服务恢复时间。<br>从以上的三个术语解释来看，最优的灾备方案是RTO极小，即出现故障能够立马恢复数据；RPO无线接近故障时间点，即最少的数据丢失；ERT最小，即可快速恢复服务。但是，现实场景中的灾备方案往往很难达到如此优化的方案。</li>
+</ul>
+<h1 id="制定灾备策略"><a href="#制定灾备策略" class="headerlink" title="制定灾备策略"></a>制定灾备策略</h1><p>以上三个术语是衡量灾备方案和还原策略优劣的重要指标，我们的灾备策略的目标也是无限的靠近RTO、RPO和ERT的最优值。以下我们列举一个典型的灾备场景来分析和解答：<br>假设某个企业对SQL Server数据库DBA提出的灾难恢复要求是数据丢失不超过一小时（RPO不超过一小时），在尽可能短的时间内（RTO尽可能短）恢复应用数据库服务，且灾备策略必须具备任意时间点还原的能力。<br>综合上一期月报分享，我们先抛开灾备策略的优劣来看，我们看看三种典型的灾备策略方案是否可以实现RPO？</p>
+<ul>
+<li>每个小时一次完全备份：备份文件过大，备份还原效率低下，这种方案无法实现任意时间点的还原；</li>
+<li>每天一个完全备份 + 每小时一个日志备份：解决了备份文件过大和效率问题，也可以实现任意时间点还原，但是拉长了日志还原链条；</li>
+<li>每天一个完全备份 + 每六个小时一个差异备份 + 每小时一个日志备份：具备任意时间点还原的能力，综合了备份文件大小、效率和备份链条长度。<br>从这个分析来看，也恰好应证了上一期的月报中的结论，即：完全备份集是所有备份的基础，但数据量大且备份耗时；事务日志备份集相对较小且快速，但会拉长备份文件还原链条，增大还原时间开销；差异备份解决了事务日志备份链条过长的问题。</li>
+</ul>
+<h1 id="时间点恢复"><a href="#时间点恢复" class="headerlink" title="时间点恢复"></a>时间点恢复</h1><p>我们假设备份数据增量为每小时1GB，初始完全备份大小为100GB，按照时间维度计算每小时产生的备份集大小，统计如下：<br><img src="./2020-09-08_MSSQL%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5_SQL_Server%E5%A4%87%E4%BB%BD%E7%AD%96%E7%95%A5/1.png"></p>
+<h2 id="典型场景"><a href="#典型场景" class="headerlink" title="典型场景"></a>典型场景</h2><p>假设我们非常重要的订单数据库，在13:30被人为的错误删除掉了，灾备系统在14:00进行了一个事务日志备份。那么，这个事务日志备份对我们业务的灾难恢复就非常关键和重要了，它使得我们有能力将数据库还原到13:29:59这个时间点。如此，我们只会丢失13:30 - 14:00之间的这半个小时的数据（实际上我们也有能力找回13:30 - 14:00）。但是，如果没有14:00这个事务日志备份文件，但存在13:00的事务日志备份文件的话，我们的系统数据会丢失13:00 - 14:00之间这一个小时的数据，一个小时的数据丢失是公司不被允许的。场景如下图展示：</p>
+<p><img src="./2020-09-08_MSSQL%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5_SQL_Server%E5%A4%87%E4%BB%BD%E7%AD%96%E7%95%A5/2.png"></p>
+<h2 id="模拟备份策略"><a href="#模拟备份策略" class="headerlink" title="模拟备份策略"></a>模拟备份策略</h2><p>我们可以使用以下方法模拟灾备方案和灾难恢复的步骤：</p>
+<ul>
+<li>第一步：创建测试数据库并修改为FULL模式</li>
+<li>第二步：创建一个完全备份</li>
+<li>第三步：每一个小时做一次事务日志备份</li>
+<li>第四步：每六个小时做一个差异备份</li>
+</ul>
+<p>详细的模拟方法和语句如下所示：</p>
+<pre><code>-- Create testing DB
+IF DB_ID(&#39;TestDR&#39;) IS NULL
+    CREATEDATABASE TestDR;
+GO
+
+-- Change Database to FULL Recovery Mode -- for time point recovery supportingALTERDATABASE [TestDR] SETRECOVERYFULLWITH NO_WAIT
+GOUSE TestDR
+GO-- Create Testing TableIF OBJECT_ID(&#39;dbo.tb_DR&#39;, &#39;U&#39;) ISNOTNULLDROPTABLE dbo.tb_DR
+GOCREATETABLE dbo.tb_DR
+(
+    IDINTIDENTITY(1,1) NOTNULL PRIMARY KEY,
+    CommentVARCHAR(100) NULL,
+    Indate DATETIME NOTNULLDEFAULT(GETDATE())
+);
+GO
+
+USE TestDR
+GO-- Init dataINSERTINTO dbo.tb_DR(Comment)
+SELECT&#39;Full Backup @ 00:00&#39;;
+-- Take Full BackupBACKUPDATABASE [TestDR] TO 
+DISK =N&#39;C:\Temp\TestDR_20171217@00:00_FULL.bak&#39;WITH COMPRESSION,INIT,STATS=5;
+
+INSERTINTO dbo.tb_DR(Comment)
+SELECT&#39;Transaction Log Backup @ 01:00&#39;;
+-- Take TRN BackupBACKUPLOG [TestDR] TO 
+DISK =N&#39;C:\Temp\TestDR_20171217@01:00_LOG.trn&#39;WITH COMPRESSION,NOINIT,STATS=5;
+
+INSERTINTO dbo.tb_DR(Comment)
+SELECT&#39;Transaction Log Backup @ 02:00&#39;;
+-- Take TRN BackupBACKUPLOG [TestDR] TO 
+DISK =N&#39;C:\Temp\TestDR_20171217@02:00_LOG.trn&#39;WITH COMPRESSION,NOINIT,STATS=5;
+
+INSERTINTO dbo.tb_DR(Comment)
+SELECT&#39;Transaction Log Backup @ 03:00&#39;;
+-- Take TRN BackupBACKUPLOG [TestDR] TO 
+DISK =N&#39;C:\Temp\TestDR_20171217@03:00_LOG.trn&#39;WITH COMPRESSION,NOINIT,STATS=5;
+
+INSERTINTO dbo.tb_DR(Comment)
+SELECT&#39;Transaction Log Backup @ 04:00&#39;;
+-- Take TRN BackupBACKUPLOG [TestDR] TO 
+DISK =N&#39;C:\Temp\TestDR_20171217@04:00_LOG.trn&#39;WITH COMPRESSION,NOINIT,STATS=5;
+
+INSERTINTO dbo.tb_DR(Comment)
+SELECT&#39;Transaction Log Backup @ 05:00&#39;;
+-- Take TRN BackupBACKUPLOG [TestDR] TO 
+DISK =N&#39;C:\Temp\TestDR_20171217@05:00_LOG.trn&#39;WITH COMPRESSION,NOINIT,STATS=5;
+
+
+INSERTINTO dbo.tb_DR(Comment)
+SELECT&#39;DIFF Backup @ 06:00&#39;;
+-- Take DIFF BackupBACKUPDATABASE [TestDR] TO 
+DISK =N&#39;C:\Temp\TestDR_20171217@06:00_DIFF.bak&#39;WITH DIFFERENTIAL,COMPRESSION,NOINIT,STATS=5;
+
+
+
+INSERTINTO dbo.tb_DR(Comment)
+SELECT&#39;Transaction Log Backup @ 07:00&#39;;
+-- Take TRN BackupBACKUPLOG [TestDR] TO 
+DISK =N&#39;C:\Temp\TestDR_20171217@07:00_LOG.trn&#39;WITH COMPRESSION,NOINIT,STATS=5;
+
+INSERTINTO dbo.tb_DR(Comment)
+SELECT&#39;Transaction Log Backup @ 08:00&#39;;
+-- Take TRN BackupBACKUPLOG [TestDR] TO 
+DISK =N&#39;C:\Temp\TestDR_20171217@08:00_LOG.trn&#39;WITH COMPRESSION,NOINIT,STATS=5;
+
+INSERTINTO dbo.tb_DR(Comment)
+SELECT&#39;Transaction Log Backup @ 09:00&#39;;
+-- Take TRN BackupBACKUPLOG [TestDR] TO 
+DISK =N&#39;C:\Temp\TestDR_20171217@09:00_LOG.trn&#39;WITH COMPRESSION,NOINIT,STATS=5;
+
+INSERTINTO dbo.tb_DR(Comment)
+SELECT&#39;Transaction Log Backup @ 10:00&#39;;
+-- Take TRN BackupBACKUPLOG [TestDR] TO 
+DISK =N&#39;C:\Temp\TestDR_20171217@10:00_LOG.trn&#39;WITH COMPRESSION,NOINIT,STATS=5;
+
+INSERTINTO dbo.tb_DR(Comment)
+SELECT&#39;Transaction Log Backup @ 11:00&#39;;
+-- Take TRN BackupBACKUPLOG [TestDR] TO 
+DISK =N&#39;C:\Temp\TestDR_20171217@11:00_LOG.trn&#39;WITH COMPRESSION,NOINIT,STATS=5;
+
+
+INSERTINTO dbo.tb_DR(Comment)
+SELECT&#39;DIFF Backup @ 12:00&#39;;
+-- Take DIFF BackupBACKUPDATABASE [TestDR] TO 
+DISK =N&#39;C:\Temp\TestDR_20171217@12:00_DIFF.bak&#39;WITH DIFFERENTIAL,COMPRESSION,NOINIT,STATS=5;
+
+
+INSERTINTO dbo.tb_DR(Comment)
+SELECT&#39;Transaction Log Backup @ 13:00&#39;;
+-- Take TRN BackupBACKUPLOG [TestDR] TO 
+DISK =N&#39;C:\Temp\TestDR_20171217@13:00_LOG.trn&#39;WITH COMPRESSION,NOINIT,STATS=5;
+
+-- This record is similate for point time recoveryINSERTINTO dbo.tb_DR(Comment)
+SELECT&#39;Transaction Log Backup @ 13:29:59&#39;;
+
+WAITFOR DELAY &#39;00:00:02&#39;
+
+INSERTINTO dbo.tb_DR(Comment)
+SELECT&#39;Transaction Log Backup @ 14:00&#39;;
+-- Take TRN BackupBACKUPLOG [TestDR] TO 
+DISK =N&#39;C:\Temp\TestDR_20171217@14:00_LOG.trn&#39;WITH COMPRESSION,NOINIT,STATS=5;
+
+-- Query DataSELECT * FROM dbo.tb_DR;</code></pre>
+<p>我们看看测试表的数据情况，方框选中的这条数据是需要我们恢复出来的：<br><img src="./2020-09-08_MSSQL%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5_SQL_Server%E5%A4%87%E4%BB%BD%E7%AD%96%E7%95%A5/3.png"></p>
+<p>我们也可以再次检查数据库备份历史记录，来确保灾备信息准确性：</p>
+<pre><code>SELECT
+bs.database_name AS&#39;Database Name&#39;,
+bs.backup_start_date AS&#39;Backup Start&#39;,
+bs.backup_finish_date AS&#39;Backup Finished&#39;,
+DATEDIFF(MINUTE, bs.backup_start_date, bs.backup_finish_date) AS&#39;Duration (min)&#39;,
+bmf.physical_device_name AS&#39;Backup File&#39;,
+CASEWHEN bs.[type] = &#39;D&#39;THEN&#39;Full Backup&#39;WHEN bs.[type] = &#39;I&#39;THEN&#39;Differential Database&#39;WHEN bs.[type] = &#39;L&#39;THEN&#39;Log&#39;WHEN bs.[type] = &#39;F&#39;THEN&#39;File/Filegroup&#39;WHEN bs.[type] = &#39;G&#39;THEN&#39;Differential File&#39;WHEN bs.[type] = &#39;P&#39;THEN&#39;Partial&#39;WHEN bs.[type] = &#39;Q&#39;THEN&#39;Differential partial&#39;ENDAS&#39;Backup Type&#39;FROM msdb.dbo.backupmediafamily bmf WITH(NOLOCK)
+    INNERJOIN msdb..backupset bs WITH(NOLOCK)
+    ON bmf.media_set_id = bs.media_set_id
+WHERE bs.database_name = &#39;TestDR&#39;ORDERBY bs.backup_start_date ASC</code></pre>
+<p>查询的灾备历史记录展示如下：<br><img src="./2020-09-08_MSSQL%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5_SQL_Server%E5%A4%87%E4%BB%BD%E7%AD%96%E7%95%A5/4.png"></p>
+<p>从这个备份历史记录来看，和我们的测试表中的数据是吻合且对应起来的。</p>
+<h2 id="灾难恢复步骤"><a href="#灾难恢复步骤" class="headerlink" title="灾难恢复步骤"></a>灾难恢复步骤</h2><p>接下来，我们需要根据TestDR数据库的备份文件，将数据库恢复到模拟时间点2017-12-17 23:04:45.130（即真实场景中的发生人为操作失误的时间点13:30），为了包含ID为15的这条数据，我们就恢复到2017-12-17 23:04:46.130时间点即可，然后检查看看ID等于15的这条记录是否存在，如果这条记录存在，说明我们备份和还原策略工作正常，否则无法实现公司的要求。为了试验的目的，我们先把TestDR数据库删除掉（真实环境，请不要随意删除数据库，这很危险）：</p>
+<pre><code>-- for testing, drop db first.USE [master]
+GOALTERDATABASE [TestDR] SET  SINGLE_USER WITHROLLBACKIMMEDIATEGODROPDATABASE [TestDR]
+GO</code></pre>
+<h3 id="恢复方案一：全备-日志备份"><a href="#恢复方案一：全备-日志备份" class="headerlink" title="恢复方案一：全备 + 日志备份"></a>恢复方案一：全备 + 日志备份</h3><p>为了实现灾难恢复，我们需要先把完全备份文件恢复，然后一个接一个的事务日志备份按时间升序恢复，在最后一个事务日志恢复的时候，使用STOPAT关键字恢复到时间点并把数据库Recovery回来带上线，详细的代码如下：</p>
+<pre><code>USE [master]
+GO-- restore from full backupRESTOREDATABASE TestDR
+FROM DISK = &#39;C:\Temp\TestDR_20171217@00:00_FULL.bak&#39;WITH NORECOVERY, REPLACE-- restore from log backupRESTORELOG TestDR 
+FROM DISK = &#39;C:\Temp\TestDR_20171217@01:00_LOG.trn&#39;WITH NORECOVERY
+RESTORELOG TestDR 
+FROM DISK = &#39;C:\Temp\TestDR_20171217@02:00_LOG.trn&#39;WITH NORECOVERY
+RESTORELOG TestDR 
+FROM DISK = &#39;C:\Temp\TestDR_20171217@03:00_LOG.trn&#39;WITH NORECOVERY
+RESTORELOG TestDR 
+FROM DISK = &#39;C:\Temp\TestDR_20171217@04:00_LOG.trn&#39;WITH NORECOVERY
+RESTORELOG TestDR 
+FROM DISK = &#39;C:\Temp\TestDR_20171217@05:00_LOG.trn&#39;WITH NORECOVERY
+
+-- skip diff backup at 06:00RESTORELOG TestDR 
+FROM DISK = &#39;C:\Temp\TestDR_20171217@07:00_LOG.trn&#39;WITH NORECOVERY
+RESTORELOG TestDR 
+FROM DISK = &#39;C:\Temp\TestDR_20171217@08:00_LOG.trn&#39;WITH NORECOVERY
+RESTORELOG TestDR 
+FROM DISK = &#39;C:\Temp\TestDR_20171217@09:00_LOG.trn&#39;WITH NORECOVERY
+RESTORELOG TestDR 
+FROM DISK = &#39;C:\Temp\TestDR_20171217@10:00_LOG.trn&#39;WITH NORECOVERY
+RESTORELOG TestDR 
+FROM DISK = &#39;C:\Temp\TestDR_20171217@11:00_LOG.trn&#39;WITH NORECOVERY
+
+-- skip diff backup at 12:00RESTORELOG TestDR 
+FROM DISK = &#39;C:\Temp\TestDR_20171217@13:00_LOG.trn&#39;WITH NORECOVERY
+
+-- restore from log and stop at 2017-12-17 23:04:46.130RESTORELOG TestDR 
+FROM DISK = &#39;C:\Temp\TestDR_20171217@14:00_LOG.trn&#39;WITH STOPAT = &#39;2017-12-17 23:04:46.130&#39;, RECOVERY-- Double check test dataUSE TestDR
+GOSELECT * FROM dbo.tb_DR</code></pre>
+<p>从测试表中的数据展示来看，我们已经成功的将ID为15的这条数据还原回来，即发生人为失误导致的数据丢失（灾难）已经恢复回来了。<br><img src="./2020-09-08_MSSQL%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5_SQL_Server%E5%A4%87%E4%BB%BD%E7%AD%96%E7%95%A5/5.png"></p>
+<p>细心的你一定发现了这个恢复方案，使用的是完全备份 + 很多个事务日志备份来恢复数据的，这种方案的恢复链条十分冗长，在这里，恢复到第13个备份文件才找回了我们想要的数据。有没有更为简单，恢复更为简洁的灾难恢复方案呢？请看恢复方案二。</p>
+<h3 id="恢复方案二：全备-差备-日志备份"><a href="#恢复方案二：全备-差备-日志备份" class="headerlink" title="恢复方案二：全备 + 差备 + 日志备份"></a>恢复方案二：全备 + 差备 + 日志备份</h3><p>为了解决完全备份 +  日志备份恢复链条冗长的问题，我们接下来采取一种更为简洁的恢复方案，即采用完全备份 + 差异备份 + 事务日志备份的方法来实现灾难恢复，方法如下：</p>
+<pre><code>--=========FULL + DIFF + TRN LOGUSE [master]
+GO-- restore from full backupRESTOREDATABASE TestDR
+FROM DISK = &#39;C:\Temp\TestDR_20171217@00:00_FULL.bak&#39;WITH NORECOVERY, REPLACE-- restore from diff backupRESTOREDATABASE TestDR 
+FROM DISK = &#39;C:\Temp\TestDR_20171217@12:00_DIFF.bak&#39;WITH NORECOVERY
+
+-- restore from trn logRESTORELOG TestDR 
+FROM DISK = &#39;C:\Temp\TestDR_20171217@13:00_LOG.trn&#39;WITH NORECOVERY
+
+-- restore from log and stop at 2017-12-17 23:04:46.130RESTORELOG TestDR 
+FROM DISK = &#39;C:\Temp\TestDR_20171217@14:00_LOG.trn&#39;WITH STOPAT = &#39;2017-12-17 23:04:46.130&#39;, RECOVERY-- Double check test dataUSE TestDR
+GOSELECT * FROM dbo.tb_DR</code></pre>
+<p>从这个灾难恢复链路来看，将灾难恢复的步骤从13个备份文件减少到4个备份文件，链路缩短，方法变得更为简洁快速。当然同样可以实现相同的灾难恢复效果，满足公司的对数据RPO的要求。</p>
+<p><img src="./2020-09-08_MSSQL%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5_SQL_Server%E5%A4%87%E4%BB%BD%E7%AD%96%E7%95%A5/6.png"></p>
+<h3 id="恢复方案三：使用SSMS"><a href="#恢复方案三：使用SSMS" class="headerlink" title="恢复方案三：使用SSMS"></a>恢复方案三：使用SSMS</h3><p>当然灾难恢复的方法除了使用脚本以外，微软的SSMS工具通过IDE UI操作也是可以达到相同的效果，可以实现相同的功能，方法如下：右键点击你需要还原的数据库 =&gt; Tasks =&gt; Restore =&gt; Database，如下如所示：<br><img src="./2020-09-08_MSSQL%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5_SQL_Server%E5%A4%87%E4%BB%BD%E7%AD%96%E7%95%A5/7.png"><br> 选择Timeline =&gt; Specific date and time =&gt; 设置你需要还原到的时间点（这里选择2017-12-17 23:04:46） =&gt; 确定。<br><img src="./2020-09-08_MSSQL%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5_SQL_Server%E5%A4%87%E4%BB%BD%E7%AD%96%E7%95%A5/8.png"><br>时间点恢复还原时间消耗取决于你数据库备份文件的大小，在我的例子中，一会功夫，就已经还原好你想要的数据库了。</p>
+<h1 id="最后总结"><a href="#最后总结" class="headerlink" title="最后总结"></a>最后总结</h1><p>本期月报是继前一个月分享SQL Server三种常见的备份技术后的深入，详细讲解了如何制定灾备策略来满足企业对灾难恢复能力的要求，并以一个具体的例子来详细阐述了SQL Server灾备的策略和灾难恢复的方法，使企业在数据库灾难发生时，数据损失最小化。但是，这里还是有一个疑问暂时留给读者：为什么我们可以使用多种灾难恢复（我们这里只谈到了两种，实际上还有其他方法）的方法呢？到底底层的原理是什么的？预知后事如何，我们下期月报分享。</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a target="_blank" rel="noopener" href="https://sqlbak.com/academy/point-in-time-recovery/">典型场景中的场景图</a></p>
+<p><a target="_blank" rel="noopener" href="https://sqlbak.com/academy/point-in-time-recovery/">Point-in-time recovery</a></p>
+<p>原文：<a target="_blank" rel="noopener" href="https://developer.aliyun.com/article/379022">https://developer.aliyun.com/article/379022</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.fenxiangz.com/post/java/spring/2020-09-02_How-to-learn-Spring-Cloud.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Hassan">
+      <meta itemprop="description" content="Share everything">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="分享之">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/post/java/spring/2020-09-02_How-to-learn-Spring-Cloud.html" class="post-title-link" itemprop="url">How to learn Spring Cloud – the practical way</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-09-02 00:00:00" itemprop="dateCreated datePublished" datetime="2020-09-02T00:00:00+00:00">2020-09-02</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-12-20 16:47:02" itemprop="dateModified" datetime="2020-12-20T16:47:02+00:00">2020-12-20</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Spring-Cloud/" itemprop="url" rel="index"><span itemprop="name">Spring Cloud</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>I have recently spoken at a meetup about <a target="_blank" rel="noopener" href="https://www.e4developer.com/2018/02/20/practical-choreography-with-spring-cloud-presentation/">Practical Choreography with Spring Cloud Stream</a>. It was a great event where I was asked many questions after the talk. One question got me thinking: <em>“What book about Spring Cloud do you recommend?” *which as it turns out boils down to *“How do you learn Spring Cloud?”.</em> I heard that question posed a few times before in different ways. Here, I will give you my answer on what I think is the best way of learning Spring Cloud.</p>
+<p>With Spring Cloud being probably the hottest framework on JVM for integrating microservices, the interest in it is growing. Most people interested in the microservices are already familiar with Spring Boot. If you haven’t heard of it before, check out my <a target="_blank" rel="noopener" href="https://www.e4developer.com/2018/01/16/microservices-toolbox-spring-boot/">Spring Boot introduction</a> blog post, and definitely see the <a target="_blank" rel="noopener" href="https://projects.spring.io/spring-boot/">official site</a>– it has some very good <em>Getting Started Guides</em>.</p>
+<p>With that out of the way, let’s look at learning Spring Cloud!</p>
+<h3 id="Understand-the-Scope"><a href="#Understand-the-Scope" class="headerlink" title="Understand the Scope"></a>Understand the Scope</h3><p>The first thing to do when trying to learn something so big and diverse is understanding the scope. Learning Spring Cloud can mean many things. First of all, the Spring Cloud currently contains:</p>
+<ul>
+<li>Spring Cloud Config</li>
+<li>Spring Cloud Netflix</li>
+<li>Spring Cloud Bus</li>
+<li>Spring Cloud for Cloud Foundry</li>
+<li>Spring Cloud Cloud Foundry Service Broker</li>
+<li>Spring Cloud Cluster</li>
+<li>Spring Cloud Consul</li>
+<li>Spring Cloud Security</li>
+<li>Spring Cloud Sleuth</li>
+<li>Spring Cloud Data Flow</li>
+<li>Spring Cloud Stream</li>
+<li>Spring Cloud Stream App Starters</li>
+<li>Spring Cloud Task</li>
+<li>Spring Cloud Task App Starters</li>
+<li>Spring Cloud Zookeeper</li>
+<li>Spring Cloud for Amazon Web Services</li>
+<li>Spring Cloud Connectors</li>
+<li>Spring Cloud Starters</li>
+<li>Spring Cloud CLI</li>
+<li>Spring Cloud Contract</li>
+<li>Spring Cloud Gateway</li>
+</ul>
+<p>Wow! This is a lot to take in! Clearly, the number of different projects here means that you can’t learn it by simply going through them one by one with a hope of understanding or mastering Spring Cloud by the end of it.</p>
+<p>So, what is the best strategy for learning such an extensive framework (or a <a target="_blank" rel="noopener" href="https://www.e4developer.com/2018/01/22/spring-cloud-blueprint-for-successful-microservices/">microservice blueprint</a>, as I describe it in another article)? I think the most sensible ways of learning is understanding what you would like to use Spring Cloud for. Setting yourself a learning goal.</p>
+<h3 id="Goal-Oriented-Learning"><a href="#Goal-Oriented-Learning" class="headerlink" title="Goal Oriented Learning"></a>Goal Oriented Learning</h3><p>What kind of learning goals are we talking about here? Let me give you a few ideas:</p>
+<ul>
+<li>Set up communication between microservices based on Spring Cloud Stream</li>
+<li>Build microservices that use configuration provided by Spring Cloud Config</li>
+<li>Build a small microservices system based on Orchestration- what is needed and how to use it</li>
+<li>Test microservices with Spring Cloud Contract</li>
+<li>Use Spring Cloud Data Flow to take data from one place, modify it and store it in Elastic Search</li>
+</ul>
+<p>If you are interested in learning some parts of Spring Cloud, think of an absolutely tiny project and build it! Once you have done it, you know that you understood at least the basics and you validated it by having something working. I will quote Stephen R. Covey here (author of  <em>“The 7 Habits of Highly Effective People”</em>):</p>
+<blockquote>
+<p>“to learn and not to do is really not to learn. To know and not to do is really not to know.”</p>
+</blockquote>
+<p>With topics as complex and broad as Spring Cloud, this quote rings very true!</p>
+<h3 id="Study"><a href="#Study" class="headerlink" title="Study"></a>Study</h3><p>You picked your goal and you want to get started. What resources can help you? I will give you a few ideas here, but remember- the goal is to learn only as much as necessary in order to achieve your goal. Don’t learn much more just yet, as you may end up overwhelmed and move further away from completing your goal. There will be time to learn more in depth. Let’s assume that your goal is <em>Using Spring Cloud Config correctly</em> in your personal project. Here are the resources I recommend:</p>
+<ul>
+<li>Official <a target="_blank" rel="noopener" href="https://cloud.spring.io/spring-cloud-config/#quick-start">Spring Cloud Config Quickstart</a> to get a basic idea</li>
+<li>If you enjoy books and want to learn more Spring Cloud in the future – <a target="_blank" rel="noopener" href="https://www.manning.com/books/spring-microservices-in-action">Spring Microservices in Action</a> is a great reference. Don’t read it all yet! Check out the chapters on Spring Cloud Configuration and read as much as necessary to know what to do.</li>
+<li>If you use Pluralsight, then check out <a target="_blank" rel="noopener" href="https://app.pluralsight.com/library/courses/java-microservices-spring-cloud-developing-services">Java Microservices with Spring Cloud: Developing Services</a> – a very good introduction! Again, start with the chapters on Spring Cloud Config.</li>
+<li>You can google the topic and find articles like <a target="_blank" rel="noopener" href="http://www.baeldung.com/spring-cloud-configuration">Quick Intro to Spring Cloud Configuration</a></li>
+<li>You can even find <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=b2ih5RCuxTM">YouTube videos about Spring Cloud Config</a></li>
+</ul>
+<p>I really want to make a point here. There is a huge amount of resources out there, free or paid of very high quality. You can spend weeks just reviewing them, but this is a mistake. Chose what works for you and get moving towards your goal!</p>
+<h3 id="Do-something-–-achieve-your-goal"><a href="#Do-something-–-achieve-your-goal" class="headerlink" title="Do something – achieve your goal"></a>Do something – achieve your goal</h3><p>Once you identified the resources you need, get on with your goal! If your goal was to learn about Spring Cloud Config- set up the server, get the clients connecting and experiment with it.</p>
+<p>You should have enough information to complete your simple task. If you find that something is not working- great! That shows that you need to revisit the resources and correct your understanding.</p>
+<p>If you completed your goal, but you want to experiment more with the tech- go for it! You have something working and playing with it is much more fun than reading dry tech documentation.</p>
+<p>By playing with the technology you start to notice nuances and develop a deeper understanding. Understanding that will not be easily acquired by reading countless articles, as most things would just fly over your head.</p>
+<h3 id="Study-Again"><a href="#Study-Again" class="headerlink" title="Study Again"></a>Study Again</h3><p>Once you completed your goal and played a little with the tech you should have a much better idea what you are dealing with. Now is the time to go deep! Read all you can around the area that you explored. See what you could have done differently, how it is used and what are the best practices.</p>
+<p>Now, all the reading you will do will make much more sense and will be more memorable. Suddenly dry documentation turns into fascinating discoveries of what you could have done better. And the best of all- if something sounds really great- you have your test-bed to try it.</p>
+<h3 id="Teach"><a href="#Teach" class="headerlink" title="Teach"></a>Teach</h3><p>Teaching others really helps with memorizing and understanding the subject. This is one of the reasons why I am writing this blog. You not only get a chance of sharing your knowledge but also learn yourself by teaching.</p>
+<p>If blogging is not your thing, you can talk to your colleagues or friends about what you have been tinkering with. You may be confronted with questions or perspectives that you did not consider before- great! Another chance to make the learning more complete.</p>
+<p>One thing to remember is- don’t be afraid to teach. Even if what you have just learned seems basic to you- it was not so basic before you started learning it! If you were in this position, then so must be countless others!</p>
+<p>There is a value to the unique way you can explain the subject in your own way. Especially given your practical experience gained from the goal that you achieved.</p>
+<h3 id="Staying-up-to-Date"><a href="#Staying-up-to-Date" class="headerlink" title="Staying up to Date"></a>Staying up to Date</h3><p>Spring Cloud is constantly changing and growing. If your ultimate goal is becoming an expert in this ecosystem, then you need to think about ways of staying up to date.</p>
+<p>One thing that is pretty much a must is working with it. If you are not lucky enough to use it on your day job- make sure that you use it in your spare time. You could be building a personal project making use of the tech or simply tinker with it and try different things. What matters is that you actually get that hands-on experience.</p>
+<p>The second part of staying fresh is knowing whats coming and reading other people experiences. Some of the sources I really enjoy following are:</p>
+<ul>
+<li>The <a target="_blank" rel="noopener" href="https://spring.io/blog">Spring.io</a> blog with a very good newsletter</li>
+<li><a target="_blank" rel="noopener" href="http://www.baeldung.com/">Baeldung</a> – an amazing source of Spring related articles and a weekly newsletter</li>
+<li><a target="_blank" rel="noopener" href="https://www.infoq.com/microservices/">InfoQ Microservices</a> – huge and very active website maintained by multiple authors</li>
+<li>Using Twitter to stay up to date and see what people are reading. I share plenty of articles on that topic with my <a target="_blank" rel="noopener" href="https://twitter.com/bartoszjd">@bartoszjd</a> account.</li>
+</ul>
+<p>These are just some of the sources that I follow. There are countless others. The point is to choose some that you enjoy reading and keep an eye for exciting stuff.</p>
+<h3 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h3><p>Spring Cloud is a huge and fascinating set of tools for building microservices. It can’t be learned as a “single thing”. Using different goals is the best way of approaching this learning.</p>
+<p>The idea presented here can be used for learning any technical concept. I found it extremely beneficial for myself and used it with success. I really recommend checking out SimpleProgrammer’s <a target="_blank" rel="noopener" href="https://simpleprogrammer.com/learning-to-learn/">Learning to learn</a> article which describes very similar idea for learning new technologies or frameworks.</p>
+<p>Happy learning!</p>
+<p>原文：<a target="_blank" rel="noopener" href="https://www.e4developer.com/2018/03/06/how-to-learn-spring-cloud-the-practical-way/">https://www.e4developer.com/2018/03/06/how-to-learn-spring-cloud-the-practical-way/</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.fenxiangz.com/post/java/advance/2020-06-29_%E5%AD%97%E7%AC%A6%E9%9B%86%E7%9F%A5%E8%AF%86%E7%82%B9.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Hassan">
+      <meta itemprop="description" content="Share everything">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="分享之">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/post/java/advance/2020-06-29_%E5%AD%97%E7%AC%A6%E9%9B%86%E7%9F%A5%E8%AF%86%E7%82%B9.html" class="post-title-link" itemprop="url">字符集知识点</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-06-28 00:00:00" itemprop="dateCreated datePublished" datetime="2020-06-28T00:00:00+00:00">2020-06-28</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-12-20 16:47:02" itemprop="dateModified" datetime="2020-12-20T16:47:02+00:00">2020-12-20</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Java-%E8%BF%9B%E9%98%B6/" itemprop="url" rel="index"><span itemprop="name">Java 进阶</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="获取系统支持的字符集"><a href="#获取系统支持的字符集" class="headerlink" title="获取系统支持的字符集"></a><strong>获取系统支持的字符集</strong></h3><pre><code>Charset.availableCharsets();  // Java</code></pre>
+<h3 id="编解码"><a href="#编解码" class="headerlink" title="编解码"></a><strong>编解码</strong></h3><p>编码：字符 -&gt; 字节 ；<br>解码：字节 -&gt; 字符；</p>
+<h3 id="字符集"><a href="#字符集" class="headerlink" title="字符集"></a><strong>字符集</strong></h3><h3 id="ASCII-American-Standard-Code-for-Information-Interchange"><a href="#ASCII-American-Standard-Code-for-Information-Interchange" class="headerlink" title="ASCII : American Standard Code for Information Interchange"></a>ASCII : American Standard Code for Information Interchange</h3><p>7 bit来表示一个字符，共计可以表示 128 种字符。</p>
+<h3 id="IOS-8859-1"><a href="#IOS-8859-1" class="headerlink" title="IOS-8859-1"></a>IOS-8859-1</h3><p>8 bit来表示一个字符，一个字节表示一个字符，基于 ASCII 向后扩展，完全兼容 ASCII，共计可以表示 256 种字符。</p>
+<h3 id="GB2312"><a href="#GB2312" class="headerlink" title="GB2312"></a>GB2312</h3><p>2个字节（16位）表示一个汉字。</p>
+<h3 id="GBK"><a href="#GBK" class="headerlink" title="GBK"></a>GBK</h3><p>扩展了 GB2312， 增加生僻字。</p>
+<h3 id="GB18030"><a href="#GB18030" class="headerlink" title="GB18030"></a>GB18030</h3><p>继续扩展了GBK。</p>
+<h3 id="Big5"><a href="#Big5" class="headerlink" title="Big5"></a>Big5</h3><p>台湾，繁体字。</p>
+<h3 id="Unicode-编码方式"><a href="#Unicode-编码方式" class="headerlink" title="Unicode 编码方式"></a>Unicode 编码方式</h3><p>全球统一字符，两个字节表示一个字符，256^2 个字符。</p>
+<h3 id="UTF-Unicode-Translation-Format"><a href="#UTF-Unicode-Translation-Format" class="headerlink" title="UTF: Unicode Translation Format"></a>UTF: Unicode Translation Format</h3><p>由于 Unicode 存储问题（2个字节），诞生了 UTF，本质上 UTF 是一种存储方式，而不是编码方式。<br>UTF 存在： UTF-8，UTF-16 （UTF-16LE，UTF-16BE），UTF-32 。<br>UTF-16 ：ZERO WIDTH NO-BREAK SPACE : 0xFEFF (BE) ,  0xFFFE (LE)。</p>
+<h3 id="UTF-8"><a href="#UTF-8" class="headerlink" title="UTF-8"></a>UTF-8</h3><p>变长字节表示形式，兼容： IOS-8859-1；<br>通过3个字节表示一个中文；</p>
+<h3 id="BOM"><a href="#BOM" class="headerlink" title="BOM"></a>BOM</h3><p>Byte Order Mark ， Windows遗留问题，BOM是用来判断文本文件是哪一种Unicode编码的标记，其本身是一个Unicode字符（”\uFEFF”），位于文本文件头部。</p>
+<p>在不同的Unicode编码中，对应的bom的二进制字节如下：</p>
+<pre><code>FE FF     -- UTF16BE
+FF FE     -- UTF16LE
+EF BB BF  -- UTF8</code></pre>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.fenxiangz.com/post/java/advance/2020-06-28_java_jvm.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Hassan">
+      <meta itemprop="description" content="Share everything">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="分享之">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/post/java/advance/2020-06-28_java_jvm.html" class="post-title-link" itemprop="url">深入理解JVM-内存模型（jmm）和GC</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-06-28 00:00:00" itemprop="dateCreated datePublished" datetime="2020-06-28T00:00:00+00:00">2020-06-28</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-12-20 16:47:02" itemprop="dateModified" datetime="2020-12-20T16:47:02+00:00">2020-12-20</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Java-%E8%BF%9B%E9%98%B6/" itemprop="url" rel="index"><span itemprop="name">Java 进阶</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>转载：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/76959115d486">https://www.jianshu.com/p/76959115d486</a></p>
+<h2 id="1-CPU和内存的交互"><a href="#1-CPU和内存的交互" class="headerlink" title="1 CPU和内存的交互"></a>1 CPU和内存的交互</h2><p>了解jvm内存模型前，了解下cpu和计算机内存的交互情况。【因为Java虚拟机内存模型定义的访问操作与计算机十分相似】</p>
+<p>有篇很棒的文章，从cpu讲到内存模型:<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/bf158fbb2432">什么是java内存模型</a></p>
+<hr>
+<p>在计算机中，cpu和内存的交互最为频繁，相比内存，磁盘读写太慢，内存相当于高速的缓冲区。</p>
+<p>但是随着cpu的发展，内存的读写速度也远远赶不上cpu。因此cpu厂商在每颗cpu上加上高速缓存，用于缓解这种情况。现在cpu和内存的交互大致如下。</p>
+<p><img src="./2020-06-28_java_jvm/1.png"></p>
+<p>cpu上加入了高速缓存这样做解决了处理器和内存的矛盾(一快一慢)，但是引来的新的问题 </p>
+<p><strong>缓存一致性</strong></p>
+<p>在多核cpu中，每个处理器都有各自的高速缓存(L1,L2,L3)，而主内存确只有一个 。</p>
+<p>以我的pc为例,因为cpu成本高，缓存区一般也很小。</p>
+<p><img src="./2020-06-28_java_jvm/2.png"></p>
+<pre><code>CPU要读取一个数据时，首先从一级缓存中查找，如果没有找到再从二级缓存中查找，如果还是没有就从三级缓存或内存中查找，每个cpu有且只有一套自己的缓存。</code></pre>
+<blockquote>
+<p>如何保证多个处理器运算涉及到同一个内存区域时，多线程场景下会存在缓存一致性问题，那么运行时保证数据一致性？</p>
+<p>为了解决这个问题，各个处理器需遵循一些协议保证一致性。【如MSI，MESI啥啥的协议。。】</p>
+</blockquote>
+<p>大概如下</p>
+<p><img src="./2020-06-28_java_jvm/3.png"></p>
+<p>|-cpu与内存-|</p>
+<p>在CPU层面，内存屏障提供了个充分必要条件</p>
+<h3 id="1-1-1-内存屏障-Memory-Barrier"><a href="#1-1-1-内存屏障-Memory-Barrier" class="headerlink" title="1.1.1 内存屏障(Memory Barrier)"></a>1.1.1 内存屏障(Memory Barrier)</h3><p>CPU中，每个CPU又有多级缓存【上图统一定义为高速缓存】，一般分为L1,L2,L3，因为这些缓存的出现，提高了数据访问性能，避免每次都向内存索取，但是弊端也很明显，不能实时的和内存发生信息交换，分<strong>在不同CPU执行的不同线程对同一个变量的缓存值不同。</strong></p>
+<ul>
+<li>硬件层的内存屏障分为两种：<code>Load Barrier</code> 和 <code>Store Barrier</code>即读屏障和写屏障。【内存屏障是硬件层的】</li>
+</ul>
+<h5 id="为什么需要内存屏障"><a href="#为什么需要内存屏障" class="headerlink" title="为什么需要内存屏障"></a>为什么需要内存屏障</h5><pre><code>由于现代操作系统都是多处理器操作系统，每个处理器都会有自己的缓存，可能存再不同处理器缓存不一致的问题，而且由于操作系统可能存在重排序，导致读取到错误的数据，因此，操作系统提供了一些内存屏障以解决这种问题.
+简单来说:1.在不同CPU执行的不同线程对同一个变量的缓存值不同，为了解决这个问题。
+2.用volatile可以解决上面的问题，不同硬件对内存屏障的实现方式不一样。java屏蔽掉这些差异，通过jvm生成内存屏障的指令。
+对于读屏障:在指令前插入读屏障，可以让高速缓存中的数据失效，强制从主内存取。</code></pre>
+<h5 id="内存屏障的作用"><a href="#内存屏障的作用" class="headerlink" title="内存屏障的作用"></a>内存屏障的作用</h5><pre><code>cpu执行指令可能是无序的，它有两个比较重要的作用
+1.阻止屏障两侧指令重排序
+2.强制把写缓冲区/高速缓存中的脏数据等写回主内存，让缓存中相应的数据失效。</code></pre>
+<h4 id="volatile型变量"><a href="#volatile型变量" class="headerlink" title="volatile型变量"></a>volatile型变量</h4><p>当我们声明某个变量为volatile修饰时，这个变量就有了线程可见性，volatile通过在读写操作前后添加内存屏障。</p>
+<p>用代码可以这么理解</p>
+<pre><code>//相当于读写时加锁，保证及时可见性，并发时不被随意修改。publicclassSynchronizedInteger&#123;privatelong value;publicsynchronizedintget()&#123;return value;&#125;publicsynchronizedvoidset(long value)&#123;this.value = value;&#125;&#125;</code></pre>
+<p>volatile型变量拥有如下特性</p>
+<pre><code>可见性，对于一个该变量的读，一定能看到读之前最后的写入。
+防止指令重排序，执行代码时,为了提高执行效率,会在不影响最后结果的前提下对指令进行重新排序,使用volatile可以防止，比如单例模式双重校验锁的创建中有使用到，如(https://www.jianshu.com/p/b30a4d568be4)
+
+注意的是volatile不具有原子性，如volatile++这样的复合操作,这里感谢大家的指正。</code></pre>
+<p>至于volatile底层是怎么实现保证不同线程可见性的，这里涉及到的就是硬件上的，被volatile修饰的变量在进行写操作时，会生成一个特殊的汇编指令，该指令会触发mesi协议，会存在一个总线嗅探机制的东西，简单来说就是这个cpu会不停检测总线中该变量的变化，如果该变量一旦变化了，由于这个嗅探机制，其它cpu会立马将该变量的cpu缓存数据清空掉，重新的去从主内存拿到这个数据。简单画了个图。</p>
+<p><img src="./2020-06-28_java_jvm/4.png"></p>
+<h2 id="2-Java内存区域"><a href="#2-Java内存区域" class="headerlink" title="2. Java内存区域"></a>2. Java内存区域</h2><blockquote>
+<p>前提:本文讲的基本都是以Sun HotSpot虚拟机为基础的，Oracle收购了Sun后目前得到了两个【Sun的HotSpot和JRockit(以后可能合并这两个),还有一个是IBM的IBMJVM】</p>
+</blockquote>
+<p>之所以扯了那么多计算机内存模型，是因为java内存模型的设定符合了计算机的规范。</p>
+<p><strong>Java程序内存的分配是在JVM虚拟机内存分配机制下完成</strong>。</p>
+<p><strong>Java内存模型（Java Memory Model ,JMM）就是一种符合内存模型规范的，屏蔽了各种硬件和操作系统的访问差异的，保证了Java程序在各种平台下对内存的访问都能保证效果一致的机制及规范。</strong></p>
+<blockquote>
+<p>简要言之，jmm是jvm的一种规范，定义了jvm的内存模型。它屏蔽了各种硬件和操作系统的访问差异，不像c那样直接访问硬件内存，相对安全很多，它的主要目的是解决由于多线程通过共享内存进行通信时，存在的本地内存数据不一致、编译器会对代码指令重排序、处理器会对代码乱序执行等带来的问题。可以保证并发编程场景中的原子性、可见性和有序性。</p>
+</blockquote>
+<p>从下面这张图可以看出来，Java数据区域分为五大数据区域。这些区域各有各的用途，创建及销毁时间。</p>
+<pre><code>其中方法区和堆是所有线程共享的，栈，本地方法栈和程序虚拟机则为线程私有的。</code></pre>
+<p>根据java虚拟机规范，java虚拟机管理的内存将分为下面五大区域。</p>
+<p><img src="./2020-06-28_java_jvm/5.png"></p>
+<p>|-jmm-|</p>
+<h3 id="2-1-五大内存区域"><a href="#2-1-五大内存区域" class="headerlink" title="2.1 五大内存区域"></a>2.1 五大内存区域</h3><h4 id="2-1-1-程序计数器"><a href="#2-1-1-程序计数器" class="headerlink" title="2.1.1 程序计数器"></a>2.1.1 程序计数器</h4><pre><code>程序计数器是一块很小的内存空间，它是线程私有的，可以认作为当前线程的行号指示器。</code></pre>
+<p><strong>为什么需要程序计数器</strong></p>
+<blockquote>
+<p>我们知道对于一个处理器(如果是多核cpu那就是一核)，在一个确定的时刻都只会执行一条线程中的指令，一条线程中有多个指令，为了线程切换可以恢复到正确执行位置，每个线程都需有独立的一个程序计数器，不同线程之间的程序计数器互不影响，独立存储。</p>
+<p>注意：如果线程执行的是个java方法，那么计数器记录虚拟机字节码指令的地址。如果为native【底层方法】，那么计数器为空。<strong>这块内存区域是虚拟机规范中唯一没有OutOfMemoryError的区域</strong>。</p>
+</blockquote>
+<h4 id="2-1-2-Java栈（虚拟机栈）"><a href="#2-1-2-Java栈（虚拟机栈）" class="headerlink" title="2.1.2 Java栈（虚拟机栈）"></a>2.1.2 Java栈（虚拟机栈）</h4><p>同计数器也为线程私有，生命周期与相同，就是我们平时说的栈，<strong>栈描述的是Java方法执行的内存模型</strong>。</p>
+<p><strong>每个方法被执行的时候都会创建一个栈帧用于存储局部变量表，操作栈，动态链接，方法出口等信息。每一个方法被调用的过程就对应一个栈帧在虚拟机栈中从入栈到出栈的过程。【栈先进后出，下图栈1先进最后出来】</strong></p>
+<p>对于栈帧的解释参考 <a target="_blank" rel="noopener" href="https://links.jianshu.com/go?to=https://www.cnblogs.com/noKing/p/8167700.html">Java虚拟机运行时栈帧结构</a></p>
+<pre><code>栈帧: 是用来存储数据和部分过程结果的数据结构。
+栈帧的位置:  内存 -&gt; 运行时数据区 -&gt; 某个线程对应的虚拟机栈 -&gt; here[在这里]
+栈帧大小确定时间: 编译期确定，不受运行期数据影响。</code></pre>
+<p>通常有人将java内存区分为栈和堆，实际上java内存比这复杂，这么区分可能是因为我们最关注，与对象内存分配关系最密切的是这两个。</p>
+<p><strong>平时说的栈一般指局部变量表部分。</strong></p>
+<blockquote>
+<p>局部变量表:一片连续的内存空间，用来存放方法参数，以及方法内定义的局部变量，存放着编译期间已知的数据类型(八大基本类型和对象引用(reference类型),returnAddress类型。它的最小的局部变量表空间单位为Slot，虚拟机没有指明Slot的大小，但在jvm中，long和double类型数据明确规定为64位，这两个类型占2个Slot，其它基本类型固定占用1个Slot。</p>
+<p>reference类型:与基本类型不同的是它不等同本身，即使是String，内部也是char数组组成，它可能是指向一个对象起始位置指针，也可能指向一个代表对象的句柄或其他与该对象有关的位置。</p>
+<p>returnAddress类型:指向一条字节码指令的地址【深入理解Java虚拟机】<a target="_blank" rel="noopener" href="https://links.jianshu.com/go?to=https://www.zhihu.com/question/29056872">怎么理解returnAddress</a></p>
+</blockquote>
+<p><img src="./2020-06-28_java_jvm/6.png"></p>
+<p><strong>需要注意的是，局部变量表所需要的内存空间在编译期完成分配，当进入一个方法时，这个方法在栈中需要分配多大的局部变量空间是完全确定的，在方法运行期间不会改变局部变量表大小。</strong></p>
+<blockquote>
+<p>Java虚拟机栈可能出现两种类型的异常：</p>
+<ol>
+<li>线程请求的栈深度大于虚拟机允许的栈深度，将抛出StackOverflowError。</li>
+<li>虚拟机栈空间可以动态扩展，当动态扩展是无法申请到足够的空间时，抛出OutOfMemory异常。</li>
+</ol>
+</blockquote>
+<h4 id="2-1-3-本地方法栈"><a href="#2-1-3-本地方法栈" class="headerlink" title="2.1.3 本地方法栈"></a>2.1.3 本地方法栈</h4><p>本地方法栈是与虚拟机栈发挥的作用十分相似,区别是虚拟机栈执行的是Java方法(也就是字节码)服务，而本地方法栈则为虚拟机使用到的native方法服务，可能底层调用的c或者c++,我们打开jdk安装目录可以看到也有很多用c编写的文件，可能就是native方法所调用的c代码。</p>
+<h4 id="2-1-4-堆"><a href="#2-1-4-堆" class="headerlink" title="2.1.4 堆"></a>2.1.4 堆</h4><p>对于大多数应用来说，<strong>堆是java虚拟机管理内存最大的一块内存区域，因为堆存放的对象是线程共享的，所以多线程的时候也需要同步机制</strong>。因此需要重点了解下。</p>
+<p>java虚拟机规范对这块的描述是:所有对象实例及数组都要在堆上分配内存，但随着JIT编译器的发展和逃逸分析技术的成熟，这个说法也不是那么绝对，但是大多数情况都是这样的。</p>
+<blockquote>
+<p>即时编译器:可以把把Java的字节码，包括需要被解释的指令的程序）转换成可以直接发送给处理器的指令的程序)</p>
+<p>逃逸分析:通过逃逸分析来决定某些实例或者变量是否要在堆中进行分配，如果开启了逃逸分析，即可将这些变量直接在栈上进行分配，而非堆上进行分配。这些变量的指针可以被全局所引用，或者其其它线程所引用。</p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/20bd2e9b1f03">参考逃逸分析</a></p>
+</blockquote>
+<blockquote>
+<p>注意:它是所有线程共享的，它的目的是存放对象实例。同时它也是GC所管理的主要区域，因此常被称为GC堆，又由于现在收集器常使用分代算法，Java堆中还可以细分为新生代和老年代，再细致点还有Eden(伊甸园)空间之类的不做深究。</p>
+<p>根据虚拟机规范，Java堆可以存在物理上不连续的内存空间，就像磁盘空间只要逻辑是连续的即可。它的内存大小可以设为固定大小，也可以扩展。</p>
+<p>当前主流的虚拟机如HotPot都能按扩展实现(通过设置 -Xmx和-Xms)，如果堆中没有内存内存完成实例分配，而且堆无法扩展将报OOM错误(OutOfMemoryError)</p>
+</blockquote>
+<h4 id="2-1-5-方法区"><a href="#2-1-5-方法区" class="headerlink" title="2.1.5 方法区"></a>2.1.5 方法区</h4><p>方法区同堆一样，是所有线程共享的内存区域，为了区分堆，又被称为非堆。</p>
+<p>用于存储已被虚拟机加载的类信息、常量、静态变量，如static修饰的变量加载类的时候就被加载到方法区中。</p>
+<blockquote>
+<p>运行时常量池</p>
+<p>是方法区的一部分，class文件除了有类的字段、接口、方法等描述信息之外，还有常量池用于存放编译期间生成的各种字面量和符号引用。</p>
+</blockquote>
+<p>在老版jdk，方法区也被称为永久代【因为没有强制要求方法区必须实现垃圾回收，HotSpot虚拟机以永久代来实现方法区，从而JVM的垃圾收集器可以像管理堆区一样管理这部分区域，从而不需要专门为这部分设计垃圾回收机制。不过自从JDK7之后，Hotspot虚拟机便将运行时常量池从永久代移除了。】</p>
+<pre><code>jdk1.7开始逐步去永久代。从String.interns()方法可以看出来
+String.interns()native方法:作用是如果字符串常量池已经包含一个等于这个String对象的字符串，则返回代表池中的这个字符串的String对象，在jdk1.6及以前常量池分配在永久代中。可通过 -XX:PermSize和-XX:MaxPermSize限制方法区大小。
+
+
+publicclassStringIntern&#123;//运行如下代码探究运行时常量池的位置publicstaticvoidmain(String[] args)throwsThrowable&#123;//用list保持着引用 防止full gc回收常量池List&lt;String&gt; list =newArrayList&lt;String&gt;();int i =0;while(true)&#123;
+            list.add(String.valueOf(i++).intern());&#125;&#125;&#125;//如果在jdk1.6环境下运行 同时限制方法区大小 将报OOM后面跟着PermGen space说明方法区OOM，即常量池在永久代//如果是jdk1.7或1.8环境下运行 同时限制堆的大小  将报heap space 即常量池在堆中</code></pre>
+<p><a target="_blank" rel="noopener" href="https://links.jianshu.com/go?to=https://www.cnblogs.com/yingsong/p/5896207.html">idea设置相关内存大小设置</a></p>
+<p>这边不用全局的方式，设置main方法的vm参数。</p>
+<p>做相关设置，比如说这边设定堆大小。（-Xmx5m -Xms5m -XX:-UseGCOverheadLimit）</p>
+<pre><code>这边如果不设置UseGCOverheadLimit将报java.lang.OutOfMemoryError: GC overhead limit exceeded，
+这个错是因为GC占用了多余98%（默认值）的CPU时间却只回收了少于2%（默认值）的堆空间。目的是为了让应用终止，给开发者机会去诊断问题。一般是应用程序在有限的内存上创建了大量的临时对象或者弱引用对象，从而导致该异常。虽然加大内存可以暂时解决这个问题，但是还是强烈建议去优化代码，后者更加有效，也可通过UseGCOverheadLimit避免[不推荐，这里是因为测试用，并不能解决根本问题]</code></pre>
+<p><img src="./2020-06-28_java_jvm/7.png"></p>
+<p><img src="./2020-06-28_java_jvm/8.png"></p>
+<p><strong>jdk8真正开始废弃永久代，而使用元空间(Metaspace)</strong></p>
+<blockquote>
+<p>java虚拟机对方法区比较宽松，除了跟堆一样可以不存在连续的内存空间，定义空间和可扩展空间，还可以选择不实现垃圾收集。</p>
+</blockquote>
+<h4 id="2-2-对象的内存布局"><a href="#2-2-对象的内存布局" class="headerlink" title="2.2 对象的内存布局"></a>2.2 对象的内存布局</h4><p>在HotSpot虚拟机中。对象在内存中存储的布局分为</p>
+<pre><code>1.对象头
+2.实例数据
+3.对齐填充</code></pre>
+<h5 id="2-2-1-对象头【markword】"><a href="#2-2-1-对象头【markword】" class="headerlink" title="2.2.1 对象头【markword】"></a>2.2.1 对象头【markword】</h5><p>在32位系统下，对象头8字节，64位则是16个字节【未开启压缩指针，开启后12字节】。</p>
+<pre><code>markword很像网络协议报文头，划分为多个区间，并且会根据对象的状态复用自己的存储空间。
+为什么这么做:省空间，对象需要存储的数据很多，32bit/64bit是不够的，它被设计成非固定的数据结构以便在极小的空间存储更多的信息，
+
+
+假设当前为32bit，在对象未被锁定情况下。25bit为存储对象的哈希码、4bit用于存储分代年龄，2bit用于存储锁标志位，1bit固定为0。</code></pre>
+<p>不同状态下存放数据</p>
+<p><img src="./2020-06-28_java_jvm/9.png"></p>
+<p>这其中锁标识位需要特别关注下。<strong>锁标志位与是否为偏向锁对应到唯一的锁状态</strong>。</p>
+<p>锁的状态分为四种<code>无锁状态</code>、<code>偏向锁</code>、<code>轻量级锁</code>和<code>重量级锁</code></p>
+<p>不同状态时对象头的区间含义，如图所示。</p>
+<p><img src="./2020-06-28_java_jvm/10.png"></p>
+<p>|-对象头-|</p>
+<p>HotSpot底层通过markOop实现Mark Word，具体实现位于<code>markOop.hpp</code>文件。</p>
+<pre><code>markOop中提供了大量方法用于查看当前对象头的状态，以及更新对象头的数据，为synchronized锁的实现提供了基础。[比如说我们知道synchronized锁的是对象而不是代码，而锁的状态保存在对象头中，进而实现锁住对象]。</code></pre>
+<p>关于对象头和锁之间的转换，网上大神总结</p>
+<p><img src="./2020-06-28_java_jvm/11.png"></p>
+<p>|-偏向锁轻量级锁重量级锁-|</p>
+<h5 id="2-2-2-实例数据"><a href="#2-2-2-实例数据" class="headerlink" title="2.2.2 实例数据"></a>2.2.2 实例数据</h5><pre><code>存放对象程序中各种类型的字段类型，不管是从父类中继承下来的还是在子类中定义的。
+分配策略:相同宽度的字段总是放在一起，比如double和long</code></pre>
+<h5 id="2-2-3-对齐填充"><a href="#2-2-3-对齐填充" class="headerlink" title="2.2.3 对齐填充"></a>2.2.3 对齐填充</h5><p>这部分没有特殊的含义，仅仅起到占位符的作用满足JVM要求。</p>
+<pre><code>由于HotSpot规定对象的大小必须是8的整数倍，对象头刚好是整数倍，如果实例数据不是的话，就需要占位符对齐填充。</code></pre>
+<h4 id="2-3-对象的访问定位"><a href="#2-3-对象的访问定位" class="headerlink" title="2.3 对象的访问定位"></a>2.3 对象的访问定位</h4><p>java程序需要通过引用(ref)数据来操作堆上面的对象，那么如何通过引用定位、访问到对象的具体位置。</p>
+<pre><code>对象的访问方式由虚拟机决定，java虚拟机提供两种主流的方式
+1.句柄访问对象
+2.直接指针访问对象。(Sun HotSpot使用这种方式)</code></pre>
+<p>参考<a target="_blank" rel="noopener" href="https://links.jianshu.com/go?to=https://blog.csdn.net/u011080472/article/details/51321769">Java对象访问定位</a></p>
+<h5 id="2-3-1-句柄访问"><a href="#2-3-1-句柄访问" class="headerlink" title="2.3.1 句柄访问"></a>2.3.1 句柄访问</h5><blockquote>
+<p>简单来说就是java堆划出一块内存作为句柄池,引用中存储对象的句柄地址,句柄中包含对象实例数据、类型数据的地址信息。</p>
+<h5 id="优点-引用中存储的是稳定的句柄地址-在对象被移动【垃圾收集时移动对象是常态】只需改变句柄中实例数据的指针，不需要改动引用【ref】本身。"><a href="#优点-引用中存储的是稳定的句柄地址-在对象被移动【垃圾收集时移动对象是常态】只需改变句柄中实例数据的指针，不需要改动引用【ref】本身。" class="headerlink" title="优点:引用中存储的是稳定的句柄地址,在对象被移动【垃圾收集时移动对象是常态】只需改变句柄中实例数据的指针，不需要改动引用【ref】本身。"></a>优点:引用中存储的是稳定的句柄地址,在对象被移动【垃圾收集时移动对象是常态】只需改变句柄中实例数据的指针，不需要改动引用【ref】本身。</h5></blockquote>
+<p><img src="./2020-06-28_java_jvm/12.png"></p>
+<p>|-访问方式2-|</p>
+<h5 id="2-3-2-直接指针"><a href="#2-3-2-直接指针" class="headerlink" title="2.3.2 直接指针"></a>2.3.2 直接指针</h5><blockquote>
+<p>与句柄访问不同的是，ref中直接存储的就是对象的实例数据,但是类型数据跟句柄访问方式一样。</p>
+<p>优点:优势很明显，就是速度快，<strong>相比于句柄访问少了一次指针定位的开销时间</strong>。【可能是出于Java中对象的访问时十分频繁的,平时我们常用的JVM HotSpot采用此种方式】</p>
+</blockquote>
+<p><img src="./2020-06-28_java_jvm/13.png"></p>
+<p>|-访问方式1-|</p>
+<h2 id="3-内存溢出"><a href="#3-内存溢出" class="headerlink" title="3.内存溢出"></a>3.内存溢出</h2><pre><code>两种内存溢出异常[注意内存溢出是error级别的]
+1.StackOverFlowError:当请求的栈深度大于虚拟机所允许的最大深度
+2.OutOfMemoryError:虚拟机在扩展栈时无法申请到足够的内存空间[一般都能设置扩大]</code></pre>
+<p>java -verbose:class -version 可以查看刚开始加载的类，可以发现这两个类并不是异常出现的时候才去加载，而是jvm启动的时候就已经加载。这么做的原因是在vm启动过程中我们把类加载起来，并创建几个没有堆栈的对象缓存起来，只需要设置下不同的提示信息即可，当需要抛出特定类型的OutOfMemoryError异常的时候，就直接拿出缓存里的这几个对象就可以了。</p>
+<p>比如说OutOfMemoryError对象，jvm预留出4个对象【固定常量】，这就为什么最多出现4次有堆栈的OutOfMemoryError异常及大部分情况下都将看到没有堆栈的OutOfMemoryError对象的原因。</p>
+<p><a target="_blank" rel="noopener" href="https://links.jianshu.com/go?to=http://lovestblog.cn/blog/2016/08/29/oom/">参考OutOfMemoryError解读</a></p>
+<p>Snip20180904_8.png</p>
+<p>两个基本的例子</p>
+<pre><code>publicclassMemErrorTest&#123;publicstaticvoidmain(String[] args)&#123;try&#123;List&lt;Object&gt; list =newArrayList&lt;Object&gt;();for(;;)&#123;
+                list.add(newObject());//创建对象速度可能高于jvm回收速度&#125;&#125;catch(OutOfMemoryError e)&#123;
+            e.printStackTrace();&#125;try&#123;hi();//递归造成StackOverflowError 这边因为每运行一个方法将创建一个栈帧，栈帧创建太多无法继续申请到内存扩展&#125;catch(StackOverflowError e)&#123;
+            e.printStackTrace();&#125;&#125;publicstaticvoidhi()&#123;hi();&#125;&#125;</code></pre>
+<p><img src="./2020-06-28_java_jvm/14.png"></p>
+<h2 id="4-GC简介"><a href="#4-GC简介" class="headerlink" title="4.GC简介"></a>4.GC简介</h2><blockquote>
+<p>GC(Garbage Collection)：即垃圾回收器，诞生于1960年MIT的Lisp语言，主要是用来回收，释放垃圾占用的空间。</p>
+</blockquote>
+<hr>
+<p>java GC泛指java的垃圾回收机制，该机制是java与C/C++的主要区别之一，我们在日常写java代码的时候，一般都不需要编写内存回收或者垃圾清理的代码，也不需要像C/C++那样做类似delete/free的操作。</p>
+<h2 id="4-1-为什么需要学习GC"><a href="#4-1-为什么需要学习GC" class="headerlink" title="4.1.为什么需要学习GC"></a>4.1.为什么需要学习GC</h2><blockquote>
+<p>对象的内存分配在java虚拟机的自动内存分配机制下，一般不容易出现内存泄漏问题。但是写代码难免会遇到一些特殊情况，比如OOM神马的。。尽管虚拟机内存的动态分配与内存回收技术很成熟，可万一出现了这样那样的内存溢出问题，那么将难以定位错误的原因所在。</p>
+</blockquote>
+<p>对于本人来说，由于水平有限，而且作为小开发，并没必要深入到GC的底层实现，但至少想要说学会看懂gc及定位一些内存泄漏问题。</p>
+<p>从三个角度切入来学习GC</p>
+<blockquote>
+<p>1.哪些内存要回收</p>
+<p>2.什么时候回收</p>
+<p>3.怎么回收</p>
+</blockquote>
+<p>哪些内存要回收</p>
+<blockquote>
+<p>java内存模型中分为五大区域已经有所了解。我们知道<code>程序计数器</code>、<code>虚拟机栈</code>、<code>本地方法栈</code>，由线程而生，随线程而灭，其中栈中的栈帧随着方法的进入顺序的执行的入栈和出栈的操作，一个栈帧需要分配多少内存取决于具体的虚拟机实现并且在编译期间即确定下来【忽略JIT编译器做的优化，基本当成编译期间可知】，当方法或线程执行完毕后，内存就随着回收，因此无需关心。</p>
+<p>而<code>Java堆</code>、<code>方法区</code>则不一样。方法区存放着类加载信息，但是一个接口中多个实现类需要的内存可能不太一样，一个方法中多个分支需要的内存也可能不一样【只有在运行期间才可知道这个方法创建了哪些对象没需要多少内存】，这部分内存的分配和回收都是动态的，gc关注的也正是这部分的内存。</p>
+</blockquote>
+<pre><code>Java堆是GC回收的“重点区域”。堆中基本存放着所有对象实例，gc进行回收前，第一件事就是确认哪些对象存活，哪些死去[即不可能再被引用]</code></pre>
+<h2 id="4-2-堆的回收区域"><a href="#4-2-堆的回收区域" class="headerlink" title="4.2 堆的回收区域"></a>4.2 堆的回收区域</h2><pre><code>为了高效的回收，jvm将堆分为三个区域
+1.新生代（Young Generation）NewSize和MaxNewSize分别可以控制年轻代的初始大小和最大的大小
+2.老年代（Old Generation）
+3.永久代（Permanent Generation）【1.8以后采用元空间，就不在堆中了】</code></pre>
+<p><a target="_blank" rel="noopener" href="https://links.jianshu.com/go?to=https://www.zhihu.com/question/53613423/answer/135743258">GC为什么要分代-R大的回答</a></p>
+<p><a target="_blank" rel="noopener" href="https://links.jianshu.com/go?to=http://lovestblog.cn/blog/2016/10/29/metaspace/">关于元空间</a></p>
+<h2 id="5-判断对象是否存活算法"><a href="#5-判断对象是否存活算法" class="headerlink" title="5 判断对象是否存活算法"></a>5 判断对象是否存活算法</h2><pre><code>1.引用计数算法
+早期判断对象是否存活大多都是以这种算法，这种算法判断很简单，简单来说就是给对象添加一个引用计数器，每当对象被引用一次就加1，引用失效时就减1。当为0的时候就判断对象不会再被引用。
+优点:实现简单效率高，被广泛使用与如python何游戏脚本语言上。
+缺点:难以解决循环引用的问题，就是假如两个对象互相引用已经不会再被其它其它引用，导致一直不会为0就无法进行回收。
+
+2.可达性分析算法
+目前主流的商用语言[如java、c#]采用的是可达性分析算法判断对象是否存活。这个算法有效解决了循环利用的弊端。
+它的基本思路是通过一个称为“GC Roots”的对象为起始点，搜索所经过的路径称为引用链，当一个对象到GC Roots没有任何引用跟它连接则证明对象是不可用的。</code></pre>
+<p><img src="./2020-06-28_java_jvm/15.png"></p>
+<p>|-gc-|</p>
+<p>可作为GC Roots的对象有四种</p>
+<pre><code>①虚拟机栈(栈桢中的本地变量表)中的引用的对象，就是平时所指的java对象，存放在堆中。
+②方法区中的类静态属性引用的对象，一般指被static修饰引用的对象，加载类的时候就加载到内存中。
+③方法区中的常量引用的对象,
+④本地方法栈中JNI（native方法)引用的对象</code></pre>
+<p>即使可达性算法中不可达的对象，也不是一定要马上被回收，还有可能被抢救一下。网上例子很多，基本上和深入理解JVM一书讲的一样<a target="_blank" rel="noopener" href="https://links.jianshu.com/go?to=https://blog.csdn.net/lwang_IT/article/details/78650168">对象的生存还是死亡</a></p>
+<pre><code>要真正宣告对象死亡需经过两个过程。
+1.可达性分析后没有发现引用链
+2.查看对象是否有finalize方法，如果有重写且在方法内完成自救[比如再建立引用]，还是可以抢救一下，注意这边一个类的finalize只执行一次，这就会出现一样的代码第一次自救成功第二次失败的情况。[如果类重写finalize且还没调用过，会将这个对象放到一个叫做F-Queue的序列里，这边finalize不承诺一定会执行，这么做是因为如果里面死循环的话可能会时F-Queue队列处于等待，严重会导致内存崩溃，这是我们不希望看到的。]</code></pre>
+<p><a target="_blank" rel="noopener" href="https://links.jianshu.com/go?to=https://www.cnblogs.com/onlinemf/p/7044953.html">HotSpot虚拟机如何实现可达性算法</a></p>
+<h2 id="5-垃圾收集算法"><a href="#5-垃圾收集算法" class="headerlink" title="5 垃圾收集算法"></a>5 垃圾收集算法</h2><blockquote>
+<p>jvm中，可达性分析算法帮我们解决了哪些对象可以回收的问题，垃圾收集算法则关心怎么回收。</p>
+</blockquote>
+<h3 id="5-1-三大垃圾收集算法"><a href="#5-1-三大垃圾收集算法" class="headerlink" title="5.1 三大垃圾收集算法"></a>5.1 三大垃圾收集算法</h3><pre><code>1.标记/清除算法【最基础】
+2.复制算法
+3.标记/整理算法
+jvm采用`分代收集算法`对不同区域采用不同的回收算法。</code></pre>
+<p><a target="_blank" rel="noopener" href="https://links.jianshu.com/go?to=https://www.cnblogs.com/fangfuhai/p/7203468.html?utm_source=itdadao&utm_medium=referral">参考GC算法深度解析</a></p>
+<p><strong>新生代采用复制算法</strong></p>
+<p>新生代中因为对象都是”朝生夕死的”，【深入理解JVM虚拟机上说98%的对象,不知道是不是这么多，总之就是存活率很低】，适用于复制算法【复制算法比较适合用于存活率低的内存区域】。它优化了标记/清除算法的效率和内存碎片问题，且JVM不以5:5分配内存【由于存活率低，不需要复制保留那么大的区域造成空间上的浪费，因此不需要按1:1【原有区域:保留空间】划分内存区域，而是将内存分为一块Eden空间和From Survivor、To Survivor【保留空间】，三者默认比例为8:1:1，优先使用Eden区，若Eden区满，则将对象复制到第二块内存区上。但是不能保证每次回收都只有不多于10%的对象存货，所以Survivor区不够的话，则会依赖老年代年存进行分配】。</p>
+<p>GC开始时，对象只会存于Eden和From Survivor区域，To Survivor【保留空间】为空。</p>
+<p>GC进行时，Eden区所有存活的对象都被复制到To Survivor区，而From Survivor区中，仍存活的对象会根据它们的年龄值决定去向，年龄值达到年龄阈值(默认15是因为对象头中年龄战4bit，新生代每熬过一次垃圾回收，年龄+1)，则移到老年代，没有达到则复制到To Survivor。</p>
+<p><strong>老年代采用<code>标记/清除算法</code>或<code>标记/整理算法</code></strong></p>
+<p>由于老年代存活率高，没有额外空间给他做担保，必须使用这两种算法。</p>
+<h3 id="5-2-枚举根节点算法"><a href="#5-2-枚举根节点算法" class="headerlink" title="5.2 枚举根节点算法"></a>5.2 枚举根节点算法</h3><p><code>GC Roots</code> 被虚拟机用来判断对象是否存活</p>
+<blockquote>
+<p>可作为GC Roos的节点主要是在一些全局引用【如常量或静态属性】、执行上下文【如栈帧中本地变量表】中。那么如何在这么多全局变量和本地变量表找到【枚举】根节点将是个问题。</p>
+</blockquote>
+<p>可达性分析算法需考虑</p>
+<p>1.如果方法区几百兆，一个个检查里面的引用，将耗费大量资源。</p>
+<p>2.在分析时，需保证这个对象引用关系不再变化，否则结果将不准确。【因此GC进行时需停掉其它所有java执行线程(Sun把这种行为称为‘Stop the World’)，即使是号称几乎不会停顿的CMS收集器，枚举根节点时也需停掉线程】</p>
+<p>解决办法:实际上当系统停下来后JVM不需要一个个检查引用，而是通过OopMap数据结构【HotSpot的叫法】来标记对象引用。</p>
+<p>虚拟机先得知哪些地方存放对象的引用，在类加载完时。HotSpot把对象内什么偏移量什么类型的数据算出来，在jit编译过程中，也会在特定位置记录下栈和寄存器哪些位置是引用，这样GC在扫描时就可以知道这些信息。【目前主流JVM使用准确式GC】</p>
+<p>OopMap可以帮助HotSpot快速且准确完成GC Roots枚举以及确定相关信息。但是也存在一个问题，可能导致引用关系变化。</p>
+<p>这个时候有个safepoint(安全点)的概念。</p>
+<p>HotSpot中GC不是在任意位置都可以进入，而只能在safepoint处进入。 GC时对一个Java线程来说，它要么处在safepoint,要么不在safepoint。</p>
+<p>safepoint不能太少，否则GC等待的时间会很久</p>
+<p>safepoint不能太多，否则将增加运行GC的负担</p>
+<p>安全点主要存放的位置</p>
+<pre><code>1:循环的末尾 
+2:方法临返回前/调用方法的call指令后 
+3:可能抛异常的位置</code></pre>
+<p>参考:<a target="_blank" rel="noopener" href="https://links.jianshu.com/go?to=https://blog.csdn.net/ITer_ZC/article/details/41847887">关于安全点safepoint</a></p>
+<h2 id="6-垃圾收集器"><a href="#6-垃圾收集器" class="headerlink" title="6.垃圾收集器"></a>6.垃圾收集器</h2><pre><code>如果说垃圾回收算法是内存回收的方法论，那么垃圾收集器就是具体实现。jvm会结合针对不同的场景及用户的配置使用不同的收集器。
+
+
+年轻代收集器
+Serial、ParNew、Parallel Scavenge
+老年代收集器
+Serial Old、Parallel Old、CMS收集器
+特殊收集器
+G1收集器[新型，不在年轻、老年代范畴内]</code></pre>
+<p><img src="./2020-06-28_java_jvm/16.png"></p>
+<p>|-收集器，连线代表可结合使用-|</p>
+<h3 id="新生代收集器"><a href="#新生代收集器" class="headerlink" title="新生代收集器"></a>新生代收集器</h3><h3 id="6-1-Serial"><a href="#6-1-Serial" class="headerlink" title="6.1 Serial"></a>6.1 Serial</h3><p>最基本、发展最久的收集器，在jdk3以前是gc收集器的唯一选择，Serial是单线程收集器，Serial收集器只能使用一条线程进行收集工作，在收集的时候必须得停掉其它线程，等待收集工作完成其它线程才可以继续工作。</p>
+<pre><code>虽然Serial看起来很坑，需停掉别的线程以完成自己的gc工作，但是也不是完全没用的，比如说Serial在运行在Client模式下优于其它收集器[简单高效,不过一般都是用Server模式，64bit的jvm甚至没Client模式]</code></pre>
+<p><a target="_blank" rel="noopener" href="https://links.jianshu.com/go?to=https://www.cnblogs.com/wxw7blog/p/7221756.html">JVM的Client模式与Server模式</a></p>
+<p>优点:对于Client模式下的jvm来说是个好的选择。适用于单核CPU【现在基本都是多核了】</p>
+<p>缺点:收集时要暂停其它线程，有点浪费资源，多核下显得。</p>
+<h3 id="6-2-ParNew收集器"><a href="#6-2-ParNew收集器" class="headerlink" title="6.2 ParNew收集器"></a>6.2 ParNew收集器</h3><p>可以认为是Serial的升级版，因为它支持多线程[GC线程]，而且收集算法、Stop The World、回收策略和Serial一样，就是可以有多个GC线程并发运行，它是HotSpot第一个真正意义实现并发的收集器。默认开启线程数和当前cpu数量相同【几核就是几个，超线程cpu的话就不清楚了 - -】，如果cpu核数很多不想用那么多，可以通过*-XX:ParallelGCThreads*来控制垃圾收集线程的数量。</p>
+<pre><code>优点:1.支持多线程，多核CPU下可以充分的利用CPU资源
+2.运行在Server模式下新生代首选的收集器【重点是因为新生代的这几个收集器只有它和Serial可以配合CMS收集器一起使用】
+
+缺点: 在单核下表现不会比Serial好，由于在单核能利用多核的优势，在线程收集过程中可能会出现频繁上下文切换，导致额外的开销。</code></pre>
+<h3 id="6-3-Parallel-Scavenge"><a href="#6-3-Parallel-Scavenge" class="headerlink" title="6.3 Parallel Scavenge"></a>6.3 Parallel Scavenge</h3><p>采用复制算法的收集器，和ParNew一样支持多线程。</p>
+<p>但是该收集器重点关心的是吞吐量【吞吐量 = 代码运行时间 / (代码运行时间 + 垃圾收集时间)  如果代码运行100min垃圾收集1min，则为99%】</p>
+<p>对于用户界面，适合使用GC停顿时间短,不然因为卡顿导致交互界面卡顿将很影响用户体验。</p>
+<p>对于后台</p>
+<p>高吞吐量可以高效率的利用cpu尽快完成程序运算任务，适合后台运算</p>
+<blockquote>
+<p>Parallel Scavenge注重吞吐量，所以也成为”吞吐量优先”收集器。</p>
+</blockquote>
+<h3 id="老年代收集器"><a href="#老年代收集器" class="headerlink" title="老年代收集器"></a>老年代收集器</h3><h2 id="6-4-Serial-Old"><a href="#6-4-Serial-Old" class="headerlink" title="6.4 Serial Old"></a>6.4 Serial Old</h2><p>和新生代的Serial一样为单线程，Serial的老年代版本，不过它采用”标记-整理算法”，这个模式主要是给Client模式下的JVM使用。</p>
+<p>如果是Server模式有两大用途</p>
+<p>1.jdk5前和Parallel Scavenge搭配使用，jdk5前也只有这个老年代收集器可以和它搭配。</p>
+<p>2.作为CMS收集器的后备。</p>
+<h2 id="6-5-Parallel-Old"><a href="#6-5-Parallel-Old" class="headerlink" title="6.5 Parallel Old"></a>6.5 Parallel Old</h2><p>支持多线程，Parallel Scavenge的老年版本，jdk6开始出现， 采用”标记-整理算法”【老年代的收集器大都采用此算法】</p>
+<p>在jdk6以前，新生代的Parallel Scavenge只能和Serial Old配合使用【根据图，没有这个的话只剩Serial Old，而Parallel Scavenge又不能和CMS配合使用】，而且Serial Old为单线程Server模式下会拖后腿【多核cpu下无法充分利用】，这种结合并不能让应用的吞吐量最大化。</p>
+<blockquote>
+<p>Parallel Old的出现结合Parallel Scavenge，真正的形成“吞吐量优先”的收集器组合。</p>
+</blockquote>
+<h3 id="6-6-CMS"><a href="#6-6-CMS" class="headerlink" title="6.6 CMS"></a>6.6 CMS</h3><p>CMS收集器(Concurrent Mark Sweep)是以一种获取最短回收停顿时间为目标的收集器。【重视响应，可以带来好的用户体验，被sun称为并发低停顿收集器】</p>
+<pre><code>启用CMS：-XX:+UseConcMarkSweepGC</code></pre>
+<p>正如其名，CMS采用的是”标记-清除”(Mark Sweep)算法，而且是支持并发(Concurrent)的</p>
+<p>它的运作分为4个阶段</p>
+<pre><code>1.初始标记:标记一下GC Roots能直接关联到的对象，速度很快
+2.并发标记:GC Roots Tarcing过程，即可达性分析
+3.重新标记:为了修正因并发标记期间用户程序运作而产生变动的那一部分对象的标记记录，会有些许停顿，时间上一般 初始标记 &lt; 重新标记 &lt; 并发标记
+4.并发清除</code></pre>
+<p>以上初始标记和重新标记需要stw(停掉其它运行java线程)</p>
+<p>之所以说CMS的用户体验好，是因为CMS收集器的内存回收工作是可以和用户线程一起并发执行。</p>
+<p>总体上CMS是款优秀的收集器，但是它也有些缺点。</p>
+<blockquote>
+<p>1.cms堆cpu特别敏感，cms运行线程和应用程序并发执行需要多核cpu，如果cpu核数多的话可以发挥它并发执行的优势，但是cms默认配置启动的时候垃圾线程数为 (cpu数量+3)/4，它的性能很容易受cpu核数影响，当cpu的数目少的时候比如说为为2核，如果这个时候cpu运算压力比较大，还要分一半给cms运作，这可能会很大程度的影响到计算机性能。</p>
+<p>2.cms无法处理浮动垃圾，可能导致Concurrent Mode Failure（并发模式故障）而触发full GC</p>
+<p>3.由于cms是采用”标记-清除“算法,因此就会存在垃圾碎片的问题，为了解决这个问题cms提供了 <strong>-XX:+UseCMSCompactAtFullCollection</strong>选项，这个选项相当于一个开关【默认开启】，用于CMS顶不住要进行full GC时开启内存碎片合并，内存整理的过程是无法并发的，且开启这个选项会影响性能(比如停顿时间变长)</p>
+</blockquote>
+<pre><code>浮动垃圾:由于cms支持运行的时候用户线程也在运行，程序运行的时候会产生新的垃圾，这里产生的垃圾就是浮动垃圾，cms无法当次处理，得等下次才可以。</code></pre>
+<h3 id="6-7-G1收集器"><a href="#6-7-G1收集器" class="headerlink" title="6.7 G1收集器"></a>6.7 G1收集器</h3><p>G1(garbage first:尽可能多收垃圾，避免full gc)收集器是当前最为前沿的收集器之一(1.7以后才开始有)，同cms一样也是关注降低延迟，是用于替代cms功能更为强大的新型收集器，因为它解决了cms产生空间碎片等一系列缺陷。</p>
+<blockquote>
+<p>摘自甲骨文:适用于 Java HotSpot VM 的低暂停、服务器风格的分代式垃圾回收器。G1 GC 使用并发和并行阶段实现其目标暂停时间，并保持良好的吞吐量。当 G1 GC 确定有必要进行垃圾回收时，它会先收集存活数据最少的区域（垃圾优先)</p>
+<p>g1的特别之处在于它强化了分区，弱化了分代的概念，是区域化、增量式的收集器，它不属于新生代也不属于老年代收集器。</p>
+<p>用到的算法为标记-清理、复制算法</p>
+</blockquote>
+<pre><code>jdk1.7,1.8的都是默认关闭的，更高版本的还不知道
+开启选项 -XX:+UseG1GC 
+比如在tomcat的catania.sh启动参数加上</code></pre>
+<p>g1是区域化的，它将java堆内存划分为若干个大小相同的区域【region】，jvm可以设置每个region的大小(1-32m,大小得看堆内存大小，必须是2的幂),它会根据当前的堆内存分配合理的region大小。</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://links.jianshu.com/go?to=http://hg.openjdk.java.net/jdk7/jdk7/hotspot/file/9b0ca45cd756/src/share/vm/gc_implementation/g1/heapRegion.cpp">jdk7中计算region的源码</a>,这边博主看了下也看不怎么懂，也翻了下openjdk8的看了下关于region的处理似乎不太一样。。</p>
+</blockquote>
+<p>g1通过并发(并行)标记阶段查找老年代存活对象，通过并行复制压缩存活对象【这样可以省出连续空间供大对象使用】。</p>
+<p>g1将一组或多组区域中存活对象以增量并行的方式复制到不同区域进行压缩，从而减少堆碎片，目标是尽可能多回收堆空间【垃圾优先】，且尽可能不超出暂停目标以达到低延迟的目的。</p>
+<p>g1提供三种垃圾回收模式 young gc、mixed gc 和 full gc,不像其它的收集器，根据区域而不是分代，新生代老年代的对象它都能回收。</p>
+<p>几个重要的默认值，更多的查看官方文档<a target="_blank" rel="noopener" href="https://links.jianshu.com/go?to=http://www.oracle.com/technetwork/cn/articles/java/g1gc-1984535-zhs.html">oracle官方g1中文文档</a></p>
+<pre><code>g1是自适应的回收器，提供了若干个默认值，无需修改就可高效运作
+-XX:G1HeapRegionSize=n  设置g1 region大小，不设置的话自己会根据堆大小算，目标是根据最小堆内存划分2048个区域
+-XX:MaxGCPauseMillis=200 最大停顿时间 默认200毫秒</code></pre>
+<h2 id="7-Minor-GC、Major-GC、FULL-GC、mixed-gc"><a href="#7-Minor-GC、Major-GC、FULL-GC、mixed-gc" class="headerlink" title="7 Minor GC、Major GC、FULL GC、mixed gc"></a>7 Minor GC、Major GC、FULL GC、mixed gc</h2><h3 id="7-1-Minor-GC"><a href="#7-1-Minor-GC" class="headerlink" title="7.1 Minor GC"></a>7.1 Minor GC</h3><blockquote>
+<p>在年轻代<code>Young space</code>(包括Eden区和Survivor区)中的垃圾回收称之为 Minor GC,Minor GC只会清理年轻代.</p>
+</blockquote>
+<h3 id="7-2-Major-GC"><a href="#7-2-Major-GC" class="headerlink" title="7.2 Major GC"></a>7.2 Major GC</h3><blockquote>
+<p>Major GC清理老年代(old GC)，但是通常也可以指和Full GC是等价，因为收集老年代的时候往往也会伴随着升级年轻代，收集整个Java堆。所以有人问的时候需问清楚它指的是full GC还是old GC。</p>
+</blockquote>
+<h3 id="7-3-Full-GC"><a href="#7-3-Full-GC" class="headerlink" title="7.3 Full GC"></a>7.3 Full GC</h3><blockquote>
+<p>full gc是对新生代、老年代、永久代【jdk1.8后没有这个概念了】统一的回收。</p>
+<p>【知乎R大的回答:收集整个堆，包括young gen、old gen、perm gen（如果存在的话)、元空间(1.8及以上)等所有部分的模式】</p>
+</blockquote>
+<h3 id="7-4-mixed-GC【g1特有】"><a href="#7-4-mixed-GC【g1特有】" class="headerlink" title="7.4 mixed GC【g1特有】"></a>7.4 mixed GC【g1特有】</h3><blockquote>
+<p>混合GC</p>
+<p>收集整个young gen以及部分old gen的GC。只有G1有这个模式</p>
+</blockquote>
+<h2 id="8-查看GC日志"><a href="#8-查看GC日志" class="headerlink" title="8 查看GC日志"></a>8 查看GC日志</h2><h4 id="8-1-简单日志查看"><a href="#8-1-简单日志查看" class="headerlink" title="8.1 简单日志查看"></a>8.1 简单日志查看</h4><p>要看得懂并理解GC，需要看懂GC日志。</p>
+<p>这边我在idea上试了个小例子，需要在idea配置参数(-XX:+PrintGCDetails)。</p>
+<p><img src="./2020-06-28_java_jvm/17.png"></p>
+<pre><code>publicclassGCtest&#123;publicstaticvoidmain(String[] args)&#123;for(int i =0; i &lt;10000; i++)&#123;List&lt;String&gt; list =newArrayList&lt;&gt;();
+            list.add(&quot;aaaaaaaaaaaaa&quot;);&#125;System.gc();&#125;&#125;
+
+[GC (System.gc()) [PSYoungGen: 3998K-&gt;688K(38400K)] 3998K-&gt;696K(125952K), 0.0016551 secs[本次回收时间]] [Times: user=0.01 sys=0.00, real=0.00 secs] 
+[Full GC (System.gc()) [PSYoungGen: 688K-&gt;0K(38400K)] [ParOldGen: 8K-&gt;603K(87552K)] 696K-&gt;603K(125952K), [Metaspace: 3210K-&gt;3210K(1056768K)], 0.0121034 secs] [Times: user=0.01 sys=0.00, real=0.01 secs] 
+Heap
+ PSYoungGen[年轻代]      total 38400K, used 333K [0x0000000795580000, 0x0000000798000000, 0x00000007c0000000)
+  eden space 33280K, 1% used [0x0000000795580000,0x00000007955d34a8,0x0000000797600000)
+  from space 5120K, 0% used [0x0000000797600000,0x0000000797600000,0x0000000797b00000)
+  to   space 5120K, 0% used [0x0000000797b00000,0x0000000797b00000,0x0000000798000000)
+ ParOldGen[老年代]       total 87552K, used 603K [0x0000000740000000, 0x0000000745580000, 0x0000000795580000)
+  object space 87552K, 0% used [0x0000000740000000,0x0000000740096fe8,0x0000000745580000)
+ Metaspace[元空间]      used 3217K, capacity 4496K, committed 4864K, reserved 1056768K
+  class space    used 352K, capacity 388K, committed 512K, reserved 1048576K</code></pre>
+<h4 id="8-2-离线工具查看"><a href="#8-2-离线工具查看" class="headerlink" title="8.2 离线工具查看"></a>8.2 离线工具查看</h4><p>比如sun的<a target="_blank" rel="noopener" href="https://links.jianshu.com/go?to=https://java.net/projects/gchisto">gchisto</a>，<a target="_blank" rel="noopener" href="https://links.jianshu.com/go?to=https://github.com/chewiebug/GCViewer">gcviewer</a>离线分析工具，做个笔记先了解下还没用过，可视化好像很好用的样子。</p>
+<h3 id="8-3-自带的jconsole工具、jstat命令"><a href="#8-3-自带的jconsole工具、jstat命令" class="headerlink" title="8.3 自带的jconsole工具、jstat命令"></a>8.3 自带的jconsole工具、jstat命令</h3><p>终端输入jconsole就会出现jdk自带的gui监控工具</p>
+<p><img src="./2020-06-28_java_jvm/18.png"></p>
+<p>|-jconsole-|</p>
+<p>可以根据内存使用情况间接了解内存使用和gc情况</p>
+<p><img src="./2020-06-28_java_jvm/19.png"></p>
+<p>|-jconsole-|</p>
+<p>jstat命令</p>
+<p>比如jstat -gcutil pid查看对应java进程gc情况</p>
+<p><img src="./2020-06-28_java_jvm/20.png"></p>
+<p>|-jstat-|</p>
+<pre><code>s0: 新生代survivor space0简称 就是准备复制的那块 单位为%
+s1:指新生代s1已使用百分比，为0的话说明没有存活对象到这边
+e:新生代eden(伊甸园)区域(%)o:老年代(%)ygc:新生代  次数
+ygct:minor gc耗时
+fgct:full gc耗时(秒)GCT: ygct+fgct 耗时</code></pre>
+<h2 id="几个疑问"><a href="#几个疑问" class="headerlink" title="几个疑问"></a>几个疑问</h2><h3 id="1-GC是怎么判断对象是被标记的"><a href="#1-GC是怎么判断对象是被标记的" class="headerlink" title="1.GC是怎么判断对象是被标记的"></a>1.GC是怎么判断对象是被标记的</h3><p>通过枚举根节点的方式，通过jvm提供的一种oopMap的数据结构，简单来说就是不要再通过去遍历内存里的东西，而是通过OOPMap的数据结构去记录该记录的信息,比如说它可以不用去遍历整个栈，而是扫描栈上面引用的信息并记录下来。</p>
+<p>总结:通过OOPMap把栈上代表引用的位置全部记录下来，避免全栈扫描，加快枚举根节点的速度，除此之外还有一个极为重要的作用，可以帮HotSpot实现准确式GC【这边的准确关键就是类型，可以根据给定位置的某块数据知道它的准确类型，HotSpot是通过oopMap外部记录下这些信息，存成映射表一样的东西】。</p>
+<h3 id="2-什么时候触发GC"><a href="#2-什么时候触发GC" class="headerlink" title="2.什么时候触发GC"></a>2.什么时候触发GC</h3><p>简单来说，触发的条件就是GC算法区域满了或将满了。</p>
+<pre><code>minor GC(young GC):当年轻代中eden区分配满的时候触发[值得一提的是因为young GC后部分存活的对象会已到老年代(比如对象熬过15轮)，所以过后old gen的占用量通常会变高]
+
+full GC:
+①手动调用System.gc()方法 [增加了full GC频率，不建议使用而是让jvm自己管理内存，可以设置-XX:+ DisableExplicitGC来禁止RMI调用System.gc]
+②发现perm gen（如果存在永久代的话)需分配空间但已经没有足够空间
+③老年代空间不足，比如说新生代的大对象大数组晋升到老年代就可能导致老年代空间不足。
+④CMS GC时出现Promotion Faield[pf]
+⑤统计得到的Minor GC晋升到旧生代的平均大小大于老年代的剩余空间。
+这个比较难理解，这是HotSpot为了避免由于新生代晋升到老年代导致老年代空间不足而触发的FUll GC。
+比如程序第一次触发Minor GC后，有5m的对象晋升到老年代，姑且现在平均算5m，那么下次Minor GC发生时，先判断现在老年代剩余空间大小是否超过5m，如果小于5m，则HotSpot则会触发full GC(这点挺智能的)
+
+Promotion Faield:minor GC时 survivor space放不下[满了或对象太大]，对象只能放到老年代，而老年代也放不下会导致这个错误。
+Concurrent Model Failure:cms时特有的错误，因为cms时垃圾清理和用户线程可以是并发执行的，如果在清理的过程中
+可能原因：
+1 cms触发太晚，可以把XX:CMSInitiatingOccupancyFraction调小[比如-XX:CMSInitiatingOccupancyFraction=70 是指设定CMS在对内存占用率达到70%的时候开始GC(因为CMS会有浮动垃圾,所以一般都较早启动GC)]
+2 垃圾产生速度大于清理速度，可能是晋升阈值设置过小，Survivor空间小导致跑到老年代，eden区太小，存在大对象、数组对象等情况
+3.空间碎片过多，可以开启空间碎片整理并合理设置周期时间</code></pre>
+<blockquote>
+<p>full gc导致了concurrent mode failure，而不是因为concurrent mode failure错误导致触发full gc，真正触发full gc的原因可能是ygc时发生的promotion failure。</p>
+</blockquote>
+<h3 id="3-cms收集器是否会扫描年轻代"><a href="#3-cms收集器是否会扫描年轻代" class="headerlink" title="3.cms收集器是否会扫描年轻代"></a>3.cms收集器是否会扫描年轻代</h3><blockquote>
+<p>会，在初始标记的时候会扫描新生代。</p>
+<p>虽然cms是老年代收集器，但是我们知道年轻代的对象是可以晋升为老年代的，为了空间分配担保，还是有必要去扫描年轻代。</p>
+</blockquote>
+<h3 id="4-什么是空间分配担保"><a href="#4-什么是空间分配担保" class="headerlink" title="4.什么是空间分配担保"></a>4.什么是空间分配担保</h3><p>在minor gc前，jvm会先检查老年代最大可用空间是否大于新生代所有对象总空间，如果是的话，则minor gc可以确保是安全的，</p>
+<blockquote>
+<p>如果担保失败,会检查一个配置(HandlePromotionFailire),即是否允许担保失败。</p>
+<p>如果允许:继续检查老年代最大可用可用的连续空间是否大于之前晋升的平均大小，比如说剩10m，之前每次都有9m左右的新生代到老年代，那么将尝试一次minor gc(大于的情况)，这会比较冒险。</p>
+<p>如果不允许，而且还小于的情况，则会触发full gc。【为了避免经常full GC 该参数建议打开】</p>
+<p>这边为什么说是冒险是因为minor gc过后如果出现大对象，由于新生代采用复制算法，survivor无法容纳将跑到老年代，所以才会去计算之前的平均值作为一种担保的条件与老年代剩余空间比较，这就是分配担保。</p>
+<p>这种担保是动态概率的手段，但是也有可能出现之前平均都比较低，突然有一次minor gc对象变得很多远高于以往的平均值，这个时候就会导致担保失败【Handle Promotion Failure】，这就只好再失败后再触发一次FULL GC，</p>
+</blockquote>
+<h3 id="5-为什么复制算法要分两个Survivor，而不直接移到老年代"><a href="#5-为什么复制算法要分两个Survivor，而不直接移到老年代" class="headerlink" title="5.为什么复制算法要分两个Survivor，而不直接移到老年代"></a>5.为什么复制算法要分两个Survivor，而不直接移到老年代</h3><p>这样做的话效率可能会更高，但是old区一般都是熬过多次可达性分析算法过后的存活的对象，要求比较苛刻且空间有限，而不能直接移过去，这将导致一系列问题(比如老年代容易被撑爆)</p>
+<p>分两个Survivor(from/to)，自然是为了保证复制算法运行以提高效率。</p>
+<h3 id="6-各个版本的JVM使用的垃圾收集器是怎么样的"><a href="#6-各个版本的JVM使用的垃圾收集器是怎么样的" class="headerlink" title="6.各个版本的JVM使用的垃圾收集器是怎么样的"></a>6.各个版本的JVM使用的垃圾收集器是怎么样的</h3><p>准确来说，垃圾收集器的使用跟当前jvm也有很大的关系，比如说g1是jdk7以后的版本才开始出现。</p>
+<p>并不是所有的垃圾收集器都是默认开启的，有些得通过设置相应的开关参数才会使用。比如说cms，需设置(XX:+UseConcMarkSweepGC)</p>
+<p>这边有几个实用的命令，比如说server模式下</p>
+<pre><code>#UnlockExperimentalVMOptions UnlockDiagnosticVMOptions解锁获取jvm参数，PrintFlagsFinal用于输出xx相关参数，以Benchmark类测试，这边会有很多结果 大都看不懂- - 在这边查(usexxxxxxgc会看到jvm不同收集器的开关情况)
+java -server -XX:+UnlockExperimentalVMOptions -XX:+UnlockDiagnosticVMOptions -XX:+PrintFlagsFinal Benchmark
+
+#后面跟| grep &quot;:&quot;获取已赋值的参数[加:代表被赋值过]
+java -server -XX:+UnlockExperimentalVMOptions -XX:+UnlockDiagnosticVMOptions -XX:+PrintFlagsFinal Benchmark| grep &quot;:&quot;
+
+#获得用户自定义的设置或者jvm设置的详细的xx参数和值
+java -server -XX:+PrintCommandLineFlags Benchmark</code></pre>
+<p><img src="./2020-06-28_java_jvm/21.png"></p>
+<p>本人用的jdk8，这边UseParallelGC为true，参考深入理解jvm那本书说这个是Parallel Scavenge+Serial old搭配组合的开关，但是网上又说8默认是Parallel Scavenge+Parallel Old,我还是信书的吧 - -。</p>
+<p>更多相关参数<a target="_blank" rel="noopener" href="https://links.jianshu.com/go?to=https://upload-images.jianshu.io/upload_images/4914401-4503c1ac0196db78.png">来源</a></p>
+<p><img src="./2020-06-28_java_jvm/22.png"></p>
+<p>|-常用参数-|</p>
+<blockquote>
+<p>据说更高版本的jvm默认使用g1</p>
+</blockquote>
+<h3 id="7-stop-the-world具体是什么，有没有办法避免"><a href="#7-stop-the-world具体是什么，有没有办法避免" class="headerlink" title="7 stop the world具体是什么，有没有办法避免"></a>7 stop the world具体是什么，有没有办法避免</h3><p>stop the world简单来说就是gc的时候，停掉除gc外的java线程。</p>
+<p>无论什么gc都难以避免停顿，即使是g1也会在初始标记阶段发生，stw并不可怕，可以尽可能的减少停顿时间。</p>
+<h3 id="8-新生代什么样的情况会晋升为老年代"><a href="#8-新生代什么样的情况会晋升为老年代" class="headerlink" title="8 新生代什么样的情况会晋升为老年代"></a>8 新生代什么样的情况会晋升为老年代</h3><p>对象优先分配在eden区，eden区满时会触发一次minor GC</p>
+<blockquote>
+<p>对象晋升规则</p>
+<p>1 长期存活的对象进入老年代，对象每熬过一次GC年龄+1(默认年龄阈值15，可配置)。</p>
+<p>2 对象太大新生代无法容纳则会分配到老年代</p>
+<p>3 eden区满了，进行minor gc后，eden和一个survivor区仍然存活的对象无法放到(to survivor区)则会通过分配担保机制放到老年代，这种情况一般是minor gc后新生代存活的对象太多。</p>
+<p>4 动态年龄判定，为了使内存分配更灵活，jvm不一定要求对象年龄达到MaxTenuringThreshold(15)才晋升为老年代，若survior区相同年龄对象总大小大于survior区空间的一半，则大于等于这个年龄的对象将会在minor gc时移到老年代</p>
+</blockquote>
+<h3 id="8-怎么理解g1，适用于什么场景"><a href="#8-怎么理解g1，适用于什么场景" class="headerlink" title="8.怎么理解g1，适用于什么场景"></a>8.怎么理解g1，适用于什么场景</h3><blockquote>
+<p>G1 GC 是区域化、并行-并发、增量式垃圾回收器，相比其他 HotSpot 垃圾回收器，可提供更多可预测的暂停。增量的特性使 G1 GC 适用于更大的堆，在最坏的情况下仍能提供不错的响应。G1 GC 的自适应特性使 JVM 命令行只需要软实时暂停时间目标的最大值以及 Java 堆大小的最大值和最小值，即可开始工作。</p>
+</blockquote>
+<p>g1不再区分老年代、年轻代这样的内存空间，这是较以往收集器很大的差异，所有的内存空间就是一块划分为不同子区域，每个区域大小为1m-32m，最多支持的内存为64g左右，且由于它为了的特性适用于大内存机器。</p>
+<p><img src="./2020-06-28_java_jvm/23.png"></p>
+<p>|-g1回收时堆内存情况-|</p>
+<p>适用场景:</p>
+<p>1.像cms能与应用程序并发执行，GC停顿短【短而且可控】，用户体验好的场景。</p>
+<p>2.面向服务端，大内存，高cpu的应用机器。【网上说差不多是6g或更大】</p>
+<p>3.应用在运行过程中经常会产生大量内存碎片，需要压缩空间【比cms好的地方之一，g1具备压缩功能】。</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p>深入理解Java虚拟机</p>
+<p><a target="_blank" rel="noopener" href="https://links.jianshu.com/go?to=https://www.cnblogs.com/chenyangyao/p/5269622.html">JVM内存模型、指令重排、内存屏障概念解析</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/9c19eb0ea4d8">Java对象头</a></p>
+<p><a target="_blank" rel="noopener" href="https://links.jianshu.com/go?to=https://www.cnblogs.com/duke2016/p/6250766.html">GC收集器</a></p>
+<p><a target="_blank" rel="noopener" href="https://links.jianshu.com/go?to=https://www.zhihu.com/question/41922036/answer/93079526">Major GC和Full GC的区别</a></p>
+<p><a target="_blank" rel="noopener" href="https://links.jianshu.com/go?to=http://m635674608.iteye.com/blog/2236137">JVM 垃圾回收 Minor gc vs Major gc vs Full gc</a></p>
+<p><a target="_blank" rel="noopener" href="https://links.jianshu.com/go?to=http://rednaxelafx.iteye.com/blog/1044951">关于准确式GC、保守式GC</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/55670407fdb9">关于CMS垃圾收集算法的一些疑惑</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/2a1b2f17d3e4">图解cms</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/0f1f5adffdc1">G1垃圾收集器介绍</a></p>
+<p><a target="_blank" rel="noopener" href="https://links.jianshu.com/go?to=http://www.cnblogs.com/littleLord/p/5380624.html">详解cms回收机制</a></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>JMM 是一种规范，是解决由于多线程通过共享内存进行通信时，存在的本地内存数据不一致、编译器会对代码指令重排序、处理器会对代码乱序执行等带来的问题，而且写java代码的时候难免会经常和内存打交道，遇到各种内存溢出问题，有时候又难以定位问题，因此是一定要学习jmm以及GC的。</p>
+<p>由于博主本人水平有限【目前还是小菜鸡】，所以花了点时间，写下这篇博客当做为笔记总结归纳，但是写博客这种事如果全都是照抄别人的成果就很没意思了，吸收别人的成果的同时，也希望自己有能力多写点自己独特的理解和干货后续继续更新，所以如果有哪里写的不好或写错请指出，以便我继续学习和改进。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.fenxiangz.com/post/java/netty/2020-05-26_Netty%20%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Hassan">
+      <meta itemprop="description" content="Share everything">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="分享之">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/post/java/netty/2020-05-26_Netty%20%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE.html" class="post-title-link" itemprop="url">Netty 知识点思维导图</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-05-26 00:00:00" itemprop="dateCreated datePublished" datetime="2020-05-26T00:00:00+00:00">2020-05-26</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-12-20 16:47:02" itemprop="dateModified" datetime="2020-12-20T16:47:02+00:00">2020-12-20</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Netty/" itemprop="url" rel="index"><span itemprop="name">Netty</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>右键新 Tab页打开查看大图</p>
+<p><img src="./2020-05-26_Netty%20%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE/1.png"></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
+
+
 <script>
-    (function () {
-        window.addEventListener('scroll', function () {
-            if (window.innerWidth < 768) {
-                return;
-            }
-            var nav = document.querySelector('#gkt-nav');
-            var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-            scrollTop > 50 && (nav.classList.add('hide'));
-            scrollTop <= 50 && (nav.classList.remove('hide'));
-        });
-        var cateNavs = document.querySelectorAll('#gkt-cate-nav>nav>ul>li');
-        [].slice.call(cateNavs).forEach(function (item) {
-            var sub = item.querySelector('.gkt-sub-cate');
-            if (!sub) return;
-            item.addEventListener('mouseenter', function (e) { sub.style.display = 'block'; }, false);
-            item.addEventListener('mouseleave', function (e) { sub.style.display = 'none'; }, false);
-        })
-    })();
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
 </script>
-    <!-- Main Content -->
-    <div class="main-container">
-        <!-- Main Content -->
-<main class="col-xs-12 padding-0 markdown-it">
-    <!-- Post Container -->
-    
-    <style>
-        @media (min-width: 1200px) {
-            .main-container {
-                width: 1000px !important;
-            }
-        }
-    </style>
-    <div class="float-left post-container box-shadow">
-        <!-- Main Content -->
-<!-- css page.ejs -->
-<!-- 置顶文章 -->
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
 
 
-<!-- 普通文章 -->
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Hassan</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
 
-<div class="post-preview">
-    <div class="post-img" style="background-image: url('/images/MySQL.png')"></div>
-    <div class="post-info">
-        <div class="post-info-center">
-            <div class="hidden-xs">
-                
-                
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#MySQL"
-                    title="MySQL">MySQL</a>
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#优化"
-                    title="优化">优化</a>
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#临时表"
-                    title="临时表">临时表</a>
-                <span>/</span>
-                
-                
-            </div>
-            <a href="/post/dateabase/mysql/2020-09-13_MySQL什么时候会使用内部临时表.html" class="title">
-                MySQL什么时候会使用内部临时表?
-            </a>
-            <p class="text-gray">
-                <small>
-                    <span>发表于2020-09-13，</span>
-                    <span class="hidden-xs">全文2650字，</span>
-                    <span>阅读约9分钟</span>
-                </small>
-            </p>
-        </div>
     </div>
-</div>
+  </footer>
 
-<div class="post-preview">
-    <div class="post-img" style="background-image: url('/images/MySQL.png')"></div>
-    <div class="post-info">
-        <div class="post-info-center">
-            <div class="hidden-xs">
-                
-                
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#MySQL"
-                    title="MySQL">MySQL</a>
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#字符集"
-                    title="字符集">字符集</a>
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#Collation"
-                    title="Collation">Collation</a>
-                <span>/</span>
-                
-                
-            </div>
-            <a href="/post/dateabase/mysql/2020-09-12_MySQL中的Character_Set与Collation.html" class="title">
-                MySQL 中的 Character Set 与 Collation
-            </a>
-            <p class="text-gray">
-                <small>
-                    <span>发表于2020-09-12，</span>
-                    <span class="hidden-xs">全文3271字，</span>
-                    <span>阅读约11分钟</span>
-                </small>
-            </p>
-        </div>
-    </div>
-</div>
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
 
-<div class="post-preview">
-    <div class="post-img" style="background-image: url('/images/MySQL.png')"></div>
-    <div class="post-info">
-        <div class="post-info-center">
-            <div class="hidden-xs">
-                
-                
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#MySQL"
-                    title="MySQL">MySQL</a>
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#性能优化"
-                    title="性能优化">性能优化</a>
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#阅读笔记"
-                    title="阅读笔记">阅读笔记</a>
-                <span>/</span>
-                
-                
-            </div>
-            <a href="/post/dateabase/mysql/2020-09-11_高性能MySQL阅读笔记(2).html" class="title">
-                高性能 MySQL 阅读笔记 (2)
-            </a>
-            <p class="text-gray">
-                <small>
-                    <span>发表于2020-09-11，</span>
-                    <span class="hidden-xs">全文1554字，</span>
-                    <span>阅读约6分钟</span>
-                </small>
-            </p>
-        </div>
-    </div>
-</div>
-
-<div class="post-preview">
-    <div class="post-img" style="background-image: url('/images/MySQL.png')"></div>
-    <div class="post-info">
-        <div class="post-info-center">
-            <div class="hidden-xs">
-                
-                
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#MySQL"
-                    title="MySQL">MySQL</a>
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#性能优化"
-                    title="性能优化">性能优化</a>
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#慢查"
-                    title="慢查">慢查</a>
-                <span>/</span>
-                
-                
-            </div>
-            <a href="/post/dateabase/mysql/2020-09-10_高性能MySQL_MySQL慢查询日志总结.html" class="title">
-                高性能 MySQL - MySQL慢查询日志总结
-            </a>
-            <p class="text-gray">
-                <small>
-                    <span>发表于2020-09-10，</span>
-                    <span class="hidden-xs">全文14139字，</span>
-                    <span>阅读约48分钟</span>
-                </small>
-            </p>
-        </div>
-    </div>
-</div>
-
-<div class="post-preview">
-    <div class="post-img" style="background-image: url('/images/MySQL.png')"></div>
-    <div class="post-info">
-        <div class="post-info-center">
-            <div class="hidden-xs">
-                
-                
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#MySQL"
-                    title="MySQL">MySQL</a>
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#性能优化"
-                    title="性能优化">性能优化</a>
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#阅读笔记"
-                    title="阅读笔记">阅读笔记</a>
-                <span>/</span>
-                
-                
-            </div>
-            <a href="/post/dateabase/mysql/2020-09-09_高性能MySQL阅读笔记(1).html" class="title">
-                高性能 MySQL 阅读笔记 (1)
-            </a>
-            <p class="text-gray">
-                <small>
-                    <span>发表于2020-09-09，</span>
-                    <span class="hidden-xs">全文809字，</span>
-                    <span>阅读约3分钟</span>
-                </small>
-            </p>
-        </div>
-    </div>
-</div>
-
-<div class="post-preview">
-    <div class="post-img" style="background-image: url('/images/MSSQL.png')"></div>
-    <div class="post-info">
-        <div class="post-info-center">
-            <div class="hidden-xs">
-                
-                
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#备份"
-                    title="备份">备份</a>
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#MSSQL"
-                    title="MSSQL">MSSQL</a>
-                <span>/</span>
-                
-                
-            </div>
-            <a href="/post/dateabase/MSSQL/2020-09-08_MSSQL最佳实践_SQL_Server备份策略.html" class="title">
-                MSSQL · 最佳实践 ·  SQL Server备份策略
-            </a>
-            <p class="text-gray">
-                <small>
-                    <span>发表于2020-09-08，</span>
-                    <span class="hidden-xs">全文10926字，</span>
-                    <span>阅读约37分钟</span>
-                </small>
-            </p>
-        </div>
-    </div>
-</div>
-
-<div class="post-preview">
-    <div class="post-img" style="background-image: url('/images/java/spring-framework.png')"></div>
-    <div class="post-info">
-        <div class="post-info-center">
-            <div class="hidden-xs">
-                
-                
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#Java"
-                    title="Java">Java</a>
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#Spring"
-                    title="Spring">Spring</a>
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#Spring Cloud"
-                    title="Spring Cloud">Spring Cloud</a>
-                <span>/</span>
-                
-                
-            </div>
-            <a href="/post/java/spring/2020-09-02_How-to-learn-Spring-Cloud.html" class="title">
-                How to learn Spring Cloud – the practical way
-            </a>
-            <p class="text-gray">
-                <small>
-                    <span>发表于2020-09-02，</span>
-                    <span class="hidden-xs">全文9726字，</span>
-                    <span>阅读约33分钟</span>
-                </small>
-            </p>
-        </div>
-    </div>
-</div>
-
-<div class="post-preview">
-    <div class="post-img" style="background-image: url('/images/java/basic/java_logo.png')"></div>
-    <div class="post-info">
-        <div class="post-info-center">
-            <div class="hidden-xs">
-                
-                
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#字符集"
-                    title="字符集">字符集</a>
-                <span>/</span>
-                
-                
-            </div>
-            <a href="/post/java/advance/2020-06-29_字符集知识点.html" class="title">
-                字符集知识点
-            </a>
-            <p class="text-gray">
-                <small>
-                    <span>发表于2020-06-28，</span>
-                    <span class="hidden-xs">全文1056字，</span>
-                    <span>阅读约4分钟</span>
-                </small>
-            </p>
-        </div>
-    </div>
-</div>
-
-<div class="post-preview">
-    <div class="post-img" style="background-image: url('/images/java/basic/java_logo.png')"></div>
-    <div class="post-info">
-        <div class="post-info-center">
-            <div class="hidden-xs">
-                
-                
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#Java"
-                    title="Java">Java</a>
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#jvm"
-                    title="jvm">jvm</a>
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#垃圾回收"
-                    title="垃圾回收">垃圾回收</a>
-                <span>/</span>
-                
-                
-            </div>
-            <a href="/post/java/advance/2020-06-28_java_jvm.html" class="title">
-                深入理解JVM-内存模型（jmm）和GC
-            </a>
-            <p class="text-gray">
-                <small>
-                    <span>发表于2020-06-28，</span>
-                    <span class="hidden-xs">全文26388字，</span>
-                    <span>阅读约88分钟</span>
-                </small>
-            </p>
-        </div>
-    </div>
-</div>
-
-<div class="post-preview">
-    <div class="post-img" style="background-image: url('/images/java/netty-logo.png')"></div>
-    <div class="post-info">
-        <div class="post-info-center">
-            <div class="hidden-xs">
-                
-                
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#Java"
-                    title="Java">Java</a>
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#思维导图"
-                    title="思维导图">思维导图</a>
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#Netty"
-                    title="Netty">Netty</a>
-                <span>/</span>
-                
-                
-            </div>
-            <a href="/post/java/netty/2020-05-26_Netty 知识点思维导图.html" class="title">
-                Netty 知识点思维导图
-            </a>
-            <p class="text-gray">
-                <small>
-                    <span>发表于2020-05-26，</span>
-                    <span class="hidden-xs">全文219字，</span>
-                    <span>阅读约1分钟</span>
-                </small>
-            </p>
-        </div>
-    </div>
-</div>
-
-<div style="margin: 15px 0">
-    <div class="text-center">
-    <p>
-        
-        <a href="/">« 上一页</a>
-        
-        &nbsp;&nbsp;&nbsp;&nbsp;
-        
-        <a href="/page/3/">下一页 »</a>
-        
-    </p>
-</div>
-</div>
-    </div>
-    <aside class="float-left gkt-sidebar hidden-xs hidden-sm">
-        <div style="clear: both"></div>
-        <div class="gkt-sidebar-wrapper">
-            <section class="bg-white box-shadow"><style>
-    .gkt-summary {
-        border: 1px solid #DDDDDD;
-        border-radius: 3px;
-        padding: 5px;
-        width: 100%;
-    }
-
-
-    .gkt-summary nav {
-        overflow: hidden;
-    }
-
-    .gkt-summary nav a {
-        display: inline-block;
-        text-align: center;
-        color: #333;
-        font-size: 12px;
-    }
-
-    .gkt-summary nav span {
-        display: block;
-    }
-
-    .gkt-summary nav .middle {
-        border-left: 1px solid #eaecef;
-        border-right: 1px solid #eaecef;
-    }
-
-    .gkt-summary .number {
-        font-weight: bold;
-    }
-
-    .gkt-summary .link-list {
-        margin-top: 5px;
-        margin-bottom: -5px;
-        padding-top: 7px;
-        border-top: 1px dashed #999;
-        display: flex;
-    }
-
-    .gkt-summary .link-list a {
-        flex: 1;
-    }
-
-    .gkt-summary .link-list img {
-        width: 25px;
-        height: 25px;
-    }
-</style>
-
-<div class="gkt-summary">
-    <nav>
-        <a href="/" class="col-xs-4">
-            <span class="number">117</span><span>文章</span>
-        </a>
-        <a href="/series" class="col-xs-4 middle">
-            <span class="number">36</span><span>专题</span>
-        </a>
-        <a href="/tags" class="col-xs-4">
-            <span class="number">153</span><span>标签</span>
-        </a>
-    </nav>
-
-    
-</div></section>
-            <section class="gkt-sidebar-content bg-white box-shadow"><!-- Featured Tags -->
-<style>
-    #featured-tag .post-tag-item {
-        font-size: 12px;
-        line-height: 30px;
-        display: inline-block;
-        height: 30px;
-        margin: 5px 0px;
-        padding: 0 7px;
-        color: #333;
-        border-radius: 15px;
-        background: #f6f6f6;
-    }
-
-    #featured-tag .post-tag-item:hover {
-        color: #337ab7;
-    }
-</style>
-<div id="featured-tag">
-    
-    <a class="post-tag-item" href="/tags/#关于我" title="关于我"
-        rel="1">#关于我 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Hello World" title="Hello World"
-        rel="1">#Hello World (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#八皇后" title="八皇后"
-        rel="1">#八皇后 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#算法" title="算法"
-        rel="2">#算法 (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#创建型模式" title="创建型模式"
-        rel="1">#创建型模式 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#设计模式" title="设计模式"
-        rel="3">#设计模式 (3) </a>
-    
-    <a class="post-tag-item" href="/tags/#分布式" title="分布式"
-        rel="3">#分布式 (3) </a>
-    
-    <a class="post-tag-item" href="/tags/#CAP" title="CAP"
-        rel="1">#CAP (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#概念" title="概念"
-        rel="4">#概念 (4) </a>
-    
-    <a class="post-tag-item" href="/tags/#脑裂" title="脑裂"
-        rel="1">#脑裂 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#术语" title="术语"
-        rel="1">#术语 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#理论" title="理论"
-        rel="1">#理论 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Docker" title="Docker"
-        rel="2">#Docker (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#入门" title="入门"
-        rel="2">#入门 (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#学习笔记" title="学习笔记"
-        rel="1">#学习笔记 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#JavaScript" title="JavaScript"
-        rel="4">#JavaScript (4) </a>
-    
-    <a class="post-tag-item" href="/tags/#chameleon" title="chameleon"
-        rel="2">#chameleon (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#跨平台" title="跨平台"
-        rel="2">#跨平台 (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#小程序" title="小程序"
-        rel="2">#小程序 (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#Android" title="Android"
-        rel="1">#Android (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#apk" title="apk"
-        rel="1">#apk (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#反编译" title="反编译"
-        rel="1">#反编译 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Java" title="Java"
-        rel="52">#Java (52) </a>
-    
-    <a class="post-tag-item" href="/tags/#面试" title="面试"
-        rel="3">#面试 (3) </a>
-    
-    <a class="post-tag-item" href="/tags/#数据结构" title="数据结构"
-        rel="1">#数据结构 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#IO" title="IO"
-        rel="12">#IO (12) </a>
-    
-    <a class="post-tag-item" href="/tags/#同步" title="同步"
-        rel="2">#同步 (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#异步" title="异步"
-        rel="1">#异步 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#阻塞" title="阻塞"
-        rel="1">#阻塞 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#非阻塞" title="非阻塞"
-        rel="1">#非阻塞 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#符号链接" title="符号链接"
-        rel="1">#符号链接 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#目录" title="目录"
-        rel="1">#目录 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#deb" title="deb"
-        rel="2">#deb (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#chrome" title="chrome"
-        rel="1">#chrome (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#快捷键" title="快捷键"
-        rel="1">#快捷键 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#bbr" title="bbr"
-        rel="1">#bbr (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#协议" title="协议"
-        rel="3">#协议 (3) </a>
-    
-    <a class="post-tag-item" href="/tags/#XXNET" title="XXNET"
-        rel="1">#XXNET (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#磁盘管理" title="磁盘管理"
-        rel="1">#磁盘管理 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#挂载" title="挂载"
-        rel="1">#挂载 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#网络" title="网络"
-        rel="2">#网络 (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#模型" title="模型"
-        rel="2">#模型 (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#MMAP" title="MMAP"
-        rel="1">#MMAP (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#内存映射" title="内存映射"
-        rel="1">#内存映射 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#内存" title="内存"
-        rel="1">#内存 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#零拷贝" title="零拷贝"
-        rel="2">#零拷贝 (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#输入法" title="输入法"
-        rel="1">#输入法 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#命令" title="命令"
-        rel="1">#命令 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#集合运算" title="集合运算"
-        rel="1">#集合运算 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Ubuntu" title="Ubuntu"
-        rel="1">#Ubuntu (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#包管理" title="包管理"
-        rel="4">#包管理 (4) </a>
-    
-    <a class="post-tag-item" href="/tags/#TCP" title="TCP"
-        rel="3">#TCP (3) </a>
-    
-    <a class="post-tag-item" href="/tags/#UDP" title="UDP"
-        rel="2">#UDP (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#网络协议" title="网络协议"
-        rel="1">#网络协议 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#CDN" title="CDN"
-        rel="1">#CDN (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Socket" title="Socket"
-        rel="1">#Socket (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#vpn" title="vpn"
-        rel="1">#vpn (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#ssh" title="ssh"
-        rel="1">#ssh (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Heidi" title="Heidi"
-        rel="1">#Heidi (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#MySQL" title="MySQL"
-        rel="9">#MySQL (9) </a>
-    
-    <a class="post-tag-item" href="/tags/#网络术语" title="网络术语"
-        rel="3">#网络术语 (3) </a>
-    
-    <a class="post-tag-item" href="/tags/#URL" title="URL"
-        rel="1">#URL (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#URI" title="URI"
-        rel="1">#URI (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Tampermonkey" title="Tampermonkey"
-        rel="1">#Tampermonkey (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#弹琴吧" title="弹琴吧"
-        rel="1">#弹琴吧 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#吉他" title="吉他"
-        rel="1">#吉他 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#V2ray" title="V2ray"
-        rel="1">#V2ray (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Jira" title="Jira"
-        rel="1">#Jira (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#管理" title="管理"
-        rel="2">#管理 (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#认知" title="认知"
-        rel="1">#认知 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#备份" title="备份"
-        rel="1">#备份 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#MSSQL" title="MSSQL"
-        rel="1">#MSSQL (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Redis" title="Redis"
-        rel="1">#Redis (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#优化" title="优化"
-        rel="2">#优化 (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#SQL优化" title="SQL优化"
-        rel="2">#SQL优化 (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#ACID" title="ACID"
-        rel="1">#ACID (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#幻读" title="幻读"
-        rel="1">#幻读 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#性能优化" title="性能优化"
-        rel="4">#性能优化 (4) </a>
-    
-    <a class="post-tag-item" href="/tags/#阅读笔记" title="阅读笔记"
-        rel="2">#阅读笔记 (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#字符集" title="字符集"
-        rel="2">#字符集 (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#Collation" title="Collation"
-        rel="1">#Collation (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#临时表" title="临时表"
-        rel="1">#临时表 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Vue" title="Vue"
-        rel="2">#Vue (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#二进制" title="二进制"
-        rel="2">#二进制 (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#内存分配" title="内存分配"
-        rel="1">#内存分配 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#内存泄露" title="内存泄露"
-        rel="1">#内存泄露 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#书籍推荐" title="书籍推荐"
-        rel="1">#书籍推荐 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#知识体系" title="知识体系"
-        rel="1">#知识体系 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#反码" title="反码"
-        rel="1">#反码 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#补码" title="补码"
-        rel="1">#补码 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#单例" title="单例"
-        rel="1">#单例 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#DCL" title="DCL"
-        rel="1">#DCL (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#内存模型" title="内存模型"
-        rel="1">#内存模型 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#jvm" title="jvm"
-        rel="3">#jvm (3) </a>
-    
-    <a class="post-tag-item" href="/tags/#HashMap" title="HashMap"
-        rel="1">#HashMap (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Java集合" title="Java集合"
-        rel="1">#Java集合 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#ThreadLocal" title="ThreadLocal"
-        rel="1">#ThreadLocal (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Java线程" title="Java线程"
-        rel="3">#Java线程 (3) </a>
-    
-    <a class="post-tag-item" href="/tags/#异常" title="异常"
-        rel="1">#异常 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Java异常" title="Java异常"
-        rel="1">#Java异常 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#思维导图" title="思维导图"
-        rel="2">#思维导图 (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#垃圾回收" title="垃圾回收"
-        rel="2">#垃圾回收 (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#Java引用" title="Java引用"
-        rel="1">#Java引用 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Exception" title="Exception"
-        rel="1">#Exception (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Stream" title="Stream"
-        rel="1">#Stream (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Netty" title="Netty"
-        rel="4">#Netty (4) </a>
-    
-    <a class="post-tag-item" href="/tags/#笔记" title="笔记"
-        rel="1">#笔记 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#NIO" title="NIO"
-        rel="7">#NIO (7) </a>
-    
-    <a class="post-tag-item" href="/tags/#Buffer" title="Buffer"
-        rel="1">#Buffer (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Selector" title="Selector"
-        rel="1">#Selector (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#问题" title="问题"
-        rel="2">#问题 (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#直接内存" title="直接内存"
-        rel="1">#直接内存 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#非直接内存" title="非直接内存"
-        rel="1">#非直接内存 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#堆内存" title="堆内存"
-        rel="1">#堆内存 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#注解" title="注解"
-        rel="1">#注解 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Spring" title="Spring"
-        rel="6">#Spring (6) </a>
-    
-    <a class="post-tag-item" href="/tags/#文件加载" title="文件加载"
-        rel="1">#文件加载 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Spring Boot" title="Spring Boot"
-        rel="3">#Spring Boot (3) </a>
-    
-    <a class="post-tag-item" href="/tags/#Spring Cloud" title="Spring Cloud"
-        rel="1">#Spring Cloud (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Gradle" title="Gradle"
-        rel="3">#Gradle (3) </a>
-    
-    <a class="post-tag-item" href="/tags/#Idea" title="Idea"
-        rel="1">#Idea (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#JavaIDE" title="JavaIDE"
-        rel="1">#JavaIDE (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#监控" title="监控"
-        rel="1">#监控 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#报警" title="报警"
-        rel="1">#报警 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Prometheus" title="Prometheus"
-        rel="1">#Prometheus (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#SVN" title="SVN"
-        rel="1">#SVN (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#结构型模式" title="结构型模式"
-        rel="1">#结构型模式 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#行为型模式" title="行为型模式"
-        rel="1">#行为型模式 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#云原生" title="云原生"
-        rel="1">#云原生 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Cloud" title="Cloud"
-        rel="1">#Cloud (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#异步IO" title="异步IO"
-        rel="1">#异步IO (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#直接IO" title="直接IO"
-        rel="1">#直接IO (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#慢查" title="慢查"
-        rel="1">#慢查 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#序列化" title="序列化"
-        rel="1">#序列化 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#函数式编程" title="函数式编程"
-        rel="1">#函数式编程 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#lambda" title="lambda"
-        rel="1">#lambda (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#并发编程" title="并发编程"
-        rel="1">#并发编程 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#JUC" title="JUC"
-        rel="1">#JUC (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#lambda表达式" title="lambda表达式"
-        rel="1">#lambda表达式 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#源码" title="源码"
-        rel="1">#源码 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#RPC" title="RPC"
-        rel="1">#RPC (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Reactor" title="Reactor"
-        rel="1">#Reactor (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#NIO模型" title="NIO模型"
-        rel="1">#NIO模型 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#工具" title="工具"
-        rel="1">#工具 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Wiki" title="Wiki"
-        rel="1">#Wiki (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#整理" title="整理"
-        rel="1">#整理 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#操作系统" title="操作系统"
-        rel="1">#操作系统 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#微服务" title="微服务"
-        rel="1">#微服务 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Vert.x" title="Vert.x"
-        rel="1">#Vert.x (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Spring Core" title="Spring Core"
-        rel="1">#Spring Core (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#源码分析" title="源码分析"
-        rel="1">#源码分析 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#文件名批量修改" title="文件名批量修改"
-        rel="1">#文件名批量修改 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#HttpClient" title="HttpClient"
-        rel="1">#HttpClient (1) </a>
-    
-</div></section>
-            
-        </div>
-    </aside>
-    
-
-<script>
-    (function () {
-        var ele = getDom('.gkt-sidebar-content')
-        if(!ele) return;
-        var wrapper = getDom('.gkt-sidebar-wrapper')
-        var last = 0
-        ele.style.maxHeight = ((window.innerHeight || 798) - 200) + 'px'
-        var f = function (e) {
-            var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-            var isDown = scrollTop > last;
-            var pos = getPosition(ele).y - scrollTop;
-            var downLimit = 50;
-            var upLimit = -100;
-            // uarrow.style.marginTop = scrollTop + 'px';
-            isDown && pos <= downLimit && wrapper.classList.add("gkt-sidebar-fixed");
-            !isDown && pos > upLimit && wrapper.classList.remove("gkt-sidebar-fixed");
-            last = scrollTop
-        }
-        f()
-        window.addEventListener("scroll", f)
-    })();
-</script>
-
-</main>
-    </div>
-    <style>
-    img#go-top {
-        position: fixed;
-        bottom: 100px;
-        width: 50px;
-        cursor: pointer;
-        z-index: 9999;
-    }
-</style>
-<img id="go-top" src="/icon/top.png" class="hidden-xs" style="display: none" />
-<script>
-    (function () {
-        var goTop = document.getElementById('go-top');
-        var mainContainer = document.querySelector('.main-container');
-        
-        goTop.addEventListener('click', function () {
-            window.scroll(0, 0);
-        }, false);
-        window.addEventListener('scroll', function () {
-            var right = document.body.offsetWidth - mainContainer.getBoundingClientRect().right;
-            var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-            goTop.style.right = right + 10 + 'px'
-            scrollTop > 700 && (goTop.style.display = "block");
-            scrollTop <= 700 && (goTop.style.display = "none");
-        });
-    })();
-</script>
-    <style>
-    #geektutu-click-img-container {
-        position: fixed;
-        left: 0;
-        top: 0;
-        text-align: center;
-        width: 100%;
-        display: none;
-        z-index: 9999;
-    }
-
-    #geektutu-click-img-container img {
-        object-fit: contain;
-        background: #eaecef;
-        padding: 15px;
-        border-radius: 10px;
-        height: auto;
-        width: auto;
-        vertical-align: middle;
-    }
-</style>
-
-
-<div id="geektutu-click-img-container">
-    <img src="" alt="Big Image">
-</div>
-
-<script>
-    (function () {
-        var container = document.querySelector('#geektutu-click-img-container')
-        var targetImg = container.querySelector('img')
-        var imgs = document.querySelectorAll('article img');
-        targetImg.addEventListener('click', function (e) {
-            container.style.display = 'none';
-            e && e.stopPropagation && e.stopPropagation();
-        }, false);
-
-        for (var i = 0; i < imgs.length; ++i) {
-            var img = imgs[i];
-            img.addEventListener('click', (function (src, rate) {
-                return function (e) {
-                    e && e.stopPropagation && e.stopPropagation();
-                    if (window.innerWidth < 980) {
-                        return
-                    }
-                    targetImg.style.height = targetImg.style.width = 'auto';
-                    if (window.innerWidth / window.innerHeight > rate) {
-                        targetImg.style.height = (window.innerHeight - 20) + 'px';
-                    } else {
-                        targetImg.style.width = (window.innerWidth - 20) + 'px';
-                    }
-                    container.style.height = window.innerHeight + 'px'
-                    container.style.lineHeight = window.innerHeight + 'px'
-                    container.style.display = 'block';
-                    targetImg.src = src;
-                };
-            }(img.src, img.width / img.height)), false)
-        }
-    })();
-</script>
-    <!-- Footer -->
-    <!-- Footer -->
-<style>
-    footer {
-        width: 100%;
-        line-height: 1.5;
-        padding: 20px;
-    }
-
-    footer a {
-        color: #333;
-        text-decoration: none;
-    }
-
-    .footer-hexo img {
-        height: 20px;
-        margin-bottom: -5px;
-    }
-
-    .footer-hexo a {
-        color: #337ab7;
-    }
-</style>
-<footer class="text-center col-xs-12">
-    <p>
-        <small>© 2020 - Hassan - </small>
-        <small>
-            <a target="_blank" rel="nofollow noopener" href="http://beian.miit.gov.cn/"></a>
-        </small>
-    </p>
-    <p class="footer-hexo">
-        <!-- 但若直接使用或修改主题，请务必保留这段声明 -->
-        <small>Powered by <a target="_blank" href="https://hexo.io">Hexo</a> | Theme
-            <a target="_blank" href="https://geektutu.com">Geektutu</a>
-            <a target="_blank" rel="noopener" href="https://github.com/geektutu/hexo-theme-geektutu">
-                <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAYGBgYHBgcICAcKCwoLCg8ODAwODxYQERAREBYiFRkVFRkVIh4kHhweJB42KiYmKjY+NDI0PkxERExfWl98fKcBBgYGBgcGBwgIBwoLCgsKDw4MDA4PFhAREBEQFiIVGRUVGRUiHiQeHB4kHjYqJiYqNj40MjQ+TERETF9aX3x8p//CABEIACIAUAMBIgACEQEDEQH/xAAcAAABBAMBAAAAAAAAAAAAAAAAAQQFBwIDBgj/2gAIAQEAAAAA9KrHSgAYL5/z6zZGuJd12uugbhq3uKtmuRtix20IS7lTLAfAAAn/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/9oACAECEAAAAAAB/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/aAAgBAxAAAAAAAf/EADEQAAICAQIEBQEGBwAAAAAAAAECAwQFAAYREhORBxQhUlQxQVFic5KxJDJCYYGC0f/aAAgBAQABPwCFHnjWUzuvN6hV4cANSRLGjO9yRVUcSzMoA7jVXJYe5N0a2dhmk9kc0bN2GvLN8mbuNeWb5M3ca8s3yZu415Y/Jm7jXlm+TN3H/NeVPyZu40vOk3TZywK8wJ+v3EHVM/wsI/Dq2lrxN3Nnca16eti8chSAIoMbzByhMwP14kHVfwIiSaF5c96J6kwwCOTnHsYk8uvCrdmQy1TI4rJuz3cZLyGR/wCd4+YoOf8AEpUjXitubLYPG4paFsUxcuiGe7yc5gTW3LW44szXmobsi3Dhmic2+Z4+vCVH9CpraPiQ+QvbgTJrPFBWd5YpWrmNIIEXiRO32Pqt4p7cnfHk18lFBdmEVW1LVdIZGOrniTt6plrWKaO69yCykDRxwF+LMAewB0Txtr+Sf31VI8tEPw62fZt7N3Humtbpzz13ucX6CGSWMSuzpLyD1eNgeUka3PuvHbaxq3biTMHfkiSNCS78CwU+3Xg7Vu3MhuTcU6cq3Zemn3Eh2dv8Lzcut+29x1atKbHYqLJUhLwyNMwiZ3j9yDWOxUOV3tgb+3No5LDx1pi9+aeIwRlNY6bc+Jv+IFGrhLxtXJZ7VKcw81diiAAEn0JOrkWZyNfbEr0tz27UGQgkuGzXdIIvyowq99bRxk9ffO/L81SZBPZgEEroQroIxxMZOgeNsfkn99QypHGqO4Vl9CDrN4LDZkwyzyyQ2IgRHZrzGCZVP1XnQglT9oOtw4LC7iqV6uRkZoYpxKFSQpzFRw4EjVRMfSrQ1qqwxQxKFjjTgFUD7BoWYR6iVe+mtxt9Zwf9teaj4AdccPu5tedX5A/VrzUR+sy/q1CwksF19VEfDj/cnQRW+qg66cfsXtrpx+xe2unH7F7a6cfsXtrpx+xe2unH7F7a6cfsXtoxx+xe2gAAOA1//8QAFBEBAAAAAAAAAAAAAAAAAAAAMP/aAAgBAgEBPwB//8QAFBEBAAAAAAAAAAAAAAAAAAAAMP/aAAgBAwEBPwB//9k="
-                    alt="Github Star">
-            </a>
-        </small>
-    </p>
-    
-    <p>
-        <small>
-            <span id="busuanzi_container_site_pv">👁<span id="busuanzi_value_site_pv"></span></span> &nbsp;
-            <span id="busuanzi_container_page_pv">📚<span id="busuanzi_value_page_pv"></span></span>
-        </small>
-    </p>
-    
-    
-
-</footer>
-
-
-<script>
-    window.addEventListener('load', function () {
-        globalAddScript('//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js');
-    })
-</script>
-
-<!-- Baidu Tongji -->
+  
 
 
 
 
 
-    <script>
-        // 非本站网址，新开tab页签
-        (function () {
-            var stopBubble = function (e) {
-                e && e.stopPropagation && e.stopPropagation();
-            }
-            var links = document.querySelectorAll('a');
-            [].slice.call(links).forEach(function (item) {
-                if (item.href && item.href.indexOf(window.location.host) === -1) {
-                    item.target = '_blank'
-                }
-                // 阻止冒泡，不触发彩蛋。
-                item.addEventListener('click', stopBubble, false);
-            });
-            var article = document.querySelector('article');
-            article && article.addEventListener('click', stopBubble, false)
-        })();
-    </script>
-    
-<script>
-    (function (window, document, undefined) {
-        var hearts = [];
-        var keywords = ["点个赞", "留个言", "赞赏一下", "分享之", "blog.fenxiangz.com"];
-        function randomInt(max) {
-            return Math.floor(Math.random() * Math.floor(max));
-        }
-        window.addEventListener('click', createWord)
 
-        function createWord(e) {
-            var d = document.createElement("span");
-            d.style.position = 'fixed';
-            d.style.zIndex = 9999;
-            d.style.color = 'rgb(' + [randomInt(255), randomInt(255), randomInt(255)].join(',') + ')';
-            d.innerHTML = keywords[randomInt(keywords.length)];
-            d.onselectstart = function () { return false; }
 
-            hearts.push({ el: d, x: e.clientX - 5, y: e.clientY - 5, alpha: 1, scale: 1 });
-            document.body.appendChild(d);
-        }
-        (function gameloop() {
-            for (var i = 0; i < hearts.length; i++) {
-                heart = hearts[i];
-                if (heart.alpha <= 0) {
-                    document.body.removeChild(heart.el);
-                    hearts.splice(i, 1);
-                    continue;
-                }
-                heart.y -= heart.alpha < 0.5 ? 2 : 1;
-                heart.scale += 0.002;
-                heart.alpha -= 0.013;
-                heart.el.style.transform = 'scale(' + heart.scale + ')';
-                heart.el.style.left = heart.x + 'px';
-                heart.el.style.top = heart.y + 'px';
-            }
-            setTimeout(gameloop, 10)
-        })();
-    })(window, document);
-</script>
+  
+
+
+
+
+
 
 </body>
-
 </html>

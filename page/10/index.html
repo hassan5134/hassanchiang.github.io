@@ -1,1517 +1,1788 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-
-<!-- Head tag -->
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="referrer" content="no-referrer-when-downgrade">
-  
-  <meta name="baidu-site-verification" content="" />
-  <meta name="google-site-verification" content="" />
-  <meta name="msvalidate.01" content="" />
-  <meta name="360-site-verification" content="" />
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- if page has tags, then add tags to keyword -->
-  
-  
-  <meta name="keywords" content=",">
-  <!-- page.description has higher priority -->
-  <meta name="description" content="Share everything">
-  <link rel="shortcut icon" href="/favico.png">
-  <title>
-    
-    分享之
-    
-  </title>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
 
-  <link rel="canonical" href="/page/10/">
-  
-<link rel="stylesheet" href="/css/reset.css">
 
-  
-<link rel="stylesheet" href="/css/layout.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
-  
-<link rel="stylesheet" href="/css/markdown.css">
+<link rel="stylesheet" href="/css/main.css">
 
-  <!-- Pygments Highlight CSS -->
-  
-<link rel="stylesheet" href="/css/highlight.css">
 
-  
-<link rel="stylesheet" href="/css/geektutu.css">
 
-  <!-- global function -->
-  <script>
-    window.globalAddScript = function (url, onload, onerror) {
-      var s = document.createElement('script');
-      s.src = url;
-      onload && (s.onload = onload);
-      onerror && (s.onerror = onerror);
-      document.body.appendChild(s);
-    }
-    window.globalAddCss = function (url) {
-      var s = document.createElement('link');
-      s.rel = 'stylesheet';
-      s.href = url;
-      document.body.appendChild(s);
-    }
-    window.getPosition = function (ele) {
-      var x = 0, y = 0;
-      while (ele) {
-        x += (ele.offsetLeft - ele.scrollLeft + ele.clientLeft);
-        y += (ele.offsetTop - ele.scrollTop + ele.clientTop);
-        ele = ele.offsetParent;
-      }
-      return { x: x, y: y };
-    }
-    window.getDom = function (str) { return document.querySelector(str) }
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blog.fenxiangz.com","root":"/","images":"/images","scheme":"Pisces","version":"8.1.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}};
   </script>
-  <!-- google ad -->
+<meta name="description" content="Share everything">
+<meta property="og:type" content="website">
+<meta property="og:title" content="分享之">
+<meta property="og:url" content="https://blog.fenxiangz.com/page/10/index.html">
+<meta property="og:site_name" content="分享之">
+<meta property="og:description" content="Share everything">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="Hassan">
+<meta property="article:tag" content="JAVA,Linux,技术分享,网络">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://blog.fenxiangz.com/page/10/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-CN'
+  };
+</script>
+<title>分享之</title>
   
-<meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/feed.xml" title="分享之" type="application/rss+xml">
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="分享之" type="application/atom+xml">
 </head>
 
-<body>
-    <header class="gkt-header col-xs-12 padding-0">
-    <div id="gkt-nav" class="gkt-header-container">
-        <a href="/" class="gkt-header-title float-left">
-            <img class="float-left" src="/favico.png" alt="">
-            <span>分享之</span>
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">分享之</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Share everything</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <section class="post-toc-wrap sidebar-panel">
+        </section>
+        <!--/noindex-->
+
+        <section class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Hassan</p>
+  <div class="site-description" itemprop="description">Share everything</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">117</span>
+          <span class="site-state-item-name">日志</span>
         </a>
-        <nav class="gkt-header-nav text-right">
-            <ul>
-                <li><a class="hidden-xs" href="/feed.xml">订阅</a></li>
-                <li><a href="/series/">专题</a></li>
-                <li><a href="/archives/">归档</a></li>
-                <li><a href="/post/link.html">友链</a></li>
-                <li><a href="/post/about.html">关于</a></li>
-            </ul>
-        </nav>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">36</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">153</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </section>
+      </div>
     </div>
-    <div id="gkt-cate-nav" class="gkt-header-container hidden-xs">
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.fenxiangz.com/post/util/gradle/LearnGradle_1_%E5%AE%89%E8%A3%85.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Hassan">
+      <meta itemprop="description" content="Share everything">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="分享之">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/post/util/gradle/LearnGradle_1_%E5%AE%89%E8%A3%85.html" class="post-title-link" itemprop="url">Learn Gradle - 1 安装</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2017-10-26 00:00:00" itemprop="dateCreated datePublished" datetime="2017-10-26T00:00:00+00:00">2017-10-26</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-12-20 16:47:02" itemprop="dateModified" datetime="2020-12-20T16:47:02+00:00">2020-12-20</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Gradle/" itemprop="url" rel="index"><span itemprop="name">Gradle</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="1、下载Gradle"><a href="#1、下载Gradle" class="headerlink" title="1、下载Gradle"></a>1、下载Gradle</h2><p>方式一：<a target="_blank" rel="noopener" href="http://gradle.org/">http://gradle.org/</a>  使用首页Download链接直接下载最新版。</p>
+<p>方式二：<a target="_blank" rel="noopener" href="http://gradle.org/gradle-download/">http://gradle.org/gradle-download/</a>  在“PREVIOUS RELEASES”（右侧）下方选择一个版本，然后选择完整版“Complete distribution”或者选择不含源码和文档仅包含程序的版本“Binary only distribution”下载。</p>
+<p>（这里下载最新版本完整压缩包：gradle-2.5-all.zip）</p>
+<h2 id="2、安装"><a href="#2、安装" class="headerlink" title="2、安装"></a>2、安装</h2><p>解压缩下载的zip文件：gradle-2.5-all.zip 得到目录 gradle-2.5 ，将文件夹移动到合适的位置，如 F:\gradle-2.5，这个文件包含了所有gradle的内容，包括：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">执行程序（bin、lib）</span><br><span class="line">文档（docs）</span><br><span class="line">源码（src）</span><br><span class="line">例子（samples）</span><br><span class="line">配置环境变量：</span><br></pre></td></tr></table></figure>
+
+<p>新增变量名：GRADLE_HOME，变量值：F:\gradle-2.5<br>在已有Path变量的末尾追加字符串 ”;%GRADLE_HOME%\bin;“（引号内的字符串）</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/util/gradle/LearnGradle_1_%E5%AE%89%E8%A3%85.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
         
-        <nav class="gkt-header-nav float-left">
-            <ul>
-                
-                
-                <li class="gkt-cate-name float-left ">
-                    <a class="float-left" href="/post/java/basic/2016-10-25_hashmap_jdk7.html">Java ▾</a>
-                    
-                    <ul class="gkt-sub-cate">
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/java/basic/2016-10-25_hashmap_jdk7.html">Java 基础</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/java/advance/2016-10-25_number.html">Java 进阶</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/java/io/2017-04-15_java_io_1_overview.html">Java IO</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/java/nio/2017-04-21_java_nio_1.html">Java NIO</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/interview/2018-10-25_Java面试整理.html">Java 面试</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/java/util/2020-12-23_HttpClient连接池原理及一次连接时序图.html">RPC</a></li>
-                        
-                    </ul>
-                    
-                </li>
-                
-                <li class="gkt-cate-name float-left ">
-                    <a class="float-left" href="/post/java/spring/2016-10-30_Spring 组合注解&amp;注解继承.html">Spring ▾</a>
-                    
-                    <ul class="gkt-sub-cate">
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/java/spring/2016-10-30_Spring 组合注解&amp;注解继承.html">Spring Core</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/java/spring/2019-12-28_【译】Spring Boot 从 classpath 加载文件.html">Spring Boot</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/java/spring/2020-09-02_How-to-learn-Spring-Cloud.html">Spring Cloud</a></li>
-                        
-                    </ul>
-                    
-                </li>
-                
-                <li class="gkt-cate-name float-left ">
-                    <a class="float-left" href="/post/java/netty/2019-01-02_小白科普Netty有什么用.html">Java 框架</a>
-                    
-                </li>
-                
-                <li class="gkt-cate-name float-left ">
-                    <a class="float-left" href="/post/util/ide/2017-10-25_idea_shotcut.html">工具 ▾</a>
-                    
-                    <ul class="gkt-sub-cate">
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/util/ide/2017-10-25_idea_shotcut.html">IDE</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/util/gradle/LearnGradle_1_安装.html">Gradle</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/docker/2017-11-25_Docker_Get_Started.html">Docker</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/util/monitor/2017-12-10_从零开始搭建Prometheus自动监控报警系统.html">监控</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/util/svn/2017-12-10_SVN自动删除“被手动删除”的文件.html">SVN</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/util/2020-11-26_开发资源整理.html">资源导航</a></li>
-                        
-                    </ul>
-                    
-                </li>
-                
-                <li class="gkt-cate-name float-left ">
-                    <a class="float-left" href="/post/linux/2017-11-27_update-alternatives_命令.html">Linux ▾</a>
-                    
-                    <ul class="gkt-sub-cate">
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/linux/2017-11-27_update-alternatives_命令.html">其他</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/linux/2017-11-26_IO-同步，异步，阻塞，非阻塞.html">IO</a></li>
-                        
-                    </ul>
-                    
-                </li>
-                
-                <li class="gkt-cate-name float-left ">
-                    <a class="float-left" href="/post/network/2017-11-24_面向报文（UDP）和面向字节流（TCP）的区别.html">计算机网络 ▾</a>
-                    
-                    <ul class="gkt-sub-cate">
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/network/2017-11-24_面向报文（UDP）和面向字节流（TCP）的区别.html">TCP/IP</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/network/2017-11-25_一张图说明CDN网络的原理.html">网络/其他</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/network/2018-12-15_URL和URI的区别.html">网络/术语</a></li>
-                        
-                    </ul>
-                    
-                </li>
-                
-                <li class="gkt-cate-name float-left ">
-                    <a class="float-left" href="/post/dateabase/mysql/2018-12-15_MySQL优化概要.html">数据库 ▾</a>
-                    
-                    <ul class="gkt-sub-cate">
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/dateabase/mysql/2018-12-15_MySQL优化概要.html">MySQL</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/dateabase/MSSQL/2020-09-08_MSSQL最佳实践_SQL_Server备份策略.html">MSSQL</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/dateabase/Redis/2020_12_08_Redis清理方法.html">Redis</a></li>
-                        
-                    </ul>
-                    
-                </li>
-                
-                <li class="gkt-cate-name float-left ">
-                    <a class="float-left" href="/post/design/2019-01-03_Java经典设计模式_1_五大创建型模式.html">设计模式</a>
-                    
-                </li>
-                
-                <li class="gkt-cate-name float-left ">
-                    <a class="float-left" href="/post/distribution/2019-08-12_CAP定理的含义.html">分布式 ▾</a>
-                    
-                    <ul class="gkt-sub-cate">
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/distribution/2019-08-12_CAP定理的含义.html">概念</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/distribution/2019-08-13_Zookeeper是如何解决脑裂问题.html">zookeeper</a></li>
-                        
-                    </ul>
-                    
-                </li>
-                
-                <li class="gkt-cate-name float-left ">
-                    <a class="float-left" href="/post/frontend/vue/2017-10-26_vue自定义组件中的v-model简单解释.html">前端 ▾</a>
-                    
-                    <ul class="gkt-sub-cate">
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/frontend/vue/2017-10-26_vue自定义组件中的v-model简单解释.html">VUE</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/frontend/2016-10-26_深入理解jQuery插件开发.html">jQuery</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/frontend/2019-10-26_小程序多端框架全面测评.html">跨平台</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/frontend/2019-11-26_APK反编译总结.html">Android</a></li>
-                        
-                    </ul>
-                    
-                </li>
-                
-                <li class="gkt-cate-name float-left ">
-                    <a class="float-left" href="/post/algorithm/八皇后算法解析.html">算法</a>
-                    
-                </li>
-                
-                <li class="gkt-cate-name float-left ">
-                    <a class="float-left" href="/post/其他/2020-01-29_弹琴吧非会员扒谱技巧.html">其他 ▾</a>
-                    
-                    <ul class="gkt-sub-cate">
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/其他/2020-01-29_弹琴吧非会员扒谱技巧.html">其他/Tampermonkey</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/其他/2020-10-25_V2ray配置.html">其他/V2ray</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/其他/2020-11-26_Jira修改Path路径后的用户管理问题.html">其他/Jira</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/其他/2020-11-27_『认知升级』是比其他一切都更加重要的思维模型转变.html">其他/管理</a></li>
-                        
-                    </ul>
-                    
-                </li>
-                
-            </ul>
-        </nav>
+      
     </div>
-</header>
-<div class="gkt-header-placeholder" style="height: 44px"></div>
-<div class="gkt-header-placeholder hidden-xs" style="height: 44px"></div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.fenxiangz.com/post/util/ide/2017-10-25_idea_shotcut.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Hassan">
+      <meta itemprop="description" content="Share everything">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="分享之">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/post/util/ide/2017-10-25_idea_shotcut.html" class="post-title-link" itemprop="url">IntelliJ 各种快捷键</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2017-10-25 11:29:24" itemprop="dateCreated datePublished" datetime="2017-10-25T11:29:24+00:00">2017-10-25</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-12-20 16:47:02" itemprop="dateModified" datetime="2020-12-20T16:47:02+00:00">2020-12-20</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/IDE/" itemprop="url" rel="index"><span itemprop="name">IDE</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>工欲善其事必先利其器，花一点时间，记录一下 Intellij 各种快捷键。</p>
+<p><strong>窗口交互</strong></p>
+<p>Alt + 1 显示 Project 窗口 ☆☆☆<br>Alt + 2 显示 Favorite 窗口<br>Alt + 3 显示 Find 窗口<br>Alt + 5 显示 Debug 窗口<br>…..</p>
+<p>具体看显示窗口的标签标注 1 类似的就是快捷键值了</p>
+<p>Ctrl + Shift + F12 最大化编辑窗口与上次视图进行切换</p>
+<p>Alt + Home 定位到导航目录，然后可以使用上下左右建进行文件目录导航</p>
+<p>Esc 焦点进入编辑器</p>
+<p><strong>代码补全</strong></p>
+<p>Ctrl + Space 基本补全</p>
+<p>Ctrl + Shift + Space 智能补全</p>
+<p>Alt + / 按照最近的关键字补全</p>
+<p>Ctrl + Shift + Enter 补全代码结构，包括缺失的小括号、中括号、大括号以及必要的结构</p>
+<p><strong>编辑器常用</strong></p>
+<p>Ctrl + Shift + Up 和 Ctrl + Shift + Down 移动选中的代码行 ☆☆☆</p>
+<p>Ctrl + D 复制选中的代码行 ☆☆☆☆</p>
+<p>Ctrl + Y 删除选中的代码行 ☆☆☆☆</p>
+<p>Ctrl + / 按行注释代码或取消注释代码 ☆☆☆☆☆</p>
+<p>Ctrl + Shift + / 按块注释代码或取消注释代码 ☆☆☆☆☆</p>
+<p>Ctrl + F 或 Alt + F3 在当前打开文件查找 ☆☆☆☆☆</p>
+<p>Ctrl + R 在当前打开文件查找并替换</p>
+<p>Alt + Right 和 Alt + Left 导航打开的编辑器窗口 ☆☆☆☆</p>
+<p>Ctrl + Alt + Left 和 Ctrl + Alt + Right 导航焦点 ☆☆☆☆☆</p>
+<p>Ctrl + - （中横线，减号） 收起代码块</p>
+<p>Ctrl + - （加号，等于号） 展开代码块</p>
+<p>Alt + Insert 打开代码生成菜单</p>
+<p>Ctrl + Alt + T 打开代码包围菜单，可以快速将代码使用 if ，try catch 等语法进行围绕</p>
+<p>Ctrl + W 选中代码块，试几次就知道啥意思了</p>
+<p>Alt + J 和 Alt + Shift + J 向下或向上查找选中的关键字 ☆☆☆☆</p>
+<p><strong>导航</strong></p>
+<p>Ctrl + E 打开最近文件菜单 ☆☆☆</p>
+<p>Ctrl + N 类搜索，这个功能应该非常常用了，使用频率很高，模糊搜索非常好用 ☆☆☆☆☆</p>
+<p>Ctrl + Shift + N 文件搜索，搜索资源文件常用到 ☆☆☆☆☆</p>
+<p>Ctrl + Shift + Alt + N 符号搜索，搜索方法和变量名的时候会用到</p>
+<p><strong>查看结构</strong></p>
+<p>Ctrl + F12 查看文件结构，类，JSP，XML，Properties 文件等都可以查看 ☆☆☆☆☆</p>
+<p>Alt + F1 选择文件在什么窗口打开，选项很多，可以自己看看。 Alt + F1 然后 C ，使用本地 Explorer 打开还挺好用的 ☆☆☆☆</p>
+<p>Ctrl + Q 查看 Java doc</p>
+<p>Ctrl + Shift + I 查看定义</p>
+<p>Ctrl + Alt + F7 查看调用方，这个我比较不习惯，喜欢用 Alt + F7，在 Find 窗口上查看 ☆☆☆☆☆</p>
+<p>Ctrl + Alt + B 查看实现，非常常用 ☆☆☆☆☆</p>
+<p>Ctrl + U 查看接口</p>
+<p><strong>重构</strong></p>
+<p>Shift + F6 重命名 ☆☆☆☆☆</p>
+<p>Ctrl + Alt + V 重构成变量，一般就是要给方法的返回值，赋值给一个变量</p>
+<p>Ctrl + Alt + F 重构成成员变量 和 V 类似</p>
+<p>Ctrl + Alt + C 重构成常量</p>
+<p>Ctrl + Alt + M 重构成一个方法，这个还挺常用的 ☆☆☆☆</p>
+<p>Ctrl + Alt + N 选择多行代码，重构成一行代码，这个应该不常用，影响代码可读性</p>
+<p>F5 复制</p>
+<p>F6 移动</p>
+<p>Ctrl + Shift + Alt + T 打开重构菜单</p>
+<p>代码格式</p>
+<p>Ctrl + Alt + I 默认使用空格缩进</p>
+<p>Ctrl + Alt + L 格式化，呵呵，这个和 QQ 冲突了</p>
+<p>Ctrl + Alt + L 代码导入（import）</p>
+<p><strong>版本控制</strong></p>
+<p>Alt + 9 or Shift + Alt + 9 上面已经提到过，打开版本控制窗口</p>
+<p>Alt + Back Quote 这个说是打开 CVS 操作菜单，but，我的 IDE 没有反应</p>
+<p>Ctrl + K 提交代码</p>
+<p>Ctrl + T 更新代码</p>
+<p>Ctrl + Shift + K push 代码 GIT 用的吧？我这 SVN 没有发现有什么功能</p>
+<p><strong>编译</strong></p>
+<p>Ctrl + F9</p>
+<p>Debug</p>
+<p>Ctrl + F8 打断点</p>
+<p>F7 进入下一步</p>
+<p>Shift + F7 智能进入下一步</p>
+<p>F8 结束这一步</p>
+<p>Shift + F8 结束当前方法，返回</p>
+<p>…</p>
+<p>在面板上可以查看其他快捷键的使用</p>
+<p>完。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.fenxiangz.com/post/java/basic/2017-07-14_java_reference.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Hassan">
+      <meta itemprop="description" content="Share everything">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="分享之">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/post/java/basic/2017-07-14_java_reference.html" class="post-title-link" itemprop="url">Java 引用</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2017-07-14 11:51:24" itemprop="dateCreated datePublished" datetime="2017-07-14T11:51:24+00:00">2017-07-14</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-12-20 16:47:02" itemprop="dateModified" datetime="2020-12-20T16:47:02+00:00">2020-12-20</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Java-%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index"><span itemprop="name">Java 基础</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>在JDK 1.2以前的版本中，若一个对象不被任何变量引用，那么程序就无法再使用这个对象。也就是说，只有对象处于可触及（reachable）状态，程序才能使用它。从JDK 1.2版本开始，把对象的引用分为4种级别，从而使程序能更加灵活地控制对象的生命周期。这4种级别由高到低依次为：强引用、软引用、弱引用和虚引用。</p>
+<h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>强引用</p>
+<p>只要引用存在，垃圾回收器永远不会回收</p>
+<pre><code>Object obj = new Object(); //可直接通过obj取得对应的对象 如obj.equels(new Object());</code></pre>
+<p>而这样 obj对象对后面new Object的一个强引用，只有当obj这个引用被释放之后，对象才会被释放掉，这也是我们经常所用到的编码形式。</p>
+<p>软引用</p>
+<p>非必须引用，内存溢出之前进行回收，可以通过以下代码实现</p>
+<pre><code>Object obj = new Object();
+SoftReference&lt;Object&gt; sf = new SoftReference&lt;Object&gt;(obj);
+obj = null;
+sf.get();//有时候会返回null</code></pre>
+<p>这时候sf是对obj的一个软引用，通过sf.get()方法可以取到这个对象，当然，当这个对象被标记为需要回收的对象时，则返回null；<br>软引用主要用户实现类似缓存的功能，在内存足够的情况下直接通过软引用取值，无需从繁忙的真实来源查询数据，提升速度；当内存不足时，自动删除这部分缓存数据，从真正的来源查询这些数据。</p>
+<p>弱引用</p>
+<p>第二次垃圾回收时回收，可以通过如下代码实现</p>
+<pre><code>Object obj = new Object();
+WeakReference&lt;Object&gt; wf = new WeakReference&lt;Object&gt;(obj);
+obj = null;
+wf.get();//有时候会返回null
+wf.isEnQueued();//返回是否被垃圾回收器标记为即将回收的垃圾</code></pre>
+<p>弱引用是在第二次垃圾回收时回收，短时间内通过弱引用取对应的数据，可以取到，当执行过第二次垃圾回收时，将返回null。<br>弱引用主要用于监控对象是否已经被垃圾回收器标记为即将回收的垃圾，可以通过弱引用的isEnQueued方法返回对象是否被垃圾回收器标记。</p>
+<p>虚引用</p>
+<p>垃圾回收时回收，无法通过引用取到对象值，可以通过如下代码实现</p>
+<pre><code>Object obj = new Object();
+PhantomReference&lt;Object&gt; pf = new PhantomReference&lt;Object&gt;(obj);
+obj=null;
+pf.get();//永远返回null
+pf.isEnQueued();//返回是否从内存中已经删除</code></pre>
+<p>虚引用是每次垃圾回收的时候都会被回收，通过虚引用的get方法永远获取到的数据为null，因此也被成为幽灵引用。<br>虚引用主要用于检测对象是否已经从内存中删除。</p>
+<h2 id="详细解释"><a href="#详细解释" class="headerlink" title="详细解释"></a>详细解释</h2><p>⑴强引用（StrongReference）</p>
+<p>强引用是使用最普遍的引用。如果一个对象具有强引用，那垃圾回收器绝不会回收它。当内存空间不足，Java虚拟机宁愿抛出OutOfMemoryError错误，使程序异常终止，也不会靠随意回收具有强引用的对象来解决内存不足的问题。  ps：强引用其实也就是我们平时A a = new A()这个意思。</p>
+<p>⑵软引用（SoftReference）</p>
+<p>如果一个对象只具有软引用，则内存空间足够，垃圾回收器就不会回收它；如果内存空间不足了，就会回收这些对象的内存。只要垃圾回收器没有回收它，该对象就可以被程序使用。软引用可用来实现内存敏感的高速缓存（下文给出示例）。<br>软引用可以和一个引用队列（ReferenceQueue）联合使用，如果软引用所引用的对象被垃圾回收器回收，Java虚拟机就会把这个软引用加入到与之关联的引用队列中。</p>
+<p>⑶弱引用（WeakReference）</p>
+<p>弱引用与软引用的区别在于：只具有弱引用的对象拥有更短暂的生命周期。在垃圾回收器线程扫描它所管辖的内存区域的过程中，一旦发现了只具有弱引用的对象，不管当前内存空间足够与否，都会回收它的内存。不过，由于垃圾回收器是一个优先级很低的线程，因此不一定会很快发现那些只具有弱引用的对象。<br>弱引用可以和一个引用队列（ReferenceQueue）联合使用，如果弱引用所引用的对象被垃圾回收，Java虚拟机就会把这个弱引用加入到与之关联的引用队列中。</p>
+<p>⑷虚引用（PhantomReference）</p>
+<p>“虚引用”顾名思义，就是形同虚设，与其他几种引用都不同，虚引用并不会决定对象的生命周期。如果一个对象仅持有虚引用，那么它就和没有任何引用一样，在任何时候都可能被垃圾回收器回收。<br>虚引用主要用来跟踪对象被垃圾回收器回收的活动。虚引用与软引用和弱引用的一个区别在于：虚引用必须和引用队列 （ReferenceQueue）联合使用。当垃圾回收器准备回收一个对象时，如果发现它还有虚引用，就会在回收对象的内存之前，把这个虚引用加入到与之关联的引用队列中。</p>
+<pre><code>ReferenceQueue queue = new ReferenceQueue ();
+PhantomReference pr = new PhantomReference (object, queue); </code></pre>
+<p>程序可以通过判断引用队列中是否已经加入了虚引用，来了解被引用的对象是否将要被垃圾回收。如果程序发现某个虚引用已经被加入到引用队列，那么就可以在所引用的对象的内存被回收之前采取必要的行动。</p>
+<h2 id="使用软引用构建敏感数据的缓存"><a href="#使用软引用构建敏感数据的缓存" class="headerlink" title="使用软引用构建敏感数据的缓存"></a>使用软引用构建敏感数据的缓存</h2><p>1 为什么需要使用软引用</p>
+<p>首先，我们看一个雇员信息查询系统的实例。我们将使用一个Java语言实现的雇员信息查询系统查询存储在磁盘文件或者数据库中的雇员人事档案信息。作为一个用户，我们完全有可能需要回头去查看几分钟甚至几秒钟前查看过的雇员档案信息(同样，我们在浏览WEB页面的时候也经常会使用“后退”按钮)。这时我们通常会有两种程序实现方式:一种是把过去查看过的雇员信息保存在内存中，每一个存储了雇员档案信息的Java对象的生命周期贯穿整个应用程序始终;另一种是当用户开始查看其他雇员的档案信息的时候，把存储了当前所查看的雇员档案信息的Java对象结束引用，使得垃圾收集线程可以回收其所占用的内存空间，当用户再次需要浏览该雇员的档案信息的时候，重新构建该雇员的信息。很显然，第一种实现方法将造成大量的内存浪费，而第二种实现的缺陷在于即使垃圾收集线程还没有进行垃圾收集，包含雇员档案信息的对象仍然完好地保存在内存中，应用程序也要重新构建一个对象。我们知道，访问磁盘文件、访问网络资源、查询数据库等操作都是影响应用程序执行性能的重要因素，如果能重新获取那些尚未被回收的Java对象的引用，必将减少不必要的访问，大大提高程序的运行速度。</p>
+<p>2 如果使用软引用</p>
+<p>SoftReference的特点是它的一个实例保存对一个Java对象的软引用，该软引用的存在不妨碍垃圾收集线程对该Java对象的回收。也就是说，一旦SoftReference保存了对一个Java对象的软引用后，在垃圾线程对这个Java对象回收前，SoftReference类所提供的get()方法返回Java对象的强引用。另外，一旦垃圾线程回收该Java对象之后，get()方法将返回null。<br>看下面代码:</p>
+<pre><code>MyObject aReference = new MyObject();
+SoftReference aSoftRef = new SoftReference(aRef); </code></pre>
+<p>此时，对于这个MyObject对象，有两个引用路径，一个是来自aSoftRef对象的软引用，一个来自变量aReference的强引用，所以这个MyObject对象是强可及对象。<br>随即，我们可以结束aReference对这个MyObject实例的强引用:</p>
+<pre><code>aReference = null;</code></pre>
+<p>此后，这个MyObject对象成为了软可及对象。如果垃圾收集线程进行内存垃圾收集，并不会因为有一个SoftReference对该对象的引用而始终保留该对象。Java虚拟机的垃圾收集线程对软可及对象和其他一般Java对象进行了区别对待：软可及对象的清理是由垃圾收集线程根据其特定算法按照内存需求决定的。也就是说，垃圾收集线程会在虚拟机抛出OutOfMemoryError之前回收软可及对象，而且虚拟机会尽可能优先回收长时间闲置不用的软可及对象，对那些刚刚构建的或刚刚使用过的“新”软可反对象会被虚拟机尽可能保留。在回收这些对象之前，我们可以通过:</p>
+<pre><code>MyObject anotherRef = (MyObject)aSoftRef.get(); </code></pre>
+<p>重新获得对该实例的强引用。而回收之后，调用get()方法就只能得到null了。</p>
+<p>3 使用ReferenceQueue清除失去了软引用对象的SoftReference</p>
+<p>作为一个Java对象，SoftReference对象除了具有保存软引用的特殊性之外，也具有Java对象的一般性。所以，当软可及对象被回收之后，虽然这个SoftReference对象的get()方法返回null,但这个SoftReference对象已经不再具有存在的价值，需要一个适当的清除机制，避免大量SoftReference对象带来的内存泄漏。在java.lang.ref包里还提供了ReferenceQueue。如果在创建SoftReference对象的时候，使用了一个ReferenceQueue对象作为参数提供给SoftReference的构造方法，如:</p>
+<pre><code>ReferenceQueue queue = new ReferenceQueue();
+SoftReference ref = new SoftReference(aMyObject, queue); </code></pre>
+<p>那么当这个SoftReference所软引用的aMyOhject被垃圾收集器回收的同时，ref所强引用的SoftReference对象被列入ReferenceQueue。也就是说，ReferenceQueue中保存的对象是Reference对象，而且是已经失去了它所软引用的对象的Reference对象。另外从ReferenceQueue这个名字也可以看出，它是一个队列，当我们调用它的poll()方法的时候，如果这个队列中不是空队列，那么将返回队列前面的那个Reference对象。<br>在任何时候，我们都可以调用ReferenceQueue的poll()方法来检查是否有它所关心的非强可及对象被回收。如果队列为空，将返回一个null，否则该方法返回队列中前面的一个Reference对象。利用这个方法，我们可以检查哪个SoftReference所软引用的对象已经被回收。于是我们可以把这些失去所软引用的对象的SoftReference对象清除掉。常用的方式为:</p>
+<pre><code>SoftReference ref = null;
+while ((ref = (EmployeeRef) q.poll()) != null) &#123;
+// 清除ref
+&#125;</code></pre>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.fenxiangz.com/post/java/nio/2017-04-23_java_nio_3.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Hassan">
+      <meta itemprop="description" content="Share everything">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="分享之">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/post/java/nio/2017-04-23_java_nio_3.html" class="post-title-link" itemprop="url">Java NIO(3) 选择器 Selector</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2017-04-23 00:00:00" itemprop="dateCreated datePublished" datetime="2017-04-23T00:00:00+00:00">2017-04-23</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-12-20 16:47:02" itemprop="dateModified" datetime="2020-12-20T16:47:02+00:00">2020-12-20</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Java-NIO/" itemprop="url" rel="index"><span itemprop="name">Java NIO</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>Selector 是Java NIO的重要组件之一，它可以检查一个或多个通道（Channel），并确定哪个通道进入准备好的状态，比如：准备读或者准备写数据。通过Selector 这种方式，单个线程可以管理多个通道，从而实现处理多个网络连接。</p>
+<h2 id="为什么用选择器-Selector-？"><a href="#为什么用选择器-Selector-？" class="headerlink" title="为什么用选择器(Selector)？"></a>为什么用选择器(Selector)？</h2><p>仅使用单个线程来处理多个通道的优点是，可以需要较少的线程来处理通道。实际上，你可以只使用一个线程来处理所有的通道。对于操作系统来说，在线程之间切换成本很高，而且每个线程都占用了操作系统中的一些资源(内存)。因此，使用的线程越少越好。</p>
+<p>现代操作系统和CPU在多任务处理方面变得越来越好，因此随着时间的推移，多线程的开销变得越来越小。如果一个CPU有多个内核，那么如果不同时处理多个任务，反而会浪费CPU资源。但是请了解，设计问题不属于本文讨论范畴。在这里，你只需要了解，使用一个选择器，你可以通过一个线程来处理多个通道。</p>
+<p>下图是一个线程处理3个通道的示意图：</p>
+<p><img src="./2017-04-21_java_nio_1/2.png"> </p>
+<h2 id="创建选择器"><a href="#创建选择器" class="headerlink" title="创建选择器"></a>创建选择器</h2><p>通过调用selector. open()方法创建一个选择器，如下所示:</p>
+<pre><code>Selector selector = Selector.open();</code></pre>
+<h2 id="使用选择器的注册通道"><a href="#使用选择器的注册通道" class="headerlink" title="使用选择器的注册通道"></a>使用选择器的注册通道</h2><p>为了让选择器使用通道，你必须在选择器上注册通道。你可以使用SelectableChannel.register() 方法来注册，如下：</p>
+<pre><code>channel.configureBlocking(false);
+SelectionKey key = channel.register(selector, SelectionKey.OP_READ);</code></pre>
+<p>注意， 只有非阻塞模式的通道才可以使用选择器。这意味着，因为 FileChannel 不能切换成非阻塞模式，所以不能使用选择器。Socket的通道 则可以正常工作。</p>
+<p>注意 register() 方法的第二个参数。这是一个“兴趣集”，意思是你想通过选择器在通道中监听的事件。你可以监听下面四个不同的事件：</p>
+<blockquote>
+<p>Connect<br>Accept<br>Read<br>Write</p>
+</blockquote>
+<p>一个通道“触发一个事件”称之为“就绪”。所以，一个通道成功连接到另一台服务器，这里称之为“连接（Connect）就绪”；服务器套接字通道（ socket channel ）接收了来自客户端的连接，称之为“接收（Accept）就绪”；一个可以读取数据的通道是“读（Read）”就绪；一个可以写数据的通道是“写（Write）”就绪。</p>
+<p>这四个事件由四个 SelectionKey 常量表示:</p>
+<ol>
+<li>SelectionKey.OP_CONNECT</li>
+<li>SelectionKey.OP_ACCEPT</li>
+<li>SelectionKey.OP_READ</li>
+<li>SelectionKey.OP_WRITE</li>
+</ol>
+<p>如果你对不止一个事件感兴趣，可以通过 “OR” 把常量放在一起，像这样：</p>
+<pre><code>int interestSet = SelectionKey.OP_READ | SelectionKey.OP_WRITE;    </code></pre>
+<h2 id="SelectionKey"><a href="#SelectionKey" class="headerlink" title="SelectionKey"></a>SelectionKey</h2><p>正如你在上一节中看到的，当您使用选择器注册一个通道时，register()方法将返回一个SelectionKey对象。这个SelectionKey对象包含一些有趣的属性：</p>
+<blockquote>
+<p>兴趣集 interest set<br> 就绪集 ready set<br> 通道Channel<br> 选择器Selector<br>一个连接对象(可选)</p>
+</blockquote>
+<h4 id="Interest-Set"><a href="#Interest-Set" class="headerlink" title="Interest Set"></a>Interest Set</h4><p>兴趣集是你感兴趣的“选择”的事件集合，如“使用选择器的注册通道”中所描述的，你可以通过下面这样的写法来判断趣集：</p>
+<pre><code>int interestSet = selectionKey.interestOps();
+
+boolean isInterestedInAccept  = interestSet &amp; SelectionKey.OP_ACCEPT;
+boolean isInterestedInConnect = interestSet &amp; SelectionKey.OP_CONNECT;
+boolean isInterestedInRead    = interestSet &amp; SelectionKey.OP_READ;
+boolean isInterestedInWrite   = interestSet &amp; SelectionKey.OP_WRITE;    </code></pre>
+<h4 id="Ready-Set"><a href="#Ready-Set" class="headerlink" title="Ready Set"></a>Ready Set</h4><p>已就绪的集合是通道已准备就绪的操作集合。在“选择（selection）”之后，你将主要访问已就绪的集合。“选择（selection）” 将在后面的部分中解释。你可以像这样访问就绪集：</p>
+<pre><code>int readySet = selectionKey.readyOps();</code></pre>
+<p>你可以用类似判断兴趣集的方式来判断哪个渠道的事件或操作已经就绪，也可以通过下面的四个方法来判断：</p>
+<pre><code>selectionKey.isAcceptable();
+selectionKey.isConnectable();
+selectionKey.isReadable();
+selectionKey.isWritable();</code></pre>
+<h2 id="获取-Channel-和-Selector"><a href="#获取-Channel-和-Selector" class="headerlink" title="获取 Channel 和 Selector"></a>获取 Channel 和 Selector</h2><pre><code>Channel  channel  = selectionKey.channel();
+Selector selector = selectionKey.selector();</code></pre>
+<h2 id="附加对象"><a href="#附加对象" class="headerlink" title="附加对象"></a>附加对象</h2><p>你可以将一个对象附加到SelectionKey，这是用于识别特定的通道的简便方法，或者将更多的信息附加到通道上。例如，你可以附加使用通道的缓冲区，或者一个包含更多聚合数据的对象。下面是如何附加对象：</p>
+<pre><code>selectionKey.attach(theObject);
+Object attachedObj = selectionKey.attachment();</code></pre>
+<p>你还可以在使用选择器注册通道的时候，同时附加一个对象。像下面这样：</p>
+<pre><code>SelectionKey key = channel.register(selector, SelectionKey.OP_READ, theObject);</code></pre>
+<h2 id="通过选择器（Selector）选择通道"><a href="#通过选择器（Selector）选择通道" class="headerlink" title="通过选择器（Selector）选择通道"></a>通过选择器（Selector）选择通道</h2><p>一旦你使用选择器（Selector）注册了一个或多个通道，你就可以调用Selector中的 select() 方法。这个方法返回对你所感兴趣的事件(connect, accept, read or write) 已经就绪的通道。比如，如果你对已经准备好read的通道感兴趣，那么你将可以接收准备好read的通道。</p>
+<p>select()方法有三个：</p>
+<pre><code>int select()  //阻塞，直到至少一个通道的事件且是你注册的事件就绪 
+int select(long timeout) // 与select() 一样阻塞，直到达到了超时的时间（毫秒数）为止
+int selectNow()//不阻塞，它会立即返回任何准备好的通道</code></pre>
+<p>select()方法返回的 int 表示多少通道准备好了。也就是说，自上次调用select()以来，有多少通道已经准备好了。如果你调用select()，它返回1，表示一个通道已经准备好了。如果你再次调用select()一次，此时另外一个通道已经就绪，它将再次返回1。如果你没有处理第一次调用select()时准备好的通道，那么此时实际上有两个就绪通道，但是每次select()调用，只有一个通道已经准备好了。</p>
+<h2 id="selectedKeys"><a href="#selectedKeys" class="headerlink" title="selectedKeys()"></a>selectedKeys()</h2><p>一旦你调用 select() 方法返回大于0，表明一个或多个通道已经就绪，你就可以通过调用选择器的selectedKeys()方法，得到“SelectionKey”集合，通过集合访问就绪的通道。代码：</p>
+<pre><code>Set&lt;SelectionKey&gt; selectedKeys = selector.selectedKeys();    </code></pre>
+<p>当你使用选择器注册一个通道时，Channel.register()方法将返回一个SelectionKey对象。这个SelectionKey对象就代表了该选择器注册的一个通道。你可以通过selectedKeySet()方法得到这些SelectionKey。例子：</p>
+<pre><code>Set&lt;SelectionKey&gt; selectedKeys = selector.selectedKeys();
+
+Iterator&lt;SelectionKey&gt; keyIterator = selectedKeys.iterator();
+
+while(keyIterator.hasNext()) &#123;
+
+    SelectionKey key = keyIterator.next();
+
+    if(key.isAcceptable()) &#123;
+        // a connection was accepted by a ServerSocketChannel.
+        SocketChannel client = (SocketChannel) key.channel();  
+
+    &#125; else if (key.isConnectable()) &#123;
+        // a connection was established with a remote server.
+
+    &#125; else if (key.isReadable()) &#123;
+        // a channel is ready for reading
+
+    &#125; else if (key.isWritable()) &#123;
+        // a channel is ready for writing
+    &#125;
+
+    keyIterator.remove();
+&#125;</code></pre>
+<p>注意在每次迭代结束时调用 keyIterator.remove() 。选择器不会从SelectionKey集合删除SelectionKey实例。当你处理通道时，你需要手动这样做。当通道再次变为其他“就绪”状态时，选择器会再次将它（Channel）添加到所选的键集中。</p>
+<p>调用SelectionKey.channel()方法返回通道。你需要自己转换成实际的类型使用，比如：ServerSocketChannel 或 SocketChannel 。</p>
+<h2 id="wakeUp"><a href="#wakeUp" class="headerlink" title="wakeUp()"></a>wakeUp()</h2><p>如果一个线程调用了select() 方法，这个线程阻塞了。那么你可以通过另外一个线程调用Selector.wakeup() 方法，来使这个阻塞的线程立刻返回，即使还没有就绪的Channel事件。</p>
+<p>如果一个线程调用了Selector.wakeup() 方法，且当前没有其他因为调用select() 方法而阻塞的线程。那么当下一次某个线程调用select()方法的时候，它将立即返回。</p>
+<h2 id="close"><a href="#close" class="headerlink" title="close()"></a>close()</h2><p>当选择器调用 close()，选择器所以的SelectionKey 将失效，对应的渠道则不会关闭。</p>
+<p>完整的示例代码：</p>
+<pre><code>Selector selector = Selector.open();
+
+channel.configureBlocking(false);
+
+SelectionKey key = channel.register(selector, SelectionKey.OP_READ);
+
+
+while(true) &#123;
+
+  int readyChannels = selector.select();
+
+  if(readyChannels == 0) continue;
+
+
+  Set&lt;SelectionKey&gt; selectedKeys = selector.selectedKeys();
+
+  Iterator&lt;SelectionKey&gt; keyIterator = selectedKeys.iterator();
+
+  while(keyIterator.hasNext()) &#123;
+
+    SelectionKey key = keyIterator.next();
+
+    if(key.isAcceptable()) &#123;
+        // a connection was accepted by a ServerSocketChannel.
+
+    &#125; else if (key.isConnectable()) &#123;
+        // a connection was established with a remote server.
+
+    &#125; else if (key.isReadable()) &#123;
+        // a channel is ready for reading
+
+    &#125; else if (key.isWritable()) &#123;
+        // a channel is ready for writing
+    &#125;
+
+    keyIterator.remove();
+  &#125;
+&#125;</code></pre>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.fenxiangz.com/post/java/nio/2017-04-22_java_nio_2.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Hassan">
+      <meta itemprop="description" content="Share everything">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="分享之">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/post/java/nio/2017-04-22_java_nio_2.html" class="post-title-link" itemprop="url">Java NIO(2) Buffer</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2017-04-22 00:00:00" itemprop="dateCreated datePublished" datetime="2017-04-22T00:00:00+00:00">2017-04-22</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-12-20 16:47:02" itemprop="dateModified" datetime="2020-12-20T16:47:02+00:00">2020-12-20</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Java-NIO/" itemprop="url" rel="index"><span itemprop="name">Java NIO</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>Buffer 本质上是内存区域上的一块你可以读写的内存块。这个内存块被包在 NIO Buffer对象中，我们通过 Buffer 提供的一系列方法来便捷的操作这个内存块。</p>
+<h2 id="Buffer-的基本使用"><a href="#Buffer-的基本使用" class="headerlink" title="Buffer 的基本使用"></a>Buffer 的基本使用</h2><p>Buffer 的使用有下面四个典型的过程：</p>
+<ol>
+<li>写数据到 Buffer</li>
+<li>调用 buffer.flip()</li>
+<li>从 Buffer 读取数据</li>
+<li>调用 buffer.clear() 或 buffer.compact()</li>
+</ol>
+<p>当往 Buffer 里面写数据的时候，Buffer 对象会跟踪写了多少数据。当你需要读取数据的时候，你需要调用 flip() 方法，将写模式转换成读模式。当读取完数据，需要调用clear() 或compact() 方法来清楚buffer里的数据，才可以重新进行写数据。</p>
+<p>clear和compact区别：<br>clear() 方法清空buffer里面的全部数据，写数据的时候从0开始写；<br>compact()方法会清空已读的数据，将未读的数据移动到buffer开始处，写数据的时候，从未读数据之后开始写；</p>
+<p>下面是一个简单的例子:</p>
+<pre><code>RandomAccessFile aFile = new RandomAccessFile(&quot;data/nio-data.txt&quot;, &quot;rw&quot;);
+FileChannel inChannel = aFile.getChannel();
+
+//create buffer with capacity of 48 bytes
+ByteBuffer buf = ByteBuffer.allocate(48);
+
+int bytesRead = inChannel.read(buf); //read into buffer.
+while (bytesRead != -1) &#123;
+
+  buf.flip();  //make buffer ready for read
+
+  while(buf.hasRemaining())&#123;
+      System.out.print((char) buf.get()); // read 1 byte at a time
+  &#125;
+
+  buf.clear(); //make buffer ready for writing
+  bytesRead = inChannel.read(buf);
+&#125;
+aFile.close();</code></pre>
+<h2 id="Buffer-容量（capacity）、位置（position）和限制（limit）"><a href="#Buffer-容量（capacity）、位置（position）和限制（limit）" class="headerlink" title="Buffer 容量（capacity）、位置（position）和限制（limit）"></a>Buffer 容量（capacity）、位置（position）和限制（limit）</h2><p>容量：论buffer在读模式还是写模式，都是一样的，即buffer可容纳的数据量；<br>位置和限制：由buffer写模式或读模式决定。</p>
+<p>如下图所示：</p>
+<p><img src="./2017-04-22_java_nio_2/1.png"> </p>
+<p>当调用 flip()，buffer从写模式切换为读模式，position为0，limit为可读取的最多的数据量；<br>当调用clear()，buffer从读模式切换为写模式，position为0，limit为容量大小；<br>当调用compact()，buffer从读模式切换为写模式，position为上次未读数据大小，limit位容量大小；</p>
+<p>感受一下：</p>
+<pre><code>public static void main(String[] args) throws IOException &#123;
+    IntBuffer buf = IntBuffer.allocate(20);
+    System.out.println(&quot;----init----&quot;);
+    printParameters(buf);
+
+    System.out.println(&quot;----put 1----&quot;);
+    buf.put(1);
+    printParameters(buf);
+
+    System.out.println(&quot;----put 2 3 4 5----&quot;);
+    buf.put(2);
+    buf.put(3);
+    buf.put(4);
+    buf.put(5);
+    printParameters(buf);
+
+    System.out.println(&quot;----flip()----&quot;);
+    buf.flip();
+    printParameters(buf);
+
+    System.out.println(&quot;----call get()----&quot;);
+    System.out.print(&quot;read: &quot;);
+    for (int i=0;i &lt;= buf.limit() - 1; i++)&#123;
+        System.out.print(buf.get()+&quot; &quot;);
+    &#125;
+    System.out.println();
+    printParameters(buf);
+
+    System.out.println(&quot;----call flip() and get() 3 times----&quot;);
+    buf.flip();
+    System.out.print(&quot;read: &quot;);
+    for (int i=0;i &lt; 3; i++)&#123;
+        System.out.print(buf.get()+&quot; &quot;);
+    &#125;
+    System.out.println();
+    printParameters(buf);
+
+    System.out.println(&quot;----call compact()----&quot;);
+    buf.compact();
+    printParameters(buf);
+&#125;
+
+private static void printParameters(IntBuffer buf) &#123;
+    System.out.println(&quot;limit:&quot; + buf.limit());
+    System.out.println(&quot;position:&quot; + buf.position());
+    System.out.println(&quot;capacity:&quot; + buf.capacity());
+&#125;</code></pre>
+<p>输出：</p>
+<pre><code>----init----
+limit:20
+position:0
+capacity:20
+----put 1----
+limit:20
+position:1
+capacity:20
+----put 2 3 4 5----
+limit:20
+position:5
+capacity:20
+----flip()----
+limit:5
+position:0
+capacity:20
+----call get()----
+read: 1 2 3 4 5 
+limit:5
+position:5
+capacity:20
+----call flip() and get() 3 times----
+read: 1 2 3 limit:5
+position:3
+capacity:20
+----call compact() and read 1 2 3----
+limit:20
+position:2
+capacity:20</code></pre>
+<p>NIO Buffer类型包括：</p>
+<blockquote>
+<p>ByteBuffer<br>MappedByteBuffer<br>CharBuffer<br>DoubleBuffer<br>FloatBuffer<br>IntBuffer<br>LongBuffer<br>ShortBuffer</p>
+</blockquote>
+<p>顾名思义，允许你使用不同类型的Buffer，操作不同类型的数据。</p>
+<p>分配Buffer大小：</p>
+<pre><code>ByteBuffer buf = ByteBuffer.allocate(48);
+CharBuffer buf2 = CharBuffer.allocate(1024);</code></pre>
+<p>写数据到Buffer：</p>
+<p>1、通过Channel：</p>
+<pre><code>int bytesRead = inChannel.read(buf); //read into buffer.</code></pre>
+<p>2、通过put()方法：</p>
+<pre><code>buf.put(127);    </code></pre>
+<p>从Buffer读数据：</p>
+<p>1、通过Channel:</p>
+<pre><code>int bytesWritten = inChannel.write(buf);</code></pre>
+<p>2、 通过get()方法：</p>
+<pre><code>byte aByte = buf.get();    </code></pre>
+<h2 id="rewind"><a href="#rewind" class="headerlink" title="rewind()"></a>rewind()</h2><p>只重置position为0，不改变limit。</p>
+<p>rewind，flip， clear 源码对比，可以简单感受一下：</p>
+<pre><code>public final Buffer rewind() &#123;
+    position = 0;
+    mark = -1;
+    return this;
+&#125;
+
+public final Buffer flip() &#123;
+    limit = position;
+    position = 0;
+    mark = -1;
+    return this;
+&#125;
+
+public final Buffer clear() &#123;
+    position = 0;
+    limit = capacity;
+    mark = -1;
+    return this;
+&#125;</code></pre>
+<h2 id="mark-and-reset"><a href="#mark-and-reset" class="headerlink" title="mark() and reset()"></a>mark() and reset()</h2><p>mark() 标记一个位置，再次调用reset()的时候，position回到mark()标记的位置。</p>
+<p>源码：</p>
+<pre><code>public final Buffer mark() &#123;
+    mark = position;
+    return this;
+&#125;
+
+public final Buffer reset() &#123;
+    int m = mark;
+    if (m &lt; 0)
+        throw new InvalidMarkException();
+    position = m;
+    return this;
+&#125;</code></pre>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.fenxiangz.com/post/java/nio/2017-04-21_java_nio_1.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Hassan">
+      <meta itemprop="description" content="Share everything">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="分享之">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/post/java/nio/2017-04-21_java_nio_1.html" class="post-title-link" itemprop="url">Java NIO (1) 基本概念</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2017-04-21 00:00:00" itemprop="dateCreated datePublished" datetime="2017-04-21T00:00:00+00:00">2017-04-21</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-12-20 16:47:02" itemprop="dateModified" datetime="2020-12-20T16:47:02+00:00">2020-12-20</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Java-NIO/" itemprop="url" rel="index"><span itemprop="name">Java NIO</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>Java 1.4之后引入了NIO框架。</p>
+<h2 id="Java-NIO-Channels-and-Buffers（通道和缓冲区）"><a href="#Java-NIO-Channels-and-Buffers（通道和缓冲区）" class="headerlink" title="Java NIO: Channels and Buffers（通道和缓冲区）"></a>Java NIO: Channels and Buffers（通道和缓冲区）</h2><p>标准的IO是在字节流和字符流进行操作。NIO 是在通道（Channel）和缓冲区（Buffer）进行操作。数据总是从通道读取到缓冲区里，或者从缓冲区写入到通道里。</p>
+<h2 id="Java-NIO-Asynchronous-IO（异步IO）"><a href="#Java-NIO-Asynchronous-IO（异步IO）" class="headerlink" title="Java NIO: Asynchronous IO（异步IO）"></a>Java NIO: Asynchronous IO（异步IO）</h2><p>NIO可以做异步IO，例如：当线程从通道读取数据到缓冲区时，线程还是可以进行其他事情。当数据被写入到缓冲区时，线程可以继续处理它。从缓冲区写入通道也类似。</p>
+<h2 id="Java-NIO-Selectors（选择器）"><a href="#Java-NIO-Selectors（选择器）" class="headerlink" title="Java NIO: Selectors（选择器）"></a>Java NIO: Selectors（选择器）</h2><p>Java NIO包含了选择器的概念。选择器用于监听多个通道的事件（比如：连接打开，数据达到）。因此，单个的线程可以监听多个数据通道。</p>
+<p>所以 Java NIO 核心组件包括：</p>
+<p>Channels<br>Buffers<br>Selectors</p>
+<p>除了以上列出来的，还有一些其他的组件，比如Pipe 、FileLock等组件类 ，这些类在使用的过程中，都会结合上面列出的三个核心组件类来使用。</p>
+<h2 id="Channels"><a href="#Channels" class="headerlink" title="Channels"></a>Channels</h2><p>NIO里的 Channel 类似一个IO流， 数据通过Buffer可以写到Channel，通过Channel读取数据到Buffer。</p>
+<p><img src="./2017-04-21_java_nio_1/1.png"> </p>
+<p><em>Channel</em> 实现类有：</p>
+<p><em>FileChannel</em> —— 读写文件数据<br><em>DatagramChannel</em> —— 通过UDP读写网络上的数据<br><em>SocketChannel</em> —— 通过TCP读写网络上的数据<br><em>ServerSocketChannel</em> —— 监听TCP连接，为每一个新的请求连接创建一个<em>SocketChannel</em></p>
+<p>这些实现覆盖了 UDP + TCP 网络 IO 和文件 IO。</p>
+<p>使用FileChannel读文件数据例子：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">RandomAccessFile aFile = <span class="keyword">new</span> RandomAccessFile(<span class="string">&quot;data/nio-data.txt&quot;</span>, <span class="string">&quot;rw&quot;</span>);</span><br><span class="line">FileChannel inChannel = aFile.getChannel();</span><br><span class="line"></span><br><span class="line">ByteBuffer buf = ByteBuffer.allocate(<span class="number">48</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> bytesRead = inChannel.read(buf);</span><br><span class="line"><span class="keyword">while</span> (bytesRead != -<span class="number">1</span>) &#123;</span><br><span class="line"></span><br><span class="line">  System.out.println(<span class="string">&quot;Read &quot;</span> + bytesRead);</span><br><span class="line">  buf.flip();<span class="comment">//从写模式切换到读模式，后续会有详解</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">while</span>(buf.hasRemaining())&#123;</span><br><span class="line">      System.out.print((<span class="keyword">char</span>) buf.get());</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  buf.clear();<span class="comment">//清空buf里面的缓冲数据</span></span><br><span class="line">  bytesRead = inChannel.read(buf);</span><br><span class="line">&#125;</span><br><span class="line">aFile.close();</span><br></pre></td></tr></table></figure>
+
+<h2 id="Buffers"><a href="#Buffers" class="headerlink" title="Buffers"></a>Buffers</h2><p>Buffer 实现类有：</p>
+<p><em>ByteBuffer</em><br><em>CharBuffer</em><br><em>DoubleBuffer</em><br><em>FloatBuffer</em><br><em>IntBuffer</em><br><em>LongBuffer</em><br><em>ShortBuffer</em> </p>
+<p>这些实现累覆盖了Java基本数据类型：byte, short, int, long, float, double 和 char。我们可以使用不同的Buffer来传递不同类型的数据。</p>
+<p>另外还有，<em>MappedByteBuffer</em> 这个实现类，它是<em>ByteBuffer</em>的子类。具体用法后续给出单独的文章。</p>
+<p>Channels和IO流不同点：支持读和写、支持异步读写、总是从Buffers读取数据或写入数据到Buffers。</p>
+<h2 id="Selectors"><a href="#Selectors" class="headerlink" title="Selectors"></a>Selectors</h2><p>一个线程可以通过<em>Selector</em>来管理多个<em>Channel</em>对象。如果你的应用程序打开了多个连接（Channels），处理起来是非常方便的。例如下面的图示，一个线程，处理3个Channel。</p>
+<p><img src="./2017-04-21_java_nio_1/2.png"> </p>
+<p>使用Selector，需要先把Channel注册到Selector上，然后调用select() 方法，这个方法调用后将阻塞，直到注册到Selector上的Channel有一个事件准备<br>就绪，例如：一个连接接入或收到了数据等，这时就可以对这个事件进行后续的处理了。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.fenxiangz.com/post/java/io/2017-04-20_java_io_6_stream.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Hassan">
+      <meta itemprop="description" content="Share everything">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="分享之">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/post/java/io/2017-04-20_java_io_6_stream.html" class="post-title-link" itemprop="url">Java IO(6) InputStream和OutputStream</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2017-04-20 00:00:00" itemprop="dateCreated datePublished" datetime="2017-04-20T00:00:00+00:00">2017-04-20</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-12-20 16:47:02" itemprop="dateModified" datetime="2020-12-20T16:47:02+00:00">2020-12-20</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Java-IO/" itemprop="url" rel="index"><span itemprop="name">Java IO</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="InputStream"><a href="#InputStream" class="headerlink" title="InputStream"></a>InputStream</h1><p>例子：</p>
+<pre><code>InputStream inputstream = new FileInputStream(&quot;c:\\data\\input-text.txt&quot;);
+
+int data = inputstream.read();
+while(data != -1) &#123;
+  //do something with data...
+  doSomethingWithData(data);
+
+  data = inputstream.read();
+&#125;
+inputstream.close();</code></pre>
+<p>Java7  try-with-resources 写法：</p>
+<pre><code>try( InputStream inputstream = new FileInputStream(&quot;file.txt&quot;) ) &#123;
+    int data = inputstream.read();
+    while(data != -1)&#123;
+        System.out.print((char) data);
+        data = inputstream.read();
+    &#125;
+&#125;</code></pre>
+<h3 id="read"><a href="#read" class="headerlink" title="read()"></a>read()</h3><p>返回 int类型，一个字节值。返回 -1 表示没有读取到字节值，流结束。如下：</p>
+<pre><code>int data = inputstream.read();</code></pre>
+<p>字节可以转为字符，像这样：</p>
+<pre><code> char aChar = (char) data;</code></pre>
+<p>有些子类实现了可以替代read的方法，比如：DataInputStream ，你可以通过调用：readBoolean() 、 readDouble()…… 来直接读取Java的基础类型数据，而无需读取原生的字节码。</p>
+<h3 id="read-byte"><a href="#read-byte" class="headerlink" title="read(byte[])"></a>read(byte[])</h3><p>两个方法：</p>
+<blockquote>
+<p>int read(byte[])<br>int read(byte[], int offset, int length)</p>
+</blockquote>
+<p>通过读到数组的方式来替代 read()，效率会更高。<br>这两个方法返回读取到的字节个数，同样，返回-1表示结束，没有读取到字节。</p>
+<p>read(byte[]) 这个方法会尝试尽可能多的读取byte[]长度的字节个数，放入其中。每次读取数据，从数组的0处开始填充，直到没有数据或数组被填满。</p>
+<p>如果未读满数组，其剩余空间将存储上一次读取的数据。所以在循环读取的时，要注意最后一次读取的内容长度，做响应的截取处理。</p>
+<p>read(byte[], int offset, int length)这个方法功能类型，只不过每次都指定了读取的数据从数组的offset开始填充，最多填充length个字节数。注意数组越界异常。</p>
+<h3 id="mark-和-reset"><a href="#mark-和-reset" class="headerlink" title="mark() 和 reset()"></a>mark() 和 reset()</h3><p>mark()和 reset() 需要配合使用，mark()做标记，reset() 被调用后，再次read，流将从上次mark()的位置来算重新读取流数据。功能常于解析流数据。</p>
+<p>这个接口需要子类实现，如果子类实现了这个功能，需要重写 markSupported() 方法，返回true；否则返回false。</p>
+<h1 id="OutputStream"><a href="#OutputStream" class="headerlink" title="OutputStream"></a>OutputStream</h1><h3 id="write-byte"><a href="#write-byte" class="headerlink" title="write(byte)"></a>write(byte)</h3><p>例子：</p>
+<pre><code>OutputStream output = new FileOutputStream(&quot;c:\\data\\output-text.txt&quot;);
+while(hasMoreData()) &#123;
+  int data = getMoreData();
+  output.write(data);
+&#125;
+output.close();</code></pre>
+<h2 id="write-byte-1"><a href="#write-byte-1" class="headerlink" title="write(byte[])"></a>write(byte[])</h2><blockquote>
+<p>write(byte[] bytes)<br>write(byte[] bytes, int offset, int length)</p>
+</blockquote>
+<p>与read参数一致。</p>
+<h3 id="flush"><a href="#flush" class="headerlink" title="flush()"></a>flush()</h3><p>OutputStream调用write写的数据，可能未写入磁盘，调用该方法，将已经写入到OutputStream的数据刷新到磁盘中。</p>
+<h3 id="close"><a href="#close" class="headerlink" title="close()"></a>close()</h3><p>例子：</p>
+<pre><code>OutputStream output = null;
+
+try&#123;
+  output = new FileOutputStream(&quot;c:\\data\\output-text.txt&quot;);
+
+  while(hasMoreData()) &#123;
+    int data = getMoreData();
+    output.write(data);
+  &#125;
+&#125; finally &#123;
+    if(output != null) &#123;
+        output.close();
+    &#125;
+&#125;</code></pre>
+<p>异常处理：<a target="_blank" rel="noopener" href="http://tech.fenxiangz.com/topic/55/java-io-5-%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86">http://tech.fenxiangz.com/topic/55/java-io-5-%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.fenxiangz.com/post/java/io/2017-04-19_java_io_5_exception.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Hassan">
+      <meta itemprop="description" content="Share everything">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="分享之">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/post/java/io/2017-04-19_java_io_5_exception.html" class="post-title-link" itemprop="url">Java IO(5) 异常处理</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2017-04-19 00:00:00" itemprop="dateCreated datePublished" datetime="2017-04-19T00:00:00+00:00">2017-04-19</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-12-20 16:47:02" itemprop="dateModified" datetime="2020-12-20T16:47:02+00:00">2020-12-20</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Java-IO/" itemprop="url" rel="index"><span itemprop="name">Java IO</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>传统的写法：</p>
+<pre><code>InputStream input = null;
+try &#123;
+    input = new FileInputStream(&quot;c:\\data\\input-text.txt&quot;);
+
+    int data = input.read();
+    while (data != -1) &#123;
+        //do something with data...
+        doSomethingWithData(data);
+
+        data = input.read();
+    &#125;
+&#125; catch (IOException e) &#123;
+    //do something with e... log, perhaps rethrow etc.
+&#125; finally &#123;
+    try &#123;
+        if (input != null) input.close();
+    &#125; catch (IOException e) &#123;
+        //do something, or ignore.
+    &#125;
+&#125;</code></pre>
+<p>使用模板方法：</p>
+<pre><code>public abstract class InputStreamProcessingTemplate &#123;
+
+    public void process(String fileName) &#123;
+        IOException processException = null;
+        InputStream input = null;
+        try &#123;
+            input = new FileInputStream(fileName);
+
+            doProcess(input);
+        &#125; catch (IOException e) &#123;
+            processException = e;
+        &#125; finally &#123;
+            if (input != null) &#123;
+                try &#123;
+                    input.close();
+                &#125; catch (IOException e) &#123;
+                    if (processException != null) &#123;
+                        throw new MyException(processException, e,
+                                &quot;Error message...&quot; +
+                                        fileName);
+                    &#125; else &#123;
+                        throw new MyException(e,
+                                &quot;Error closing InputStream for file &quot; +
+                                        fileName;
+                    &#125;
+                &#125;
+            &#125;
+            if (processException != null) &#123;
+                throw new MyException(processException,
+                        &quot;Error processing InputStream for file &quot; +
+                                fileName;
+            &#125;
+        &#125;
+
+        //override this method in a subclass, to process the stream.
+
+    public abstract void doProcess(InputStream input) throws IOException;
+&#125;
+
+//调用
+new InputStreamProcessingTemplate()&#123;
+    public void doProcess(InputStream input) throws IOException&#123;
+        int inChar = input.read();
+        while(inChar !- -1)&#123;
+            //do something with the chars...
+        &#125;
+    &#125;
+&#125;.process(&quot;someFile.txt&quot;);</code></pre>
+<p>使用接口实现：</p>
+<pre><code>public interface InputStreamProcessor &#123;
+    public void process(InputStream input) throws IOException;
+&#125;
+
+
+public class InputStreamProcessingTemplate &#123;
+
+    public void process(String fileName, InputStreamProcessor processor)&#123;
+        IOException processException = null;
+        InputStream input = null;
+        try&#123;
+            input = new FileInputStream(fileName);
+
+            processor.process(input);
+        &#125; catch (IOException e) &#123;
+            processException = e;
+        &#125; finally &#123;
+           if(input != null)&#123;
+              try &#123;
+                 input.close();
+              &#125; catch(IOException e)&#123;
+                 if(processException != null)&#123;
+                    throw new MyException(processException, e,
+                      &quot;Error message...&quot; +
+                      fileName;
+                 &#125; else &#123;
+                    throw new MyException(e,
+                        &quot;Error closing InputStream for file &quot; +
+                        fileName);
+                 &#125;
+              &#125;
+           &#125;
+           if(processException != null)&#123;
+              throw new MyException(processException,
+                &quot;Error processing InputStream for file &quot; +
+                    fileName;
+        &#125;
+    &#125;
+&#125;
+
+new InputStreamProcessingTemplate()
+    .process(&quot;someFile.txt&quot;, new InputStreamProcessor()&#123;
+        public void process(InputStream input) throws IOException&#123;
+            int inChar = input.read();
+            while(inChar !- -1)&#123;
+                //do something with the chars...
+            &#125;
+        &#125;
+    &#125;);</code></pre>
+<p>改成静态方法：</p>
+<pre><code>public class InputStreamProcessingTemplate &#123;
+
+    public static void process(String fileName,
+    InputStreamProcessor processor)&#123;
+        IOException processException = null;
+        InputStream input = null;
+        try&#123;
+            input = new FileInputStream(fileName);
+
+            processor.process(input);
+        &#125; catch (IOException e) &#123;
+            processException = e;
+        &#125; finally &#123;
+           if(input != null)&#123;
+              try &#123;
+                 input.close();
+              &#125; catch(IOException e)&#123;
+                 if(processException != null)&#123;
+                    throw new MyException(processException, e,
+                      &quot;Error message...&quot; +
+                      fileName);
+                 &#125; else &#123;
+                    throw new MyException(e,
+                        &quot;Error closing InputStream for file &quot; +
+                        fileName;
+                 &#125;
+              &#125;
+           &#125;
+           if(processException != null)&#123;
+              throw new MyException(processException,
+                &quot;Error processing InputStream for file &quot; +
+                    fileName;
+        &#125;
+    &#125;
+&#125;
+
+InputStreamProcessingTemplate.process(&quot;someFile.txt&quot;,
+    new InputStreamProcessor()&#123;
+        public void process(InputStream input) throws IOException&#123;
+            int inChar = input.read();
+            while(inChar !- -1)&#123;
+                //do something with the chars...
+            &#125;
+        &#125;
+    &#125;);</code></pre>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.fenxiangz.com/post/java/basic/2017-04-18_java_thread_mind.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Hassan">
+      <meta itemprop="description" content="Share everything">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="分享之">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/post/java/basic/2017-04-18_java_thread_mind.html" class="post-title-link" itemprop="url">Java Thread 线程知识整理（思维导图）</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2017-04-18 10:51:24" itemprop="dateCreated datePublished" datetime="2017-04-18T10:51:24+00:00">2017-04-18</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-12-20 16:47:02" itemprop="dateModified" datetime="2020-12-20T16:47:02+00:00">2020-12-20</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Java-%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index"><span itemprop="name">Java 基础</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>整理一份Java Thread的思维导图，持续更新中…</p>
+<p><a href="https://blog.fenxiangz.com/mind/?url=examples/JavaThread.mymind">https://blog.fenxiangz.com/mind/?url=examples%2FJavaThread.mymind</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.fenxiangz.com/post/java/advance/2017-04-18_java_0xff.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Hassan">
+      <meta itemprop="description" content="Share everything">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="分享之">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/post/java/advance/2017-04-18_java_0xff.html" class="post-title-link" itemprop="url">为什么要与上0xff（&0xff），有什么意义？</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2017-04-18 00:00:00" itemprop="dateCreated datePublished" datetime="2017-04-18T00:00:00+00:00">2017-04-18</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-12-20 16:47:02" itemprop="dateModified" datetime="2020-12-20T16:47:02+00:00">2020-12-20</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Java-%E8%BF%9B%E9%98%B6/" itemprop="url" rel="index"><span itemprop="name">Java 进阶</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>java.io.PipedInputStream#receive(int) 源码：</p>
+<pre><code>protected synchronized void receive(int b) throws IOException &#123;
+    checkStateForReceive();
+    writeSide = Thread.currentThread();
+    if (in == out)
+        awaitSpace();
+    if (in &lt; 0) &#123;
+        in = 0;
+        out = 0;
+    &#125;
+    buffer[in++] = (byte)(b &amp; 0xFF);
+    if (in &gt;= buffer.length) &#123;
+        in = 0;
+    &#125;
+&#125;</code></pre>
+<p>先复习一下，原码反码补码这三个概念：<br>对于正数（00000001）原码来说，首位表示符号位，反码 补码都是本身；<br>对于负数（100000001）原码来说，反码是对原码除了符号位之外作取反运算即（111111110），补码是对反码作+1运算即（111111111）。</p>
+<p>看一个 demo：</p>
+<pre><code>public class Test &#123;
+    public static void main(String[] args) &#123;
+        byte[] a = new byte[10];
+        a[0]= -127;
+        System.out.println(a[0]);
+        int c = a[0]&amp;0xff;
+        System.out.println(c);
+    &#125;
+&#125;</code></pre>
+<p>输出：</p>
+<p>-127<br>129</p>
+<p>当将 -127 赋值给 a[0] 时候，a[0] 作为一个 byte 类型，其计算机存储的补码是10000001（8位）。</p>
+<p>将 a[0] 作为 int 类型向控制台输出的时候，JVM 作了一个补位的处理，因为 int 类型是 32 位所以补位后的补码就是 1111111111111111111111111 10000001（32位），这个 32 位二进制补码表示的也是 -127。</p>
+<p>发现没有，虽然byte-&gt;int计算机背后存储的二进制补码由 10000001（8位）转化成了1111111111111111111111111 10000001（32位）很显然这两个补码表示的十进制数字依然是相同的。</p>
+<p>但是我做 byte -&gt; int 的转化，所有时候都只是为了保持 十进制的一致性吗？</p>
+<p>不一定吧？好比我们拿到的文件流转成byte数组，难道我们关心的是byte数组的十进制的值是多少吗？我们关心的是其背后二进制存储的补码吧。<br>所以大家应该能猜到为什么byte类型的数字要 &amp;0xff 再赋值给 int 类型，其本质原因就是想保持二进制补码的一致性。</p>
+<p>当byte要转化为int的时候，高的24位必然会补1，这样，其二进制补码其实已经不一致了，&amp;0xff 可以将高的24位置为0，低8位保持原样。这样做的目的就是为了保证二进制数据的一致性。</p>
+<p>当然拉，保证了二进制数据性的同时，如果二进制被当作 byte 和 int 来解读，其10进制的值必然是不同的，因为符号位位置已经发生了变化。</p>
+<p>象例2中，int c = a[0]&0xff;  a[0]&amp;0xff=1111111111111111111111111 10000001&amp;11111111=000000000000000000000000 10000001 ，这个值算一下就是129，</p>
+<p>所以 c 的输出的值就是129。有人问为什么上面的式子中a[0]不是8位而是32位，因为当系统检测到 byte 可能会转化成 int 或者说 byte 与 int 类型进行运算的时候，就会将byte的内存空间高位补1（也就是按符号位补位）扩充到32位，再参与运算。上面的 0xff 其实是 int 类型的字面量值，所以可以说 byte 与 int 进行运算。</p>
+<p>解释来源：<a target="_blank" rel="noopener" href="http://www.cnblogs.com/think-in-java/p/5527389.html">http://www.cnblogs.com/think-in-java/p/5527389.html</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/9/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/11/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
+
+
 <script>
-    (function () {
-        window.addEventListener('scroll', function () {
-            if (window.innerWidth < 768) {
-                return;
-            }
-            var nav = document.querySelector('#gkt-nav');
-            var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-            scrollTop > 50 && (nav.classList.add('hide'));
-            scrollTop <= 50 && (nav.classList.remove('hide'));
-        });
-        var cateNavs = document.querySelectorAll('#gkt-cate-nav>nav>ul>li');
-        [].slice.call(cateNavs).forEach(function (item) {
-            var sub = item.querySelector('.gkt-sub-cate');
-            if (!sub) return;
-            item.addEventListener('mouseenter', function (e) { sub.style.display = 'block'; }, false);
-            item.addEventListener('mouseleave', function (e) { sub.style.display = 'none'; }, false);
-        })
-    })();
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
 </script>
-    <!-- Main Content -->
-    <div class="main-container">
-        <!-- Main Content -->
-<main class="col-xs-12 padding-0 markdown-it">
-    <!-- Post Container -->
-    
-    <style>
-        @media (min-width: 1200px) {
-            .main-container {
-                width: 1000px !important;
-            }
-        }
-    </style>
-    <div class="float-left post-container box-shadow">
-        <!-- Main Content -->
-<!-- css page.ejs -->
-<!-- 置顶文章 -->
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
 
 
-<!-- 普通文章 -->
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Hassan</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
 
-<div class="post-preview">
-    <div class="post-img" style="background-image: url('/images/gradle.png')"></div>
-    <div class="post-info">
-        <div class="post-info-center">
-            <div class="hidden-xs">
-                
-                
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#Java"
-                    title="Java">Java</a>
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#包管理"
-                    title="包管理">包管理</a>
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#Gradle"
-                    title="Gradle">Gradle</a>
-                <span>/</span>
-                
-                
-            </div>
-            <a href="/post/util/gradle/LearnGradle_1_安装.html" class="title">
-                Learn Gradle - 1 安装
-            </a>
-            <p class="text-gray">
-                <small>
-                    <span>发表于2017-10-26，</span>
-                    <span class="hidden-xs">全文1178字，</span>
-                    <span>阅读约4分钟</span>
-                </small>
-            </p>
-        </div>
     </div>
-</div>
+  </footer>
 
-<div class="post-preview">
-    <div class="post-img" style="background-image: url('/images/idea_logo.png')"></div>
-    <div class="post-info">
-        <div class="post-info-center">
-            <div class="hidden-xs">
-                
-                
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#Java"
-                    title="Java">Java</a>
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#Idea"
-                    title="Idea">Idea</a>
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#JavaIDE"
-                    title="JavaIDE">JavaIDE</a>
-                <span>/</span>
-                
-                
-            </div>
-            <a href="/post/util/ide/2017-10-25_idea_shotcut.html" class="title">
-                IntelliJ 各种快捷键
-            </a>
-            <p class="text-gray">
-                <small>
-                    <span>发表于2017-10-25，</span>
-                    <span class="hidden-xs">全文2211字，</span>
-                    <span>阅读约8分钟</span>
-                </small>
-            </p>
-        </div>
-    </div>
-</div>
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
 
-<div class="post-preview">
-    <div class="post-img" style="background-image: url('/images/java/basic/java_logo.png')"></div>
-    <div class="post-info">
-        <div class="post-info-center">
-            <div class="hidden-xs">
-                
-                
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#Java"
-                    title="Java">Java</a>
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#垃圾回收"
-                    title="垃圾回收">垃圾回收</a>
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#Java引用"
-                    title="Java引用">Java引用</a>
-                <span>/</span>
-                
-                
-            </div>
-            <a href="/post/java/basic/2017-07-14_java_reference.html" class="title">
-                Java 引用
-            </a>
-            <p class="text-gray">
-                <small>
-                    <span>发表于2017-07-14，</span>
-                    <span class="hidden-xs">全文4909字，</span>
-                    <span>阅读约17分钟</span>
-                </small>
-            </p>
-        </div>
-    </div>
-</div>
-
-<div class="post-preview">
-    <div class="post-img" style="background-image: url('/images/java/io.png')"></div>
-    <div class="post-info">
-        <div class="post-info-center">
-            <div class="hidden-xs">
-                
-                
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#Java"
-                    title="Java">Java</a>
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#NIO"
-                    title="NIO">NIO</a>
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#Selector"
-                    title="Selector">Selector</a>
-                <span>/</span>
-                
-                
-            </div>
-            <a href="/post/java/nio/2017-04-23_java_nio_3.html" class="title">
-                Java NIO(3) 选择器 Selector
-            </a>
-            <p class="text-gray">
-                <small>
-                    <span>发表于2017-04-23，</span>
-                    <span class="hidden-xs">全文5874字，</span>
-                    <span>阅读约20分钟</span>
-                </small>
-            </p>
-        </div>
-    </div>
-</div>
-
-<div class="post-preview">
-    <div class="post-img" style="background-image: url('/images/java/io.png')"></div>
-    <div class="post-info">
-        <div class="post-info-center">
-            <div class="hidden-xs">
-                
-                
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#Java"
-                    title="Java">Java</a>
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#NIO"
-                    title="NIO">NIO</a>
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#Buffer"
-                    title="Buffer">Buffer</a>
-                <span>/</span>
-                
-                
-            </div>
-            <a href="/post/java/nio/2017-04-22_java_nio_2.html" class="title">
-                Java NIO(2) Buffer
-            </a>
-            <p class="text-gray">
-                <small>
-                    <span>发表于2017-04-22，</span>
-                    <span class="hidden-xs">全文4747字，</span>
-                    <span>阅读约16分钟</span>
-                </small>
-            </p>
-        </div>
-    </div>
-</div>
-
-<div class="post-preview">
-    <div class="post-img" style="background-image: url('/images/java/io.png')"></div>
-    <div class="post-info">
-        <div class="post-info-center">
-            <div class="hidden-xs">
-                
-                
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#Java"
-                    title="Java">Java</a>
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#NIO"
-                    title="NIO">NIO</a>
-                <span>/</span>
-                
-                
-            </div>
-            <a href="/post/java/nio/2017-04-21_java_nio_1.html" class="title">
-                Java NIO (1) 基本概念
-            </a>
-            <p class="text-gray">
-                <small>
-                    <span>发表于2017-04-21，</span>
-                    <span class="hidden-xs">全文2077字，</span>
-                    <span>阅读约7分钟</span>
-                </small>
-            </p>
-        </div>
-    </div>
-</div>
-
-<div class="post-preview">
-    <div class="post-img" style="background-image: url('/images/java/io.png')"></div>
-    <div class="post-info">
-        <div class="post-info-center">
-            <div class="hidden-xs">
-                
-                
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#Java"
-                    title="Java">Java</a>
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#IO"
-                    title="IO">IO</a>
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#Stream"
-                    title="Stream">Stream</a>
-                <span>/</span>
-                
-                
-            </div>
-            <a href="/post/java/io/2017-04-20_java_io_6_stream.html" class="title">
-                Java IO(6) InputStream和OutputStream
-            </a>
-            <p class="text-gray">
-                <small>
-                    <span>发表于2017-04-20，</span>
-                    <span class="hidden-xs">全文2357字，</span>
-                    <span>阅读约8分钟</span>
-                </small>
-            </p>
-        </div>
-    </div>
-</div>
-
-<div class="post-preview">
-    <div class="post-img" style="background-image: url('/images/java/io.png')"></div>
-    <div class="post-info">
-        <div class="post-info-center">
-            <div class="hidden-xs">
-                
-                
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#Java"
-                    title="Java">Java</a>
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#IO"
-                    title="IO">IO</a>
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#Exception"
-                    title="Exception">Exception</a>
-                <span>/</span>
-                
-                
-            </div>
-            <a href="/post/java/io/2017-04-19_java_io_5_exception.html" class="title">
-                Java IO(5) 异常处理
-            </a>
-            <p class="text-gray">
-                <small>
-                    <span>发表于2017-04-19，</span>
-                    <span class="hidden-xs">全文5840字，</span>
-                    <span>阅读约20分钟</span>
-                </small>
-            </p>
-        </div>
-    </div>
-</div>
-
-<div class="post-preview">
-    <div class="post-img" style="background-image: url('/images/java/basic/java_logo.png')"></div>
-    <div class="post-info">
-        <div class="post-info-center">
-            <div class="hidden-xs">
-                
-                
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#Java"
-                    title="Java">Java</a>
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#Java线程"
-                    title="Java线程">Java线程</a>
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#思维导图"
-                    title="思维导图">思维导图</a>
-                <span>/</span>
-                
-                
-            </div>
-            <a href="/post/java/basic/2017-04-18_java_thread_mind.html" class="title">
-                Java Thread 线程知识整理（思维导图）
-            </a>
-            <p class="text-gray">
-                <small>
-                    <span>发表于2017-04-18，</span>
-                    <span class="hidden-xs">全文283字，</span>
-                    <span>阅读约1分钟</span>
-                </small>
-            </p>
-        </div>
-    </div>
-</div>
-
-<div class="post-preview">
-    <div class="post-img" style="background-image: url('/images/java/basic/java_logo.png')"></div>
-    <div class="post-info">
-        <div class="post-info-center">
-            <div class="hidden-xs">
-                
-                
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#Java"
-                    title="Java">Java</a>
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#二进制"
-                    title="二进制">二进制</a>
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#反码"
-                    title="反码">反码</a>
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#补码"
-                    title="补码">补码</a>
-                <span>/</span>
-                
-                
-            </div>
-            <a href="/post/java/advance/2017-04-18_java_0xff.html" class="title">
-                为什么要与上0xff（&0xff），有什么意义？
-            </a>
-            <p class="text-gray">
-                <small>
-                    <span>发表于2017-04-18，</span>
-                    <span class="hidden-xs">全文2003字，</span>
-                    <span>阅读约7分钟</span>
-                </small>
-            </p>
-        </div>
-    </div>
-</div>
-
-<div style="margin: 15px 0">
-    <div class="text-center">
-    <p>
-        
-        <a href="/page/9/">« 上一页</a>
-        
-        &nbsp;&nbsp;&nbsp;&nbsp;
-        
-        <a href="/page/11/">下一页 »</a>
-        
-    </p>
-</div>
-</div>
-    </div>
-    <aside class="float-left gkt-sidebar hidden-xs hidden-sm">
-        <div style="clear: both"></div>
-        <div class="gkt-sidebar-wrapper">
-            <section class="bg-white box-shadow"><style>
-    .gkt-summary {
-        border: 1px solid #DDDDDD;
-        border-radius: 3px;
-        padding: 5px;
-        width: 100%;
-    }
-
-
-    .gkt-summary nav {
-        overflow: hidden;
-    }
-
-    .gkt-summary nav a {
-        display: inline-block;
-        text-align: center;
-        color: #333;
-        font-size: 12px;
-    }
-
-    .gkt-summary nav span {
-        display: block;
-    }
-
-    .gkt-summary nav .middle {
-        border-left: 1px solid #eaecef;
-        border-right: 1px solid #eaecef;
-    }
-
-    .gkt-summary .number {
-        font-weight: bold;
-    }
-
-    .gkt-summary .link-list {
-        margin-top: 5px;
-        margin-bottom: -5px;
-        padding-top: 7px;
-        border-top: 1px dashed #999;
-        display: flex;
-    }
-
-    .gkt-summary .link-list a {
-        flex: 1;
-    }
-
-    .gkt-summary .link-list img {
-        width: 25px;
-        height: 25px;
-    }
-</style>
-
-<div class="gkt-summary">
-    <nav>
-        <a href="/" class="col-xs-4">
-            <span class="number">117</span><span>文章</span>
-        </a>
-        <a href="/series" class="col-xs-4 middle">
-            <span class="number">36</span><span>专题</span>
-        </a>
-        <a href="/tags" class="col-xs-4">
-            <span class="number">153</span><span>标签</span>
-        </a>
-    </nav>
-
-    
-</div></section>
-            <section class="gkt-sidebar-content bg-white box-shadow"><!-- Featured Tags -->
-<style>
-    #featured-tag .post-tag-item {
-        font-size: 12px;
-        line-height: 30px;
-        display: inline-block;
-        height: 30px;
-        margin: 5px 0px;
-        padding: 0 7px;
-        color: #333;
-        border-radius: 15px;
-        background: #f6f6f6;
-    }
-
-    #featured-tag .post-tag-item:hover {
-        color: #337ab7;
-    }
-</style>
-<div id="featured-tag">
-    
-    <a class="post-tag-item" href="/tags/#关于我" title="关于我"
-        rel="1">#关于我 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Hello World" title="Hello World"
-        rel="1">#Hello World (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#八皇后" title="八皇后"
-        rel="1">#八皇后 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#算法" title="算法"
-        rel="2">#算法 (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#创建型模式" title="创建型模式"
-        rel="1">#创建型模式 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#设计模式" title="设计模式"
-        rel="3">#设计模式 (3) </a>
-    
-    <a class="post-tag-item" href="/tags/#分布式" title="分布式"
-        rel="3">#分布式 (3) </a>
-    
-    <a class="post-tag-item" href="/tags/#CAP" title="CAP"
-        rel="1">#CAP (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#概念" title="概念"
-        rel="4">#概念 (4) </a>
-    
-    <a class="post-tag-item" href="/tags/#脑裂" title="脑裂"
-        rel="1">#脑裂 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#术语" title="术语"
-        rel="1">#术语 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#理论" title="理论"
-        rel="1">#理论 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Docker" title="Docker"
-        rel="2">#Docker (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#入门" title="入门"
-        rel="2">#入门 (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#学习笔记" title="学习笔记"
-        rel="1">#学习笔记 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#JavaScript" title="JavaScript"
-        rel="4">#JavaScript (4) </a>
-    
-    <a class="post-tag-item" href="/tags/#chameleon" title="chameleon"
-        rel="2">#chameleon (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#跨平台" title="跨平台"
-        rel="2">#跨平台 (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#小程序" title="小程序"
-        rel="2">#小程序 (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#Android" title="Android"
-        rel="1">#Android (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#apk" title="apk"
-        rel="1">#apk (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#反编译" title="反编译"
-        rel="1">#反编译 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Java" title="Java"
-        rel="52">#Java (52) </a>
-    
-    <a class="post-tag-item" href="/tags/#面试" title="面试"
-        rel="3">#面试 (3) </a>
-    
-    <a class="post-tag-item" href="/tags/#数据结构" title="数据结构"
-        rel="1">#数据结构 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#IO" title="IO"
-        rel="12">#IO (12) </a>
-    
-    <a class="post-tag-item" href="/tags/#同步" title="同步"
-        rel="2">#同步 (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#异步" title="异步"
-        rel="1">#异步 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#阻塞" title="阻塞"
-        rel="1">#阻塞 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#非阻塞" title="非阻塞"
-        rel="1">#非阻塞 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#符号链接" title="符号链接"
-        rel="1">#符号链接 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#目录" title="目录"
-        rel="1">#目录 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#deb" title="deb"
-        rel="2">#deb (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#chrome" title="chrome"
-        rel="1">#chrome (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#快捷键" title="快捷键"
-        rel="1">#快捷键 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#bbr" title="bbr"
-        rel="1">#bbr (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#协议" title="协议"
-        rel="3">#协议 (3) </a>
-    
-    <a class="post-tag-item" href="/tags/#XXNET" title="XXNET"
-        rel="1">#XXNET (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#磁盘管理" title="磁盘管理"
-        rel="1">#磁盘管理 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#挂载" title="挂载"
-        rel="1">#挂载 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#网络" title="网络"
-        rel="2">#网络 (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#模型" title="模型"
-        rel="2">#模型 (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#MMAP" title="MMAP"
-        rel="1">#MMAP (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#内存映射" title="内存映射"
-        rel="1">#内存映射 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#内存" title="内存"
-        rel="1">#内存 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#零拷贝" title="零拷贝"
-        rel="2">#零拷贝 (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#输入法" title="输入法"
-        rel="1">#输入法 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#命令" title="命令"
-        rel="1">#命令 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#集合运算" title="集合运算"
-        rel="1">#集合运算 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Ubuntu" title="Ubuntu"
-        rel="1">#Ubuntu (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#包管理" title="包管理"
-        rel="4">#包管理 (4) </a>
-    
-    <a class="post-tag-item" href="/tags/#TCP" title="TCP"
-        rel="3">#TCP (3) </a>
-    
-    <a class="post-tag-item" href="/tags/#UDP" title="UDP"
-        rel="2">#UDP (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#网络协议" title="网络协议"
-        rel="1">#网络协议 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#CDN" title="CDN"
-        rel="1">#CDN (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Socket" title="Socket"
-        rel="1">#Socket (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#vpn" title="vpn"
-        rel="1">#vpn (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#ssh" title="ssh"
-        rel="1">#ssh (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Heidi" title="Heidi"
-        rel="1">#Heidi (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#MySQL" title="MySQL"
-        rel="9">#MySQL (9) </a>
-    
-    <a class="post-tag-item" href="/tags/#网络术语" title="网络术语"
-        rel="3">#网络术语 (3) </a>
-    
-    <a class="post-tag-item" href="/tags/#URL" title="URL"
-        rel="1">#URL (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#URI" title="URI"
-        rel="1">#URI (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Tampermonkey" title="Tampermonkey"
-        rel="1">#Tampermonkey (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#弹琴吧" title="弹琴吧"
-        rel="1">#弹琴吧 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#吉他" title="吉他"
-        rel="1">#吉他 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#V2ray" title="V2ray"
-        rel="1">#V2ray (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Jira" title="Jira"
-        rel="1">#Jira (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#管理" title="管理"
-        rel="2">#管理 (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#认知" title="认知"
-        rel="1">#认知 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#备份" title="备份"
-        rel="1">#备份 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#MSSQL" title="MSSQL"
-        rel="1">#MSSQL (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Redis" title="Redis"
-        rel="1">#Redis (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#优化" title="优化"
-        rel="2">#优化 (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#SQL优化" title="SQL优化"
-        rel="2">#SQL优化 (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#ACID" title="ACID"
-        rel="1">#ACID (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#幻读" title="幻读"
-        rel="1">#幻读 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#性能优化" title="性能优化"
-        rel="4">#性能优化 (4) </a>
-    
-    <a class="post-tag-item" href="/tags/#阅读笔记" title="阅读笔记"
-        rel="2">#阅读笔记 (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#字符集" title="字符集"
-        rel="2">#字符集 (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#Collation" title="Collation"
-        rel="1">#Collation (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#临时表" title="临时表"
-        rel="1">#临时表 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Vue" title="Vue"
-        rel="2">#Vue (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#二进制" title="二进制"
-        rel="2">#二进制 (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#内存分配" title="内存分配"
-        rel="1">#内存分配 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#内存泄露" title="内存泄露"
-        rel="1">#内存泄露 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#书籍推荐" title="书籍推荐"
-        rel="1">#书籍推荐 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#知识体系" title="知识体系"
-        rel="1">#知识体系 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#反码" title="反码"
-        rel="1">#反码 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#补码" title="补码"
-        rel="1">#补码 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#单例" title="单例"
-        rel="1">#单例 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#DCL" title="DCL"
-        rel="1">#DCL (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#内存模型" title="内存模型"
-        rel="1">#内存模型 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#jvm" title="jvm"
-        rel="3">#jvm (3) </a>
-    
-    <a class="post-tag-item" href="/tags/#HashMap" title="HashMap"
-        rel="1">#HashMap (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Java集合" title="Java集合"
-        rel="1">#Java集合 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#ThreadLocal" title="ThreadLocal"
-        rel="1">#ThreadLocal (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Java线程" title="Java线程"
-        rel="3">#Java线程 (3) </a>
-    
-    <a class="post-tag-item" href="/tags/#异常" title="异常"
-        rel="1">#异常 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Java异常" title="Java异常"
-        rel="1">#Java异常 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#思维导图" title="思维导图"
-        rel="2">#思维导图 (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#垃圾回收" title="垃圾回收"
-        rel="2">#垃圾回收 (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#Java引用" title="Java引用"
-        rel="1">#Java引用 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Exception" title="Exception"
-        rel="1">#Exception (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Stream" title="Stream"
-        rel="1">#Stream (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Netty" title="Netty"
-        rel="4">#Netty (4) </a>
-    
-    <a class="post-tag-item" href="/tags/#笔记" title="笔记"
-        rel="1">#笔记 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#NIO" title="NIO"
-        rel="7">#NIO (7) </a>
-    
-    <a class="post-tag-item" href="/tags/#Buffer" title="Buffer"
-        rel="1">#Buffer (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Selector" title="Selector"
-        rel="1">#Selector (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#问题" title="问题"
-        rel="2">#问题 (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#直接内存" title="直接内存"
-        rel="1">#直接内存 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#非直接内存" title="非直接内存"
-        rel="1">#非直接内存 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#堆内存" title="堆内存"
-        rel="1">#堆内存 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#注解" title="注解"
-        rel="1">#注解 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Spring" title="Spring"
-        rel="6">#Spring (6) </a>
-    
-    <a class="post-tag-item" href="/tags/#文件加载" title="文件加载"
-        rel="1">#文件加载 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Spring Boot" title="Spring Boot"
-        rel="3">#Spring Boot (3) </a>
-    
-    <a class="post-tag-item" href="/tags/#Spring Cloud" title="Spring Cloud"
-        rel="1">#Spring Cloud (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Gradle" title="Gradle"
-        rel="3">#Gradle (3) </a>
-    
-    <a class="post-tag-item" href="/tags/#Idea" title="Idea"
-        rel="1">#Idea (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#JavaIDE" title="JavaIDE"
-        rel="1">#JavaIDE (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#监控" title="监控"
-        rel="1">#监控 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#报警" title="报警"
-        rel="1">#报警 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Prometheus" title="Prometheus"
-        rel="1">#Prometheus (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#SVN" title="SVN"
-        rel="1">#SVN (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#结构型模式" title="结构型模式"
-        rel="1">#结构型模式 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#行为型模式" title="行为型模式"
-        rel="1">#行为型模式 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#云原生" title="云原生"
-        rel="1">#云原生 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Cloud" title="Cloud"
-        rel="1">#Cloud (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#异步IO" title="异步IO"
-        rel="1">#异步IO (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#直接IO" title="直接IO"
-        rel="1">#直接IO (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#慢查" title="慢查"
-        rel="1">#慢查 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#序列化" title="序列化"
-        rel="1">#序列化 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#函数式编程" title="函数式编程"
-        rel="1">#函数式编程 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#lambda" title="lambda"
-        rel="1">#lambda (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#并发编程" title="并发编程"
-        rel="1">#并发编程 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#JUC" title="JUC"
-        rel="1">#JUC (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#lambda表达式" title="lambda表达式"
-        rel="1">#lambda表达式 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#源码" title="源码"
-        rel="1">#源码 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#RPC" title="RPC"
-        rel="1">#RPC (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Reactor" title="Reactor"
-        rel="1">#Reactor (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#NIO模型" title="NIO模型"
-        rel="1">#NIO模型 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#工具" title="工具"
-        rel="1">#工具 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Wiki" title="Wiki"
-        rel="1">#Wiki (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#整理" title="整理"
-        rel="1">#整理 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#操作系统" title="操作系统"
-        rel="1">#操作系统 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#微服务" title="微服务"
-        rel="1">#微服务 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Vert.x" title="Vert.x"
-        rel="1">#Vert.x (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Spring Core" title="Spring Core"
-        rel="1">#Spring Core (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#源码分析" title="源码分析"
-        rel="1">#源码分析 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#文件名批量修改" title="文件名批量修改"
-        rel="1">#文件名批量修改 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#HttpClient" title="HttpClient"
-        rel="1">#HttpClient (1) </a>
-    
-</div></section>
-            
-        </div>
-    </aside>
-    
-
-<script>
-    (function () {
-        var ele = getDom('.gkt-sidebar-content')
-        if(!ele) return;
-        var wrapper = getDom('.gkt-sidebar-wrapper')
-        var last = 0
-        ele.style.maxHeight = ((window.innerHeight || 798) - 200) + 'px'
-        var f = function (e) {
-            var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-            var isDown = scrollTop > last;
-            var pos = getPosition(ele).y - scrollTop;
-            var downLimit = 50;
-            var upLimit = -100;
-            // uarrow.style.marginTop = scrollTop + 'px';
-            isDown && pos <= downLimit && wrapper.classList.add("gkt-sidebar-fixed");
-            !isDown && pos > upLimit && wrapper.classList.remove("gkt-sidebar-fixed");
-            last = scrollTop
-        }
-        f()
-        window.addEventListener("scroll", f)
-    })();
-</script>
-
-</main>
-    </div>
-    <style>
-    img#go-top {
-        position: fixed;
-        bottom: 100px;
-        width: 50px;
-        cursor: pointer;
-        z-index: 9999;
-    }
-</style>
-<img id="go-top" src="/icon/top.png" class="hidden-xs" style="display: none" />
-<script>
-    (function () {
-        var goTop = document.getElementById('go-top');
-        var mainContainer = document.querySelector('.main-container');
-        
-        goTop.addEventListener('click', function () {
-            window.scroll(0, 0);
-        }, false);
-        window.addEventListener('scroll', function () {
-            var right = document.body.offsetWidth - mainContainer.getBoundingClientRect().right;
-            var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-            goTop.style.right = right + 10 + 'px'
-            scrollTop > 700 && (goTop.style.display = "block");
-            scrollTop <= 700 && (goTop.style.display = "none");
-        });
-    })();
-</script>
-    <style>
-    #geektutu-click-img-container {
-        position: fixed;
-        left: 0;
-        top: 0;
-        text-align: center;
-        width: 100%;
-        display: none;
-        z-index: 9999;
-    }
-
-    #geektutu-click-img-container img {
-        object-fit: contain;
-        background: #eaecef;
-        padding: 15px;
-        border-radius: 10px;
-        height: auto;
-        width: auto;
-        vertical-align: middle;
-    }
-</style>
-
-
-<div id="geektutu-click-img-container">
-    <img src="" alt="Big Image">
-</div>
-
-<script>
-    (function () {
-        var container = document.querySelector('#geektutu-click-img-container')
-        var targetImg = container.querySelector('img')
-        var imgs = document.querySelectorAll('article img');
-        targetImg.addEventListener('click', function (e) {
-            container.style.display = 'none';
-            e && e.stopPropagation && e.stopPropagation();
-        }, false);
-
-        for (var i = 0; i < imgs.length; ++i) {
-            var img = imgs[i];
-            img.addEventListener('click', (function (src, rate) {
-                return function (e) {
-                    e && e.stopPropagation && e.stopPropagation();
-                    if (window.innerWidth < 980) {
-                        return
-                    }
-                    targetImg.style.height = targetImg.style.width = 'auto';
-                    if (window.innerWidth / window.innerHeight > rate) {
-                        targetImg.style.height = (window.innerHeight - 20) + 'px';
-                    } else {
-                        targetImg.style.width = (window.innerWidth - 20) + 'px';
-                    }
-                    container.style.height = window.innerHeight + 'px'
-                    container.style.lineHeight = window.innerHeight + 'px'
-                    container.style.display = 'block';
-                    targetImg.src = src;
-                };
-            }(img.src, img.width / img.height)), false)
-        }
-    })();
-</script>
-    <!-- Footer -->
-    <!-- Footer -->
-<style>
-    footer {
-        width: 100%;
-        line-height: 1.5;
-        padding: 20px;
-    }
-
-    footer a {
-        color: #333;
-        text-decoration: none;
-    }
-
-    .footer-hexo img {
-        height: 20px;
-        margin-bottom: -5px;
-    }
-
-    .footer-hexo a {
-        color: #337ab7;
-    }
-</style>
-<footer class="text-center col-xs-12">
-    <p>
-        <small>© 2020 - Hassan - </small>
-        <small>
-            <a target="_blank" rel="nofollow noopener" href="http://beian.miit.gov.cn/"></a>
-        </small>
-    </p>
-    <p class="footer-hexo">
-        <!-- 但若直接使用或修改主题，请务必保留这段声明 -->
-        <small>Powered by <a target="_blank" href="https://hexo.io">Hexo</a> | Theme
-            <a target="_blank" href="https://geektutu.com">Geektutu</a>
-            <a target="_blank" rel="noopener" href="https://github.com/geektutu/hexo-theme-geektutu">
-                <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAYGBgYHBgcICAcKCwoLCg8ODAwODxYQERAREBYiFRkVFRkVIh4kHhweJB42KiYmKjY+NDI0PkxERExfWl98fKcBBgYGBgcGBwgIBwoLCgsKDw4MDA4PFhAREBEQFiIVGRUVGRUiHiQeHB4kHjYqJiYqNj40MjQ+TERETF9aX3x8p//CABEIACIAUAMBIgACEQEDEQH/xAAcAAABBAMBAAAAAAAAAAAAAAAAAQQFBwIDBgj/2gAIAQEAAAAA9KrHSgAYL5/z6zZGuJd12uugbhq3uKtmuRtix20IS7lTLAfAAAn/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/9oACAECEAAAAAAB/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/aAAgBAxAAAAAAAf/EADEQAAICAQIEBQEGBwAAAAAAAAECAwQFAAYREhORBxQhUlQxQVFic5KxJDJCYYGC0f/aAAgBAQABPwCFHnjWUzuvN6hV4cANSRLGjO9yRVUcSzMoA7jVXJYe5N0a2dhmk9kc0bN2GvLN8mbuNeWb5M3ca8s3yZu415Y/Jm7jXlm+TN3H/NeVPyZu40vOk3TZywK8wJ+v3EHVM/wsI/Dq2lrxN3Nnca16eti8chSAIoMbzByhMwP14kHVfwIiSaF5c96J6kwwCOTnHsYk8uvCrdmQy1TI4rJuz3cZLyGR/wCd4+YoOf8AEpUjXitubLYPG4paFsUxcuiGe7yc5gTW3LW44szXmobsi3Dhmic2+Z4+vCVH9CpraPiQ+QvbgTJrPFBWd5YpWrmNIIEXiRO32Pqt4p7cnfHk18lFBdmEVW1LVdIZGOrniTt6plrWKaO69yCykDRxwF+LMAewB0Txtr+Sf31VI8tEPw62fZt7N3Humtbpzz13ucX6CGSWMSuzpLyD1eNgeUka3PuvHbaxq3biTMHfkiSNCS78CwU+3Xg7Vu3MhuTcU6cq3Zemn3Eh2dv8Lzcut+29x1atKbHYqLJUhLwyNMwiZ3j9yDWOxUOV3tgb+3No5LDx1pi9+aeIwRlNY6bc+Jv+IFGrhLxtXJZ7VKcw81diiAAEn0JOrkWZyNfbEr0tz27UGQgkuGzXdIIvyowq99bRxk9ffO/L81SZBPZgEEroQroIxxMZOgeNsfkn99QypHGqO4Vl9CDrN4LDZkwyzyyQ2IgRHZrzGCZVP1XnQglT9oOtw4LC7iqV6uRkZoYpxKFSQpzFRw4EjVRMfSrQ1qqwxQxKFjjTgFUD7BoWYR6iVe+mtxt9Zwf9teaj4AdccPu5tedX5A/VrzUR+sy/q1CwksF19VEfDj/cnQRW+qg66cfsXtrpx+xe2unH7F7a6cfsXtrpx+xe2unH7F7a6cfsXtoxx+xe2gAAOA1//8QAFBEBAAAAAAAAAAAAAAAAAAAAMP/aAAgBAgEBPwB//8QAFBEBAAAAAAAAAAAAAAAAAAAAMP/aAAgBAwEBPwB//9k="
-                    alt="Github Star">
-            </a>
-        </small>
-    </p>
-    
-    <p>
-        <small>
-            <span id="busuanzi_container_site_pv">👁<span id="busuanzi_value_site_pv"></span></span> &nbsp;
-            <span id="busuanzi_container_page_pv">📚<span id="busuanzi_value_page_pv"></span></span>
-        </small>
-    </p>
-    
-    
-
-</footer>
-
-
-<script>
-    window.addEventListener('load', function () {
-        globalAddScript('//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js');
-    })
-</script>
-
-<!-- Baidu Tongji -->
+  
 
 
 
 
 
-    <script>
-        // 非本站网址，新开tab页签
-        (function () {
-            var stopBubble = function (e) {
-                e && e.stopPropagation && e.stopPropagation();
-            }
-            var links = document.querySelectorAll('a');
-            [].slice.call(links).forEach(function (item) {
-                if (item.href && item.href.indexOf(window.location.host) === -1) {
-                    item.target = '_blank'
-                }
-                // 阻止冒泡，不触发彩蛋。
-                item.addEventListener('click', stopBubble, false);
-            });
-            var article = document.querySelector('article');
-            article && article.addEventListener('click', stopBubble, false)
-        })();
-    </script>
-    
-<script>
-    (function (window, document, undefined) {
-        var hearts = [];
-        var keywords = ["点个赞", "留个言", "赞赏一下", "分享之", "blog.fenxiangz.com"];
-        function randomInt(max) {
-            return Math.floor(Math.random() * Math.floor(max));
-        }
-        window.addEventListener('click', createWord)
 
-        function createWord(e) {
-            var d = document.createElement("span");
-            d.style.position = 'fixed';
-            d.style.zIndex = 9999;
-            d.style.color = 'rgb(' + [randomInt(255), randomInt(255), randomInt(255)].join(',') + ')';
-            d.innerHTML = keywords[randomInt(keywords.length)];
-            d.onselectstart = function () { return false; }
 
-            hearts.push({ el: d, x: e.clientX - 5, y: e.clientY - 5, alpha: 1, scale: 1 });
-            document.body.appendChild(d);
-        }
-        (function gameloop() {
-            for (var i = 0; i < hearts.length; i++) {
-                heart = hearts[i];
-                if (heart.alpha <= 0) {
-                    document.body.removeChild(heart.el);
-                    hearts.splice(i, 1);
-                    continue;
-                }
-                heart.y -= heart.alpha < 0.5 ? 2 : 1;
-                heart.scale += 0.002;
-                heart.alpha -= 0.013;
-                heart.el.style.transform = 'scale(' + heart.scale + ')';
-                heart.el.style.left = heart.x + 'px';
-                heart.el.style.top = heart.y + 'px';
-            }
-            setTimeout(gameloop, 10)
-        })();
-    })(window, document);
-</script>
+  
+
+
+
+
+
 
 </body>
-
 </html>

@@ -1,1369 +1,913 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-
-<!-- Head tag -->
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="referrer" content="no-referrer-when-downgrade">
-  
-  <meta name="baidu-site-verification" content="" />
-  <meta name="google-site-verification" content="" />
-  <meta name="msvalidate.01" content="" />
-  <meta name="360-site-verification" content="" />
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- if page has tags, then add tags to keyword -->
-  
-  
-  <meta name="keywords" content=",">
-  <!-- page.description has higher priority -->
-  <meta name="description" content="Share everything">
-  <link rel="shortcut icon" href="/favico.png">
-  <title>
-    
-    分享之
-    
-  </title>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
 
-  <link rel="canonical" href="/page/12/">
-  
-<link rel="stylesheet" href="/css/reset.css">
 
-  
-<link rel="stylesheet" href="/css/layout.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
-  
-<link rel="stylesheet" href="/css/markdown.css">
+<link rel="stylesheet" href="/css/main.css">
 
-  <!-- Pygments Highlight CSS -->
-  
-<link rel="stylesheet" href="/css/highlight.css">
 
-  
-<link rel="stylesheet" href="/css/geektutu.css">
 
-  <!-- global function -->
-  <script>
-    window.globalAddScript = function (url, onload, onerror) {
-      var s = document.createElement('script');
-      s.src = url;
-      onload && (s.onload = onload);
-      onerror && (s.onerror = onerror);
-      document.body.appendChild(s);
-    }
-    window.globalAddCss = function (url) {
-      var s = document.createElement('link');
-      s.rel = 'stylesheet';
-      s.href = url;
-      document.body.appendChild(s);
-    }
-    window.getPosition = function (ele) {
-      var x = 0, y = 0;
-      while (ele) {
-        x += (ele.offsetLeft - ele.scrollLeft + ele.clientLeft);
-        y += (ele.offsetTop - ele.scrollTop + ele.clientTop);
-        ele = ele.offsetParent;
-      }
-      return { x: x, y: y };
-    }
-    window.getDom = function (str) { return document.querySelector(str) }
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blog.fenxiangz.com","root":"/","images":"/images","scheme":"Pisces","version":"8.1.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}};
   </script>
-  <!-- google ad -->
+<meta name="description" content="Share everything">
+<meta property="og:type" content="website">
+<meta property="og:title" content="分享之">
+<meta property="og:url" content="https://blog.fenxiangz.com/page/12/index.html">
+<meta property="og:site_name" content="分享之">
+<meta property="og:description" content="Share everything">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="Hassan">
+<meta property="article:tag" content="JAVA,Linux,技术分享,网络">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://blog.fenxiangz.com/page/12/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-CN'
+  };
+</script>
+<title>分享之</title>
   
-<meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/feed.xml" title="分享之" type="application/rss+xml">
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="分享之" type="application/atom+xml">
 </head>
 
-<body>
-    <header class="gkt-header col-xs-12 padding-0">
-    <div id="gkt-nav" class="gkt-header-container">
-        <a href="/" class="gkt-header-title float-left">
-            <img class="float-left" src="/favico.png" alt="">
-            <span>分享之</span>
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">分享之</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Share everything</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <section class="post-toc-wrap sidebar-panel">
+        </section>
+        <!--/noindex-->
+
+        <section class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Hassan</p>
+  <div class="site-description" itemprop="description">Share everything</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">117</span>
+          <span class="site-state-item-name">日志</span>
         </a>
-        <nav class="gkt-header-nav text-right">
-            <ul>
-                <li><a class="hidden-xs" href="/feed.xml">订阅</a></li>
-                <li><a href="/series/">专题</a></li>
-                <li><a href="/archives/">归档</a></li>
-                <li><a href="/post/link.html">友链</a></li>
-                <li><a href="/post/about.html">关于</a></li>
-            </ul>
-        </nav>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">36</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">153</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </section>
+      </div>
     </div>
-    <div id="gkt-cate-nav" class="gkt-header-container hidden-xs">
-        
-        <nav class="gkt-header-nav float-left">
-            <ul>
-                
-                
-                <li class="gkt-cate-name float-left ">
-                    <a class="float-left" href="/post/java/basic/2016-10-25_hashmap_jdk7.html">Java ▾</a>
-                    
-                    <ul class="gkt-sub-cate">
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/java/basic/2016-10-25_hashmap_jdk7.html">Java 基础</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/java/advance/2016-10-25_number.html">Java 进阶</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/java/io/2017-04-15_java_io_1_overview.html">Java IO</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/java/nio/2017-04-21_java_nio_1.html">Java NIO</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/interview/2018-10-25_Java面试整理.html">Java 面试</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/java/util/2020-12-23_HttpClient连接池原理及一次连接时序图.html">RPC</a></li>
-                        
-                    </ul>
-                    
-                </li>
-                
-                <li class="gkt-cate-name float-left ">
-                    <a class="float-left" href="/post/java/spring/2016-10-30_Spring 组合注解&amp;注解继承.html">Spring ▾</a>
-                    
-                    <ul class="gkt-sub-cate">
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/java/spring/2016-10-30_Spring 组合注解&amp;注解继承.html">Spring Core</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/java/spring/2019-12-28_【译】Spring Boot 从 classpath 加载文件.html">Spring Boot</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/java/spring/2020-09-02_How-to-learn-Spring-Cloud.html">Spring Cloud</a></li>
-                        
-                    </ul>
-                    
-                </li>
-                
-                <li class="gkt-cate-name float-left ">
-                    <a class="float-left" href="/post/java/netty/2019-01-02_小白科普Netty有什么用.html">Java 框架</a>
-                    
-                </li>
-                
-                <li class="gkt-cate-name float-left ">
-                    <a class="float-left" href="/post/util/ide/2017-10-25_idea_shotcut.html">工具 ▾</a>
-                    
-                    <ul class="gkt-sub-cate">
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/util/ide/2017-10-25_idea_shotcut.html">IDE</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/util/gradle/LearnGradle_1_安装.html">Gradle</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/docker/2017-11-25_Docker_Get_Started.html">Docker</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/util/monitor/2017-12-10_从零开始搭建Prometheus自动监控报警系统.html">监控</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/util/svn/2017-12-10_SVN自动删除“被手动删除”的文件.html">SVN</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/util/2020-11-26_开发资源整理.html">资源导航</a></li>
-                        
-                    </ul>
-                    
-                </li>
-                
-                <li class="gkt-cate-name float-left ">
-                    <a class="float-left" href="/post/linux/2017-11-27_update-alternatives_命令.html">Linux ▾</a>
-                    
-                    <ul class="gkt-sub-cate">
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/linux/2017-11-27_update-alternatives_命令.html">其他</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/linux/2017-11-26_IO-同步，异步，阻塞，非阻塞.html">IO</a></li>
-                        
-                    </ul>
-                    
-                </li>
-                
-                <li class="gkt-cate-name float-left ">
-                    <a class="float-left" href="/post/network/2017-11-24_面向报文（UDP）和面向字节流（TCP）的区别.html">计算机网络 ▾</a>
-                    
-                    <ul class="gkt-sub-cate">
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/network/2017-11-24_面向报文（UDP）和面向字节流（TCP）的区别.html">TCP/IP</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/network/2017-11-25_一张图说明CDN网络的原理.html">网络/其他</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/network/2018-12-15_URL和URI的区别.html">网络/术语</a></li>
-                        
-                    </ul>
-                    
-                </li>
-                
-                <li class="gkt-cate-name float-left ">
-                    <a class="float-left" href="/post/dateabase/mysql/2018-12-15_MySQL优化概要.html">数据库 ▾</a>
-                    
-                    <ul class="gkt-sub-cate">
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/dateabase/mysql/2018-12-15_MySQL优化概要.html">MySQL</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/dateabase/MSSQL/2020-09-08_MSSQL最佳实践_SQL_Server备份策略.html">MSSQL</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/dateabase/Redis/2020_12_08_Redis清理方法.html">Redis</a></li>
-                        
-                    </ul>
-                    
-                </li>
-                
-                <li class="gkt-cate-name float-left ">
-                    <a class="float-left" href="/post/design/2019-01-03_Java经典设计模式_1_五大创建型模式.html">设计模式</a>
-                    
-                </li>
-                
-                <li class="gkt-cate-name float-left ">
-                    <a class="float-left" href="/post/distribution/2019-08-12_CAP定理的含义.html">分布式 ▾</a>
-                    
-                    <ul class="gkt-sub-cate">
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/distribution/2019-08-12_CAP定理的含义.html">概念</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/distribution/2019-08-13_Zookeeper是如何解决脑裂问题.html">zookeeper</a></li>
-                        
-                    </ul>
-                    
-                </li>
-                
-                <li class="gkt-cate-name float-left ">
-                    <a class="float-left" href="/post/frontend/vue/2017-10-26_vue自定义组件中的v-model简单解释.html">前端 ▾</a>
-                    
-                    <ul class="gkt-sub-cate">
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/frontend/vue/2017-10-26_vue自定义组件中的v-model简单解释.html">VUE</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/frontend/2016-10-26_深入理解jQuery插件开发.html">jQuery</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/frontend/2019-10-26_小程序多端框架全面测评.html">跨平台</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/frontend/2019-11-26_APK反编译总结.html">Android</a></li>
-                        
-                    </ul>
-                    
-                </li>
-                
-                <li class="gkt-cate-name float-left ">
-                    <a class="float-left" href="/post/algorithm/八皇后算法解析.html">算法</a>
-                    
-                </li>
-                
-                <li class="gkt-cate-name float-left ">
-                    <a class="float-left" href="/post/其他/2020-01-29_弹琴吧非会员扒谱技巧.html">其他 ▾</a>
-                    
-                    <ul class="gkt-sub-cate">
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/其他/2020-01-29_弹琴吧非会员扒谱技巧.html">其他/Tampermonkey</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/其他/2020-10-25_V2ray配置.html">其他/V2ray</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/其他/2020-11-26_Jira修改Path路径后的用户管理问题.html">其他/Jira</a></li>
-                        
-                        <li class="gkt-sub-cate-name "><a class="float-left"
-                                href="/post/其他/2020-11-27_『认知升级』是比其他一切都更加重要的思维模型转变.html">其他/管理</a></li>
-                        
-                    </ul>
-                    
-                </li>
-                
-            </ul>
-        </nav>
-    </div>
-</header>
-<div class="gkt-header-placeholder" style="height: 44px"></div>
-<div class="gkt-header-placeholder hidden-xs" style="height: 44px"></div>
-<script>
-    (function () {
-        window.addEventListener('scroll', function () {
-            if (window.innerWidth < 768) {
-                return;
-            }
-            var nav = document.querySelector('#gkt-nav');
-            var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-            scrollTop > 50 && (nav.classList.add('hide'));
-            scrollTop <= 50 && (nav.classList.remove('hide'));
-        });
-        var cateNavs = document.querySelectorAll('#gkt-cate-nav>nav>ul>li');
-        [].slice.call(cateNavs).forEach(function (item) {
-            var sub = item.querySelector('.gkt-sub-cate');
-            if (!sub) return;
-            item.addEventListener('mouseenter', function (e) { sub.style.display = 'block'; }, false);
-            item.addEventListener('mouseleave', function (e) { sub.style.display = 'none'; }, false);
-        })
-    })();
-</script>
-    <!-- Main Content -->
-    <div class="main-container">
-        <!-- Main Content -->
-<main class="col-xs-12 padding-0 markdown-it">
-    <!-- Post Container -->
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
     
-    <style>
-        @media (min-width: 1200px) {
-            .main-container {
-                width: 1000px !important;
-            }
-        }
-    </style>
-    <div class="float-left post-container box-shadow">
-        <!-- Main Content -->
-<!-- css page.ejs -->
-<!-- 置顶文章 -->
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
 
 
-<!-- 普通文章 -->
+    <div class="main-inner index posts-expand">
 
-<div class="post-preview">
-    <div class="post-img" style="background-image: url('/images/java/spring-framework.png')"></div>
-    <div class="post-info">
-        <div class="post-info-center">
-            <div class="hidden-xs">
-                
-                
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#Java"
-                    title="Java">Java</a>
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#注解"
-                    title="注解">注解</a>
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#Spring"
-                    title="Spring">Spring</a>
-                <span>/</span>
-                
-                
-            </div>
-            <a href="/post/java/spring/2016-10-30_Spring 组合注解&注解继承.html" class="title">
-                Spring 组合注解&注解继承
-            </a>
-            <p class="text-gray">
-                <small>
-                    <span>发表于2016-10-30，</span>
-                    <span class="hidden-xs">全文2012字，</span>
-                    <span>阅读约7分钟</span>
-                </small>
-            </p>
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.fenxiangz.com/post/java/spring/2016-10-30_Spring%20%E7%BB%84%E5%90%88%E6%B3%A8%E8%A7%A3&%E6%B3%A8%E8%A7%A3%E7%BB%A7%E6%89%BF.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Hassan">
+      <meta itemprop="description" content="Share everything">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="分享之">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/post/java/spring/2016-10-30_Spring%20%E7%BB%84%E5%90%88%E6%B3%A8%E8%A7%A3&%E6%B3%A8%E8%A7%A3%E7%BB%A7%E6%89%BF.html" class="post-title-link" itemprop="url">Spring 组合注解&注解继承</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2016-10-30 00:00:00" itemprop="dateCreated datePublished" datetime="2016-10-30T00:00:00+00:00">2016-10-30</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-12-20 16:47:02" itemprop="dateModified" datetime="2020-12-20T16:47:02+00:00">2020-12-20</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Spring-Core/" itemprop="url" rel="index"><span itemprop="name">Spring Core</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
         </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="组合注解"><a href="#组合注解" class="headerlink" title="组合注解"></a>组合注解</h3><p>被注解的注解称为组合注解。</p>
+<p>1.好处</p>
+<ul>
+<li>简单化注解配置，用很少的注解来标注特定含义的多个元注解</li>
+<li>提供了很好的扩展性，可以根据实际需要灵活的自定义注解。</li>
+</ul>
+<p>2 如何使用</p>
+<p>（1）自定义一个组合注解</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@Target(ElementType.TYPE)</span><br><span class="line">@Retention(RetentionPolicy.RUNTIME)</span><br><span class="line">@Documented</span><br><span class="line">@Configuration &#x2F;&#x2F;实际上就是一个bean注解</span><br><span class="line">@ComponentScan&#x2F;&#x2F;自动扫描对应value（package路径）值下面的所有bean</span><br><span class="line">public @interface  WiselyConfiguration &#123;</span><br><span class="line">    String[] value() default&#123;&#125;;&#x2F;&#x2F;可以不写，实际在@ComponentScan注解中已经定义过，所以可以拿过来直接用</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>（2）使用自定义注解</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;@Configuration &#x2F;&#x2F;属性注解</span><br><span class="line">&#x2F;&#x2F;@ComponentScan(&quot;com.gdb.spingboot.service&quot;)  &#x2F;&#x2F; 要扫描的bean路径</span><br><span class="line">@WiselyConfiguration(value &#x3D; &quot;com.gdb.spingboot.service&quot;)  &#x2F;&#x2F;自定义注解，扫描的所有的bean来源于value值所对应的包路径下</span><br><span class="line">public class ElConfig&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>组合注解，和上面两个注解实现的功能完全一致，所以如果在繁琐的注解被多次使用的情况下，可以考虑自定义组合注解。</p>
+<h3 id="注解继承"><a href="#注解继承" class="headerlink" title="注解继承"></a>注解继承</h3><p>@Inhberited注解可以让指定的注解在某个类上使用后，这个类的子类也将自动被该注解标记。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">@Retention(RetentionPolicy.RUNTIME)</span><br><span class="line">@Inherited </span><br><span class="line">public @interface Hello &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class AnnotationTest3&#123;</span><br><span class="line">    &#x2F;&#x2F;在基类上使用被@Inherited标记了的注解@Hello@HelloclassBase&#123;&#125;</span><br><span class="line">    &#x2F;&#x2F;派生类没有直接注解@HelloclassDerivedextendsBase&#123;&#125;</span><br><span class="line">    public static void main(String[] args)&#123;</span><br><span class="line">    &#x2F;&#x2F;派生类也会自动被注解@Hello标记。if( Derived.class.isAnnotationPresent(Hello.class))&#123;</span><br><span class="line">        Hello hello &#x3D; (Hello)Derived.class.getAnnotation(Hello.class);</span><br><span class="line">        System.out.println(&quot;Hello&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="注解的其它事项"><a href="#注解的其它事项" class="headerlink" title="注解的其它事项"></a>注解的其它事项</h3><p>（1）当注解中含有数组属性时，使用{}赋值，各个元素使用逗号分隔。</p>
+<p>（2）注解的属性可以是另外一个注解。</p>
+<p>（3）注解的属性可以是另外一个注解的数组。</p>
+<p>（4）注解的默认属性是value，只有一个value属性时可以不写value=xxx，直接写值即可。</p>
+<p>（5）注解的属性的默认值使用default来定义。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;定义注解</span><br><span class="line">@Retention(RetentionPolicy.RUNTIME)</span><br><span class="line">public @interface SomeFuture &#123;</span><br><span class="line">    String value();&#x2F;&#x2F;默认的属性int[]  arrayValue(); &#x2F;&#x2F;数组Hello  helloValue();&#x2F;&#x2F;是另外一个注解@Hello</span><br><span class="line">    Hello[] helloArrayValue() default &#123;@Hello,@Hello&#125;; &#x2F;&#x2F;注解的数组，而且提供默认值。</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;使用注解</span><br><span class="line">@SomeFuture(</span><br><span class="line">    value&#x3D;&quot;hello&quot;, &#x2F;&#x2F;默认属性</span><br><span class="line">    arrayValue&#x3D;&#123;1,2,3&#125;,&#x2F;&#x2F;数组属性</span><br><span class="line">    helloValue&#x3D;@Hello,&#x2F;&#x2F;属性是另外一个注解</span><br><span class="line">    helloArrayValue&#x3D;&#123;@Hello,@Hello,@Hello&#125;&#x2F;&#x2F;属性是另外一个注解的数组。</span><br><span class="line">)</span><br><span class="line">public class AnnotationTest4&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
     </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
 </div>
 
-<div class="post-preview">
-    <div class="post-img" style="background-image: url('/images/java/basic/java_logo.png')"></div>
-    <div class="post-info">
-        <div class="post-info-center">
-            <div class="hidden-xs">
-                
-                
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#Java"
-                    title="Java">Java</a>
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#二进制"
-                    title="二进制">二进制</a>
-                <span>/</span>
-                
-                
-            </div>
-            <a href="/post/java/advance/2016-10-25_number.html" class="title">
-                为什么 8 位有符号整数的范围为 “-128 ~ +127”
-            </a>
-            <p class="text-gray">
-                <small>
-                    <span>发表于2016-10-26，</span>
-                    <span class="hidden-xs">全文2759字，</span>
-                    <span>阅读约10分钟</span>
-                </small>
-            </p>
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.fenxiangz.com/post/java/advance/2016-10-25_number.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Hassan">
+      <meta itemprop="description" content="Share everything">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="分享之">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/post/java/advance/2016-10-25_number.html" class="post-title-link" itemprop="url">为什么 8 位有符号整数的范围为 “-128 ~ +127”</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2016-10-26 11:29:24" itemprop="dateCreated datePublished" datetime="2016-10-26T11:29:24+00:00">2016-10-26</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-12-20 16:47:02" itemprop="dateModified" datetime="2020-12-20T16:47:02+00:00">2020-12-20</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Java-%E8%BF%9B%E9%98%B6/" itemprop="url" rel="index"><span itemprop="name">Java 进阶</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
         </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>这是一个困惑了我几年的问题，它让我对现在的教科书和老师极其不满，从我 N 年前开始摸电脑时，就几乎在每一本 C++ 教科书上都说，8 位有符号的取值范围是 - 128 到 +127，为什么不是 - 127 到 +127 呢，后来的 java，int 的取值范围，再 32 位计算，-2^31 到 +2^31-1，可是，却从来没有任何一本教科书或一个老师比我解释过这个问题。 原因没有在工作上或者是什么地方直接遇到它，所以我也一直忽略它，但心里总是有一根刺。</p>
+<p>直到刚才!!!! 就是刚才，无聊之极，在看汇编的书时，又遇到它了，但一如以往，书上直接地，有心地，明显地绕过了这个问题，真是可恶啊。</p>
+<p>几经周折，终于把它搞清楚了:<br>其实，它是计算机底层为了实现数值运算而决定的，涉及非常非常基础的原码，反码，补码知识，一般 (99.9999%) 都不会用得上。 那 0.0001%，估计也就是计算机考试了。</p>
+<p>话说:</p>
+<p>用 2^8 来表示无符号整数的话，全世界的理解都是 0 到 255 了，那么，有符号呢?</p>
+<p>用最高位表示符号，0 为 +，1 为 -，那么，正常的理解就是 -127 至 +127 了。 这就是原码了，值得一提的是，原码的弱点，有 2 个 0，即 + 0 和 - 0，还有就是，进行异号相加或同号相减时，比较笨蛋，先要判断 2 个数的绝对值大小，然后进行加减操作，最后运算结果的符号还要与大的符号相同。</p>
+<p>于是乎，反码产生了，原因。。。。略，反正，没过多久，反码就成为了过滤产物，也就是，后来补码出现了。</p>
+<p>补码的知识不说了，只说有关 + 127 和 - 128 的。<br>官方的定义 [-2^(n-1)，2(n-1)-1]，补码的 0 没有正负之分。原因呢? 没有一本书上有说，这也是我这么火的原因，但通过思考，google，再思考，很快找到答案:</p>
+<p>首先，难不免干点白痴般地事情，穷举一下。。。</p>
+<p>正数，原码跟补码一样</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">+127， 	0111 1111 </span><br><span class="line">+126， 	0111 1110 </span><br><span class="line">+125， 	0111 1101 </span><br><span class="line">+124， 	0111 1100 </span><br><span class="line">+123， 	0111 1011 </span><br><span class="line">+122，	0111 1010 </span><br><span class="line">……</span><br><span class="line">+4， 	0000 0100   </span><br><span class="line">+3， 	0000 0011   </span><br><span class="line">+2， 	0000 0010   </span><br><span class="line">+1， 	0000 0001 </span><br><span class="line">0，   	0000 0000 (无正负之分)</span><br></pre></td></tr></table></figure>
+<p>下面是负数了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">值， 	原码， 		符号位不变其它取反，	+1 </span><br><span class="line">-1， 	1000 0001，	1111 1110，		1111 1111</span><br><span class="line">-2，  	1000 0010，	1111 1101，		1111 1110   </span><br><span class="line">-3，  	1000 0011，	1111 1100，		1111 1101   </span><br><span class="line">-4，  	1000 0100，	1111 1011，		1111 1100   </span><br><span class="line">-5，  	1000 0101，	1111 1010，		1111 1011   </span><br><span class="line">-6，  	1000 0110，	1111 1001，		1111 1010   </span><br><span class="line">-7，  	1000 0111，	1111 1000，		1111 1001   </span><br><span class="line">-8，  	1000 1000，	1111 0111，		1111 1000   </span><br><span class="line">-9，  	1000 1001，	1111 0110，		1111 0111 </span><br><span class="line">-10，  	1000 1010，	1111 0101，		1111 0110 </span><br><span class="line">-11，  	1000 1011，	1111 0100，		1111 0101 </span><br><span class="line">-12，  	1000 1100，	1111 0011，		1111 0100 </span><br><span class="line">-13，  	1000 1101，	1111 0010，		1111 0011 </span><br><span class="line">-14，  	1000 1110，	1111 0001，		1111 0010 </span><br><span class="line">-15，  	1000 1111，	1111 0000，		1111 0001 </span><br><span class="line">-16，  	1001 0000，	1110 1111，		1111 0000 </span><br><span class="line">-17，  	1001 0001，	1110 1110，		1110 1111 </span><br><span class="line">…… </span><br><span class="line">-24，  	1001 1000，	1110 0111，		1110 1000 </span><br><span class="line">…… </span><br><span class="line">-99，  	1110 0011，	1001 1100，		1110 0100 </span><br><span class="line">…… </span><br><span class="line">-124， 	1111 1100，	1000 0011，		1000 0100 </span><br><span class="line">-125， 	1111 1101，	1000 0010，		1000 0011 </span><br><span class="line">-126， 	1111 1110，	1000 0001，		1000 0010 </span><br><span class="line">-127， 	1111 1111，	1000 0000，		1000 0001</span><br></pre></td></tr></table></figure>
+<p>看出点什么了没有?<br>如果没有，那么，给个提示， 再继续下去，下一个补码是什么呢?</p>
+<p>当然是</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">值， 	原码， 		符号位不变其它取反，	+1 </span><br><span class="line">-128， 	先略过，  	再略过， 			1000 0000</span><br></pre></td></tr></table></figure>
+<p>1000 0000 那么，它的原码是什么呢?</p>
+<p>从补码求原码的方法跟原码求补码是一样的。</p>
+<p>先保留符号位其它求反: 1111 1111， 再加 1:11000 0000， 超过了 8 位了 对，用 8 位数的原码在这里已经无法表示了。</p>
+<p>关键就在这里，补码 1000 0000 为 -128 是不用怀疑的 (上面的穷举)， 那么，回到原码处， 它的原码也是 1000 0000(超出的自动丢失)， 1000 0000 在原码表示什么呢? -0， 但补码却规定 0 没有正负之分 转换一下思路，看看计算机里，是怎么运算的:</p>
+<p>对于负数，先取绝对值，然后求反，加一</p>
+<p>-128 -&gt; 128 -&gt; 1000 0000 -&gt; 0111 1111 -&gt; 1000 0000</p>
+<p>现在明确了吧。</p>
+<p>所以， 8 位有符号的整数取值范围的补码表示 1000 0000 到 0000 0000， 再到 0111 1111 即 -128 到 0， 再到 127 最终 -128 ~ +127。</p>
+
+      
     </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
 </div>
 
-<div class="post-preview">
-    <div class="post-img" style="background-image: url('/images/java/basic/java_logo.png')"></div>
-    <div class="post-info">
-        <div class="post-info-center">
-            <div class="hidden-xs">
-                
-                
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#Java"
-                    title="Java">Java</a>
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#ThreadLocal"
-                    title="ThreadLocal">ThreadLocal</a>
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#Java线程"
-                    title="Java线程">Java线程</a>
-                <span>/</span>
-                
-                
-            </div>
-            <a href="/post/java/basic/2016-10-25_threadlocal.html" class="title">
-                ThreadLocal 笔记
-            </a>
-            <p class="text-gray">
-                <small>
-                    <span>发表于2016-10-25，</span>
-                    <span class="hidden-xs">全文3731字，</span>
-                    <span>阅读约13分钟</span>
-                </small>
-            </p>
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.fenxiangz.com/post/java/basic/2016-10-25_threadlocal.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Hassan">
+      <meta itemprop="description" content="Share everything">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="分享之">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/post/java/basic/2016-10-25_threadlocal.html" class="post-title-link" itemprop="url">ThreadLocal 笔记</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2016-10-25 11:29:24" itemprop="dateCreated datePublished" datetime="2016-10-25T11:29:24+00:00">2016-10-25</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-12-20 16:47:02" itemprop="dateModified" datetime="2020-12-20T16:47:02+00:00">2020-12-20</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Java-%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index"><span itemprop="name">Java 基础</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
         </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><strong>作用</strong></p>
+<p>ThreadLocal 不是用来解决共享对象访问的多线程访问问题，而是用于解决不同线程保持各自独立的一个对象。<br>典型的问题就是：当一个单例 A 持有某个属性对象 a.b 时，如果 a.b 在多个方法里面使用，就有可能造成线程不安全，如果把 b 定义成 ThreadLocal<B> b 就可以避免以上问题。</p>
+<p><strong>实现</strong></p>
+<p>一、ThreadLocal</p>
+<p>实例方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">public void set(T value) &#123;</span><br><span class="line">    Thread t &#x3D; Thread.currentThread();</span><br><span class="line">    ThreadLocalMap map &#x3D; getMap(t);</span><br><span class="line">    if (map !&#x3D; null)</span><br><span class="line">        map.set(this, value);</span><br><span class="line">    else</span><br><span class="line">        createMap(t, value);</span><br><span class="line">&#125;</span><br><span class="line">ThreadLocalMap getMap(Thread t) &#123;</span><br><span class="line">    return t.threadLocals;</span><br><span class="line">&#125;</span><br><span class="line">void createMap(Thread t, T firstValue) &#123;</span><br><span class="line">    t.threadLocals &#x3D; new ThreadLocalMap(this, firstValue);</span><br><span class="line">&#125;</span><br><span class="line">public T get() &#123;</span><br><span class="line">    Thread t &#x3D; Thread.currentThread();</span><br><span class="line">    ThreadLocalMap map &#x3D; getMap(t);</span><br><span class="line">    if (map !&#x3D; null) &#123;</span><br><span class="line">        ThreadLocalMap.Entry e &#x3D; map.getEntry(this);</span><br><span class="line">        if (e !&#x3D; null)</span><br><span class="line">            return (T)e.value;</span><br><span class="line">    &#125;</span><br><span class="line">    return setInitialValue();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>set() 方法逻辑：<br>获取当前线程对应的 ThreadLocalMap map;<br>如果存在直接 map.set;<br>否则 new ThreadLocalMap 给线程使用。</p>
+<p>由此可知，每个线程都有一个自己的 ThreadLocal.ThreadLocalMap 对象。</p>
+<p>get() 方法逻辑：<br>获取当前线程对应的 ThreadLocalMap map;<br>如果存在，且当前 ThreadLocal 实例对应的值不为空，返回 map 拿到的值；<br>否则，设置前 ThreadLocal 实例默认值并返回。</p>
+<p>二、ThreadLocalMap</p>
+<p>ThreadLocalMap 构造函数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">private static final int INITIAL_CAPACITY &#x3D; 16;</span><br><span class="line">ThreadLocalMap(ThreadLocal firstKey, Object firstValue) &#123;</span><br><span class="line">    table &#x3D; new Entry[INITIAL_CAPACITY];</span><br><span class="line">    int i &#x3D; firstKey.threadLocalHashCode &amp; (INITIAL_CAPACITY - 1);</span><br><span class="line">    table[i] &#x3D; new Entry(firstKey, firstValue);</span><br><span class="line">    size &#x3D; 1;</span><br><span class="line">    setThreshold(INITIAL_CAPACITY);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>第一点：INITIAL_CAPACITY 必须是 2 的 N 次幂，默认值为 16。</p>
+<p>为什么是 2 的 N 次幂值？</p>
+<p>ThreadLocalMap 类保存着一个 table 每一个 ThreadLocal 有自己的 threadLocalHashCode 值</p>
+<p>从 ThreadLocalMap table 里存 / 取值的时候会通过 threadLocalHashCode 值计算出一个 i，再通过 table[i] 得到 ThreadLocal 的值。<br>如构造函数代码所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int i &#x3D; firstKey.threadLocalHashCode &amp; (INITIAL_CAPACITY - 1);</span><br></pre></td></tr></table></figure>
+<p>这是计算方法，这个过程实际上是一个取模的过程。</p>
+<p>举个例子</p>
+<p>十进制取模：26 % 16 = 10</p>
+<p>二进制取模：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">  00011010 </span><br><span class="line">&amp; 00001111</span><br><span class="line">&#x3D; 00001010</span><br><span class="line">&#x3D; 10</span><br></pre></td></tr></table></figure>
+<p>所以，十进制的取模对于二进制，只需要使用公式 M &amp; (C-1) 即可，这种与操作对于 CPU 运算效率很高。当然，一个大前提就是 C-1 的值转换为二进制时，低位部分要求全是 1 才行。所以要求 C 必须是 2 的 N 次幂。</p>
+<p>第二点：threadLocalHashCode</p>
+<p>看一下 ThreadLocal 这部分的代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;**</span><br><span class="line"> * ThreadLocals rely on per-thread linear-probe hash maps attached</span><br><span class="line"> * to each thread (Thread.threadLocals and</span><br><span class="line"> * inheritableThreadLocals).  The ThreadLocal objects act as keys,</span><br><span class="line"> * searched via threadLocalHashCode.  This is a custom hash code</span><br><span class="line"> * (useful only within ThreadLocalMaps) that eliminates collisions</span><br><span class="line"> * in the common case where consecutively constructed ThreadLocals</span><br><span class="line"> * are used by the same threads, while remaining well-behaved in</span><br><span class="line"> * less common cases.</span><br><span class="line"> *&#x2F;</span><br><span class="line">private final int threadLocalHashCode &#x3D; nextHashCode();</span><br><span class="line">&#x2F;**</span><br><span class="line"> * The next hash code to be given out. Updated atomically. Starts at</span><br><span class="line"> * zero.</span><br><span class="line"> *&#x2F;</span><br><span class="line">private static AtomicInteger nextHashCode &#x3D; new AtomicInteger();</span><br><span class="line">&#x2F;**</span><br><span class="line"> * The difference between successively generated hash codes - turns</span><br><span class="line"> * implicit sequential thread-local IDs into near-optimally spread</span><br><span class="line"> * multiplicative hash values for power-of-two-sized tables.</span><br><span class="line"> *&#x2F;</span><br><span class="line">private static final int HASH_INCREMENT &#x3D; 0x61c88647;</span><br><span class="line">&#x2F;**</span><br><span class="line"> * Returns the next hash code.</span><br><span class="line"> *&#x2F;</span><br><span class="line">private static int nextHashCode() &#123;</span><br><span class="line">    return nextHashCode.getAndAdd(HASH_INCREMENT);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可以看出来，ThreadLocal 第一次 set 值的时候，threadLocalHashCode 得到的是 0，之后每次得到的数都是加了 0x61c88647。这算一个 16 进制表示的数，转换成十进制是：1640531527。</p>
+<p>为什么是这个数？</p>
+<p>本屌暂时还没搞懂~</p>
+<p>简单的总结一下 ThreadLocal：</p>
+<p>1、每一个 ThreadLocal 实例有一个自己的 threadLocalHashCode；<br>2、每一个 Thread 有一个自己的 ThreadLocalMap threadLocals， threadLocals 的 key 是 ThreadLocal 实例，value 是 ThreadLocal 真是的实际保存的对象实例。<br>3、ThreadLocalMap 使用 table 数组保存每一个 Entry（key-value）。<br>4、ThreadLocalMap 计算 ThreadLocal 对应 table[i] 的 i 使用 threadLocalHashCode 取模获得。</p>
+
+      
     </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
 </div>
 
-<div class="post-preview">
-    <div class="post-img" style="background-image: url('/images/java/basic/java_logo.png')"></div>
-    <div class="post-info">
-        <div class="post-info-center">
-            <div class="hidden-xs">
-                
-                
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#Java"
-                    title="Java">Java</a>
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#HashMap"
-                    title="HashMap">HashMap</a>
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#Java集合"
-                    title="Java集合">Java集合</a>
-                <span>/</span>
-                
-                
-            </div>
-            <a href="/post/java/basic/2016-10-25_hashmap_jdk7.html" class="title">
-                关于 HashMap （JDK 1.7）
-            </a>
-            <p class="text-gray">
-                <small>
-                    <span>发表于2016-10-25，</span>
-                    <span class="hidden-xs">全文3807字，</span>
-                    <span>阅读约13分钟</span>
-                </small>
-            </p>
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.fenxiangz.com/post/java/basic/2016-10-25_hashmap_jdk7.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Hassan">
+      <meta itemprop="description" content="Share everything">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="分享之">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/post/java/basic/2016-10-25_hashmap_jdk7.html" class="post-title-link" itemprop="url">关于 HashMap （JDK 1.7）</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2016-10-25 00:00:00" itemprop="dateCreated datePublished" datetime="2016-10-25T00:00:00+00:00">2016-10-25</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-12-20 16:47:02" itemprop="dateModified" datetime="2020-12-20T16:47:02+00:00">2020-12-20</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Java-%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index"><span itemprop="name">Java 基础</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
         </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>JDK 1.8 对 HashMap 改进很多，1.8 中已经移除了 Entry 的这种实现方式了，改用了 Node，所以存储结构也发生了很大的变化，代码也从 1k 行膨胀到了 2k 行，这次梳理的是 1.7 的 HashMap 实现。1.8 下次再详细看看。</p>
+<p>HashMap 继承 AbstractMap，实现了 Map 接口。</p>
+<h4 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">static final int DEFAULT_INITIAL_CAPACITY &#x3D; 1 &lt;&lt; 4; &#x2F;&#x2F; 默认初始化容量值，16，要求 2 的 N 次幂（计算 table index 要求），可以在构造方法指定，如果在构造函数指定 50，那么 Map 会自动选择扩容到 50 以后的 2 次幂，即：64</span><br><span class="line"></span><br><span class="line">static final int MAXIMUM_CAPACITY &#x3D; 1 &lt;&lt; 30;&#x2F;&#x2F; 最大容量</span><br><span class="line"></span><br><span class="line">static final float DEFAULT_LOAD_FACTOR &#x3D; 0.75f;&#x2F;&#x2F; 默认负载因子，可以在构造方法指定实际值</span><br><span class="line"></span><br><span class="line">transient Entry[] table &#x3D; (Entry[]) EMPTY_TABLE;&#x2F;&#x2F; 所有 HashMap 实例初始化时，共享该值，表示空集合</span><br><span class="line"></span><br><span class="line">transient int size;&#x2F;&#x2F; Map 中 k-v 个数</span><br><span class="line"></span><br><span class="line">int threshold;&#x2F;&#x2F; 临界值，size &gt;&#x3D; 该值的时候，进行 resize</span><br><span class="line"></span><br><span class="line">final float loadFactor;&#x2F;&#x2F; 负载因子，用于计算 threshold，threshold &#x3D; (int)Math.min(capacity* loadFactor, MAXIMUM_CAPACITY + 1);</span><br><span class="line"></span><br><span class="line">transient int modCount;&#x2F;&#x2F; 记录 Map 结构被修改的次数，这里的修改可能是 Map 的 size 改变，比如 put，remove，clear 等；rehash；当 clone 的时候，返回的克隆 Map 对象的 modCout 被为 0</span><br><span class="line"></span><br><span class="line">static final int ALTERNATIVE_HASHING_THRESHOLD_DEFAULT &#x3D; Integer.MAX_VALUE;&#x2F;&#x2F; 默认替换散列阈值</span><br><span class="line"></span><br><span class="line">private static class Holder.ALTERNATIVE_HASHING_THRESHOLD &#x2F;&#x2F; 替换散列阈值，该值在 VM 启动以后初始化，如果系统属性（system property）数定义了 jdk.map.althashing.threshold &gt;&#x3D; 0 时，则使用定义的值作为该值；否则使用 Integer.MAX_VALUE。当调用 resize 或者 inflateTable 的时候，如果满足条件 capacity &gt;&#x3D; 该值，会进行 rehash，rehash 的目的是为了避免 hash 值的碰撞。</span><br><span class="line"></span><br><span class="line">transient int hashSeed &#x3D; 0;&#x2F;&#x2F; hashSeed 用于计算 key 的 hash 值，它与 key 的 hashCode 进行按位异或运算。这个 hashSeed 是一个与实例相关的随机值，主要用于解决 hash 冲突。上面说到 rehash 其实就是事先改变 hashSeed 的值，以至于计算 key 的新 hash 值与原 hash 值不同</span><br></pre></td></tr></table></figure>
+
+<h4 id="构造方法"><a href="#构造方法" class="headerlink" title="构造方法"></a>构造方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public HashMap(int initialCapacity, float loadFactor)</span><br><span class="line"></span><br><span class="line">public HashMap(int initialCapacity)</span><br><span class="line"></span><br><span class="line">public HashMap()</span><br><span class="line"></span><br><span class="line">public HashMap(Map&lt;? extends K, ? extends V&gt; m)</span><br></pre></td></tr></table></figure>
+
+<h4 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public V put(K key, V value)</span><br><span class="line"></span><br><span class="line">public V get(Object key)</span><br><span class="line"></span><br><span class="line">public V remove(Object key)</span><br><span class="line"></span><br><span class="line">public boolean containsKey(Object key)</span><br></pre></td></tr></table></figure>
+
+<h4 id="内部存储结构（JDK-1-7）"><a href="#内部存储结构（JDK-1-7）" class="headerlink" title="内部存储结构（JDK 1.7）"></a>内部存储结构（JDK 1.7）</h4><p><img src="./2016-10-25_hashmap_jdk7/hashmap_jdk7.png" alt="HashMap内部结构"> </p>
+<p>（图片来源：<a target="_blank" rel="noopener" href="http://javaconceptoftheday.com/how-hashmap-works-internally-in-java/%EF%BC%89">http://javaconceptoftheday.com/how-hashmap-works-internally-in-java/）</a></p>
+<h4 id="Entry-结构"><a href="#Entry-结构" class="headerlink" title="Entry 结构"></a>Entry 结构</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">static class Entry&lt;K,V&gt; implements Map.Entry&lt;K,V&gt; &#123;</span><br><span class="line">    final K key;</span><br><span class="line">    V value;</span><br><span class="line">    Entry&lt;K,V&gt; next;</span><br><span class="line">    int hash;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Entry 自身持有另外一个 Entry 对象 next，构成了链表的数据结构。</p>
+<h4 id="put-方法"><a href="#put-方法" class="headerlink" title="put 方法"></a>put 方法</h4><p>算哈希值 –&gt; 算 table index –&gt; 存。</p>
+<p>1、检查 table ，如果 == EMPTY_TABLE，先按照指定的容量扩容 table ，即：table = new Entry[capacity]，如果 capacity 的值不是 2 的 N 次幂，则 capacity 值会被修改为比 capacity 大的最近一个 2 的 N 次幂数。</p>
+<p>2、检查 key == null ，如果是，则认为 key 的 hashValue 对应的 table index 为 0，否则需要计算 key 的 hashValue ，计算方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">final int hash(Object k) &#123;</span><br><span class="line">    int h &#x3D; hashSeed;</span><br><span class="line">    if (0 !&#x3D; h &amp;&amp; k instanceof String) &#123;</span><br><span class="line">        return sun.misc.Hashing.stringHash32((String) k);</span><br><span class="line">    &#125;</span><br><span class="line">    h ^&#x3D; k.hashCode();</span><br><span class="line">    &#x2F;&#x2F; This function ensures that hashCodes that differ only by</span><br><span class="line">    &#x2F;&#x2F; constant multiples at each bit position have a bounded</span><br><span class="line">    &#x2F;&#x2F; number of collisions (approximately 8 at default load factor).</span><br><span class="line">    h ^&#x3D; (h &gt;&gt;&gt; 20) ^ (h &gt;&gt;&gt; 12);</span><br><span class="line">    return h ^ (h &gt;&gt;&gt; 7) ^ (h &gt;&gt;&gt; 4);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然后，计算 hashValue 对应的 table index ，方法：index = hashValue &amp; (table.length-1);</p>
+<p>这个运算相当于 hashValue 对 table.length 的取模运算。因为 table.length 是优化过的，是 2 的 N 次幂，所以可以这样计算。（数学原理参考另外篇文章：<a href="http://blog.fenxiangz.com/java-basic/thread-local/">http://blog.fenxiangz.com/java-basic/thread-local/</a> ，ThreadLocalMap 部分）</p>
+<p>最后，就算出了这个 key-value 对于的 table[index] 了。</p>
+<p>3、put，如果 table[index] == null , 则直接 new Entry，存就好了；</p>
+<p>否则，先计算 table[index] 链表上的所有 Entry e，确认是否有 e.hash == hashValue &amp;&amp; e.key.equals(key) 的 e，</p>
+<p>如果有，则用新的 value 替换旧的 e.value 并返回旧的 e.value；</p>
+<p>否则，e1 = new Entry， table[index] = e1 ，并把原有的 table[index] 作为 e1.next。</p>
+<p>存的过程，如果 (size&gt;= threshold) &amp;&amp; (null != table[index])，会导致 resize 扩容，并且如果满足条件 capacity &gt;= Holder.ALTERNATIVE_HASHING_THRESHOLD 的时候会进行 rehash，rehash 的目的是为了避免 hash 值的碰撞。</p>
+<p>rehash 的成本是很高的，所以，如果使用 HashMap 的时候，指定了 capacity ，capacity 应该尽可能的大于业务预期的大小。防止过程中 rehash。</p>
+
+      
     </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
 </div>
 
-<div class="post-preview">
-    <div class="post-img" style="background-image: url('/')"></div>
-    <div class="post-info">
-        <div class="post-info-center">
-            <div class="hidden-xs">
-                
-                
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#关于我"
-                    title="关于我">关于我</a>
-                <span>/</span>
-                
-                
-            </div>
-            <a href="/post/about.html" class="title">
-                关于我
-            </a>
-            <p class="text-gray">
-                <small>
-                    <span>发表于2012-11-03，</span>
-                    <span class="hidden-xs">全文73字，</span>
-                    <span>阅读约1分钟</span>
-                </small>
-            </p>
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.fenxiangz.com/post/about.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Hassan">
+      <meta itemprop="description" content="Share everything">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="分享之">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/post/about.html" class="post-title-link" itemprop="url">关于我</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2012-11-03 02:00:00" itemprop="dateCreated datePublished" datetime="2012-11-03T02:00:00+00:00">2012-11-03</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-12-20 16:47:02" itemprop="dateModified" datetime="2020-12-20T16:47:02+00:00">2020-12-20</time>
+      </span>
+
+  
+</div>
+
         </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          
+      
     </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
 </div>
 
-<div class="post-preview">
-    <div class="post-img" style="background-image: url('/')"></div>
-    <div class="post-info">
-        <div class="post-info-center">
-            <div class="hidden-xs">
-                
-                
-            </div>
-            <a href="/post/link.html" class="title">
-                友情链接
-            </a>
-            <p class="text-gray">
-                <small>
-                    <span>发表于2012-11-03，</span>
-                    <span class="hidden-xs">全文65字，</span>
-                    <span>阅读约1分钟</span>
-                </small>
-            </p>
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.fenxiangz.com/post/link.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Hassan">
+      <meta itemprop="description" content="Share everything">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="分享之">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/post/link.html" class="post-title-link" itemprop="url">友情链接</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2012-11-03 01:00:00" itemprop="dateCreated datePublished" datetime="2012-11-03T01:00:00+00:00">2012-11-03</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-12-20 16:47:02" itemprop="dateModified" datetime="2020-12-20T16:47:02+00:00">2020-12-20</time>
+      </span>
+
+  
+</div>
+
         </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          
+      
     </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
 </div>
 
-<div class="post-preview">
-    <div class="post-img" style="background-image: url('/images/helloworld.jpg')"></div>
-    <div class="post-info">
-        <div class="post-info-center">
-            <div class="hidden-xs">
-                
-                
-                <span>/</span>
-                
-                <a class="text-gray" href="/tags/#Hello World"
-                    title="Hello World">Hello World</a>
-                <span>/</span>
-                
-                
-            </div>
-            <a href="/post/hello-world.html" class="title">
-                Hello World
-            </a>
-            <p class="text-gray">
-                <small>
-                    <span>发表于2012-11-03，</span>
-                    <span class="hidden-xs">全文931字，</span>
-                    <span>阅读约4分钟</span>
-                </small>
-            </p>
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.fenxiangz.com/post/hello-world.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Hassan">
+      <meta itemprop="description" content="Share everything">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="分享之">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/post/hello-world.html" class="post-title-link" itemprop="url">Hello World</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2012-11-03 00:00:00" itemprop="dateCreated datePublished" datetime="2012-11-03T00:00:00+00:00">2012-11-03</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-12-20 16:47:02" itemprop="dateModified" datetime="2020-12-20T16:47:02+00:00">2020-12-20</time>
+      </span>
+
+  
+</div>
+
         </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+
+      
     </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
 </div>
 
-<div style="margin: 15px 0">
-    <div class="text-center">
-    <p>
-        
-        <a href="/page/11/">« 上一页</a>
-        
-        &nbsp;&nbsp;&nbsp;&nbsp;
-        
-    </p>
-</div>
-</div>
-    </div>
-    <aside class="float-left gkt-sidebar hidden-xs hidden-sm">
-        <div style="clear: both"></div>
-        <div class="gkt-sidebar-wrapper">
-            <section class="bg-white box-shadow"><style>
-    .gkt-summary {
-        border: 1px solid #DDDDDD;
-        border-radius: 3px;
-        padding: 5px;
-        width: 100%;
-    }
 
 
-    .gkt-summary nav {
-        overflow: hidden;
-    }
 
-    .gkt-summary nav a {
-        display: inline-block;
-        text-align: center;
-        color: #333;
-        font-size: 12px;
-    }
-
-    .gkt-summary nav span {
-        display: block;
-    }
-
-    .gkt-summary nav .middle {
-        border-left: 1px solid #eaecef;
-        border-right: 1px solid #eaecef;
-    }
-
-    .gkt-summary .number {
-        font-weight: bold;
-    }
-
-    .gkt-summary .link-list {
-        margin-top: 5px;
-        margin-bottom: -5px;
-        padding-top: 7px;
-        border-top: 1px dashed #999;
-        display: flex;
-    }
-
-    .gkt-summary .link-list a {
-        flex: 1;
-    }
-
-    .gkt-summary .link-list img {
-        width: 25px;
-        height: 25px;
-    }
-</style>
-
-<div class="gkt-summary">
-    <nav>
-        <a href="/" class="col-xs-4">
-            <span class="number">117</span><span>文章</span>
-        </a>
-        <a href="/series" class="col-xs-4 middle">
-            <span class="number">36</span><span>专题</span>
-        </a>
-        <a href="/tags" class="col-xs-4">
-            <span class="number">153</span><span>标签</span>
-        </a>
-    </nav>
-
-    
-</div></section>
-            <section class="gkt-sidebar-content bg-white box-shadow"><!-- Featured Tags -->
-<style>
-    #featured-tag .post-tag-item {
-        font-size: 12px;
-        line-height: 30px;
-        display: inline-block;
-        height: 30px;
-        margin: 5px 0px;
-        padding: 0 7px;
-        color: #333;
-        border-radius: 15px;
-        background: #f6f6f6;
-    }
-
-    #featured-tag .post-tag-item:hover {
-        color: #337ab7;
-    }
-</style>
-<div id="featured-tag">
-    
-    <a class="post-tag-item" href="/tags/#关于我" title="关于我"
-        rel="1">#关于我 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Hello World" title="Hello World"
-        rel="1">#Hello World (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#八皇后" title="八皇后"
-        rel="1">#八皇后 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#算法" title="算法"
-        rel="2">#算法 (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#创建型模式" title="创建型模式"
-        rel="1">#创建型模式 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#设计模式" title="设计模式"
-        rel="3">#设计模式 (3) </a>
-    
-    <a class="post-tag-item" href="/tags/#分布式" title="分布式"
-        rel="3">#分布式 (3) </a>
-    
-    <a class="post-tag-item" href="/tags/#CAP" title="CAP"
-        rel="1">#CAP (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#概念" title="概念"
-        rel="4">#概念 (4) </a>
-    
-    <a class="post-tag-item" href="/tags/#脑裂" title="脑裂"
-        rel="1">#脑裂 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#术语" title="术语"
-        rel="1">#术语 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#理论" title="理论"
-        rel="1">#理论 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Docker" title="Docker"
-        rel="2">#Docker (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#入门" title="入门"
-        rel="2">#入门 (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#学习笔记" title="学习笔记"
-        rel="1">#学习笔记 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#JavaScript" title="JavaScript"
-        rel="4">#JavaScript (4) </a>
-    
-    <a class="post-tag-item" href="/tags/#chameleon" title="chameleon"
-        rel="2">#chameleon (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#跨平台" title="跨平台"
-        rel="2">#跨平台 (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#小程序" title="小程序"
-        rel="2">#小程序 (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#Android" title="Android"
-        rel="1">#Android (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#apk" title="apk"
-        rel="1">#apk (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#反编译" title="反编译"
-        rel="1">#反编译 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Java" title="Java"
-        rel="52">#Java (52) </a>
-    
-    <a class="post-tag-item" href="/tags/#面试" title="面试"
-        rel="3">#面试 (3) </a>
-    
-    <a class="post-tag-item" href="/tags/#数据结构" title="数据结构"
-        rel="1">#数据结构 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#IO" title="IO"
-        rel="12">#IO (12) </a>
-    
-    <a class="post-tag-item" href="/tags/#同步" title="同步"
-        rel="2">#同步 (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#异步" title="异步"
-        rel="1">#异步 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#阻塞" title="阻塞"
-        rel="1">#阻塞 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#非阻塞" title="非阻塞"
-        rel="1">#非阻塞 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#符号链接" title="符号链接"
-        rel="1">#符号链接 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#目录" title="目录"
-        rel="1">#目录 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#deb" title="deb"
-        rel="2">#deb (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#chrome" title="chrome"
-        rel="1">#chrome (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#快捷键" title="快捷键"
-        rel="1">#快捷键 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#bbr" title="bbr"
-        rel="1">#bbr (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#协议" title="协议"
-        rel="3">#协议 (3) </a>
-    
-    <a class="post-tag-item" href="/tags/#XXNET" title="XXNET"
-        rel="1">#XXNET (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#磁盘管理" title="磁盘管理"
-        rel="1">#磁盘管理 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#挂载" title="挂载"
-        rel="1">#挂载 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#网络" title="网络"
-        rel="2">#网络 (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#模型" title="模型"
-        rel="2">#模型 (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#MMAP" title="MMAP"
-        rel="1">#MMAP (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#内存映射" title="内存映射"
-        rel="1">#内存映射 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#内存" title="内存"
-        rel="1">#内存 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#零拷贝" title="零拷贝"
-        rel="2">#零拷贝 (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#输入法" title="输入法"
-        rel="1">#输入法 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#命令" title="命令"
-        rel="1">#命令 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#集合运算" title="集合运算"
-        rel="1">#集合运算 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Ubuntu" title="Ubuntu"
-        rel="1">#Ubuntu (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#包管理" title="包管理"
-        rel="4">#包管理 (4) </a>
-    
-    <a class="post-tag-item" href="/tags/#TCP" title="TCP"
-        rel="3">#TCP (3) </a>
-    
-    <a class="post-tag-item" href="/tags/#UDP" title="UDP"
-        rel="2">#UDP (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#网络协议" title="网络协议"
-        rel="1">#网络协议 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#CDN" title="CDN"
-        rel="1">#CDN (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Socket" title="Socket"
-        rel="1">#Socket (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#vpn" title="vpn"
-        rel="1">#vpn (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#ssh" title="ssh"
-        rel="1">#ssh (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Heidi" title="Heidi"
-        rel="1">#Heidi (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#MySQL" title="MySQL"
-        rel="9">#MySQL (9) </a>
-    
-    <a class="post-tag-item" href="/tags/#网络术语" title="网络术语"
-        rel="3">#网络术语 (3) </a>
-    
-    <a class="post-tag-item" href="/tags/#URL" title="URL"
-        rel="1">#URL (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#URI" title="URI"
-        rel="1">#URI (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Tampermonkey" title="Tampermonkey"
-        rel="1">#Tampermonkey (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#弹琴吧" title="弹琴吧"
-        rel="1">#弹琴吧 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#吉他" title="吉他"
-        rel="1">#吉他 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#V2ray" title="V2ray"
-        rel="1">#V2ray (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Jira" title="Jira"
-        rel="1">#Jira (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#管理" title="管理"
-        rel="2">#管理 (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#认知" title="认知"
-        rel="1">#认知 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#备份" title="备份"
-        rel="1">#备份 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#MSSQL" title="MSSQL"
-        rel="1">#MSSQL (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Redis" title="Redis"
-        rel="1">#Redis (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#优化" title="优化"
-        rel="2">#优化 (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#SQL优化" title="SQL优化"
-        rel="2">#SQL优化 (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#ACID" title="ACID"
-        rel="1">#ACID (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#幻读" title="幻读"
-        rel="1">#幻读 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#性能优化" title="性能优化"
-        rel="4">#性能优化 (4) </a>
-    
-    <a class="post-tag-item" href="/tags/#阅读笔记" title="阅读笔记"
-        rel="2">#阅读笔记 (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#字符集" title="字符集"
-        rel="2">#字符集 (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#Collation" title="Collation"
-        rel="1">#Collation (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#临时表" title="临时表"
-        rel="1">#临时表 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Vue" title="Vue"
-        rel="2">#Vue (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#二进制" title="二进制"
-        rel="2">#二进制 (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#内存分配" title="内存分配"
-        rel="1">#内存分配 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#内存泄露" title="内存泄露"
-        rel="1">#内存泄露 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#书籍推荐" title="书籍推荐"
-        rel="1">#书籍推荐 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#知识体系" title="知识体系"
-        rel="1">#知识体系 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#反码" title="反码"
-        rel="1">#反码 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#补码" title="补码"
-        rel="1">#补码 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#单例" title="单例"
-        rel="1">#单例 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#DCL" title="DCL"
-        rel="1">#DCL (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#内存模型" title="内存模型"
-        rel="1">#内存模型 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#jvm" title="jvm"
-        rel="3">#jvm (3) </a>
-    
-    <a class="post-tag-item" href="/tags/#HashMap" title="HashMap"
-        rel="1">#HashMap (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Java集合" title="Java集合"
-        rel="1">#Java集合 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#ThreadLocal" title="ThreadLocal"
-        rel="1">#ThreadLocal (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Java线程" title="Java线程"
-        rel="3">#Java线程 (3) </a>
-    
-    <a class="post-tag-item" href="/tags/#异常" title="异常"
-        rel="1">#异常 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Java异常" title="Java异常"
-        rel="1">#Java异常 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#思维导图" title="思维导图"
-        rel="2">#思维导图 (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#垃圾回收" title="垃圾回收"
-        rel="2">#垃圾回收 (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#Java引用" title="Java引用"
-        rel="1">#Java引用 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Exception" title="Exception"
-        rel="1">#Exception (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Stream" title="Stream"
-        rel="1">#Stream (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Netty" title="Netty"
-        rel="4">#Netty (4) </a>
-    
-    <a class="post-tag-item" href="/tags/#笔记" title="笔记"
-        rel="1">#笔记 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#NIO" title="NIO"
-        rel="7">#NIO (7) </a>
-    
-    <a class="post-tag-item" href="/tags/#Buffer" title="Buffer"
-        rel="1">#Buffer (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Selector" title="Selector"
-        rel="1">#Selector (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#问题" title="问题"
-        rel="2">#问题 (2) </a>
-    
-    <a class="post-tag-item" href="/tags/#直接内存" title="直接内存"
-        rel="1">#直接内存 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#非直接内存" title="非直接内存"
-        rel="1">#非直接内存 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#堆内存" title="堆内存"
-        rel="1">#堆内存 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#注解" title="注解"
-        rel="1">#注解 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Spring" title="Spring"
-        rel="6">#Spring (6) </a>
-    
-    <a class="post-tag-item" href="/tags/#文件加载" title="文件加载"
-        rel="1">#文件加载 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Spring Boot" title="Spring Boot"
-        rel="3">#Spring Boot (3) </a>
-    
-    <a class="post-tag-item" href="/tags/#Spring Cloud" title="Spring Cloud"
-        rel="1">#Spring Cloud (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Gradle" title="Gradle"
-        rel="3">#Gradle (3) </a>
-    
-    <a class="post-tag-item" href="/tags/#Idea" title="Idea"
-        rel="1">#Idea (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#JavaIDE" title="JavaIDE"
-        rel="1">#JavaIDE (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#监控" title="监控"
-        rel="1">#监控 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#报警" title="报警"
-        rel="1">#报警 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Prometheus" title="Prometheus"
-        rel="1">#Prometheus (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#SVN" title="SVN"
-        rel="1">#SVN (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#结构型模式" title="结构型模式"
-        rel="1">#结构型模式 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#行为型模式" title="行为型模式"
-        rel="1">#行为型模式 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#云原生" title="云原生"
-        rel="1">#云原生 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Cloud" title="Cloud"
-        rel="1">#Cloud (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#异步IO" title="异步IO"
-        rel="1">#异步IO (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#直接IO" title="直接IO"
-        rel="1">#直接IO (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#慢查" title="慢查"
-        rel="1">#慢查 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#序列化" title="序列化"
-        rel="1">#序列化 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#函数式编程" title="函数式编程"
-        rel="1">#函数式编程 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#lambda" title="lambda"
-        rel="1">#lambda (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#并发编程" title="并发编程"
-        rel="1">#并发编程 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#JUC" title="JUC"
-        rel="1">#JUC (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#lambda表达式" title="lambda表达式"
-        rel="1">#lambda表达式 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#源码" title="源码"
-        rel="1">#源码 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#RPC" title="RPC"
-        rel="1">#RPC (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Reactor" title="Reactor"
-        rel="1">#Reactor (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#NIO模型" title="NIO模型"
-        rel="1">#NIO模型 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#工具" title="工具"
-        rel="1">#工具 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Wiki" title="Wiki"
-        rel="1">#Wiki (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#整理" title="整理"
-        rel="1">#整理 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#操作系统" title="操作系统"
-        rel="1">#操作系统 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#微服务" title="微服务"
-        rel="1">#微服务 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Vert.x" title="Vert.x"
-        rel="1">#Vert.x (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#Spring Core" title="Spring Core"
-        rel="1">#Spring Core (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#源码分析" title="源码分析"
-        rel="1">#源码分析 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#文件名批量修改" title="文件名批量修改"
-        rel="1">#文件名批量修改 (1) </a>
-    
-    <a class="post-tag-item" href="/tags/#HttpClient" title="HttpClient"
-        rel="1">#HttpClient (1) </a>
-    
-</div></section>
-            
-        </div>
-    </aside>
-    
-
-<script>
-    (function () {
-        var ele = getDom('.gkt-sidebar-content')
-        if(!ele) return;
-        var wrapper = getDom('.gkt-sidebar-wrapper')
-        var last = 0
-        ele.style.maxHeight = ((window.innerHeight || 798) - 200) + 'px'
-        var f = function (e) {
-            var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-            var isDown = scrollTop > last;
-            var pos = getPosition(ele).y - scrollTop;
-            var downLimit = 50;
-            var upLimit = -100;
-            // uarrow.style.marginTop = scrollTop + 'px';
-            isDown && pos <= downLimit && wrapper.classList.add("gkt-sidebar-fixed");
-            !isDown && pos > upLimit && wrapper.classList.remove("gkt-sidebar-fixed");
-            last = scrollTop
-        }
-        f()
-        window.addEventListener("scroll", f)
-    })();
-</script>
-
-</main>
-    </div>
-    <style>
-    img#go-top {
-        position: fixed;
-        bottom: 100px;
-        width: 50px;
-        cursor: pointer;
-        z-index: 9999;
-    }
-</style>
-<img id="go-top" src="/icon/top.png" class="hidden-xs" style="display: none" />
-<script>
-    (function () {
-        var goTop = document.getElementById('go-top');
-        var mainContainer = document.querySelector('.main-container');
-        
-        goTop.addEventListener('click', function () {
-            window.scroll(0, 0);
-        }, false);
-        window.addEventListener('scroll', function () {
-            var right = document.body.offsetWidth - mainContainer.getBoundingClientRect().right;
-            var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-            goTop.style.right = right + 10 + 'px'
-            scrollTop > 700 && (goTop.style.display = "block");
-            scrollTop <= 700 && (goTop.style.display = "none");
-        });
-    })();
-</script>
-    <style>
-    #geektutu-click-img-container {
-        position: fixed;
-        left: 0;
-        top: 0;
-        text-align: center;
-        width: 100%;
-        display: none;
-        z-index: 9999;
-    }
-
-    #geektutu-click-img-container img {
-        object-fit: contain;
-        background: #eaecef;
-        padding: 15px;
-        border-radius: 10px;
-        height: auto;
-        width: auto;
-        vertical-align: middle;
-    }
-</style>
-
-
-<div id="geektutu-click-img-container">
-    <img src="" alt="Big Image">
-</div>
-
-<script>
-    (function () {
-        var container = document.querySelector('#geektutu-click-img-container')
-        var targetImg = container.querySelector('img')
-        var imgs = document.querySelectorAll('article img');
-        targetImg.addEventListener('click', function (e) {
-            container.style.display = 'none';
-            e && e.stopPropagation && e.stopPropagation();
-        }, false);
-
-        for (var i = 0; i < imgs.length; ++i) {
-            var img = imgs[i];
-            img.addEventListener('click', (function (src, rate) {
-                return function (e) {
-                    e && e.stopPropagation && e.stopPropagation();
-                    if (window.innerWidth < 980) {
-                        return
-                    }
-                    targetImg.style.height = targetImg.style.width = 'auto';
-                    if (window.innerWidth / window.innerHeight > rate) {
-                        targetImg.style.height = (window.innerHeight - 20) + 'px';
-                    } else {
-                        targetImg.style.width = (window.innerWidth - 20) + 'px';
-                    }
-                    container.style.height = window.innerHeight + 'px'
-                    container.style.lineHeight = window.innerHeight + 'px'
-                    container.style.display = 'block';
-                    targetImg.src = src;
-                };
-            }(img.src, img.width / img.height)), false)
-        }
-    })();
-</script>
-    <!-- Footer -->
-    <!-- Footer -->
-<style>
-    footer {
-        width: 100%;
-        line-height: 1.5;
-        padding: 20px;
-    }
-
-    footer a {
-        color: #333;
-        text-decoration: none;
-    }
-
-    .footer-hexo img {
-        height: 20px;
-        margin-bottom: -5px;
-    }
-
-    .footer-hexo a {
-        color: #337ab7;
-    }
-</style>
-<footer class="text-center col-xs-12">
-    <p>
-        <small>© 2020 - Hassan - </small>
-        <small>
-            <a target="_blank" rel="nofollow noopener" href="http://beian.miit.gov.cn/"></a>
-        </small>
-    </p>
-    <p class="footer-hexo">
-        <!-- 但若直接使用或修改主题，请务必保留这段声明 -->
-        <small>Powered by <a target="_blank" href="https://hexo.io">Hexo</a> | Theme
-            <a target="_blank" href="https://geektutu.com">Geektutu</a>
-            <a target="_blank" rel="noopener" href="https://github.com/geektutu/hexo-theme-geektutu">
-                <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAYGBgYHBgcICAcKCwoLCg8ODAwODxYQERAREBYiFRkVFRkVIh4kHhweJB42KiYmKjY+NDI0PkxERExfWl98fKcBBgYGBgcGBwgIBwoLCgsKDw4MDA4PFhAREBEQFiIVGRUVGRUiHiQeHB4kHjYqJiYqNj40MjQ+TERETF9aX3x8p//CABEIACIAUAMBIgACEQEDEQH/xAAcAAABBAMBAAAAAAAAAAAAAAAAAQQFBwIDBgj/2gAIAQEAAAAA9KrHSgAYL5/z6zZGuJd12uugbhq3uKtmuRtix20IS7lTLAfAAAn/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/9oACAECEAAAAAAB/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/aAAgBAxAAAAAAAf/EADEQAAICAQIEBQEGBwAAAAAAAAECAwQFAAYREhORBxQhUlQxQVFic5KxJDJCYYGC0f/aAAgBAQABPwCFHnjWUzuvN6hV4cANSRLGjO9yRVUcSzMoA7jVXJYe5N0a2dhmk9kc0bN2GvLN8mbuNeWb5M3ca8s3yZu415Y/Jm7jXlm+TN3H/NeVPyZu40vOk3TZywK8wJ+v3EHVM/wsI/Dq2lrxN3Nnca16eti8chSAIoMbzByhMwP14kHVfwIiSaF5c96J6kwwCOTnHsYk8uvCrdmQy1TI4rJuz3cZLyGR/wCd4+YoOf8AEpUjXitubLYPG4paFsUxcuiGe7yc5gTW3LW44szXmobsi3Dhmic2+Z4+vCVH9CpraPiQ+QvbgTJrPFBWd5YpWrmNIIEXiRO32Pqt4p7cnfHk18lFBdmEVW1LVdIZGOrniTt6plrWKaO69yCykDRxwF+LMAewB0Txtr+Sf31VI8tEPw62fZt7N3Humtbpzz13ucX6CGSWMSuzpLyD1eNgeUka3PuvHbaxq3biTMHfkiSNCS78CwU+3Xg7Vu3MhuTcU6cq3Zemn3Eh2dv8Lzcut+29x1atKbHYqLJUhLwyNMwiZ3j9yDWOxUOV3tgb+3No5LDx1pi9+aeIwRlNY6bc+Jv+IFGrhLxtXJZ7VKcw81diiAAEn0JOrkWZyNfbEr0tz27UGQgkuGzXdIIvyowq99bRxk9ffO/L81SZBPZgEEroQroIxxMZOgeNsfkn99QypHGqO4Vl9CDrN4LDZkwyzyyQ2IgRHZrzGCZVP1XnQglT9oOtw4LC7iqV6uRkZoYpxKFSQpzFRw4EjVRMfSrQ1qqwxQxKFjjTgFUD7BoWYR6iVe+mtxt9Zwf9teaj4AdccPu5tedX5A/VrzUR+sy/q1CwksF19VEfDj/cnQRW+qg66cfsXtrpx+xe2unH7F7a6cfsXtrpx+xe2unH7F7a6cfsXtoxx+xe2gAAOA1//8QAFBEBAAAAAAAAAAAAAAAAAAAAMP/aAAgBAgEBPwB//8QAFBEBAAAAAAAAAAAAAAAAAAAAMP/aAAgBAwEBPwB//9k="
-                    alt="Github Star">
-            </a>
-        </small>
-    </p>
-    
-    <p>
-        <small>
-            <span id="busuanzi_container_site_pv">👁<span id="busuanzi_value_site_pv"></span></span> &nbsp;
-            <span id="busuanzi_container_page_pv">📚<span id="busuanzi_value_page_pv"></span></span>
-        </small>
-    </p>
-    
-    
-
-</footer>
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/11/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span>
+  </nav>
 
 
 <script>
-    window.addEventListener('load', function () {
-        globalAddScript('//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js');
-    })
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
 </script>
+</div>
+  </main>
 
-<!-- Baidu Tongji -->
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Hassan</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
 
 
 
 
 
-    <script>
-        // 非本站网址，新开tab页签
-        (function () {
-            var stopBubble = function (e) {
-                e && e.stopPropagation && e.stopPropagation();
-            }
-            var links = document.querySelectorAll('a');
-            [].slice.call(links).forEach(function (item) {
-                if (item.href && item.href.indexOf(window.location.host) === -1) {
-                    item.target = '_blank'
-                }
-                // 阻止冒泡，不触发彩蛋。
-                item.addEventListener('click', stopBubble, false);
-            });
-            var article = document.querySelector('article');
-            article && article.addEventListener('click', stopBubble, false)
-        })();
-    </script>
-    
-<script>
-    (function (window, document, undefined) {
-        var hearts = [];
-        var keywords = ["点个赞", "留个言", "赞赏一下", "分享之", "blog.fenxiangz.com"];
-        function randomInt(max) {
-            return Math.floor(Math.random() * Math.floor(max));
-        }
-        window.addEventListener('click', createWord)
 
-        function createWord(e) {
-            var d = document.createElement("span");
-            d.style.position = 'fixed';
-            d.style.zIndex = 9999;
-            d.style.color = 'rgb(' + [randomInt(255), randomInt(255), randomInt(255)].join(',') + ')';
-            d.innerHTML = keywords[randomInt(keywords.length)];
-            d.onselectstart = function () { return false; }
 
-            hearts.push({ el: d, x: e.clientX - 5, y: e.clientY - 5, alpha: 1, scale: 1 });
-            document.body.appendChild(d);
-        }
-        (function gameloop() {
-            for (var i = 0; i < hearts.length; i++) {
-                heart = hearts[i];
-                if (heart.alpha <= 0) {
-                    document.body.removeChild(heart.el);
-                    hearts.splice(i, 1);
-                    continue;
-                }
-                heart.y -= heart.alpha < 0.5 ? 2 : 1;
-                heart.scale += 0.002;
-                heart.alpha -= 0.013;
-                heart.el.style.transform = 'scale(' + heart.scale + ')';
-                heart.el.style.left = heart.x + 'px';
-                heart.el.style.top = heart.y + 'px';
-            }
-            setTimeout(gameloop, 10)
-        })();
-    })(window, document);
-</script>
+  
+
+
+
+
+
 
 </body>
-
 </html>
