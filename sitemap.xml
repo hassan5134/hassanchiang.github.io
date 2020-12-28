@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.fenxiangz.com/tags/index.html</loc>
+    
+    <lastmod>2020-12-28</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.fenxiangz.com/categories/index.html</loc>
+    
+    <lastmod>2020-12-28</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.fenxiangz.com/archives/index.html</loc>
     
     <lastmod>2020-12-24</lastmod>
@@ -10,20 +24,6 @@
   
   <url>
     <loc>https://blog.fenxiangz.com/series/index.html</loc>
-    
-    <lastmod>2020-12-24</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.fenxiangz.com/tags/index.html</loc>
-    
-    <lastmod>2020-12-24</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.fenxiangz.com/categories/index.html</loc>
     
     <lastmod>2020-12-24</lastmod>
     
