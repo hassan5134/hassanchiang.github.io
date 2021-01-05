@@ -599,7 +599,9 @@ protected void checkClose() throws IOException &#123;
     
   <section id="comments">
   	
-      <div id="vcomments"></div>
+      <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      </div>
     
   </section>
 
@@ -690,29 +692,21 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 
    
     
-  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/valine"></script>
-  <script type="text/javascript">
-  var GUEST = ['nick', 'mail', 'link'];
-  var meta = 'nick,mail,link';
-  meta = meta.split(',').filter(function(item) {
-    return GUEST.indexOf(item) > -1;
-  });
-  new Valine({
-    el: '#vcomments',
-    verify: false,
-    notify: false,
-    appId: '',
-    appKey: '',
-    placeholder: 'Just go go',
-    avatar: 'mm',
-    meta: meta,
-    pageSize: '10' || 10,
-    visitor: false
-  });
-  </script>
+    <script defer>
+    var disqus_config = function () {
+        
+            this.page.url = 'https://blog.fenxiangz.com/post/java/util/2020-12-23_HttpClient%E8%BF%9E%E6%8E%A5%E6%B1%A0%E5%8E%9F%E7%90%86%E5%8F%8A%E4%B8%80%E6%AC%A1%E8%BF%9E%E6%8E%A5%E6%97%B6%E5%BA%8F%E5%9B%BE.html';
+        
+        this.page.identifier = 'java/util/2020-12-23_HttpClient连接池原理及一次连接时序图';
+    };
+    (function() { 
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + '513' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
 
-     
 
 
 
