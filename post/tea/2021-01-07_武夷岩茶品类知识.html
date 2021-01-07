@@ -17,26 +17,23 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>从源码的角度再学「Thread」 | 分享之</title>
-  <meta name="description" content="原创： zhangshaolin 张少林同学微信号: zhangshaolin_tonxue 功能介绍 分享 前言Java中的线程是使用Thread类实现的，Thread在初学Java的时候就学过了，也在实践中用过，不过一直没从源码的角度去看过它的实现，今天从源码的角度出发，再次学习Java Thread，愿此后对Thread的实践更加得心应手。 从注释开始相信阅读过JDK源码的同学都能感受到JD">
+  <title>开发资源导航 | 分享之</title>
+  <meta name="description" content="Javascript  jQuery Fundamentals  - jQuery 入门教程。 JavaScript库 代码解构  - 将JavaScript流行框架源代码条分缕析展现出来 深入理解Javascript系列 Script的defer和async的区别 Javascript面向对象基础 Backbone.js基础 JavaScript Madness: Keyboard Event">
 <meta property="og:type" content="article">
-<meta property="og:title" content="从源码的角度再学「Thread」">
-<meta property="og:url" content="https://blog.fenxiangz.com/post/java/basic/2019-01-21_java_thread_source.html">
+<meta property="og:title" content="开发资源导航">
+<meta property="og:url" content="https://blog.fenxiangz.com/post/tea/2021-01-07_%E6%AD%A6%E5%A4%B7%E5%B2%A9%E8%8C%B6%E5%93%81%E7%B1%BB%E7%9F%A5%E8%AF%86.html">
 <meta property="og:site_name" content="分享之">
-<meta property="og:description" content="原创： zhangshaolin 张少林同学微信号: zhangshaolin_tonxue 功能介绍 分享 前言Java中的线程是使用Thread类实现的，Thread在初学Java的时候就学过了，也在实践中用过，不过一直没从源码的角度去看过它的实现，今天从源码的角度出发，再次学习Java Thread，愿此后对Thread的实践更加得心应手。 从注释开始相信阅读过JDK源码的同学都能感受到JD">
+<meta property="og:description" content="Javascript  jQuery Fundamentals  - jQuery 入门教程。 JavaScript库 代码解构  - 将JavaScript流行框架源代码条分缕析展现出来 深入理解Javascript系列 Script的defer和async的区别 Javascript面向对象基础 Backbone.js基础 JavaScript Madness: Keyboard Event">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://blog.fenxiangz.com/assets/uploads/files/1548122247324-a77dcb75-2e68-4785-81f8-a4b242b67382-image.png">
-<meta property="og:image" content="https://blog.fenxiangz.com/post/java/basic/2019-01-21_java_thread_source/java_thread_source_1.png">
-<meta property="article:published_time" content="2019-01-21T09:46:24.000Z">
-<meta property="article:modified_time" content="2020-12-20T16:47:02.965Z">
+<meta property="article:published_time" content="2020-11-26T00:00:00.000Z">
+<meta property="article:modified_time" content="2021-01-07T07:35:04.178Z">
 <meta property="article:author" content="Hassan">
-<meta property="article:tag" content="Java">
-<meta property="article:tag" content="Java线程">
-<meta property="article:tag" content="源码">
+<meta property="article:tag" content="工具">
+<meta property="article:tag" content="Wiki">
+<meta property="article:tag" content="整理">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://blog.fenxiangz.com/assets/uploads/files/1548122247324-a77dcb75-2e68-4785-81f8-a4b242b67382-image.png">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://blog.fenxiangz.com/post/java/basic/2019-01-21_java_thread_source.html">
+  <link rel="canonical" href="https://blog.fenxiangz.com/post/tea/2021-01-07_%E6%AD%A6%E5%A4%B7%E5%B2%A9%E8%8C%B6%E5%93%81%E7%B1%BB%E7%9F%A5%E8%AF%86.html">
   
     <link rel="alternate" href="/atom.xml" title="分享之" type="application/atom+xml">
   
@@ -305,14 +302,14 @@
   
 <main class="main" role="main">
   <div class="content">
-  <article id="post-java/basic/2019-01-21_java_thread_source" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-tea/2021-01-07_武夷岩茶品类知识" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      从源码的角度再学「Thread」
+      开发资源导航
     </h1>
   
 
@@ -320,599 +317,475 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/post/java/basic/2019-01-21_java_thread_source.html" class="article-date">
-	  <time datetime="2019-01-21T09:46:24.000Z" itemprop="datePublished">2019-01-21</time>
+	<a href="/post/tea/2021-01-07_%E6%AD%A6%E5%A4%B7%E5%B2%A9%E8%8C%B6%E5%93%81%E7%B1%BB%E7%9F%A5%E8%AF%86.html" class="article-date">
+	  <time datetime="2020-11-26T00:00:00.000Z" itemprop="datePublished">2020-11-26</time>
 	</a>
 </span>
         
   <span class="article-category">
     <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/Java-%E5%9F%BA%E7%A1%80/">Java 基础</a>
+    <a class="article-category-link" href="/categories/%E8%B5%84%E6%BA%90%E5%AF%BC%E8%88%AA/">资源导航</a>
   </span>
 
         
   <span class="article-tag">
     <i class="icon icon-tags"></i>
-	<a class="article-tag-link-link" href="/tags/Java/" rel="tag">Java</a>, <a class="article-tag-link-link" href="/tags/Java%E7%BA%BF%E7%A8%8B/" rel="tag">Java线程</a>, <a class="article-tag-link-link" href="/tags/%E6%BA%90%E7%A0%81/" rel="tag">源码</a>
+	<a class="article-tag-link-link" href="/tags/Wiki/" rel="tag">Wiki</a>, <a class="article-tag-link-link" href="/tags/%E5%B7%A5%E5%85%B7/" rel="tag">工具</a>, <a class="article-tag-link-link" href="/tags/%E6%95%B4%E7%90%86/" rel="tag">整理</a>
   </span>
 
 
         
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/post/java/basic/2019-01-21_java_thread_source.html#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/post/tea/2021-01-07_%E6%AD%A6%E5%A4%B7%E5%B2%A9%E8%8C%B6%E5%93%81%E7%B1%BB%E7%9F%A5%E8%AF%86.html#comments" class="article-comment-link">评论</a></span>
         
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <p>原创： zhangshaolin <strong>张少林同学</strong><br>微信号: zhangshaolin_tonxue</p>
-<p>功能介绍 分享</p>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><code>Java</code>中的线程是使用<code>Thread</code>类实现的，<code>Thread</code>在初学<code>Java</code>的时候就学过了，也在实践中用过，不过一直没从源码的角度去看过它的实现，今天从源码的角度出发，再次学习<code>Java Thread</code>，愿此后对<code>Thread</code>的实践更加得心应手。</p>
-<h2 id="从注释开始"><a href="#从注释开始" class="headerlink" title="从注释开始"></a>从注释开始</h2><p>相信阅读过<code>JDK</code>源码的同学都能感受到<code>JDK</code>源码中有非常详尽的注释，阅读某个类的源码应当先看看注释对它的介绍，注释原文就不贴了，以下是我对它的总结：</p>
+        <h2 id="javascript"><a class="markdownIt-Anchor" href="#javascript"></a> Javascript</h2>
 <ul>
-<li><p>  <code>Thread</code>是程序中执行的线程，<code>Java</code>虚拟机允许应用程序同时允许多个执行线程</p>
-</li>
-<li><p>  每个线程都有优先级的概念，具有较高优先级的线程优先于优先级较低的线程执行</p>
-</li>
-<li><p>  每个线程都可以被设置为守护线程</p>
-</li>
-<li><p>  当在某个线程中运行的代码创建一个新的<code>Thread</code>对象时，新的线程优先级跟创建线程一致</p>
-</li>
-<li><p>  当<code>Java</code>虚拟机启动的时候都会启动一个叫做<code>main</code>的线程，它没有守护线程，<code>main</code>线程会继续执行，直到以下情况发送</p>
-</li>
+<li><a target="_blank" rel="noopener" href="http://jqfundamentals.com/book/index.html">jQuery Fundamentals</a>  - jQuery 入门教程。</li>
+<li><a target="_blank" rel="noopener" href="http://www.cn-cuckoo.com/deconstructed/index.html">JavaScript库 代码解构</a>  - 将JavaScript流行框架源代码条分缕析展现出来</li>
+<li><a target="_blank" rel="noopener" href="http://www.cnblogs.com/TomXu/archive/2011/12/15/2288411.html">深入理解Javascript系列</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.cnblogs.com/TomXu/archive/2011/12/15/2288411.html">Script的defer和async的区别</a></li>
+<li><a target="_blank" rel="noopener" href="http://coolshell.cn/articles/6441.html">Javascript面向对象基础</a></li>
+<li><a target="_blank" rel="noopener" href="http://github.com/addyosmani/backbone-fundamentals">Backbone.js基础</a></li>
+<li><a target="_blank" rel="noopener" href="http://unixpapa.com/js/key.html">JavaScript Madness: Keyboard Events</a></li>
+<li><a target="_blank" rel="noopener" href="http://dailyjs.com/tags.html#frameworks">Let’s Make Frameworks</a></li>
+<li>国内公司JS框架：<a target="_blank" rel="noopener" href="http://kissyui.com/">Kissy - Taobao</a>  | <a target="_blank" rel="noopener" href="http://arale.alipay.net/">Arale - Alipay</a>  | <a target="_blank" rel="noopener" href="http://tangram.baidu.com/">Tangram - Baidu</a></li>
+<li><a target="_blank" rel="noopener" href="http://js1k.com/">JS1K, 1k Javascript contest</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.json.org/">JSON Home Page</a></li>
+<li><a target="_blank" rel="noopener" href="http://code.google.com/p/molokoloco-coding-project/wiki/JavascriptBase">NB JS Wiki(CSS、PHP、jQuery、Linux)</a></li>
+<li><a target="_blank" rel="noopener" href="http://birdshome.cnblogs.com/archive/2006/05/28/IE_MemoryLeak.html">理解并解决IE的内存泄漏方式</a> <a target="_blank" rel="noopener" href="http://birdshome.cnblogs.com/archive/2006/06/01/ClosureReferences.html">2</a> <a target="_blank" rel="noopener" href="http://birdshome.cnblogs.com/archive/2006/06/17/Cross_Page_Leaks.html">3</a> <a target="_blank" rel="noopener" href="http://birdshome.cnblogs.com/archive/2006/06/30/Pseudo_Leaks.html">4</a></li>
+<li><a target="_blank" rel="noopener" href="http://msdn.microsoft.com/en-us/library/bb250448.aspx">Understanding and Solving Internet Explorer Leak Patterns</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.cnblogs.com/rubylouvre/archive/2010/01/05/1639541.html">Javscript Bind函数</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.addyosmani.com/resources/essentialjsdesignpatterns/book/">Javscript设计模式</a></li>
 </ul>
+<h4 id="json工具"><a class="markdownIt-Anchor" href="#json工具"></a> JSON工具：</h4>
 <ul>
-<li><p>  <code>Runtime</code> 类的退出方法<code>exit</code>被调用并且安全管理器允许进行退出操作</p>
-</li>
-<li><p>  所有非守护线程均已死亡，或者<code>run</code>方法执行结束正常返回结果，或者<code>run</code>方法抛出异常</p>
-</li>
+<li><a target="_blank" rel="noopener" href="http://www.jsonlint.com/">JSONLint</a>  - The JSON Validator</li>
+<li><a target="_blank" rel="noopener" href="http://undefined.org/python/#simplejson">SimpleJSON</a>  - Python Stuff</li>
+<li><a target="_blank" rel="noopener" href="http://jsonformatter.curiousconcept.com/">JSON Formatter (&amp; Validator!)</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.raboof.com/Projects/TidyJson/">Tidy JSON - JSON Pretty Printer/Colorer</a>  - C#(.NET)</li>
+<li><a target="_blank" rel="noopener" href="http://www.cerny-online.com/cerny.js/demos/json-pretty-printing">Cerny.js - JSON Pretty Printing Demo</a></li>
+<li><a target="_blank" rel="noopener" href="http://github.com/nicksieger/jsonpretty">jsonpretty(ruby)</a></li>
 </ul>
+<h4 id="vim-json"><a class="markdownIt-Anchor" href="#vim-json"></a> Vim Json：</h4>
 <ul>
-<li><p>创建线程第一种方式：继承<code>Thread</code>类，重写<code>run</code>方法</p>
-<pre><code>   1  //定义线程类
-   2  class PrimeThread extends Thread &#123;
-   3        long minPrime;
-   4        PrimeThread(long minPrime) &#123;
-   5            this.minPrime = minPrime;
-   6        &#125;
-   7        public void run() &#123;
-   8            // compute primes larger than minPrime
-   9            &amp;nbsp;.&amp;nbsp;.&amp;nbsp;.
-  10        &#125;
-  11    &#125;
-  12  //启动线程
-  13  PrimeThread p = new PrimeThread(143);
-  14  p.start();</code></pre>
-</li>
-<li><p>创建线程第二种方式：实现<code>Runnable</code>接口，重写<code>run</code>方法，因为<code>Java</code>的单继承限制，通常使用这种方式创建线程更加灵活</p>
-<pre><code>   1  //定义线程
-   2   class PrimeRun implements Runnable &#123;
-   3        long minPrime;
-   4        PrimeRun(long minPrime) &#123;
-   5            this.minPrime = minPrime;
-   6        &#125;
-   7        public void run() &#123;
-   8            // compute primes larger than minPrime
-   9            &amp;nbsp;.&amp;nbsp;.&amp;nbsp;.
-  10        &#125;
-  11    &#125;
-  12  //启动线程
-  13  PrimeRun p = new PrimeRun(143);
-  14  new Thread(p).start();</code></pre>
-</li>
-<li><p>  创建线程时可以给线程指定名字，如果没有指定，会自动为它生成名字</p>
-</li>
-<li><p>  除非另有说明，否则将<code>null</code>参数传递给<code>Thread</code>类中的构造函数或方法将导致抛出 <code>NullPointerException</code></p>
-</li>
+<li><a target="_blank" rel="noopener" href="http://lumberjaph.net/perl/2009/02/17/tidify-a-json-in-vim.html">tidify a json in Vim</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.vim.org/scripts/script.php?script_id=1945">JSON.vim</a>  - syntax</li>
+<li><a target="_blank" rel="noopener" href="http://visibletrap.blogspot.com/2010/05/vim-how-to-format-and-syntax-highlight.html">VIM - How to format and syntax highlight JSON file</a></li>
+<li><a target="_blank" rel="noopener" href="http://bradmontgomery.blogspot.com/2010/01/add-json-syntax-highlighting-in-vim-on.html">Add JSON syntax highlighting in Vim on OS X</a></li>
 </ul>
-<h2 id="Thread-常用属性"><a href="#Thread-常用属性" class="headerlink" title="Thread 常用属性"></a>Thread 常用属性</h2><p>阅读一个<code>Java</code>类，先从它拥有哪些属性入手：</p>
-<pre><code>     1  //线程名称，创建线程时可以指定线程的名称
-     2  private volatile String name;
-     3  
-     4  //线程优先级，可以设置线程的优先级
-     5  private int priority;
-     6  
-     7  //可以配置线程是否为守护线程，默认为false
-     8  private boolean daemon = false;
-     9  
-    10  //最终执行线程任务的`Runnable`
-    11  private Runnable target;
-    12  
-    13  //描述线程组的类
-    14  private ThreadGroup group;
-    15  
-    16  //此线程的上下文ClassLoader
-    17  private ClassLoader contextClassLoader;
-    18  
-    19  //所有初始化线程的数目，用于自动编号匿名线程，当没有指定线程名称时，会自动为其编号
-    20  private static int threadInitNumber;
-    21  
-    22  //此线程请求的堆栈大小，如果创建者没有指定堆栈大小，则为0。, 虚拟机可以用这个数字做任何喜欢的事情。, 一些虚拟机会忽略它。
-    23  private long stackSize;
-    24  
-    25  //线程id
-    26  private long tid;
-    27  
-    28  //用于生成线程ID
-    29  private static long threadSeqNumber;
-    30  
-    31  //线程状态
-    32  private volatile int threadStatus = 0;
-    33  
-    34  //线程可以拥有的最低优先级
-    35  public final static int MIN_PRIORITY = 1;
-    36  
-    37  //分配给线程的默认优先级。
-    38  public final static int NORM_PRIORITY = 5;
-    39  
-    40  //线程可以拥有的最大优先级
-    41  public final static int MAX_PRIORITY = 10;</code></pre>
-<h2 id="Thread-构造方法"><a href="#Thread-构造方法" class="headerlink" title="Thread 构造方法"></a>Thread 构造方法</h2><p>了解了属性之后，看看<code>Thread</code>实例是怎么构造的？先预览下它大致有多少个构造方法：</p>
-<p><img src="/assets/uploads/files/1548122247324-a77dcb75-2e68-4785-81f8-a4b242b67382-image.png" alt="a77dcb75-2e68-4785-81f8-a4b242b67382-image.png"> </p>
-<p>查看每个构造方法内部源码，发现均调用的是名为<code>init</code>的私有方法，再看<code>init</code>方法有两个重载，而其核心方法如下：</p>
-<pre><code> 1   /**
- 2     * Initializes a Thread.
- 3     *
- 4     * @param g                   线程组
- 5     * @param target              最终执行任务的 `run()` 方法的对象
- 6     * @param name                新线程的名称
- 7     * @param stackSize           新线程所需的堆栈大小，或者 0 表示要忽略此参数
- 8     * @param acc                 要继承的AccessControlContext，如果为null，则为 AccessController.getContext()
- 9     * @param inheritThreadLocals 如果为 true，从构造线程继承可继承的线程局部的初始值
-10     */
-11    private void init(ThreadGroup g, Runnable target, String name,
-12                      long stackSize, AccessControlContext acc,
-13                      boolean inheritThreadLocals) &#123;
-14        //线程名称为空，直接抛出空指针异常
-15        if (name == null) &#123;
-16            throw new NullPointerException(&quot;name cannot be null&quot;);
-17        &#125;
-18        //初始化当前线程对象的线程名称
-19        this.name = name;
-20        //获取当前正在执行的线程为父线程
-21        Thread parent = currentThread();
-22        //获取系统安全管理器
-23        SecurityManager security = System.getSecurityManager();
-24        //如果线程组为空
-25        if (g == null) &#123;
-26            //如果安全管理器不为空
-27            if (security != null) &#123;
-28                //获取SecurityManager中的线程组
-29                g = security.getThreadGroup();
-30            &#125;
-31            //如果获取的线程组还是为空
-32            if (g == null) &#123;
-33                //则使用父线程的线程组
-34                g = parent.getThreadGroup();
-35            &#125;
-36        &#125;
-37
-38        //检查安全权限
-39        g.checkAccess();
-40
-41        //使用安全管理器检查是否有权限
-42        if (security != null) &#123;
-43            if (isCCLOverridden(getClass())) &#123;
-44                security.checkPermission(SUBCLASS_IMPLEMENTATION_PERMISSION);
-45            &#125;
-46        &#125;
-47
-48        //线程组中标记未启动的线程数+1，这里方法是同步的，防止出现线程安全问题
-49        g.addUnstarted();
-50
-51        //初始化当前线程对象的线程组
-52        this.group = g;
-53        //初始化当前线程对象的是否守护线程属性，注意到这里初始化时跟父线程一致
-54        this.daemon = parent.isDaemon();
-55        //初始化当前线程对象的线程优先级属性，注意到这里初始化时跟父线程一致
-56        this.priority = parent.getPriority();
-57        //这里初始化类加载器
-58        if (security == null || isCCLOverridden(parent.getClass()))
-59            this.contextClassLoader = parent.getContextClassLoader();
-60        else
-61            this.contextClassLoader = parent.contextClassLoader;
-62        this.inheritedAccessControlContext =
-63                acc != null ? acc : AccessController.getContext();
-64        //初始化当前线程对象的最终执行任务对象
-65        this.target = target;
-66        //这里再对线程的优先级字段进行处理
-67        setPriority(priority);
-68        if (inheritThreadLocals &amp;&amp; parent.inheritableThreadLocals != null)
-69            this.inheritableThreadLocals =
-70                ThreadLocal.createInheritedMap(parent.inheritableThreadLocals);
-71        //初始化当前线程对象的堆栈大小
-72        this.stackSize = stackSize;
-73
-74        //初始化当前线程对象的线程ID，该方法是同步的，内部实际上是threadSeqNumber++
-75        tid = nextThreadID();
-76    &#125;</code></pre>
-<p>另一个重载<code>init</code>私有方法如下，实际上内部调用的是上述<code>init</code>方法：</p>
-<pre><code>1   private void init(ThreadGroup g, Runnable target, String name,
-2                      long stackSize) &#123;
-3        init(g, target, name, stackSize, null, true);
-4   &#125;</code></pre>
-<p>接下来看看所有构造方法：</p>
-<ol>
-<li><p>空构造方法</p>
-<pre><code> 1    public Thread() &#123;
- 2        init(null, null, &quot;Thread-&quot; + nextThreadNum(), 0);
- 3    &#125;</code></pre>
-<p> 内部调用的是<code>init</code>第二个重载方法，参数基本都是默认值，线程名称写死为<code>&quot;Thread-&quot; + nextThreadNum()</code>格式，<code>nextThreadNum()</code>为一个同步方法，内部维护一个静态属性表示线程的初始化数量+1：</p>
-<pre><code> 1   private static int threadInitNumber;
- 2    private static synchronized int nextThreadNum() &#123;
- 3        return threadInitNumber++;
- 4    &#125;</code></pre>
-<p> 与第一个构造方法区别在于可以自定义<code>Runnable</code>对象</p>
-</li>
-<li><p>自定义执行任务<code>Runnable</code>对象的构造方法</p>
-<pre><code> 1    private static int threadInitNumber;
- 2    private static synchronized int nextThreadNum() &#123;
- 3        return threadInitNumber++;
- 4    &#125;</code></pre>
-</li>
-<li><p>自定义执行任务<code>Runnable</code>对象和<code>AccessControlContext</code>对象的构造方法</p>
-<pre><code> 1 Thread(Runnable target, AccessControlContext acc) &#123;
- 2    init(null, target, &quot;Thread-&quot; + nextThreadNum(), 0, acc, false);
- 3 &#125;</code></pre>
-</li>
-<li><p>自定义线程组<code>ThreadGroup</code>和执行任务<code>Runnable</code>对象的构造方法</p>
-<pre><code> 1  public Thread(ThreadGroup group, Runnable target) &#123;
- 2    init(group, target, &quot;Thread-&quot; + nextThreadNum(), 0);
- 3  &#125;</code></pre>
-</li>
-<li><p>自定义线程名称<code>name</code>的构造方法</p>
-<pre><code> 1  public Thread(String name) &#123;
- 2    init(null, null, name, 0);
- 3  &#125;</code></pre>
-</li>
-<li><p>自定义线程组<code>ThreadGroup</code>和线程名称<code>name</code>的构造方法</p>
-<pre><code> 1  public Thread(String name) &#123;
- 2     init(null, null, name, 0);
- 3  &#125;</code></pre>
-</li>
-<li><p>自定义执行任务<code>Runnable</code>对象和线程名称<code>name</code>的构造方法</p>
-<pre><code> 1  public Thread(Runnable target, String name) &#123;
- 2     init(null, target, name, 0);
- 3  &#125;</code></pre>
-</li>
-<li><p>自定义线程组<code>ThreadGroup</code>和线程名称<code>name</code>和执行任务<code>Runnable</code>对象的构造方法</p>
-<pre><code> 1  public Thread(ThreadGroup group, Runnable target, String name) &#123;
- 2     init(group, target, name, 0);
- 3  &#125;</code></pre>
-</li>
-<li><p>全部属性都是自定义的构造方法</p>
-<pre><code> 1  public Thread(ThreadGroup group, Runnable target, String name,
- 2                long stackSize) &#123;
- 3     init(group, target, name, stackSize);
- 4  &#125;</code></pre>
-</li>
-</ol>
-<p><code>Thread</code>提供了非常灵活的重载构造方法，方便开发者自定义各种参数的<code>Thread</code>对象。</p>
-<h2 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h2><p>这里记录一些比较常见的方法吧，对于<code>Thread</code>中存在的一些本地方法，我们暂且不用管它～</p>
-<h4 id="设置线程名称"><a href="#设置线程名称" class="headerlink" title="设置线程名称"></a>设置线程名称</h4><p>设置线程名称，该方法为同步方法，为了防止出现线程安全问题，可以手动调用<code>Thread</code>的实例方法设置名称，也可以在构造<code>Thread</code>时在构造方法中传入线程名称，我们通常都是在构造参数时设置</p>
-<pre><code>     1   public final synchronized void setName(String name) &#123;
-     2       　　//检查安全权限
-     3          checkAccess();
-     4       　　//如果形参为空，抛出空指针异常
-     5          if (name == null) &#123;
-     6              throw new NullPointerException(&quot;name cannot be null&quot;);
-     7          &#125;
-     8        //给当前线程对象设置名称
-     9          this.name = name;
-    10          if (threadStatus != 0) &#123;
-    11              setNativeName(name);
-    12          &#125;
-    13      &#125;</code></pre>
-<h4 id="获取线程名称"><a href="#获取线程名称" class="headerlink" title="获取线程名称"></a>获取线程名称</h4><p>内部直接返回当前线程对象的名称属性</p>
-<pre><code>    1  public final String getName() &#123;
-    2        return name;
-    3    &#125;</code></pre>
-<h4 id="启动线程"><a href="#启动线程" class="headerlink" title="启动线程"></a>启动线程</h4><pre><code>     1  public synchronized void start() &#123;
-     2      //如果不是刚创建的线程，抛出异常
-     3      if (threadStatus != 0)
-     4          throw new IllegalThreadStateException();
-     5
-     6      //通知线程组，当前线程即将启动，线程组当前启动线程数+1，未启动线程数-1
-     7      group.add(this);
-     8
-     9      //启动标识
-    10      boolean started = false;
-    11      try &#123;
-    12          //直接调用本地方法启动线程
-    13          start0();
-    14          //设置启动标识为启动成功
-    15          started = true;
-    16      &#125; finally &#123;
-    17          try &#123;
-    18              //如果启动呢失败
-    19              if (!started) &#123;
-    20                  //线程组内部移除当前启动的线程数量-1，同时启动失败的线程数量+1
-    21                  group.threadStartFailed(this);
-    22              &#125;
-    23          &#125; catch (Throwable ignore) &#123;
-    24              /* do nothing. If start0 threw a Throwable then
-    25                it will be passed up the call stack */
-    26          &#125;
-    27      &#125;
-    28  &#125;</code></pre>
-<p>我们正常的启动线程都是调用<code>Thread</code>的<code>start()</code>方法，然后<code>Java</code>虚拟机内部会去调用<code>Thred</code>的<code>run</code>方法，可以看到<code>Thread</code>类也是实现<code>Runnable</code>接口，重写了<code>run</code>方法的：</p>
-<pre><code>    1 @Override
-    2 public void run() &#123;
-    3     //当前执行任务的Runnable对象不为空，则调用其run方法
-    4     if (target != null) &#123;
-    5         target.run();
-    6     &#125;
-    7 &#125;</code></pre>
-<p><code>Thread</code>的两种使用方式：</p>
+<h4 id="jsonp"><a class="markdownIt-Anchor" href="#jsonp"></a> JSONP：</h4>
 <ul>
-<li><p>  继承<code>Thread</code>类，重写<code>run</code>方法，那么此时是直接执行<code>run</code>方法的逻辑，不会使用<code>target.run();</code></p>
-</li>
-<li><p>  实现<code>Runnable</code>接口，重写<code>run</code>方法，因为<code>Java</code>的单继承限制，通常使用这种方式创建线程更加灵活，这里真正的执行逻辑就会交给自定义<code>Runnable</code>去实现</p>
-</li>
+<li><a target="_blank" rel="noopener" href="http://www.ibm.com/developerworks/cn/web/wa-aj-jsonp1/index.html">使用 JSONP 实现跨域通信，第 1 部分: 结合 JSONP 和 jQuery 快速构建强大的 mashup</a> <a target="_blank" rel="noopener" href="http://www.ibm.com/developerworks/cn/web/wa-aj-jsonp2/index.html">第 2 部分: 使用 JSONP、jQuery 和 Yahoo! 查询语言构建 mashup</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.cn-cuckoo.com/2008/09/13/the-origin-of-jsonp-262.html">JSONP的起源</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.ibm.com/developerworks/cn/xml/x-mashups.html">Mashups：Web 应用程序新成员</a></li>
 </ul>
-<h4 id="设置守护线程"><a href="#设置守护线程" class="headerlink" title="设置守护线程"></a>设置守护线程</h4><p>本质操作是设置<code>daemon</code>属性</p>
-<pre><code>     1  public final void setDaemon(boolean on) &#123;
-     2      //检查是否有安全权限
-     3      checkAccess();
-     4      //本地方法，测试此线程是否存活。, 如果一个线程已经启动并且尚未死亡，则该线程处于活动状态
-     5      if (isAlive()) &#123;
-     6          //如果线程先启动后再设置守护线程，将抛出异常
-     7          throw new IllegalThreadStateException();
-     8      &#125;
-     9      //设置当前守护线程属性
-    10      daemon = on;
-    11  &#125;</code></pre>
-<h4 id="判断线程是否为守护线程"><a href="#判断线程是否为守护线程" class="headerlink" title="判断线程是否为守护线程"></a>判断线程是否为守护线程</h4><pre><code>    1 public final boolean isDaemon() &#123;
-    2     //直接返回当前对象的守护线程属性
-    3     return daemon;
-    4 &#125;</code></pre>
-<h4 id="线程状态"><a href="#线程状态" class="headerlink" title="线程状态"></a>线程状态</h4><p>先来个线程状态图：</p>
-<p><img src="./2019-01-21_java_thread_source/java_thread_source_1.png" alt="java_thread_source_1.png"> </p>
-<p>获取线程状态：</p>
-<pre><code>    1 public State getState() &#123;
-    2     //由虚拟机实现，获取当前线程的状态
-    3     return sun.misc.VM.toThreadState(threadStatus);
-    4 &#125;</code></pre>
-<p>线程状态主要由内部枚举类<code>State</code>组成：</p>
-<pre><code>     1  public enum State &#123;
-     2
-     3     NEW,
-     4
-     5
-     6     RUNNABLE,
-     7
-     8
-     9     BLOCKED,
-    10
-    11
-    12     WAITING,
-    13
-    14
-    15     TIMED_WAITING,
-    16
-    17
-    18     TERMINATED;
-    19 &#125;</code></pre>
+<h4 id="javascript闭包"><a class="markdownIt-Anchor" href="#javascript闭包"></a> Javascript闭包：</h4>
 <ul>
-<li><p>  NEW：刚刚创建，尚未启动的线程处于此状态</p>
-</li>
-<li><p>  RUNNABLE：在Java虚拟机中执行的线程处于此状态</p>
-</li>
-<li><p>  BLOCKED：被阻塞等待监视器锁的线程处于此状态，比如线程在执行过程中遇到<code>synchronized</code>同步块，就会进入此状态，此时线程暂停执行，直到获得请求的锁</p>
-</li>
-<li><p>  WAITING：无限期等待另一个线程执行特定操作的线程处于此状态</p>
-</li>
+<li><a target="_blank" rel="noopener" href="http://zh.wikipedia.org/zh-cn/%E9%97%AD%E5%8C%85_(%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6)">闭包 (计算机科学)</a></li>
+<li><a target="_blank" rel="noopener" href="http://jibbering.com/faq/notes/closures/">Javascript Closures</a></li>
+<li><a target="_blank" rel="noopener" href="http://roshanca.com/?p=153">什么是闭包</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.jibbering.com/faq/faq_notes/closures.html">Javascript Closures</a> <a target="_blank" rel="noopener" href="http://www.cn-cuckoo.com/2007/08/01/understand-javascript-closures-72.html">中文</a> <a target="_blank" rel="noopener" href="http://www.aspxhome.com/examples/javascript/program/483628/javascriptclosures.html">2</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2009/08/learning_javascript_closures.html">学习Javascript闭包（Closure）</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.mikkolee.com/81">作用域链 词法作用域 与 闭包（一）</a> <a target="_blank" rel="noopener" href="http://www.mikkolee.com/84">（二）</a></li>
+</ul>
+<h4 id="javascript工具"><a class="markdownIt-Anchor" href="#javascript工具"></a> Javascript工具：</h4>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://www.jslint.com/">JSLint</a></li>
+<li><a target="_blank" rel="noopener" href="http://javascriptlint.com/">JavaScript Lint</a></li>
+<li><a target="_blank" rel="noopener" href="http://github.com/rainux/jslint.vim">Fork of hallettj/jslint.vim</a></li>
+<li><a target="_blank" rel="noopener" href="http://varnow.org/?p=174">Google Closure Compiler压缩优化规则初探</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.phpblog.cn/archives/242">使用Google 的Closure Compiler来压缩javascript</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.cnblogs.com/JeffreyZhao/archive/2009/12/09/ikvm-google-closure-compiler.html">在项目中使用Google Closure Compiler</a></li>
+<li><a target="_blank" rel="noopener" href="http://hikejun.com/blog/?p=476&amp;cpage=1">Mac下用Closure compiler</a></li>
+<li><a target="_blank" rel="noopener" href="http://ued.sohu.com/article/611">JS 库浅析之 Google Closure</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.pushiming.com/blog/2010/12/advanced-optimization-in-closure-compiler-and-more/">Closure Compiler 高级模式及更多思考</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.slideshare.net/lifesinger/closure-compiler-vs-yuicompressor">Closure Compiler vs YUICompressor</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.minifyjs.com/">Minify JS</a></li>
+<li><a target="_blank" rel="noopener" href="http://docs.jquery.com/QUnit">QUnit</a> <a target="_blank" rel="noopener" href="http://github.com/jquery/qunit">@github</a></li>
 </ul>
 <ul>
-<li><p>  通过 wait() 方法等待的线程在等待 notify() 方法</p>
-</li>
-<li><p>  通过 join() 方法等待的线程则会等待目标线程的终止</p>
-</li>
+<li>JsBeautify：<a target="_blank" rel="noopener" href="http://jsbeautifier.org/">Online Javascript jsbeautifier</a> <a target="_blank" rel="noopener" href="http://github.com/einars/js-beautify">github</a> , <a target="_blank" rel="noopener" href="http://www.vim.org/scripts/script.php?script_id=2727">vimscript</a></li>
 </ul>
 <ul>
-<li>  TIMED_WAITING：正在等待另一个线程执行动作，直到指定等待时间的线程处于此状态</li>
+<li><a target="_blank" rel="noopener" href="https://code.google.com/p/jsbeautifier/">js beautifier</a>  - plugin for Chrome</li>
+</ul>
+<h4 id="nodejs"><a class="markdownIt-Anchor" href="#nodejs"></a> NodeJS：</h4>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://nodejs.org/">nodeJS</a>  - 服务器端 JavaScript 编程</li>
+<li><a target="_blank" rel="noopener" href="http://simonwillison.net/2009/Nov/23/node/">Node.js is genuinely exciting</a></li>
+<li><a target="_blank" rel="noopener" href="http://blog.csdn.net/fuadam/archive/2010/03/15/5380178.aspx">在cygwin环境下编译node.js</a></li>
+<li><a target="_blank" rel="noopener" href="http://github.com/ry/node_chat">node char</a>  - 用 nodeJS 写的聊天室</li>
+<li><a target="_blank" rel="noopener" href="https://no.de/">Joyent Node</a>  | <a target="_blank" rel="noopener" href="http://mattn.no.de/">mattn.no.de</a></li>
+</ul>
+<h2 id="html-css"><a class="markdownIt-Anchor" href="#html-css"></a> HTML &amp; CSS</h2>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://wiki.hotoo.me/CSS-Hacks.html">CSS Hacks &amp; Expression</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.digitalmediaminute.com/reference/entity/">XHTML Character Entity Reference HTML实体字符引用</a></li>
+<li><a target="_blank" rel="noopener" href="http://blog.bingo929.com/css-frameworks-15.html">精选15个国外CSS框架</a></li>
+<li><a target="_blank" rel="noopener" href="http://nicolasgallagher.com/pure-css-speech-bubbles/demo/">Pure Css Speech Bubbles</a></li>
+</ul>
+<h4 id="css栅格系统grid-system"><a class="markdownIt-Anchor" href="#css栅格系统grid-system"></a> CSS栅格系统(Grid System)：</h4>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://1kbgrid.com/">The 1Kb CSS Grid</a>  - 拖放各个阈值并直接下载自动生成的CSS。</li>
+<li><a target="_blank" rel="noopener" href="http://www.spry-soft.com/grids/">Variable Grid System</a>  - 可直接修改各个阈值并预览效果。</li>
+<li><a target="_blank" rel="noopener" href="http://grid.mindplay.dk">Grid Designer</a></li>
+<li><a target="_blank" rel="noopener" href="http://builder.yaml.de/">YAML Builder</a>  - A tool for visual development of YAML based CSS layouts.</li>
+<li><a target="_blank" rel="noopener" href="http://960.gs/">960 Grid System</a> <a target="_blank" rel="noopener" href="http://github.com/nathansmith/960-Grid-System">960-Grid-System@github</a></li>
+<li><a target="_blank" rel="noopener" href="http://ued.taobao.com/blog/2008/09/17/grid_systems/">网页的栅格系统设计</a>  - 青云</li>
+<li><a target="_blank" rel="noopener" href="http://www.gracecode.com/archives/2363/">我的栅格系统</a>  - 明城</li>
+<li><a target="_blank" rel="noopener" href="http://www.markboulton.co.uk/journal/comments/five-simple-steps-to-designing-grid-systems-part-1">Five simple steps to designing grid systems</a> <a target="_blank" rel="noopener" href="http://www.markboulton.co.uk/journal/comments/five-simple-steps-to-designing-grid-systems-part-2">2</a> <a target="_blank" rel="noopener" href="http://www.markboulton.co.uk/journal/comments/five-simple-steps-to-designing-grid-systems-part-3">3</a> <a target="_blank" rel="noopener" href="http://www.markboulton.co.uk/journal/comments/five-simple-steps-to-designing-grid-systems-part-4">4</a> <a target="_blank" rel="noopener" href="http://www.markboulton.co.uk/journal/comments/five-simple-steps-to-designing-grid-systems-part-5">5</a></li>
+</ul>
+<h4 id="css疑难杂症"><a class="markdownIt-Anchor" href="#css疑难杂症"></a> CSS疑难杂症：</h4>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://www.smallni.com/haslayout-block-formatting-contexts/">HasLayout和BFC(Block Formatting Contexts)的区别完整对比</a></li>
+<li><a target="_blank" rel="noopener" href="http://rebuildpattern.com/node/44">Block Formatting Contexts的特性</a></li>
+<li><a target="_blank" rel="noopener" href="http://haslayout.net/">hasLayout.net</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.satzansatz.de/cssd/onhavinglayout.html">On having layout</a> <a target="_blank" rel="noopener" href="http://www.blueidea.com/tech/site/2006/3698.asp">中文版</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.positioniseverything.net/explorer/expandingboxbug.html">Internet Explorer 6 and the Expanding Box Problem</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.qianduan.net/universal-to-remove-floating-style.html">万能清除浮动样式</a></li>
+<li><a target="_blank" rel="noopener" href="http://ued.taobao.com/blog/2010/08/04/css-border%E4%BD%BF%E7%94%A8%E5%B0%8F%E5%88%86%E4%BA%AB/">CSS Border使用小分享</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.cnblogs.com/eazon/archive/2008/07/04/1235268.html">表格樣式集錦</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.zhangxinxu.com/wordpress/?p=56">复选框单选框与文字对齐问题的研究与解决</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.blueidea.com/tech/web/2008/6313.asp">连续字符自动换行的解决方案</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.cnblogs.com/yizuierguo/archive/2010/08/04/1792287.html">三谈Iframe自适应高度</a>  | <a target="_blank" rel="noopener" href="http://www.cnblogs.com/MaxIE/archive/2008/08/13/1266597.html">再谈iframe自适应高度</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.qianduan.net/cross-browser-inline-block.html">跨浏览器的inline-block</a> <a target="_blank" rel="noopener" href="http://blog.mozilla.com/webdev/2009/02/20/cross-browser-inline-block/">en</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.planabc.net/2007/03/11/display_inline-block/">display:inline-block的深入理解</a></li>
+</ul>
+<h2 id="html5-css3"><a class="markdownIt-Anchor" href="#html5-css3"></a> HTML5 &amp; CSS3</h2>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://diveintohtml5.info/">Dive Into HTML5</a></li>
+<li><a target="_blank" rel="noopener" href="http://blog.bingo929.com/google-enjoy-html5-drag-drop-filereaderenren.html">HTML5训练营</a></li>
+<li><a target="_blank" rel="noopener" href="http://blog.bingo929.com/html5-websockets.html">HTML5 WebSockets</a></li>
+<li><a target="_blank" rel="noopener" href="http://blog.bingo929.com/html5-ie-enabling-script.html">IE支持HTML5</a></li>
+<li><a target="_blank" rel="noopener" href="http://blog.bingo929.com/power-of-html5-css3-div-css.html">感受HTML5&amp;CSS3</a></li>
+<li>用JavaScript玩转计算机图形学：<a target="_blank" rel="noopener" href="http://www.cnblogs.com/miloyip/archive/2010/03/29/1698953.html">(一)光线追踪入门</a> <a target="_blank" rel="noopener" href="http://www.cnblogs.com/miloyip/archive/2010/04/02/1702768.html">(二)基本光源</a></li>
+</ul>
+<h4 id="canvas"><a class="markdownIt-Anchor" href="#canvas"></a> Canvas：</h4>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://zh.wikipedia.org/wiki/Canvas_%28HTML%E5%85%83%E7%B4%A0%29">Canvas (HTML元素)</a></li>
+<li><a target="_blank" rel="noopener" href="http://billmill.org/static/canvastutorial/index.html">Canvas Tutorial</a></li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/cn/Canvas_tutorial">Canvas 教程</a> <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en/Canvas_tutorial">en</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#the-canvas-element">The canvas element</a></li>
+<li><a target="_blank" rel="noopener" href="http://blog.bingo929.com/html-5-canvas-the-basics-html5.html">HTML5 Canvas</a></li>
+</ul>
+<h4 id="canvas使用教程"><a class="markdownIt-Anchor" href="#canvas使用教程"></a> Canvas使用教程：</h4>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://jiachen.blogbus.com/logs/29567413.html">开题</a></li>
+<li><a target="_blank" rel="noopener" href="http://jiachen.blogbus.com/logs/29569584.html">基本语法</a></li>
+<li><a target="_blank" rel="noopener" href="http://jiachen.blogbus.com/logs/29596111.html">图形绘制</a></li>
+<li><a target="_blank" rel="noopener" href="http://jiachen.blogbus.com/logs/32827552.html">图片应用</a></li>
+</ul>
+<h4 id="canvas-games"><a class="markdownIt-Anchor" href="#canvas-games"></a> Canvas Games：</h4>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://henrikfalck.com/unrealsoccer/">Unreal Soccer</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.benjoffe.com/code/demos/canvascape/">Canvascape</a></li>
+<li><a target="_blank" rel="noopener" href="http://dave-webster.com/projects/index.php?page=incs/plasma_demo1">Plasma demo using the HTML Canvas element</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.student.kuleuven.be/~m0216922/CG/plasma.html">Lodes Computer Graphics Tutorial</a></li>
+<li><a target="_blank" rel="noopener" href="http://alteredqualia.com/cubeout/">CubeOut</a>  - 3D 俄罗斯方块</li>
+<li><a target="_blank" rel="noopener" href="http://canvasrider.com/tracks/all">自行车越野</a></li>
+<li><a target="_blank" rel="noopener" href="http://box2d-js.sourceforge.net/index2.html">Box2DJS</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.effectgames.com/demos/canvascycle/?sound=1">Canvas Cycles</a></li>
+<li><a target="_blank" rel="noopener" href="http://agent8ball.com/">Agent 8 Ball</a>  - 台球</li>
+</ul>
+<h4 id="工具"><a class="markdownIt-Anchor" href="#工具"></a> 工具：</h4>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://www.css3generator.com/">CSS3 Generator</a></li>
+<li><a target="_blank" rel="noopener" href="http://gradients.glrzad.com/">CSS3 Gradient Generator</a></li>
+<li><a target="_blank" rel="noopener" href="http://css-tricks.com/examples/ButtonMaker/">CSS3 Button Maker</a></li>
+<li><a target="_blank" rel="noopener" href="http://css3please.com/">CSS3 Please!</a>  - The Cross-Browser CSS3 Rule Generator</li>
+</ul>
+<h4 id="framework"><a class="markdownIt-Anchor" href="#framework"></a> Framework：</h4>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://www.jgraph.com/mxgraph.html">mxGraph - the AJAX diagramming soluting</a></li>
+<li><a target="_blank" rel="noopener" href="http://code.google.com/p/svgweb/">Scalable Vector Graphics Web Browser using Flash</a></li>
+<li><a target="_blank" rel="noopener" href="http://code.google.com/p/explorercanvas/">HTML5 Canvas for Internet Explorer</a></li>
+<li><a target="_blank" rel="noopener" href="http://code.google.com/p/svg2vml/">Library that provides support for SVG and VML with an SVG style interface</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.walterzorn.com/jsgraphics/jsgraphics_e.htm">DHTML: Draw Line, Ellipse, Oval, Circle, Polyline, Plygon, Triangle, with JavaScript</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.cnblogs.com/webgis8/articles/1529588.html">翻译Browser Drawing一篇:Canvas/SVG/VML Drawing Roundup</a></li>
+<li><a target="_blank" rel="noopener" href="http://github.com/mrdoob/three.js">Three.js</a></li>
+<li><a target="_blank" rel="noopener" href="http://raphaeljs.com/">Rapha?l</a>  - 非常棒的跨平台 JavaScript 图形库 | <a target="_blank" rel="noopener" href="http://github.com/DmitryBaranovskiy/raphael">raphael@github</a>  | <a target="_blank" rel="noopener" href="http://dmitry.baranovskiy.com/">blog</a></li>
+<li><a target="_blank" rel="noopener" href="http://code.google.com/p/uupaa-js-spinoff/">uupaa.js spin-off projects</a></li>
+</ul>
+<h4 id="demo"><a class="markdownIt-Anchor" href="#demo"></a> Demo：</h4>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://www.alexbuga.com/v9/">Alex Buga Livingroom</a></li>
+<li><a target="_blank" rel="noopener" href="http://guciek.net/test/burn">burn-canvas-test</a>  - 画图</li>
+<li><a target="_blank" rel="noopener" href="http://webdesignledger.com/inspiration/10-html5-demos-to-make-you-forget-about-flash">10 HTML5 Demos to Make You Forget About Flash</a> <a target="_blank" rel="noopener" href="http://designlol.net/archives/1418">cn</a></li>
+<li><a target="_blank" rel="noopener" href="http://muro.deviantart.com/">deviantART Muro</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.phoboslab.org/biolab/">Biolab Disaster</a>  - Game</li>
+<li><a target="_blank" rel="noopener" href="http://labs.codecomputerlove.com/FlashVsHtml5/">乒乓球游戏：左边用Flash，右边用HTML5</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.20thingsilearned.com/">20 Things I Learned About Browsers and the Web</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.subcide.com/experiments/fail-whale/">Pure CSS Twitter ‘Fail Whale’</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.optimum7.com/css3-man/animation.html">CSS3-Man</a></li>
+<li><a target="_blank" rel="noopener" href="http://knb.im/css3/">A啦多梦告诉你浏览器对 CSS3 的支持程度</a></li>
+</ul>
+<h2 id="前端相关"><a class="markdownIt-Anchor" href="#前端相关"></a> 前端相关</h2>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://www.w3.org/">World Wide Web Consortium</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.webstandards.org/">The Web Standards Project</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.w3schools.com/">W3Schools Online Web Tutorials</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.google.com/support/webmasters/bin/answer.py?hl=cn&amp;answer=40132">HTTP 状态代码</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.floatfly.cn/default/web-error-info.html">网页错误代码详解</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.w3school.com.cn">w3school - 在线教程</a></li>
+<li><a target="_blank" rel="noopener" href="http://zh.wikipedia.org/zh-cn/REST">REST介绍</a></li>
+<li><a target="_blank" rel="noopener" href="http://aliceui.com/category/solutions/">浏览器兼容解决方案</a> (AliceUI) | <a target="_blank" rel="noopener" href="http://aliceui.com/w3c-docs/">W3C 标准文档</a> (AliceUI)</li>
+<li>Microformats：<a target="_blank" rel="noopener" href="http://microformats.org/wiki/Main_Page">Microformats</a>  | <a target="_blank" rel="noopener" href="http://www.blueidea.com/tech/web/2009/6471.asp">什么是微格式及经典实例演示</a>  | <a target="_blank" rel="noopener" href="http://zh.wikipedia.org/zh/%E5%BE%AE%E6%A0%BC%E5%BC%8F">微格式 - Wikipedia</a> <a target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/Microformat">en</a>  | <a target="_blank" rel="noopener" href="http://suda.co.uk/projects/microformats/cheatsheet/">Microformats Cheat Sheat</a>  | <a target="_blank" rel="noopener" href="http://www.ued163.com/?p=470">微格式全功略Hcard、 hCalendar、hReview、XFN 轻松掌握</a>  | <a target="_blank" rel="noopener" href="http://tommyfan.com/blog/skill/microformats_hcard/">微格式 Microformats ? hCard</a>  | <a target="_blank" rel="noopener" href="http://www.mijia.org/blog/?p=152">使用微格式来丰富网站语义：简介</a>  | <a target="_blank" rel="noopener" href="http://www.ablognotlimited.com/articles/getting-semantic-with-microformats-introduction/">Getting Semantic With Microformats, Introduction</a></li>
+</ul>
+<h2 id="python"><a class="markdownIt-Anchor" href="#python"></a> Python</h2>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://woodpecker.org.cn/abyteofpython_cn/chinese/">简明Python教程</a></li>
+<li><a target="_blank" rel="noopener" href="http://woodpecker.org.cn/diveintopython/">Dive Into Python中文版</a></li>
+<li><a target="_blank" rel="noopener" href="http://woodpecker.org.cn/diveintopython3/">Dive Into Python3中文版</a></li>
+<li><a target="_blank" rel="noopener" href="http://wiki.woodpecker.org.cn/moin/">啄木鸟社区Wiki</a></li>
+<li><a target="_blank" rel="noopener" href="http://wiki.woodpecker.org.cn/moin/PyAbsolutelyZipManual">Python绝对简明手册</a></li>
+</ul>
+<h2 id="正则表达式"><a class="markdownIt-Anchor" href="#正则表达式"></a> 正则表达式</h2>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://deerchao.net/tutorials/regex/regex.htm">正则表达式30分钟入门教程</a> <a target="_blank" rel="noopener" href="http://help.locoy.com/Document/Learn_Regex_For_30_Minutes.htm">2</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.regexlab.com/zh/">正则表达式工作室</a>  | <a target="_blank" rel="noopener" href="http://www.regexlab.com/zh/regref.htm">揭开正则表达式的神秘面纱</a>  | <a target="_blank" rel="noopener" href="http://www.regexlab.com/zh/regtopic.htm">正则表达式话题</a> |  <a target="_blank" rel="noopener" href="http://www.regexlab.com/zh/deelx/introidx.htm">DEELX 正则引擎性能与特点</a></li>
+<li><a target="_blank" rel="noopener" href="http://blog.chinaunix.net/u3/112728/showart_2207101.html">各种工具之正则表达式语法比较</a> <a target="_blank" rel="noopener" href="http://hi.baidu.com/libk/blog/item/b5eb710e6c636dc37acbe107.html">2</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.phpx.com/man/Regular_Expression/">Regular_Expression 入门</a></li>
+<li><a target="_blank" rel="noopener" href="http://java.sun.com/docs/books/tutorial/essential/regex/">Lesson: Regular Expressions(Java)</a></li>
+<li><a target="_blank" rel="noopener" href="http://docs.python.org/library/re.html">Regular expression operations(Python)</a></li>
+<li><a target="_blank" rel="noopener" href="http://zh.wikipedia.org/wiki/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F">正则表达式 - 维基百科</a></li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Global_Objects/RegExp#Special_characters_in_regular_expressions">RegExp - Mozilla</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.ibm.com/developerworks/cn/linux/l-lpic1-v3-103-7/?ca=drs-tp4608">学习 Linux，101: 使用正则表达式搜索文本文件</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.ibm.com/developerworks/cn/java/wa-regexp/index.html">构建用于正则表达式的抽象 Java API</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.greenend.org.uk/rjk/2002/06/regexp.html">Regexp Syntax Summary</a></li>
+<li><a target="_blank" rel="noopener" href="http://blog.stevenlevithan.com/archives/javascript-regex-and-unicode">JavaScript, Regex, and Unicode</a></li>
+<li><a target="_blank" rel="noopener" href="http://blog.csdn.net/myan/archive/2007/03/03/1520033.aspx">《理解正则表达式（程序员第3期文章）》</a></li>
+<li><a target="_blank" rel="noopener" href="http://tech.idv2.com/2006/05/08/parse-regex-with-dfa/">利用有限自动机分析正则表达式</a></li>
+<li><a target="_blank" rel="noopener" href="http://book.51cto.com/art/200902/111541.htm">《Linux系统最佳实践工具：命令行技术》</a></li>
+<li><a target="_blank" rel="noopener" href="http://iregex.org/links">我爱正则表达式</a></li>
+<li><a target="_blank" rel="noopener" href="http://regex.me/">正则表达式论坛</a></li>
+<li>正则表达式工具：<a target="_blank" rel="noopener" href="http://regexpal.com/">Regexpal (online)</a> <a target="_blank" rel="noopener" href="http://www.microidc.com/usr/tools/regexpal/index.html">2</a>  | <a target="_blank" rel="noopener" href="http://gskinner.com/RegExr/">RegExr</a>  | <a target="_blank" rel="noopener" href="http://www.regexbuddy.com/">RegexBuddy</a>  | <a target="_blank" rel="noopener" href="http://www.ultrapico.com/Expresso.htm">Expresso (free, open-source)</a>  | <a target="_blank" rel="noopener" href="http://www.regexlab.com/zh/mtracer/">Match Tracer</a>  | <a target="_blank" rel="noopener" href="http://www.gethifi.com/tools/regex">HiFi Regex Tester</a>  | <a target="_blank" rel="noopener" href="http://www.redfernplace.com/software-projects/regex-builder/">RegEx Builder</a></li>
+</ul>
+<h2 id="开发相关"><a class="markdownIt-Anchor" href="#开发相关"></a> 开发相关</h2>
+<ul>
+<li>
+<p><a target="_blank" rel="noopener" href="http://markdown.tw/">MarkDown语法</a></p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="http://114.xixik.com/character/">HTML转义</a></p>
+</li>
+<li>
+<p>OAuth</p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="http://oauth.net/">OAuth</a></p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="http://www.rollingcode.org/blog/f/oauth-core-1.0-final-cn.html">OAuth核心</a></p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="http://code.google.com/apis/accounts/docs/OAuth.html">OAtuh for Web Application</a></p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://github.com/mattn/vim-oauth">Vim-oauth</a></p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://github.com/mattn/webapi-vim">webapi-vim</a><br />
+&amp; OAuth在线测试：<a target="_blank" rel="noopener" href="http://term.ie/oauth/example/index.php">服务端</a>  | <a target="_blank" rel="noopener" href="http://term.ie/oauth/example/client.php">客户端</a></p>
+</li>
+<li>
+<p>国内开源镜像站：<a target="_blank" rel="noopener" href="http://mirrors.sohu.com/">Sohu.com</a>  | <a target="_blank" rel="noopener" href="http://mirrors.163.com/">163.com</a></p>
+</li>
+<li>
+<p>在线IDE：<a target="_blank" rel="noopener" href="http://www.coderun.com/ide/">CodeRun</a>  | <a target="_blank" rel="noopener" href="http://jsfiddle.net/">jsFiddle</a>  | <a target="_blank" rel="noopener" href="http://jsbin.com/">JS Bin</a>  | <a target="_blank" rel="noopener" href="http://code.wanz.im/">小可<Little Code /></a></p>
+</li>
+<li>
+<p>优良的文本处理工具：SED &amp; AWK</p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="http://sed.sourceforge.net/">sed.sf.net</a>  | <a target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/AWK">AWK @wikipedia</a> <a target="_blank" rel="noopener" href="http://zh.wikipedia.org/wiki/AWK">中文</a></p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="http://gnuwin32.sourceforge.net/packages/gawk.htm">Gawk for Windows</a>  | <a target="_blank" rel="noopener" href="http://gnuwin32.sourceforge.net/packages/sed.htm">Sed for Windows</a></p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="http://blog.chinaunix.net/u/13392/showart.php?id=133128">sed-非交互式文本编辑器(L.E.McMahon 著,中文翻译)</a> <a target="_blank" rel="noopener" href="http://cm.bell-labs.com/7thEdMan/vol2/sed">En</a>  | <a target="_blank" rel="noopener" href="http://blog.chinaunix.net/u/13392/showart.php?id=134410">awk-模式扫描与处理语言(Aho,Kernighan,Weinberger著,中文翻译)(第二版)</a> <a target="_blank" rel="noopener" href="http://cm.bell-labs.com/7thEdMan/vol2/awk">En</a></p>
+</li>
+<li>
+<p>详解注明的AWK oneliner：<a target="_blank" rel="noopener" href="http://roylez.heroku.com/2010/04/11/awk-oneliner-translation-1.html">一：空行、行号和计算</a>  | <a target="_blank" rel="noopener" href="http://roylez.heroku.com/2010/04/28/awk-oneliner-translation-2.html">二：文本替换</a>  | <a target="_blank" rel="noopener" href="http://roylez.heroku.com/2010/05/15/awk-oneliner-translation-3.html">三：选择性输出特定行</a>  | <a target="_blank" rel="noopener" href="http://roylez.heroku.com/2010/07/29/awk-oneliner-translation-4.html">四：定义字符串和数组</a></p>
+</li>
+<li>
+<p>详解AWK oneliner原文：<a target="_blank" rel="noopener" href="http://www.catonmat.net/blog/awk-one-liners-explained-part-one/">Famous Awk One-Liners Explained</a>  | <a target="_blank" rel="noopener" href="http://www.catonmat.net/blog/update-on-famous-awk-one-liners-explained">Update on Famous Awk One-Liners Explained: String and Array Creation</a></p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="http://panweizeng.com/archives/522">sed和awk的简单使用 - 潘魏增</a></p>
+</li>
+<li>
+<p>参考书籍：<a target="_blank" rel="noopener" href="http://cm.bell-labs.com/cm/cs/awkbook/">The AWK Programming Language</a>  | <a target="_blank" rel="noopener" href="http://oreilly.com/catalog/9780596000707/">Effective awk Programming, Third Edition</a>  | <a target="_blank" rel="noopener" href="http://oreilly.com/catalog/9781565922259">sed &amp; awk, Second Edition</a>  | <a target="_blank" rel="noopener" href="http://oreilly.com/catalog/9780596003524">sed and awk Pocket Reference, Second Edition</a></p>
+</li>
+</ul>
+<h4 id="函数式编程"><a class="markdownIt-Anchor" href="#函数式编程"></a> 函数式编程：</h4>
+<ul>
+<li>
+<p><a target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/Functional_programming">@wikipedia</a> <a target="_blank" rel="noopener" href="http://zh.wikipedia.org/zh-cn/%E5%87%BD%E6%95%B8%E7%A8%8B%E5%BC%8F%E8%AA%9E%E8%A8%80">中文</a></p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="http://www.aqee.net/2010/03/08/a-brief-history-of-object-functional-programming/">对象-函数式编程简史</a> <a target="_blank" rel="noopener" href="http://news.csdn.net/a/20100311/217407.html">2</a></p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="http://www.ibm.com/developerworks/cn/web/wa-javascript.html">用函数式编程技术编写优美的 JavaScript</a></p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="http://blog.zhaojie.me/tag/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/">函数式编程</a>  - 老赵</p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="http://chenzhongke.com/wi/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B">函数式编程</a>  - czk wiki</p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="http://wfp.group.javaeye.com/">函数式编程の道</a></p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="http://blog.csdn.net/xuejx/archive/2009/08/12/4440105.aspx">哪种语言将统治多核时代 再看函数式语言特性</a></p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="http://www.canonical.org/~kragen/tao-of-programming.html">The Tao Of Programming</a> ,<a target="_blank" rel="noopener" href="http://osiris.urbanna.net/tao.html">2</a> ,<a target="_blank" rel="noopener" href="http://livecn.huasing.org/tao_of_programming.htm">《编程之道》</a>  文言文版 by Livecn，<a target="_blank" rel="noopener" href="http://202.118.74.32/doc/Science/Computer/TaoOfProg.pdf">2</a>  白话文版 by 小赵</p>
+</li>
+<li>
+<p>代码高亮：<a target="_blank" rel="noopener" href="http://mihai.bazon.net/projects/javascript-syntax-highlighting-engine">DlHightLight代码高亮组件</a>  | <a target="_blank" rel="noopener" href="http://code.google.com/p/google-code-prettify/">Google Code Prettify</a></p>
+</li>
+</ul>
+<h2 id="版本控制"><a class="markdownIt-Anchor" href="#版本控制"></a> 版本控制</h2>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://blog.csdn.net/vagrxie/archive/2009/09/23/4582457.aspx">版本控制系统（RCS）的选择与比较</a></li>
+<li><a target="_blank" rel="noopener" href="http://blog.csdn.net/tony1130/archive/2008/10/25/3137494.aspx">拥抱Mercurial—选择分布式版本控制工具</a></li>
+<li><a target="_blank" rel="noopener" href="http://blog.csdn.net/meteor1113/archive/2009/07/16/4350408.aspx">几个分布式vcs比较</a></li>
+<li><a target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/Comparison_of_revision_control_software">Comparison of revision control software</a></li>
+</ul>
+<h4 id="代码片段管理"><a class="markdownIt-Anchor" href="#代码片段管理"></a> 代码片段管理：</h4>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://gist.github.com/">gist@github</a></li>
+<li><a target="_blank" rel="noopener" href="http://notepad.cc/">notepad.cc</a></li>
+<li><a target="_blank" rel="noopener" href="http://snipt.org/">Snipt.org</a></li>
+<li><a target="_blank" rel="noopener" href="http://paste.ubuntu.org.cn/">Ubuntu Paste</a></li>
+<li><a target="_blank" rel="noopener" href="http://pastebin.com/">Pastebin</a></li>
+<li><a target="_blank" rel="noopener" href="http://paste.pocoo.org">Lodge It!</a></li>
+</ul>
+<h4 id="svn相关"><a class="markdownIt-Anchor" href="#svn相关"></a> SVN相关：</h4>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://svnbook.red-bean.com/">Subversion 与版本控制</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.iusesvn.com/subversion/tortoisesvn_doc/1.4/">TortoiseSVN 中文帮助手册(v1.4.1)</a> <a target="_blank" rel="noopener" href="http://tortoisesvn.net/docs/release/TortoiseSVN_zh_CN/index.html">v1.6.8</a></li>
+<li><a target="_blank" rel="noopener" href="http://tortoisesvn.tigris.org/">Tigris.org</a>  - for Windows.</li>
+<li><a target="_blank" rel="noopener" href="http://www.subversion.org.cn/">Subversive中文站</a></li>
+<li><a target="_blank" rel="noopener" href="http://subclipse.tigris.org/">Subclipse</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.eclipse.org/subversive/">Subversive</a></li>
+<li><a target="_blank" rel="noopener" href="http://rabbitvcs.org/">RabbitVCS</a>  - for Linux.</li>
+<li><a target="_blank" rel="noopener" href="http://xuming.net/2010/04/rabbitvcs.html">Ubuntu下最好用的SVN客户端</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.open.collab.net/scdocs/ddUsingSVN_command-line.html.zh-cn">SVN 命令行</a></li>
+</ul>
+<h4 id="mercurial相关"><a class="markdownIt-Anchor" href="#mercurial相关"></a> Mercurial相关：</h4>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://mercurial.selenic.com/">Mercurial</a>  | <a target="_blank" rel="noopener" href="http://mercurial.selenic.com/wiki/ChineseTutorial">Mercurial 使用教程</a></li>
+<li><a target="_blank" rel="noopener" href="http://hginit.com/">Hg Init: a Mercurial tutorial</a></li>
+<li><a target="_blank" rel="noopener" href="http://hgbook.red-bean.com/">Mercurial: The Definitive Guide</a> <a target="_blank" rel="noopener" href="http://hgbook.red-bean.com/read/">read</a></li>
+<li><a target="_blank" rel="noopener" href="http://leeiio.me/googlecode-converting-svn-to-hg/">在Google Code上用 Mercurial 取代 Subversion 管理你的项目</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.cn-cuckoo.com/2010/03/20/distributed-version-control-is-here-to-stay-baby-1436.html">乔尔谈软件终结篇：分布式版本控制系统的时代到来了</a>  - 讲到了分布式版本控制的精髓：管理变更，而不是管理版本。</li>
+<li><a target="_blank" rel="noopener" href="http://stevelosh.com/blog/2010/08/a-git-users-guide-to-mercurial-queues/">A Git User’s Guide to Mercurial Queues</a></li>
 </ul>
 <ul>
-<li><p>  通过 wait() 方法，携带超时时间，等待的线程在等待 notify() 方法</p>
-</li>
-<li><p>  通过 join() 方法，携带超时时间，等待的线程则会等待目标线程的终止</p>
-</li>
+<li>Mercurial托管服务：<a target="_blank" rel="noopener" href="http://bitbucket.org/">Mercurial hosting - bitbucket.org</a>  | <a target="_blank" rel="noopener" href="http://www.fogcreek.com/kiln/">KilnHg</a></li>
 </ul>
+<h4 id="git相关"><a class="markdownIt-Anchor" href="#git相关"></a> Git相关：</h4>
 <ul>
-<li>  TERMINATED：已退出的线程处于此状态，此时线程无法再回到 RUNNABLE 状态</li>
+<li><a target="_blank" rel="noopener" href="http://git-scm.com/">Git</a>  - the Fast Version Control System.</li>
+<li><a target="_blank" rel="noopener" href="http://www-cs-students.stanford.edu/~blynn/gitmagic/intl/zh_cn/index.html">Stanford出品的Git Magic教程</a></li>
+<li>最详细Git介绍：<a target="_blank" rel="noopener" href="http://progit.org/">Pro Git</a>  (<a target="_blank" rel="noopener" href="http://progit.org/book/">book</a> , <a target="_blank" rel="noopener" href="http://progit.org/book/zh/">中文版</a> )</li>
+<li><a target="_blank" rel="noopener" href="http://help.github.com/">Git官方帮助文档</a></li>
+<li>简明教程：<a target="_blank" rel="noopener" href="http://blog.csdn.net/chinalinuxzend/archive/2008/11/14/3292896.aspx">git 之五分钟教程</a>  | <a target="_blank" rel="noopener" href="http://wangcong.org/blog/?p=283">进一步学习 Git</a>  | <a target="_blank" rel="noopener" href="http://www.ibm.com/developerworks/cn/linux/l-git/">使用 Git 管理源代码</a>  | <a target="_blank" rel="noopener" href="http://www.elias.cn/Develop/GitMini">分布式版本控制工具Git简明笔记</a>  | <a target="_blank" rel="noopener" href="http://labs.chinamobile.com/mblog/225_2822">译文:GIT日常命令20来条</a></li>
+<li><a target="_blank" rel="noopener" href="http://blog.leezhong.com/translate/2010/10/30/a-successful-git-branch.html">Git开发管理之道</a></li>
+<li>Git讨论：<a target="_blank" rel="noopener" href="http://zh-cn.whygitisbetterthanx.com/">Why Git is Better than X</a>  | <a target="_blank" rel="noopener" href="http://www.ibm.com/developerworks/cn/web/wa-git/">Git 改变了分布式 Web 开发规则</a>  | <a target="_blank" rel="noopener" href="http://www.joomlagate.com/article/joomla-review/why-subversion-will-be-replaced-by-git-for-version-control/">为什么说 Git 将取代 SVN 做软件版本控制？</a></li>
+<li><a target="_blank" rel="noopener" href="http://rubynroll.javaeye.com/blog/203133">SVN+GIT=鱼与熊掌兼得</a></li>
+<li>面向 Subversion 用户的 Git：<a target="_blank" rel="noopener" href="http://www.ibm.com/developerworks/cn/linux/l-git-subversion-1/">一: 入门指南</a>  | <a target="_blank" rel="noopener" href="http://www.ibm.com/developerworks/cn/linux/l-git-subversion-2/">面向 Subversion 用户的 Git，第 2 部分: 实施控制</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.jeffkit.info/2010/12/885/">Git的推广心得</a>  | <a target="_blank" rel="noopener" href="http://www.jeffkit.info/2010/12/860/">你为神马不用git-flow呢?</a>  | <a target="_blank" rel="noopener" href="http://www.jeffkit.info/2010/12/842/">开始实践git-flow</a></li>
+<li><a target="_blank" rel="noopener" href="http://github.com/">github</a>  | <a target="_blank" rel="noopener" href="http://jekyllrb.com/">jekyll</a>  | <a target="_blank" rel="noopener" href="https://github.com/mojombo/jekyll">codes</a>  | <a target="_blank" rel="noopener" href="https://github.com/mojombo/mojombo.github.com">demos</a>  | <a target="_blank" rel="noopener" href="https://github.com/blog/272-github-pages">GitHub Pages</a>  | <a target="_blank" rel="noopener" href="http://blog.envylabs.com/2009/08/publishing-a-blog-with-github-pages-and-jekyll/">Publishing a Blog with GitHub Pages and Jekyll</a></li>
 </ul>
-<h4 id="线程休眠"><a href="#线程休眠" class="headerlink" title="线程休眠"></a>线程休眠</h4><p>这是一个静态的本地方法，使当前执行的线程休眠暂停执行 <code>millis</code> 毫秒，当休眠被中断时会抛出<code>InterruptedException</code>中断异常</p>
-<pre><code>     1 /**
-     2  * Causes the currently executing thread to sleep (temporarily cease
-     3  * execution) for the specified number of milliseconds, subject to
-     4  * the precision and accuracy of system timers and schedulers. The thread
-     5  * does not lose ownership of any monitors.
-     6  *
-     7  * @param  millis
-     8  *         the length of time to sleep in milliseconds
-     9  *
-    10  * @throws  IllegalArgumentException
-    11  *          if the value of &#123;@code millis&#125; is negative
-    12  *
-    13  * @throws  InterruptedException
-    14  *          if any thread has interrupted the current thread. The
-    15  *          &lt;i&gt;interrupted status&lt;/i&gt; of the current thread is
-    16  *          cleared when this exception is thrown.
-    17  */
-    18 public static native void sleep(long millis) throws InterruptedException;</code></pre>
-<h4 id="检查线程是否存活"><a href="#检查线程是否存活" class="headerlink" title="检查线程是否存活"></a>检查线程是否存活</h4><p>本地方法，测试此线程是否存活。 如果一个线程已经启动并且尚未死亡，则该线程处于活动状态。</p>
-<pre><code>    1  /**
-    2   * Tests if this thread is alive. A thread is alive if it has
-    3   * been started and has not yet died.
-    4   *
-    5   * @return  &lt;code&gt;true&lt;/code&gt; if this thread is alive;
-    6   *          &lt;code&gt;false&lt;/code&gt; otherwise.
-    7   */
-    8  public final native boolean isAlive();</code></pre>
-<h4 id="线程优先级"><a href="#线程优先级" class="headerlink" title="线程优先级"></a>线程优先级</h4><ul>
-<li><p>设置线程优先级</p>
-<pre><code>   1  /**
-   2   * Changes the priority of this thread.
-   3   * &lt;p&gt;
-   4   * First the &lt;code&gt;checkAccess&lt;/code&gt; method of this thread is called
-   5   * with no arguments. This may result in throwing a
-   6   * &lt;code&gt;SecurityException&lt;/code&gt;.
-   7   * &lt;p&gt;
-   8   * Otherwise, the priority of this thread is set to the smaller of
-   9   * the specified &lt;code&gt;newPriority&lt;/code&gt; and the maximum permitted
-  10   * priority of the thread&#39;s thread group.
-  11   *
-  12   * @param newPriority priority to set this thread to
-  13   * @exception  IllegalArgumentException  If the priority is not in the
-  14   *               range &lt;code&gt;MIN_PRIORITY&lt;/code&gt; to
-  15   *               &lt;code&gt;MAX_PRIORITY&lt;/code&gt;.
-  16   * @exception  SecurityException  if the current thread cannot modify
-  17   *               this thread.
-  18   * @see        #getPriority
-  19   * @see        #checkAccess()
-  20   * @see        #getThreadGroup()
-  21   * @see        #MAX_PRIORITY
-  22   * @see        #MIN_PRIORITY
-  23   * @see        ThreadGroup#getMaxPriority()
-  24   */
-  25  public final void setPriority(int newPriority) &#123;
-  26      //线程组
-  27      ThreadGroup g;
-  28      //检查安全权限
-  29      checkAccess();
-  30      //检查优先级形参范围
-  31      if (newPriority &gt; MAX_PRIORITY || newPriority &lt; MIN_PRIORITY) &#123;
-  32          throw new IllegalArgumentException();
-  33      &#125;
-  34      if((g = getThreadGroup()) != null) &#123;
-  35          //如果优先级形参大于线程组最大线程最大优先级
-  36          if (newPriority &gt; g.getMaxPriority()) &#123;
-  37              //则使用线程组的优先级数据
-  38              newPriority = g.getMaxPriority();
-  39          &#125;
-  40          //调用本地设置线程优先级方法
-  41          setPriority0(priority = newPriority);
-  42      &#125;
-  43  &#125;</code></pre>
-</li>
-</ul>
-<h4 id="线程中断"><a href="#线程中断" class="headerlink" title="线程中断"></a>线程中断</h4><p>有一个<code>stop()</code>实例方法可以强制终止线程，不过这个方法因为太过于暴力，已经被标记为过时方法，不建议程序员再使用，因为<strong>强制终止线程</strong>会导致数据不一致的问题。</p>
-<p>这里关于线程中断的方法涉及三个：</p>
-<pre><code>    1 //实例方法，通知线程中断，设置标志位
-    2 public void interrupt()&#123;&#125;
-    3 //静态方法，检查当前线程的中断状态，同时会清除当前线程的中断标志位状态
-    4 public static boolean interrupted()&#123;&#125;
-    5 //实例方法，检查当前线程是否被中断，其实是检查中断标志位
-    6 public boolean isInterrupted()&#123;&#125;</code></pre>
-<p><strong>interrupt() 方法解析</strong></p>
-<pre><code>     1  /**
-     2   * Interrupts this thread.
-     3   *
-     4   * &lt;p&gt; Unless the current thread is interrupting itself, which is
-     5   * always permitted, the &#123;@link #checkAccess() checkAccess&#125; method
-     6   * of this thread is invoked, which may cause a &#123;@link
-     7   * SecurityException&#125; to be thrown.
-     8   *
-     9   * &lt;p&gt; If this thread is blocked in an invocation of the &#123;@link
-    10   * Object#wait() wait()&#125;, &#123;@link Object#wait(long) wait(long)&#125;, or &#123;@link
-    11   * Object#wait(long, int) wait(long, int)&#125; methods of the &#123;@link Object&#125;
-    12   * class, or of the &#123;@link #join()&#125;, &#123;@link #join(long)&#125;, &#123;@link
-    13   * #join(long, int)&#125;, &#123;@link #sleep(long)&#125;, or &#123;@link #sleep(long, int)&#125;,
-    14   * methods of this class, then its interrupt status will be cleared and it
-    15   * will receive an &#123;@link InterruptedException&#125;.
-    16   *
-    17   * &lt;p&gt; If this thread is blocked in an I/O operation upon an &#123;@link
-    18   * java.nio.channels.InterruptibleChannel InterruptibleChannel&#125;
-    19   * then the channel will be closed, the thread&#39;s interrupt
-    20   * status will be set, and the thread will receive a &#123;@link
-    21   * java.nio.channels.ClosedByInterruptException&#125;.
-    22   *
-    23   * &lt;p&gt; If this thread is blocked in a &#123;@link java.nio.channels.Selector&#125;
-    24   * then the thread&#39;s interrupt status will be set and it will return
-    25   * immediately from the selection operation, possibly with a non-zero
-    26   * value, just as if the selector&#39;s &#123;@link
-    27   * java.nio.channels.Selector#wakeup wakeup&#125; method were invoked.
-    28   *
-    29   * &lt;p&gt; If none of the previous conditions hold then this thread&#39;s interrupt
-    30   * status will be set. &lt;/p&gt;
-    31   *
-    32   * &lt;p&gt; Interrupting a thread that is not alive need not have any effect.
-    33   *
-    34   * @throws  SecurityException
-    35   *          if the current thread cannot modify this thread
-    36   *
-    37   * @revised 6.0
-    38   * @spec JSR-51
-    39   */
-    40  public void interrupt() &#123;
-    41      //检查是否是自身调用
-    42      if (this != Thread.currentThread())
-    43          //检查安全权限,这可能导致抛出&#123;@link * SecurityException&#125;。
-    44          checkAccess();
-    45
-    46      //同步代码块
-    47      synchronized (blockerLock) &#123;
-    48          Interruptible b = blocker;
-    49          //检查是否是阻塞线程调用
-    50          if (b != null) &#123;
-    51              //设置线程中断标志位
-    52              interrupt0(); 
-    53              //此时抛出异常，将中断标志位设置为false,此时我们正常会捕获该异常，重新设置中断标志位
-    54              b.interrupt(this);
-    55              return;
-    56          &#125;
-    57      &#125;
-    58      //如无意外，则正常设置中断标志位
-    59      interrupt0();
-    60  &#125;</code></pre>
+<h2 id="系统相关"><a class="markdownIt-Anchor" href="#系统相关"></a> 系统相关</h2>
 <ul>
-<li><p>  线程中断方法不会使线程立即退出，而是给线程发送一个通知，告知目标线程，有人希望你退出啦～</p>
-</li>
-<li><p>  只能由自身调用，否则可能会抛出 <code>SecurityException</code></p>
-</li>
-<li><p>  调用中断方法是由目标线程自己决定是否中断，而如果同时调用了<code>wait</code>,<code>join</code>,<code>sleep</code>等方法，会使当前线程进入阻塞状态，此时有可能发生<code>InterruptedException</code>异常</p>
-</li>
-<li><p>  被阻塞的线程再调用中断方法是不合理的</p>
-</li>
-<li><p>  中断不活动的线程不会产生任何影响</p>
-</li>
+<li><a target="_blank" rel="noopener" href="http://xbeta.info/win-run.htm">用win+r启动程序和文档</a></li>
+<li><a target="_blank" rel="noopener" href="http://lamp.linux.gov.cn/Linux/LFS-6.2/index.html">Linux彻底定制指南(Linux From Scratch)</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.douban.com/group/topic/14530790/">服务器和架构方面的一些文章</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.cnblogs.com/stephen-liu74/archive/2011/12/20/2285454.html">Linux Shell常用技巧(目录)</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.cnblogs.com/stephen-liu74/archive/2012/01/04/2285640.html">Linux Shell高级技巧(目录)</a></li>
+<li><a target="_blank" rel="noopener" href="http://wiki.ubuntu.org.cn/%E6%96%B0%E6%89%8B%E5%85%A5%E9%97%A8%E6%8C%87%E5%BC%95">Ubuntu新手入门指引</a>  | <a target="_blank" rel="noopener" href="http://wiki.ubuntu.org.cn/Ubuntu%E6%A1%8C%E9%9D%A2%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97">Ubuntu桌面入门指南</a></li>
+<li>终端(Terminal)：<a target="_blank" rel="noopener" href="http://www.zsh.org/">zsh</a>  | <a target="_blank" rel="noopener" href="http://zsh.sourceforge.net/">zsh.sf.net</a>  | <a target="_blank" rel="noopener" href="http://linuxtoy.org/archives/zsh.html">终极Shell——Zsh</a>  | <a target="_blank" rel="noopener" href="http://sofish.de/1685">把 Mac 上的 bash 换成 zsh</a>  | <a target="_blank" rel="noopener" href="http://leeiio.me/bash-to-zsh-for-mac/">zsh – 给你的Mac不同体验的Terminal！</a>  | <a target="_blank" rel="noopener" href="https://github.com/robbyrussell/oh-my-zsh">oh-my-zsh@github</a></li>
+<li>网络监控：<a target="_blank" rel="noopener" href="http://www.fiddler2.com/fiddler2/">Fiddler 2</a>  | <a target="_blank" rel="noopener" href="http://www.httpwatch.com/">HttpWatch</a>  | <a target="_blank" rel="noopener" href="http://www.charlesproxy.com/">Charles</a></li>
 </ul>
-<p>检查线程是否被中断:</p>
-<pre><code>     1  /**
-     2   * Tests whether this thread has been interrupted.  The &lt;i&gt;interrupted
-     3   * status&lt;/i&gt; of the thread is unaffected by this method.
-     4
-     5   测试此线程是否已被中断。, 线程的&lt;i&gt;中断*状态&lt;/ i&gt;不受此方法的影响。
-     6   *
-     7   * &lt;p&gt;A thread interruption ignored because a thread was not alive
-     8   * at the time of the interrupt will be reflected by this method
-     9   * returning false.
-    10   *
-    11   * @return  &lt;code&gt;true&lt;/code&gt; if this thread has been interrupted;
-    12   *          &lt;code&gt;false&lt;/code&gt; otherwise.
-    13   * @see     #interrupted()
-    14   * @revised 6.0
-    15   */
-    16  public boolean isInterrupted() &#123;
-    17      return isInterrupted(false);
-    18  &#125;</code></pre>
-<p>静态方法,会清空当前线程的中断标志位：</p>
-<pre><code>     1   /**
-     2     *测试当前线程是否已被中断。, 此方法清除线程的* &lt;i&gt;中断状态&lt;/ i&gt;。, 换句话说，如果要连续两次调用此方法，则* second调用将返回false（除非当前线程再次被中断，在第一次调用已清除其中断的*状态   之后且在第二次调用已检查之前）, 它）
-     3     *
-     4     * &lt;p&gt;A thread interruption ignored because a thread was not alive
-     5     * at the time of the interrupt will be reflected by this method
-     6     * returning false.
-     7     *
-     8     * @return  &lt;code&gt;true&lt;/code&gt; if the current thread has been interrupted;
-     9     *          &lt;code&gt;false&lt;/code&gt; otherwise.
-    10     * @see #isInterrupted()
-    11     * @revised 6.0
-    12     */
-    13    public static boolean interrupted() &#123;
-    14        return currentThread().isInterrupted(true);
-    15    &#125;</code></pre>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>记录自己阅读<code>Thread</code>类源码的一些思考，不过对于其中用到的很多本地方法只能望而却步，还有一些代码没有看明白，暂且先这样吧，如果有不足之处，请留言告知我，谢谢！后续会在实践中对<code>Thread</code>做出更多总结记录。</p>
+<h4 id="远程控制"><a class="markdownIt-Anchor" href="#远程控制"></a> 远程控制：</h4>
+<ul>
+<li>SSH技巧详解：<a target="_blank" rel="noopener" href="http://matt.might.net/articles/ssh-hacks/">SSH: More than secure shell</a></li>
+<li>SSH：<a target="_blank" rel="noopener" href="http://fuse.sourceforge.net/sshfs.html">SSH Filesystem</a>  | <a target="_blank" rel="noopener" href="http://wowubuntu.com/sshfs.html">在 Ubuntu 上使用 sshfs 映射远程 ssh 文件系统为本地磁盘</a>  | <a target="_blank" rel="noopener" href="http://code.google.com/p/macfuse/">MacFUSE</a>  | <a target="_blank" rel="noopener" href="http://www.macupdate.com/app/mac/23721/sshfs-for-mac-os-x">sshfs for Mac OS X</a></li>
+<li>SecureCRT：<a target="_blank" rel="noopener" href="http://www.vandyke.com/products/securecrt/index.html">SecureCRT</a>  | <a target="_blank" rel="noopener" href="http://www.cnblogs.com/ztf2008/archive/2009/09/11/1564979.html">SecureCRT 常用命令</a></li>
+<li>PuTTY：<a target="_blank" rel="noopener" href="http://www.putty.org/">PuTTY</a>  | <a target="_blank" rel="noopener" href="http://code.google.com/p/puttycn/">PuTTY 中文版</a>  | <a target="_blank" rel="noopener" href="http://www.chiark.greenend.org.uk/~sgtatham/putty/">PuTTY: A Free Telnet/SSH Client</a>  | <a target="_blank" rel="noopener" href="http://chaifeng.com/blog/2007/06/putty_200611.html">PuTTY 中文教程</a>  | <a target="_blank" rel="noopener" href="https://docs.google.com/View?docid=ajbgz6fp3pjh_2dwwwwt">@google docs</a>  | <a target="_blank" rel="noopener" href="http://blog.csdn.net/niuniuchou/archive/2010/03/16/5387250.aspx">转</a>  | <a target="_blank" rel="noopener" href="http://zh.wikipedia.org/wiki/PuTTY">@wikipedia</a></li>
+<li>cURL：<a target="_blank" rel="noopener" href="http://curl.haxx.se/">cURL and libcurl</a>  | <a target="_blank" rel="noopener" href="http://curl.haxx.se/docs/">docs</a>  | <a target="_blank" rel="noopener" href="http://php.net/manual/en/book.curl.php">PHP: cURL - Manual</a>  | <a target="_blank" rel="noopener" href="http://www.vimer.cn/2010/03/libcurl%E7%9A%84%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%80%EF%BC%89.html">libcurl的使用总结（一）</a>  | <a target="_blank" rel="noopener" href="http://www.vimer.cn/2010/03/libcurl%E7%9A%84%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93%EF%BC%88%E4%BA%8C%EF%BC%89.html">libcurl的使用总结（二）</a></li>
+<li>rsync：<a target="_blank" rel="noopener" href="http://rsync.samba.org/">rsync</a>  | <a target="_blank" rel="noopener" href="http://zh.wikipedia.org/zh-cn/Rsync">zh@wikipedia</a>  | <a target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/Rsync">en@wikipedia</a>  | <a target="_blank" rel="noopener" href="http://everythinglinux.org/rsync/">A Tutorial on Using</a>  | <a target="_blank" rel="noopener" href="http://www.itefix.no/i2/node/10650">cwrsync - Rsync for Windows</a>  | <a target="_blank" rel="noopener" href="http://wowubuntu.com/rsync.html">如何用 Rsync 来备份 Linux 文件</a>  | <a target="_blank" rel="noopener" href="http://www.dbanotes.net/techmemo/aix_rsync.html">AIX 上配置 rsync 简记</a>  | <a target="_blank" rel="noopener" href="http://www.dbanotes.net/techmemo/rsync_cwrsync_backup_dreamhost_to_windows.html">用 Rsync(cwRsync)备份 Dreamhost 到 Windows 上</a>  | <a target="_blank" rel="noopener" href="http://www.dbanotes.net/techmemo/rsync_openssh.html">Rsync 与 OpenSSH 结合运用进行文件同步</a></li>
+</ul>
+<h4 id="email相关"><a class="markdownIt-Anchor" href="#email相关"></a> Email相关：</h4>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://htmlemailboilerplate.com/">HTML Email Boilerplate - Email模板</a></li>
+<li><a target="_blank" rel="noopener" href="http://blog.miniasp.com/post/2008/02/06/How-to-send-Email-with-embedded-picture-image.aspx">如何發送內嵌圖片的 E-mail ( Inline Attachment )</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.tzwhx.com/newOperate/html/1/11/112/18550.html">发送内嵌图片邮件的正确方法</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.oschina.net/bbs/thread/8428">使用 Commons-Email 在邮件内容中直接嵌入图片</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.iteedu.com/webtech/j2ee/springdiary/93.php">内嵌图片或附档</a></li>
+<li><a target="_blank" rel="noopener" href="http://inlinestyler.torchboxapps.com/">HTML email inline styler</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.ajaxapp.com/2009/03/01/css-to-inline-styles-converter/">CSS to inline styles converter</a></li>
+</ul>
+<h2 id="设计相关"><a class="markdownIt-Anchor" href="#设计相关"></a> 设计相关</h2>
+<h4 id="图片-图标icons"><a class="markdownIt-Anchor" href="#图片-图标icons"></a> 图片、图标(Icons)：</h4>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://speckyboy.com/2011/12/12/top-50-web-development-design-and-application-icon-sets-from-2011/">2011年50个最佳图标设计集合</a></li>
+<li><a target="_blank" rel="noopener" href="http://findicons.com">FindIcons图标搜索引擎</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.iconarchive.com/">Icon Archive</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.iconspedia.com/">PNG icons &amp; Icons Picks Download</a></li>
+<li><a target="_blank" rel="noopener" href="http://dryicons.com/">DryIcons - Free Icons and Vector Graphics</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.iconeasy.com/">Icon Easy</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.tutorial9.net/">Tutorial9 | Photoshop Tutorials, Photography Tuts, and Resources</a></li>
+<li><a target="_blank" rel="noopener" href="http://thedesignmag.com/16-sketchy-hand-drawn-icon-sets.html">16 Sketchy Hand Drawn Icon Sets</a></li>
+<li><a target="_blank" rel="noopener" href="http://people.freedesktop.org/~jimmac/icons/">Gnome Icon Theme</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.dutchicon.com/">dutch icon?</a></li>
+<li><a target="_blank" rel="noopener" href="http://openiconlibrary.sourceforge.net/">开源图标库</a></li>
+<li>PhotoShop：<a target="_blank" rel="noopener" href="http://www.blueidea.com/tech/graph/2003/672.asp">PhotoShop通道白解</a>  | <a target="_blank" rel="noopener" href="http://zhidao.baidu.com/question/293029002.html">PhotoShop CS5序列号</a></li>
+</ul>
+<h4 id="字体"><a class="markdownIt-Anchor" href="#字体"></a> 字体：</h4>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://zh.wikipedia.org/wiki/%E8%A1%AC%E7%BA%BF%E4%BD%93">什么是衬线体</a></li>
+<li><a target="_blank" rel="noopener" href="http://wenq.org/">文泉驿</a>  - 开源字体。开彼源兮，斯流永继。</li>
+<li><a target="_blank" rel="noopener" href="http://www.cnbeta.com/articles/102609.htm">让代码更美:10大编程字体</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.typeisbeautiful.com/">Type is Beautiful</a>  - 字体排版</li>
+<li><a target="_blank" rel="noopener" href="http://code.google.com/webfonts">Google Font Directory</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.network-science.de/ascii/">ASCII Generator</a></li>
+<li>假文填充：<a target="_blank" rel="noopener" href="http://zh.wikipedia.org/zh-cn/Lorem_ipsum">Lorem ipsum</a>  | <a target="_blank" rel="noopener" href="http://more.handlino.com/">中文假文MoreText.js</a> <a target="_blank" rel="noopener" href="http://github.com/c9s/more.vim">MoreText的Vim插件</a>  | <a target="_blank" rel="noopener" href="http://www.richyli.com/tool/loremipsum/">亂數假文產生器 Chinese Lorem Ipsum</a></li>
+</ul>
+<h4 id="表格"><a class="markdownIt-Anchor" href="#表格"></a> 表格：</h4>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://article.yeeyan.org/view/155461/108136">15个优秀的表格设计技巧</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.askthecssguy.com/2007/08/creating_a_table_with_dynamica.html">Creating a table with dynamically highlighted columns like Crazy Eggs pricing table</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.junchenwu.com/2007/02/redesign_a_simple_table.html">越减越妙：简单表格的再设计</a></li>
+<li><a target="_blank" rel="noopener" href="http://blog.bingo929.com/15-jquery-plugins-for-better-table-manipulation.html/comment-page-1">15款提高表格操作的jQuery插件</a></li>
+</ul>
+<h4 id="资源"><a class="markdownIt-Anchor" href="#资源"></a> 资源：</h4>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://dribbble.com/">Dribble：著名设计师聚合网站</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.zcool.com.cn/">站酷：交流设计、分享快乐</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.quanjing.com/">全景：创意图片库</a></li>
+<li><a target="_blank" rel="noopener" href="http://designlol.net/">Designlol：全球设计精享</a></li>
+<li><a target="_blank" rel="noopener" href="http://cn.designboom.com/">Designboom</a></li>
+<li>配色方案：<a target="_blank" rel="noopener" href="http://www.colorschemer.com/">Color Schemer</a>  | <a target="_blank" rel="noopener" href="http://kuler.adobe.com/">kuler</a>  | <a target="_blank" rel="noopener" href="http://color.aurlien.net/">Piknik Color Picker</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.qianduan.net/80-more-absolutely-beautiful-dual-screen-wallpaper.html">80多个绝对漂亮的双屏壁纸</a></li>
+</ul>
+<h2 id="vim"><a class="markdownIt-Anchor" href="#vim"></a> VIM</h2>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://blog.longwin.com.tw/2009/03/choose-vim-color-scheme-2009/">配置挑选Vim颜色(Color Scheme)</a></li>
+<li><a target="_blank" rel="noopener" href="http://scmbob.org/vim_fdm.html">VIM折叠简介</a></li>
+<li><a target="_blank" rel="noopener" href="http://freewind.me/blog/20110912/102.html">FuzzyFinder快速查找文件</a></li>
+</ul>
+<p>转自：<a target="_blank" rel="noopener" href="https://www.luxiaolei.com/wiki">https://www.luxiaolei.com/wiki</a></p>
 
       
     </div>
@@ -922,7 +795,7 @@
     
     <li class="post-copyright-link hidden-xs" style="overflow: auto;">
       <strong>本文链接：</strong>
-      <a href="https://blog.fenxiangz.com/post/java/basic/2019-01-21_java_thread_source.html" title="从源码的角度再学「Thread」" target="_blank" rel="external">https://blog.fenxiangz.com/post/java/basic/2019-01-21_java_thread_source.html</a>
+      <a href="https://blog.fenxiangz.com/post/tea/2021-01-07_%E6%AD%A6%E5%A4%B7%E5%B2%A9%E8%8C%B6%E5%93%81%E7%B1%BB%E7%9F%A5%E8%AF%86.html" title="开发资源导航" target="_blank" rel="external">https://blog.fenxiangz.com/post/tea/2021-01-07_%E6%AD%A6%E5%A4%B7%E5%B2%A9%E8%8C%B6%E5%93%81%E7%B1%BB%E7%9F%A5%E8%AF%86.html</a>
     </li>
     
     <li class="post-copyright-license">
@@ -971,12 +844,12 @@
   <ul class="pager pull-left">
     
     <li class="prev">
-      <a href="/post/java/nio/2019-02-27_java_nio_model.html" title="谈一谈 Java IO 模型"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+      <a href="/post/util/2020-11-26_%E5%BC%80%E5%8F%91%E8%B5%84%E6%BA%90%E6%95%B4%E7%90%86.html" title="开发资源导航"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
     </li>
     
     
     <li class="next">
-      <a href="/post/design/2019-01-05_Java%E7%BB%8F%E5%85%B8%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F_3_%E5%8D%81%E4%B8%80%E7%A7%8D%E8%A1%8C%E4%B8%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F.html" title="Java 经典设计模式（3）：十一种行为型模式"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/post/%E5%85%B6%E4%BB%96/2020-10-25_V2ray%E9%85%8D%E7%BD%AE.html" title="V2ray 配置"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     
@@ -1055,9 +928,9 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
     <script defer>
     var disqus_config = function () {
         
-            this.page.url = 'https://blog.fenxiangz.com/post/java/basic/2019-01-21_java_thread_source.html';
+            this.page.url = 'https://blog.fenxiangz.com/post/tea/2021-01-07_%E6%AD%A6%E5%A4%B7%E5%B2%A9%E8%8C%B6%E5%93%81%E7%B1%BB%E7%9F%A5%E8%AF%86.html';
         
-        this.page.identifier = 'java/basic/2019-01-21_java_thread_source';
+        this.page.identifier = 'tea/2021-01-07_武夷岩茶品类知识';
     };
     (function() { 
         var d = document, s = d.createElement('script');  
