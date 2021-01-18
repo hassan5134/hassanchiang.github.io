@@ -26,7 +26,7 @@
 <meta property="og:description" content="原文：https:&#x2F;&#x2F;zhile.io&#x2F;2020&#x2F;11&#x2F;18&#x2F;jetbrains-eval-reset.html  0x0. 项目背景 Jetbrains家的产品有一个很良心的地方，他会允许你试用30天（这个数字写死在代码里了）以评估是否你真的需要为它而付费。 但很多时候会出现一种情况：IDE并不能按照我们实际的试用时间来计算。 我举个例子：如果我们开始了试用，然后媳妇生孩子要你回去陪产！陪产时我">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-01-18T00:00:00.000Z">
-<meta property="article:modified_time" content="2021-01-18T05:30:05.574Z">
+<meta property="article:modified_time" content="2021-01-18T06:14:03.465Z">
 <meta property="article:author" content="Hassan">
 <meta property="article:tag" content="Idea">
 <meta property="article:tag" content="IDE">
@@ -348,20 +348,20 @@
 我举个例子：如果我们开始了试用，然后媳妇生孩子要你回去陪产！陪产时我们并无空闲对IDE试用评估，它依旧算试用时间。（只是举个例子，或许你并没有女朋友）<br />
 发现了吗？你未能真的有<code>30</code>天来对它进行全面的试用评估，你甚至无法作出是否付费的决定。此时你会想要延长试用时间，然而Jetbrains并未提供相关功能，该怎么办？</p>
 <p>事实上有一款插件可以实现这个功能，你或许可以用它来重置一下试用时间。<strong>但切记不要无休止的一直试用，这并不是这个插件的本意！</strong></p>
-<p>##0x1. 如何安装</p>
-<p>###1). 插件市场安装：</p>
+<h2 id="0x1-如何安装"><a class="markdownIt-Anchor" href="#0x1-如何安装"></a> 0x1. 如何安装</h2>
+<h4 id="1-插件市场安装"><a class="markdownIt-Anchor" href="#1-插件市场安装"></a> 1). 插件市场安装：</h4>
 <ul>
 <li>在<code>Settings/Preferences...</code> -&gt; <code>Plugins</code> 内手动添加第三方插件仓库地址：<code>https://plugins.zhile.io</code></li>
 <li>搜索：<code>IDE Eval Reset</code>插件进行安装。如果搜索不到请注意是否做好了上一步？网络是否通畅？</li>
 <li>插件会提示安装成功。</li>
 </ul>
-<p>###2). 下载安装：</p>
+<h4 id="2-下载安装"><a class="markdownIt-Anchor" href="#2-下载安装"></a> 2). 下载安装：</h4>
 <ul>
 <li>点击这个<a target="_blank" rel="noopener" href="https://plugins.zhile.io/files/ide-eval-resetter-2.1.6.zip">链接(v2.1.6)</a>下载插件的<code>zip</code>包（macOS可能会自动解压，然后把<code>zip</code>包丢进回收站）</li>
 <li>通常可以直接把<code>zip</code>包拖进IDE的窗口来进行插件的安装。如果无法拖动安装，你可以在<code>Settings/Preferences...</code> -&gt; <code>Plugins</code> 里手动安装插件（<code>Install Plugin From Disk...</code>）</li>
 <li>插件会提示安装成功。</li>
 </ul>
-<p>##0x2. 如何使用</p>
+<h2 id="0x2-如何使用"><a class="markdownIt-Anchor" href="#0x2-如何使用"></a> 0x2. 如何使用</h2>
 <ul>
 <li>
 <p>一般来说，在IDE窗口切出去或切回来时（窗口失去/得到焦点）会触发事件，检测是否长时间（<code>25</code>天）没有重置，给通知让你选择。（初次安装因为无法获取上次重置时间，会直接给予提示）</p>
@@ -389,13 +389,13 @@
 </li>
 </ul>
 <h2 id="0x3-如何更新"><a class="markdownIt-Anchor" href="#0x3-如何更新"></a> 0x3. 如何更新</h2>
-<h3 id="1-插件更新机制推荐"><a class="markdownIt-Anchor" href="#1-插件更新机制推荐"></a> 1). 插件更新机制（推荐）：</h3>
+<h4 id="1-插件更新机制推荐"><a class="markdownIt-Anchor" href="#1-插件更新机制推荐"></a> 1). 插件更新机制（推荐）：</h4>
 <ul>
 <li>IDE会自行检测其自身和所安装插件的更新并给予提示。如果本插件有更新，你会收到提示看到更新日志，自行选择是否更新。</li>
 <li>点击IDE的<code>Check for Updates...</code> 菜单手动检测IDE和所安装插件的更新。如果本插件有更新，你会收到提示看到更新日志，自行选择是否更新。</li>
 <li>插件更新可能会需要<strong>重启IDE</strong>。</li>
 </ul>
-<h3 id="2-手动更新"><a class="markdownIt-Anchor" href="#2-手动更新"></a> 2). 手动更新：</h3>
+<h4 id="2-手动更新"><a class="markdownIt-Anchor" href="#2-手动更新"></a> 2). 手动更新：</h4>
 <ul>
 <li>从本页面下载最新的插件<code>zip</code>包安装更新。参考本文：<code>下载安装</code>小节。</li>
 <li>插件更新需要<strong>重启IDE</strong>。</li>
