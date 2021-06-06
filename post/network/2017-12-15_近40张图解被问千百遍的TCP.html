@@ -18,12 +18,12 @@
   
   
   <title>硬不硬你说了算！近 40 张图解被问千百遍的 TCP 三次握手和四次挥手面试题 | 分享之</title>
-  <meta name="description" content="原文：https:&#x2F;&#x2F;xie.infoq.cn&#x2F;article&#x2F;964c8184326daff02aea8a746 每日一句英语学习，每天进步一点点：  前言不管面试 Java 、C&#x2F;C++、Python 等开发岗位， TCP 的知识点可以说是的必问的了。 任 TCP 虐我千百遍，我仍待 TCP 如初恋。 遥想小林当年校招时常因 TCP 面试题被刷，真是又爱又狠…. 过去不会没关系，今天就让我们来">
+  <meta name="description" content="原文：https:&#x2F;&#x2F;xie.infoq.cn&#x2F;article&#x2F;964c8184326daff02aea8a746  每日一句英语学习，每天进步一点点：    前言 不管面试 Java 、C&#x2F;C++、Python 等开发岗位， TCP 的知识点可以说是的必问的了。 任 TCP 虐我千百遍，我仍待 TCP 如初恋。 遥想小林当年校招时常因 TCP 面试题被刷，真是又爱又狠… 过去不会没关系，今天就让">
 <meta property="og:type" content="article">
 <meta property="og:title" content="硬不硬你说了算！近 40 张图解被问千百遍的 TCP 三次握手和四次挥手面试题">
 <meta property="og:url" content="https://blog.fenxiangz.com/post/network/2017-12-15_%E8%BF%9140%E5%BC%A0%E5%9B%BE%E8%A7%A3%E8%A2%AB%E9%97%AE%E5%8D%83%E7%99%BE%E9%81%8D%E7%9A%84TCP.html">
 <meta property="og:site_name" content="分享之">
-<meta property="og:description" content="原文：https:&#x2F;&#x2F;xie.infoq.cn&#x2F;article&#x2F;964c8184326daff02aea8a746 每日一句英语学习，每天进步一点点：  前言不管面试 Java 、C&#x2F;C++、Python 等开发岗位， TCP 的知识点可以说是的必问的了。 任 TCP 虐我千百遍，我仍待 TCP 如初恋。 遥想小林当年校招时常因 TCP 面试题被刷，真是又爱又狠…. 过去不会没关系，今天就让我们来">
+<meta property="og:description" content="原文：https:&#x2F;&#x2F;xie.infoq.cn&#x2F;article&#x2F;964c8184326daff02aea8a746  每日一句英语学习，每天进步一点点：    前言 不管面试 Java 、C&#x2F;C++、Python 等开发岗位， TCP 的知识点可以说是的必问的了。 任 TCP 虐我千百遍，我仍待 TCP 如初恋。 遥想小林当年校招时常因 TCP 面试题被刷，真是又爱又狠… 过去不会没关系，今天就让">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://static001.geekbang.org/infoq/49/499d675ebb7370be1b4f48072165cd97.png">
 <meta property="og:image" content="https://static001.geekbang.org/infoq/89/894da164df8246a5aade7ef066caf227.png">
@@ -61,8 +61,8 @@
 <meta property="og:image" content="https://static001.geekbang.org/infoq/2d/2ddfa757dd19bf3216d37ad04e9f6d8e.png">
 <meta property="og:image" content="https://static001.geekbang.org/infoq/66/66747eaab2836882c1b4927863c1d6c3.png">
 <meta property="og:image" content="https://static001.geekbang.org/infoq/19/19814f807c7d98bb98ad653c29f1c223.png">
-<meta property="article:published_time" content="2017-12-14T00:00:00.000Z">
-<meta property="article:modified_time" content="2020-12-20T16:47:02.983Z">
+<meta property="article:published_time" content="2017-12-13T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-06-06T07:31:54.631Z">
 <meta property="article:author" content="Hassan">
 <meta property="article:tag" content="面试">
 <meta property="article:tag" content="协议">
@@ -220,7 +220,7 @@
   <div class="widget">
     <h3 class="widget-title">标签</h3>
     <div class="widget-body">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ACID/" rel="tag">ACID</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Buffer/" rel="tag">Buffer</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CAP/" rel="tag">CAP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CDN/" rel="tag">CDN</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cloud/" rel="tag">Cloud</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Collation/" rel="tag">Collation</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DCL/" rel="tag">DCL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/" rel="tag">Docker</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Exception/" rel="tag">Exception</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gradle/" rel="tag">Gradle</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HashMap/" rel="tag">HashMap</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Heidi/" rel="tag">Heidi</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hello-World/" rel="tag">Hello World</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HttpClient/" rel="tag">HttpClient</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDE/" rel="tag">IDE</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IO/" rel="tag">IO</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Idea/" rel="tag">Idea</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JUC/" rel="tag">JUC</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">51</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java%E5%BC%82%E5%B8%B8/" rel="tag">Java异常</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java%E5%BC%95%E7%94%A8/" rel="tag">Java引用</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java%E7%BA%BF%E7%A8%8B/" rel="tag">Java线程</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java%E9%9B%86%E5%90%88/" rel="tag">Java集合</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jira/" rel="tag">Jira</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MMAP/" rel="tag">MMAP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MSSQL/" rel="tag">MSSQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NIO/" rel="tag">NIO</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NIO%E6%A8%A1%E5%9E%8B/" rel="tag">NIO模型</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Netty/" rel="tag">Netty</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Prometheus/" rel="tag">Prometheus</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RPC/" rel="tag">RPC</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Reactor/" rel="tag">Reactor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/" rel="tag">Redis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RocketMQ/" rel="tag">RocketMQ</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RocketMQ%E9%9B%86%E7%BE%A4/" rel="tag">RocketMQ集群</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL%E4%BC%98%E5%8C%96/" rel="tag">SQL优化</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SVN/" rel="tag">SVN</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Selector/" rel="tag">Selector</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Socket/" rel="tag">Socket</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/" rel="tag">Spring</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Boot/" rel="tag">Spring Boot</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Cloud/" rel="tag">Spring Cloud</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Core/" rel="tag">Spring Core</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Stream/" rel="tag">Stream</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TCP/" rel="tag">TCP</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tampermonkey/" rel="tag">Tampermonkey</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ThreadLocal/" rel="tag">ThreadLocal</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UDP/" rel="tag">UDP</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/URI/" rel="tag">URI</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/URL/" rel="tag">URL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/" rel="tag">Ubuntu</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/V2ray/" rel="tag">V2ray</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vert-x/" rel="tag">Vert.x</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/" rel="tag">Vue</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Wiki/" rel="tag">Wiki</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XXNET/" rel="tag">XXNET</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/apk/" rel="tag">apk</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bbr/" rel="tag">bbr</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/chameleon/" rel="tag">chameleon</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/chrome/" rel="tag">chrome</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/deb/" rel="tag">deb</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jvm/" rel="tag">jvm</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lambda/" rel="tag">lambda</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/" rel="tag">lambda表达式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/" rel="tag">ssh</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vpn/" rel="tag">vpn</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%B4%E6%97%B6%E8%A1%A8/" rel="tag">临时表</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B9%A6%E7%B1%8D%E6%8E%A8%E8%8D%90/" rel="tag">书籍推荐</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%8C%E8%BF%9B%E5%88%B6/" rel="tag">二进制</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%91%E5%8E%9F%E7%94%9F/" rel="tag">云原生</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BC%98%E5%8C%96/" rel="tag">优化</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%A5%E9%97%A8/" rel="tag">入门</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%AB%E7%9A%87%E5%90%8E/" rel="tag">八皇后</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%B3%E4%BA%8E%E6%88%91/" rel="tag">关于我</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%86%85%E5%AD%98/" rel="tag">内存</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/" rel="tag">内存分配</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%86%85%E5%AD%98%E6%98%A0%E5%B0%84/" rel="tag">内存映射</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/" rel="tag">内存模型</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%86%85%E5%AD%98%E6%B3%84%E9%9C%B2/" rel="tag">内存泄露</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/" rel="tag">函数式编程</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" rel="tag">分布式</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%9B%E5%BB%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F/" rel="tag">创建型模式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8C%85%E7%AE%A1%E7%90%86/" rel="tag">包管理</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%8F%E8%AE%AE/" rel="tag">协议</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%95%E4%BE%8B/" rel="tag">单例</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%8D%E7%A0%81/" rel="tag">反码</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%8D%E7%BC%96%E8%AF%91/" rel="tag">反编译</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%90%89%E4%BB%96/" rel="tag">吉他</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%90%8C%E6%AD%A5/" rel="tag">同步</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%91%BD%E4%BB%A4/" rel="tag">命令</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/" rel="tag">垃圾回收</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A0%86%E5%86%85%E5%AD%98/" rel="tag">堆内存</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%87%E4%BB%BD/" rel="tag">备份</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%97%E7%AC%A6%E9%9B%86/" rel="tag">字符集</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag">学习笔记</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" rel="tag">小程序</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7/" rel="tag">工具</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/" rel="tag">并发编程</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B9%BB%E8%AF%BB/" rel="tag">幻读</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BA%8F%E5%88%97%E5%8C%96/" rel="tag">序列化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%82%E5%B8%B8/" rel="tag">异常</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%82%E6%AD%A5/" rel="tag">异步</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%82%E6%AD%A5IO/" rel="tag">异步IO</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%B9%E7%90%B4%E5%90%A7/" rel="tag">弹琴吧</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" rel="tag">微服务</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/" rel="tag">快捷键</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE/" rel="tag">思维导图</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" rel="tag">性能优化</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%85%A2%E6%9F%A5/" rel="tag">慢查</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%A5%E8%AD%A6/" rel="tag">报警</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8C%82%E8%BD%BD/" rel="tag">挂载</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag">操作系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B4%E7%90%86/" rel="tag">整理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%87%E4%BB%B6%E5%8A%A0%E8%BD%BD/" rel="tag">文件加载</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%87%E4%BB%B6%E5%90%8D%E6%89%B9%E9%87%8F%E4%BF%AE%E6%94%B9/" rel="tag">文件名批量修改</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%AF%E8%AF%AD/" rel="tag">术语</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A6%82%E5%BF%B5/" rel="tag">概念</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A8%A1%E5%9E%8B/" rel="tag">模型</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AD%A6%E5%A4%B7%E5%B2%A9%E8%8C%B6/" rel="tag">武夷岩茶</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B3%A8%E8%A7%A3/" rel="tag">注解</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%BA%90%E7%A0%81/" rel="tag">源码</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/" rel="tag">源码分析</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%90%86%E8%AE%BA/" rel="tag">理论</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9B%91%E6%8E%A7/" rel="tag">监控</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9B%AE%E5%BD%95/" rel="tag">目录</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9B%B4%E6%8E%A5IO/" rel="tag">直接IO</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9B%B4%E6%8E%A5%E5%86%85%E5%AD%98/" rel="tag">直接内存</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/" rel="tag">知识体系</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86/" rel="tag">磁盘管理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%A6%E5%8F%B7%E9%93%BE%E6%8E%A5/" rel="tag">符号链接</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%A1%E7%90%86/" rel="tag">管理</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BB%93%E6%9E%84%E5%9E%8B%E6%A8%A1%E5%BC%8F/" rel="tag">结构型模式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/" rel="tag">网络协议</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C%E6%9C%AF%E8%AF%AD/" rel="tag">网络术语</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%84%91%E8%A3%82/" rel="tag">脑裂</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%8B%B1%E8%AF%AD/" rel="tag">英语</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%8C%B6%E7%9F%A5%E8%AF%86/" rel="tag">茶知识</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A1%8C%E4%B8%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F/" rel="tag">行为型模式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A1%A5%E7%A0%81/" rel="tag">补码</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%A4%E7%9F%A5/" rel="tag">认知</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%AD%E6%B3%95/" rel="tag">语法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B7%A8%E5%B9%B3%E5%8F%B0/" rel="tag">跨平台</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BE%93%E5%85%A5%E6%B3%95/" rel="tag">输入法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%97%AE%E9%A2%98/" rel="tag">问题</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/" rel="tag">阅读笔记</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%98%BB%E5%A1%9E/" rel="tag">阻塞</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9B%86%E5%90%88%E8%BF%90%E7%AE%97/" rel="tag">集合运算</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9B%B6%E6%8B%B7%E8%B4%9D/" rel="tag">零拷贝</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%9E%E7%9B%B4%E6%8E%A5%E5%86%85%E5%AD%98/" rel="tag">非直接内存</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%9E%E9%98%BB%E5%A1%9E/" rel="tag">非阻塞</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a><span class="tag-list-count">3</span></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ACID/" rel="tag">ACID</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Buffer/" rel="tag">Buffer</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CAP/" rel="tag">CAP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CDN/" rel="tag">CDN</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cloud/" rel="tag">Cloud</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Collation/" rel="tag">Collation</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DCL/" rel="tag">DCL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/" rel="tag">Docker</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Exception/" rel="tag">Exception</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gradle/" rel="tag">Gradle</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HashMap/" rel="tag">HashMap</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Heidi/" rel="tag">Heidi</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hello-World/" rel="tag">Hello World</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HttpClient/" rel="tag">HttpClient</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDE/" rel="tag">IDE</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IO/" rel="tag">IO</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Idea/" rel="tag">Idea</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JUC/" rel="tag">JUC</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">51</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java%E5%BC%82%E5%B8%B8/" rel="tag">Java异常</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java%E5%BC%95%E7%94%A8/" rel="tag">Java引用</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java%E7%BA%BF%E7%A8%8B/" rel="tag">Java线程</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java%E9%9B%86%E5%90%88/" rel="tag">Java集合</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jira/" rel="tag">Jira</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MMAP/" rel="tag">MMAP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MSSQL/" rel="tag">MSSQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NIO/" rel="tag">NIO</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NIO%E6%A8%A1%E5%9E%8B/" rel="tag">NIO模型</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Netty/" rel="tag">Netty</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Prometheus/" rel="tag">Prometheus</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RPC/" rel="tag">RPC</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Reactor/" rel="tag">Reactor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/" rel="tag">Redis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RocketMQ/" rel="tag">RocketMQ</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RocketMQ%E9%9B%86%E7%BE%A4/" rel="tag">RocketMQ集群</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL%E4%BC%98%E5%8C%96/" rel="tag">SQL优化</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SVN/" rel="tag">SVN</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Selector/" rel="tag">Selector</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Socket/" rel="tag">Socket</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/" rel="tag">Spring</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Boot/" rel="tag">Spring Boot</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Cloud/" rel="tag">Spring Cloud</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Core/" rel="tag">Spring Core</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Stream/" rel="tag">Stream</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TCP/" rel="tag">TCP</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tampermonkey/" rel="tag">Tampermonkey</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ThreadLocal/" rel="tag">ThreadLocal</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UDP/" rel="tag">UDP</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/URI/" rel="tag">URI</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/URL/" rel="tag">URL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/" rel="tag">Ubuntu</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/V2ray/" rel="tag">V2ray</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vert-x/" rel="tag">Vert.x</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/" rel="tag">Vue</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Wiki/" rel="tag">Wiki</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XXNET/" rel="tag">XXNET</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/apk/" rel="tag">apk</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bbr/" rel="tag">bbr</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/chameleon/" rel="tag">chameleon</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/chrome/" rel="tag">chrome</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/deb/" rel="tag">deb</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jvm/" rel="tag">jvm</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lambda/" rel="tag">lambda</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/" rel="tag">lambda表达式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/" rel="tag">ssh</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vpn/" rel="tag">vpn</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%B4%E6%97%B6%E8%A1%A8/" rel="tag">临时表</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B9%A6%E7%B1%8D%E6%8E%A8%E8%8D%90/" rel="tag">书籍推荐</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%8C%E8%BF%9B%E5%88%B6/" rel="tag">二进制</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%91%E5%8E%9F%E7%94%9F/" rel="tag">云原生</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BC%98%E5%8C%96/" rel="tag">优化</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%A5%E9%97%A8/" rel="tag">入门</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%AB%E7%9A%87%E5%90%8E/" rel="tag">八皇后</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%B3%E4%BA%8E%E6%88%91/" rel="tag">关于我</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%86%85%E5%AD%98/" rel="tag">内存</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/" rel="tag">内存分配</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%86%85%E5%AD%98%E6%98%A0%E5%B0%84/" rel="tag">内存映射</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/" rel="tag">内存模型</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%86%85%E5%AD%98%E6%B3%84%E9%9C%B2/" rel="tag">内存泄露</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/" rel="tag">函数式编程</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" rel="tag">分布式</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%9B%E5%BB%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F/" rel="tag">创建型模式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8C%85%E7%AE%A1%E7%90%86/" rel="tag">包管理</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%8F%E8%AE%AE/" rel="tag">协议</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%95%E4%BE%8B/" rel="tag">单例</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%8D%E7%A0%81/" rel="tag">反码</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%8D%E7%BC%96%E8%AF%91/" rel="tag">反编译</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%90%89%E4%BB%96/" rel="tag">吉他</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%90%8C%E6%AD%A5/" rel="tag">同步</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%91%BD%E4%BB%A4/" rel="tag">命令</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/" rel="tag">垃圾回收</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A0%86%E5%86%85%E5%AD%98/" rel="tag">堆内存</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%87%E4%BB%BD/" rel="tag">备份</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%97%E7%AC%A6%E9%9B%86/" rel="tag">字符集</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag">学习笔记</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" rel="tag">小程序</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7/" rel="tag">工具</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/" rel="tag">并发编程</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B9%BB%E8%AF%BB/" rel="tag">幻读</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BA%8F%E5%88%97%E5%8C%96/" rel="tag">序列化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%82%E5%B8%B8/" rel="tag">异常</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%82%E6%AD%A5/" rel="tag">异步</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%82%E6%AD%A5IO/" rel="tag">异步IO</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%B9%E7%90%B4%E5%90%A7/" rel="tag">弹琴吧</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" rel="tag">微服务</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/" rel="tag">快捷键</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE/" rel="tag">思维导图</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" rel="tag">性能优化</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%85%A2%E6%9F%A5/" rel="tag">慢查</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%A5%E8%AD%A6/" rel="tag">报警</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8C%82%E8%BD%BD/" rel="tag">挂载</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag">操作系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B4%E7%90%86/" rel="tag">整理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%87%E4%BB%B6%E5%8A%A0%E8%BD%BD/" rel="tag">文件加载</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%87%E4%BB%B6%E5%90%8D%E6%89%B9%E9%87%8F%E4%BF%AE%E6%94%B9/" rel="tag">文件名批量修改</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%AF%E8%AF%AD/" rel="tag">术语</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A6%82%E5%BF%B5/" rel="tag">概念</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A8%A1%E5%9E%8B/" rel="tag">模型</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AD%A6%E5%A4%B7%E5%B1%B1/" rel="tag">武夷山</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AD%A6%E5%A4%B7%E5%B2%A9%E8%8C%B6/" rel="tag">武夷岩茶</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B3%A8%E8%A7%A3/" rel="tag">注解</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%BA%90%E7%A0%81/" rel="tag">源码</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/" rel="tag">源码分析</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%90%86%E8%AE%BA/" rel="tag">理论</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9B%91%E6%8E%A7/" rel="tag">监控</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9B%AE%E5%BD%95/" rel="tag">目录</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9B%B4%E6%8E%A5IO/" rel="tag">直接IO</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9B%B4%E6%8E%A5%E5%86%85%E5%AD%98/" rel="tag">直接内存</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/" rel="tag">知识体系</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86/" rel="tag">磁盘管理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%A6%E5%8F%B7%E9%93%BE%E6%8E%A5/" rel="tag">符号链接</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%A1%E7%90%86/" rel="tag">管理</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BB%93%E6%9E%84%E5%9E%8B%E6%A8%A1%E5%BC%8F/" rel="tag">结构型模式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/" rel="tag">网络协议</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C%E6%9C%AF%E8%AF%AD/" rel="tag">网络术语</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%84%91%E8%A3%82/" rel="tag">脑裂</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%8B%B1%E8%AF%AD/" rel="tag">英语</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%8C%B6%E7%9F%A5%E8%AF%86/" rel="tag">茶知识</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A1%8C%E4%B8%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F/" rel="tag">行为型模式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A1%A5%E7%A0%81/" rel="tag">补码</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%A4%E7%9F%A5/" rel="tag">认知</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%AD%E6%B3%95/" rel="tag">语法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B7%A8%E5%B9%B3%E5%8F%B0/" rel="tag">跨平台</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BE%93%E5%85%A5%E6%B3%95/" rel="tag">输入法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%97%AE%E9%A2%98/" rel="tag">问题</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/" rel="tag">阅读笔记</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%98%BB%E5%A1%9E/" rel="tag">阻塞</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9B%86%E5%90%88%E8%BF%90%E7%AE%97/" rel="tag">集合运算</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9B%B6%E6%8B%B7%E8%B4%9D/" rel="tag">零拷贝</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%9E%E7%9B%B4%E6%8E%A5%E5%86%85%E5%AD%98/" rel="tag">非直接内存</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%9E%E9%98%BB%E5%A1%9E/" rel="tag">非阻塞</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a><span class="tag-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -230,7 +230,7 @@
   <div class="widget">
     <h3 class="widget-title">标签云</h3>
     <div class="widget-body tagcloud">
-      <a href="/tags/ACID/" style="font-size: 13px;">ACID</a> <a href="/tags/Android/" style="font-size: 13px;">Android</a> <a href="/tags/Buffer/" style="font-size: 13px;">Buffer</a> <a href="/tags/CAP/" style="font-size: 13px;">CAP</a> <a href="/tags/CDN/" style="font-size: 13px;">CDN</a> <a href="/tags/Cloud/" style="font-size: 13px;">Cloud</a> <a href="/tags/Collation/" style="font-size: 13px;">Collation</a> <a href="/tags/DCL/" style="font-size: 13px;">DCL</a> <a href="/tags/Docker/" style="font-size: 13.13px;">Docker</a> <a href="/tags/Exception/" style="font-size: 13px;">Exception</a> <a href="/tags/Gradle/" style="font-size: 13.25px;">Gradle</a> <a href="/tags/HashMap/" style="font-size: 13px;">HashMap</a> <a href="/tags/Heidi/" style="font-size: 13px;">Heidi</a> <a href="/tags/Hello-World/" style="font-size: 13px;">Hello World</a> <a href="/tags/HttpClient/" style="font-size: 13px;">HttpClient</a> <a href="/tags/IDE/" style="font-size: 13.13px;">IDE</a> <a href="/tags/IO/" style="font-size: 13.88px;">IO</a> <a href="/tags/Idea/" style="font-size: 13.13px;">Idea</a> <a href="/tags/JUC/" style="font-size: 13px;">JUC</a> <a href="/tags/Java/" style="font-size: 14px;">Java</a> <a href="/tags/JavaScript/" style="font-size: 13.38px;">JavaScript</a> <a href="/tags/Java%E5%BC%82%E5%B8%B8/" style="font-size: 13px;">Java异常</a> <a href="/tags/Java%E5%BC%95%E7%94%A8/" style="font-size: 13px;">Java引用</a> <a href="/tags/Java%E7%BA%BF%E7%A8%8B/" style="font-size: 13.25px;">Java线程</a> <a href="/tags/Java%E9%9B%86%E5%90%88/" style="font-size: 13px;">Java集合</a> <a href="/tags/Jira/" style="font-size: 13px;">Jira</a> <a href="/tags/MMAP/" style="font-size: 13px;">MMAP</a> <a href="/tags/MSSQL/" style="font-size: 13px;">MSSQL</a> <a href="/tags/MySQL/" style="font-size: 13.75px;">MySQL</a> <a href="/tags/NIO/" style="font-size: 13.63px;">NIO</a> <a href="/tags/NIO%E6%A8%A1%E5%9E%8B/" style="font-size: 13px;">NIO模型</a> <a href="/tags/Netty/" style="font-size: 13.38px;">Netty</a> <a href="/tags/Prometheus/" style="font-size: 13px;">Prometheus</a> <a href="/tags/RPC/" style="font-size: 13px;">RPC</a> <a href="/tags/Reactor/" style="font-size: 13px;">Reactor</a> <a href="/tags/Redis/" style="font-size: 13px;">Redis</a> <a href="/tags/RocketMQ/" style="font-size: 13px;">RocketMQ</a> <a href="/tags/RocketMQ%E9%9B%86%E7%BE%A4/" style="font-size: 13px;">RocketMQ集群</a> <a href="/tags/SQL%E4%BC%98%E5%8C%96/" style="font-size: 13.13px;">SQL优化</a> <a href="/tags/SVN/" style="font-size: 13px;">SVN</a> <a href="/tags/Selector/" style="font-size: 13px;">Selector</a> <a href="/tags/Socket/" style="font-size: 13px;">Socket</a> <a href="/tags/Spring/" style="font-size: 13.5px;">Spring</a> <a href="/tags/Spring-Boot/" style="font-size: 13.25px;">Spring Boot</a> <a href="/tags/Spring-Cloud/" style="font-size: 13px;">Spring Cloud</a> <a href="/tags/Spring-Core/" style="font-size: 13px;">Spring Core</a> <a href="/tags/Stream/" style="font-size: 13px;">Stream</a> <a href="/tags/TCP/" style="font-size: 13.25px;">TCP</a> <a href="/tags/Tampermonkey/" style="font-size: 13px;">Tampermonkey</a> <a href="/tags/ThreadLocal/" style="font-size: 13px;">ThreadLocal</a> <a href="/tags/UDP/" style="font-size: 13.13px;">UDP</a> <a href="/tags/URI/" style="font-size: 13px;">URI</a> <a href="/tags/URL/" style="font-size: 13px;">URL</a> <a href="/tags/Ubuntu/" style="font-size: 13px;">Ubuntu</a> <a href="/tags/V2ray/" style="font-size: 13px;">V2ray</a> <a href="/tags/Vert-x/" style="font-size: 13px;">Vert.x</a> <a href="/tags/Vue/" style="font-size: 13.13px;">Vue</a> <a href="/tags/Wiki/" style="font-size: 13px;">Wiki</a> <a href="/tags/XXNET/" style="font-size: 13px;">XXNET</a> <a href="/tags/apk/" style="font-size: 13px;">apk</a> <a href="/tags/bbr/" style="font-size: 13px;">bbr</a> <a href="/tags/chameleon/" style="font-size: 13.13px;">chameleon</a> <a href="/tags/chrome/" style="font-size: 13px;">chrome</a> <a href="/tags/deb/" style="font-size: 13.13px;">deb</a> <a href="/tags/jvm/" style="font-size: 13.25px;">jvm</a> <a href="/tags/lambda/" style="font-size: 13px;">lambda</a> <a href="/tags/lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/" style="font-size: 13px;">lambda表达式</a> <a href="/tags/ssh/" style="font-size: 13px;">ssh</a> <a href="/tags/vpn/" style="font-size: 13px;">vpn</a> <a href="/tags/%E4%B8%B4%E6%97%B6%E8%A1%A8/" style="font-size: 13px;">临时表</a> <a href="/tags/%E4%B9%A6%E7%B1%8D%E6%8E%A8%E8%8D%90/" style="font-size: 13px;">书籍推荐</a> <a href="/tags/%E4%BA%8C%E8%BF%9B%E5%88%B6/" style="font-size: 13.13px;">二进制</a> <a href="/tags/%E4%BA%91%E5%8E%9F%E7%94%9F/" style="font-size: 13px;">云原生</a> <a href="/tags/%E4%BC%98%E5%8C%96/" style="font-size: 13.13px;">优化</a> <a href="/tags/%E5%85%A5%E9%97%A8/" style="font-size: 13.13px;">入门</a> <a href="/tags/%E5%85%AB%E7%9A%87%E5%90%8E/" style="font-size: 13px;">八皇后</a> <a href="/tags/%E5%85%B3%E4%BA%8E%E6%88%91/" style="font-size: 13px;">关于我</a> <a href="/tags/%E5%86%85%E5%AD%98/" style="font-size: 13px;">内存</a> <a href="/tags/%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/" style="font-size: 13px;">内存分配</a> <a href="/tags/%E5%86%85%E5%AD%98%E6%98%A0%E5%B0%84/" style="font-size: 13px;">内存映射</a> <a href="/tags/%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/" style="font-size: 13px;">内存模型</a> <a href="/tags/%E5%86%85%E5%AD%98%E6%B3%84%E9%9C%B2/" style="font-size: 13px;">内存泄露</a> <a href="/tags/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/" style="font-size: 13px;">函数式编程</a> <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" style="font-size: 13.25px;">分布式</a> <a href="/tags/%E5%88%9B%E5%BB%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F/" style="font-size: 13px;">创建型模式</a> <a href="/tags/%E5%8C%85%E7%AE%A1%E7%90%86/" style="font-size: 13.38px;">包管理</a> <a href="/tags/%E5%8D%8F%E8%AE%AE/" style="font-size: 13.25px;">协议</a> <a href="/tags/%E5%8D%95%E4%BE%8B/" style="font-size: 13px;">单例</a> <a href="/tags/%E5%8F%8D%E7%A0%81/" style="font-size: 13px;">反码</a> <a href="/tags/%E5%8F%8D%E7%BC%96%E8%AF%91/" style="font-size: 13px;">反编译</a> <a href="/tags/%E5%90%89%E4%BB%96/" style="font-size: 13px;">吉他</a> <a href="/tags/%E5%90%8C%E6%AD%A5/" style="font-size: 13.13px;">同步</a> <a href="/tags/%E5%91%BD%E4%BB%A4/" style="font-size: 13px;">命令</a> <a href="/tags/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/" style="font-size: 13.13px;">垃圾回收</a> <a href="/tags/%E5%A0%86%E5%86%85%E5%AD%98/" style="font-size: 13px;">堆内存</a> <a href="/tags/%E5%A4%87%E4%BB%BD/" style="font-size: 13px;">备份</a> <a href="/tags/%E5%AD%97%E7%AC%A6%E9%9B%86/" style="font-size: 13.13px;">字符集</a> <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="font-size: 13px;">学习笔记</a> <a href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" style="font-size: 13.13px;">小程序</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 13px;">工具</a> <a href="/tags/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/" style="font-size: 13px;">并发编程</a> <a href="/tags/%E5%B9%BB%E8%AF%BB/" style="font-size: 13px;">幻读</a> <a href="/tags/%E5%BA%8F%E5%88%97%E5%8C%96/" style="font-size: 13px;">序列化</a> <a href="/tags/%E5%BC%82%E5%B8%B8/" style="font-size: 13px;">异常</a> <a href="/tags/%E5%BC%82%E6%AD%A5/" style="font-size: 13px;">异步</a> <a href="/tags/%E5%BC%82%E6%AD%A5IO/" style="font-size: 13px;">异步IO</a> <a href="/tags/%E5%BC%B9%E7%90%B4%E5%90%A7/" style="font-size: 13px;">弹琴吧</a> <a href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" style="font-size: 13px;">微服务</a> <a href="/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/" style="font-size: 13px;">快捷键</a> <a href="/tags/%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE/" style="font-size: 13.13px;">思维导图</a> <a href="/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" style="font-size: 13.38px;">性能优化</a> <a href="/tags/%E6%85%A2%E6%9F%A5/" style="font-size: 13px;">慢查</a> <a href="/tags/%E6%8A%A5%E8%AD%A6/" style="font-size: 13px;">报警</a> <a href="/tags/%E6%8C%82%E8%BD%BD/" style="font-size: 13px;">挂载</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 13px;">操作系统</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 13px;">数据结构</a> <a href="/tags/%E6%95%B4%E7%90%86/" style="font-size: 13px;">整理</a> <a href="/tags/%E6%96%87%E4%BB%B6%E5%8A%A0%E8%BD%BD/" style="font-size: 13px;">文件加载</a> <a href="/tags/%E6%96%87%E4%BB%B6%E5%90%8D%E6%89%B9%E9%87%8F%E4%BF%AE%E6%94%B9/" style="font-size: 13px;">文件名批量修改</a> <a href="/tags/%E6%9C%AF%E8%AF%AD/" style="font-size: 13px;">术语</a> <a href="/tags/%E6%A6%82%E5%BF%B5/" style="font-size: 13.38px;">概念</a> <a href="/tags/%E6%A8%A1%E5%9E%8B/" style="font-size: 13.13px;">模型</a> <a href="/tags/%E6%AD%A6%E5%A4%B7%E5%B2%A9%E8%8C%B6/" style="font-size: 13.13px;">武夷岩茶</a> <a href="/tags/%E6%B3%A8%E8%A7%A3/" style="font-size: 13px;">注解</a> <a href="/tags/%E6%BA%90%E7%A0%81/" style="font-size: 13px;">源码</a> <a href="/tags/%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/" style="font-size: 13px;">源码分析</a> <a href="/tags/%E7%90%86%E8%AE%BA/" style="font-size: 13px;">理论</a> <a href="/tags/%E7%9B%91%E6%8E%A7/" style="font-size: 13px;">监控</a> <a href="/tags/%E7%9B%AE%E5%BD%95/" style="font-size: 13px;">目录</a> <a href="/tags/%E7%9B%B4%E6%8E%A5IO/" style="font-size: 13px;">直接IO</a> <a href="/tags/%E7%9B%B4%E6%8E%A5%E5%86%85%E5%AD%98/" style="font-size: 13px;">直接内存</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/" style="font-size: 13px;">知识体系</a> <a href="/tags/%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86/" style="font-size: 13px;">磁盘管理</a> <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 13px;">笔记</a> <a href="/tags/%E7%AC%A6%E5%8F%B7%E9%93%BE%E6%8E%A5/" style="font-size: 13px;">符号链接</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 13.13px;">算法</a> <a href="/tags/%E7%AE%A1%E7%90%86/" style="font-size: 13.13px;">管理</a> <a href="/tags/%E7%BB%93%E6%9E%84%E5%9E%8B%E6%A8%A1%E5%BC%8F/" style="font-size: 13px;">结构型模式</a> <a href="/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 13.13px;">网络</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/" style="font-size: 13px;">网络协议</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E6%9C%AF%E8%AF%AD/" style="font-size: 13.25px;">网络术语</a> <a href="/tags/%E8%84%91%E8%A3%82/" style="font-size: 13px;">脑裂</a> <a href="/tags/%E8%8B%B1%E8%AF%AD/" style="font-size: 13px;">英语</a> <a href="/tags/%E8%8C%B6%E7%9F%A5%E8%AF%86/" style="font-size: 13.13px;">茶知识</a> <a href="/tags/%E8%A1%8C%E4%B8%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F/" style="font-size: 13px;">行为型模式</a> <a href="/tags/%E8%A1%A5%E7%A0%81/" style="font-size: 13px;">补码</a> <a href="/tags/%E8%AE%A4%E7%9F%A5/" style="font-size: 13px;">认知</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 13.25px;">设计模式</a> <a href="/tags/%E8%AF%AD%E6%B3%95/" style="font-size: 13px;">语法</a> <a href="/tags/%E8%B7%A8%E5%B9%B3%E5%8F%B0/" style="font-size: 13.13px;">跨平台</a> <a href="/tags/%E8%BE%93%E5%85%A5%E6%B3%95/" style="font-size: 13px;">输入法</a> <a href="/tags/%E9%97%AE%E9%A2%98/" style="font-size: 13.13px;">问题</a> <a href="/tags/%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/" style="font-size: 13.13px;">阅读笔记</a> <a href="/tags/%E9%98%BB%E5%A1%9E/" style="font-size: 13px;">阻塞</a> <a href="/tags/%E9%9B%86%E5%90%88%E8%BF%90%E7%AE%97/" style="font-size: 13px;">集合运算</a> <a href="/tags/%E9%9B%B6%E6%8B%B7%E8%B4%9D/" style="font-size: 13.13px;">零拷贝</a> <a href="/tags/%E9%9D%9E%E7%9B%B4%E6%8E%A5%E5%86%85%E5%AD%98/" style="font-size: 13px;">非直接内存</a> <a href="/tags/%E9%9D%9E%E9%98%BB%E5%A1%9E/" style="font-size: 13px;">非阻塞</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 13.25px;">面试</a>
+      <a href="/tags/ACID/" style="font-size: 13px;">ACID</a> <a href="/tags/Android/" style="font-size: 13px;">Android</a> <a href="/tags/Buffer/" style="font-size: 13px;">Buffer</a> <a href="/tags/CAP/" style="font-size: 13px;">CAP</a> <a href="/tags/CDN/" style="font-size: 13px;">CDN</a> <a href="/tags/Cloud/" style="font-size: 13px;">Cloud</a> <a href="/tags/Collation/" style="font-size: 13px;">Collation</a> <a href="/tags/DCL/" style="font-size: 13px;">DCL</a> <a href="/tags/Docker/" style="font-size: 13.13px;">Docker</a> <a href="/tags/Exception/" style="font-size: 13px;">Exception</a> <a href="/tags/Gradle/" style="font-size: 13.25px;">Gradle</a> <a href="/tags/HashMap/" style="font-size: 13px;">HashMap</a> <a href="/tags/Heidi/" style="font-size: 13px;">Heidi</a> <a href="/tags/Hello-World/" style="font-size: 13px;">Hello World</a> <a href="/tags/HttpClient/" style="font-size: 13px;">HttpClient</a> <a href="/tags/IDE/" style="font-size: 13.13px;">IDE</a> <a href="/tags/IO/" style="font-size: 13.88px;">IO</a> <a href="/tags/Idea/" style="font-size: 13.13px;">Idea</a> <a href="/tags/JUC/" style="font-size: 13px;">JUC</a> <a href="/tags/Java/" style="font-size: 14px;">Java</a> <a href="/tags/JavaScript/" style="font-size: 13.38px;">JavaScript</a> <a href="/tags/Java%E5%BC%82%E5%B8%B8/" style="font-size: 13px;">Java异常</a> <a href="/tags/Java%E5%BC%95%E7%94%A8/" style="font-size: 13px;">Java引用</a> <a href="/tags/Java%E7%BA%BF%E7%A8%8B/" style="font-size: 13.25px;">Java线程</a> <a href="/tags/Java%E9%9B%86%E5%90%88/" style="font-size: 13px;">Java集合</a> <a href="/tags/Jira/" style="font-size: 13px;">Jira</a> <a href="/tags/MMAP/" style="font-size: 13px;">MMAP</a> <a href="/tags/MSSQL/" style="font-size: 13px;">MSSQL</a> <a href="/tags/MySQL/" style="font-size: 13.75px;">MySQL</a> <a href="/tags/NIO/" style="font-size: 13.63px;">NIO</a> <a href="/tags/NIO%E6%A8%A1%E5%9E%8B/" style="font-size: 13px;">NIO模型</a> <a href="/tags/Netty/" style="font-size: 13.38px;">Netty</a> <a href="/tags/Prometheus/" style="font-size: 13px;">Prometheus</a> <a href="/tags/RPC/" style="font-size: 13px;">RPC</a> <a href="/tags/Reactor/" style="font-size: 13px;">Reactor</a> <a href="/tags/Redis/" style="font-size: 13px;">Redis</a> <a href="/tags/RocketMQ/" style="font-size: 13px;">RocketMQ</a> <a href="/tags/RocketMQ%E9%9B%86%E7%BE%A4/" style="font-size: 13px;">RocketMQ集群</a> <a href="/tags/SQL%E4%BC%98%E5%8C%96/" style="font-size: 13.13px;">SQL优化</a> <a href="/tags/SVN/" style="font-size: 13px;">SVN</a> <a href="/tags/Selector/" style="font-size: 13px;">Selector</a> <a href="/tags/Socket/" style="font-size: 13px;">Socket</a> <a href="/tags/Spring/" style="font-size: 13.5px;">Spring</a> <a href="/tags/Spring-Boot/" style="font-size: 13.25px;">Spring Boot</a> <a href="/tags/Spring-Cloud/" style="font-size: 13px;">Spring Cloud</a> <a href="/tags/Spring-Core/" style="font-size: 13px;">Spring Core</a> <a href="/tags/Stream/" style="font-size: 13px;">Stream</a> <a href="/tags/TCP/" style="font-size: 13.25px;">TCP</a> <a href="/tags/Tampermonkey/" style="font-size: 13px;">Tampermonkey</a> <a href="/tags/ThreadLocal/" style="font-size: 13px;">ThreadLocal</a> <a href="/tags/UDP/" style="font-size: 13.13px;">UDP</a> <a href="/tags/URI/" style="font-size: 13px;">URI</a> <a href="/tags/URL/" style="font-size: 13px;">URL</a> <a href="/tags/Ubuntu/" style="font-size: 13px;">Ubuntu</a> <a href="/tags/V2ray/" style="font-size: 13px;">V2ray</a> <a href="/tags/Vert-x/" style="font-size: 13px;">Vert.x</a> <a href="/tags/Vue/" style="font-size: 13.13px;">Vue</a> <a href="/tags/Wiki/" style="font-size: 13px;">Wiki</a> <a href="/tags/XXNET/" style="font-size: 13px;">XXNET</a> <a href="/tags/apk/" style="font-size: 13px;">apk</a> <a href="/tags/bbr/" style="font-size: 13px;">bbr</a> <a href="/tags/chameleon/" style="font-size: 13.13px;">chameleon</a> <a href="/tags/chrome/" style="font-size: 13px;">chrome</a> <a href="/tags/deb/" style="font-size: 13.13px;">deb</a> <a href="/tags/jvm/" style="font-size: 13.25px;">jvm</a> <a href="/tags/lambda/" style="font-size: 13px;">lambda</a> <a href="/tags/lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/" style="font-size: 13px;">lambda表达式</a> <a href="/tags/ssh/" style="font-size: 13px;">ssh</a> <a href="/tags/vpn/" style="font-size: 13px;">vpn</a> <a href="/tags/%E4%B8%B4%E6%97%B6%E8%A1%A8/" style="font-size: 13px;">临时表</a> <a href="/tags/%E4%B9%A6%E7%B1%8D%E6%8E%A8%E8%8D%90/" style="font-size: 13px;">书籍推荐</a> <a href="/tags/%E4%BA%8C%E8%BF%9B%E5%88%B6/" style="font-size: 13.13px;">二进制</a> <a href="/tags/%E4%BA%91%E5%8E%9F%E7%94%9F/" style="font-size: 13px;">云原生</a> <a href="/tags/%E4%BC%98%E5%8C%96/" style="font-size: 13.13px;">优化</a> <a href="/tags/%E5%85%A5%E9%97%A8/" style="font-size: 13.13px;">入门</a> <a href="/tags/%E5%85%AB%E7%9A%87%E5%90%8E/" style="font-size: 13px;">八皇后</a> <a href="/tags/%E5%85%B3%E4%BA%8E%E6%88%91/" style="font-size: 13px;">关于我</a> <a href="/tags/%E5%86%85%E5%AD%98/" style="font-size: 13px;">内存</a> <a href="/tags/%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/" style="font-size: 13px;">内存分配</a> <a href="/tags/%E5%86%85%E5%AD%98%E6%98%A0%E5%B0%84/" style="font-size: 13px;">内存映射</a> <a href="/tags/%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/" style="font-size: 13px;">内存模型</a> <a href="/tags/%E5%86%85%E5%AD%98%E6%B3%84%E9%9C%B2/" style="font-size: 13px;">内存泄露</a> <a href="/tags/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/" style="font-size: 13px;">函数式编程</a> <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" style="font-size: 13.25px;">分布式</a> <a href="/tags/%E5%88%9B%E5%BB%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F/" style="font-size: 13px;">创建型模式</a> <a href="/tags/%E5%8C%85%E7%AE%A1%E7%90%86/" style="font-size: 13.38px;">包管理</a> <a href="/tags/%E5%8D%8F%E8%AE%AE/" style="font-size: 13.25px;">协议</a> <a href="/tags/%E5%8D%95%E4%BE%8B/" style="font-size: 13px;">单例</a> <a href="/tags/%E5%8F%8D%E7%A0%81/" style="font-size: 13px;">反码</a> <a href="/tags/%E5%8F%8D%E7%BC%96%E8%AF%91/" style="font-size: 13px;">反编译</a> <a href="/tags/%E5%90%89%E4%BB%96/" style="font-size: 13px;">吉他</a> <a href="/tags/%E5%90%8C%E6%AD%A5/" style="font-size: 13.13px;">同步</a> <a href="/tags/%E5%91%BD%E4%BB%A4/" style="font-size: 13px;">命令</a> <a href="/tags/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/" style="font-size: 13.13px;">垃圾回收</a> <a href="/tags/%E5%A0%86%E5%86%85%E5%AD%98/" style="font-size: 13px;">堆内存</a> <a href="/tags/%E5%A4%87%E4%BB%BD/" style="font-size: 13px;">备份</a> <a href="/tags/%E5%AD%97%E7%AC%A6%E9%9B%86/" style="font-size: 13.13px;">字符集</a> <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="font-size: 13px;">学习笔记</a> <a href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" style="font-size: 13.13px;">小程序</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 13px;">工具</a> <a href="/tags/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/" style="font-size: 13px;">并发编程</a> <a href="/tags/%E5%B9%BB%E8%AF%BB/" style="font-size: 13px;">幻读</a> <a href="/tags/%E5%BA%8F%E5%88%97%E5%8C%96/" style="font-size: 13px;">序列化</a> <a href="/tags/%E5%BC%82%E5%B8%B8/" style="font-size: 13px;">异常</a> <a href="/tags/%E5%BC%82%E6%AD%A5/" style="font-size: 13px;">异步</a> <a href="/tags/%E5%BC%82%E6%AD%A5IO/" style="font-size: 13px;">异步IO</a> <a href="/tags/%E5%BC%B9%E7%90%B4%E5%90%A7/" style="font-size: 13px;">弹琴吧</a> <a href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" style="font-size: 13px;">微服务</a> <a href="/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/" style="font-size: 13px;">快捷键</a> <a href="/tags/%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE/" style="font-size: 13.13px;">思维导图</a> <a href="/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" style="font-size: 13.38px;">性能优化</a> <a href="/tags/%E6%85%A2%E6%9F%A5/" style="font-size: 13px;">慢查</a> <a href="/tags/%E6%8A%A5%E8%AD%A6/" style="font-size: 13px;">报警</a> <a href="/tags/%E6%8C%82%E8%BD%BD/" style="font-size: 13px;">挂载</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 13px;">操作系统</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 13px;">数据结构</a> <a href="/tags/%E6%95%B4%E7%90%86/" style="font-size: 13px;">整理</a> <a href="/tags/%E6%96%87%E4%BB%B6%E5%8A%A0%E8%BD%BD/" style="font-size: 13px;">文件加载</a> <a href="/tags/%E6%96%87%E4%BB%B6%E5%90%8D%E6%89%B9%E9%87%8F%E4%BF%AE%E6%94%B9/" style="font-size: 13px;">文件名批量修改</a> <a href="/tags/%E6%9C%AF%E8%AF%AD/" style="font-size: 13px;">术语</a> <a href="/tags/%E6%A6%82%E5%BF%B5/" style="font-size: 13.38px;">概念</a> <a href="/tags/%E6%A8%A1%E5%9E%8B/" style="font-size: 13.13px;">模型</a> <a href="/tags/%E6%AD%A6%E5%A4%B7%E5%B1%B1/" style="font-size: 13px;">武夷山</a> <a href="/tags/%E6%AD%A6%E5%A4%B7%E5%B2%A9%E8%8C%B6/" style="font-size: 13.13px;">武夷岩茶</a> <a href="/tags/%E6%B3%A8%E8%A7%A3/" style="font-size: 13px;">注解</a> <a href="/tags/%E6%BA%90%E7%A0%81/" style="font-size: 13px;">源码</a> <a href="/tags/%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/" style="font-size: 13px;">源码分析</a> <a href="/tags/%E7%90%86%E8%AE%BA/" style="font-size: 13px;">理论</a> <a href="/tags/%E7%9B%91%E6%8E%A7/" style="font-size: 13px;">监控</a> <a href="/tags/%E7%9B%AE%E5%BD%95/" style="font-size: 13px;">目录</a> <a href="/tags/%E7%9B%B4%E6%8E%A5IO/" style="font-size: 13px;">直接IO</a> <a href="/tags/%E7%9B%B4%E6%8E%A5%E5%86%85%E5%AD%98/" style="font-size: 13px;">直接内存</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/" style="font-size: 13px;">知识体系</a> <a href="/tags/%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86/" style="font-size: 13px;">磁盘管理</a> <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 13px;">笔记</a> <a href="/tags/%E7%AC%A6%E5%8F%B7%E9%93%BE%E6%8E%A5/" style="font-size: 13px;">符号链接</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 13.13px;">算法</a> <a href="/tags/%E7%AE%A1%E7%90%86/" style="font-size: 13.13px;">管理</a> <a href="/tags/%E7%BB%93%E6%9E%84%E5%9E%8B%E6%A8%A1%E5%BC%8F/" style="font-size: 13px;">结构型模式</a> <a href="/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 13.13px;">网络</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/" style="font-size: 13px;">网络协议</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E6%9C%AF%E8%AF%AD/" style="font-size: 13.25px;">网络术语</a> <a href="/tags/%E8%84%91%E8%A3%82/" style="font-size: 13px;">脑裂</a> <a href="/tags/%E8%8B%B1%E8%AF%AD/" style="font-size: 13px;">英语</a> <a href="/tags/%E8%8C%B6%E7%9F%A5%E8%AF%86/" style="font-size: 13.13px;">茶知识</a> <a href="/tags/%E8%A1%8C%E4%B8%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F/" style="font-size: 13px;">行为型模式</a> <a href="/tags/%E8%A1%A5%E7%A0%81/" style="font-size: 13px;">补码</a> <a href="/tags/%E8%AE%A4%E7%9F%A5/" style="font-size: 13px;">认知</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 13.25px;">设计模式</a> <a href="/tags/%E8%AF%AD%E6%B3%95/" style="font-size: 13px;">语法</a> <a href="/tags/%E8%B7%A8%E5%B9%B3%E5%8F%B0/" style="font-size: 13.13px;">跨平台</a> <a href="/tags/%E8%BE%93%E5%85%A5%E6%B3%95/" style="font-size: 13px;">输入法</a> <a href="/tags/%E9%97%AE%E9%A2%98/" style="font-size: 13.13px;">问题</a> <a href="/tags/%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/" style="font-size: 13.13px;">阅读笔记</a> <a href="/tags/%E9%98%BB%E5%A1%9E/" style="font-size: 13px;">阻塞</a> <a href="/tags/%E9%9B%86%E5%90%88%E8%BF%90%E7%AE%97/" style="font-size: 13px;">集合运算</a> <a href="/tags/%E9%9B%B6%E6%8B%B7%E8%B4%9D/" style="font-size: 13.13px;">零拷贝</a> <a href="/tags/%E9%9D%9E%E7%9B%B4%E6%8E%A5%E5%86%85%E5%AD%98/" style="font-size: 13px;">非直接内存</a> <a href="/tags/%E9%9D%9E%E9%98%BB%E5%A1%9E/" style="font-size: 13px;">非阻塞</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 13.25px;">面试</a>
     </div>
   </div>
 
@@ -261,7 +261,7 @@
                 <a href="/post/rocketmq/RocketMQ%E9%9B%86%E7%BE%A4%E5%92%8CRocketMQ-on-DLedger%E9%9B%86%E7%BE%A4.html" class="title">RocketMQ集群和RocketMQ-on-DLedger集群</a>
               </p>
               <p class="item-date">
-                <time datetime="2021-05-12T00:00:00.000Z" itemprop="datePublished">2021-05-12</time>
+                <time datetime="2021-05-11T16:00:00.000Z" itemprop="datePublished">2021-05-12</time>
               </p>
             </div>
           </li>
@@ -276,7 +276,7 @@
                 <a href="/post/tea/2021-03-14_%E4%BB%8E%E4%B8%89%E5%9D%91%E4%B8%A4%E6%B6%A7%E5%88%B0%E5%9D%91%E6%B6%A7%E7%AA%A0%E7%AA%9D%E5%B2%97%E6%B4%9E%E5%B2%A9_%E5%8F%AA%E5%9B%A0%E6%9C%89%E5%AE%83.html" class="title">从“三坑两涧”到“坑、涧、窠、窝、岗、洞、岩”</a>
               </p>
               <p class="item-date">
-                <time datetime="2021-03-14T00:00:00.000Z" itemprop="datePublished">2021-03-14</time>
+                <time datetime="2021-03-13T16:00:00.000Z" itemprop="datePublished">2021-03-14</time>
               </p>
             </div>
           </li>
@@ -291,7 +291,7 @@
                 <a href="/post/util/ide/2021-01-18_idea_reset.html" class="title">Jetbrains系列产品重置试用方法</a>
               </p>
               <p class="item-date">
-                <time datetime="2021-01-18T00:00:00.000Z" itemprop="datePublished">2021-01-18</time>
+                <time datetime="2021-01-17T16:00:00.000Z" itemprop="datePublished">2021-01-18</time>
               </p>
             </div>
           </li>
@@ -306,7 +306,7 @@
                 <a href="/post/tea/2021-01-07_%E6%AD%A6%E5%A4%B7%E5%B2%A9%E8%8C%B6%E5%93%81%E7%B1%BB%E7%9F%A5%E8%AF%86.html" class="title">武夷岩茶品类知识</a>
               </p>
               <p class="item-date">
-                <time datetime="2021-01-07T00:00:00.000Z" itemprop="datePublished">2021-01-07</time>
+                <time datetime="2021-01-06T16:00:00.000Z" itemprop="datePublished">2021-01-07</time>
               </p>
             </div>
           </li>
@@ -321,7 +321,7 @@
                 <a href="/post/java/util/2020-12-23_HttpClient%E8%BF%9E%E6%8E%A5%E6%B1%A0%E5%8E%9F%E7%90%86%E5%8F%8A%E4%B8%80%E6%AC%A1%E8%BF%9E%E6%8E%A5%E6%97%B6%E5%BA%8F%E5%9B%BE.html" class="title">HttpClient连接池原理及一次连接时序图</a>
               </p>
               <p class="item-date">
-                <time datetime="2020-12-23T00:00:00.000Z" itemprop="datePublished">2020-12-23</time>
+                <time datetime="2020-12-22T16:00:00.000Z" itemprop="datePublished">2020-12-23</time>
               </p>
             </div>
           </li>
@@ -355,7 +355,7 @@
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
 	<a href="/post/network/2017-12-15_%E8%BF%9140%E5%BC%A0%E5%9B%BE%E8%A7%A3%E8%A2%AB%E9%97%AE%E5%8D%83%E7%99%BE%E9%81%8D%E7%9A%84TCP.html" class="article-date">
-	  <time datetime="2017-12-14T00:00:00.000Z" itemprop="datePublished">2017-12-14</time>
+	  <time datetime="2017-12-13T16:00:00.000Z" itemprop="datePublished">2017-12-14</time>
 	</a>
 </span>
         
@@ -380,58 +380,77 @@
     <div class="article-entry marked-body" itemprop="articleBody">
       
         <p>原文：<a target="_blank" rel="noopener" href="https://xie.infoq.cn/article/964c8184326daff02aea8a746">https://xie.infoq.cn/article/964c8184326daff02aea8a746</a></p>
-<h5 id="每日一句英语学习，每天进步一点点："><a href="#每日一句英语学习，每天进步一点点：" class="headerlink" title="每日一句英语学习，每天进步一点点："></a>每日一句英语学习，每天进步一点点：</h5><p><img src="https://static001.geekbang.org/infoq/49/499d675ebb7370be1b4f48072165cd97.png"></p>
-<hr>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>不管面试 Java 、C/C++、Python 等开发岗位， <code>TCP</code> 的知识点可以说是的必问的了。</p>
+<h5 id="每日一句英语学习每天进步一点点"><a class="markdownIt-Anchor" href="#每日一句英语学习每天进步一点点"></a> 每日一句英语学习，每天进步一点点：</h5>
+<p><img src="https://static001.geekbang.org/infoq/49/499d675ebb7370be1b4f48072165cd97.png" alt="" /></p>
+<hr />
+<h2 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h2>
+<p>不管面试 Java 、C/C++、Python 等开发岗位， <code>TCP</code> 的知识点可以说是的必问的了。</p>
 <p>任 TCP 虐我千百遍，我仍待 TCP 如初恋。</p>
-<p>遥想小林当年校招时常因 <code>TCP</code> 面试题被刷，真是又爱又狠….</p>
+<p>遥想小林当年校招时常因 <code>TCP</code> 面试题被刷，真是又爱又狠…</p>
 <p>过去不会没关系，今天就让我们来消除这份恐惧，微笑着勇敢的面对它吧！</p>
 <p>所以小林整理了关于 TCP 三次握手和四次挥手的面试题型，跟大家一起探讨探讨。</p>
-<h3 id="1-TCP-基本认识"><a href="#1-TCP-基本认识" class="headerlink" title="1. TCP 基本认识"></a>1. TCP 基本认识</h3><p><img src="https://static001.geekbang.org/infoq/89/894da164df8246a5aade7ef066caf227.png"></p>
-<h3 id="2-TCP-连接建立"><a href="#2-TCP-连接建立" class="headerlink" title="2. TCP 连接建立"></a>2. TCP 连接建立</h3><p><img src="https://static001.geekbang.org/infoq/c8/c86218625f00e557463c2b4f8fe584b9.png"></p>
-<h3 id="3-TCP-连接断开"><a href="#3-TCP-连接断开" class="headerlink" title="3. TCP 连接断开"></a>3. TCP 连接断开</h3><p><img src="https://static001.geekbang.org/infoq/2e/2e64328896031a540c627b9d14b7c74a.png"></p>
-<h3 id="4-Socket-编程"><a href="#4-Socket-编程" class="headerlink" title="4. Socket 编程"></a>4. Socket 编程</h3><p><img src="https://static001.geekbang.org/infoq/28/28d927271d27c27d17418f08c1209c26.png"></p>
+<h3 id="1-tcp-基本认识"><a class="markdownIt-Anchor" href="#1-tcp-基本认识"></a> 1. TCP 基本认识</h3>
+<p><img src="https://static001.geekbang.org/infoq/89/894da164df8246a5aade7ef066caf227.png" alt="" /></p>
+<h3 id="2-tcp-连接建立"><a class="markdownIt-Anchor" href="#2-tcp-连接建立"></a> 2. TCP 连接建立</h3>
+<p><img src="https://static001.geekbang.org/infoq/c8/c86218625f00e557463c2b4f8fe584b9.png" alt="" /></p>
+<h3 id="3-tcp-连接断开"><a class="markdownIt-Anchor" href="#3-tcp-连接断开"></a> 3. TCP 连接断开</h3>
+<p><img src="https://static001.geekbang.org/infoq/2e/2e64328896031a540c627b9d14b7c74a.png" alt="" /></p>
+<h3 id="4-socket-编程"><a class="markdownIt-Anchor" href="#4-socket-编程"></a> 4. Socket 编程</h3>
+<p><img src="https://static001.geekbang.org/infoq/28/28d927271d27c27d17418f08c1209c26.png" alt="" /></p>
 <blockquote>
 <p>PS：本次文章不涉及 TCP 流量控制、拥塞控制、可靠性传输等方面知识，这些留在下篇哈！</p>
 </blockquote>
-<hr>
-<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h3 id="01-TCP-基本认识"><a href="#01-TCP-基本认识" class="headerlink" title="01 TCP 基本认识"></a>01 TCP 基本认识</h3><blockquote>
-<h4 id="瞧瞧-TCP-头格式"><a href="#瞧瞧-TCP-头格式" class="headerlink" title="瞧瞧 TCP 头格式"></a><strong>瞧瞧 TCP 头格式</strong></h4></blockquote>
+<hr />
+<h2 id="正文"><a class="markdownIt-Anchor" href="#正文"></a> 正文</h2>
+<h3 id="01-tcp-基本认识"><a class="markdownIt-Anchor" href="#01-tcp-基本认识"></a> 01 TCP 基本认识</h3>
+<blockquote>
+<h4 id="瞧瞧-tcp-头格式"><a class="markdownIt-Anchor" href="#瞧瞧-tcp-头格式"></a> <strong>瞧瞧 TCP 头格式</strong></h4>
+</blockquote>
 <p>我们先来看看 TCP 头的格式，标注颜色的表示与本文关联比较大的字段，其他字段不做详细阐述。</p>
-<p><img src="https://static001.geekbang.org/infoq/c4/c4d5f4de31a8128cfba6cebc0af54329.png"></p>
+<p><img src="https://static001.geekbang.org/infoq/c4/c4d5f4de31a8128cfba6cebc0af54329.png" alt="" /></p>
 <p>序列号：在建立连接时由计算机生成的随机数作为其初始值，通过 SYN 包传给接收端主机，每发送一次数据，就「累加」一次该「数据字节数」的大小。用来解决网络包乱序问题。</p>
 <p>确认应答号：指下一次「期望」收到的数据的序列号，发送端收到这个确认应答以后可以认为在这个序号以前的数据都已经被正常接收。用来解决不丢包的问题。</p>
 <p>控制位：</p>
 <ul>
-<li><p>ACK：该位为 <code>1</code> 时，「确认应答」的字段变为有效，TCP 规定除了最初建立连接时的 <code>SYN</code> 包之外该位必须设置为 <code>1</code> 。</p>
+<li>
+<p>ACK：该位为 <code>1</code> 时，「确认应答」的字段变为有效，TCP 规定除了最初建立连接时的 <code>SYN</code> 包之外该位必须设置为 <code>1</code> 。</p>
 </li>
-<li><p>RST：该位为 <code>1</code> 时，表示 TCP 连接中出现异常必须强制断开连接。</p>
+<li>
+<p>RST：该位为 <code>1</code> 时，表示 TCP 连接中出现异常必须强制断开连接。</p>
 </li>
-<li><p>SYN：该位为 <code>1</code> 时，表示希望建立连接，并在其「序列号」的字段进行序列号初始值的设定。</p>
+<li>
+<p>SYN：该位为 <code>1</code> 时，表示希望建立连接，并在其「序列号」的字段进行序列号初始值的设定。</p>
 </li>
-<li><p>FIN：该位为 <code>1</code> 时，表示今后不会再有数据发送，希望断开连接。当通信结束希望断开连接时，通信双方的主机之间就可以相互交换 <code>FIN</code> 位置为 1 的 TCP 段。</p>
+<li>
+<p>FIN：该位为 <code>1</code> 时，表示今后不会再有数据发送，希望断开连接。当通信结束希望断开连接时，通信双方的主机之间就可以相互交换 <code>FIN</code> 位置为 1 的 TCP 段。</p>
 </li>
 </ul>
 <blockquote>
-<h4 id="为什么需要-TCP-协议？-TCP-工作在哪一层？"><a href="#为什么需要-TCP-协议？-TCP-工作在哪一层？" class="headerlink" title="为什么需要 TCP 协议？ TCP 工作在哪一层？"></a><strong>为什么需要 TCP 协议？ TCP 工作在哪一层？</strong></h4></blockquote>
+<h4 id="为什么需要-tcp-协议-tcp-工作在哪一层"><a class="markdownIt-Anchor" href="#为什么需要-tcp-协议-tcp-工作在哪一层"></a> <strong>为什么需要 TCP 协议？ TCP 工作在哪一层？</strong></h4>
+</blockquote>
 <p><code>IP</code> 层是「不可靠」的，它不保证网络包的交付、不保证网络包的按序交付、也不保证网络包中的数据的完整性。</p>
-<p><img src="https://static001.geekbang.org/infoq/7c/7cd7bee694090e3947e390d55609d7a5.png"></p>
+<p><img src="https://static001.geekbang.org/infoq/7c/7cd7bee694090e3947e390d55609d7a5.png" alt="" /></p>
 <p>如果需要保障网络数据包的可靠性，那么就需要由上层（传输层）的 <code>TCP</code> 协议来负责。</p>
 <p>因为 TCP 是一个工作在传输层的<em>可靠</em>数据传输的服务，它能确保接收端接收的网络包是无损坏、无间隔、非冗余和按序的。</p>
 <blockquote>
-<h4 id="什么是-TCP-？"><a href="#什么是-TCP-？" class="headerlink" title="什么是 TCP ？"></a><strong>什么是 TCP ？</strong></h4></blockquote>
+<h4 id="什么是-tcp"><a class="markdownIt-Anchor" href="#什么是-tcp"></a> <strong>什么是 TCP ？</strong></h4>
+</blockquote>
 <p>TCP 是面向连接的、可靠的、基于字节流的传输层通信协议。</p>
-<p><img src="https://static001.geekbang.org/infoq/df/df503788d8161d8cb54e5d989a8681d0.png"></p>
+<p><img src="https://static001.geekbang.org/infoq/df/df503788d8161d8cb54e5d989a8681d0.png" alt="" /></p>
 <ul>
-<li><p>面向连接：一定是「一对一」才能连接，不能像 UDP 协议 可以一个主机同时向多个主机发送消息，也就是一对多是无法做到的；</p>
+<li>
+<p>面向连接：一定是「一对一」才能连接，不能像 UDP 协议 可以一个主机同时向多个主机发送消息，也就是一对多是无法做到的；</p>
 </li>
-<li><p>可靠的：无论的网络链路中出现了怎样的链路变化，TCP 都可以保证一个报文一定能够到达接收端；</p>
+<li>
+<p>可靠的：无论的网络链路中出现了怎样的链路变化，TCP 都可以保证一个报文一定能够到达接收端；</p>
 </li>
-<li><p>字节流：消息是「没有边界」的，所以无论我们消息有多大都可以进行传输。并且消息是「有序的」，当「前一个」消息没有收到的时候，即使它先收到了后面的字节已经收到，那么也不能扔给应用层去处理，同时对「重复」的报文会自动丢弃。</p>
+<li>
+<p>字节流：消息是「没有边界」的，所以无论我们消息有多大都可以进行传输。并且消息是「有序的」，当「前一个」消息没有收到的时候，即使它先收到了后面的字节已经收到，那么也不能扔给应用层去处理，同时对「重复」的报文会自动丢弃。</p>
 </li>
 </ul>
 <blockquote>
-<h4 id="什么是-TCP-连接？"><a href="#什么是-TCP-连接？" class="headerlink" title="什么是 TCP 连接？"></a><strong>什么是 TCP 连接？</strong></h4></blockquote>
+<h4 id="什么是-tcp-连接"><a class="markdownIt-Anchor" href="#什么是-tcp-连接"></a> <strong>什么是 TCP 连接？</strong></h4>
+</blockquote>
 <p>我们来看看 RFC 793 是如何定义「连接」的：</p>
 <p>*Connections:</p>
 <p>The reliability and flow control mechanisms described above require</p>
@@ -439,56 +458,71 @@
 <p>each data stream.  The combination of this information, including</p>
 <p>sockets, sequence numbers, and window sizes, is called a connection.*</p>
 <p>简单来说就是，用于保证可靠性和流量控制维护的某些状态信息，这些信息的组合，包括Socket、序列号和窗口大小称为连接。</p>
-<p><img src="https://static001.geekbang.org/infoq/16/1669ba151945024e8d35d00ed11cd102.png"></p>
+<p><img src="https://static001.geekbang.org/infoq/16/1669ba151945024e8d35d00ed11cd102.png" alt="" /></p>
 <p>所以我们可以知道，建立一个 TCP 连接是需要客户端与服务器端达成上述三个信息的共识。</p>
 <ul>
-<li><p>Socket：由 IP 地址和端口号组成</p>
+<li>
+<p>Socket：由 IP 地址和端口号组成</p>
 </li>
-<li><p>序列号：用来解决乱序问题等</p>
+<li>
+<p>序列号：用来解决乱序问题等</p>
 </li>
-<li><p>窗口大小：用来做流量控制</p>
+<li>
+<p>窗口大小：用来做流量控制</p>
 </li>
 </ul>
 <blockquote>
-<h4 id="如何唯一确定一个-TCP-连接呢？"><a href="#如何唯一确定一个-TCP-连接呢？" class="headerlink" title="如何唯一确定一个 TCP 连接呢？"></a><strong>如何唯一确定一个 TCP 连接呢？</strong></h4></blockquote>
+<h4 id="如何唯一确定一个-tcp-连接呢"><a class="markdownIt-Anchor" href="#如何唯一确定一个-tcp-连接呢"></a> <strong>如何唯一确定一个 TCP 连接呢？</strong></h4>
+</blockquote>
 <p>TCP 四元组可以唯一的确定一个连接，四元组包括如下：</p>
 <ul>
-<li><p>源地址</p>
+<li>
+<p>源地址</p>
 </li>
-<li><p>源端口</p>
+<li>
+<p>源端口</p>
 </li>
-<li><p>目的地址</p>
+<li>
+<p>目的地址</p>
 </li>
-<li><p>目的端口</p>
+<li>
+<p>目的端口</p>
 </li>
 </ul>
-<p><img src="https://static001.geekbang.org/infoq/c6/c6657c60da6096dbb64516b23faf8bbf.png"></p>
+<p><img src="https://static001.geekbang.org/infoq/c6/c6657c60da6096dbb64516b23faf8bbf.png" alt="" /></p>
 <p>源地址和目的地址的字段（32位）是在 IP 头部中，作用是通过 IP 协议发送报文给对方主机。</p>
 <p>源端口和目的端口的字段（16位）是在 TCP 头部中，作用是告诉 TCP 协议应该把报文发给哪个进程。</p>
 <blockquote>
-<h4 id="有一个-IP-的服务器监听了一个端口，它的-TCP-的最大连接数是多少？"><a href="#有一个-IP-的服务器监听了一个端口，它的-TCP-的最大连接数是多少？" class="headerlink" title="有一个 IP 的服务器监听了一个端口，它的 TCP 的最大连接数是多少？"></a><strong>有一个 IP 的服务器监听了一个端口，它的 TCP 的最大连接数是多少？</strong></h4></blockquote>
+<h4 id="有一个-ip-的服务器监听了一个端口它的-tcp-的最大连接数是多少"><a class="markdownIt-Anchor" href="#有一个-ip-的服务器监听了一个端口它的-tcp-的最大连接数是多少"></a> <strong>有一个 IP 的服务器监听了一个端口，它的 TCP 的最大连接数是多少？</strong></h4>
+</blockquote>
 <p>服务器通常固定在某个本地端口上监听，等待客户端的连接请求。</p>
 <p>因此，客户端 IP 和 端口是可变的，其理论值计算公式如下:</p>
-<p><img src="https://static001.geekbang.org/infoq/7d/7d3d56db341c40b63f870cb867126780.png"></p>
+<p><img src="https://static001.geekbang.org/infoq/7d/7d3d56db341c40b63f870cb867126780.png" alt="" /></p>
 <p>对 IPv4，客户端的 IP 数最多为 <code>2</code> 的 <code>32</code> 次方，客户端的端口数最多为 <code>2</code> 的 <code>16</code> 次方，也就是服务端单机最大 TCP 连接数，约为 <code>2</code> 的 <code>48</code> 次方。</p>
 <p>当然，服务端最大并发 TCP 连接数远不能达到理论上限。</p>
 <ul>
-<li><p>首先主要是文件描述符限制，Socket 都是文件，所以首先要通过 <code>ulimit</code> 配置文件描述符的数目；</p>
+<li>
+<p>首先主要是文件描述符限制，Socket 都是文件，所以首先要通过 <code>ulimit</code> 配置文件描述符的数目；</p>
 </li>
-<li><p>另一个是内存限制，每个 TCP 连接都要占用一定内存，操作系统是有限的。</p>
+<li>
+<p>另一个是内存限制，每个 TCP 连接都要占用一定内存，操作系统是有限的。</p>
 </li>
 </ul>
 <blockquote>
-<h4 id="UDP-和-TCP-有什么区别呢？分别的应用场景是？"><a href="#UDP-和-TCP-有什么区别呢？分别的应用场景是？" class="headerlink" title="UDP 和 TCP 有什么区别呢？分别的应用场景是？"></a><strong>UDP 和 TCP 有什么区别呢？分别的应用场景是？</strong></h4></blockquote>
+<h4 id="udp-和-tcp-有什么区别呢分别的应用场景是"><a class="markdownIt-Anchor" href="#udp-和-tcp-有什么区别呢分别的应用场景是"></a> <strong>UDP 和 TCP 有什么区别呢？分别的应用场景是？</strong></h4>
+</blockquote>
 <p>UDP 不提供复杂的控制机制，利用 IP 提供面向「无连接」的通信服务。</p>
 <p>UDP 协议真的非常简，头部只有 <code>8</code> 个字节（ 64 位），UDP 的头部格式如下：</p>
-<p><img src="https://static001.geekbang.org/infoq/cd/cd435b1bdfb3928a9b0eb3835fd9d170.png"></p>
+<p><img src="https://static001.geekbang.org/infoq/cd/cd435b1bdfb3928a9b0eb3835fd9d170.png" alt="" /></p>
 <ul>
-<li><p>目标和源端口：主要是告诉 UDP 协议应该把报文发给哪个进程。</p>
+<li>
+<p>目标和源端口：主要是告诉 UDP 协议应该把报文发给哪个进程。</p>
 </li>
-<li><p>包长度：该字段保存了 UDP 首部的长度跟数据的长度之和。</p>
+<li>
+<p>包长度：该字段保存了 UDP 首部的长度跟数据的长度之和。</p>
 </li>
-<li><p>校验和：校验和是为了提供可靠的 UDP 首部和数据而设计。</p>
+<li>
+<p>校验和：校验和是为了提供可靠的 UDP 首部和数据而设计。</p>
 </li>
 </ul>
 <p>TCP 和 UDP 区别：</p>
@@ -496,106 +530,129 @@
 <li>连接</li>
 </ol>
 <ul>
-<li><p>TCP 是面向连接的传输层协议，传输数据前先要建立连接。</p>
+<li>
+<p>TCP 是面向连接的传输层协议，传输数据前先要建立连接。</p>
 </li>
-<li><p>UDP 是不需要连接，即刻传输数据。</p>
+<li>
+<p>UDP 是不需要连接，即刻传输数据。</p>
 </li>
 </ul>
 <ol start="2">
 <li>服务对象</li>
 </ol>
 <ul>
-<li><p>TCP 是一对一的两点服务，即一条连接只有两个端点。</p>
+<li>
+<p>TCP 是一对一的两点服务，即一条连接只有两个端点。</p>
 </li>
-<li><p>UDP 支持一对一、一对多、多对多的交互通信</p>
+<li>
+<p>UDP 支持一对一、一对多、多对多的交互通信</p>
 </li>
 </ul>
 <ol start="3">
 <li>可靠性</li>
 </ol>
 <ul>
-<li><p>TCP 是可靠交付数据的，数据可以无差错、不丢失、不重复、按需到达。</p>
+<li>
+<p>TCP 是可靠交付数据的，数据可以无差错、不丢失、不重复、按需到达。</p>
 </li>
-<li><p>UDP 是尽最大努力交付，不保证可靠交付数据。</p>
+<li>
+<p>UDP 是尽最大努力交付，不保证可靠交付数据。</p>
 </li>
 </ul>
 <ol start="4">
 <li>拥塞控制、流量控制</li>
 </ol>
 <ul>
-<li><p>TCP 有拥塞控制和流量控制机制，保证数据传输的安全性。</p>
+<li>
+<p>TCP 有拥塞控制和流量控制机制，保证数据传输的安全性。</p>
 </li>
-<li><p>UDP 则没有，即使网络非常拥堵了，也不会影响 UDP 的发送速率。</p>
+<li>
+<p>UDP 则没有，即使网络非常拥堵了，也不会影响 UDP 的发送速率。</p>
 </li>
 </ul>
 <ol start="5">
 <li>首部开销</li>
 </ol>
 <ul>
-<li><p>TCP 首部长度较长，会有一定的开销，首部在没有使用「选项」字段时是 <code>20</code> 个字节，如果使用了「选项」字段则会变长的。</p>
+<li>
+<p>TCP 首部长度较长，会有一定的开销，首部在没有使用「选项」字段时是 <code>20</code> 个字节，如果使用了「选项」字段则会变长的。</p>
 </li>
-<li><p>UDP 首部只有 8 个字节，并且是固定不变的，开销较小。</p>
+<li>
+<p>UDP 首部只有 8 个字节，并且是固定不变的，开销较小。</p>
 </li>
 </ul>
 <p>TCP 和 UDP 应用场景：</p>
 <p>由于 TCP 是面向连接，能保证数据的可靠性交付，因此经常用于：</p>
 <ul>
-<li><p><code>FTP</code> 文件传输</p>
+<li>
+<p><code>FTP</code> 文件传输</p>
 </li>
-<li><p><code>HTTP</code> / <code>HTTPS</code></p>
+<li>
+<p><code>HTTP</code> / <code>HTTPS</code></p>
 </li>
 </ul>
 <p>由于 UDP 面向无连接，它可以随时发送数据，再加上UDP本身的处理既简单又高效，因此经常用于：</p>
 <ul>
-<li><p>包总量较少的通信，如 <code>DNS</code> 、<code>SNMP</code> 等</p>
+<li>
+<p>包总量较少的通信，如 <code>DNS</code> 、<code>SNMP</code> 等</p>
 </li>
-<li><p>视频、音频等多媒体通信</p>
+<li>
+<p>视频、音频等多媒体通信</p>
 </li>
-<li><p>广播通信</p>
+<li>
+<p>广播通信</p>
 </li>
 </ul>
 <blockquote>
-<h4 id="为什么-UDP-头部没有「首部长度」字段，而-TCP-头部有「首部长度」字段呢？"><a href="#为什么-UDP-头部没有「首部长度」字段，而-TCP-头部有「首部长度」字段呢？" class="headerlink" title="为什么 UDP 头部没有「首部长度」字段，而 TCP 头部有「首部长度」字段呢？"></a><strong>为什么 UDP 头部没有「首部长度」字段，而 TCP 头部有「首部长度」字段呢？</strong></h4></blockquote>
+<h4 id="为什么-udp-头部没有首部长度字段而-tcp-头部有首部长度字段呢"><a class="markdownIt-Anchor" href="#为什么-udp-头部没有首部长度字段而-tcp-头部有首部长度字段呢"></a> <strong>为什么 UDP 头部没有「首部长度」字段，而 TCP 头部有「首部长度」字段呢？</strong></h4>
+</blockquote>
 <p>原因是 TCP 有可变长的「选项」字段，而 UDP 头部长度则是不会变化的，无需多一个字段去记录 UDP 的首部长度。</p>
 <blockquote>
-<h4 id="为什么-UDP-头部有「包长度」字段，而-TCP-头部则没有「包长度」字段呢？"><a href="#为什么-UDP-头部有「包长度」字段，而-TCP-头部则没有「包长度」字段呢？" class="headerlink" title="为什么 UDP 头部有「包长度」字段，而 TCP 头部则没有「包长度」字段呢？"></a><strong>为什么 UDP 头部有「包长度」字段，而 TCP 头部则没有「包长度」字段呢？</strong></h4></blockquote>
+<h4 id="为什么-udp-头部有包长度字段而-tcp-头部则没有包长度字段呢"><a class="markdownIt-Anchor" href="#为什么-udp-头部有包长度字段而-tcp-头部则没有包长度字段呢"></a> <strong>为什么 UDP 头部有「包长度」字段，而 TCP 头部则没有「包长度」字段呢？</strong></h4>
+</blockquote>
 <p>先说说 TCP 是如何计算负载数据长度：</p>
-<p><img src="https://static001.geekbang.org/infoq/5b/5b4439c86a6c26b88021821ce52bc900.png"></p>
+<p><img src="https://static001.geekbang.org/infoq/5b/5b4439c86a6c26b88021821ce52bc900.png" alt="" /></p>
 <p>其中 IP 总长度 和 IP 首部长度，在 IP 首部格式是已知的。TCP 首部长度，则是在 TCP 首部格式已知的，所以就可以求得 TCP 数据的长度。</p>
 <p>大家这时就奇怪了问：“ UDP 也是基于 IP 层的呀，那 UDP 的数据长度也可以通过这个公式计算呀？ 为何还要有「包长度」呢？”</p>
 <p>这么一问，确实感觉 UDP 「包长度」是冗余的。</p>
-<p><strong>因为为了网络设备硬件设计和处理方便，首部长度需要是 <code>4 </code>字节的整数倍。</strong></p>
+<p><strong>因为为了网络设备硬件设计和处理方便，首部长度需要是 <code>4</code>字节的整数倍。</strong></p>
 <p>如果去掉 UDP 「包长度」字段，那 UDP 首部长度就不是 <code>4</code> 字节的整数倍了，所以小林觉得这可能是为了补全 UDP 首部长度是 <code>4</code> 字节的整数倍，才补充了「包长度」字段。</p>
-<h3 id="02-TCP-连接建立"><a href="#02-TCP-连接建立" class="headerlink" title="02 TCP 连接建立"></a>02 TCP 连接建立</h3><blockquote>
-<h4 id="TCP-三次握手过程和状态变迁"><a href="#TCP-三次握手过程和状态变迁" class="headerlink" title="TCP 三次握手过程和状态变迁"></a><strong>TCP 三次握手过程和状态变迁</strong></h4></blockquote>
+<h3 id="02-tcp-连接建立"><a class="markdownIt-Anchor" href="#02-tcp-连接建立"></a> 02 TCP 连接建立</h3>
+<blockquote>
+<h4 id="tcp-三次握手过程和状态变迁"><a class="markdownIt-Anchor" href="#tcp-三次握手过程和状态变迁"></a> <strong>TCP 三次握手过程和状态变迁</strong></h4>
+</blockquote>
 <p>TCP 是面向连接的协议，所以使用 TCP 前必须先建立连接，而建立连接是通过三次握手而进行的。</p>
-<p><img src="https://static001.geekbang.org/infoq/07/07b64eaf858949d47eb4f849ef4c1da6.png"></p>
+<p><img src="https://static001.geekbang.org/infoq/07/07b64eaf858949d47eb4f849ef4c1da6.png" alt="" /></p>
 <ul>
 <li>一开始，客户端和服务端都处于 <code>CLOSED</code> 状态。先是服务端主动监听某个端口，处于 <code>LISTEN</code> 状态</li>
 </ul>
-<p><img src="https://static001.geekbang.org/infoq/ce/ceb79461f00b1bdc6e165e772b187a5c.png"></p>
+<p><img src="https://static001.geekbang.org/infoq/ce/ceb79461f00b1bdc6e165e772b187a5c.png" alt="" /></p>
 <ul>
-<li>客户端会随机初始化序号（<code>client_isn</code>），将此序号置于 TCP 首部的「序号」字段中，同时把 <code>SYN</code> 标志位置为 <code>1</code> ，表示 <code>SYN</code> 报文。接着把第一个 SYN 报文发送给服务端，表示向服务端发起连接，该报文不包含应用层数据，之后客户端处于 <code>SYN-SENT</code> 状态。 </li>
+<li>客户端会随机初始化序号（<code>client_isn</code>），将此序号置于 TCP 首部的「序号」字段中，同时把 <code>SYN</code> 标志位置为 <code>1</code> ，表示 <code>SYN</code> 报文。接着把第一个 SYN 报文发送给服务端，表示向服务端发起连接，该报文不包含应用层数据，之后客户端处于 <code>SYN-SENT</code> 状态。</li>
 </ul>
-<p><img src="https://static001.geekbang.org/infoq/a4/a47d635b1229d727cbe5d29cf1fe0d2d.png"></p>
+<p><img src="https://static001.geekbang.org/infoq/a4/a47d635b1229d727cbe5d29cf1fe0d2d.png" alt="" /></p>
 <ul>
 <li>服务端收到客户端的 <code>SYN</code> 报文后，首先服务端也随机初始化自己的序号（<code>server_isn</code>），将此序号填入 TCP 首部的「序号」字段中，其次把 TCP 首部的「确认应答号」字段填入 <code>client_isn + 1</code>, 接着把 <code>SYN</code> 和 <code>ACK</code> 标志位置为 <code>1</code>。最后把该报文发给客户端，该报文也不包含应用层数据，之后服务端处于 <code>SYN-RCVD</code> 状态。</li>
 </ul>
-<p><img src="https://static001.geekbang.org/infoq/0f/0f78ca8ec8adab08063c638dd1d854c2.png"></p>
+<p><img src="https://static001.geekbang.org/infoq/0f/0f78ca8ec8adab08063c638dd1d854c2.png" alt="" /></p>
 <ul>
-<li><p>客户端收到服务端报文后，还要向服务端回应最后一个应答报文，首先该应答报文 TCP 首部 <code>ACK</code> 标志位置为 <code>1</code> ，其次「确认应答号」字段填入 <code>server_isn + 1</code> ，最后把报文发送给服务端，这次报文可以携带客户到服务器的数据，之后客户端处于 <code>ESTABLISHED</code> 状态。</p>
+<li>
+<p>客户端收到服务端报文后，还要向服务端回应最后一个应答报文，首先该应答报文 TCP 首部 <code>ACK</code> 标志位置为 <code>1</code> ，其次「确认应答号」字段填入 <code>server_isn + 1</code> ，最后把报文发送给服务端，这次报文可以携带客户到服务器的数据，之后客户端处于 <code>ESTABLISHED</code> 状态。</p>
 </li>
-<li><p>服务器收到客户端的应答报文后，也进入 <code>ESTABLISHED</code> 状态。</p>
+<li>
+<p>服务器收到客户端的应答报文后，也进入 <code>ESTABLISHED</code> 状态。</p>
 </li>
 </ul>
 <p>从上面的过程可以发现第三次握手是可以携带数据的，前两次握手是不可以携带数据的，这也是面试常问的题。</p>
 <p>一旦完成三次握手，双方都处于 <code>ESTABLISHED</code> 状态，此致连接就已建立完成，客户端和服务端就可以相互发送数据了。</p>
 <blockquote>
-<h4 id="如何在-Linux-系统中查看-TCP-状态？"><a href="#如何在-Linux-系统中查看-TCP-状态？" class="headerlink" title="如何在 Linux 系统中查看 TCP 状态？"></a><strong>如何在 Linux 系统中查看 TCP 状态？</strong></h4></blockquote>
+<h4 id="如何在-linux-系统中查看-tcp-状态"><a class="markdownIt-Anchor" href="#如何在-linux-系统中查看-tcp-状态"></a> <strong>如何在 Linux 系统中查看 TCP 状态？</strong></h4>
+</blockquote>
 <p>TCP 的连接状态查看，在 Linux 可以通过 <code>netstat -napt</code> 命令查看。</p>
-<p><img src="https://static001.geekbang.org/infoq/c2/c2705e8698ff55a3d8e24addab283ec1.png"></p>
+<p><img src="https://static001.geekbang.org/infoq/c2/c2705e8698ff55a3d8e24addab283ec1.png" alt="" /></p>
 <blockquote>
-<h4 id="为什么是三次握手？不是两次、四次？"><a href="#为什么是三次握手？不是两次、四次？" class="headerlink" title="为什么是三次握手？不是两次、四次？"></a><strong>为什么是三次握手？不是两次、四次？</strong></h4></blockquote>
+<h4 id="为什么是三次握手不是两次-四次"><a class="markdownIt-Anchor" href="#为什么是三次握手不是两次-四次"></a> <strong>为什么是三次握手？不是两次、四次？</strong></h4>
+</blockquote>
 <p>相信大家比较常回答的是：“因为三次握手才能保证双方具有接收和发送的能力。”</p>
 <p>这回答是没问题，但这回答是片面的，并没有说出主要的原因。</p>
 <p>在前面我们知道了什么是 TCP 连接：</p>
@@ -605,11 +662,14 @@
 <p>所以，重要的是为什么三次握手才可以初始化Socket、序列号和窗口大小并建立 TCP 连接。</p>
 <p>接下来以三个方面分析三次握手的原因：</p>
 <ul>
-<li><p>三次握手才可以阻止重复历史连接的初始化（主要原因）</p>
+<li>
+<p>三次握手才可以阻止重复历史连接的初始化（主要原因）</p>
 </li>
-<li><p>三次握手才可以同步双方的初始序列号</p>
+<li>
+<p>三次握手才可以同步双方的初始序列号</p>
 </li>
-<li><p>三次握手才可以避免资源浪费</p>
+<li>
+<p>三次握手才可以避免资源浪费</p>
 </li>
 </ul>
 <p>原因一：避免历史连接</p>
@@ -617,74 +677,91 @@
 <p>The principle reason for the three-way handshake is to prevent old duplicate connection initiations from causing confusion.</p>
 <p>简单来说，三次握手的首要原因是为了防止旧的重复连接初始化造成混乱。</p>
 <p>网络环境是错综复杂的，往往并不是如我们期望的一样，先发送的数据包，就先到达目标主机，反而它很骚，可能会由于网络拥堵等乱七八糟的原因，会使得旧的数据包，先到达目标主机，那么这种情况下 TCP 三次握手是如何避免的呢？</p>
-<p><img src="https://static001.geekbang.org/infoq/77/77d3d90d038d9fd8c4b5a958585a0275.png"></p>
+<p><img src="https://static001.geekbang.org/infoq/77/77d3d90d038d9fd8c4b5a958585a0275.png" alt="" /></p>
 <p>客户端连续发送多次 SYN 建立连接的报文，在网络拥堵等情况下：</p>
 <ul>
-<li><p>一个「旧 SYN 报文」比「最新的 SYN 」 报文早到达了服务端；</p>
+<li>
+<p>一个「旧 SYN 报文」比「最新的 SYN 」 报文早到达了服务端；</p>
 </li>
-<li><p>那么此时服务端就会回一个 <code>SYN + ACK</code> 报文给客户端；</p>
+<li>
+<p>那么此时服务端就会回一个 <code>SYN + ACK</code> 报文给客户端；</p>
 </li>
-<li><p>客户端收到后可以根据自身的上下文，判断这是一个历史连接（序列号过期或超时），那么客户端就会发送 <code>RST</code> 报文给服务端，表示中止这一次连接。</p>
+<li>
+<p>客户端收到后可以根据自身的上下文，判断这是一个历史连接（序列号过期或超时），那么客户端就会发送 <code>RST</code> 报文给服务端，表示中止这一次连接。</p>
 </li>
 </ul>
 <p>如果是两次握手连接，就不能判断当前连接是否是历史连接，三次握手则可以在客户端（发送方）准备发送第三次报文时，客户端因有足够的上下文来判断当前连接是否是历史连接：</p>
 <ul>
-<li><p>如果是历史连接（序列号过期或超时），则第三次握手发送的报文是 <code>RST</code> 报文，以此中止历史连接；</p>
+<li>
+<p>如果是历史连接（序列号过期或超时），则第三次握手发送的报文是 <code>RST</code> 报文，以此中止历史连接；</p>
 </li>
-<li><p>如果不是历史连接，则第三次发送的报文是 <code>ACK</code> 报文，通信双方就会成功建立连接；</p>
+<li>
+<p>如果不是历史连接，则第三次发送的报文是 <code>ACK</code> 报文，通信双方就会成功建立连接；</p>
 </li>
 </ul>
 <p>所以， TCP 使用三次握手建立连接的最主要原因是防止历史连接初始化了连接。</p>
 <p>原因二：同步双方初始序列号</p>
-<p>TCP 协议的通信双方， 都必须维护一个「序列号」， 序列号是可靠传输的一个关键因素，它的作用：  </p>
+<p>TCP 协议的通信双方， 都必须维护一个「序列号」， 序列号是可靠传输的一个关键因素，它的作用：</p>
 <ul>
-<li><p>接收方可以去除重复的数据；</p>
+<li>
+<p>接收方可以去除重复的数据；</p>
 </li>
-<li><p>接收方可以根据数据包的序列号按序接收；</p>
+<li>
+<p>接收方可以根据数据包的序列号按序接收；</p>
 </li>
-<li><p>可以标识发送出去的数据包中， 哪些是已经被对方收到的；</p>
+<li>
+<p>可以标识发送出去的数据包中， 哪些是已经被对方收到的；</p>
 </li>
 </ul>
 <p>可见，序列号在 TCP 连接中占据着非常重要的作用，所以当客户端发送携带「初始序列号」的 <code>SYN</code> 报文的时候，需要服务端回一个 <code>ACK</code> 应答报文，表示客户端的 SYN 报文已被服务端成功接收，那当服务端发送「初始序列号」给客户端的时候，依然也要得到客户端的应答回应，这样一来一回，才能确保双方的初始序列号能被可靠的同步。</p>
-<p><img src="https://static001.geekbang.org/infoq/4c/4c7d19df7e5964f1ee7a0a079ac30c51.png"></p>
+<p><img src="https://static001.geekbang.org/infoq/4c/4c7d19df7e5964f1ee7a0a079ac30c51.png" alt="" /></p>
 <p>四次握手其实也能够可靠的同步双方的初始化序号，但由于第二步和第三步可以优化成一步，所以就成了「三次握手」。</p>
 <p>而两次握手只保证了一方的初始序列号能被对方成功接收，没办法保证双方的初始序列号都能被确认接收。</p>
 <p>原因三：避免资源浪费</p>
 <p>如果只有「两次握手」，当客户端的 <code>SYN</code> 请求连接在网络中阻塞，客户端没有接收到 <code>ACK</code> 报文，就会重新发送 <code>SYN</code> ，由于没有第三次握手，服务器不清楚客户端是否收到了自己发送的建立连接的 <code>ACK</code> 确认信号，所以每收到一个 <code>SYN</code> 就只能先主动建立一个连接，这会造成什么情况呢？</p>
 <p>如果客户端的 <code>SYN</code> 阻塞了，重复发送多次 <code>SYN</code> 报文，那么服务器在收到请求后就会建立多个冗余的无效链接，造成不必要的资源浪费。</p>
-<p><img src="https://static001.geekbang.org/infoq/9f/9fbe25cb230d0eeac7026705ae0baaac.png"></p>
+<p><img src="https://static001.geekbang.org/infoq/9f/9fbe25cb230d0eeac7026705ae0baaac.png" alt="" /></p>
 <p>即两次握手会造成消息滞留情况下，服务器重复接受无用的连接请求 <code>SYN</code> 报文，而造成重复分配资源。</p>
 <p>小结</p>
 <p>TCP 建立连接时，通过三次握手能防止历史连接的建立，能减少双方不必要的资源开销，能帮助双方同步初始化序列号。序列号能够保证数据包不重复、不丢弃和按序传输。</p>
 <p>不使用「两次握手」和「四次握手」的原因：</p>
 <ul>
-<li><p>「两次握手」：无法防止历史连接的建立，会造成双方资源的浪费，也无法可靠的同步双方序列号；</p>
+<li>
+<p>「两次握手」：无法防止历史连接的建立，会造成双方资源的浪费，也无法可靠的同步双方序列号；</p>
 </li>
-<li><p>「四次握手」：三次握手就已经理论上最少可靠连接建立，所以不需要使用更多的通信次数。</p>
+<li>
+<p>「四次握手」：三次握手就已经理论上最少可靠连接建立，所以不需要使用更多的通信次数。</p>
 </li>
 </ul>
 <blockquote>
-<h4 id="为什么客户端和服务端的初始序列号-ISN-是不相同的？"><a href="#为什么客户端和服务端的初始序列号-ISN-是不相同的？" class="headerlink" title="为什么客户端和服务端的初始序列号 ISN 是不相同的？"></a><strong>为什么客户端和服务端的初始序列号 ISN 是不相同的？</strong></h4></blockquote>
+<h4 id="为什么客户端和服务端的初始序列号-isn-是不相同的"><a class="markdownIt-Anchor" href="#为什么客户端和服务端的初始序列号-isn-是不相同的"></a> <strong>为什么客户端和服务端的初始序列号 ISN 是不相同的？</strong></h4>
+</blockquote>
 <p>因为网络中的报文会延迟、会复制重发、也有可能丢失，这样会造成的不同连接之间产生互相影响，所以为了避免互相影响，客户端和服务端的初始序列号是随机且不同的。</p>
 <blockquote>
-<h4 id="初始序列号-ISN-是如何随机产生的？"><a href="#初始序列号-ISN-是如何随机产生的？" class="headerlink" title="初始序列号 ISN 是如何随机产生的？"></a><strong>初始序列号 ISN 是如何随机产生的？</strong></h4></blockquote>
+<h4 id="初始序列号-isn-是如何随机产生的"><a class="markdownIt-Anchor" href="#初始序列号-isn-是如何随机产生的"></a> <strong>初始序列号 ISN 是如何随机产生的？</strong></h4>
+</blockquote>
 <p>起始 <code>ISN</code> 是基于时钟的，每 4 毫秒 + 1，转一圈要 4.55 个小时。</p>
 <p>RFC1948 中提出了一个较好的初始化序列号 ISN 随机生成算法。</p>
 <p>ISN = M + F (localhost, localport, remotehost, remoteport)</p>
 <ul>
-<li><p><code>M</code> 是一个计时器，这个计时器每隔 4 毫秒加 1。</p>
+<li>
+<p><code>M</code> 是一个计时器，这个计时器每隔 4 毫秒加 1。</p>
 </li>
-<li><p><code>F</code> 是一个 Hash 算法，根据源 IP、目的 IP、源端口、目的端口生成一个随机数值。要保证 Hash 算法不能被外部轻易推算得出，用 MD5 算法是一个比较好的选择。</p>
+<li>
+<p><code>F</code> 是一个 Hash 算法，根据源 IP、目的 IP、源端口、目的端口生成一个随机数值。要保证 Hash 算法不能被外部轻易推算得出，用 MD5 算法是一个比较好的选择。</p>
 </li>
 </ul>
 <blockquote>
-<h4 id="既然-IP-层会分片，为什么-TCP-层还需要-MSS-呢？"><a href="#既然-IP-层会分片，为什么-TCP-层还需要-MSS-呢？" class="headerlink" title="既然 IP 层会分片，为什么 TCP 层还需要 MSS 呢？"></a><strong>既然 IP 层会分片，为什么 TCP 层还需要 MSS 呢？</strong></h4></blockquote>
+<h4 id="既然-ip-层会分片为什么-tcp-层还需要-mss-呢"><a class="markdownIt-Anchor" href="#既然-ip-层会分片为什么-tcp-层还需要-mss-呢"></a> <strong>既然 IP 层会分片，为什么 TCP 层还需要 MSS 呢？</strong></h4>
+</blockquote>
 <p>我们先来认识下 MTU 和 MSS</p>
-<p><img src="https://static001.geekbang.org/infoq/60/60111facd139b927c9b5fd15b5155d4e.png"></p>
+<p><img src="https://static001.geekbang.org/infoq/60/60111facd139b927c9b5fd15b5155d4e.png" alt="" /></p>
 <ul>
-<li><p><code>MTU</code>：一个网络包的最大长度，以太网中一般为 <code>1500</code> 字节；</p>
+<li>
+<p><code>MTU</code>：一个网络包的最大长度，以太网中一般为 <code>1500</code> 字节；</p>
 </li>
-<li><p><code>MSS</code>：除去 IP 和 TCP 头部之后，一个网络包所能容纳的 TCP 数据的最大长度；</p>
+<li>
+<p><code>MSS</code>：除去 IP 和 TCP 头部之后，一个网络包所能容纳的 TCP 数据的最大长度；</p>
 </li>
 </ul>
 <p>如果在 TCP 的整个报文（头部 + 数据）交给 IP 层进行分片，会有什么异常呢？</p>
@@ -694,100 +771,125 @@
 <p>当接收方发现 TCP 报文（头部 + 数据）的某一片丢失后，则不会响应 ACK 给对方，那么发送方的 TCP 在超时后，就会重发「整个 TCP 报文（头部 + 数据）」。</p>
 <p>因此，可以得知由 IP 层进行分片传输，是非常没有效率的。</p>
 <p>所以，为了达到最佳的传输效能 TCP 协议在建立连接的时候通常要协商双方的 MSS 值，当 TCP 层发现数据超过 MSS 时，则就先会进行分片，当然由它形成的 IP 包的长度也就不会大于 MTU ，自然也就不用 IP 分片了。</p>
-<p><img src="https://static001.geekbang.org/infoq/1c/1c37d93a459cf2653b115520897b7fdf.png"></p>
+<p><img src="https://static001.geekbang.org/infoq/1c/1c37d93a459cf2653b115520897b7fdf.png" alt="" /></p>
 <p>经过 TCP 层分片后，如果一个 TCP 分片丢失后，进行重发时也是以 MSS 为单位，而不用重传所有的分片，大大增加了重传的效率。</p>
 <blockquote>
-<h4 id="什么是-SYN-攻击？如何避免-SYN-攻击？"><a href="#什么是-SYN-攻击？如何避免-SYN-攻击？" class="headerlink" title="什么是 SYN 攻击？如何避免 SYN 攻击？"></a><strong>什么是 SYN 攻击？如何避免 SYN 攻击？</strong></h4></blockquote>
+<h4 id="什么是-syn-攻击如何避免-syn-攻击"><a class="markdownIt-Anchor" href="#什么是-syn-攻击如何避免-syn-攻击"></a> <strong>什么是 SYN 攻击？如何避免 SYN 攻击？</strong></h4>
+</blockquote>
 <p>SYN 攻击</p>
 <p>我们都知道 TCP 连接建立是需要三次握手，假设攻击者短时间伪造不同 IP 地址的 <code>SYN</code> 报文，服务端每接收到一个 <code>SYN</code> 报文，就进入<code>SYN_RCVD</code> 状态，但服务端发送出去的 <code>ACK + SYN</code> 报文，无法得到未知 IP 主机的 <code>ACK</code> 应答，久而久之就会占满服务端的 SYN 接收队列（未连接队列），使得服务器不能为正常用户服务。</p>
-<p><img src="https://static001.geekbang.org/infoq/87/876685751a1208f386ac086361e1f6fd.jpeg?x-oss-process=image/resize,p_80/auto-orient,1"></p>
+<p><img src="https://static001.geekbang.org/infoq/87/876685751a1208f386ac086361e1f6fd.jpeg?x-oss-process=image/resize,p_80/auto-orient,1" alt="" /></p>
 <p>避免 SYN 攻击方式一</p>
 <p>其中一种解决方式是通过修改 Linux 内核参数，控制队列大小和当队列满时应做什么处理。</p>
 <ul>
-<li>当网卡接收数据包的速度大于内核处理的速度时，会有一个队列保存这些数据包。控制该队列的最大值如下参数：</li>
+<li>
+<p>当网卡接收数据包的速度大于内核处理的速度时，会有一个队列保存这些数据包。控制该队列的最大值如下参数：</p>
+<p>net.core.netdev_max_backlog</p>
+</li>
+<li>
+<p>SYN_RCVD 状态连接的最大个数：</p>
+<p>net.ipv4.tcp_max_syn_backlog</p>
+</li>
+<li>
+<p>超出处理能时，对新的 SYN 直接回报 RST，丢弃连接：</p>
+<p>net.ipv4.tcp_abort_on_overflow</p>
+</li>
 </ul>
-<pre><code>net.core.netdev_max_backlog</code></pre>
-<ul>
-<li>SYN_RCVD 状态连接的最大个数：</li>
-</ul>
-<pre><code>net.ipv4.tcp_max_syn_backlog</code></pre>
-<ul>
-<li>超出处理能时，对新的 SYN 直接回报 RST，丢弃连接：</li>
-</ul>
-<pre><code>net.ipv4.tcp_abort_on_overflow</code></pre>
 <p>避免 SYN 攻击方式二</p>
 <p>我们先来看下 Linux 内核的 <code>SYN</code> （未完成连接建立）队列与 <code>Accpet</code> （已完成连接建立）队列是如何工作的？</p>
-<p><img src="https://static001.geekbang.org/infoq/ba/bacdd7b578796f34cb86fa25772ecaf2.png"></p>
+<p><img src="https://static001.geekbang.org/infoq/ba/bacdd7b578796f34cb86fa25772ecaf2.png" alt="" /></p>
 <p>正常流程：</p>
 <ul>
-<li><p>当服务端接收到客户端的 SYN 报文时，会将其加入到内核的「 SYN 队列」；</p>
+<li>
+<p>当服务端接收到客户端的 SYN 报文时，会将其加入到内核的「 SYN 队列」；</p>
 </li>
-<li><p>接着发送 SYN + ACK 给客户端，等待客户端回应 ACK 报文；</p>
+<li>
+<p>接着发送 SYN + ACK 给客户端，等待客户端回应 ACK 报文；</p>
 </li>
-<li><p>服务端接收到 ACK 报文后，从「 SYN 队列」移除放入到「 Accept 队列」；</p>
+<li>
+<p>服务端接收到 ACK 报文后，从「 SYN 队列」移除放入到「 Accept 队列」；</p>
 </li>
-<li><p>应用通过调用 <code>accpet()</code> socket 接口，从「 Accept 队列」取出的连接。</p>
+<li>
+<p>应用通过调用 <code>accpet()</code> socket 接口，从「 Accept 队列」取出的连接。</p>
 </li>
 </ul>
-<p><img src="https://static001.geekbang.org/infoq/28/2803287ad2a1a5bc22e99d835ce348fd.png"></p>
+<p><img src="https://static001.geekbang.org/infoq/28/2803287ad2a1a5bc22e99d835ce348fd.png" alt="" /></p>
 <p>应用程序过慢：</p>
 <ul>
 <li>如果应用程序过慢时，就会导致「 Accept 队列」被占满。</li>
 </ul>
-<p><img src="https://static001.geekbang.org/infoq/94/94428a864b689a21c37bb0bbfc9b4b6f.png"></p>
+<p><img src="https://static001.geekbang.org/infoq/94/94428a864b689a21c37bb0bbfc9b4b6f.png" alt="" /></p>
 <p>受到 SYN 攻击：</p>
 <ul>
 <li>如果不断受到 SYN 攻击，就会导致「 SYN 队列」被占满。</li>
 </ul>
 <p><code>tcp_syncookies</code> 的方式可以应对 SYN 攻击的方法：</p>
-<pre><code>net.ipv4.tcp_syncookies = 1</code></pre>
-<p><img src="https://static001.geekbang.org/infoq/78/78efbdc15cbb52b3970c7181912fd24f.png"></p>
+<pre><code>net.ipv4.tcp_syncookies = 1
+</code></pre>
+<p><img src="https://static001.geekbang.org/infoq/78/78efbdc15cbb52b3970c7181912fd24f.png" alt="" /></p>
 <ul>
-<li><p>当 「 SYN 队列」满之后，后续服务器收到 SYN 包，不进入「 SYN 队列」；</p>
+<li>
+<p>当 「 SYN 队列」满之后，后续服务器收到 SYN 包，不进入「 SYN 队列」；</p>
 </li>
-<li><p>计算出一个 <code>cookie</code> 值，再以 SYN + ACK 中的「序列号」返回客户端，</p>
+<li>
+<p>计算出一个 <code>cookie</code> 值，再以 SYN + ACK 中的「序列号」返回客户端，</p>
 </li>
-<li><p>服务端接收到客户端的应答报文时，服务器会检查这个 ACK 包的合法性。如果合法，直接放入到「 Accept 队列」。 </p>
+<li>
+<p>服务端接收到客户端的应答报文时，服务器会检查这个 ACK 包的合法性。如果合法，直接放入到「 Accept 队列」。</p>
 </li>
-<li><p>最后应用通过调用 <code>accpet()</code> socket 接口，从「 Accept 队列」取出的连接。</p>
+<li>
+<p>最后应用通过调用 <code>accpet()</code> socket 接口，从「 Accept 队列」取出的连接。</p>
 </li>
 </ul>
-<hr>
-<h3 id="03-TCP-连接断开"><a href="#03-TCP-连接断开" class="headerlink" title="03 TCP 连接断开"></a>03 TCP 连接断开</h3><blockquote>
-<h4 id="TCP-四次挥手过程和状态变迁"><a href="#TCP-四次挥手过程和状态变迁" class="headerlink" title="TCP 四次挥手过程和状态变迁"></a><strong>TCP 四次挥手过程和状态变迁</strong></h4></blockquote>
+<hr />
+<h3 id="03-tcp-连接断开"><a class="markdownIt-Anchor" href="#03-tcp-连接断开"></a> 03 TCP 连接断开</h3>
+<blockquote>
+<h4 id="tcp-四次挥手过程和状态变迁"><a class="markdownIt-Anchor" href="#tcp-四次挥手过程和状态变迁"></a> <strong>TCP 四次挥手过程和状态变迁</strong></h4>
+</blockquote>
 <p>天下没有不散的宴席，对于 TCP 连接也是这样， TCP 断开连接是通过四次挥手方式。</p>
 <p>双方都可以主动断开连接，断开连接后主机中的「资源」将被释放。</p>
-<p><img src="https://static001.geekbang.org/infoq/20/2085b747725cd09fb01334cd29774b6d.png"></p>
+<p><img src="https://static001.geekbang.org/infoq/20/2085b747725cd09fb01334cd29774b6d.png" alt="" /></p>
 <ul>
-<li><p>客户端打算关闭连接，此时会发送一个 TCP 首部 <code>FIN</code> 标志位被置为 <code>1</code> 的报文，也即 <code>FIN</code> 报文，之后客户端进入 <code>FINWAIT1</code> 状态。</p>
+<li>
+<p>客户端打算关闭连接，此时会发送一个 TCP 首部 <code>FIN</code> 标志位被置为 <code>1</code> 的报文，也即 <code>FIN</code> 报文，之后客户端进入 <code>FINWAIT1</code> 状态。</p>
 </li>
-<li><p>服务端收到该报文后，就向客户端发送 <code>ACK</code> 应答报文，接着服务端进入 <code>CLOSED_WAIT</code> 状态。</p>
+<li>
+<p>服务端收到该报文后，就向客户端发送 <code>ACK</code> 应答报文，接着服务端进入 <code>CLOSED_WAIT</code> 状态。</p>
 </li>
-<li><p>客户端收到服务端的 <code>ACK</code> 应答报文后，之后进入 <code>FIN_WAIT_2</code> 状态。</p>
+<li>
+<p>客户端收到服务端的 <code>ACK</code> 应答报文后，之后进入 <code>FIN_WAIT_2</code> 状态。</p>
 </li>
-<li><p>等待服务端处理完数据后，也向客户端发送 <code>FIN</code> 报文，之后服务端进入 <code>LAST_ACK</code> 状态。</p>
+<li>
+<p>等待服务端处理完数据后，也向客户端发送 <code>FIN</code> 报文，之后服务端进入 <code>LAST_ACK</code> 状态。</p>
 </li>
-<li><p>客户端收到服务端的 <code>FIN</code> 报文后，回一个 <code>ACK</code> 应答报文，之后进入 <code>TIME_WAIT</code> 状态</p>
+<li>
+<p>客户端收到服务端的 <code>FIN</code> 报文后，回一个 <code>ACK</code> 应答报文，之后进入 <code>TIME_WAIT</code> 状态</p>
 </li>
-<li><p>服务器收到了 <code>ACK</code> 应答报文后，就进入了 <code>CLOSE</code> 状态，至此服务端已经完成连接的关闭。</p>
+<li>
+<p>服务器收到了 <code>ACK</code> 应答报文后，就进入了 <code>CLOSE</code> 状态，至此服务端已经完成连接的关闭。</p>
 </li>
-<li><p>客户端在经过 <code>2MSL</code> 一段时间后，自动进入 <code>CLOSE</code> 状态，至此客户端也完成连接的关闭。</p>
+<li>
+<p>客户端在经过 <code>2MSL</code> 一段时间后，自动进入 <code>CLOSE</code> 状态，至此客户端也完成连接的关闭。</p>
 </li>
 </ul>
 <p>你可以看到，每个方向都需要一个 FIN 和一个 ACK，因此通常被称为四次挥手。</p>
 <p>这里一点需要注意是：主动关闭连接的，才有 TIME_WAIT 状态。</p>
 <blockquote>
-<h4 id="为什么挥手需要四次？"><a href="#为什么挥手需要四次？" class="headerlink" title="为什么挥手需要四次？"></a><strong>为什么挥手需要四次？</strong></h4></blockquote>
+<h4 id="为什么挥手需要四次"><a class="markdownIt-Anchor" href="#为什么挥手需要四次"></a> <strong>为什么挥手需要四次？</strong></h4>
+</blockquote>
 <p>再来回顾下四次挥手双方发 <code>FIN</code> 包的过程，就能理解为什么需要四次了。</p>
 <ul>
-<li><p>关闭连接时，客户端向服务端发送 <code>FIN</code> 时，仅仅表示客户端不再发送数据了但是还能接收数据。</p>
+<li>
+<p>关闭连接时，客户端向服务端发送 <code>FIN</code> 时，仅仅表示客户端不再发送数据了但是还能接收数据。</p>
 </li>
-<li><p>服务器收到客户端的 <code>FIN</code> 报文时，先回一个 <code>ACK</code> 应答报文，而服务端可能还有数据需要处理和发送，等服务端不再发送数据时，才发送 <code>FIN</code> 报文给客户端来表示同意现在关闭连接。</p>
+<li>
+<p>服务器收到客户端的 <code>FIN</code> 报文时，先回一个 <code>ACK</code> 应答报文，而服务端可能还有数据需要处理和发送，等服务端不再发送数据时，才发送 <code>FIN</code> 报文给客户端来表示同意现在关闭连接。</p>
 </li>
 </ul>
 <p>从上面过程可知，服务端通常需要等待完成数据的发送和处理，所以服务端的 <code>ACK</code> 和 <code>FIN</code> 一般都会分开发送，从而比三次握手导致多了一次。</p>
 <blockquote>
-<h4 id="为什么-TIME-WAIT-等待的时间是-2MSL？"><a href="#为什么-TIME-WAIT-等待的时间是-2MSL？" class="headerlink" title="为什么 TIME_WAIT 等待的时间是 2MSL？"></a><strong>为什么 TIME_WAIT 等待的时间是 2MSL？</strong></h4></blockquote>
+<h4 id="为什么-time_wait-等待的时间是-2msl"><a class="markdownIt-Anchor" href="#为什么-time_wait-等待的时间是-2msl"></a> <strong>为什么 TIME_WAIT 等待的时间是 2MSL？</strong></h4>
+</blockquote>
 <p><code>MSL</code> 是 Maximum Segment Lifetime，报文最大生存时间，它是任何报文在网络上存在的最长时间，超过这个时间报文将被丢弃。因为 TCP 报文基于是 IP 协议的，而 IP 头中有一个 <code>TTL</code> 字段，是 IP 数据报可以经过的最大路由数，每经过一个处理他的路由器此值就减 1，当此值为 0 则数据报将被丢弃，同时发送 ICMP 报文通知源主机。</p>
 <p>MSL 与 TTL 的区别： MSL 的单位是时间，而 TTL 是经过路由跳数。所以 MSL 应该要大于等于 TTL 消耗为 0 的时间，以确保报文已被自然消亡。</p>
 <p>TIME_WAIT 等待 2 倍的 MSL，比较合理的解释是： 网络中可能存在来自发送方的数据包，当这些发送方的数据包被接收方处理后又会向对方发送响应，所以一来一回需要等待 2 倍的时间。</p>
@@ -797,25 +899,31 @@
 <p>其定义在 Linux 内核代码里的名称为 TCPTIMEWAITLEN：</p>
 <pre><code>#define TCP_TIMEWAIT_LEN (60*HZ) /* how long to wait to destroy TIME-WAIT 
 
-                                    state, about 60 seconds  */</code></pre>
+                                    state, about 60 seconds  */
+</code></pre>
 <p>如果要修改 TIMEWAIT 的时间长度，只能修改 Linux 内核代码里 TCPTIMEWAIT_LEN 的值，并重新编译 Linux 内核。</p>
 <blockquote>
-<h4 id="为什么需要-TIME-WAIT-状态？"><a href="#为什么需要-TIME-WAIT-状态？" class="headerlink" title="**为什么需要 TIME_WAIT 状态？ **"></a>**为什么需要 TIME_WAIT 状态？ **</h4></blockquote>
+<h4 id="为什么需要-time_wait-状态"><a class="markdownIt-Anchor" href="#为什么需要-time_wait-状态"></a> **为什么需要 TIME_WAIT 状态？ **</h4>
+</blockquote>
 <p>主动发起关闭连接的一方，才会有 <code>TIME-WAIT</code> 状态。</p>
 <p>需要 TIME-WAIT 状态，主要是两个原因：</p>
 <ul>
-<li><p>防止具有相同「四元组」的「旧」数据包被收到；</p>
+<li>
+<p>防止具有相同「四元组」的「旧」数据包被收到；</p>
 </li>
-<li><p>保证「被动关闭连接」的一方能被正确的关闭，即保证最后的 ACK 能让被动关闭方接收，从而帮助其正常关闭；</p>
+<li>
+<p>保证「被动关闭连接」的一方能被正确的关闭，即保证最后的 ACK 能让被动关闭方接收，从而帮助其正常关闭；</p>
 </li>
 </ul>
 <p>原因一：防止旧连接的数据包</p>
 <p>假设 TIME-WAIT 没有等待时间或时间过短，被延迟的数据包抵达后会发生什么呢？</p>
-<p><img src="https://static001.geekbang.org/infoq/5e/5e3336e73d8b924381f347d0ebab1b71.png"></p>
+<p><img src="https://static001.geekbang.org/infoq/5e/5e3336e73d8b924381f347d0ebab1b71.png" alt="" /></p>
 <ul>
-<li><p>如上图黄色框框服务端在关闭连接之前发送的 <code>SEQ = 301</code> 报文，被网络延迟了。</p>
+<li>
+<p>如上图黄色框框服务端在关闭连接之前发送的 <code>SEQ = 301</code> 报文，被网络延迟了。</p>
 </li>
-<li><p>这时有相同端口的 TCP 连接被复用后，被延迟的 <code>SEQ = 301</code> 抵达了客户端，那么客户端是有可能正常接收这个过期的报文，这就会产生数据错乱等严重的问题。</p>
+<li>
+<p>这时有相同端口的 TCP 连接被复用后，被延迟的 <code>SEQ = 301</code> 抵达了客户端，那么客户端是有可能正常接收这个过期的报文，这就会产生数据错乱等严重的问题。</p>
 </li>
 </ul>
 <p>所以，TCP 就设计出了这么一个机制，经过 <code>2MSL</code> 这个时间，足以让两个方向上的数据包都被丢弃，使得原来连接的数据包在网络中都自然消失，再出现的数据包一定都是新建立连接所产生的。</p>
@@ -824,54 +932,68 @@
 <p>TIME-WAIT - represents waiting for enough time to pass to be sure the remote TCP received the acknowledgment of its connection termination request.</p>
 <p>也就是说，TIME-WAIT 作用是等待足够的时间以确保最后的 ACK 能让被动关闭方接收，从而帮助其正常关闭。</p>
 <p>假设 TIME-WAIT 没有等待时间或时间过短，断开连接会造成什么问题呢？</p>
-<p><img src="https://static001.geekbang.org/infoq/6a/6a44dd001ef2ece18297121c90305861.png"></p>
+<p><img src="https://static001.geekbang.org/infoq/6a/6a44dd001ef2ece18297121c90305861.png" alt="" /></p>
 <ul>
-<li><p>如上图红色框框客户端四次挥手的最后一个 <code>ACK</code> 报文如果在网络中被丢失了，此时如果客户端 <code>TIME-WAIT</code> 过短或没有，则就直接进入了 <code>CLOSE</code> 状态了，那么服务端则会一直处在 <code>LASE-ACK</code> 状态。</p>
+<li>
+<p>如上图红色框框客户端四次挥手的最后一个 <code>ACK</code> 报文如果在网络中被丢失了，此时如果客户端 <code>TIME-WAIT</code> 过短或没有，则就直接进入了 <code>CLOSE</code> 状态了，那么服务端则会一直处在 <code>LASE-ACK</code> 状态。</p>
 </li>
-<li><p>当客户端发起建立连接的 <code>SYN</code> 请求报文后，服务端会发送 <code>RST</code> 报文给客户端，连接建立的过程就会被终止。</p>
+<li>
+<p>当客户端发起建立连接的 <code>SYN</code> 请求报文后，服务端会发送 <code>RST</code> 报文给客户端，连接建立的过程就会被终止。</p>
 </li>
 </ul>
 <p>如果 TIME-WAIT 等待足够长的情况就会遇到两种情况：</p>
 <ul>
-<li><p>服务端正常收到四次挥手的最后一个 <code>ACK</code> 报文，则服务端正常关闭连接。</p>
+<li>
+<p>服务端正常收到四次挥手的最后一个 <code>ACK</code> 报文，则服务端正常关闭连接。</p>
 </li>
-<li><p>服务端没有收到四次挥手的最后一个 <code>ACK</code> 报文时，则会重发 <code>FIN</code> 关闭连接报文并等待新的 <code>ACK</code> 报文。</p>
+<li>
+<p>服务端没有收到四次挥手的最后一个 <code>ACK</code> 报文时，则会重发 <code>FIN</code> 关闭连接报文并等待新的 <code>ACK</code> 报文。</p>
 </li>
 </ul>
 <p>所以客户端在 <code>TIME-WAIT</code> 状态等待 <code>2MSL</code> 时间后，就可以保证双方的连接都可以正常的关闭。</p>
 <blockquote>
-<h4 id="TIME-WAIT-过多有什么危害？"><a href="#TIME-WAIT-过多有什么危害？" class="headerlink" title="TIME_WAIT 过多有什么危害？"></a><strong>TIME_WAIT 过多有什么危害？</strong></h4></blockquote>
+<h4 id="time_wait-过多有什么危害"><a class="markdownIt-Anchor" href="#time_wait-过多有什么危害"></a> <strong>TIME_WAIT 过多有什么危害？</strong></h4>
+</blockquote>
 <p>如果服务器有处于 TIME-WAIT 状态的 TCP，则说明是由服务器方主动发起的断开请求。</p>
 <p>过多的 TIME-WAIT 状态主要的危害有两种：</p>
 <ul>
-<li><p>第一是内存资源占用；</p>
+<li>
+<p>第一是内存资源占用；</p>
 </li>
-<li><p>第二是对端口资源的占用，一个 TCP 连接至少消耗一个本地端口；</p>
+<li>
+<p>第二是对端口资源的占用，一个 TCP 连接至少消耗一个本地端口；</p>
 </li>
 </ul>
 <p>第二个危害是会造成严重的后果的，要知道，端口资源也是有限的，一般可以开启的端口为 <code>32768～61000</code>，也可以通过如下参数设置指定</p>
-<pre><code>net.ipv4.ip_local_port_range</code></pre>
+<pre><code>net.ipv4.ip_local_port_range
+</code></pre>
 <p>如果发起连接一方的 TIME_WAIT 状态过多，占满了所有端口资源，则会导致无法创建新连接。</p>
 <p>客户端受端口资源限制：</p>
 <p>客户端TIME_WAIT过多，就会导致端口资源被占用，因为端口就65536个，被占满就会导致无法创建新的连接。</p>
 <p>服务端受系统资源限制：</p>
 <p>由于一个TCP四元组表示TCP连接，理论上服务端可以建立很多连接，服务端确实只监听一个端口 但是会把连接扔给处理线程，所以理论上监听的端口可以继续监听。但是线程池处理不了那么多一直不断的连接了。所以当服务端出现大量TIMEWAIT时，系统资源被占满时，会导致处理不过来新的连接。</p>
 <blockquote>
-<h4 id="如何优化-TIME-WAIT？"><a href="#如何优化-TIME-WAIT？" class="headerlink" title="如何优化 TIME_WAIT？"></a><strong>如何优化 TIME_WAIT？</strong></h4></blockquote>
+<h4 id="如何优化-time_wait"><a class="markdownIt-Anchor" href="#如何优化-time_wait"></a> <strong>如何优化 TIME_WAIT？</strong></h4>
+</blockquote>
 <p>这里给出优化 TIME-WAIT 的几个方式，都是有利有弊：</p>
 <ul>
-<li><p>打开 net.ipv4.tcptwreuse 和 net.ipv4.tcp_timestamps 选项；</p>
+<li>
+<p>打开 net.ipv4.tcptwreuse 和 net.ipv4.tcp_timestamps 选项；</p>
 </li>
-<li><p>net.ipv4.tcpmaxtw_buckets</p>
+<li>
+<p>net.ipv4.tcpmaxtw_buckets</p>
 </li>
-<li><p>程序中使用 SO_LINGER ，应用强制使用 RST 关闭。</p>
+<li>
+<p>程序中使用 SO_LINGER ，应用强制使用 RST 关闭。</p>
 </li>
 </ul>
 <p>方式一：net.ipv4.tcp_tw_reuse 和 tcp_timestamps</p>
 <p>如下的 Linux 内核参数开启后，则可以复用处于 TIME_WAIT 的 socket 为新的连接所用。</p>
-<pre><code>net.ipv4.tcp_tw_reuse = 1</code></pre>
+<pre><code>net.ipv4.tcp_tw_reuse = 1
+</code></pre>
 <p>使用这个选项，还有一个前提，需要打开对 TCP 时间戳的支持，即</p>
-<pre><code>net.ipv4.tcp_timestamps=1（默认即为 1）</code></pre>
+<pre><code>net.ipv4.tcp_timestamps=1（默认即为 1）
+</code></pre>
 <p>这个时间戳的字段是在 TCP 头部的「选项」里，用于记录 TCP 发送方的当前时间戳和从对端接收到的最新时间戳。</p>
 <p>由于引入了时间戳，我们在前面提到的 <code>2MSL</code> 问题就不复存在了，因为重复的数据包会因为时间戳过期被自然丢弃。</p>
 <p>方式二：net.ipv4.tcp_max_tw_buckets</p>
@@ -885,11 +1007,13 @@ so_linger.l_onoff = 1;
 
 so_linger.l_linger = 0;
 
-setsockopt(s, SOL_SOCKET, SO_LINGER, &amp;so_linger,sizeof(so_linger));</code></pre>
+setsockopt(s, SOL_SOCKET, SO_LINGER, &amp;so_linger,sizeof(so_linger));
+</code></pre>
 <p>如果<code>l_onoff</code>为非 0， 且<code>l_linger</code>值为 0，那么调用<code>close</code>后，会立该发送一个<code>RST</code>标志给对端，该 TCP 连接将跳过四次挥手，也就跳过了<code>TIME_WAIT</code>状态，直接关闭。</p>
 <p>但这为跨越<code>TIME_WAIT</code>状态提供了一个可能，不过是一个非常危险的行为，不值得提倡。</p>
 <blockquote>
-<h4 id="如果已经建立了连接，但是客户端突然出现故障了怎么办？"><a href="#如果已经建立了连接，但是客户端突然出现故障了怎么办？" class="headerlink" title="####  如果已经建立了连接，但是客户端突然出现故障了怎么办？"></a><strong>####  <strong>如果已经建立了连接，但是客户端突然出现故障了怎么办？</strong></strong></h4></blockquote>
+<h4 id="如果已经建立了连接但是客户端突然出现故障了怎么办"><a class="markdownIt-Anchor" href="#如果已经建立了连接但是客户端突然出现故障了怎么办"></a> <strong>####  <strong>如果已经建立了连接，但是客户端突然出现故障了怎么办？</strong></strong></h4>
+</blockquote>
 <p>TCP 有一个机制是保活机制。这个机制的原理是这样的：</p>
 <p>定义一个时间段，在这个时间段内，如果没有任何连接相关的活动，TCP 保活机制会开始作用，每隔一个时间间隔，发送一个探测报文，该探测报文包含的数据非常少，如果连续几个探测报文都没有得到响应，则认为当前的 TCP 连接已经死亡，系统内核将错误信息通知给上层应用程序。</p>
 <p>在 Linux 内核可以有对应的参数可以设置保活时间、保活探测的次数、保活探测的时间间隔，以下都为默认值：</p>
@@ -897,100 +1021,132 @@ setsockopt(s, SOL_SOCKET, SO_LINGER, &amp;so_linger,sizeof(so_linger));</code></
 
 net.ipv4.tcp_keepalive_intvl=75  
 
-net.ipv4.tcp_keepalive_probes=9</code></pre>
+net.ipv4.tcp_keepalive_probes=9
+</code></pre>
 <ul>
-<li><p>tcpkeepalivetime=7200：表示保活时间是 7200 秒（2小时），也就 2 小时内如果没有任何连接相关的活动，则会启动保活机制</p>
+<li>
+<p>tcpkeepalivetime=7200：表示保活时间是 7200 秒（2小时），也就 2 小时内如果没有任何连接相关的活动，则会启动保活机制</p>
 </li>
-<li><p>tcpkeepaliveintvl=75：表示每次检测间隔 75 秒；</p>
+<li>
+<p>tcpkeepaliveintvl=75：表示每次检测间隔 75 秒；</p>
 </li>
-<li><p>tcpkeepaliveprobes=9：表示检测 9 次无响应，认为对方是不可达的，从而中断本次的连接。</p>
+<li>
+<p>tcpkeepaliveprobes=9：表示检测 9 次无响应，认为对方是不可达的，从而中断本次的连接。</p>
 </li>
 </ul>
 <p>也就是说在 Linux 系统中，最少需要经过 2 小时 11 分 15 秒才可以发现一个「死亡」连接。</p>
-<p><img src="https://static001.geekbang.org/infoq/cd/cda8c0d7f9ec4fb4c57b93556a0dc151.png"></p>
+<p><img src="https://static001.geekbang.org/infoq/cd/cda8c0d7f9ec4fb4c57b93556a0dc151.png" alt="" /></p>
 <p>这个时间是有点长的，我们也可以根据实际的需求，对以上的保活相关的参数进行设置。</p>
 <p>如果开启了 TCP 保活，需要考虑以下几种情况：</p>
 <p>第一种，对端程序是正常工作的。当 TCP 保活的探测报文发送给对端, 对端会正常响应，这样 TCP 保活时间会被重置，等待下一个 TCP 保活时间的到来。</p>
 <p>第二种，对端程序崩溃并重启。当 TCP 保活的探测报文发送给对端后，对端是可以响应的，但由于没有该连接的有效信息，会产生一个 RST 报文，这样很快就会发现 TCP 连接已经被重置。</p>
 <p>第三种，是对端程序崩溃，或对端由于其他原因导致报文不可达。当 TCP 保活的探测报文发送给对端后，石沉大海，没有响应，连续几次，达到保活探测次数后，TCP 会报告该 TCP 连接已经死亡。</p>
-<hr>
-<h3 id="03-Socket-编程"><a href="#03-Socket-编程" class="headerlink" title="03 Socket 编程"></a>03 Socket 编程</h3><blockquote>
-<h4 id="针对-TCP-应该如何-Socket-编程？"><a href="#针对-TCP-应该如何-Socket-编程？" class="headerlink" title="针对 TCP 应该如何 Socket 编程？"></a><strong>针对 TCP 应该如何 Socket 编程？</strong></h4></blockquote>
-<p><img src="https://static001.geekbang.org/infoq/42/421b5b49759b5821c84756b1a1956a3d.png"></p>
+<hr />
+<h3 id="03-socket-编程"><a class="markdownIt-Anchor" href="#03-socket-编程"></a> 03 Socket 编程</h3>
+<blockquote>
+<h4 id="针对-tcp-应该如何-socket-编程"><a class="markdownIt-Anchor" href="#针对-tcp-应该如何-socket-编程"></a> <strong>针对 TCP 应该如何 Socket 编程？</strong></h4>
+</blockquote>
+<p><img src="https://static001.geekbang.org/infoq/42/421b5b49759b5821c84756b1a1956a3d.png" alt="" /></p>
 <ul>
-<li><p>服务端和客户端初始化 <code>socket</code>，得到文件描述符；</p>
+<li>
+<p>服务端和客户端初始化 <code>socket</code>，得到文件描述符；</p>
 </li>
-<li><p>服务端调用 <code>bind</code>，将绑定在 IP 地址和端口;</p>
+<li>
+<p>服务端调用 <code>bind</code>，将绑定在 IP 地址和端口;</p>
 </li>
-<li><p>服务端调用 <code>listen</code>，进行监听；</p>
+<li>
+<p>服务端调用 <code>listen</code>，进行监听；</p>
 </li>
-<li><p>服务端调用 <code>accept</code>，等待客户端连接；</p>
+<li>
+<p>服务端调用 <code>accept</code>，等待客户端连接；</p>
 </li>
-<li><p>客户端调用 <code>connect</code>，向服务器端的地址和端口发起连接请求；</p>
+<li>
+<p>客户端调用 <code>connect</code>，向服务器端的地址和端口发起连接请求；</p>
 </li>
-<li><p>服务端 <code>accept</code> 返回用于传输的 <code>socket</code> 的文件描述符；</p>
+<li>
+<p>服务端 <code>accept</code> 返回用于传输的 <code>socket</code> 的文件描述符；</p>
 </li>
-<li><p>客户端调用 <code>write</code> 写入数据；服务端调用 <code>read</code> 读取数据；</p>
+<li>
+<p>客户端调用 <code>write</code> 写入数据；服务端调用 <code>read</code> 读取数据；</p>
 </li>
-<li><p>客户端断开连接时，会调用 <code>close</code>，那么服务端 <code>read</code> 读取数据的时候，就会读取到了 <code>EOF</code>，待处理完数据后，服务端调用 <code>close</code>，表示连接关闭。</p>
+<li>
+<p>客户端断开连接时，会调用 <code>close</code>，那么服务端 <code>read</code> 读取数据的时候，就会读取到了 <code>EOF</code>，待处理完数据后，服务端调用 <code>close</code>，表示连接关闭。</p>
 </li>
 </ul>
 <p>这里需要注意的是，服务端调用 <code>accept</code> 时，连接成功了会返回一个已完成连接的 socket，后续用来传输数据。</p>
 <p>所以，监听的 socket 和真正用来传送数据的 socket，是「两个」 socket，一个叫作监听 socket，一个叫作已完成连接 socket。</p>
 <p>成功连接建立之后，双方开始通过 read 和 write 函数来读写数据，就像往一个文件流里面写东西一样。</p>
 <blockquote>
-<h4 id="listen-时候参数-backlog-的意义？"><a href="#listen-时候参数-backlog-的意义？" class="headerlink" title="listen 时候参数 backlog 的意义？"></a><strong>listen 时候参数 backlog 的意义？</strong></h4></blockquote>
+<h4 id="listen-时候参数-backlog-的意义"><a class="markdownIt-Anchor" href="#listen-时候参数-backlog-的意义"></a> <strong>listen 时候参数 backlog 的意义？</strong></h4>
+</blockquote>
 <p>Linux内核中会维护两个队列：</p>
 <ul>
-<li><p>未完成连接队列（SYN 队列）：接收到一个 SYN 建立连接请求，处于 SYN_RCVD 状态；</p>
+<li>
+<p>未完成连接队列（SYN 队列）：接收到一个 SYN 建立连接请求，处于 SYN_RCVD 状态；</p>
 </li>
-<li><p>已完成连接队列（Accpet 队列）：已完成 TCP 三次握手过程，处于 ESTABLISHED 状态；</p>
+<li>
+<p>已完成连接队列（Accpet 队列）：已完成 TCP 三次握手过程，处于 ESTABLISHED 状态；</p>
 </li>
 </ul>
-<p><img src="https://static001.geekbang.org/infoq/2d/2ddfa757dd19bf3216d37ad04e9f6d8e.png"></p>
-<pre><code>intlisten(int socketfd, int backlog)</code></pre>
+<p><img src="https://static001.geekbang.org/infoq/2d/2ddfa757dd19bf3216d37ad04e9f6d8e.png" alt="" /></p>
+<pre><code>intlisten(int socketfd, int backlog)
+</code></pre>
 <ul>
-<li><p>参数一 socketfd 为 socketfd 文件描述符</p>
+<li>
+<p>参数一 socketfd 为 socketfd 文件描述符</p>
 </li>
-<li><p>参数二 backlog，这参数在历史有一定的变化</p>
+<li>
+<p>参数二 backlog，这参数在历史有一定的变化</p>
 </li>
 </ul>
 <p>在 早期 Linux 内核 backlog 是 SYN 队列大小，也就是未完成的队列大小。</p>
 <p>在 Linux 内核 2.2 之后，backlog 变成 accept 队列，也就是已完成连接建立的队列长度，所以现在通常认为 backlog 是 accept 队列。</p>
 <blockquote>
-<h4 id="accept-发送在三次握手的哪一步？"><a href="#accept-发送在三次握手的哪一步？" class="headerlink" title="accept 发送在三次握手的哪一步？"></a><strong>accept 发送在三次握手的哪一步？</strong></h4></blockquote>
+<h4 id="accept-发送在三次握手的哪一步"><a class="markdownIt-Anchor" href="#accept-发送在三次握手的哪一步"></a> <strong>accept 发送在三次握手的哪一步？</strong></h4>
+</blockquote>
 <p>我们先看看客户端连接服务端时，发送了什么？</p>
-<p><img src="https://static001.geekbang.org/infoq/66/66747eaab2836882c1b4927863c1d6c3.png"></p>
+<p><img src="https://static001.geekbang.org/infoq/66/66747eaab2836882c1b4927863c1d6c3.png" alt="" /></p>
 <ul>
-<li><p>客户端的协议栈向服务器端发送了 SYN 包，并告诉服务器端当前发送序列号 clientisn，客户端进入 SYNCSENT 状态；</p>
+<li>
+<p>客户端的协议栈向服务器端发送了 SYN 包，并告诉服务器端当前发送序列号 clientisn，客户端进入 SYNCSENT 状态；</p>
 </li>
-<li><p>服务器端的协议栈收到这个包之后，和客户端进行 ACK 应答，应答的值为 clientisn+1，表示对 SYN 包 clientisn 的确认，同时服务器也发送一个 SYN 包，告诉客户端当前我的发送序列号为 serverisn，服务器端进入 SYNCRCVD 状态；</p>
+<li>
+<p>服务器端的协议栈收到这个包之后，和客户端进行 ACK 应答，应答的值为 clientisn+1，表示对 SYN 包 clientisn 的确认，同时服务器也发送一个 SYN 包，告诉客户端当前我的发送序列号为 serverisn，服务器端进入 SYNCRCVD 状态；</p>
 </li>
-<li><p>客户端协议栈收到 ACK 之后，使得应用程序从 <code>connect</code> 调用返回，表示客户端到服务器端的单向连接建立成功，客户端的状态为 ESTABLISHED，同时客户端协议栈也会对服务器端的 SYN 包进行应答，应答数据为 server_isn+1；</p>
+<li>
+<p>客户端协议栈收到 ACK 之后，使得应用程序从 <code>connect</code> 调用返回，表示客户端到服务器端的单向连接建立成功，客户端的状态为 ESTABLISHED，同时客户端协议栈也会对服务器端的 SYN 包进行应答，应答数据为 server_isn+1；</p>
 </li>
-<li><p>应答包到达服务器端后，服务器端协议栈使得 <code>accept</code> 阻塞调用返回，这个时候服务器端到客户端的单向连接也建立成功，服务器端也进入 ESTABLISHED 状态。</p>
+<li>
+<p>应答包到达服务器端后，服务器端协议栈使得 <code>accept</code> 阻塞调用返回，这个时候服务器端到客户端的单向连接也建立成功，服务器端也进入 ESTABLISHED 状态。</p>
 </li>
 </ul>
 <p>从上面的描述过程，我们可以得知客户端 connect 成功返回是在第二次握手，服务端 accept 成功返回是在三次握手成功之后。</p>
 <blockquote>
-<h4 id="客户端调用-close-了，连接是断开的流程是什么？"><a href="#客户端调用-close-了，连接是断开的流程是什么？" class="headerlink" title="客户端调用 close 了，连接是断开的流程是什么？"></a><strong>客户端调用 close 了，连接是断开的流程是什么？</strong></h4></blockquote>
+<h4 id="客户端调用-close-了连接是断开的流程是什么"><a class="markdownIt-Anchor" href="#客户端调用-close-了连接是断开的流程是什么"></a> <strong>客户端调用 close 了，连接是断开的流程是什么？</strong></h4>
+</blockquote>
 <p>我们看看客户端主动调用了 <code>close</code>，会发生什么？</p>
-<p><img src="https://static001.geekbang.org/infoq/19/19814f807c7d98bb98ad653c29f1c223.png"></p>
+<p><img src="https://static001.geekbang.org/infoq/19/19814f807c7d98bb98ad653c29f1c223.png" alt="" /></p>
 <ul>
-<li><p>客户端调用 <code>close</code>，表明客户端没有数据需要发送了，则此时会向服务端发送 FIN 报文，进入 FINWAIT1 状态；</p>
+<li>
+<p>客户端调用 <code>close</code>，表明客户端没有数据需要发送了，则此时会向服务端发送 FIN 报文，进入 FINWAIT1 状态；</p>
 </li>
-<li><p>服务端接收到了 FIN 报文，TCP 协议栈会为 FIN 包插入一个文件结束符 <code>EOF</code> 到接收缓冲区中，应用程序可以通过 <code>read</code> 调用来感知这个 FIN 包。这个 <code>EOF</code> 会被放在已排队等候的其他已接收的数据之后，这就意味着服务端需要处理这种异常情况，因为 EOF 表示在该连接上再无额外数据到达。此时，服务端进入 CLOSE_WAIT 状态；</p>
+<li>
+<p>服务端接收到了 FIN 报文，TCP 协议栈会为 FIN 包插入一个文件结束符 <code>EOF</code> 到接收缓冲区中，应用程序可以通过 <code>read</code> 调用来感知这个 FIN 包。这个 <code>EOF</code> 会被放在已排队等候的其他已接收的数据之后，这就意味着服务端需要处理这种异常情况，因为 EOF 表示在该连接上再无额外数据到达。此时，服务端进入 CLOSE_WAIT 状态；</p>
 </li>
-<li><p>接着，当处理完数据后，自然就会读到 <code>EOF</code>，于是也调用 <code>close</code> 关闭它的套接字，这会使得会发出一个 FIN 包，之后处于 LAST_ACK 状态；</p>
+<li>
+<p>接着，当处理完数据后，自然就会读到 <code>EOF</code>，于是也调用 <code>close</code> 关闭它的套接字，这会使得会发出一个 FIN 包，之后处于 LAST_ACK 状态；</p>
 </li>
-<li><p>客户端接收到服务端的 FIN 包，并发送 ACK 确认包给服务端，此时客户端将进入 TIME_WAIT 状态；</p>
+<li>
+<p>客户端接收到服务端的 FIN 包，并发送 ACK 确认包给服务端，此时客户端将进入 TIME_WAIT 状态；</p>
 </li>
-<li><p>服务端收到 ACK 确认包后，就进入了最后的 CLOSE 状态；</p>
+<li>
+<p>服务端收到 ACK 确认包后，就进入了最后的 CLOSE 状态；</p>
 </li>
-<li><p>客户端进过 <code>2MSL</code> 时间之后，也进入 CLOSED 状态；</p>
+<li>
+<p>客户端进过 <code>2MSL</code> 时间之后，也进入 CLOSED 状态；</p>
 </li>
 </ul>
-<hr>
+<hr />
 <p>[1] 趣谈网络协议专栏.刘超.极客时间.</p>
 <p>[2] 网络编程实战专栏.盛延敏.极客时间.</p>
 <p>[3] 计算机网络-自顶向下方法.陈鸣 译.机械工业出版社</p>
