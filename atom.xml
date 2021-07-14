@@ -6,7 +6,7 @@
   <link href="https://blog.fenxiangz.com/atom.xml" rel="self"/>
   
   <link href="https://blog.fenxiangz.com/"/>
-  <updated>2021-06-06T07:31:54.632Z</updated>
+  <updated>2021-07-14T15:57:04.324Z</updated>
   <id>https://blog.fenxiangz.com/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【笔记】深入理解计算机系统 01 - 计算机系统漫游</title>
+    <link href="https://blog.fenxiangz.com/post/cs/csapp_01%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%BC%AB%E6%B8%B8.html"/>
+    <id>https://blog.fenxiangz.com/post/cs/csapp_01%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%BC%AB%E6%B8%B8.html</id>
+    <published>2021-07-13T16:00:00.000Z</published>
+    <updated>2021-07-14T15:57:04.324Z</updated>
+    
+    <content type="html"><![CDATA[<p>说明： 为了方便定位笔记对应的原书位置，笔记内容中段落的标号与原书章节号保持一致！</p><h4 id="11"><a class="markdownIt-Anchor" href="#11"></a> 1.1</h4><p>文件分类： 文本文件、二进制文件</p><h4 id="12"><a class="markdownIt-Anchor" href="#12"></a> 1.2</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Hello, world\n&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>gcc 编译4阶段:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">hello.c(文本) -&gt; 预处理器(cpp) -&gt;</span><br><span class="line">hello.i(文本) -&gt; 编译器(ccl) -&gt; </span><br><span class="line">hello.s(文本) -&gt; 汇编器(as) -&gt; </span><br><span class="line">hello.o(二进制) + prntf.o(二进制) -&gt; 连接器(ld) -&gt; </span><br><span class="line">可执行文件：hello(二进制)</span><br></pre></td></tr></table></figure><p>旁注：<a href="https://www.zhihu.com/question/319783573/answer/656033035">GNU 是什么，和 Linux 是什么关系？</a></p><h4 id="141"><a class="markdownIt-Anchor" href="#141"></a> 1.4.1</h4><p>总线，传送定长字节块，也叫字（word）；字不同于字节(Byte)；字中的字节数（字长）是一个基本的系统参数，大多数机器字长为4字节（32位）或8字节（64位）。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;说明： 为了方便定位笔记对应的原书位置，笔记内容中段落的标号与原书章节号保持一致！&lt;/p&gt;
+&lt;h4 id=&quot;11&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#11&quot;&gt;&lt;/a&gt; 1.1&lt;/h4&gt;
+&lt;p&gt;文件分类： 文本文件、二进制文件&lt;/p&gt;
+&lt;</summary>
+      
+    
+    
+    
+    <category term="计算机系统" scheme="https://blog.fenxiangz.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/"/>
+    
+    
+    <category term="读书笔记" scheme="https://blog.fenxiangz.com/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="深入理解计算机系统" scheme="https://blog.fenxiangz.com/tags/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/"/>
+    
+  </entry>
   
   <entry>
     <title>RocketMQ集群和RocketMQ-on-DLedger集群</title>
@@ -566,38 +595,6 @@ create procedure </summary>
     <category term="性能优化" scheme="https://blog.fenxiangz.com/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
     
     <category term="慢查" scheme="https://blog.fenxiangz.com/tags/%E6%85%A2%E6%9F%A5/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>高性能 MySQL 阅读笔记 (1)</title>
-    <link href="https://blog.fenxiangz.com/post/dateabase/mysql/2020-09-09_%E9%AB%98%E6%80%A7%E8%83%BDMySQL%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0(1).html"/>
-    <id>https://blog.fenxiangz.com/post/dateabase/mysql/2020-09-09_%E9%AB%98%E6%80%A7%E8%83%BDMySQL%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0(1).html</id>
-    <published>2020-09-08T16:00:00.000Z</published>
-    <updated>2021-06-06T07:31:54.434Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="概述"><a class="markdownIt-Anchor" href="#概述"></a> 概述</h1><h3 id="什么是性能"><a class="markdownIt-Anchor" href="#什么是性能"></a> 什么是性能？</h3><p>完成某件任务所需要的时间度量，也就是响应时间。</p><h3 id="什么是优化"><a class="markdownIt-Anchor" href="#什么是优化"></a> 什么是优化？</h3><p>在一定的工作负载下，尽可能地降低响应时间。</p><p>核心：找到时间花在哪里，这很重要。</p><h3 id="如何找"><a class="markdownIt-Anchor" href="#如何找"></a> 如何找？</h3><p>通过测量，所以测量是性能优化的关键方法。</p><h3 id="如何测量"><a class="markdownIt-Anchor" href="#如何测量"></a> 如何测量？</h3><p>找到系统的可测量点，但首先需要系统可测量化的支持，然而实际情况是系统很少可以做到可测量化。</p><p>因为很难进行系统内部测量，所以我们只能尽可能通过外部去测量系统。</p><p>另外需要注意是的，无论是内部测量还是外部测量，数据都不一定是百分之百准确的。</p><p>举例：如果<code>SQL</code>慢查了，花费了10s，如果9.6s都在等待磁盘IO，那么追究其他的0.4s就没什么意义。</p><h1 id="理解性能优剖析"><a class="markdownIt-Anchor" href="#理解性能优剖析"></a> 理解性能优剖析</h1><h3 id="什么是值得优化的查询"><a class="markdownIt-Anchor" href="#什么是值得优化的查询"></a> 什么是值得优化的查询</h3><pre><code>1. 占系统总体性能影响比重大的；2. 投入成本低于优化后的收入；</code></pre><h3 id="异常情况"><a class="markdownIt-Anchor" href="#异常情况"></a> 异常情况</h3><p>系统内部的异常</p><h3 id="未知的未知"><a class="markdownIt-Anchor" href="#未知的未知"></a> 未知的未知</h3><p>性能优化过程发现了“丢失的时间”，比如：程序内部测量点发现耗时10s，但<code>MySQL</code>内部测量发现耗时是8s，那么丢失的2s可能就是没有测量到的，需要注意。</p><h3 id="注意平均值问题"><a class="markdownIt-Anchor" href="#注意平均值问题"></a> 注意平均值问题</h3><p>平均值往往掩盖一些频率小但有性能问题的点</p><h1 id="对应用程序剖析"><a class="markdownIt-Anchor" href="#对应用程序剖析"></a> 对应用程序剖析</h1><p>增加测量点本身一定程度上会增加部分开销，但这部分开销如果远小于性能优化的贡献。<br />轻量级监控：为了尽可能降低性能监控开销，可以增加灰度测量点，只针对n%的概率进行监控。</p><h1 id="剖析mysql"><a class="markdownIt-Anchor" href="#剖析mysql"></a> 剖析MySQL</h1><p>× 慢查日志</p><p>× 剖析单条查询</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;概述&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#概述&quot;&gt;&lt;/a&gt; 概述&lt;/h1&gt;
-&lt;h3 id=&quot;什么是性能&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#什么是性能&quot;&gt;&lt;/a&gt; 什么是性能？&lt;/h3&gt;
-</summary>
-      
-    
-    
-    <content src="https://blog.fenxiangz.com/images/MySQL.png" type="image"/>
-    
-    
-    <category term="MySQL" scheme="https://blog.fenxiangz.com/categories/MySQL/"/>
-    
-    
-    <category term="MySQL" scheme="https://blog.fenxiangz.com/tags/MySQL/"/>
-    
-    <category term="性能优化" scheme="https://blog.fenxiangz.com/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
-    
-    <category term="阅读笔记" scheme="https://blog.fenxiangz.com/tags/%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
