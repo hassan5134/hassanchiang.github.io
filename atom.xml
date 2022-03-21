@@ -6,7 +6,7 @@
   <link href="https://blog.fenxiangz.com/atom.xml" rel="self"/>
   
   <link href="https://blog.fenxiangz.com/"/>
-  <updated>2021-12-12T06:17:03.986Z</updated>
+  <updated>2022-03-21T13:51:06.195Z</updated>
   <id>https://blog.fenxiangz.com/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JVM如何定位到访问的对象</title>
+    <link href="https://blog.fenxiangz.com/post/java/advance/2022-03-21_java_JVM%E5%A6%82%E4%BD%95%E5%AE%9A%E4%BD%8D%E5%88%B0%E8%AE%BF%E9%97%AE%E7%9A%84%E5%AF%B9%E8%B1%A1.html"/>
+    <id>https://blog.fenxiangz.com/post/java/advance/2022-03-21_java_JVM%E5%A6%82%E4%BD%95%E5%AE%9A%E4%BD%8D%E5%88%B0%E8%AE%BF%E9%97%AE%E7%9A%84%E5%AF%B9%E8%B1%A1.html</id>
+    <published>2022-03-20T16:00:00.000Z</published>
+    <updated>2022-03-21T13:51:06.195Z</updated>
+    
+    <content type="html"><![CDATA[<p>转载：<a href="https://blog.csdn.net/liupeifeng3514/article/details/79111651">https://blog.csdn.net/liupeifeng3514/article/details/79111651</a></p><p>Java程序需要通过栈上的reference数据来操作堆上的具体对象。由于在Java虚拟机规范里面只规定了reference类型是一个指向对象的引用，并没有定义这个引用应该通过什么种方式去定位、访问到堆中的对象的具体位置，所以对象访问方式也是取决于虚拟机实现而定的。主流的访问方式有使用<code>句柄</code>和<code>直接指针</code>两种。</p><h2 id="使用句柄"><a class="markdownIt-Anchor" href="#使用句柄"></a> 使用句柄</h2><p>使用句柄访问的话，Java堆中将会划分出一块内存来作为句柄池，reference中存储的就是对象的句柄地址，而句柄中包含了对象实例数据与类型数据的具体各自的地址信息。如下图所示：</p><p><img src="./2022-03-21_java_JVM%E5%A6%82%E4%BD%95%E5%AE%9A%E4%BD%8D%E5%88%B0%E8%AE%BF%E9%97%AE%E7%9A%84%E5%AF%B9%E8%B1%A1/1.png" alt="" /></p><h2 id="直接指针"><a class="markdownIt-Anchor" href="#直接指针"></a> 直接指针</h2><p>使用直接指针访问的话，Java堆对象的布局中就必须考虑如何放置访问类型数据的相关信息，reference中存储的直接就是对象地址，如下图所示：</p><p><img src="./2022-03-21_java_JVM%E5%A6%82%E4%BD%95%E5%AE%9A%E4%BD%8D%E5%88%B0%E8%AE%BF%E9%97%AE%E7%9A%84%E5%AF%B9%E8%B1%A1/2.png" alt="" /></p><p>这两种对象访问方式各有优势：</p><ul><li><p>使用句柄来访问的最大好处就是reference中存储的是稳定句柄地址，在对象被移动（垃圾收集时移动对象是非常普遍的行为）时只会改变句柄中的实例数据指针，而reference本身不需要被修改。</p></li><li><p>使用直接指针来访问最大的好处就是速度更快，它节省了一次指针定位的时间开销，由于对象访问的在Java中非常频繁，因此这类开销积小成多也是一项非常可观的执行成本。</p></li></ul><p>从上一部分讲解的对象内存布局可以看出，就虚拟机HotSpot而言，它是使用第二种方式进行对象访问，但在整个软件开发的范围来看，各种 语言、框架中使用句柄来访问的情况也十分常见。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;转载：&lt;a href=&quot;https://blog.csdn.net/liupeifeng3514/article/details/79111651&quot;&gt;https://blog.csdn.net/liupeifeng3514/article/details/79111651&lt;</summary>
+      
+    
+    
+    <content src="https://blog.fenxiangz.com/images/java/basic/java_logo.png" type="image"/>
+    
+    
+    <category term="Java 进阶" scheme="https://blog.fenxiangz.com/categories/Java-%E8%BF%9B%E9%98%B6/"/>
+    
+    
+    <category term="Java" scheme="https://blog.fenxiangz.com/tags/Java/"/>
+    
+    <category term="jvm" scheme="https://blog.fenxiangz.com/tags/jvm/"/>
+    
+    <category term="垃圾回收" scheme="https://blog.fenxiangz.com/tags/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/"/>
+    
+  </entry>
   
   <entry>
     <title>【笔记】深入理解计算机系统 02 - 程序的机器级表示</title>
@@ -557,37 +587,6 @@ create procedure </summary>
     <category term="优化" scheme="https://blog.fenxiangz.com/tags/%E4%BC%98%E5%8C%96/"/>
     
     <category term="临时表" scheme="https://blog.fenxiangz.com/tags/%E4%B8%B4%E6%97%B6%E8%A1%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>MySQL 中的 Character Set 与 Collation</title>
-    <link href="https://blog.fenxiangz.com/post/dateabase/mysql/2020-09-12_MySQL%E4%B8%AD%E7%9A%84Character_Set%E4%B8%8ECollation.html"/>
-    <id>https://blog.fenxiangz.com/post/dateabase/mysql/2020-09-12_MySQL%E4%B8%AD%E7%9A%84Character_Set%E4%B8%8ECollation.html</id>
-    <published>2020-09-11T16:00:00.000Z</published>
-    <updated>2021-06-06T07:31:54.435Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="背景"><a class="markdownIt-Anchor" href="#背景"></a> 背景</h2><p>MySQL 应该算是目前最流行的数据库之一，经常建库建表的同学应该对 Character Set 和 Collation 这两个词不陌生。</p><p>虽然一直有接触，但我还是挺云里雾里的。直到前些天特地做了功课，才敢说有个比较清晰的了解，所以就有了这篇文章。</p><h2 id="character-set-与-collation"><a class="markdownIt-Anchor" href="#character-set-与-collation"></a> Character Set 与 Collation</h2><p>简单地说，Character Set 是字符集，而 Collation 是比对方法，是两个不同维度的概念。</p><p>我们经常看到的 utf8、gbk、ascii 都是相互独立的字符集，即对 <a href="https://link.zhihu.com/?target=https%3A//zh.wikipedia.org/wiki/Unicode">Unicode</a> 的一套编码。看到一个比较有趣的解释，摘抄过来。</p><blockquote><p>打个比方，你眼前有一个苹果，苹果在英文里称之为「Apple」，在中文里称之为「苹果」。苹果这个实体的概念就是 Unicode，而 utf8 之类的可以认为是不同语言对苹果的不同称谓，本质上都是描述苹果这个实体。</p></blockquote><p>每套字符集有一系列与之对应的比对方法，比如 utf8 字符集对应 utf8_general_ci、utf8_unicode_ci 等比对方法，不同的比对方法下得到的搜索结果、排序结果不尽相同。</p><h2 id="utf8-与-utf8mb4"><a class="markdownIt-Anchor" href="#utf8-与-utf8mb4"></a> utf8 与 utf8mb4</h2><p>抛开数据库，标准的 UTF-8 字符集编码是可以用 1 ~ 4 个字节去编码 21 位字符，这几乎包含了世界上所有能看见的语言。</p><p>然而 MySQL 中实现的 utf8 最长只使用了 3 个字节，也就是只支持到了 Unicode 中的 <a href="https://link.zhihu.com/?target=https%3A//zh.wikipedia.org/wiki/Unicode%25E5%25AD%2597%25E7%25AC%25A6%25E5%25B9%25B3%25E9%259D%25A2%25E6%2598%25A0%25E5%25B0%2584">基本多文本平面</a>。任何不在基本多文本平面的 Unicode 字符，都无法使用 MySQL 的 utf8 字符集存储。包括 Emoji 表情、一些不常用的汉字，以及任何新增的 Unicode 字符等等。</p><p>为了解决这个问题，MySQL 在 5.5.3 之后增加了 <code>utf8mb4</code> 字符编码，mb4 即 most bytes 4。简单说 utf8mb4 是 utf8 的超集并完全兼容 utf8，能够用四个字节存储更多的字符。<a href="https://link.zhihu.com/?target=https%3A//dev.mysql.com/doc/refman/5.6/en/charset-unicode-utf8mb4.html">官方手册</a> 中也有提到 utf8mb4 的解释，我摘抄部分过来。</p><blockquote><p>The <code>utfmb4</code> character set has these characteristics:</p></blockquote><ul><li>Supports BMP and supplementary characters.</li><li>Requires a maximum of four bytes per multibyte character.</li></ul><p><code>utf8mb4</code> contrasts with the <code>utf8mb3</code> character set, which supports only BMP characters and uses a maximum of three bytes per character:</p><ul><li>For a BMP character, <code>utf8mb4</code> and <code>utf8mb3</code> have identical storage characteristics: same code values, same encoding, same length.</li><li>For a supplementary character, <code>utf8mb4</code> requires four bytes to store it, whereas <code>utf8mb3</code> cannot store the character at all. When converting <code>utf8mb3</code> columns to <code>utf8mb4</code>, you need not worry about converting supplementary characters because there will be none.</li></ul><h2 id="utf8mb4_general_ci-与-utf8mb4_unicode_ci"><a class="markdownIt-Anchor" href="#utf8mb4_general_ci-与-utf8mb4_unicode_ci"></a> utf8mb4_general_ci 与 utf8mb4_unicode_ci</h2><p>utf8mb4 对应的比对方法中，常用的有 <code>utf8mb4_general_ci</code> 和 <code>utf8mb4_unicode_ci</code>。关于这两个的区别，可以看下 StackOverflow 上有一个相关的热门讨论：<a href="https://link.zhihu.com/?target=https%3A//stackoverflow.com/questions/766809/whats-the-difference-between-utf8-general-ci-and-utf8-unicode-ci">What’s the difference between utf8_general_ci and utf8_unicode_ci</a>，这边引用一下 <a href="https://link.zhihu.com/?target=http%3A//seanlook.com/">Sean’s Notes</a> 的翻译：</p><p>主要从排序准确性和性能两方面看：</p><ul><li><p>准确性</p></li><li><p><code>utf8mb4_unicode_ci</code> 基于标准的 Unicode 来排序和比较，能够在各种语言之间精确排序。</p></li><li><p><code>utf8mb4_general_ci</code> 没有实现 Unicode 排序规则，在遇到某些特殊语言或字符时，排序结果可能不是所期望的。</p></li><li><p>但是在绝大多数情况下，这种特殊字符的顺序可能不需要那么精确。比如 <code>*_unicode_ci</code> 把 <code>ß</code>、<code>Œ</code> 当成 <code>ss</code> 和 <code>OE</code> 来看，而 <code>*_general_ci</code> 会把它们当成 <code>s</code>、<code>e</code>，再如 <code>ÀÁÅåāă</code> 各自都与 <code>A</code> 相等。</p></li><li><p>性能</p></li><li><p><code>utf8mb4_general_ci</code> 在比较和排序的时候更快。</p></li><li><p><code>utf8mb4_unicode_ci</code> 在特殊情况下，Unicode 排序规则为了能够处理特殊字符的情况，实现了略微复杂的排序算法。</p></li><li><p>但是在绝大多数情况下，不会发生此类复杂比较。<code>*_general_ci</code> 理论上比 <code>*_unicode_ci</code> 可能快些，但相比现在的 CPU 来说，它远远不足以成为考虑性能的因素，索引涉及、SQL 设计才是。 我个人推荐是 <code>utf8mb4_unicode_ci</code>，将来 8.0 里也极有可能使用变为默认的规则。相比选择哪一种 collation，使用者应该更关心字符集与排序规则在数据库里的统一性。</p></li></ul><h2 id="小结"><a class="markdownIt-Anchor" href="#小结"></a> 小结</h2><p>出于兼容性的考虑，对存储空间和性能没有特殊要求的场合下，建议使用 <code>utf8mb4</code> 字符集和 <code>utf8mb4_unicode_ci</code> 对比方法。</p><p>原文：<a href="https://zhuanlan.zhihu.com/p/64570524">https://zhuanlan.zhihu.com/p/64570524</a></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#背景&quot;&gt;&lt;/a&gt; 背景&lt;/h2&gt;
-&lt;p&gt;MySQL 应该算是目前最流行的数据库之一，经常建库建表的同学应该对 Character Set 和 Collation 这两个词不陌生。&lt;/p</summary>
-      
-    
-    
-    <content src="https://blog.fenxiangz.com/images/MySQL.png" type="image"/>
-    
-    
-    <category term="MySQL" scheme="https://blog.fenxiangz.com/categories/MySQL/"/>
-    
-    
-    <category term="MySQL" scheme="https://blog.fenxiangz.com/tags/MySQL/"/>
-    
-    <category term="字符集" scheme="https://blog.fenxiangz.com/tags/%E5%AD%97%E7%AC%A6%E9%9B%86/"/>
-    
-    <category term="Collation" scheme="https://blog.fenxiangz.com/tags/Collation/"/>
     
   </entry>
   
