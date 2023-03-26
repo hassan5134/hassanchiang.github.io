@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>从零开始搭建Prometheus自动监控报警系统（企业级） | 分享之</title>
+  <meta name="description" content="什么是Prometheus? Prometheus是由SoundCloud开发的开源监控报警系统和时序列数据库(TSDB)。Prometheus使用Go语言开发，是Google BorgMon监控系统的开源版本。 2016年由Google发起Linux基金会旗下的原生云基金会(Cloud Native Computing Foundation), 将Prometheus纳入其下第二大开源项目。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="从零开始搭建Prometheus自动监控报警系统（企业级）">
+<meta property="og:url" content="https://blog.fenxiangz.com/post/util/monitor/2017-12-10_%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BAPrometheus%E8%87%AA%E5%8A%A8%E7%9B%91%E6%8E%A7%E6%8A%A5%E8%AD%A6%E7%B3%BB%E7%BB%9F.html">
+<meta property="og:site_name" content="分享之">
+<meta property="og:description" content="什么是Prometheus? Prometheus是由SoundCloud开发的开源监控报警系统和时序列数据库(TSDB)。Prometheus使用Go语言开发，是Google BorgMon监控系统的开源版本。 2016年由Google发起Linux基金会旗下的原生云基金会(Cloud Native Computing Foundation), 将Prometheus纳入其下第二大开源项目。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blog.fenxiangz.com/post/util/monitor/2017-12-10_%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BAPrometheus%E8%87%AA%E5%8A%A8%E7%9B%91%E6%8E%A7%E6%8A%A5%E8%AD%A6%E7%B3%BB%E7%BB%9F/1.png">
+<meta property="og:image" content="https://blog.fenxiangz.com/post/util/monitor/2017-12-10_%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BAPrometheus%E8%87%AA%E5%8A%A8%E7%9B%91%E6%8E%A7%E6%8A%A5%E8%AD%A6%E7%B3%BB%E7%BB%9F/2.png">
+<meta property="og:image" content="https://blog.fenxiangz.com/post/util/monitor/2017-12-10_%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BAPrometheus%E8%87%AA%E5%8A%A8%E7%9B%91%E6%8E%A7%E6%8A%A5%E8%AD%A6%E7%B3%BB%E7%BB%9F/3.png">
+<meta property="og:image" content="https://blog.fenxiangz.com/post/util/monitor/2017-12-10_%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BAPrometheus%E8%87%AA%E5%8A%A8%E7%9B%91%E6%8E%A7%E6%8A%A5%E8%AD%A6%E7%B3%BB%E7%BB%9F/4.png">
+<meta property="og:image" content="https://blog.fenxiangz.com/post/util/monitor/2017-12-10_%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BAPrometheus%E8%87%AA%E5%8A%A8%E7%9B%91%E6%8E%A7%E6%8A%A5%E8%AD%A6%E7%B3%BB%E7%BB%9F/5.png">
+<meta property="og:image" content="https://blog.fenxiangz.com/post/util/monitor/2017-12-10_%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BAPrometheus%E8%87%AA%E5%8A%A8%E7%9B%91%E6%8E%A7%E6%8A%A5%E8%AD%A6%E7%B3%BB%E7%BB%9F/6.png">
+<meta property="og:image" content="https://blog.fenxiangz.com/post/util/monitor/2017-12-10_%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BAPrometheus%E8%87%AA%E5%8A%A8%E7%9B%91%E6%8E%A7%E6%8A%A5%E8%AD%A6%E7%B3%BB%E7%BB%9F/7.png">
+<meta property="og:image" content="https://blog.fenxiangz.com/post/util/monitor/2017-12-10_%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BAPrometheus%E8%87%AA%E5%8A%A8%E7%9B%91%E6%8E%A7%E6%8A%A5%E8%AD%A6%E7%B3%BB%E7%BB%9F/8.png">
+<meta property="og:image" content="https://blog.fenxiangz.com/post/util/monitor/2017-12-10_%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BAPrometheus%E8%87%AA%E5%8A%A8%E7%9B%91%E6%8E%A7%E6%8A%A5%E8%AD%A6%E7%B3%BB%E7%BB%9F/9.png">
+<meta property="og:image" content="https://blog.fenxiangz.com/post/util/monitor/2017-12-10_%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BAPrometheus%E8%87%AA%E5%8A%A8%E7%9B%91%E6%8E%A7%E6%8A%A5%E8%AD%A6%E7%B3%BB%E7%BB%9F/10.png">
+<meta property="og:image" content="https://blog.fenxiangz.com/post/util/monitor/2017-12-10_%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BAPrometheus%E8%87%AA%E5%8A%A8%E7%9B%91%E6%8E%A7%E6%8A%A5%E8%AD%A6%E7%B3%BB%E7%BB%9F/11.png">
+<meta property="og:image" content="https://blog.fenxiangz.com/post/util/monitor/2017-12-10_%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BAPrometheus%E8%87%AA%E5%8A%A8%E7%9B%91%E6%8E%A7%E6%8A%A5%E8%AD%A6%E7%B3%BB%E7%BB%9F/12.png">
+<meta property="og:image" content="https://blog.fenxiangz.com/post/util/monitor/2017-12-10_%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BAPrometheus%E8%87%AA%E5%8A%A8%E7%9B%91%E6%8E%A7%E6%8A%A5%E8%AD%A6%E7%B3%BB%E7%BB%9F/13.png">
+<meta property="og:image" content="https://blog.fenxiangz.com/post/util/monitor/2017-12-10_%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BAPrometheus%E8%87%AA%E5%8A%A8%E7%9B%91%E6%8E%A7%E6%8A%A5%E8%AD%A6%E7%B3%BB%E7%BB%9F/14.png">
+<meta property="og:image" content="https://blog.fenxiangz.com/post/util/monitor/2017-12-10_%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BAPrometheus%E8%87%AA%E5%8A%A8%E7%9B%91%E6%8E%A7%E6%8A%A5%E8%AD%A6%E7%B3%BB%E7%BB%9F/15.png">
+<meta property="og:image" content="https://blog.fenxiangz.com/post/util/monitor/2017-12-10_%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BAPrometheus%E8%87%AA%E5%8A%A8%E7%9B%91%E6%8E%A7%E6%8A%A5%E8%AD%A6%E7%B3%BB%E7%BB%9F/16.png">
+<meta property="og:image" content="https://blog.fenxiangz.com/post/util/monitor/2017-12-10_%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BAPrometheus%E8%87%AA%E5%8A%A8%E7%9B%91%E6%8E%A7%E6%8A%A5%E8%AD%A6%E7%B3%BB%E7%BB%9F/17.png">
+<meta property="og:image" content="https://blog.fenxiangz.com/post/util/monitor/2017-12-10_%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BAPrometheus%E8%87%AA%E5%8A%A8%E7%9B%91%E6%8E%A7%E6%8A%A5%E8%AD%A6%E7%B3%BB%E7%BB%9F/18.png">
+<meta property="og:image" content="https://blog.fenxiangz.com/post/util/monitor/2017-12-10_%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BAPrometheus%E8%87%AA%E5%8A%A8%E7%9B%91%E6%8E%A7%E6%8A%A5%E8%AD%A6%E7%B3%BB%E7%BB%9F/19.png">
+<meta property="article:published_time" content="2017-12-08T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-05-12T03:08:08.383Z">
+<meta property="article:author" content="Hassan">
+<meta property="article:tag" content="监控">
+<meta property="article:tag" content="报警">
+<meta property="article:tag" content="Prometheus">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.fenxiangz.com/post/util/monitor/2017-12-10_%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BAPrometheus%E8%87%AA%E5%8A%A8%E7%9B%91%E6%8E%A7%E6%8A%A5%E8%AD%A6%E7%B3%BB%E7%BB%9F/1.png">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://blog.fenxiangz.com/post/util/monitor/2017-12-10_%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BAPrometheus%E8%87%AA%E5%8A%A8%E7%9B%91%E6%8E%A7%E6%8A%A5%E8%AD%A6%E7%B3%BB%E7%BB%9F.html">
+  
+    <link rel="alternate" href="/atom.xml" title="分享之" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body class="main-center" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="/atom.xml" target="_blank" title="Rss" ><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>分享好文章</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Docker/">Docker</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Gradle/">Gradle</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IDE/">IDE</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IO/">IO</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java-IO/">Java IO</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java-NIO/">Java NIO</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java-%E5%9F%BA%E7%A1%80/">Java 基础</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java-%E8%BF%9B%E9%98%B6/">Java 进阶</a><span class="category-list-count">16</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java-%E9%9D%A2%E8%AF%95/">Java 面试</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MSSQL/">MSSQL</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MySQL/">MySQL</a><span class="category-list-count">16</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Netty/">Netty</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/RPC/">RPC</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Redis/">Redis</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/RocketMQ/">RocketMQ</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/SVN/">SVN</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Spring-Boot/">Spring Boot</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Spring-Cloud/">Spring Cloud</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Spring-Core/">Spring Core</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/TCP-IP/">TCP/IP</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/VUE/">VUE</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jQuery/">jQuery</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/zookeeper/">zookeeper</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%85%B6%E4%BB%96/">其他</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%85%B6%E4%BB%96-Jira/">其他/Jira</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%85%B6%E4%BB%96-Tampermonkey/">其他/Tampermonkey</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%85%B6%E4%BB%96-V2ray/">其他/V2ray</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%85%B6%E4%BB%96-%E7%AE%A1%E7%90%86/">其他/管理</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%85%B6%E4%BB%96-%E8%8B%B1%E8%AF%AD/">其他/英语</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%A6%82%E5%BF%B5/">概念</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%AD%A6%E5%A4%B7%E5%B2%A9%E8%8C%B6/">武夷岩茶</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%9B%91%E6%8E%A7/">监控</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BD%91%E7%BB%9C-%E5%85%B6%E4%BB%96/">网络/其他</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BD%91%E7%BB%9C-%E6%9C%AF%E8%AF%AD/">网络/术语</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/">计算机系统</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%B5%84%E6%BA%90%E5%AF%BC%E8%88%AA/">资源导航</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%B7%A8%E5%B9%B3%E5%8F%B0/">跨平台</a><span class="category-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ACID/" rel="tag">ACID</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Buffer/" rel="tag">Buffer</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CAP/" rel="tag">CAP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CDN/" rel="tag">CDN</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cloud/" rel="tag">Cloud</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Collation/" rel="tag">Collation</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DCL/" rel="tag">DCL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/" rel="tag">Docker</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Exception/" rel="tag">Exception</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gradle/" rel="tag">Gradle</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HashMap/" rel="tag">HashMap</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Heidi/" rel="tag">Heidi</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hello-World/" rel="tag">Hello World</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HttpClient/" rel="tag">HttpClient</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDE/" rel="tag">IDE</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IO/" rel="tag">IO</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Idea/" rel="tag">Idea</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JUC/" rel="tag">JUC</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">52</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java%E5%BC%82%E5%B8%B8/" rel="tag">Java异常</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java%E5%BC%95%E7%94%A8/" rel="tag">Java引用</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java%E7%BA%BF%E7%A8%8B/" rel="tag">Java线程</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java%E9%9B%86%E5%90%88/" rel="tag">Java集合</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jira/" rel="tag">Jira</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MMAP/" rel="tag">MMAP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MSSQL/" rel="tag">MSSQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NIO/" rel="tag">NIO</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NIO%E6%A8%A1%E5%9E%8B/" rel="tag">NIO模型</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Netty/" rel="tag">Netty</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Prometheus/" rel="tag">Prometheus</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RPC/" rel="tag">RPC</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Raft/" rel="tag">Raft</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Reactor/" rel="tag">Reactor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/" rel="tag">Redis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RocketMQ/" rel="tag">RocketMQ</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RocketMQ%E9%9B%86%E7%BE%A4/" rel="tag">RocketMQ集群</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL%E4%BC%98%E5%8C%96/" rel="tag">SQL优化</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SVN/" rel="tag">SVN</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Selector/" rel="tag">Selector</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Socket/" rel="tag">Socket</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/" rel="tag">Spring</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Boot/" rel="tag">Spring Boot</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Cloud/" rel="tag">Spring Cloud</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Core/" rel="tag">Spring Core</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Stream/" rel="tag">Stream</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TCP/" rel="tag">TCP</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tampermonkey/" rel="tag">Tampermonkey</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ThreadLocal/" rel="tag">ThreadLocal</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UDP/" rel="tag">UDP</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/URI/" rel="tag">URI</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/URL/" rel="tag">URL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/" rel="tag">Ubuntu</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/V2ray/" rel="tag">V2ray</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vert-x/" rel="tag">Vert.x</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/" rel="tag">Vue</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Wiki/" rel="tag">Wiki</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XXNET/" rel="tag">XXNET</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/apk/" rel="tag">apk</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bbr/" rel="tag">bbr</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/chameleon/" rel="tag">chameleon</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/chrome/" rel="tag">chrome</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/deb/" rel="tag">deb</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jvm/" rel="tag">jvm</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lambda/" rel="tag">lambda</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/" rel="tag">lambda表达式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/" rel="tag">ssh</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vpn/" rel="tag">vpn</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%B4%E6%97%B6%E8%A1%A8/" rel="tag">临时表</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B9%A6%E7%B1%8D%E6%8E%A8%E8%8D%90/" rel="tag">书籍推荐</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%8C%E8%BF%9B%E5%88%B6/" rel="tag">二进制</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%91%E5%8E%9F%E7%94%9F/" rel="tag">云原生</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BC%98%E5%8C%96/" rel="tag">优化</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%A5%E9%97%A8/" rel="tag">入门</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%AB%E7%9A%87%E5%90%8E/" rel="tag">八皇后</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%B3%E4%BA%8E%E6%88%91/" rel="tag">关于我</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%86%85%E5%AD%98/" rel="tag">内存</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/" rel="tag">内存分配</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%86%85%E5%AD%98%E6%98%A0%E5%B0%84/" rel="tag">内存映射</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/" rel="tag">内存模型</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%86%85%E5%AD%98%E6%B3%84%E9%9C%B2/" rel="tag">内存泄露</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/" rel="tag">函数式编程</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" rel="tag">分布式</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%9B%E5%BB%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F/" rel="tag">创建型模式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8C%85%E7%AE%A1%E7%90%86/" rel="tag">包管理</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%8F%E8%AE%AE/" rel="tag">协议</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%95%E4%BE%8B/" rel="tag">单例</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%8D%E7%A0%81/" rel="tag">反码</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%8D%E7%BC%96%E8%AF%91/" rel="tag">反编译</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%90%89%E4%BB%96/" rel="tag">吉他</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%90%8C%E6%AD%A5/" rel="tag">同步</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%91%BD%E4%BB%A4/" rel="tag">命令</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/" rel="tag">垃圾回收</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A0%86%E5%86%85%E5%AD%98/" rel="tag">堆内存</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%87%E4%BB%BD/" rel="tag">备份</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%97%E7%AC%A6%E9%9B%86/" rel="tag">字符集</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag">学习笔记</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" rel="tag">小程序</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7/" rel="tag">工具</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/" rel="tag">并发编程</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B9%BB%E8%AF%BB/" rel="tag">幻读</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BA%8F%E5%88%97%E5%8C%96/" rel="tag">序列化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%82%E5%B8%B8/" rel="tag">异常</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%82%E6%AD%A5/" rel="tag">异步</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%82%E6%AD%A5IO/" rel="tag">异步IO</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%B9%E7%90%B4%E5%90%A7/" rel="tag">弹琴吧</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" rel="tag">微服务</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/" rel="tag">快捷键</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE/" rel="tag">思维导图</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" rel="tag">性能优化</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%85%A2%E6%9F%A5/" rel="tag">慢查</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%A5%E8%AD%A6/" rel="tag">报警</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8C%82%E8%BD%BD/" rel="tag">挂载</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag">操作系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B4%E7%90%86/" rel="tag">整理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%87%E4%BB%B6%E5%8A%A0%E8%BD%BD/" rel="tag">文件加载</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%87%E4%BB%B6%E5%90%8D%E6%89%B9%E9%87%8F%E4%BF%AE%E6%94%B9/" rel="tag">文件名批量修改</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%AF%E8%AF%AD/" rel="tag">术语</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A6%82%E5%BF%B5/" rel="tag">概念</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A8%A1%E5%9E%8B/" rel="tag">模型</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AD%A6%E5%A4%B7%E5%B1%B1/" rel="tag">武夷山</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AD%A6%E5%A4%B7%E5%B2%A9%E8%8C%B6/" rel="tag">武夷岩茶</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B3%A8%E8%A7%A3/" rel="tag">注解</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/" rel="tag">深入理解计算机系统</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%BA%90%E7%A0%81/" rel="tag">源码</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/" rel="tag">源码分析</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%90%86%E8%AE%BA/" rel="tag">理论</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9B%91%E6%8E%A7/" rel="tag">监控</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9B%AE%E5%BD%95/" rel="tag">目录</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9B%B4%E6%8E%A5IO/" rel="tag">直接IO</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9B%B4%E6%8E%A5%E5%86%85%E5%AD%98/" rel="tag">直接内存</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/" rel="tag">知识体系</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86/" rel="tag">磁盘管理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%A6%E5%8F%B7%E9%93%BE%E6%8E%A5/" rel="tag">符号链接</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%A1%E7%90%86/" rel="tag">管理</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BB%93%E6%9E%84%E5%9E%8B%E6%A8%A1%E5%BC%8F/" rel="tag">结构型模式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/" rel="tag">网络协议</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C%E6%9C%AF%E8%AF%AD/" rel="tag">网络术语</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%84%91%E8%A3%82/" rel="tag">脑裂</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%8B%B1%E8%AF%AD/" rel="tag">英语</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%8C%B6%E7%9F%A5%E8%AF%86/" rel="tag">茶知识</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A1%8C%E4%B8%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F/" rel="tag">行为型模式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A1%A5%E7%A0%81/" rel="tag">补码</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%A4%E7%9F%A5/" rel="tag">认知</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%AD%E6%B3%95/" rel="tag">语法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" rel="tag">读书笔记</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B7%A8%E5%B9%B3%E5%8F%B0/" rel="tag">跨平台</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BE%93%E5%85%A5%E6%B3%95/" rel="tag">输入法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%97%AE%E9%A2%98/" rel="tag">问题</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/" rel="tag">阅读笔记</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%98%BB%E5%A1%9E/" rel="tag">阻塞</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9B%86%E5%90%88%E8%BF%90%E7%AE%97/" rel="tag">集合运算</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9B%B6%E6%8B%B7%E8%B4%9D/" rel="tag">零拷贝</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%9E%E7%9B%B4%E6%8E%A5%E5%86%85%E5%AD%98/" rel="tag">非直接内存</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%9E%E9%98%BB%E5%A1%9E/" rel="tag">非阻塞</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a><span class="tag-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/ACID/" style="font-size: 13.13px;">ACID</a> <a href="/tags/Android/" style="font-size: 13px;">Android</a> <a href="/tags/Buffer/" style="font-size: 13px;">Buffer</a> <a href="/tags/CAP/" style="font-size: 13px;">CAP</a> <a href="/tags/CDN/" style="font-size: 13px;">CDN</a> <a href="/tags/Cloud/" style="font-size: 13px;">Cloud</a> <a href="/tags/Collation/" style="font-size: 13.13px;">Collation</a> <a href="/tags/DCL/" style="font-size: 13px;">DCL</a> <a href="/tags/Docker/" style="font-size: 13.13px;">Docker</a> <a href="/tags/Exception/" style="font-size: 13px;">Exception</a> <a href="/tags/Gradle/" style="font-size: 13.25px;">Gradle</a> <a href="/tags/HashMap/" style="font-size: 13px;">HashMap</a> <a href="/tags/Heidi/" style="font-size: 13px;">Heidi</a> <a href="/tags/Hello-World/" style="font-size: 13px;">Hello World</a> <a href="/tags/HttpClient/" style="font-size: 13px;">HttpClient</a> <a href="/tags/IDE/" style="font-size: 13.13px;">IDE</a> <a href="/tags/IO/" style="font-size: 13.75px;">IO</a> <a href="/tags/Idea/" style="font-size: 13.13px;">Idea</a> <a href="/tags/JUC/" style="font-size: 13px;">JUC</a> <a href="/tags/Java/" style="font-size: 14px;">Java</a> <a href="/tags/JavaScript/" style="font-size: 13.38px;">JavaScript</a> <a href="/tags/Java%E5%BC%82%E5%B8%B8/" style="font-size: 13px;">Java异常</a> <a href="/tags/Java%E5%BC%95%E7%94%A8/" style="font-size: 13px;">Java引用</a> <a href="/tags/Java%E7%BA%BF%E7%A8%8B/" style="font-size: 13.25px;">Java线程</a> <a href="/tags/Java%E9%9B%86%E5%90%88/" style="font-size: 13px;">Java集合</a> <a href="/tags/Jira/" style="font-size: 13px;">Jira</a> <a href="/tags/MMAP/" style="font-size: 13px;">MMAP</a> <a href="/tags/MSSQL/" style="font-size: 13px;">MSSQL</a> <a href="/tags/MySQL/" style="font-size: 13.88px;">MySQL</a> <a href="/tags/NIO/" style="font-size: 13.63px;">NIO</a> <a href="/tags/NIO%E6%A8%A1%E5%9E%8B/" style="font-size: 13px;">NIO模型</a> <a href="/tags/Netty/" style="font-size: 13.38px;">Netty</a> <a href="/tags/Prometheus/" style="font-size: 13px;">Prometheus</a> <a href="/tags/RPC/" style="font-size: 13px;">RPC</a> <a href="/tags/Raft/" style="font-size: 13px;">Raft</a> <a href="/tags/Reactor/" style="font-size: 13px;">Reactor</a> <a href="/tags/Redis/" style="font-size: 13px;">Redis</a> <a href="/tags/RocketMQ/" style="font-size: 13px;">RocketMQ</a> <a href="/tags/RocketMQ%E9%9B%86%E7%BE%A4/" style="font-size: 13px;">RocketMQ集群</a> <a href="/tags/SQL%E4%BC%98%E5%8C%96/" style="font-size: 13.38px;">SQL优化</a> <a href="/tags/SVN/" style="font-size: 13px;">SVN</a> <a href="/tags/Selector/" style="font-size: 13px;">Selector</a> <a href="/tags/Socket/" style="font-size: 13px;">Socket</a> <a href="/tags/Spring/" style="font-size: 13.5px;">Spring</a> <a href="/tags/Spring-Boot/" style="font-size: 13.25px;">Spring Boot</a> <a href="/tags/Spring-Cloud/" style="font-size: 13px;">Spring Cloud</a> <a href="/tags/Spring-Core/" style="font-size: 13px;">Spring Core</a> <a href="/tags/Stream/" style="font-size: 13px;">Stream</a> <a href="/tags/TCP/" style="font-size: 13.25px;">TCP</a> <a href="/tags/Tampermonkey/" style="font-size: 13px;">Tampermonkey</a> <a href="/tags/ThreadLocal/" style="font-size: 13px;">ThreadLocal</a> <a href="/tags/UDP/" style="font-size: 13.13px;">UDP</a> <a href="/tags/URI/" style="font-size: 13px;">URI</a> <a href="/tags/URL/" style="font-size: 13px;">URL</a> <a href="/tags/Ubuntu/" style="font-size: 13px;">Ubuntu</a> <a href="/tags/V2ray/" style="font-size: 13px;">V2ray</a> <a href="/tags/Vert-x/" style="font-size: 13px;">Vert.x</a> <a href="/tags/Vue/" style="font-size: 13.13px;">Vue</a> <a href="/tags/Wiki/" style="font-size: 13px;">Wiki</a> <a href="/tags/XXNET/" style="font-size: 13px;">XXNET</a> <a href="/tags/apk/" style="font-size: 13px;">apk</a> <a href="/tags/bbr/" style="font-size: 13px;">bbr</a> <a href="/tags/chameleon/" style="font-size: 13.13px;">chameleon</a> <a href="/tags/chrome/" style="font-size: 13px;">chrome</a> <a href="/tags/deb/" style="font-size: 13.13px;">deb</a> <a href="/tags/jvm/" style="font-size: 13.38px;">jvm</a> <a href="/tags/lambda/" style="font-size: 13px;">lambda</a> <a href="/tags/lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/" style="font-size: 13px;">lambda表达式</a> <a href="/tags/ssh/" style="font-size: 13px;">ssh</a> <a href="/tags/vpn/" style="font-size: 13px;">vpn</a> <a href="/tags/%E4%B8%B4%E6%97%B6%E8%A1%A8/" style="font-size: 13.13px;">临时表</a> <a href="/tags/%E4%B9%A6%E7%B1%8D%E6%8E%A8%E8%8D%90/" style="font-size: 13px;">书籍推荐</a> <a href="/tags/%E4%BA%8C%E8%BF%9B%E5%88%B6/" style="font-size: 13.13px;">二进制</a> <a href="/tags/%E4%BA%91%E5%8E%9F%E7%94%9F/" style="font-size: 13px;">云原生</a> <a href="/tags/%E4%BC%98%E5%8C%96/" style="font-size: 13.25px;">优化</a> <a href="/tags/%E5%85%A5%E9%97%A8/" style="font-size: 13.13px;">入门</a> <a href="/tags/%E5%85%AB%E7%9A%87%E5%90%8E/" style="font-size: 13px;">八皇后</a> <a href="/tags/%E5%85%B3%E4%BA%8E%E6%88%91/" style="font-size: 13px;">关于我</a> <a href="/tags/%E5%86%85%E5%AD%98/" style="font-size: 13px;">内存</a> <a href="/tags/%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/" style="font-size: 13px;">内存分配</a> <a href="/tags/%E5%86%85%E5%AD%98%E6%98%A0%E5%B0%84/" style="font-size: 13px;">内存映射</a> <a href="/tags/%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/" style="font-size: 13px;">内存模型</a> <a href="/tags/%E5%86%85%E5%AD%98%E6%B3%84%E9%9C%B2/" style="font-size: 13px;">内存泄露</a> <a href="/tags/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/" style="font-size: 13px;">函数式编程</a> <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" style="font-size: 13.38px;">分布式</a> <a href="/tags/%E5%88%9B%E5%BB%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F/" style="font-size: 13px;">创建型模式</a> <a href="/tags/%E5%8C%85%E7%AE%A1%E7%90%86/" style="font-size: 13.38px;">包管理</a> <a href="/tags/%E5%8D%8F%E8%AE%AE/" style="font-size: 13.25px;">协议</a> <a href="/tags/%E5%8D%95%E4%BE%8B/" style="font-size: 13px;">单例</a> <a href="/tags/%E5%8F%8D%E7%A0%81/" style="font-size: 13px;">反码</a> <a href="/tags/%E5%8F%8D%E7%BC%96%E8%AF%91/" style="font-size: 13px;">反编译</a> <a href="/tags/%E5%90%89%E4%BB%96/" style="font-size: 13px;">吉他</a> <a href="/tags/%E5%90%8C%E6%AD%A5/" style="font-size: 13.13px;">同步</a> <a href="/tags/%E5%91%BD%E4%BB%A4/" style="font-size: 13px;">命令</a> <a href="/tags/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/" style="font-size: 13.25px;">垃圾回收</a> <a href="/tags/%E5%A0%86%E5%86%85%E5%AD%98/" style="font-size: 13px;">堆内存</a> <a href="/tags/%E5%A4%87%E4%BB%BD/" style="font-size: 13px;">备份</a> <a href="/tags/%E5%AD%97%E7%AC%A6%E9%9B%86/" style="font-size: 13.25px;">字符集</a> <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="font-size: 13px;">学习笔记</a> <a href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" style="font-size: 13.13px;">小程序</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 13px;">工具</a> <a href="/tags/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/" style="font-size: 13px;">并发编程</a> <a href="/tags/%E5%B9%BB%E8%AF%BB/" style="font-size: 13.13px;">幻读</a> <a href="/tags/%E5%BA%8F%E5%88%97%E5%8C%96/" style="font-size: 13px;">序列化</a> <a href="/tags/%E5%BC%82%E5%B8%B8/" style="font-size: 13px;">异常</a> <a href="/tags/%E5%BC%82%E6%AD%A5/" style="font-size: 13px;">异步</a> <a href="/tags/%E5%BC%82%E6%AD%A5IO/" style="font-size: 13px;">异步IO</a> <a href="/tags/%E5%BC%B9%E7%90%B4%E5%90%A7/" style="font-size: 13px;">弹琴吧</a> <a href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" style="font-size: 13px;">微服务</a> <a href="/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/" style="font-size: 13px;">快捷键</a> <a href="/tags/%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE/" style="font-size: 13.13px;">思维导图</a> <a href="/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" style="font-size: 13.63px;">性能优化</a> <a href="/tags/%E6%85%A2%E6%9F%A5/" style="font-size: 13.13px;">慢查</a> <a href="/tags/%E6%8A%A5%E8%AD%A6/" style="font-size: 13px;">报警</a> <a href="/tags/%E6%8C%82%E8%BD%BD/" style="font-size: 13px;">挂载</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 13px;">操作系统</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 13px;">数据结构</a> <a href="/tags/%E6%95%B4%E7%90%86/" style="font-size: 13px;">整理</a> <a href="/tags/%E6%96%87%E4%BB%B6%E5%8A%A0%E8%BD%BD/" style="font-size: 13px;">文件加载</a> <a href="/tags/%E6%96%87%E4%BB%B6%E5%90%8D%E6%89%B9%E9%87%8F%E4%BF%AE%E6%94%B9/" style="font-size: 13px;">文件名批量修改</a> <a href="/tags/%E6%9C%AF%E8%AF%AD/" style="font-size: 13px;">术语</a> <a href="/tags/%E6%A6%82%E5%BF%B5/" style="font-size: 13.38px;">概念</a> <a href="/tags/%E6%A8%A1%E5%9E%8B/" style="font-size: 13.13px;">模型</a> <a href="/tags/%E6%AD%A6%E5%A4%B7%E5%B1%B1/" style="font-size: 13px;">武夷山</a> <a href="/tags/%E6%AD%A6%E5%A4%B7%E5%B2%A9%E8%8C%B6/" style="font-size: 13.13px;">武夷岩茶</a> <a href="/tags/%E6%B3%A8%E8%A7%A3/" style="font-size: 13px;">注解</a> <a href="/tags/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/" style="font-size: 13.25px;">深入理解计算机系统</a> <a href="/tags/%E6%BA%90%E7%A0%81/" style="font-size: 13px;">源码</a> <a href="/tags/%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/" style="font-size: 13px;">源码分析</a> <a href="/tags/%E7%90%86%E8%AE%BA/" style="font-size: 13.13px;">理论</a> <a href="/tags/%E7%9B%91%E6%8E%A7/" style="font-size: 13px;">监控</a> <a href="/tags/%E7%9B%AE%E5%BD%95/" style="font-size: 13px;">目录</a> <a href="/tags/%E7%9B%B4%E6%8E%A5IO/" style="font-size: 13px;">直接IO</a> <a href="/tags/%E7%9B%B4%E6%8E%A5%E5%86%85%E5%AD%98/" style="font-size: 13px;">直接内存</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/" style="font-size: 13px;">知识体系</a> <a href="/tags/%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86/" style="font-size: 13px;">磁盘管理</a> <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 13px;">笔记</a> <a href="/tags/%E7%AC%A6%E5%8F%B7%E9%93%BE%E6%8E%A5/" style="font-size: 13px;">符号链接</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 13.13px;">算法</a> <a href="/tags/%E7%AE%A1%E7%90%86/" style="font-size: 13.13px;">管理</a> <a href="/tags/%E7%BB%93%E6%9E%84%E5%9E%8B%E6%A8%A1%E5%BC%8F/" style="font-size: 13px;">结构型模式</a> <a href="/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 13.13px;">网络</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/" style="font-size: 13px;">网络协议</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E6%9C%AF%E8%AF%AD/" style="font-size: 13.25px;">网络术语</a> <a href="/tags/%E8%84%91%E8%A3%82/" style="font-size: 13px;">脑裂</a> <a href="/tags/%E8%8B%B1%E8%AF%AD/" style="font-size: 13px;">英语</a> <a href="/tags/%E8%8C%B6%E7%9F%A5%E8%AF%86/" style="font-size: 13.13px;">茶知识</a> <a href="/tags/%E8%A1%8C%E4%B8%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F/" style="font-size: 13px;">行为型模式</a> <a href="/tags/%E8%A1%A5%E7%A0%81/" style="font-size: 13px;">补码</a> <a href="/tags/%E8%AE%A4%E7%9F%A5/" style="font-size: 13px;">认知</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 13.25px;">设计模式</a> <a href="/tags/%E8%AF%AD%E6%B3%95/" style="font-size: 13px;">语法</a> <a href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" style="font-size: 13.25px;">读书笔记</a> <a href="/tags/%E8%B7%A8%E5%B9%B3%E5%8F%B0/" style="font-size: 13.13px;">跨平台</a> <a href="/tags/%E8%BE%93%E5%85%A5%E6%B3%95/" style="font-size: 13px;">输入法</a> <a href="/tags/%E9%97%AE%E9%A2%98/" style="font-size: 13.13px;">问题</a> <a href="/tags/%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/" style="font-size: 13.38px;">阅读笔记</a> <a href="/tags/%E9%98%BB%E5%A1%9E/" style="font-size: 13px;">阻塞</a> <a href="/tags/%E9%9B%86%E5%90%88%E8%BF%90%E7%AE%97/" style="font-size: 13px;">集合运算</a> <a href="/tags/%E9%9B%B6%E6%8B%B7%E8%B4%9D/" style="font-size: 13.13px;">零拷贝</a> <a href="/tags/%E9%9D%9E%E7%9B%B4%E6%8E%A5%E5%86%85%E5%AD%98/" style="font-size: 13px;">非直接内存</a> <a href="/tags/%E9%9D%9E%E9%98%BB%E5%A1%9E/" style="font-size: 13px;">非阻塞</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 13.25px;">面试</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">三月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">十二月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">八月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">七月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">五月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">三月 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">一月 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">十二月 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">十一月 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">十月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">九月 2020</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">五月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">十二月 2018</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">十一月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">十月 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">七月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">四月 2017</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">十一月 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">十月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">十一月 2012</a><span class="archive-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Java-%E8%BF%9B%E9%98%B6/">Java 进阶</a>
+              </p>
+              <p class="item-title">
+                <a href="/post/java/advance/2022-03-21_java_JVM%E5%A6%82%E4%BD%95%E5%AE%9A%E4%BD%8D%E5%88%B0%E8%AE%BF%E9%97%AE%E7%9A%84%E5%AF%B9%E8%B1%A1.html" class="title">JVM如何定位到访问的对象</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-03-20T16:00:00.000Z" itemprop="datePublished">2022-03-21</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/">计算机系统</a>
+              </p>
+              <p class="item-title">
+                <a href="/post/cs/csapp_03%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9C%BA%E5%99%A8%E7%BA%A7%E8%A1%A8%E7%A4%BA.html" class="title">【笔记】深入理解计算机系统 02 - 程序的机器级表示</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-12-11T16:00:00.000Z" itemprop="datePublished">2021-12-12</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/">计算机系统</a>
+              </p>
+              <p class="item-title">
+                <a href="/post/cs/csapp_02%E4%BF%A1%E6%81%AF%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E5%A4%84%E7%90%86.html" class="title">【笔记】深入理解计算机系统 02 - 信息的表示和处理</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-08-13T16:00:00.000Z" itemprop="datePublished">2021-08-14</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/">计算机系统</a>
+              </p>
+              <p class="item-title">
+                <a href="/post/cs/csapp_01%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%BC%AB%E6%B8%B8.html" class="title">【笔记】深入理解计算机系统 01 - 计算机系统漫游</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-07-13T16:00:00.000Z" itemprop="datePublished">2021-07-14</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/RocketMQ/">RocketMQ</a>
+              </p>
+              <p class="item-title">
+                <a href="/post/rocketmq/RocketMQ%E9%9B%86%E7%BE%A4%E5%92%8CRocketMQ-on-DLedger%E9%9B%86%E7%BE%A4.html" class="title">RocketMQ集群和RocketMQ-on-DLedger集群</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-05-11T16:00:00.000Z" itemprop="datePublished">2021-05-12</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-util/monitor/2017-12-10_从零开始搭建Prometheus自动监控报警系统" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      从零开始搭建Prometheus自动监控报警系统（企业级）
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/post/util/monitor/2017-12-10_%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BAPrometheus%E8%87%AA%E5%8A%A8%E7%9B%91%E6%8E%A7%E6%8A%A5%E8%AD%A6%E7%B3%BB%E7%BB%9F.html" class="article-date">
+	  <time datetime="2017-12-08T16:00:00.000Z" itemprop="datePublished">2017-12-09</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/%E7%9B%91%E6%8E%A7/">监控</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/Prometheus/" rel="tag">Prometheus</a>, <a class="article-tag-link-link" href="/tags/%E6%8A%A5%E8%AD%A6/" rel="tag">报警</a>, <a class="article-tag-link-link" href="/tags/%E7%9B%91%E6%8E%A7/" rel="tag">监控</a>
+  </span>
+
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/post/util/monitor/2017-12-10_%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BAPrometheus%E8%87%AA%E5%8A%A8%E7%9B%91%E6%8E%A7%E6%8A%A5%E8%AD%A6%E7%B3%BB%E7%BB%9F.html#comments" class="article-comment-link">评论</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h2 id="什么是prometheus"><a class="markdownIt-Anchor" href="#什么是prometheus"></a> 什么是Prometheus?</h2>
+<p>Prometheus是由SoundCloud开发的开源监控报警系统和时序列数据库(TSDB)。Prometheus使用Go语言开发，是Google BorgMon监控系统的开源版本。</p>
+<p>2016年由Google发起Linux基金会旗下的原生云基金会(Cloud Native Computing Foundation), 将Prometheus纳入其下第二大开源项目。</p>
+<p>Prometheus目前在开源社区相当活跃。</p>
+<p>Prometheus和Heapster(Heapster是K8S的一个子项目，用于获取集群的性能数据。)相比功能更完善、更全面。Prometheus性能也足够支撑上万台规模的集群。</p>
+<h2 id="prometheus的特点"><a class="markdownIt-Anchor" href="#prometheus的特点"></a> Prometheus的特点</h2>
+<ul>
+<li>多维度数据模型。</li>
+<li>灵活的查询语言。</li>
+<li>不依赖分布式存储，单个服务器节点是自主的。</li>
+<li>通过基于HTTP的pull方式采集时序数据。</li>
+<li>可以通过中间网关进行时序列数据推送。</li>
+<li>通过服务发现或者静态配置来发现目标服务对象。</li>
+<li>支持多种多样的图表和界面展示，比如Grafana等。</li>
+</ul>
+<p>官网地址：<a target="_blank" rel="noopener" href="https://prometheus.io/">https://prometheus.io/</a></p>
+<h2 id="架构图"><a class="markdownIt-Anchor" href="#架构图"></a> 架构图</h2>
+<p><img src="./2017-12-10_%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BAPrometheus%E8%87%AA%E5%8A%A8%E7%9B%91%E6%8E%A7%E6%8A%A5%E8%AD%A6%E7%B3%BB%E7%BB%9F/1.png" alt="" /></p>
+<p><img src="./2017-12-10_%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BAPrometheus%E8%87%AA%E5%8A%A8%E7%9B%91%E6%8E%A7%E6%8A%A5%E8%AD%A6%E7%B3%BB%E7%BB%9F/2.png" alt="" /></p>
+<h2 id="基本原理"><a class="markdownIt-Anchor" href="#基本原理"></a> 基本原理</h2>
+<p>Prometheus的基本原理是通过HTTP协议周期性抓取被监控组件的状态，任意组件只要提供对应的HTTP接口就可以接入监控。不需要任何SDK或者其他的集成过程。这样做非常适合做虚拟化环境监控系统，比如VM、Docker、Kubernetes等。输出被监控组件信息的HTTP接口被叫做exporter 。目前互联网公司常用的组件大部分都有exporter可以直接使用，比如Varnish、Haproxy、Nginx、MySQL、Linux系统信息(包括磁盘、内存、CPU、网络等等)。</p>
+<h2 id="服务过程"><a class="markdownIt-Anchor" href="#服务过程"></a> 服务过程</h2>
+<ul>
+<li>Prometheus Daemon负责定时去目标上抓取metrics(指标)数据，每个抓取目标需要暴露一个http服务的接口给它定时抓取。Prometheus支持通过配置文件、文本文件、Zookeeper、Consul、DNS SRV Lookup等方式指定抓取目标。Prometheus采用PULL的方式进行监控，即服务器可以直接通过目标PULL数据或者间接地通过中间网关来Push数据。</li>
+<li>Prometheus在本地存储抓取的所有数据，并通过一定规则进行清理和整理数据，并把得到的结果存储到新的时间序列中。</li>
+<li>Prometheus通过PromQL和其他API可视化地展示收集的数据。Prometheus支持很多方式的图表可视化，例如Grafana、自带的Promdash以及自身提供的模版引擎等等。Prometheus还提供HTTP API的查询方式，自定义所需要的输出。</li>
+<li>PushGateway支持Client主动推送metrics到PushGateway，而Prometheus只是定时去Gateway上抓取数据。</li>
+<li>Alertmanager是独立于Prometheus的一个组件，可以支持Prometheus的查询语句，提供十分灵活的报警方式。</li>
+</ul>
+<h2 id="三大套件"><a class="markdownIt-Anchor" href="#三大套件"></a> 三大套件</h2>
+<ul>
+<li>Server 主要负责数据采集和存储，提供PromQL查询语言的支持。</li>
+<li>Alertmanager 警告管理器，用来进行报警。</li>
+<li>Push Gateway 支持临时性Job主动推送指标的中间网关。</li>
+</ul>
+<h2 id="本飞猪教程内容简介"><a class="markdownIt-Anchor" href="#本飞猪教程内容简介"></a> 本飞猪教程内容简介</h2>
+<ul>
+<li>1.演示安装Prometheus Server</li>
+<li>2.演示通过golang和node-exporter提供metrics接口</li>
+<li>3.演示pushgateway的使用</li>
+<li>4.演示grafana的使用</li>
+<li>5.演示alertmanager的使用</li>
+</ul>
+<h2 id="安装准备"><a class="markdownIt-Anchor" href="#安装准备"></a> 安装准备</h2>
+<p>这里我的IP是10.211.55.25，登入，建立相应文件夹</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p &#x2F;home&#x2F;chenqionghe&#x2F;promethues</span><br><span class="line">mkdir -p &#x2F;home&#x2F;chenqionghe&#x2F;promethues&#x2F;server</span><br><span class="line">mkdir -p &#x2F;home&#x2F;chenqionghe&#x2F;promethues&#x2F;client</span><br><span class="line">touch &#x2F;home&#x2F;chenqionghe&#x2F;promethues&#x2F;server&#x2F;rules.yml</span><br><span class="line">chmod 777 &#x2F;home&#x2F;chenqionghe&#x2F;promethues&#x2F;server&#x2F;rules.yml</span><br></pre></td></tr></table></figure>
+<p>下面开始三大套件的学习</p>
+<h1 id="一安装prometheus-server"><a class="markdownIt-Anchor" href="#一安装prometheus-server"></a> 一.安装Prometheus Server</h1>
+<p>通过docker方式</p>
+<p>首先创建一个配置文件/home/chenqionghe/test/prometheus/prometheus.yml</p>
+<p>挂载之前需要改变文件权限为777，要不会引起修改宿主机上的文件 会引起内容不同步的问题</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">global:</span><br><span class="line">  scrape_interval:     15s # 默认抓取间隔, 15秒向目标抓取一次数据。</span><br><span class="line">  external_labels:</span><br><span class="line">    monitor: &#39;codelab-monitor&#39;</span><br><span class="line"># 这里表示抓取对象的配置</span><br><span class="line">scrape_configs:</span><br><span class="line">    #这个配置是表示在这个配置内的时间序例，每一条都会自动添加上这个&#123;job_name:&quot;prometheus&quot;&#125;的标签  - job_name: &#39;prometheus&#39;</span><br><span class="line">    scrape_interval: 5s # 重写了全局抓取间隔时间，由15秒重写成5秒</span><br><span class="line">    static_configs:</span><br><span class="line">      - targets: [&#39;localhost:9090&#39;]</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">docker rm -f prometheus</span><br><span class="line">docker run --name&#x3D;prometheus -d \</span><br><span class="line">-p 9090:9090 \</span><br><span class="line">-v &#x2F;home&#x2F;chenqionghe&#x2F;promethues&#x2F;server&#x2F;prometheus.yml:&#x2F;etc&#x2F;prometheus&#x2F;prometheus.yml \</span><br><span class="line">-v &#x2F;home&#x2F;chenqionghe&#x2F;promethues&#x2F;server&#x2F;rules.yml:&#x2F;etc&#x2F;prometheus&#x2F;rules.yml \</span><br><span class="line">prom&#x2F;prometheus:v2.7.2 \</span><br><span class="line">--config.file&#x3D;&#x2F;etc&#x2F;prometheus&#x2F;prometheus.yml \</span><br><span class="line">--web.enable-lifecycle</span><br></pre></td></tr></table></figure>
+<p>启动时加上–web.enable-lifecycle启用远程热加载配置文件</p>
+<p>调用指令是curl -X POST <a target="_blank" rel="noopener" href="http://localhost:9090/-/reload">http://localhost:9090/-/reload</a></p>
+<p>访问http://10.211.55.25:9090</p>
+<p>我们会看到如下l界面</p>
+<p><img src="./2017-12-10_%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BAPrometheus%E8%87%AA%E5%8A%A8%E7%9B%91%E6%8E%A7%E6%8A%A5%E8%AD%A6%E7%B3%BB%E7%BB%9F/3.png" alt="" /></p>
+<p>访问http://10.211.55.25:9090/metrics</p>
+<p><img src="./2017-12-10_%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BAPrometheus%E8%87%AA%E5%8A%A8%E7%9B%91%E6%8E%A7%E6%8A%A5%E8%AD%A6%E7%B3%BB%E7%BB%9F/4.png" alt="" /></p>
+<p>我们配置了9090端口，默认prometheus会抓取自己的/metrics接口</p>
+<p>在Graph选项已经可以看到监控的数据</p>
+<p><img src="./2017-12-10_%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BAPrometheus%E8%87%AA%E5%8A%A8%E7%9B%91%E6%8E%A7%E6%8A%A5%E8%AD%A6%E7%B3%BB%E7%BB%9F/5.png" alt="" /></p>
+<h1 id="二安装客户端提供metrics接口"><a class="markdownIt-Anchor" href="#二安装客户端提供metrics接口"></a> 二.安装客户端提供metrics接口</h1>
+<h2 id="1通过golang客户端提供metrics"><a class="markdownIt-Anchor" href="#1通过golang客户端提供metrics"></a> 1.通过golang客户端提供metrics</h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p &#x2F;home&#x2F;chenqionghe&#x2F;promethues&#x2F;client&#x2F;golang&#x2F;src</span><br><span class="line">cd !$</span><br><span class="line">export GOPATH&#x3D;&#x2F;home&#x2F;chenqionghe&#x2F;promethues&#x2F;client&#x2F;golang&#x2F;</span><br><span class="line">#克隆项目</span><br><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;prometheus&#x2F;client_golang.git</span><br><span class="line">#安装需要FQ的第三方包</span><br><span class="line">mkdir -p $GOPATH&#x2F;src&#x2F;golang.org&#x2F;x&#x2F;</span><br><span class="line">cd !$</span><br><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;golang&#x2F;net.git</span><br><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;golang&#x2F;sys.git</span><br><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;golang&#x2F;tools.git</span><br><span class="line">#安装必要软件包</span><br><span class="line">go get -u -v github.com&#x2F;prometheus&#x2F;client_golang&#x2F;prometheus</span><br><span class="line">#编译</span><br><span class="line">cd $GOPATH&#x2F;src&#x2F;client_golang&#x2F;examples&#x2F;random</span><br><span class="line">go build -o random main.go</span><br></pre></td></tr></table></figure>
+<p>运行3个示例metrics接口</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.&#x2F;random -listen-address&#x3D;:8080 &amp;</span><br><span class="line">.&#x2F;random -listen-address&#x3D;:8081 &amp;</span><br><span class="line">.&#x2F;random -listen-address&#x3D;:8082 &amp;</span><br></pre></td></tr></table></figure>
+<h2 id="2通过node-exporter提供metrics"><a class="markdownIt-Anchor" href="#2通过node-exporter提供metrics"></a> 2.通过node exporter提供metrics</h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker run -d \</span><br><span class="line">--name&#x3D;node-exporter \</span><br><span class="line">-p 9100:9100 \</span><br><span class="line">prom&#x2F;node-exporter</span><br></pre></td></tr></table></figure>
+<p>然后把这两些接口再次配置到prometheus.yml, 重新载入配置curl -X POST <a target="_blank" rel="noopener" href="http://localhost:9090/-/reload">http://localhost:9090/-/reload</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">global:</span><br><span class="line">  scrape_interval:     15s # 默认抓取间隔, 15秒向目标抓取一次数据。</span><br><span class="line">  external_labels:</span><br><span class="line">    monitor: &#39;codelab-monitor&#39;</span><br><span class="line">rule_files:</span><br><span class="line">  #- &#39;prometheus.rules&#39;</span><br><span class="line"># 这里表示抓取对象的配置</span><br><span class="line">scrape_configs:</span><br><span class="line">  #这个配置是表示在这个配置内的时间序例，每一条都会自动添加上这个&#123;job_name:&quot;prometheus&quot;&#125;的标签  - job_name: &#39;prometheus&#39;</span><br><span class="line">  - job_name: &#39;prometheus&#39;</span><br><span class="line">    scrape_interval: 5s # 重写了全局抓取间隔时间，由15秒重写成5秒</span><br><span class="line">    static_configs:</span><br><span class="line">      - targets: [&#39;localhost:9090&#39;]</span><br><span class="line">      - targets: [&#39;http:&#x2F;&#x2F;10.211.55.25:8080&#39;, &#39;http:&#x2F;&#x2F;10.211.55.25:8081&#39;,&#39;http:&#x2F;&#x2F;10.211.55.25:8082&#39;]</span><br><span class="line">        labels:</span><br><span class="line">          group: &#39;client-golang&#39;</span><br><span class="line">      - targets: [&#39;http:&#x2F;&#x2F;10.211.55.25:9100&#39;]</span><br><span class="line">        labels:</span><br><span class="line">          group: &#39;client-node-exporter&#39;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>可以看到接口都生效了</p>
+<p>prometheus还提供了各种exporter工具，感兴趣小伙伴可以去研究一下</p>
+<h1 id="三安装pushgateway"><a class="markdownIt-Anchor" href="#三安装pushgateway"></a> 三.安装pushgateway</h1>
+<p>pushgateway是为了允许临时作业和批处理作业向普罗米修斯公开他们的指标。</p>
+<p>由于这类作业的存在时间可能不够长, 无法抓取到, 因此它们可以将指标推送到推网关中。</p>
+<p>Prometheus采集数据是用的pull也就是拉模型，这从我们刚才设置的5秒参数就能看出来。但是有些数据并不适合采用这样的方式，对这样的数据可以使用Push Gateway服务。</p>
+<p>它就相当于一个缓存，当数据采集完成之后，就上传到这里，由Prometheus稍后再pull过来。</p>
+<p>我们来试一下，首先启动Push Gateway</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p &#x2F;home&#x2F;chenqionghe&#x2F;promethues&#x2F;pushgateway</span><br><span class="line">cd !$</span><br><span class="line">docker run -d -p 9091:9091 --name pushgateway prom&#x2F;pushgateway</span><br></pre></td></tr></table></figure>
+<p>访问http://10.211.55.25:9091 已经pushgateway运行起来了</p>
+<p><img src="./2017-12-10_%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BAPrometheus%E8%87%AA%E5%8A%A8%E7%9B%91%E6%8E%A7%E6%8A%A5%E8%AD%A6%E7%B3%BB%E7%BB%9F/6.png" alt="" /></p>
+<p>接下来我们就可以往pushgateway推送数据了，prometheus提供了多种语言的sdk，最简单的方式就是通过shell</p>
+<ul>
+<li>推送一个指标</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;cqh_metric 3.14&quot; | curl --data-binary @- http:&#x2F;&#x2F;ubuntu-linux:9091&#x2F;metrics&#x2F;job&#x2F;cqh</span><br></pre></td></tr></table></figure>
+<ul>
+<li>推送多个指标</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">cat &lt;&lt;EOF | curl --data-binary @- http:&#x2F;&#x2F;10.211.55.25:9091&#x2F;metrics&#x2F;job&#x2F;cqh&#x2F;instance&#x2F;test</span><br><span class="line"># 锻炼场所价格</span><br><span class="line">muscle_metric&#123;label&#x3D;&quot;gym&quot;&#125; 8800</span><br><span class="line"># 三大项数据 kg</span><br><span class="line">bench_press 100</span><br><span class="line">dead_lift 160</span><br><span class="line">deep_squal 160</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
+<p>然后我们再将pushgateway配置到prometheus.yml里边,重载配置</p>
+<p>看到已经可以搜索出刚刚推送的指标了</p>
+<p><img src="./2017-12-10_%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BAPrometheus%E8%87%AA%E5%8A%A8%E7%9B%91%E6%8E%A7%E6%8A%A5%E8%AD%A6%E7%B3%BB%E7%BB%9F/7.png" alt="" /></p>
+<h1 id="四安装grafana展示"><a class="markdownIt-Anchor" href="#四安装grafana展示"></a> 四.安装Grafana展示</h1>
+<p>Grafana是用于可视化大型测量数据的开源程序，它提供了强大和优雅的方式去创建、共享、浏览数据。</p>
+<p>Dashboard中显示了你不同metric数据源中的数据。</p>
+<p>Grafana最常用于因特网基础设施和应用分析，但在其他领域也有用到，比如：工业传感器、家庭自动化、过程控制等等。</p>
+<p>Grafana支持热插拔控制面板和可扩展的数据源，目前已经支持Graphite、InfluxDB、OpenTSDB、Elasticsearch、Prometheus等。</p>
+<p>我们使用docker安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -p 3000:3000 --name grafana grafana&#x2F;grafana</span><br></pre></td></tr></table></figure>
+<p>默认登录账户和密码都是admin，进入后界面如下</p>
+<p><img src="./2017-12-10_%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BAPrometheus%E8%87%AA%E5%8A%A8%E7%9B%91%E6%8E%A7%E6%8A%A5%E8%AD%A6%E7%B3%BB%E7%BB%9F/8.png" alt="" /></p>
+<p>我们添加一个数据源</p>
+<p>把Prometheus的地址填上</p>
+<p>导入prometheus的模板</p>
+<p><img src="./2017-12-10_%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BAPrometheus%E8%87%AA%E5%8A%A8%E7%9B%91%E6%8E%A7%E6%8A%A5%E8%AD%A6%E7%B3%BB%E7%BB%9F/9.png" alt="" /></p>
+<p>打开左上角选择已经导入的模板会看到已经有各种图</p>
+<p><img src="./2017-12-10_%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BAPrometheus%E8%87%AA%E5%8A%A8%E7%9B%91%E6%8E%A7%E6%8A%A5%E8%AD%A6%E7%B3%BB%E7%BB%9F/10.png" alt="" /></p>
+<p>我们来添加一个自己的图表</p>
+<p><img src="./2017-12-10_%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BAPrometheus%E8%87%AA%E5%8A%A8%E7%9B%91%E6%8E%A7%E6%8A%A5%E8%AD%A6%E7%B3%BB%E7%BB%9F/11.png" alt="" /></p>
+<p><img src="./2017-12-10_%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BAPrometheus%E8%87%AA%E5%8A%A8%E7%9B%91%E6%8E%A7%E6%8A%A5%E8%AD%A6%E7%B3%BB%E7%BB%9F/12.png" alt="" /></p>
+<p>指定自己想看的图标和关键字，右上角保存</p>
+<p><img src="./2017-12-10_%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BAPrometheus%E8%87%AA%E5%8A%A8%E7%9B%91%E6%8E%A7%E6%8A%A5%E8%AD%A6%E7%B3%BB%E7%BB%9F/13.png" alt="" /></p>
+<p>看到如下数据</p>
+<p><img src="./2017-12-10_%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BAPrometheus%E8%87%AA%E5%8A%A8%E7%9B%91%E6%8E%A7%E6%8A%A5%E8%AD%A6%E7%B3%BB%E7%BB%9F/14.png" alt="" /></p>
+<p>到这里我们就已经实现了数据的自动收集和展示，下面来说下prometheus如何自动报警</p>
+<h1 id="五安装altermanager"><a class="markdownIt-Anchor" href="#五安装altermanager"></a> 五.安装AlterManager</h1>
+<p>Pormetheus的警告由独立的两部分组成。</p>
+<p>Prometheus服务中的警告规则发送警告到Alertmanager。</p>
+<p>然后这个Alertmanager管理这些警告。包括silencing, inhibition, aggregation，以及通过一些方法发送通知，例如：email，PagerDuty和HipChat。</p>
+<p>建立警告和通知的主要步骤：</p>
+<ul>
+<li>创建和配置Alertmanager</li>
+<li>启动Prometheus服务时，通过-alertmanager.url标志配置Alermanager地址，以便Prometheus服务能和Alertmanager建立连接。</li>
+</ul>
+<p>创建和配置Alertmanager</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p &#x2F;home&#x2F;chenqionghe&#x2F;promethues&#x2F;alertmanager</span><br><span class="line">cd !$</span><br></pre></td></tr></table></figure>
+<p>创建配置文件alertmanager.yml</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">global:</span><br><span class="line">  resolve_timeout: 5m</span><br><span class="line">route:</span><br><span class="line">  group_by: [&#39;cqh&#39;]</span><br><span class="line">  group_wait: 10s #组报警等待时间</span><br><span class="line">  group_interval: 10s #组报警间隔时间</span><br><span class="line">  repeat_interval: 1m #重复报警间隔时间</span><br><span class="line">  receiver: &#39;web.hook&#39;</span><br><span class="line">receivers:</span><br><span class="line">  - name: &#39;web.hook&#39;</span><br><span class="line">    webhook_configs:</span><br><span class="line">      - url: &#39;http:&#x2F;&#x2F;10.211.55.2:8888&#x2F;open&#x2F;test&#39;</span><br><span class="line">inhibit_rules:</span><br><span class="line">  - source_match:</span><br><span class="line">      severity: &#39;critical&#39;</span><br><span class="line">    target_match:</span><br><span class="line">      severity: &#39;warning&#39;</span><br><span class="line">    equal: [&#39;alertname&#39;, &#39;dev&#39;, &#39;instance&#39;]</span><br></pre></td></tr></table></figure>
+<p>这里配置成了web.hook的方式，当server通知alertmanager会自动调用webhook <a target="_blank" rel="noopener" href="http://10.211.55.2:8888/open/test">http://10.211.55.2:8888/open/test</a></p>
+<p>下面运行altermanager</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">docker rm -f alertmanager</span><br><span class="line">docker run -d -p 9093:9093 \</span><br><span class="line">--name alertmanager \</span><br><span class="line">-v &#x2F;home&#x2F;chenqionghe&#x2F;promethues&#x2F;alertmanager&#x2F;alertmanager.yml:&#x2F;etc&#x2F;alertmanager&#x2F;alertmanager.yml \</span><br><span class="line">prom&#x2F;alertmanager</span><br></pre></td></tr></table></figure>
+<p>访问http://10.211.55.25:9093</p>
+<p><img src="./2017-12-10_%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BAPrometheus%E8%87%AA%E5%8A%A8%E7%9B%91%E6%8E%A7%E6%8A%A5%E8%AD%A6%E7%B3%BB%E7%BB%9F/15.png" alt="" /></p>
+<p>接下来修改Server端配置报警规则和altermanager地址</p>
+<p>修改规则/home/chenqionghe/promethues/server/rules.yml</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">groups:</span><br><span class="line">  - name: cqh</span><br><span class="line">    rules:</span><br><span class="line">      - alert: cqh测试</span><br><span class="line">        expr: dead_lift &gt; 150</span><br><span class="line">        for: 1m</span><br><span class="line">        labels:</span><br><span class="line">          status: warning</span><br><span class="line">        annotations:</span><br><span class="line">          summary: &quot;&#123;&#123;$labels.instance&#125;&#125;:硬拉超标！lightweight baby!!!&quot;</span><br><span class="line">          description: &quot;&#123;&#123;$labels.instance&#125;&#125;:硬拉超标！lightweight baby!!!&quot;</span><br></pre></td></tr></table></figure>
+<p>这条规则的意思是，硬拉超过150公斤，持续一分钟，就报警通知</p>
+<p>然后再修改prometheus添加altermanager配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">global:</span><br><span class="line">  scrape_interval:     15s # 默认抓取间隔, 15秒向目标抓取一次数据。</span><br><span class="line">  external_labels:</span><br><span class="line">    monitor: &#39;codelab-monitor&#39;</span><br><span class="line">rule_files:</span><br><span class="line">  - &#x2F;etc&#x2F;prometheus&#x2F;rules.yml</span><br><span class="line"># 这里表示抓取对象的配置</span><br><span class="line">scrape_configs:</span><br><span class="line">  #这个配置是表示在这个配置内的时间序例，每一条都会自动添加上这个&#123;job_name:&quot;prometheus&quot;&#125;的标签  - job_name: &#39;prometheus&#39;</span><br><span class="line">  - job_name: &#39;prometheus&#39;</span><br><span class="line">    scrape_interval: 5s # 重写了全局抓取间隔时间，由15秒重写成5秒</span><br><span class="line">    static_configs:</span><br><span class="line">      - targets: [&#39;localhost:9090&#39;]</span><br><span class="line">      - targets: [&#39;10.211.55.25:8080&#39;, &#39;10.211.55.25:8081&#39;,&#39;10.211.55.25:8082&#39;]</span><br><span class="line">        labels:</span><br><span class="line">          group: &#39;client-golang&#39;</span><br><span class="line">      - targets: [&#39;10.211.55.25:9100&#39;]</span><br><span class="line">        labels:</span><br><span class="line">          group: &#39;client-node-exporter&#39;</span><br><span class="line">      - targets: [&#39;10.211.55.25:9091&#39;]</span><br><span class="line">        labels:</span><br><span class="line">          group: &#39;pushgateway&#39;</span><br><span class="line">alerting:</span><br><span class="line">  alertmanagers:</span><br><span class="line">    - static_configs:</span><br><span class="line">        - targets: [&quot;10.211.55.25:9093&quot;]</span><br></pre></td></tr></table></figure>
+<p>重载prometheus配置，规则就已经生效</p>
+<p>接下来我们观察grafana中数据的变化</p>
+<p>然后我们点击prometheus的Alert模块，会看到已经由绿-&gt;黄-红，触发了报警</p>
+<p><img src="./2017-12-10_%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BAPrometheus%E8%87%AA%E5%8A%A8%E7%9B%91%E6%8E%A7%E6%8A%A5%E8%AD%A6%E7%B3%BB%E7%BB%9F/16.png" alt="" /></p>
+<p><img src="./2017-12-10_%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BAPrometheus%E8%87%AA%E5%8A%A8%E7%9B%91%E6%8E%A7%E6%8A%A5%E8%AD%A6%E7%B3%BB%E7%BB%9F/17.png" alt="" /></p>
+<p>然后我们再来看看提供的webhook接口，这里的接口我是用的golang写的，接到数据后将body内容报警到钉钉</p>
+<p><img src="./2017-12-10_%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BAPrometheus%E8%87%AA%E5%8A%A8%E7%9B%91%E6%8E%A7%E6%8A%A5%E8%AD%A6%E7%B3%BB%E7%BB%9F/18.png" alt="" /></p>
+<p>钉钉收到报警内容如下</p>
+<p><img src="./2017-12-10_%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BAPrometheus%E8%87%AA%E5%8A%A8%E7%9B%91%E6%8E%A7%E6%8A%A5%E8%AD%A6%E7%B3%BB%E7%BB%9F/19.png" alt="" /></p>
+<p>到这里，从零开始搭建Prometheus实现自动监控报警就说介绍完了，一条龙服务，自动抓取接口+自动报警+优雅的图表展示，你还在等什么，赶紧high起来！</p>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://blog.fenxiangz.com/post/util/monitor/2017-12-10_%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BAPrometheus%E8%87%AA%E5%8A%A8%E7%9B%91%E6%8E%A7%E6%8A%A5%E8%AD%A6%E7%B3%BB%E7%BB%9F.html" title="从零开始搭建Prometheus自动监控报警系统（企业级）" target="_blank" rel="external">https://blog.fenxiangz.com/post/util/monitor/2017-12-10_从零开始搭建Prometheus自动监控报警系统.html</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      </div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/post/linux/2017-12-09_Linux%E5%86%85%E5%AD%98%E6%98%A0%E5%B0%84mmap%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90.html" title="Linux内存映射mmap原理分析"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/post/linux/2017-12-08_%E4%B8%A4%E7%A7%8D%E9%AB%98%E6%80%A7%E8%83%BDIO%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8FReactor%E5%92%8CProactor.html" title="两种高性能 I/O 设计模式 Reactor 和 Proactor"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  
+  <div class="bar-right">
+    
+  </div>
+  </div>
+</nav>
+  
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="/atom.xml" target="_blank" title="Rss" ><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+
+
+
+
+   
+    
+    <script defer>
+    var disqus_config = function () {
+        
+            this.page.url = 'https://blog.fenxiangz.com/post/util/monitor/2017-12-10_%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BAPrometheus%E8%87%AA%E5%8A%A8%E7%9B%91%E6%8E%A7%E6%8A%A5%E8%AD%A6%E7%B3%BB%E7%BB%9F.html';
+        
+        this.page.identifier = 'util/monitor/2017-12-10_从零开始搭建Prometheus自动监控报警系统';
+    };
+    (function() { 
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + '513' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+
+
+
+
+
+
+
+</body>
+</html>

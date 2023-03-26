@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>谈一谈 Java IO 模型 | 分享之</title>
+  <meta name="description" content="Java IO 模型对于 Java 开发工程师来说，是日常工作中经常接触的内容，特别是随着分布式系统的兴起，IO 也显得越来越重要，Java 的 IO 模型本质上还是利用操作系统提供的接口来实现，不熟悉这一部分内容的话，可以先看一下上篇文章Unix 网络 IO 模型及 Linux 的 IO 多路复用模型，本文跟上篇的内容是紧密相连的，特别是本文的重点 —— Java NIO 部分，其底层原理就是">
+<meta property="og:type" content="article">
+<meta property="og:title" content="谈一谈 Java IO 模型">
+<meta property="og:url" content="https://blog.fenxiangz.com/post/java/nio/2019-02-27_java_nio_model.html">
+<meta property="og:site_name" content="分享之">
+<meta property="og:description" content="Java IO 模型对于 Java 开发工程师来说，是日常工作中经常接触的内容，特别是随着分布式系统的兴起，IO 也显得越来越重要，Java 的 IO 模型本质上还是利用操作系统提供的接口来实现，不熟悉这一部分内容的话，可以先看一下上篇文章Unix 网络 IO 模型及 Linux 的 IO 多路复用模型，本文跟上篇的内容是紧密相连的，特别是本文的重点 —— Java NIO 部分，其底层原理就是">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blog.fenxiangz.com/post/java/nio/2019-02-27_java_nio_model/1.png">
+<meta property="og:image" content="https://blog.fenxiangz.com/post/java/nio/2019-02-27_java_nio_model/2.png">
+<meta property="og:image" content="https://blog.fenxiangz.com/post/java/nio/2019-02-27_java_nio_model/3.png">
+<meta property="og:image" content="https://blog.fenxiangz.com/post/java/nio/2019-02-27_java_nio_model/4.png">
+<meta property="og:image" content="https://blog.fenxiangz.com/post/java/nio/2019-02-27_java_nio_model/5.png">
+<meta property="og:image" content="https://blog.fenxiangz.com/post/java/nio/2019-02-27_java_nio_model/6.png">
+<meta property="og:image" content="https://blog.fenxiangz.com/post/java/nio/2019-02-27_java_nio_model/7.png">
+<meta property="og:image" content="https://blog.fenxiangz.com/post/java/nio/2019-02-27_java_nio_model/8.png">
+<meta property="og:image" content="https://blog.fenxiangz.com/post/java/nio/2019-02-27_java_nio_model/9.png">
+<meta property="og:image" content="https://blog.fenxiangz.com/post/java/nio/2019-02-27_java_nio_model/10.png">
+<meta property="article:published_time" content="2019-02-26T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-05-12T03:08:08.009Z">
+<meta property="article:author" content="Hassan">
+<meta property="article:tag" content="Java">
+<meta property="article:tag" content="NIO">
+<meta property="article:tag" content="Reactor">
+<meta property="article:tag" content="NIO模型">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.fenxiangz.com/post/java/nio/2019-02-27_java_nio_model/1.png">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://blog.fenxiangz.com/post/java/nio/2019-02-27_java_nio_model.html">
+  
+    <link rel="alternate" href="/atom.xml" title="分享之" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body class="main-center" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="/atom.xml" target="_blank" title="Rss" ><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>分享好文章</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Docker/">Docker</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Gradle/">Gradle</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IDE/">IDE</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IO/">IO</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java-IO/">Java IO</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java-NIO/">Java NIO</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java-%E5%9F%BA%E7%A1%80/">Java 基础</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java-%E8%BF%9B%E9%98%B6/">Java 进阶</a><span class="category-list-count">16</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java-%E9%9D%A2%E8%AF%95/">Java 面试</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MSSQL/">MSSQL</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MySQL/">MySQL</a><span class="category-list-count">16</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Netty/">Netty</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/RPC/">RPC</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Redis/">Redis</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/RocketMQ/">RocketMQ</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/SVN/">SVN</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Spring-Boot/">Spring Boot</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Spring-Cloud/">Spring Cloud</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Spring-Core/">Spring Core</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/TCP-IP/">TCP/IP</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/VUE/">VUE</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jQuery/">jQuery</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/zookeeper/">zookeeper</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%85%B6%E4%BB%96/">其他</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%85%B6%E4%BB%96-Jira/">其他/Jira</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%85%B6%E4%BB%96-Tampermonkey/">其他/Tampermonkey</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%85%B6%E4%BB%96-V2ray/">其他/V2ray</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%85%B6%E4%BB%96-%E7%AE%A1%E7%90%86/">其他/管理</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%85%B6%E4%BB%96-%E8%8B%B1%E8%AF%AD/">其他/英语</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%A6%82%E5%BF%B5/">概念</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%AD%A6%E5%A4%B7%E5%B2%A9%E8%8C%B6/">武夷岩茶</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%9B%91%E6%8E%A7/">监控</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BD%91%E7%BB%9C-%E5%85%B6%E4%BB%96/">网络/其他</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BD%91%E7%BB%9C-%E6%9C%AF%E8%AF%AD/">网络/术语</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/">计算机系统</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%B5%84%E6%BA%90%E5%AF%BC%E8%88%AA/">资源导航</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%B7%A8%E5%B9%B3%E5%8F%B0/">跨平台</a><span class="category-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ACID/" rel="tag">ACID</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Buffer/" rel="tag">Buffer</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CAP/" rel="tag">CAP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CDN/" rel="tag">CDN</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cloud/" rel="tag">Cloud</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Collation/" rel="tag">Collation</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DCL/" rel="tag">DCL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/" rel="tag">Docker</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Exception/" rel="tag">Exception</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gradle/" rel="tag">Gradle</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HashMap/" rel="tag">HashMap</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Heidi/" rel="tag">Heidi</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hello-World/" rel="tag">Hello World</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HttpClient/" rel="tag">HttpClient</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDE/" rel="tag">IDE</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IO/" rel="tag">IO</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Idea/" rel="tag">Idea</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JUC/" rel="tag">JUC</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">52</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java%E5%BC%82%E5%B8%B8/" rel="tag">Java异常</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java%E5%BC%95%E7%94%A8/" rel="tag">Java引用</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java%E7%BA%BF%E7%A8%8B/" rel="tag">Java线程</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java%E9%9B%86%E5%90%88/" rel="tag">Java集合</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jira/" rel="tag">Jira</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MMAP/" rel="tag">MMAP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MSSQL/" rel="tag">MSSQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NIO/" rel="tag">NIO</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NIO%E6%A8%A1%E5%9E%8B/" rel="tag">NIO模型</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Netty/" rel="tag">Netty</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Prometheus/" rel="tag">Prometheus</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RPC/" rel="tag">RPC</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Raft/" rel="tag">Raft</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Reactor/" rel="tag">Reactor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/" rel="tag">Redis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RocketMQ/" rel="tag">RocketMQ</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RocketMQ%E9%9B%86%E7%BE%A4/" rel="tag">RocketMQ集群</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL%E4%BC%98%E5%8C%96/" rel="tag">SQL优化</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SVN/" rel="tag">SVN</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Selector/" rel="tag">Selector</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Socket/" rel="tag">Socket</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/" rel="tag">Spring</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Boot/" rel="tag">Spring Boot</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Cloud/" rel="tag">Spring Cloud</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Core/" rel="tag">Spring Core</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Stream/" rel="tag">Stream</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TCP/" rel="tag">TCP</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tampermonkey/" rel="tag">Tampermonkey</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ThreadLocal/" rel="tag">ThreadLocal</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UDP/" rel="tag">UDP</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/URI/" rel="tag">URI</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/URL/" rel="tag">URL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/" rel="tag">Ubuntu</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/V2ray/" rel="tag">V2ray</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vert-x/" rel="tag">Vert.x</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/" rel="tag">Vue</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Wiki/" rel="tag">Wiki</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XXNET/" rel="tag">XXNET</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/apk/" rel="tag">apk</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bbr/" rel="tag">bbr</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/chameleon/" rel="tag">chameleon</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/chrome/" rel="tag">chrome</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/deb/" rel="tag">deb</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jvm/" rel="tag">jvm</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lambda/" rel="tag">lambda</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/" rel="tag">lambda表达式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/" rel="tag">ssh</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vpn/" rel="tag">vpn</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%B4%E6%97%B6%E8%A1%A8/" rel="tag">临时表</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B9%A6%E7%B1%8D%E6%8E%A8%E8%8D%90/" rel="tag">书籍推荐</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%8C%E8%BF%9B%E5%88%B6/" rel="tag">二进制</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%91%E5%8E%9F%E7%94%9F/" rel="tag">云原生</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BC%98%E5%8C%96/" rel="tag">优化</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%A5%E9%97%A8/" rel="tag">入门</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%AB%E7%9A%87%E5%90%8E/" rel="tag">八皇后</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%B3%E4%BA%8E%E6%88%91/" rel="tag">关于我</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%86%85%E5%AD%98/" rel="tag">内存</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/" rel="tag">内存分配</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%86%85%E5%AD%98%E6%98%A0%E5%B0%84/" rel="tag">内存映射</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/" rel="tag">内存模型</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%86%85%E5%AD%98%E6%B3%84%E9%9C%B2/" rel="tag">内存泄露</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/" rel="tag">函数式编程</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" rel="tag">分布式</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%9B%E5%BB%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F/" rel="tag">创建型模式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8C%85%E7%AE%A1%E7%90%86/" rel="tag">包管理</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%8F%E8%AE%AE/" rel="tag">协议</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%95%E4%BE%8B/" rel="tag">单例</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%8D%E7%A0%81/" rel="tag">反码</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%8D%E7%BC%96%E8%AF%91/" rel="tag">反编译</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%90%89%E4%BB%96/" rel="tag">吉他</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%90%8C%E6%AD%A5/" rel="tag">同步</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%91%BD%E4%BB%A4/" rel="tag">命令</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/" rel="tag">垃圾回收</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A0%86%E5%86%85%E5%AD%98/" rel="tag">堆内存</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%87%E4%BB%BD/" rel="tag">备份</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%97%E7%AC%A6%E9%9B%86/" rel="tag">字符集</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag">学习笔记</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" rel="tag">小程序</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7/" rel="tag">工具</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/" rel="tag">并发编程</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B9%BB%E8%AF%BB/" rel="tag">幻读</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BA%8F%E5%88%97%E5%8C%96/" rel="tag">序列化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%82%E5%B8%B8/" rel="tag">异常</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%82%E6%AD%A5/" rel="tag">异步</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%82%E6%AD%A5IO/" rel="tag">异步IO</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%B9%E7%90%B4%E5%90%A7/" rel="tag">弹琴吧</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" rel="tag">微服务</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/" rel="tag">快捷键</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE/" rel="tag">思维导图</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" rel="tag">性能优化</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%85%A2%E6%9F%A5/" rel="tag">慢查</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%A5%E8%AD%A6/" rel="tag">报警</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8C%82%E8%BD%BD/" rel="tag">挂载</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag">操作系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B4%E7%90%86/" rel="tag">整理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%87%E4%BB%B6%E5%8A%A0%E8%BD%BD/" rel="tag">文件加载</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%87%E4%BB%B6%E5%90%8D%E6%89%B9%E9%87%8F%E4%BF%AE%E6%94%B9/" rel="tag">文件名批量修改</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%AF%E8%AF%AD/" rel="tag">术语</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A6%82%E5%BF%B5/" rel="tag">概念</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A8%A1%E5%9E%8B/" rel="tag">模型</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AD%A6%E5%A4%B7%E5%B1%B1/" rel="tag">武夷山</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AD%A6%E5%A4%B7%E5%B2%A9%E8%8C%B6/" rel="tag">武夷岩茶</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B3%A8%E8%A7%A3/" rel="tag">注解</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/" rel="tag">深入理解计算机系统</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%BA%90%E7%A0%81/" rel="tag">源码</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/" rel="tag">源码分析</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%90%86%E8%AE%BA/" rel="tag">理论</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9B%91%E6%8E%A7/" rel="tag">监控</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9B%AE%E5%BD%95/" rel="tag">目录</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9B%B4%E6%8E%A5IO/" rel="tag">直接IO</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9B%B4%E6%8E%A5%E5%86%85%E5%AD%98/" rel="tag">直接内存</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/" rel="tag">知识体系</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86/" rel="tag">磁盘管理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%A6%E5%8F%B7%E9%93%BE%E6%8E%A5/" rel="tag">符号链接</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%A1%E7%90%86/" rel="tag">管理</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BB%93%E6%9E%84%E5%9E%8B%E6%A8%A1%E5%BC%8F/" rel="tag">结构型模式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/" rel="tag">网络协议</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C%E6%9C%AF%E8%AF%AD/" rel="tag">网络术语</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%84%91%E8%A3%82/" rel="tag">脑裂</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%8B%B1%E8%AF%AD/" rel="tag">英语</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%8C%B6%E7%9F%A5%E8%AF%86/" rel="tag">茶知识</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A1%8C%E4%B8%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F/" rel="tag">行为型模式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A1%A5%E7%A0%81/" rel="tag">补码</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%A4%E7%9F%A5/" rel="tag">认知</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%AD%E6%B3%95/" rel="tag">语法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" rel="tag">读书笔记</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B7%A8%E5%B9%B3%E5%8F%B0/" rel="tag">跨平台</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BE%93%E5%85%A5%E6%B3%95/" rel="tag">输入法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%97%AE%E9%A2%98/" rel="tag">问题</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/" rel="tag">阅读笔记</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%98%BB%E5%A1%9E/" rel="tag">阻塞</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9B%86%E5%90%88%E8%BF%90%E7%AE%97/" rel="tag">集合运算</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9B%B6%E6%8B%B7%E8%B4%9D/" rel="tag">零拷贝</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%9E%E7%9B%B4%E6%8E%A5%E5%86%85%E5%AD%98/" rel="tag">非直接内存</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%9E%E9%98%BB%E5%A1%9E/" rel="tag">非阻塞</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a><span class="tag-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/ACID/" style="font-size: 13.13px;">ACID</a> <a href="/tags/Android/" style="font-size: 13px;">Android</a> <a href="/tags/Buffer/" style="font-size: 13px;">Buffer</a> <a href="/tags/CAP/" style="font-size: 13px;">CAP</a> <a href="/tags/CDN/" style="font-size: 13px;">CDN</a> <a href="/tags/Cloud/" style="font-size: 13px;">Cloud</a> <a href="/tags/Collation/" style="font-size: 13.13px;">Collation</a> <a href="/tags/DCL/" style="font-size: 13px;">DCL</a> <a href="/tags/Docker/" style="font-size: 13.13px;">Docker</a> <a href="/tags/Exception/" style="font-size: 13px;">Exception</a> <a href="/tags/Gradle/" style="font-size: 13.25px;">Gradle</a> <a href="/tags/HashMap/" style="font-size: 13px;">HashMap</a> <a href="/tags/Heidi/" style="font-size: 13px;">Heidi</a> <a href="/tags/Hello-World/" style="font-size: 13px;">Hello World</a> <a href="/tags/HttpClient/" style="font-size: 13px;">HttpClient</a> <a href="/tags/IDE/" style="font-size: 13.13px;">IDE</a> <a href="/tags/IO/" style="font-size: 13.75px;">IO</a> <a href="/tags/Idea/" style="font-size: 13.13px;">Idea</a> <a href="/tags/JUC/" style="font-size: 13px;">JUC</a> <a href="/tags/Java/" style="font-size: 14px;">Java</a> <a href="/tags/JavaScript/" style="font-size: 13.38px;">JavaScript</a> <a href="/tags/Java%E5%BC%82%E5%B8%B8/" style="font-size: 13px;">Java异常</a> <a href="/tags/Java%E5%BC%95%E7%94%A8/" style="font-size: 13px;">Java引用</a> <a href="/tags/Java%E7%BA%BF%E7%A8%8B/" style="font-size: 13.25px;">Java线程</a> <a href="/tags/Java%E9%9B%86%E5%90%88/" style="font-size: 13px;">Java集合</a> <a href="/tags/Jira/" style="font-size: 13px;">Jira</a> <a href="/tags/MMAP/" style="font-size: 13px;">MMAP</a> <a href="/tags/MSSQL/" style="font-size: 13px;">MSSQL</a> <a href="/tags/MySQL/" style="font-size: 13.88px;">MySQL</a> <a href="/tags/NIO/" style="font-size: 13.63px;">NIO</a> <a href="/tags/NIO%E6%A8%A1%E5%9E%8B/" style="font-size: 13px;">NIO模型</a> <a href="/tags/Netty/" style="font-size: 13.38px;">Netty</a> <a href="/tags/Prometheus/" style="font-size: 13px;">Prometheus</a> <a href="/tags/RPC/" style="font-size: 13px;">RPC</a> <a href="/tags/Raft/" style="font-size: 13px;">Raft</a> <a href="/tags/Reactor/" style="font-size: 13px;">Reactor</a> <a href="/tags/Redis/" style="font-size: 13px;">Redis</a> <a href="/tags/RocketMQ/" style="font-size: 13px;">RocketMQ</a> <a href="/tags/RocketMQ%E9%9B%86%E7%BE%A4/" style="font-size: 13px;">RocketMQ集群</a> <a href="/tags/SQL%E4%BC%98%E5%8C%96/" style="font-size: 13.38px;">SQL优化</a> <a href="/tags/SVN/" style="font-size: 13px;">SVN</a> <a href="/tags/Selector/" style="font-size: 13px;">Selector</a> <a href="/tags/Socket/" style="font-size: 13px;">Socket</a> <a href="/tags/Spring/" style="font-size: 13.5px;">Spring</a> <a href="/tags/Spring-Boot/" style="font-size: 13.25px;">Spring Boot</a> <a href="/tags/Spring-Cloud/" style="font-size: 13px;">Spring Cloud</a> <a href="/tags/Spring-Core/" style="font-size: 13px;">Spring Core</a> <a href="/tags/Stream/" style="font-size: 13px;">Stream</a> <a href="/tags/TCP/" style="font-size: 13.25px;">TCP</a> <a href="/tags/Tampermonkey/" style="font-size: 13px;">Tampermonkey</a> <a href="/tags/ThreadLocal/" style="font-size: 13px;">ThreadLocal</a> <a href="/tags/UDP/" style="font-size: 13.13px;">UDP</a> <a href="/tags/URI/" style="font-size: 13px;">URI</a> <a href="/tags/URL/" style="font-size: 13px;">URL</a> <a href="/tags/Ubuntu/" style="font-size: 13px;">Ubuntu</a> <a href="/tags/V2ray/" style="font-size: 13px;">V2ray</a> <a href="/tags/Vert-x/" style="font-size: 13px;">Vert.x</a> <a href="/tags/Vue/" style="font-size: 13.13px;">Vue</a> <a href="/tags/Wiki/" style="font-size: 13px;">Wiki</a> <a href="/tags/XXNET/" style="font-size: 13px;">XXNET</a> <a href="/tags/apk/" style="font-size: 13px;">apk</a> <a href="/tags/bbr/" style="font-size: 13px;">bbr</a> <a href="/tags/chameleon/" style="font-size: 13.13px;">chameleon</a> <a href="/tags/chrome/" style="font-size: 13px;">chrome</a> <a href="/tags/deb/" style="font-size: 13.13px;">deb</a> <a href="/tags/jvm/" style="font-size: 13.38px;">jvm</a> <a href="/tags/lambda/" style="font-size: 13px;">lambda</a> <a href="/tags/lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/" style="font-size: 13px;">lambda表达式</a> <a href="/tags/ssh/" style="font-size: 13px;">ssh</a> <a href="/tags/vpn/" style="font-size: 13px;">vpn</a> <a href="/tags/%E4%B8%B4%E6%97%B6%E8%A1%A8/" style="font-size: 13.13px;">临时表</a> <a href="/tags/%E4%B9%A6%E7%B1%8D%E6%8E%A8%E8%8D%90/" style="font-size: 13px;">书籍推荐</a> <a href="/tags/%E4%BA%8C%E8%BF%9B%E5%88%B6/" style="font-size: 13.13px;">二进制</a> <a href="/tags/%E4%BA%91%E5%8E%9F%E7%94%9F/" style="font-size: 13px;">云原生</a> <a href="/tags/%E4%BC%98%E5%8C%96/" style="font-size: 13.25px;">优化</a> <a href="/tags/%E5%85%A5%E9%97%A8/" style="font-size: 13.13px;">入门</a> <a href="/tags/%E5%85%AB%E7%9A%87%E5%90%8E/" style="font-size: 13px;">八皇后</a> <a href="/tags/%E5%85%B3%E4%BA%8E%E6%88%91/" style="font-size: 13px;">关于我</a> <a href="/tags/%E5%86%85%E5%AD%98/" style="font-size: 13px;">内存</a> <a href="/tags/%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/" style="font-size: 13px;">内存分配</a> <a href="/tags/%E5%86%85%E5%AD%98%E6%98%A0%E5%B0%84/" style="font-size: 13px;">内存映射</a> <a href="/tags/%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/" style="font-size: 13px;">内存模型</a> <a href="/tags/%E5%86%85%E5%AD%98%E6%B3%84%E9%9C%B2/" style="font-size: 13px;">内存泄露</a> <a href="/tags/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/" style="font-size: 13px;">函数式编程</a> <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" style="font-size: 13.38px;">分布式</a> <a href="/tags/%E5%88%9B%E5%BB%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F/" style="font-size: 13px;">创建型模式</a> <a href="/tags/%E5%8C%85%E7%AE%A1%E7%90%86/" style="font-size: 13.38px;">包管理</a> <a href="/tags/%E5%8D%8F%E8%AE%AE/" style="font-size: 13.25px;">协议</a> <a href="/tags/%E5%8D%95%E4%BE%8B/" style="font-size: 13px;">单例</a> <a href="/tags/%E5%8F%8D%E7%A0%81/" style="font-size: 13px;">反码</a> <a href="/tags/%E5%8F%8D%E7%BC%96%E8%AF%91/" style="font-size: 13px;">反编译</a> <a href="/tags/%E5%90%89%E4%BB%96/" style="font-size: 13px;">吉他</a> <a href="/tags/%E5%90%8C%E6%AD%A5/" style="font-size: 13.13px;">同步</a> <a href="/tags/%E5%91%BD%E4%BB%A4/" style="font-size: 13px;">命令</a> <a href="/tags/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/" style="font-size: 13.25px;">垃圾回收</a> <a href="/tags/%E5%A0%86%E5%86%85%E5%AD%98/" style="font-size: 13px;">堆内存</a> <a href="/tags/%E5%A4%87%E4%BB%BD/" style="font-size: 13px;">备份</a> <a href="/tags/%E5%AD%97%E7%AC%A6%E9%9B%86/" style="font-size: 13.25px;">字符集</a> <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="font-size: 13px;">学习笔记</a> <a href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" style="font-size: 13.13px;">小程序</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 13px;">工具</a> <a href="/tags/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/" style="font-size: 13px;">并发编程</a> <a href="/tags/%E5%B9%BB%E8%AF%BB/" style="font-size: 13.13px;">幻读</a> <a href="/tags/%E5%BA%8F%E5%88%97%E5%8C%96/" style="font-size: 13px;">序列化</a> <a href="/tags/%E5%BC%82%E5%B8%B8/" style="font-size: 13px;">异常</a> <a href="/tags/%E5%BC%82%E6%AD%A5/" style="font-size: 13px;">异步</a> <a href="/tags/%E5%BC%82%E6%AD%A5IO/" style="font-size: 13px;">异步IO</a> <a href="/tags/%E5%BC%B9%E7%90%B4%E5%90%A7/" style="font-size: 13px;">弹琴吧</a> <a href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" style="font-size: 13px;">微服务</a> <a href="/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/" style="font-size: 13px;">快捷键</a> <a href="/tags/%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE/" style="font-size: 13.13px;">思维导图</a> <a href="/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" style="font-size: 13.63px;">性能优化</a> <a href="/tags/%E6%85%A2%E6%9F%A5/" style="font-size: 13.13px;">慢查</a> <a href="/tags/%E6%8A%A5%E8%AD%A6/" style="font-size: 13px;">报警</a> <a href="/tags/%E6%8C%82%E8%BD%BD/" style="font-size: 13px;">挂载</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 13px;">操作系统</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 13px;">数据结构</a> <a href="/tags/%E6%95%B4%E7%90%86/" style="font-size: 13px;">整理</a> <a href="/tags/%E6%96%87%E4%BB%B6%E5%8A%A0%E8%BD%BD/" style="font-size: 13px;">文件加载</a> <a href="/tags/%E6%96%87%E4%BB%B6%E5%90%8D%E6%89%B9%E9%87%8F%E4%BF%AE%E6%94%B9/" style="font-size: 13px;">文件名批量修改</a> <a href="/tags/%E6%9C%AF%E8%AF%AD/" style="font-size: 13px;">术语</a> <a href="/tags/%E6%A6%82%E5%BF%B5/" style="font-size: 13.38px;">概念</a> <a href="/tags/%E6%A8%A1%E5%9E%8B/" style="font-size: 13.13px;">模型</a> <a href="/tags/%E6%AD%A6%E5%A4%B7%E5%B1%B1/" style="font-size: 13px;">武夷山</a> <a href="/tags/%E6%AD%A6%E5%A4%B7%E5%B2%A9%E8%8C%B6/" style="font-size: 13.13px;">武夷岩茶</a> <a href="/tags/%E6%B3%A8%E8%A7%A3/" style="font-size: 13px;">注解</a> <a href="/tags/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/" style="font-size: 13.25px;">深入理解计算机系统</a> <a href="/tags/%E6%BA%90%E7%A0%81/" style="font-size: 13px;">源码</a> <a href="/tags/%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/" style="font-size: 13px;">源码分析</a> <a href="/tags/%E7%90%86%E8%AE%BA/" style="font-size: 13.13px;">理论</a> <a href="/tags/%E7%9B%91%E6%8E%A7/" style="font-size: 13px;">监控</a> <a href="/tags/%E7%9B%AE%E5%BD%95/" style="font-size: 13px;">目录</a> <a href="/tags/%E7%9B%B4%E6%8E%A5IO/" style="font-size: 13px;">直接IO</a> <a href="/tags/%E7%9B%B4%E6%8E%A5%E5%86%85%E5%AD%98/" style="font-size: 13px;">直接内存</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/" style="font-size: 13px;">知识体系</a> <a href="/tags/%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86/" style="font-size: 13px;">磁盘管理</a> <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 13px;">笔记</a> <a href="/tags/%E7%AC%A6%E5%8F%B7%E9%93%BE%E6%8E%A5/" style="font-size: 13px;">符号链接</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 13.13px;">算法</a> <a href="/tags/%E7%AE%A1%E7%90%86/" style="font-size: 13.13px;">管理</a> <a href="/tags/%E7%BB%93%E6%9E%84%E5%9E%8B%E6%A8%A1%E5%BC%8F/" style="font-size: 13px;">结构型模式</a> <a href="/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 13.13px;">网络</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/" style="font-size: 13px;">网络协议</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E6%9C%AF%E8%AF%AD/" style="font-size: 13.25px;">网络术语</a> <a href="/tags/%E8%84%91%E8%A3%82/" style="font-size: 13px;">脑裂</a> <a href="/tags/%E8%8B%B1%E8%AF%AD/" style="font-size: 13px;">英语</a> <a href="/tags/%E8%8C%B6%E7%9F%A5%E8%AF%86/" style="font-size: 13.13px;">茶知识</a> <a href="/tags/%E8%A1%8C%E4%B8%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F/" style="font-size: 13px;">行为型模式</a> <a href="/tags/%E8%A1%A5%E7%A0%81/" style="font-size: 13px;">补码</a> <a href="/tags/%E8%AE%A4%E7%9F%A5/" style="font-size: 13px;">认知</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 13.25px;">设计模式</a> <a href="/tags/%E8%AF%AD%E6%B3%95/" style="font-size: 13px;">语法</a> <a href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" style="font-size: 13.25px;">读书笔记</a> <a href="/tags/%E8%B7%A8%E5%B9%B3%E5%8F%B0/" style="font-size: 13.13px;">跨平台</a> <a href="/tags/%E8%BE%93%E5%85%A5%E6%B3%95/" style="font-size: 13px;">输入法</a> <a href="/tags/%E9%97%AE%E9%A2%98/" style="font-size: 13.13px;">问题</a> <a href="/tags/%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/" style="font-size: 13.38px;">阅读笔记</a> <a href="/tags/%E9%98%BB%E5%A1%9E/" style="font-size: 13px;">阻塞</a> <a href="/tags/%E9%9B%86%E5%90%88%E8%BF%90%E7%AE%97/" style="font-size: 13px;">集合运算</a> <a href="/tags/%E9%9B%B6%E6%8B%B7%E8%B4%9D/" style="font-size: 13.13px;">零拷贝</a> <a href="/tags/%E9%9D%9E%E7%9B%B4%E6%8E%A5%E5%86%85%E5%AD%98/" style="font-size: 13px;">非直接内存</a> <a href="/tags/%E9%9D%9E%E9%98%BB%E5%A1%9E/" style="font-size: 13px;">非阻塞</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 13.25px;">面试</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">三月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">十二月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">八月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">七月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">五月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">三月 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">一月 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">十二月 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">十一月 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">十月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">九月 2020</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">五月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">十二月 2018</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">十一月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">十月 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">七月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">四月 2017</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">十一月 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">十月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">十一月 2012</a><span class="archive-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Java-%E8%BF%9B%E9%98%B6/">Java 进阶</a>
+              </p>
+              <p class="item-title">
+                <a href="/post/java/advance/2022-03-21_java_JVM%E5%A6%82%E4%BD%95%E5%AE%9A%E4%BD%8D%E5%88%B0%E8%AE%BF%E9%97%AE%E7%9A%84%E5%AF%B9%E8%B1%A1.html" class="title">JVM如何定位到访问的对象</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-03-20T16:00:00.000Z" itemprop="datePublished">2022-03-21</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/">计算机系统</a>
+              </p>
+              <p class="item-title">
+                <a href="/post/cs/csapp_03%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9C%BA%E5%99%A8%E7%BA%A7%E8%A1%A8%E7%A4%BA.html" class="title">【笔记】深入理解计算机系统 02 - 程序的机器级表示</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-12-11T16:00:00.000Z" itemprop="datePublished">2021-12-12</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/">计算机系统</a>
+              </p>
+              <p class="item-title">
+                <a href="/post/cs/csapp_02%E4%BF%A1%E6%81%AF%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E5%A4%84%E7%90%86.html" class="title">【笔记】深入理解计算机系统 02 - 信息的表示和处理</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-08-13T16:00:00.000Z" itemprop="datePublished">2021-08-14</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/">计算机系统</a>
+              </p>
+              <p class="item-title">
+                <a href="/post/cs/csapp_01%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%BC%AB%E6%B8%B8.html" class="title">【笔记】深入理解计算机系统 01 - 计算机系统漫游</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-07-13T16:00:00.000Z" itemprop="datePublished">2021-07-14</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/RocketMQ/">RocketMQ</a>
+              </p>
+              <p class="item-title">
+                <a href="/post/rocketmq/RocketMQ%E9%9B%86%E7%BE%A4%E5%92%8CRocketMQ-on-DLedger%E9%9B%86%E7%BE%A4.html" class="title">RocketMQ集群和RocketMQ-on-DLedger集群</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-05-11T16:00:00.000Z" itemprop="datePublished">2021-05-12</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-java/nio/2019-02-27_java_nio_model" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      谈一谈 Java IO 模型
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/post/java/nio/2019-02-27_java_nio_model.html" class="article-date">
+	  <time datetime="2019-02-26T16:00:00.000Z" itemprop="datePublished">2019-02-27</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/Java-NIO/">Java NIO</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/Java/" rel="tag">Java</a>, <a class="article-tag-link-link" href="/tags/NIO/" rel="tag">NIO</a>, <a class="article-tag-link-link" href="/tags/NIO%E6%A8%A1%E5%9E%8B/" rel="tag">NIO模型</a>, <a class="article-tag-link-link" href="/tags/Reactor/" rel="tag">Reactor</a>
+  </span>
+
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/post/java/nio/2019-02-27_java_nio_model.html#comments" class="article-comment-link">评论</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <p>Java IO 模型对于 Java 开发工程师来说，是日常工作中经常接触的内容，特别是随着分布式系统的兴起，IO 也显得越来越重要，Java 的 IO 模型本质上还是利用操作系统提供的接口来实现，不熟悉这一部分内容的话，可以先看一下上篇文章<a target="_blank" rel="noopener" href="https://tech.fenxiangz.com/topic/70/unix-%E7%BD%91%E7%BB%9C-io-%E6%A8%A1%E5%9E%8B%E5%8F%8A-linux-%E7%9A%84-io-%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8%E6%A8%A1%E5%9E%8B">Unix 网络 IO 模型及 Linux 的 IO 多路复用模型</a>，本文跟上篇的内容是紧密相连的，特别是本文的重点 —— Java NIO 部分，其底层原理就是 UNIX 的 IO 多路复用，IO 多路复用在上篇文章中讲述了很多。</p>
+<p>这篇文章大概内容如下：</p>
+<ol>
+<li>Java IO 模型的简单介绍；</li>
+<li>BIO 、NIO、AIO 模型的介绍，会详细介绍 NIO；</li>
+<li>几种 IO 模型的对比。</li>
+</ol>
+<h2 id="java-io-模型介绍"><a class="markdownIt-Anchor" href="#java-io-模型介绍"></a> Java IO 模型介绍</h2>
+<hr />
+<p>在 JDK 推出 Java NIO 之前，基于 Java 的所有 Socket 通信都采用了同步阻塞模式（BIO），这种一对一的通信模型虽然简化了开发的难度，但在性能和可靠性方面却存在这巨大的瓶颈，特别是无法处理高并发的场景，使得 Java 在服务器端应用十分有限。</p>
+<p>正是由于 Java 传统 BIO 的拙劣表现，使得 Java 不得不去开发新版的 IO 模型，最终，JDK1.4 提供了新的 NIO 类库，Java 可以支持非阻塞 IO；之后，JDK1.7 正式发布，不但对 NIO 进行了升级，还提供了 AIO 功能。本文就是在对 Java 这些 IO 模型学习后，总结的一篇笔记。</p>
+<h3 id="网络编程"><a class="markdownIt-Anchor" href="#网络编程"></a> 网络编程</h3>
+<hr />
+<p>网络编程的基本模型是 Client/Server 模型，也就是两个进程之间进行相互通信，其中服务端提供位置信息（绑定的 IP 地址和端口），客户端通过连接操作向服务端监听的地址发起连接请求，通过三次握手建立连接，如果连接成功，双方就可以通过网络套接字（socket）进行通信（可以参考TCP的三次握手和四次挥手），下面先看一下两种对 IO 模型常见的分类方式。</p>
+<h3 id="同步与异步"><a class="markdownIt-Anchor" href="#同步与异步"></a> 同步与异步</h3>
+<hr />
+<p>描述的是用户线程与内核的交互方式，与消息的通知机制有关：</p>
+<ol>
+<li>同步：当一个同步调用发出后，需要等待返回消息（用户线程不断去询问），才能继续进行；</li>
+<li>异步：当一个异步调用发出后，调用者不能立即得到返回消息，完成后会通过状态、通知和回调来通知调用者。</li>
+</ol>
+<p>简单来说就是：</p>
+<ol>
+<li>同步：同步等待消息通知，消息返回才能继续进行；</li>
+<li>异步：异步等待消息通知，完成后被调系统通过回调等来通知调用者。</li>
+</ol>
+<h3 id="阻塞与非阻塞"><a class="markdownIt-Anchor" href="#阻塞与非阻塞"></a> 阻塞与非阻塞</h3>
+<hr />
+<p>阻塞和非阻塞指的是不能立刻得到结果之前，会不会阻塞当前线程。</p>
+<ol>
+<li>阻塞：当前线程会被挂起，直到结果返回；</li>
+<li>非阻塞：指在不能立刻得到结果之前，该函数不会阻塞当前线程，而会立刻返回（会导致线程切换的增加）。</li>
+</ol>
+<p>举个栗子说明：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">类别</th>
+<th style="text-align:left">示例</th>
+<th style="text-align:left"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">同步阻塞</td>
+<td style="text-align:left">在银行排队，不干别的事情</td>
+<td style="text-align:left">效率最低</td>
+</tr>
+<tr>
+<td style="text-align:left">同步非阻塞</td>
+<td style="text-align:left">排队时，边打电话边抬头看是否到自己了</td>
+<td style="text-align:left">效率低下</td>
+</tr>
+<tr>
+<td style="text-align:left">异步阻塞</td>
+<td style="text-align:left">在银行领一个号后，在银行里等，不能做别的事情</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">异步非阻塞</td>
+<td style="text-align:left">领完号后，在忙着自己的事情，直到柜台通知</td>
+<td style="text-align:left">效率较高</td>
+</tr>
+</tbody>
+</table>
+<h2 id="bio"><a class="markdownIt-Anchor" href="#bio"></a> BIO</h2>
+<hr />
+<p>BIO 模型是 Java IO 最开始提供的一种 IO 模型，BIO 又可以细分为两种模型，一是传统的同步阻塞模型，二是在对传统 BIO 模型的基本上进行的优化，又称为伪异步 IO 模型。</p>
+<h3 id="传统的-bio-模型"><a class="markdownIt-Anchor" href="#传统的-bio-模型"></a> 传统的 BIO 模型</h3>
+<hr />
+<p>传统 BIO 中，ServerSocket 负责绑定 IP 地址，启动监听端口；Socket 负责发起连接操作，连接成功后，双方通过输入和输出流进行同步阻塞通信。采用 BIO 通信模型的 Server，通常由一个独立的 Acceptor 线程负责监听 Client 端的连接，它接受到 Client 端连接请求后为每个 Client 创建一个新的线程进行处理，处理完之后，通过输出流返回给 Client 端，线程销毁，过程如下图所示（图来自《Netty 权威指南》）。</p>
+<p><img src="./2019-02-27_java_nio_model/1.png" alt="" /></p>
+<p>这个模型最大的问题是：</p>
+<ul>
+<li>缺乏扩展性，不能处理高性能、高并发场景，线程是 JVM 中非常宝贵的资源，当线程数膨胀后，系统的性能就会急剧下降，随着并发访问量的继续增大，系统就会出现线程堆栈溢出、创建新线程失败等问题，导致 Server 不能对外提供服务。</li>
+</ul>
+<p>示例代码参考 <a target="_blank" rel="noopener" href="https://github.com/wangzzu/ProgramlLearn/tree/aab89008091660f1f231763660eb329eb5928bde/java_learn/java_socket/src/main/java/bio/">Java BIO 示例</a>。</p>
+<h3 id="伪异步-io-模型"><a class="markdownIt-Anchor" href="#伪异步-io-模型"></a> 伪异步 IO 模型</h3>
+<hr />
+<p>为了改进这种一对一的连接模型，后来又演进出了一种通过线程池或者消息队列实现 1 个或者多个线程处理所有 Client 请求的模型，由于它底层依然是同步阻塞 IO，所以被称为【伪异步 IO 模型】。相比于传统 BIO 后端不断创建新的线程处理 Client 请求，它在后端使用一个<strong>线程池</strong>来代替，通过线程池可以灵活的调配线程资源，设置线程的最大值，防止由于海量并发接入导致线程资源耗尽，过程如下图所示（图来自《Netty 权威指南》）。</p>
+<p><img src="./2019-02-27_java_nio_model/2.png" alt="" /></p>
+<p>看似这个模型解决了 BIO 面对的问题，实际上，由于它是面向数据流的模型，底层依然是同步阻塞模型，在处理一个 socket 输入流，它会一直阻塞下去，除非：有数据可读、可用数据读取完毕、有异常，否则会一直一直阻塞下去。这个模型最大的问题是：</p>
+<ul>
+<li>阻塞的时间取决于对应 IO 线程的处理速度和网络 IO 的传输速度，处理效率不可控。</li>
+</ul>
+<h2 id="java-nio"><a class="markdownIt-Anchor" href="#java-nio"></a> Java NIO</h2>
+<hr />
+<p>Java NIO 是 Java IO 模型中最重要的 IO 模型，也是本文主要讲述的内容，正式由于 NIO 的出现，Java 才能在服务端获得跟 C 和 C++ 一样的运行效率，NIO 是 New IO（或者 Non-block IO）的简称。</p>
+<p>与 Socket 类和 ServerSocket 类相对应，NIO 也提供了 SocketChannel 和 ServerSocketChannel 两种不同套接字通道的实现，它们都支持阻塞和非阻塞两种模式。一般来说，低负载、低并发的应用程序可以选择同步阻塞 IO 以降低复杂度，但是高负载、高并发的网络应用，需要使用 NIO 的非阻塞模式进行开发。</p>
+<h3 id="基本概念"><a class="markdownIt-Anchor" href="#基本概念"></a> 基本概念</h3>
+<hr />
+<p>在 NIO 中有三种非常重要的概念：</p>
+<ul>
+<li>缓冲区（buffer）：本质上是一个数组，它包含一些要读写的数据；</li>
+<li>通道（channel）：是一个通道，通过它读写数据，类似于自来水管；</li>
+<li>多路复用器（selector）：用于选择已经就绪的任务，selector 会轮询注册在其上的 channel，选出已经就绪的 channel。</li>
+</ul>
+<p><img src="./2019-02-27_java_nio_model/3.png" alt="" /></p>
+<p>三者之间的关系如上图所示，这里先简单概括一下：</p>
+<ul>
+<li>Buffer：是缓冲区，任何时候访问 NIO 数据，都是通过 Buffer 进行；</li>
+<li>Channel：通过它读写 Buffer 中的数据，可以用于读、写或同时读写；</li>
+<li>Selector：多路复用器，Selector 不断轮询注册在其上的 Channel，如果某个 Channel 有新的 TCP 链接接入、读和写事件，这个 Channel 就处于就绪状态，会被 Selector 轮询出来，然后通过<code>SelectionKey()</code> 可以获取就绪 Channel 的集合，进行后续的 IO 操作。</li>
+</ul>
+<p>下面详细介绍一下这三个概念。</p>
+<h4 id="channel"><a class="markdownIt-Anchor" href="#channel"></a> Channel</h4>
+<p>Channel 是全双工的，可以比流更好地映射底层操作系统的 API，与流也非常相似，有以下几点区别：</p>
+<ul>
+<li>Channel 可以读也可以写，但流（InputStream 或 OutputStream）是单向的；</li>
+<li>通道可以异步读写；</li>
+<li>它是基于缓冲区（Buffer）进行读写；</li>
+</ul>
+<p>在 Java 中提供以下几种 Channel：</p>
+<ol>
+<li>FileChannel：用于文件的读写；</li>
+<li>DatagramChannel：用于 UDP 数据读写；</li>
+<li>SocketChannel：用于 Socket 数据读写；</li>
+<li>ServerSocketChannel：监听 TCP 连接请求。</li>
+</ol>
+<p>这些 Channel 类之间的继承关系如下图所示</p>
+<p><img src="./2019-02-27_java_nio_model/4.png" alt="" /></p>
+<p>从上图中，可以看出，Channel 可以分为两大类：用于网络读写的 <code>SelectableChannel</code> 和用于文件操作的 <code>FileChannel</code>。</p>
+<p>其中，FileChannel 只能在阻塞模式下工作，具体可以参考<a target="_blank" rel="noopener" href="http://wiki.jikexueyuan.com/project/java-nio-zh/java-nio-filechannel.html">Java NIO FileChannel文件通道</a>。</p>
+<h5 id="nio-scattergather"><a class="markdownIt-Anchor" href="#nio-scattergather"></a> NIO Scatter/Gather</h5>
+<p>Java NIO 发布时内置了对 scatter/gather的支持：</p>
+<ul>
+<li>Scattering read 指的是从通道读取的操作能把数据写入多个 Buffer，也就是 scatter 代表了数据从一个 Channel 到多个 Buffer的过程。</li>
+<li>Gathering write 则正好相反，表示的是从多个 Buffer 把数据写入到一个 Channel中。</li>
+</ul>
+<p><img src="./2019-02-27_java_nio_model/5.png" alt="" /></p>
+<p>示例如下，具体参考 <a target="_blank" rel="noopener" href="http://wiki.jikexueyuan.com/project/java-nio-zh/java-nio-scatter-gather.html">Java NIO Scatter / Gather</a></p>
+<h4 id="buffer"><a class="markdownIt-Anchor" href="#buffer"></a> Buffer</h4>
+<p>Buffer，本质上是一块内存区，可以用来读写数据，它包含一些要写入或者要读出的数据。在 NIO 中，所有数据都是通过 Buffer 处理的，读取数据时，它是直接读到缓冲区中，写入数据时，写入到缓冲区。</p>
+<p>最常用的缓冲区是 ByteBuffer，一个 ByteBuffer 提供了一组功能用于操作 byte 数组，除了 ByteBuffer，还有其他的一些 Buffer，如：CharBuffer、IntBuffer 等，它们之间的关系如下图所示。</p>
+<p><img src="./2019-02-27_java_nio_model/6.png" alt="" /></p>
+<h5 id="基本用法"><a class="markdownIt-Anchor" href="#基本用法"></a> 基本用法</h5>
+<p>Buffer 基本用法（读写数据过程）：</p>
+<ol>
+<li>把数据写入 Buffer；</li>
+<li>调用 <code>flip()</code>，Buffer 由写模式变为读模式；</li>
+<li>Buffer 中读取数据；</li>
+<li>调用 <code>clear()</code> 清空 buffer，等待下次写入。</li>
+</ol>
+<p>示例如下：</p>
+<h5 id="buffer-位置信息"><a class="markdownIt-Anchor" href="#buffer-位置信息"></a> Buffer 位置信息</h5>
+<p>Buffer 实质上就是一块内存，用于读写数据，这块内存被 NIO Buffer 管理，一个 Buffer 有三个属性是必须掌握的，分别是：</p>
+<ul>
+<li>capacity：容量；</li>
+<li>position：位置；</li>
+<li>limit：限制；</li>
+</ul>
+<p>其中，position 和 limit 的具体含义取决于当前 buffer 的模式，capacity 在两种模式下都表示容量，Buffer 读模式和写模式如下图所示。</p>
+<p><img src="./2019-02-27_java_nio_model/7.png" alt="" /></p>
+<ol>
+<li>容量（capacity）
+<ul>
+<li>Buffer 有一块固定的内存，其大小就是 capacity，一旦 Buffer 写满，就需要清空已读数据以便下次继续写入新的数据；</li>
+</ul>
+</li>
+<li>位置（Position）
+<ul>
+<li>写模式时，当写入数据到 Buffer 的时候从一个确定的位置开始，初始化时这个位置 position 为0，写入数据后，position 的值就会指向数据之后的单元，position 最大的值可以达到 <code>capacity-1</code>；</li>
+<li>读模式时，也需要从一个确定的位置开始，Buffer 从写模式变为读模式时，position 会归零，每次读取后，position 向后移动；</li>
+</ul>
+</li>
+<li>上限（limit）
+<ul>
+<li>写模式时，limit 就是能写入的最大数据量，等同于 Buffer 的容量；</li>
+<li>读模式时，limit 代表我们能读取的最大容量，它的值等同于写模式下 position 位置。</li>
+</ul>
+</li>
+</ol>
+<h5 id="buffer-常用方法"><a class="markdownIt-Anchor" href="#buffer-常用方法"></a> Buffer 常用方法</h5>
+<ul>
+<li><code>flip()</code>：把 buffer 从模式调整为读模式，在读模式下，可以读取所有已经写入的数据；</li>
+<li><code>clear()</code>：清空整个 buffer；</li>
+<li><code>compact()</code>：只清空已读取的数据，未被读取的数据会被移动到 buffer 的开始位置，写入位置则紧跟着未读数据之后；</li>
+<li><code>rewind()</code>：将 position 置为0，这样我们可以重复读取 Buffer 中的数据，limit 保持不变；</li>
+<li><code>mark()</code>和<code>reset()</code>：通过mark方法可以标记当前的position，通过reset来恢复mark的位置</li>
+<li><code>equals()</code>：判断两个 Buffer 是否相等，需满足：类型相同、Buffer 中剩余字节数相同、所有剩余字节相等；</li>
+<li><code>compareTo()</code>：compareTo 比较 Buffer 中的剩余元素，只不过这个方法适用于比较排序的。</li>
+</ul>
+<h4 id="selector"><a class="markdownIt-Anchor" href="#selector"></a> Selector</h4>
+<p>Selector 是 Java NIO 核心部分，简单来说，它的作用就是：Selector 不断轮询注册在其上的 Channel，如果某个 Channel 上面有新的 TCP 连接、读和写事件，这个 Channel 就处于就绪状态，会被 Selector 轮询出来，然后通过 <code>SelectorKey()</code> 可以获取就绪 Channel 的集合，进行后续的 IO 操作。</p>
+<p>一个 Selector 可以轮询多个 Channel，由于 JDK 底层使用了 <code>epoll()</code> 实现，它并没有最大连接句柄 1024/2048 的限制，这就意味着只需要一个线程负责 Selector 的轮询，就可以连接上千上万的 Client。</p>
+<h5 id="注册-channel"><a class="markdownIt-Anchor" href="#注册-channel"></a> 注册 Channel</h5>
+<p>举一个栗子，简单介绍 <code>Selector</code> 的使用。</p>
+<p><code>register()</code> 的第二个参数代表的是 selector 监听的事件类型，Selector 可以监听事件类型总共有以下四种：</p>
+<ol>
+<li>SelectionKey.OP_CONNECT：只会注册一次，成功之后（TCP 连接建立之后），这个监听事件就取消了；</li>
+<li>SelectionKey.OP_ACCEPT：主要用于服务端，就是监听是否有新的连接请求；</li>
+<li>SelectionKey.OP_READ：注册之后不会取消，监听是否数据到来；</li>
+<li>SelectionKey.OP_WRITE：最好的使用方法是每当发送数据时，就注册一次，然后再取消，否则每次 select 轮询时，注册 OP_WRITE 事件的 Channel 都是 ready 的，除非 socket send buffer 满了（参考 <a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/23136079/communicating-between-nio-op-read-and-op-write-operations">Communicating between nio OP_READ and OP_WRITE operations</a>）。</li>
+</ol>
+<h5 id="selectionkey"><a class="markdownIt-Anchor" href="#selectionkey"></a> SelectionKey</h5>
+<p><code>Set&lt;SelectionKey&gt; selectionKeys = selector.selectedKeys();</code> 返回的是已经就绪的 Channel 集合，<code>SelectionKey</code> 对象的详细属性如下图所示。</p>
+<p><img src="./2019-02-27_java_nio_model/8.png" alt="" /></p>
+<h3 id="nio-原理"><a class="markdownIt-Anchor" href="#nio-原理"></a> NIO 原理</h3>
+<hr />
+<p>Java NIO 实现的关键是 IO 多路复用（具体可以参考上篇文章：<a target="_blank" rel="noopener" href="https://tech.fenxiangz.com/topic/70/unix-%E7%BD%91%E7%BB%9C-io-%E6%A8%A1%E5%9E%8B%E5%8F%8A-linux-%E7%9A%84-io-%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8%E6%A8%A1%E5%9E%8B#linux-%E7%9A%84-io-%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8%E6%A8%A1%E5%9E%8B">Linux 的 IO 多路复用模型</a>），在 Linux 平台，Java NIO 是基于 epoll（2.6以上，之前是 Select） 来实现的。</p>
+<p>Linux 的 select/epoll 使用的是 Reactor 网络 IO 模式。网络编程中，有两种常用的设计模式，它们都是基于事件驱动：</p>
+<ul>
+<li>Reactor 模式：主动模式，应用程序不断去轮询，问操作系统 IO 是否就绪，实际的 IO 操作还是由应用实现（IO 多路复用采用的模式）；</li>
+<li>Proactor 模式：被动模式，操作系统把 IO 完成后通知应用程序，此时数据已经就绪。</li>
+</ul>
+<p>这两种模式详细内容可以参考<a target="_blank" rel="noopener" href="https://tech.fenxiangz.com/topic/72/%E4%B8%A4%E7%A7%8D%E9%AB%98%E6%80%A7%E8%83%BD-i-o-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-reactor-%E5%92%8C-proactor">两种高性能 I/O 设计模式 Reactor 和 Proactor</a>一文。</p>
+<h3 id="nio-编程"><a class="markdownIt-Anchor" href="#nio-编程"></a> NIO 编程</h3>
+<hr />
+<p>关于 Java NIO，有两种最常见的使用方式：</p>
+<ul>
+<li>使用原生的 Java NIO（如 Kafka）；</li>
+<li>使用 Netty（Hadoop 的 RPC 框架 Avro 底层使用 Netty 做通信框架）。</li>
+</ul>
+<p>在实际使用中，推荐第二种，使用 Netty 将会大大提高开发效率，后续会写篇关于 Netty 的文章，介绍一下 Netty 的具体内容，这里使用一个基于 Java 原生 NIO API 的小示例，讲述一下 NIO 的使用方法。</p>
+<h4 id="client-端"><a class="markdownIt-Anchor" href="#client-端"></a> Client 端</h4>
+<p>NIO Client 创建序列图如下图所示（图片来自《Netty 权威指南》）。</p>
+<p><img src="./2019-02-27_java_nio_model/9.png" alt="" /></p>
+<p>具体的代码及注释参考：<a target="_blank" rel="noopener" href="https://github.com/wangzzu/ProgramlLearn/tree/aab89008091660f1f231763660eb329eb5928bde/java_learn/java_socket/src/main/java/nio/client/">NIO Client 端代码</a>。</p>
+<h4 id="server-端"><a class="markdownIt-Anchor" href="#server-端"></a> Server 端</h4>
+<p>NIO Server 创建序列图如下图所示（图片来自《Netty 权威指南》）。</p>
+<p><img src="./2019-02-27_java_nio_model/10.png" alt="" /></p>
+<p>具体的代码及注释参考：<a target="_blank" rel="noopener" href="https://github.com/wangzzu/ProgramlLearn/tree/aab89008091660f1f231763660eb329eb5928bde/java_learn/java_socket/src/main/java/nio/server/">NIO Server 端代码</a>。</p>
+<h2 id="io-模型对比"><a class="markdownIt-Anchor" href="#io-模型对比"></a> IO 模型对比</h2>
+<hr />
+<p>在对比之前，先简单介绍 Java AIO 模型，这里就不再进行相应的展开了。</p>
+<h3 id="aio"><a class="markdownIt-Anchor" href="#aio"></a> AIO</h3>
+<hr />
+<p>NIO 2.0 中引入异步通道的概念，并提供了异步文件通道和异步套接字导通的实现，它是真正的异步非阻塞I IO，底层是利用事件驱动（AIO）实现，不需要多路复用器（Selector）对注册的通道进行轮组操作即可实现异步读写。</p>
+<p>可以参考<a target="_blank" rel="noopener" href="https://www.ibm.com/developerworks/cn/java/j-lo-nio2/">在 Java 7 中体会 NIO.2 异步执行的快乐</a></p>
+<h3 id="几种-io-模型功能和特性对比"><a class="markdownIt-Anchor" href="#几种-io-模型功能和特性对比"></a> 几种 IO 模型功能和特性对比</h3>
+<hr />
+<table>
+<thead>
+<tr>
+<th style="text-align:left"></th>
+<th style="text-align:left">传统 BIO</th>
+<th style="text-align:left">伪异步 IO</th>
+<th style="text-align:left">NIO</th>
+<th style="text-align:left">AIO</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">client 数：IO 线程数</td>
+<td style="text-align:left">1：1</td>
+<td style="text-align:left">M：N（M 可以大于 N）</td>
+<td style="text-align:left">M：1</td>
+<td style="text-align:left">M：0（不需要额外的线程，被动回调）</td>
+</tr>
+<tr>
+<td style="text-align:left">IO 类型（阻塞）</td>
+<td style="text-align:left">阻塞IO</td>
+<td style="text-align:left">阻塞IO</td>
+<td style="text-align:left">非阻塞IO</td>
+<td style="text-align:left">非阻塞IO</td>
+</tr>
+<tr>
+<td style="text-align:left">IO 类型（同步）</td>
+<td style="text-align:left">同步 IO</td>
+<td style="text-align:left">同步 IO</td>
+<td style="text-align:left">同步 IO（IO 多路复用）</td>
+<td style="text-align:left">异步 IO</td>
+</tr>
+<tr>
+<td style="text-align:left">可靠性</td>
+<td style="text-align:left">非常差</td>
+<td style="text-align:left">差</td>
+<td style="text-align:left">高</td>
+<td style="text-align:left">高</td>
+</tr>
+<tr>
+<td style="text-align:left">吞吐量</td>
+<td style="text-align:left">低</td>
+<td style="text-align:left">中</td>
+<td style="text-align:left">高</td>
+<td style="text-align:left">高</td>
+</tr>
+</tbody>
+</table>
+<p>本文主要是对 Java IO 模型总结，特别是对 NIO 模型的总结。</p>
+<p>参考</p>
+<ul>
+<li>《Netty 权威指南》；</li>
+<li>Java NIO <a target="_blank" rel="noopener" href="http://tutorials.jenkov.com/java-nio/index.html">英文版</a>，<a target="_blank" rel="noopener" href="http://ifeve.com/java-nio-all/">中文版</a>；</li>
+</ul>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://blog.fenxiangz.com/post/java/nio/2019-02-27_java_nio_model.html" title="谈一谈 Java IO 模型" target="_blank" rel="external">https://blog.fenxiangz.com/post/java/nio/2019-02-27_java_nio_model.html</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      </div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/post/java/advance/2019-03-06_java_os.html" title="Java 和操作系统交互细节"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/post/java/basic/2019-01-21_java_thread_source.html" title="从源码的角度再学「Thread」"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  
+  <div class="bar-right">
+    
+  </div>
+  </div>
+</nav>
+  
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="/atom.xml" target="_blank" title="Rss" ><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+
+
+
+
+   
+    
+    <script defer>
+    var disqus_config = function () {
+        
+            this.page.url = 'https://blog.fenxiangz.com/post/java/nio/2019-02-27_java_nio_model.html';
+        
+        this.page.identifier = 'java/nio/2019-02-27_java_nio_model';
+    };
+    (function() { 
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + '513' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+
+
+
+
+
+
+
+</body>
+</html>
