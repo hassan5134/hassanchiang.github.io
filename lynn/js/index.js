@@ -126,11 +126,11 @@ window.addEventListener("load", function () {
         } else if (i == 1) {
           //画正方形
           shapeA.polygon("0,0 0," + shapeSize[cm] + " " + shapeSize[cm] + "," + shapeSize[cm] + " " + shapeSize[cm] + ",0").fill(colors[col]);
-          eventBind(shapeA, col * 30 + 700, cm * 31 + 10);
+          eventBind(shapeA, col * 30 + 550, cm * 31 + 10);
         } else if (i == 2) {
           //画圆
           shapeA.circle(shapeSize[cm]).fill(colors[col]);
-          eventBind(shapeA, col * 30 + 1000, cm * 34 + 10);
+          eventBind(shapeA, col * 30 + 800, cm * 34 + 10);
         }
         shapes[num] = shapeA;
         num++;
