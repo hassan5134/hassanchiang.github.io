@@ -77,9 +77,15 @@ ul {
     text-decoration: underline;
 }
 
+.desc {
+
+}
+
 .txt {
     width: 10%;
-    height: 200px;
-    margin-top: 380px;
-    border: 1px solid #2d8bc9;
+    min-height: 300px;
+    margin-top: 470px;
+    border: 2px solid #2d8bc9;
+    overflow: scroll;
+    resize:none
 }
