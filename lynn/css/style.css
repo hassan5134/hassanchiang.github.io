@@ -5,6 +5,11 @@
     left: 0;
     right: 0;
     bottom: 0;
+    height: 150%;
+    width: 88%;
+    overflow: scroll;
+    margin-left: 11%;
+    border: 5px solid #2d8bc9;
 }
 
 .title {
@@ -12,11 +17,12 @@
     z-index: 10;
     pointer-events: none;
     color: #2D8BC9;
-    left: 55px;
     border: 5px solid;
     padding-bottom: 3px;
     top: -5px;
-    padding-right: 20px;
+    padding: 4px;
+    width: 9%;
+    margin-top: 80px;
 }
 
 .title h1 {
@@ -39,6 +45,7 @@ ul {
     list-style: none;
     padding: 0;
 }
+
 .sidebar {
     background: #3498DB;
     position: fixed;
@@ -68,4 +75,11 @@ ul {
 
 .made-with-heart a:hover {
     text-decoration: underline;
+}
+
+.txt {
+    width: 10%;
+    height: 200px;
+    margin-top: 380px;
+    border: 1px solid #2d8bc9;
 }

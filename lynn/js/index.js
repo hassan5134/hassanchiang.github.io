@@ -4,14 +4,14 @@ window.showTutorial = function () {
     , html: true
     , confirmButtonText: "知道了"
     , text: "<ul>" +
-      "    <li><strong>单击鼠标左键</strong>: 逆时针旋转图形（向左旋转）</li>" +
-      "    <li><strong>单击鼠标右键</strong>: 顺时针旋转图形（向右旋转）</li>" +
-      "    <li><strong>按住CTRL，然后点击鼠标左键进行图形翻转</strong></li>" +
-      "    <li><strong>长按鼠标左键进行图形移动</strong></li>" +
-      "</ul>" +
-      "<div class='made-with-heart'>" +
-      // "    <span class='octicon octicon-pencil'></span>修改着作者：Lynn， Based on <span class='octicon octicon-heart'></span> by <a href='http://ionicabizau.net'>Ionică Bizău</a>" +
-      "</div>"
+        "    <li><strong>单击鼠标左键</strong>: 逆时针旋转图形（向左旋转）</li>" +
+        "    <li><strong>单击鼠标右键</strong>: 顺时针旋转图形（向右旋转）</li>" +
+        "    <li><strong>按住CTRL，然后点击鼠标左键进行图形翻转</strong></li>" +
+        "    <li><strong>长按鼠标左键进行图形移动</strong></li>" +
+        "</ul>" +
+        "<div class='made-with-heart'>" +
+        // "    <span class='octicon octicon-pencil'></span>修改着作者：Lynn， Based on <span class='octicon octicon-heart'></span> by <a href='http://ionicabizau.net'>Ionică Bizău</a>" +
+        "</div>"
   })
 };
 
@@ -25,7 +25,7 @@ function eventBind(c, x, y) {
     moved = true;
   });
 
-  var iiii;
+  // var iiii;
   // cPol.on("mousedown", function (e) {
   //   clearInterval(iiii);
   //   moved = false;
@@ -81,6 +81,8 @@ function eventBind(c, x, y) {
   });
 
   cPol.on("mouseup", function (e) {
+    //移动到最前面
+    $("#elements").append($("#" + this.node.id).parent());
     if (!moved) {
       var t = this.node.style.transform;
 
@@ -102,8 +104,7 @@ function eventBind(c, x, y) {
 }
 
 window.addEventListener("load", function () {
-
-  var t = new SVG(document.querySelector(".graph")).size("2000", "100%");
+  var t = new SVG(document.querySelector(".graph")).size("100%", "150%");
   var winSize = {
     w: window.innerWidth
     , h: window.innerHeight
@@ -122,11 +123,11 @@ window.addEventListener("load", function () {
         if (i == 0) {
           //画三角形
           shapeA.polygon("0,0 " + shapeSize[cm] + "," + shapeSize[cm] + " " + shapeSize[cm] + ",0").fill(colors[col]);
-          eventBind(shapeA, col * 30 + 300, cm * 34 + 10);
+          eventBind(shapeA, col * 30 + 200, cm * 34 + 10);
         } else if (i == 1) {
           //画正方形
           shapeA.polygon("0,0 0," + shapeSize[cm] + " " + shapeSize[cm] + "," + shapeSize[cm] + " " + shapeSize[cm] + ",0").fill(colors[col]);
-          eventBind(shapeA, col * 30 + 550, cm * 31 + 10);
+          eventBind(shapeA, col * 30 + 500, cm * 31 + 10);
         } else if (i == 2) {
           //画圆
           shapeA.circle(shapeSize[cm]).fill(colors[col]);
