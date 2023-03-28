@@ -1,34 +1,46 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta http-equiv="content-type" content="text/html; charset=utf-8">
-        <title>Lynn拼图游戏</title>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/caiuss/1.0.2/caiuss.min.css" type="text/css" media="screen" charset="utf-8">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css" type="text/css" media="screen" charset="utf-8">
-        <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/octicons/3.5.0/octicons.min.css" type="text/css" media="screen" charset="utf-8">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/2.7.1/svg.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
-        <script src="js/jquery-3.6.4.min.js"></script>
-        <script src="js/svg.select.min.js"></script>
-        <script src="js/svg.draggy.js"></script>
-        <script src="js/css.rotate.js"></script>
-        <script src="js/crossy.js"></script>
-        <script src="js/index.js"></script>
-    </head>
-    <body>
-        <div class="sidebar">
-            <div class="sidebar-item" onclick="showTutorial()">
-                <span class="octicon octicon-question"></span>
-            </div>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>Lynn拼图游戏</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/caiuss/1.0.2/caiuss.min.css" type="text/css"
+        media="screen" charset="utf-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css" type="text/css"
+        media="screen" charset="utf-8">
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/octicons/3.5.0/octicons.min.css" type="text/css"
+        media="screen" charset="utf-8">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/2.7.1/svg.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+    <script src="js/jquery-3.6.4.min.js"></script>
+    <script src="js/svg.select.min.js"></script>
+    <script src="js/svg.draggy.js"></script>
+    <script src="js/css.rotate.js"></script>
+    <script src="js/crossy.js"></script>
+    <script src="js/index.js"></script>
+</head>
+
+<body>
+    <div class="sidebar">
+        <div class="sidebar-item" onclick="showTutorial()">
+            <span class="octicon octicon-question"></span>
         </div>
-        <div class="title">
-            <h3 class="text-center">拼图游戏</h3>
-            <h4 class="desc">请您从快乐、悲伤、愤怒、恐惧四种情绪中任选一种作为主题，利用图中素材在20分钟内完成一幅拼贴画，尽可能形象的来表达这一情绪主题。
-                完成之后，在您的作品右侧的“文本输入框”内写下您对自己作品的描述。</h4>
-            <h4>素材：不同颜色、不同大小的正方形、正三角形、圆形各20个。</h4>
-        </div>
-        <textarea title="描述内容" label="" class="txt" placeholder="请描述您的作品："></textarea>
-        <div class="graph"></div>
-    </body>
+    </div>
+    <div class="title">
+        <h3 class="text-center">拼图游戏</h3>
+        <h4 class="desc">请您从快乐、悲伤、愤怒、恐惧四种情绪中任选一种作为主题，利用图中素材在20分钟内完成一幅拼贴画，尽可能形象的来表达这一情绪主题。
+            完成之后，在您的作品右侧的“文本输入框”内写下您对自己作品的描述。</h4>
+        <h4>素材：不同颜色、不同大小的正方形、正三角形、圆形各20个。</h4>
+    </div>
+    <textarea title="描述内容" label="" class="txt" placeholder="请描述您的作品："></textarea>
+    <div class="graph"></div>
+</body>
+
+<script>
+    document.body.addEventListener('touchmove', function (e) {
+        e.preventDefault();
+    }, { passive: false });
+</script>
+
 </html>
